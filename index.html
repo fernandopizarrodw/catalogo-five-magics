@@ -502,6 +502,9 @@
             aspect-ratio: 2/3;
             object-fit: contain;
             background: #000;
+            touch-action: manipulation;
+            user-select: none;
+            -webkit-user-drag: none;
         }
 
         .carousel-indicators {
@@ -1853,7 +1856,7 @@
     <a href="https://wa.me/541169667685" class="fab-wa" aria-label="WhatsApp">
         <svg viewBox="0 0 24 24">
             <path
-                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
         </svg>
     </a>
 
@@ -1956,865 +1959,263 @@
     </div>
 
     <script>
-        // === CONFIGURACIÓN DE PRECIOS ===
-        const PRECIOS = {
-            simple: 37000,
-            doble: 42000
-        };
-        const FECHA_VIGENCIA = "Diciembre 2025";
-        const WHATSAPP = "541169667685";
+    // === CONFIGURACIÓN DE PRECIOS ===
+    const PRECIOS = {
+        simple: 37000,
+        doble: 42000
+    };
+    const FECHA_VIGENCIA = "Diciembre 2025";
+    const WHATSAPP = "541169667685";
 
-        // Formatear precio argentino
-        function formatPrecio(tipo) {
-            return '$' + PRECIOS[tipo].toLocaleString('es-AR');
+    function formatPrecio(tipo) {
+        return '$' + PRECIOS[tipo].toLocaleString('es-AR');
+    }
+
+    const BASE_URL = window.location.origin + window.location.pathname;
+
+    // === BASE DE DATOS COMPLETA (TODOS TUS PRODUCTOS) ===
+    const db = [
+        { id: 1, category: "Album", year: "1985", name: "Killing Is My Business", tipoPrecio: "simple", img: "images/albums/Killing_Is_my_bussines/kimb_1985_original_.jpg", variants: [{ img: "images/albums/Killing_Is_my_bussines/kimb_1985_original_.jpg", name: "KIMB_1985_ORIGINAL" }, { img: "images/albums/Killing_Is_my_bussines/kimb_2012.jpg", name: "KIMB 2012" }, { img: "images/albums/Killing_Is_my_bussines/kimb_art_2012.jpg", name: "KIMB_ART_2012" }, { img: "images/albums/Killing_Is_my_bussines/kimb_gris_rojo.jpg", name: "KIMB_GRIS_ROJO" }, { img: "images/albums/Killing_Is_my_bussines/kimb_realistic_1985.jpg", name: "KIMB_REALISTIC_1985" }, { img: "images/albums/Killing_Is_my_bussines/kimb_realistic_2012.jpg", name: "KIMB_REALISTIC_2012" }, { img: "images/albums/Killing_Is_my_bussines/kimb_retro.jpg", name: "KIMB_RETRO" }], desc: "El debut legendario de Megadeth. 7 mockups reales disponibles." },
+        { id: 2, category: "Album", year: "1986", name: "Peace Sells", tipoPrecio: "simple", img: "images/albums/Peace_sells/peace_sells_tapa.jpg", desc: "Vic Rattlehead frente a la ONU en llamas. Colores naranjas intensos." },
+        { id: 3, category: "Album", year: "1988", name: "So Far, So Good", tipoPrecio: "simple", img: "images/albums/SFSGSW/1-sfsgsw_tapa.jpg", variants: [{ img: "images/albums/SFSGSW/1-sfsgsw_tapa.jpg", name: "Tapa" }, { img: "images/albums/SFSGSW/2-sfsgsw_alternative.jpg", name: "Alternative" }, { img: "images/albums/SFSGSW/3-mary_jane.jpg", name: "Mary Jane" }], desc: "Vic bajo la luna llena. Estética oscura y rebelde." },
+        { id: 4, category: "Album", year: "1990", name: "Rust in Peace", tipoPrecio: "simple", img: "images/albums/Rust_in_peace/rust_in_peace.jpg", desc: "La joya del metal técnico. Vic en el Hangar 18." },
+        { id: 5, category: "Album", year: "1992", name: "Countdown to Extinction", tipoPrecio: "simple", img: "images/albums/Countdown_to_extinction/CTE.jpg", desc: "Arte conceptual del álbum más exitoso. Tonos sepia." },
+        { id: 6, category: "Album", year: "1994", name: "Youthanasia", tipoPrecio: "simple", img: "images/albums/Youthanasia/youthanasia.jpg", variants: [{ img: "images/albums/Youthanasia/youthanasia.jpg", name: "Youthanasia" }, { img: "images/albums/Youthanasia/vic_father.jpg", name: "Vic Father" }], desc: "Diseño surrealista y melancólico. Full color HD." },
+        { id: 8, category: "Album", year: "1997", name: "Cryptic Writings", tipoPrecio: "simple", img: "images/albums/Cryptic_Writings/cryptic_writings_tapa.jpg", desc: "El símbolo del caos estilizado. Minimalista." },
+        { id: 9, category: "Album", year: "1999", name: "Risk", tipoPrecio: "simple", img: "images/albums/Risk/risk_tapa.jpg", desc: "La portada del gato en la trampera. Pieza de colección." },
+        { id: 10, category: "Album", year: "2001", name: "The World Needs a Hero", tipoPrecio: "simple", img: "images/albums/TWNAH/the_worlds_needs_a_hero.jpg", desc: "Vic saliendo del pecho del alien. Gore y sci-fi." },
+        { id: 11, category: "Album", year: "2004", name: "The System Has Failed", tipoPrecio: "simple", img: "images/albums/TSHF/the_system_has_failed.jpg", desc: "Vic vendiendo sentencias. Arte político." },
+        { id: 12, category: "Album", year: "2007", name: "United Abominations", tipoPrecio: "simple", img: "images/albums/United_Abominations/united_abominations.jpg", desc: "El ángel de la ONU en llamas. Explosivo." },
+        { id: 13, category: "Album", year: "2009", name: "Endgame", tipoPrecio: "simple", img: "images/albums/Endgame/endgame.jpg", desc: "Concepto distópico de vigilancia. B&W puro." },
+        { id: 14, category: "Album", year: "2011", name: "TH1RT3EN", tipoPrecio: "simple", img: "images/albums/13/13.jpg", desc: "Vic de espaldas con las velas. Misterioso." },
+        { id: 15, category: "Album", year: "2013", name: "Super Collider", tipoPrecio: "simple", img: "images/albums/Super_Collider/super_collider.jpg", desc: "El colisionador de partículas. Geométrico." },
+        { id: 7, category: "Album", year: "2016", name: "Dystopia", tipoPrecio: "simple", img: "images/albums/Dystopia/dystopia.jpg", desc: "Vic futurista con katana. Estética cyberpunk." },
+        { id: 16, category: "Album", year: "2022", name: "The Sick, the Dying...And the Dead!", tipoPrecio: "simple", img: "images/albums/The_sick/the_sick_the_dying_and_the_dead.jpg", desc: "Arte medieval de la peste. Full color." },
+        { id: 17, category: "Album", year: "2026", name: "Megadeth 2026", tipoPrecio: "simple", img: "images/albums/Megadeth/vic_llamas_negro.jpg", variants: [{ img: "images/albums/Megadeth/vic_llamas_negro.jpg", name: "Vic Llamas Negro" }, { img: "images/albums/Megadeth/vic_digital.jpg", name: "Vic Digital" }, { img: "images/albums/Megadeth/i_dont_care.jpg", name: "I Don't Care" }, { img: "images/albums/Megadeth/tipping_point.jpg", name: "Tipping Point" }, { img: "images/albums/Megadeth/let_there_be_shred.jpg", name: "Let There Be Shred" }, { img: "images/albums/Megadeth/let_there_be_shred-realista.jpg", name: "Let There Be Shred Realista" }, { img: "images/albums/Megadeth/fmd_edition_shred.jpg", name: "FMD Edition Shred" }, { img: "images/albums/Megadeth/vic_pelea_v1.jpg", name: "Vic Pelea V1" }, { img: "images/albums/Megadeth/vic_pelea_v2.jpg", name: "Vic Pelea V2" }], desc: "Pre-order del futuro diseño." },
+        { id: 235, category: "Singles", year: "2025", name: "Vic Nuclear", tipoPrecio: "simple", img: "images/singles/vic_nuclear.jpg", desc: "Diseño especial: Vic Nuclear. Rareza exclusiva Five Magics Designs." },
+        { id: 28, category: "Musician", year: "Leyenda", name: "Dave Mustaine", tipoPrecio: "simple", img: "images/musicians/Dave_Mustaine/Dave_Mustaine_COLOR_90s.jpg", variants: [{ img: "images/musicians/Dave_Mustaine/Dave_Mustaine_COLOR_90s.jpg", name: "COLOR 90s" }, { img: "images/musicians/Dave_Mustaine/Dave_Mustaine_BN_90s.jpg", name: "BN 90s" }], desc: "El Colorado con su Flying V. El líder." },
+        { id: 29, category: "Musician", year: "Leyenda", name: "Marty Friedman", tipoPrecio: "simple", img: "images/musicians/Marty_Friedman/Marty_1990_cte.jpg", variants: [{ img: "images/musicians/Marty_Friedman/Marty_1990_cte.jpg", name: "1990 CTE" }, { img: "images/musicians/Marty_Friedman/Marty_1990_RIP.jpg", name: "1990 RIP" }, { img: "images/musicians/Marty_Friedman/Marty_1992_FIRMA.jpg", name: "1992 FIRMA" }], desc: "El guitarrista exótico. Estilo japonés." },
+        { id: 60, category: "Personalizados", year: "2025", name: "AC/DC Europe 84", tipoPrecio: "simple", img: "images/personalizado/ac_dc_europe_84.jpg", desc: "Mockup AC/DC Europe 84." },
+        { id: 61, category: "Personalizados", year: "2025", name: "AC/DC Europe 84 Remaster", tipoPrecio: "simple", img: "images/personalizado/ac_dc_europe_84_remaster.jpg", desc: "Mockup AC/DC Europe 84 Remaster." },
+        { id: 49, category: "Personalizados", year: "2025", name: "Bifrost Argentina", tipoPrecio: "simple", img: "images/personalizado/bifrost_argentina.jpg", desc: "Mockup Bifrost Argentina." },
+        { id: 56, category: "Personalizados", year: "2025", name: "Calavera Guitar", tipoPrecio: "simple", img: "images/personalizado/calavera_guitar.jpg", desc: "Mockup Calavera Guitar." },
+        { id: 46, category: "Personalizados", year: "2025", name: "Dimebag Darrell BN", tipoPrecio: "simple", img: "images/personalizado/dimebag_darrell_BN.jpg", desc: "Mockup Dimebag Darrell BN." },
+        { id: 47, category: "Personalizados", year: "2025", name: "Dimebag Darrell Color", tipoPrecio: "simple", img: "images/personalizado/dimebag_darrell_color.jpg", desc: "Mockup Dimebag Darrell Color." },
+        { id: 48, category: "Personalizados", year: "2025", name: "Dimebag Darrell Guitar Gold", tipoPrecio: "simple", img: "images/personalizado/dimebag_darrell_guitar_gold.jpg", desc: "Mockup Dimebag Darrell Guitar Gold." },
+        { id: 51, category: "Personalizados", year: "2025", name: "Flema", tipoPrecio: "simple", img: "images/personalizado/flema.jpg", desc: "Mockup Flema." },
+        { id: 44, category: "Personalizados", year: "2025", name: "Gallindez Box", tipoPrecio: "simple", img: "images/personalizado/gallindez_box.jpg", desc: "Mockup Gallindez Box." },
+        { id: 41, category: "Personalizados", year: "2025", name: "Kurt Nirvana", tipoPrecio: "simple", img: "images/personalizado/kurt_nirvana.jpg", desc: "Mockup especial: Kurt Cobain (Nirvana)." },
+        { id: 55, category: "Personalizados", year: "2025", name: "Religión", tipoPrecio: "simple", img: "images/personalizado/religión.jpg", desc: "Mockup Religión." },
+        { id: 45, category: "Personalizados", year: "2025", name: "Roña Castro Box", tipoPrecio: "simple", img: "images/personalizado/roña_castro_box.jpg", desc: "Mockup Roña Castro Box." },
+        { id: 54, category: "Personalizados", year: "2025", name: "Saltatio Mortis", tipoPrecio: "simple", img: "images/personalizado/saltatio_mortis.jpg", desc: "Mockup Saltatio Mortis." },
+        { id: 50, category: "Personalizados", year: "2025", name: "Slinka Mascota", tipoPrecio: "simple", img: "images/personalizado/slinka_mascota.jpg", desc: "Mockup Slinka Mascota." },
+        { id: 57, category: "Personalizados", year: "2025", name: "The Ramones", tipoPrecio: "simple", img: "images/personalizado/the_ramones.jpg", desc: "Mockup The Ramones." },
+        { id: 58, category: "Personalizados", year: "2025", name: "WASP", tipoPrecio: "simple", img: "images/personalizado/wasp.jpg", desc: "Mockup WASP." },
+        { id: 53, category: "Personalizados", year: "2025", name: "Wintersun", tipoPrecio: "simple", img: "images/personalizado/wintersun.jpg", desc: "Mockup Wintersun." },
+        { id: 59, category: "Personalizados", year: "2025", name: "Primal Fear", tipoPrecio: "simple", img: "images/personalizado/primal_fear.jpg", desc: "Mockup Primal Fear." },
+        { id: 43, category: "Personalizados", year: "2025", name: "Symphony X", tipoPrecio: "simple", img: "images/personalizado/symphony_x.jpg", desc: "Mockup Symphony X." },
+        { id: 42, category: "Tour", year: "2026", name: "Vic Tour 2026", tipoPrecio: "doble", img: "images/tours/Tour_2026/vic_tour_2026.jpg", desc: "Mockup especial: Vic Tour 2026. Edición exclusiva." },
+        { id: 39, category: "Tour", year: "2025", name: "VIC GAUCHO ARGENTINO", tipoPrecio: "doble", img: "images/tours/Vic_Gaucho_Argentino/vic_gaucho_original.jpg", variants: [{ img: "images/tours/Vic_Gaucho_Argentino/vic_gaucho_original.jpg", name: "Original" }, { img: "images/tours/Vic_Gaucho_Argentino/vic_gaucho_realista.jpg", name: "Realista" }, { img: "images/tours/Vic_Gaucho_Argentino/vic_gaucho_caballo.jpg", name: "Caballo" }], desc: "Serie especial VIC GAUCHO. Frente + variantes." },
+        { id: 40, category: "Tour", year: "2025", name: "Tour Argentina", tipoPrecio: "doble", img: "images/tours/Tour_argentina/poster_tour_argentina.jpg", variants: [{ img: "images/tours/Tour_argentina/poster_tour_argentina.jpg", name: "Poster" }, { img: "images/tours/Tour_argentina/vic_bandera_logo_blanco.jpg", name: "Vic Bandera Blanco" }, { img: "images/tours/Tour_argentina/vic_bandera_logo_dorado.jpg", name: "Vic Bandera Dorado" }, { img: "images/tours/Tour_argentina/vic_edición_fmd.jpg", name: "Edición FMD" }], desc: "Tour Argentina: edición especial con 4 variantes exclusivas." }
+    ];
+
+    // === ELEMENTOS DOM ===
+    const productsGrid = document.getElementById('productsGrid');
+    const categoryNav = document.getElementById('categoryNav');
+    const modal = document.getElementById('modal');
+    const carousel = document.getElementById('carousel');
+    const carouselDots = document.getElementById('carouselDots');
+    const searchInput = document.getElementById('searchInput');
+    const searchClear = document.getElementById('searchClear');
+    const zoomOverlay = document.getElementById('zoomOverlay');
+    const zoomImg = document.getElementById('zoomImg');
+
+    let currentProduct = null;
+    let currentSlide = 0;
+    let scrollPosition = 0;
+    let isScrolling = false;
+    let scrollTimeout;
+
+    // === LÓGICA DE MODAL (SIN TRABAS) ===
+    function getImages(p) {
+        return (p.variants && p.variants.length > 0) ? p.variants : [{ img: p.img, name: '' }];
+    }
+
+    function openModal(id) {
+        currentProduct = db.find(p => p.id === id);
+        if (!currentProduct) return;
+
+        scrollPosition = window.pageYOffset;
+        document.body.style.overflow = 'hidden';
+        document.body.style.position = 'fixed';
+        document.body.style.top = `-${scrollPosition}px`;
+        document.body.style.width = '100%';
+
+        history.pushState({ modal: true, id }, '', `#producto-${id}`);
+        currentSlide = 0;
+        const images = getImages(currentProduct);
+
+        carousel.innerHTML = images.map(v => `
+            <div class="carousel-slide"><img src="${v.img}" alt="${currentProduct.name}"></div>
+        `).join('');
+
+        carouselDots.innerHTML = images.length > 1 ? images.map((_, i) => `<div class="carousel-dot${i === 0 ? ' active' : ''}" data-index="${i}"></div>`).join('') : '';
+
+        carousel.scrollLeft = 0;
+        updateModalInfo();
+        modal.classList.add('active');
+    }
+
+    function closeModal() {
+        if (!modal.classList.contains('active')) return;
+        modal.classList.remove('active');
+        document.body.style.removeProperty('overflow');
+        document.body.style.removeProperty('position');
+        document.body.style.removeProperty('top');
+        document.body.style.removeProperty('width');
+        window.scrollTo(0, scrollPosition);
+        closeZoom();
+    }
+
+    // === LÓGICA DE ZOOM (ESTABLE) ===
+    function openZoom(src) {
+        zoomImg.src = src;
+        zoomOverlay.style.display = 'flex';
+        setTimeout(() => zoomOverlay.classList.add('active'), 10);
+    }
+
+    function closeZoom() {
+        zoomOverlay.classList.remove('active');
+        setTimeout(() => { zoomOverlay.style.display = 'none'; }, 300);
+    }
+
+    // Carrusel eventos
+    carousel.addEventListener('scroll', () => {
+        isScrolling = true;
+        clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(() => { isScrolling = false; }, 100);
+        const newSlide = Math.round(carousel.scrollLeft / carousel.offsetWidth);
+        if (newSlide !== currentSlide) {
+            currentSlide = newSlide;
+            updateModalInfo();
         }
+    });
 
-        // === BASE_URL PARA GITHUB PAGES ===
-        // Usa siempre la URL actual sin hash para deep links
-        const BASE_URL = window.location.origin + window.location.pathname;
+    carousel.addEventListener('click', (e) => {
+        if (isScrolling) return;
+        const img = e.target.closest('img');
+        if (img) openZoom(img.src);
+    });
 
-        // === BASE DE DATOS COMPLETA ===
-        const db = [
-            // ALBUMES (17)
-            {
-                id: 1,
-                category: "Album",
-                year: "1985",
-                name: "Killing Is My Business",
-                tipoPrecio: "simple",
-                img: "images/albums/Killing_Is_my_bussines/kimb_1985_original_.jpg",
-                variants: [
-                    { img: "images/albums/Killing_Is_my_bussines/kimb_1985_original_.jpg", name: "KIMB_1985_ORIGINAL" },
-                    { img: "images/albums/Killing_Is_my_bussines/kimb_2012.jpg", name: "KIMB 2012" },
-                    { img: "images/albums/Killing_Is_my_bussines/kimb_art_2012.jpg", name: "KIMB_ART_2012" },
-                    { img: "images/albums/Killing_Is_my_bussines/kimb_gris_rojo.jpg", name: "KIMB_GRIS_ROJO" },
-                    { img: "images/albums/Killing_Is_my_bussines/kimb_realistic_1985.jpg", name: "KIMB_REALISTIC_1985" },
-                    { img: "images/albums/Killing_Is_my_bussines/kimb_realistic_2012.jpg", name: "KIMB_REALISTIC_2012" },
-                    { img: "images/albums/Killing_Is_my_bussines/kimb_retro.jpg", name: "KIMB_RETRO" }
-                ],
-                desc: "El debut legendario de Megadeth. 7 mockups reales disponibles. Deslizá para ver todas las variantes."
-            },
-            { id: 2, category: "Album", year: "1986", name: "Peace Sells", tipoPrecio: "simple", img: "images/albums/Peace_sells/peace_sells_tapa.jpg", desc: "Vic Rattlehead frente a la ONU en llamas. Colores naranjas intensos." },
-            { id: 3, category: "Album", year: "1988", name: "So Far, So Good", tipoPrecio: "simple", img: "images/albums/SFSGSW/1-sfsgsw_tapa.jpg", variants: [
-                { img: "images/albums/SFSGSW/1-sfsgsw_tapa.jpg", name: "Tapa" },
-                { img: "images/albums/SFSGSW/2-sfsgsw_alternative.jpg", name: "Alternative" },
-                { img: "images/albums/SFSGSW/3-mary_jane.jpg", name: "Mary Jane" }
-            ], desc: "Vic bajo la luna llena. Estética oscura y rebelde. Variantes disponibles." },
-            { id: 4, category: "Album", year: "1990", name: "Rust in Peace", tipoPrecio: "simple", img: "images/albums/Rust_in_peace/rust_in_peace.jpg", variants: [
-                { img: "images/albums/Rust_in_peace/rust_in_peace.jpg", name: "Rust in Peace" }
-            ], desc: "La joya del metal técnico. Vic en el Hangar 18." },
-            { id: 5, category: "Album", year: "1992", name: "Countdown to Extinction", tipoPrecio: "simple", img: "images/albums/Countdown_to_extinction/CTE.jpg", variants: [
-                { img: "images/albums/Countdown_to_extinction/CTE.jpg", name: "Portada Original" }
-            ], desc: "Arte conceptual del álbum más exitoso. Tonos sepia." },
-            { id: 6, category: "Album", year: "1994", name: "Youthanasia", tipoPrecio: "simple", img: "images/albums/Youthanasia/youthanasia.jpg", variants: [
-                { img: "images/albums/Youthanasia/youthanasia.jpg", name: "Youthanasia" },
-                { img: "images/albums/Youthanasia/vic_father.jpg", name: "Vic Father" }
-            ], desc: "Diseño surrealista y melancólico. Full color HD. Variantes disponibles." },
-           
-            // El resto de los álbumes solo una imagen, sin variants
-            { id: 8, category: "Album", year: "1997", name: "Cryptic Writings", tipoPrecio: "simple", img: "images/albums/Cryptic_Writings/cryptic_writings_tapa.jpg", desc: "El símbolo del caos estilizado. Minimalista." },
-            { id: 9, category: "Album", year: "1999", name: "Risk", tipoPrecio: "simple", img: "images/albums/Risk/risk_tapa.jpg", desc: "La portada del gato en la trampera. Pieza de colección." },
-            { id: 10, category: "Album", year: "2001", name: "The World Needs a Hero", tipoPrecio: "simple", img: "images/albums/TWNAH/the_worlds_needs_a_hero.jpg", desc: "Vic saliendo del pecho del alien. Gore y sci-fi." },
-            { id: 11, category: "Album", year: "2004", name: "The System Has Failed", tipoPrecio: "simple", img: "images/albums/TSHF/the_system_has_failed.jpg", desc: "Vic vendiendo sentencias. Arte político." },
-            { id: 12, category: "Album", year: "2007", name: "United Abominations", tipoPrecio: "simple", img: "images/albums/United_Abominations/united_abominations.jpg", desc: "El ángel de la ONU en llamas. Explosivo." },
-            { id: 13, category: "Album", year: "2009", name: "Endgame", tipoPrecio: "simple", img: "images/albums/Endgame/endgame.jpg", desc: "Concepto distópico de vigilancia. B&W puro." },
-            { id: 14, category: "Album", year: "2011", name: "TH1RT3EN", tipoPrecio: "simple", img: "images/albums/13/13.jpg", desc: "Vic de espaldas con las velas. Misterioso." },
-            { id: 15, category: "Album", year: "2013", name: "Super Collider", tipoPrecio: "simple", img: "images/albums/Super_Collider/super_collider.jpg", desc: "El colisionador de partículas. Geométrico." },
-             { id: 7, category: "Album", year: "2016", name: "Dystopia", tipoPrecio: "simple", img: "images/albums/Dystopia/dystopia.jpg", variants: [
-                { img: "images/albums/Dystopia/dystopia.jpg", name: "Dystopia" }
-            ], desc: "Vic futurista con katana. Estética cyberpunk." },
-            { id: 16, category: "Album", year: "2022", name: "The Sick, the Dying...And the Dead!", tipoPrecio: "simple", img: "images/albums/The_sick/the_sick_the_dying_and_the_dead.jpg", desc: "Arte medieval de la peste. Full color." },
-                        { id: 17, category: "Album", year: "2026", name: "Megadeth 2026", tipoPrecio: "simple", img: "images/albums/Megadeth/vic_llamas_negro.jpg", desc: "Pre-order del futuro diseño.",
-                            variants: [
-                                { img: "images/albums/Megadeth/vic_llamas_negro.jpg", name: "Vic Llamas Negro" },
-                                { img: "images/albums/Megadeth/vic_digital.jpg", name: "Vic Digital" },
-                                { img: "images/albums/Megadeth/i_dont_care.jpg", name: "I Don't Care" },
-                                { img: "images/albums/Megadeth/tipping_point.jpg", name: "Tipping Point" },
-                                { img: "images/albums/Megadeth/let_there_be_shred.jpg", name: "Let There Be Shred" },
-                                { img: "images/albums/Megadeth/let_there_be_shred-realista.jpg", name: "Let There Be Shred Realista" },
-                                { img: "images/albums/Megadeth/fmd_edition_shred.jpg", name: "FMD Edition Shred" },
-                                { img: "images/albums/Megadeth/vic_pelea_v1.jpg", name: "Vic Pelea V1" },
-                                { img: "images/albums/Megadeth/vic_pelea_v2.jpg", name: "Vic Pelea V2" }
-                            ]
-                        },
+    function goToSlide(index) {
+        carousel.scrollTo({ left: index * carousel.offsetWidth, behavior: 'smooth' });
+    }
 
-            // SONGS (10)
-            // { id: 18, category: "Song", year: "1990", name: "Holy Wars", tipoPrecio: "simple", img: "https://placehold.co/300x450/111/FFF?text=HOLY+WARS", desc: "Vic liderando la batalla. Las cruzadas épicas." },
-            // { id: 19, category: "Song", year: "1990", name: "Hangar 18", tipoPrecio: "simple", img: "https://placehold.co/300x450/1a1f24/FFF?text=HANGAR+18", desc: "Extraterrestres y conspiraciones. Tonos verdes." },
-            // { id: 20, category: "Song", year: "1990", name: "Tornado of Souls", tipoPrecio: "simple", img: "https://placehold.co/300x450/000033/FFF?text=TORNADO", desc: "Un vórtice de almas azules. El solo más épico." },
-            // { id: 21, category: "Song", year: "1986", name: "Wake Up Dead", tipoPrecio: "simple", img: "https://placehold.co/300x450/000/00F?text=WAKE+UP", desc: "Estilo cómic de terror ochentero. Zombies." },
-            // { id: 22, category: "Song", year: "1992", name: "Symphony of Destruction", tipoPrecio: "simple", img: "https://placehold.co/300x450/330000/FFF?text=SYMPHONY", desc: "El director de orquesta del caos." },
-            // { id: 23, category: "Song", year: "1994", name: "A Tout Le Monde", tipoPrecio: "simple", img: "https://placehold.co/300x450/222/FFF?text=A+TOUT", desc: "Diseño gótico y romántico. Rosas y calaveras." },
-            // { id: 24, category: "Song", year: "1986", name: "The Conjuring", tipoPrecio: "simple", img: "https://placehold.co/300x450/300/FFF?text=CONJURING", desc: "Simbología oculta y magia negra." },
-            // { id: 25, category: "Song", year: "1988", name: "In My Darkest Hour", tipoPrecio: "simple", img: "https://placehold.co/300x450/000/FFF?text=DARKEST", desc: "Minimalista y oscura. Homenaje emotivo." },
-            // { id: 26, category: "Song", year: "1985", name: "Mechanix", tipoPrecio: "simple", img: "https://placehold.co/300x450/555/FFF?text=MECHANIX", desc: "Estilo taller mecánico vintage. Velocidad." },
-            // { id: 27, category: "Song", year: "2016", name: "The Threat Is Real", tipoPrecio: "simple", img: "https://placehold.co/300x450/003366/FFF?text=THREAT", desc: "Vic cortando cabezas en futuro desolador." },
+    document.getElementById('carouselPrev').onclick = () => goToSlide(Math.max(currentSlide - 1, 0));
+    document.getElementById('carouselNext').onclick = () => {
+        const images = getImages(currentProduct);
+        goToSlide(Math.min(currentSlide + 1, images.length - 1));
+    };
 
-            // SINGLES: VIC NUCLEAR
-            { id: 235, category: "Singles", year: "2025", name: "Vic Nuclear", tipoPrecio: "simple", img: "images/singles/vic_nuclear.jpg", desc: "Diseño especial: Vic Nuclear. Rareza exclusiva Five Magics Designs." },
+    function updateModalInfo() {
+        if (!currentProduct) return;
+        const images = getImages(currentProduct);
+        document.getElementById('modalName').textContent = currentProduct.name;
+        document.getElementById('modalMeta').textContent = `${currentProduct.year} · ${currentProduct.category}`;
+        document.getElementById('modalDesc').textContent = currentProduct.desc || '';
+        document.getElementById('modalPrice').textContent = formatPrecio(currentProduct.tipoPrecio || 'simple');
+        document.getElementById('modalCounter').textContent = `${currentSlide + 1}/${images.length}`;
+        document.getElementById('badgeDoble').style.display = currentProduct.tipoPrecio === 'doble' ? 'block' : 'none';
+        const vName = images[currentSlide]?.name || '';
+        document.getElementById('variantName').textContent = vName;
+        document.getElementById('variantName').style.display = vName ? 'block' : 'none';
+        const msg = `Hola FMD! Quiero info de: ${currentProduct.name} ${vName}`;
+        document.getElementById('modalWaBtn').href = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(msg)}`;
+        document.querySelectorAll('.carousel-dot').forEach((dot, i) => { dot.classList.toggle('active', i === currentSlide); });
+        updateShareLinks();
+    }
 
-            // MUSICIANS (5)
-                        { id: 28, category: "Musician", year: "Leyenda", name: "Dave Mustaine", tipoPrecio: "simple", img: "images/musicians/Dave_Mustaine/Dave_Mustaine_COLOR_90s.jpg", desc: "El Colorado con su Flying V. El líder.",
-                            variants: [
-                                { img: "images/musicians/Dave_Mustaine/Dave_Mustaine_COLOR_90s.jpg", name: "COLOR 90s" },
-                                { img: "images/musicians/Dave_Mustaine/Dave_Mustaine_BN_90s.jpg", name: "BN 90s" }
-                            ]
-                        },
-                        { id: 29, category: "Musician", year: "Leyenda", name: "Marty Friedman", tipoPrecio: "simple", img: "images/musicians/Marty_Friedman/Marty_1990_cte.jpg", desc: "El guitarrista exótico. Estilo japonés.",
-                            variants: [
-                                { img: "images/musicians/Marty_Friedman/Marty_1990_cte.jpg", name: "1990 CTE" },
-                                { img: "images/musicians/Marty_Friedman/Marty_1990_RIP.jpg", name: "1990 RIP" },
-                                { img: "images/musicians/Marty_Friedman/Marty_1992_FIRMA.jpg", name: "1992 FIRMA" }
-                            ]
-                        },
-            // { id: 30, category: "Musician", year: "Leyenda", name: "Nick Menza", tipoPrecio: "simple", img: "https://placehold.co/300x450/000099/FFF?text=MENZA", desc: "El motor de la banda. Drum God." },
-            // { id: 31, category: "Musician", year: "Leyenda", name: "David Ellefson", tipoPrecio: "simple", img: "https://placehold.co/300x450/006600/FFF?text=JUNIOR", desc: "El bajista original. Clásica de los 90s." },
-            // { id: 32, category: "Musician", year: "Actual", name: "Kiko Loureiro", tipoPrecio: "simple", img: "https://placehold.co/300x450/333/FFF?text=KIKO", desc: "El virtuoso moderno. Diseño técnico." },
+    // === FILTROS Y BUSQUEDA ===
+    let currentCategory = 'Album';
+    let currentSearch = '';
 
-            // PERSONALIZADO (diseños sueltos de otras bandas, arte, etc)
-            // Algunos de los trabajos exclusivos especialmente preparados a pedido, solo en FMD
-            { id: 60, category: "Personalizados", year: "2025", name: "AC/DC Europe 84", tipoPrecio: "simple", img: "images/personalizado/ac_dc_europe_84.jpg", desc: "Mockup AC/DC Europe 84." },
-            { id: 61, category: "Personalizados", year: "2025", name: "AC/DC Europe 84 Remaster", tipoPrecio: "simple", img: "images/personalizado/ac_dc_europe_84_remaster.jpg", desc: "Mockup AC/DC Europe 84 Remaster." },
-            { id: 49, category: "Personalizados", year: "2025", name: "Bifrost Argentina", tipoPrecio: "simple", img: "images/personalizado/bifrost_argentina.jpg", desc: "Mockup Bifrost Argentina." },
-            { id: 56, category: "Personalizados", year: "2025", name: "Calavera Guitar", tipoPrecio: "simple", img: "images/personalizado/calavera_guitar.jpg", desc: "Mockup Calavera Guitar." },
-            { id: 46, category: "Personalizados", year: "2025", name: "Dimebag Darrell BN", tipoPrecio: "simple", img: "images/personalizado/dimebag_darrell_BN.jpg", desc: "Mockup Dimebag Darrell BN." },
-            { id: 47, category: "Personalizados", year: "2025", name: "Dimebag Darrell Color", tipoPrecio: "simple", img: "images/personalizado/dimebag_darrell_color.jpg", desc: "Mockup Dimebag Darrell Color." },
-            { id: 48, category: "Personalizados", year: "2025", name: "Dimebag Darrell Guitar Gold", tipoPrecio: "simple", img: "images/personalizado/dimebag_darrell_guitar_gold.jpg", desc: "Mockup Dimebag Darrell Guitar Gold." },
-            { id: 51, category: "Personalizados", year: "2025", name: "Flema", tipoPrecio: "simple", img: "images/personalizado/flema.jpg", desc: "Mockup Flema." },
-            { id: 44, category: "Personalizados", year: "2025", name: "Gallindez Box", tipoPrecio: "simple", img: "images/personalizado/gallindez_box.jpg", desc: "Mockup Gallindez Box." },
-            { id: 41, category: "Personalizados", year: "2025", name: "Kurt Nirvana", tipoPrecio: "simple", img: "images/personalizado/kurt_nirvana.jpg", desc: "Mockup especial: Kurt Cobain (Nirvana)." },
-            { id: 55, category: "Personalizados", year: "2025", name: "Religión", tipoPrecio: "simple", img: "images/personalizado/religión.jpg", desc: "Mockup Religión." },
-            { id: 45, category: "Personalizados", year: "2025", name: "Roña Castro Box", tipoPrecio: "simple", img: "images/personalizado/roña_castro_box.jpg", desc: "Mockup Roña Castro Box." },
-            { id: 54, category: "Personalizados", year: "2025", name: "Saltatio Mortis", tipoPrecio: "simple", img: "images/personalizado/saltatio_mortis.jpg", desc: "Mockup Saltatio Mortis." },
-            { id: 50, category: "Personalizados", year: "2025", name: "Slinka Mascota", tipoPrecio: "simple", img: "images/personalizado/slinka_mascota.jpg", desc: "Mockup Slinka Mascota." },
-            { id: 57, category: "Personalizados", year: "2025", name: "The Ramones", tipoPrecio: "simple", img: "images/personalizado/the_ramones.jpg", desc: "Mockup The Ramones." },
-            { id: 58, category: "Personalizados", year: "2025", name: "WASP", tipoPrecio: "simple", img: "images/personalizado/wasp.jpg", desc: "Mockup WASP." },
-            { id: 53, category: "Personalizados", year: "2025", name: "Wintersun", tipoPrecio: "simple", img: "images/personalizado/wintersun.jpg", desc: "Mockup Wintersun." },
-            { id: 59, category: "Personalizados", year: "2025", name: "Primal Fear", tipoPrecio: "simple", img: "images/personalizado/primal_fear.jpg", desc: "Mockup Primal Fear." },
-            { id: 43, category: "Personalizados", year: "2025", name: "Symphony X", tipoPrecio: "simple", img: "images/personalizado/symphony_x.jpg", desc: "Mockup Symphony X." },
-
-
-            // TOURS (4) - Doble estampa (frente + espalda con fechas)
-            { id: 42, category: "Tour", year: "2026", name: "Vic Tour 2026", tipoPrecio: "doble", img: "images/tours/Tour_2026/vic_tour_2026.jpg", desc: "Mockup especial: Vic Tour 2026. Edición exclusiva." },
-            // { id: 35, category: "Tour", year: "1990", name: "Rust In Peace Tour", tipoPrecio: "doble", img: "https://placehold.co/300x450/1a3d1a/FFF?text=RIP+TOUR", desc: "Poster de la gira más legendaria. Frente + fechas en espalda." },
-            // { id: 36, category: "Tour", year: "1992", name: "Countdown Tour", tipoPrecio: "doble", img: "https://placehold.co/300x450/332200/FFF?text=COUNTDOWN+TOUR", desc: "El flyer de la gira mundial del 92. Frente + fechas en espalda." },
-            // { id: 37, category: "Tour", year: "2024-2025", name: "The Sick Tour", tipoPrecio: "doble", img: "https://placehold.co/300x450/003300/FFF?text=SICK+TOUR", desc: "La gira de despedida. Frente + fechas en espalda." },
-            // { id: 38, category: "Tour", year: "2025", name: "Buenos Aires Final", tipoPrecio: "doble", img: "https://placehold.co/300x450/852C0C/FFF?text=BA+FINAL", desc: "Edición limitada del show final. Frente + fechas en espalda." },
-            {
-                id: 39,
-                category: "Tour",
-                year: "2025",
-                name: "VIC GAUCHO ARGENTINO",
-                tipoPrecio: "doble",
-                img: "images/tours/Vic_Gaucho_Argentino/vic_gaucho_original.jpg", // imagen principal
-                variants: [
-                    { img: "images/tours/Vic_Gaucho_Argentino/vic_gaucho_original.jpg", name: "Original" },
-                    { img: "images/tours/Vic_Gaucho_Argentino/vic_gaucho_realista.jpg", name: "Realista" },
-                    { img: "images/tours/Vic_Gaucho_Argentino/vic_gaucho_caballo.jpg", name: "Caballo" }
-                ],
-                desc: "Serie especial VIC GAUCHO. Frente + variantes."
-            },
-            {
-                id: 40,
-                category: "Tour",
-                year: "2025",
-                name: "Tour Argentina",
-                tipoPrecio: "doble",
-                img: "images/tours/Tour_argentina/poster_tour_argentina.jpg",
-                variants: [
-                    { img: "images/tours/Tour_argentina/poster_tour_argentina.jpg", name: "Poster" },
-                    { img: "images/tours/Tour_argentina/vic_bandera_logo_blanco.jpg", name: "Vic Bandera Blanco" },
-                    { img: "images/tours/Tour_argentina/vic_bandera_logo_dorado.jpg", name: "Vic Bandera Dorado" },
-                    { img: "images/tours/Tour_argentina/vic_edición_fmd.jpg", name: "Edición FMD" }
-                ],
-                desc: "Tour Argentina: edición especial con 4 variantes exclusivas."
-            },
-
-        ];
-
-        // === ELEMENTOS ===
-        const productsGrid = document.getElementById('productsGrid');
-        const categoryNav = document.getElementById('categoryNav');
-        const modal = document.getElementById('modal');
-        const carousel = document.getElementById('carousel');
-        const carouselDots = document.getElementById('carouselDots');
-
-        let currentProduct = null;
-        let currentSlide = 0;
-        let scrollPosition = 0;
-
-        // === RENDERIZAR PRODUCTOS ===
-        function renderProducts(category = 'all') {
-            let filtered = db;
-            if (category !== 'all') {
-                filtered = db.filter(p => p.category === category);
-            }
-            productsGrid.innerHTML = filtered.map(p => {
-                const hasVariants = p.variants && p.variants.length > 1;
-                const precio = formatPrecio(p.tipoPrecio || 'simple');
-                return `
-                    <div class="product-card" onclick="openModal(${p.id})">
-                        ${hasVariants ? `<span class="variants-badge">${p.variants.length} diseños</span>` : ''}
-                        <img src="${p.img}" alt="${p.name}" class="product-img" loading="lazy">
-                        <div class="product-info">
-                            <div class="product-name">${p.name}</div>
-                            <div class="product-meta">${p.year} · ${p.category}</div>
-                            <div class="product-price-row">
-                                <span class="product-price">${precio}</span>
-                                <span class="product-envio">Envío gratis</span>
-                            </div>
-                        </div>
-                    </div>
-                `;
-            }).join('');
+    function filterProducts() {
+        let filtered = db.filter(p => p.category === currentCategory);
+        if (currentSearch) {
+            filtered = filtered.filter(p => p.name.toLowerCase().includes(currentSearch) || p.desc.toLowerCase().includes(currentSearch));
         }
+        renderFilteredProducts(filtered);
+    }
 
-        // === CATEGORÍAS === (el listener real está más abajo, con filterProducts)
-
-        // === MODAL ===
-        function getImages(p) {
-            if (p.variants && p.variants.length > 0) {
-                return p.variants;
-            }
-            return [{ img: p.img, name: '' }];
-        }
-
-        function openModal(id) {
-            currentProduct = db.find(p => p.id === id);
-            if (!currentProduct) return;
-
-            // Guardar posición y bloquear scroll real
-            scrollPosition = window.pageYOffset;
-            document.body.style.overflow = 'hidden';
-            document.body.style.position = 'fixed';
-            document.body.style.top = `-${scrollPosition}px`;
-            document.body.style.width = '100%';
-
-            // Setear hash para deep link
-            history.pushState({ modal: true, id }, '', `#producto-${id}`);
-
-            currentSlide = 0;
-            const images = getImages(currentProduct);
-
-            // Generar slides
-            carousel.innerHTML = images.map((v, i) => `
-                <div class="carousel-slide">
-                    <img src="${v.img}" alt="${currentProduct.name} - ${v.name || 'Diseño'}">
+    function renderFilteredProducts(filtered) {
+        document.getElementById('productsCount').textContent = `${filtered.length} diseños`;
+        productsGrid.innerHTML = filtered.map(p => {
+            const hasVariants = p.variants && p.variants.length > 1;
+            return `<div class="product-card" onclick="openModal(${p.id})">
+                ${hasVariants ? `<span class="variants-badge">${p.variants.length} diseños</span>` : ''}
+                <img src="${p.img}" class="product-img" loading="lazy">
+                <div class="product-info">
+                    <div class="product-name">${p.name}</div>
+                    <div class="product-meta">${p.year} · ${p.category}</div>
+                    <div class="product-price-row"><span class="product-price">${formatPrecio(p.tipoPrecio || 'simple')}</span><span class="product-envio">Envío gratis</span></div>
                 </div>
-            `).join('');
-
-            // Generar dots
-            carouselDots.innerHTML = images.length > 1 ? images.map((_, i) => `<div class="carousel-dot${i === 0 ? ' active' : ''}" data-index="${i}"></div>`).join('') : '';
-
-            // Reset scroll
-            carousel.scrollLeft = 0;
-
-            // Blindar: remover antes de agregar para evitar duplicados
-            carousel.removeEventListener('scroll', handleCarouselScroll);
-            carousel.addEventListener('scroll', handleCarouselScroll);
-
-            // Mostrar/ocultar flechas
-            document.getElementById('carouselPrev').style.display = images.length > 1 ? 'flex' : 'none';
-            document.getElementById('carouselNext').style.display = images.length > 1 ? 'flex' : 'none';
-
-            // Mostrar badge de doble estampa solo si tipoPrecio === 'doble'
-            const badgeDoble = document.getElementById('badgeDoble');
-            if (currentProduct.tipoPrecio === 'doble') {
-                badgeDoble.style.display = 'block';
-            } else {
-                badgeDoble.style.display = 'none';
-            }
-            updateModalInfo();
-            // Mostrar el modal y bloquear scroll
-            modal.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeModal() {
-            modal.classList.remove('active');
-            
-            // Restaurar scroll
-            document.body.style.removeProperty('overflow');
-            document.body.style.removeProperty('position');
-            document.body.style.removeProperty('top');
-            document.body.style.removeProperty('width');
-            window.scrollTo(0, scrollPosition);
-            
-            resetModalZoom();
-        }
-
-        function updateModalInfo() {
-            if (!currentProduct) return;
-            const images = getImages(currentProduct);
-            // Setear info textual del producto
-            document.getElementById('modalName').textContent = currentProduct.name;
-            document.getElementById('modalMeta').textContent = `${currentProduct.year} · ${currentProduct.category}`;
-            document.getElementById('modalDesc').textContent = currentProduct.desc || '';
-            document.getElementById('modalPrice').textContent = formatPrecio(currentProduct.tipoPrecio || 'simple');
-
-            document.getElementById('modalCounter').textContent = `${currentSlide + 1}/${images.length}`;
-            document.getElementById('variantName').textContent = images[currentSlide].name || '';
-            document.getElementById('variantName').style.display = images[currentSlide].name ? 'block' : 'none';
-            // Update dots
-            document.querySelectorAll('.carousel-dot').forEach((dot, i) => {
-                dot.classList.toggle('active', i === currentSlide);
-            });
-            // Update WA link con precio
-            const precio = formatPrecio(currentProduct.tipoPrecio || 'simple');
-            const variante = images[currentSlide].name ? ` - ${images[currentSlide].name}` : '';
-            const msg = `Hola FMD! Quiero encargar: ${currentProduct.name}${variante} - Precio lista: ${precio}. Mi talle es..., color..., y soy de...`;
-            document.getElementById('modalWaBtn').href = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(msg)}`;
-        }
-
-        function handleCarouselScroll() {
-            const scrollLeft = carousel.scrollLeft;
-            const slideWidth = carousel.offsetWidth;
-            const newSlide = Math.round(scrollLeft / slideWidth);
-            const images = getImages(currentProduct);
-            if (newSlide !== currentSlide && newSlide >= 0 && newSlide < images.length) {
-                currentSlide = newSlide;
-                updateModalInfo();
-            }
-        }
-
-        // Click en dots
-        carouselDots.addEventListener('click', (e) => {
-            if (e.target.classList.contains('carousel-dot')) {
-                const index = parseInt(e.target.dataset.index);
-                goToSlide(index);
-            }
-        });
-
-        // Flechas de navegación
-        document.getElementById('carouselPrev').onclick = () => {
-            goToSlide(Math.max(currentSlide - 1, 0));
-        };
-        document.getElementById('carouselNext').onclick = () => {
-            const images = getImages(currentProduct);
-            goToSlide(Math.min(currentSlide + 1, images.length - 1));
-        };
-
-            // Mostrar/ocultar botón Reset según cantidad de slides
-            const carouselReset = document.getElementById('carouselReset');
-            carouselReset.style.display = 'block';
-
-            carouselReset.onclick = function() {
-                const img = document.querySelector('.carousel-slide img.zoomed') || document.querySelectorAll('.carousel-slide img')[currentSlide];
-                if (img) {
-                    img.style.transform = 'scale(1)';
-                    img.classList.remove('zoomed');
-                    modalScale = 1;
-                    modalLastDistance = 0;
-                }
-            };
-
-            // === Pinch-to-zoom y doble tap en imágenes del carrusel del modal ===
-            let modalScale = 1;
-            let modalLastDistance = 0;
-            let modalStartScale = 1;
-            let modalLastTap = 0;
-            let modalTouchStartX = 0;
-            let modalTouchEndX = 0;
-            let modalTouchMoved = false;
-
-            // Delegar eventos a las imágenes del carrusel
-            carousel.addEventListener('touchstart', (e) => {
-                const img = e.target.closest('.carousel-slide img');
-                if (img && e.touches.length === 2) {
-                    modalLastDistance = Math.hypot(
-                        e.touches[0].pageX - e.touches[1].pageX,
-                        e.touches[0].pageY - e.touches[1].pageY
-                    );
-                    modalStartScale = modalScale;
-                }
-                // Mejorar swipe/tap detection
-                if (img && e.touches.length === 1) {
-                    modalTouchStartX = e.touches[0].clientX;
-                    modalTouchMoved = false;
-                }
-            });
-
-            carousel.addEventListener('touchmove', (e) => {
-                const img = e.target.closest('.carousel-slide img');
-                if (img && e.touches.length === 2) {
-                    e.preventDefault();
-                    const distance = Math.hypot(
-                        e.touches[0].pageX - e.touches[1].pageX,
-                        e.touches[0].pageY - e.touches[1].pageY
-                    );
-                    if (modalLastDistance > 0) {
-                        let newScale = modalStartScale * (distance / modalLastDistance);
-                        newScale = Math.max(1, Math.min(newScale, 2.5));
-                        modalScale = newScale;
-                        img.style.transform = `scale(${modalScale})`;
-                        img.classList.toggle('zoomed', modalScale > 1);
-                    }
-                    modalLastDistance = distance;
-                }
-                // Mejorar swipe/tap detection
-                if (img && e.touches.length === 1) {
-                    modalTouchEndX = e.touches[0].clientX;
-                    if (Math.abs(modalTouchEndX - modalTouchStartX) > 20) {
-                        modalTouchMoved = true;
-                    }
-                }
-            }, { passive: false });
-
-            carousel.addEventListener('touchend', (e) => {
-                const img = e.target.closest('.carousel-slide img');
-                if (img) {
-                    // Snap back si el zoom está entre 1 y 1.15
-                    if (modalScale > 1 && modalScale < 1.15) {
-                        modalScale = 1;
-                        img.style.transform = 'scale(1)';
-                        img.classList.remove('zoomed');
-                    }
-                    modalLastDistance = 0;
-                }
-            });
-
-            // Doble tap para zoom en carrusel del modal
-            carousel.addEventListener('touchend', (e) => {
-                const img = e.target.closest('.carousel-slide img');
-                // Solo si no hubo swipe
-                if (img && e.touches.length === 0 && !modalTouchMoved) {
-                    const currentTime = new Date().getTime();
-                    const tapLength = currentTime - modalLastTap;
-                    if (tapLength < 300 && tapLength > 0) {
-                        if (modalScale > 1) {
-                            modalScale = 1;
-                        } else {
-                            modalScale = 2;
-                        }
-                        img.style.transform = `scale(${modalScale})`;
-                        img.classList.toggle('zoomed', modalScale > 1);
-                    }
-                    modalLastTap = currentTime;
-                }
-            });
-
-            // Resetear zoom al cambiar de slide o cerrar modal
-            function resetModalZoom() {
-                document.querySelectorAll('.carousel-slide img').forEach(img => {
-                    img.style.transform = 'scale(1)';
-                    img.classList.remove('zoomed');
-                });
-                modalScale = 1;
-                modalLastDistance = 0;
-            }
-            carousel.addEventListener('scroll', resetModalZoom);
-            document.getElementById('modalClose').addEventListener('click', resetModalZoom);
-            modal.addEventListener('click', (e) => {
-                if (e.target === modal) resetModalZoom();
-            });
-        function goToSlide(index) {
-            const images = getImages(currentProduct);
-            if (index < 0 || index >= images.length) return;
-            currentSlide = index;
-            carousel.scrollTo({ left: index * carousel.offsetWidth, behavior: 'smooth' });
-            updateModalInfo();
-        }
-
-        // Cerrar modal
-        document.getElementById('modalClose').onclick = closeModal;
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) closeModal();
-        });
-
-        function closeModal() {
-            modal.classList.remove('active');
-            
-            // Restaurar scroll
-            document.body.style.removeProperty('overflow');
-            document.body.style.removeProperty('position');
-            document.body.style.removeProperty('top');
-            document.body.style.removeProperty('width');
-            window.scrollTo(0, scrollPosition);
-            
-            resetModalZoom();
-        }
-
-        // Manejar botón "atrás" del navegador
-        window.addEventListener('popstate', (e) => {
-            if (modal.classList.contains('active')) {
-                modal.classList.remove('active');
-                document.body.style.overflow = '';
-                carousel.removeEventListener('scroll', handleCarouselScroll);
-            }
-        });
-
-        // Si la página carga con hash de producto, abrir ese modal
-        window.addEventListener('load', () => {
-            const hash = window.location.hash;
-            if (hash.startsWith('#producto-')) {
-                const id = parseInt(hash.replace('#producto-', ''));
-                if (id) openModal(id);
-            }
-        });
-
-        // === TABS DE TALLES ===
-        document.querySelectorAll('.tab-btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                // Quitar active de todos los botones y tabs
-                document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-                document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
-
-                // Activar el seleccionado
-                btn.classList.add('active');
-                document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
-            });
-        });
-
-        // === MODAL DE IMAGEN (MODELOS) ===
-        const imageModal = document.getElementById('imageModal');
-        const imageModalImg = document.getElementById('imageModalImg');
-
-        function openImageModal(src, alt) {
-            imageModalImg.src = src;
-            imageModalImg.alt = alt;
-            imageModal.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeImageModal() {
-            imageModal.classList.remove('active');
-            document.body.style.overflow = '';
-        }
-
-        // Cerrar con tecla Escape
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && imageModal.classList.contains('active')) {
-                closeImageModal();
-            }
-            if (e.key === 'Escape' && zoomOverlay.classList.contains('active')) {
-                closeZoom();
-            }
-        });
-
-        // === BUSCADOR ===
-        const searchInput = document.getElementById('searchInput');
-        const searchClear = document.getElementById('searchClear');
-        const searchResultsInfo = document.getElementById('searchResultsInfo');
-        let currentCategory = 'Album';
-        let currentSearch = '';
-
-        searchInput.addEventListener('input', (e) => {
-            currentSearch = e.target.value.trim().toLowerCase();
-            searchClear.classList.toggle('visible', currentSearch.length > 0);
-            filterProducts();
-        });
-
-        searchClear.addEventListener('click', () => {
-            searchInput.value = '';
-            currentSearch = '';
-            searchClear.classList.remove('visible');
-            filterProducts();
-            searchInput.focus();
-        });
-
-        function filterProducts() {
-            let filtered = db;
-
-            // Filtrar por categoría (sin opción 'Todos')
-            filtered = filtered.filter(p => {
-                if (currentCategory === 'Album') return p.category === 'Album';
-                if (currentCategory === 'Singles') return p.category === 'Singles';
-                if (currentCategory === 'Musician') return p.category === 'Musician';
-                if (currentCategory === 'Tour') return p.category === 'Tour';
-                if (currentCategory === 'Personalizados') return p.category === 'Personalizados';
-                return false;
-            });
-
-            // Filtrar por búsqueda
-            if (currentSearch) {
-                filtered = filtered.filter(p =>
-                    (p.name || '').toLowerCase().includes(currentSearch) ||
-                    (p.desc || '').toLowerCase().includes(currentSearch) ||
-                    (p.year || '').toString().toLowerCase().includes(currentSearch) ||
-                    (p.category || '').toLowerCase().includes(currentSearch)
-                );
-            }
-
-            renderFilteredProducts(filtered);
-        }
-
-        function renderFilteredProducts(filtered) {
-            // Actualizar contador
-            const countEl = document.getElementById('productsCount');
-            countEl.textContent = `${filtered.length} diseño${filtered.length !== 1 ? 's' : ''}`;
-
-            // Mostrar info de búsqueda
-            if (currentSearch && filtered.length > 0) {
-                searchResultsInfo.textContent = `Mostrando ${filtered.length} resultado${filtered.length !== 1 ? 's' : ''} para "${currentSearch}"`;
-            } else if (currentSearch && filtered.length === 0) {
-                searchResultsInfo.textContent = '';
-            } else {
-                searchResultsInfo.textContent = '';
-            }
-
-            // Renderizar productos
-            if (filtered.length === 0) {
-                productsGrid.innerHTML = `
-                    <div class="no-results" style="grid-column: 1/-1;">
-                        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke="currentColor">
-                            <circle cx="11" cy="11" r="8"/>
-                            <path d="M21 21l-4.35-4.35"/>
-                        </svg>
-                        <p>No se encontraron diseños</p>
-                        <p style="font-size:0.8rem;margin-top:4px;">Probá con otro término</p>
-                    </div>
-                `;
-                return;
-            }
-
-            productsGrid.innerHTML = filtered.map(p => {
-                const hasVariants = p.variants && p.variants.length > 1;
-                const precio = formatPrecio(p.tipoPrecio || 'simple');
-                return `
-                    <div class="product-card" onclick="openModal(${p.id})">
-                        ${hasVariants ? `<span class="variants-badge">${p.variants.length} diseños</span>` : ''}
-                        <img src="${p.img}" alt="${p.name}" class="product-img" loading="lazy">
-                        <div class="product-info">
-                            <div class="product-name">${p.name}</div>
-                            <div class="product-meta">${p.year} · ${p.category}</div>
-                            <div class="product-price-row">
-                                <span class="product-price">${precio}</span>
-                                <span class="product-envio">Envío gratis</span>
-                            </div>
-                        </div>
-                    </div>
-                `;
-            }).join('');
-        }
-
-        // === CATEGORÍAS (integrado con búsqueda) ===
-        categoryNav.addEventListener('click', (e) => {
-            if (e.target.classList.contains('cat-btn')) {
-                document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
-                e.target.classList.add('active');
-                currentCategory = e.target.dataset.cat;
-                filterProducts();
-            }
-        });
-
-        // === TOGGLE VISTA (GRILLA / GALERÍA) ===
-        const viewGrid = document.getElementById('viewGrid');
-        const viewGallery = document.getElementById('viewGallery');
-
-        viewGrid.addEventListener('click', () => {
-            productsGrid.classList.remove('gallery-view');
-            viewGrid.classList.add('active');
-            viewGallery.classList.remove('active');
-            localStorage.setItem('fmd-view', 'grid');
-        });
-
-        viewGallery.addEventListener('click', () => {
-            productsGrid.classList.add('gallery-view');
-            viewGallery.classList.add('active');
-            viewGrid.classList.remove('active');
-            localStorage.setItem('fmd-view', 'gallery');
-        });
-
-        // Restaurar preferencia de vista
-        if (localStorage.getItem('fmd-view') === 'gallery') {
-            viewGallery.click();
-        }
-
-        // === ZOOM EN IMÁGENES ===
-        const zoomOverlay = document.getElementById('zoomOverlay');
-        const zoomImg = document.getElementById('zoomImg');
-        const zoomContainer = document.getElementById('zoomContainer');
-        const zoomClose = document.getElementById('zoomClose');
-
-        // Detectar si el dispositivo es móvil
-        const isMobile = window.matchMedia('(pointer: coarse)').matches;
-
-        // Modificar el evento click para el zoom overlay
-        carousel.addEventListener('click', (e) => {
-          if (!isMobile) {
-            const img = e.target.closest('.carousel-slide img');
-            if (img) {
-              openZoom(img.src, img.alt); // Función para abrir el zoom overlay
-            }
-          }
-        });
-
-        // Agregar evento de click a las imágenes del carrusel
-        // Swipe detection y zoom seguro
-        let touchStartX = 0;
-        let touchEndX = 0;
-        let touchMoved = false;
-        // Usar la variable global 'carousel' ya declarada más abajo
-        carousel.addEventListener('touchstart', (e) => {
-            if (e.touches.length === 1) {
-                touchStartX = e.touches[0].clientX;
-                touchMoved = false;
-            }
-        });
-        carousel.addEventListener('touchmove', (e) => {
-            if (e.touches.length === 1) {
-                touchEndX = e.touches[0].clientX;
-                if (Math.abs(touchEndX - touchStartX) > 10) {
-                    touchMoved = true;
-                }
-            }
-        });
-        carousel.addEventListener('touchend', (e) => {
-            if (!touchMoved) {
-                // Tap sin swipe: abrir zoom
-                const target = e.target.closest('.carousel-slide img');
-                if (target) openZoom(target.src, target.alt);
-            }
-        });
-
-        function openZoom(src, alt) {
-            zoomImg.src = src;
-            zoomImg.alt = alt || 'Zoom';
-            zoomOverlay.classList.add('active');
-            document.body.style.overflow = 'hidden';
-            // Resetear escala al abrir
-            scale = 1;
-            zoomImg.style.transform = 'scale(1)';
-            zoomImg.classList.remove('zoomed');
-        }
-
-        function closeZoom() {
-            zoomOverlay.classList.remove('active');
-            document.body.style.overflow = '';
-            scale = 1;
-            zoomImg.style.transform = 'scale(1)';
-            zoomImg.classList.remove('zoomed');
-        }
-
-        zoomClose.addEventListener('click', closeZoom);
-        zoomOverlay.addEventListener('click', (e) => {
-            if (e.target === zoomOverlay || e.target === zoomContainer) {
-                closeZoom();
-            }
-        });
-
-        // Pinch to zoom con gestos
-        let scale = 1;
-        let lastDistance = 0;
-        let startScale = 1;
-
-        zoomContainer.addEventListener('touchstart', (e) => {
-            if (e.touches.length === 2) {
-                lastDistance = Math.hypot(
-                    e.touches[0].pageX - e.touches[1].pageX,
-                    e.touches[0].pageY - e.touches[1].pageY
-                );
-                startScale = scale;
-            }
-        });
-
-        zoomContainer.addEventListener('touchmove', (e) => {
-            if (e.touches.length === 2) {
-                e.preventDefault();
-                const distance = Math.hypot(
-                    e.touches[0].pageX - e.touches[1].pageX,
-                    e.touches[0].pageY - e.touches[1].pageY
-                );
-
-                if (lastDistance > 0) {
-                    let newScale = startScale * (distance / lastDistance);
-                    newScale = Math.max(1, Math.min(newScale, 2.5)); // Limitar entre 1x y 2.5x
-                    scale = newScale;
-                    zoomImg.style.transform = `scale(${scale})`;
-                    zoomImg.classList.toggle('zoomed', scale > 1);
-                }
-
-                // No actualizar startScale aquí, solo lastDistance
-                lastDistance = distance;
-            }
-        }, { passive: false });
-
-        zoomContainer.addEventListener('touchend', () => {
-            lastDistance = 0;
-        });
-
-        // Doble tap para zoom
-        let lastTap = 0;
-        zoomImg.addEventListener('touchend', (e) => {
-            const currentTime = new Date().getTime();
-            const tapLength = currentTime - lastTap;
-            if (tapLength < 300 && tapLength > 0) {
-                if (scale > 1) {
-                    scale = 1;
-                } else {
-                    scale = 2;
-                }
-                zoomImg.style.transform = `scale(${scale})`;
-                zoomImg.classList.toggle('zoomed', scale > 1);
-            }
-            lastTap = currentTime;
-        });
-
-        // === COMPARTIR DISEÑO ===
-        function copyProductLink() {
-            if (!currentProduct) return;
-
-            const url = `${BASE_URL}#producto-${currentProduct.id}`;
-
-            if (navigator.clipboard && navigator.clipboard.writeText) {
-                navigator.clipboard.writeText(url).then(() => {
-                    showToast('✓ Link copiado al portapapeles');
-                }).catch(() => {
-                    fallbackCopy(url);
-                });
-            } else {
-                fallbackCopy(url);
-            }
-        }
-
-        function fallbackCopy(text) {
-            const textarea = document.createElement('textarea');
-            textarea.value = text;
-            textarea.style.position = 'fixed';
-            textarea.style.opacity = '0';
-            document.body.appendChild(textarea);
-            textarea.select();
-            try {
-                document.execCommand('copy');
-                showToast('✓ Link copiado al portapapeles');
-            } catch {
-                showToast('✗ No se pudo copiar');
-            }
-            document.body.removeChild(textarea);
-        }
-
-        function showToast(message) {
-            const toast = document.getElementById('shareToast');
-            toast.textContent = message;
-            toast.classList.add('visible');
-            setTimeout(() => {
-                toast.classList.remove('visible');
-            }, 2500);
-        }
-
-        // Actualizar link de compartir WA
-        function updateShareLinks() {
-            if (!currentProduct) return;
-
-            const images = getImages(currentProduct);
-            const variante = images[currentSlide]?.name ? ` - ${images[currentSlide].name}` : '';
-            const url = `${BASE_URL}#producto-${currentProduct.id}`;
-            const msg = `¡Mirá este diseño de Five Magics! ${currentProduct.name}${variante} ${url}`;
-
-            document.getElementById('btnShareWa').href = `https://wa.me/?text=${encodeURIComponent(msg)}`;
-        }
-
-        // Actualizar updateModalInfo para incluir links de compartir
-        const originalUpdateModalInfo = updateModalInfo;
-        updateModalInfo = function () {
-            originalUpdateModalInfo();
-            updateShareLinks();
-        };
-
-        // === INIT ===
+            </div>`;
+        }).join('');
+    }
+
+    searchInput.addEventListener('input', (e) => {
+        currentSearch = e.target.value.toLowerCase();
+        searchClear.classList.toggle('visible', currentSearch.length > 0);
         filterProducts();
-        // El contador se actualiza en renderFilteredProducts
-    </script>
+    });
+
+    searchClear.onclick = () => { searchInput.value = ''; currentSearch = ''; searchClear.classList.remove('visible'); filterProducts(); };
+
+    categoryNav.addEventListener('click', (e) => {
+        if (e.target.classList.contains('cat-btn')) {
+            document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+            e.target.classList.add('active');
+            currentCategory = e.target.dataset.cat;
+            filterProducts();
+        }
+    });
+
+    // === COMPARTIR Y OTROS ===
+    function copyProductLink() {
+        const url = `${BASE_URL}#producto-${currentProduct.id}`;
+        navigator.clipboard.writeText(url).then(() => {
+            const toast = document.getElementById('shareToast');
+            toast.classList.add('visible');
+            setTimeout(() => toast.classList.remove('visible'), 2000);
+        });
+    }
+
+    function updateShareLinks() {
+        if (!currentProduct) return;
+        const url = `${BASE_URL}#producto-${currentProduct.id}`;
+        document.getElementById('btnShareWa').href = `https://wa.me/?text=${encodeURIComponent('Mirá este diseño de Five Magics: ' + url)}`;
+    }
+
+    function openImageModal(src, alt) {
+        const imgModal = document.getElementById('imageModal');
+        document.getElementById('imageModalImg').src = src;
+        imgModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeImageModal() {
+        document.getElementById('imageModal').classList.remove('active');
+        if (!modal.classList.contains('active')) document.body.style.overflow = '';
+    }
+
+    // Inicialización
+    document.getElementById('modalClose').onclick = closeModal;
+    document.getElementById('zoomClose').onclick = closeZoom;
+    zoomOverlay.onclick = (e) => { if(e.target.id === 'zoomContainer' || e.target === zoomOverlay) closeZoom(); };
+    window.addEventListener('popstate', () => { if(modal.classList.contains('active')) closeModal(); });
+    
+    filterProducts();
+</script>
 
 <style>
 /* FAQ/INFO FMD */
