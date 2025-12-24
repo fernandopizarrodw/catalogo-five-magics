@@ -1386,6 +1386,64 @@
         <p>Remeras de Megadeth exclusivas. Impresión DTG premium. Algodón 24/1.</p>
     </section>
 
+    <style>
+    /* === MODELOS DE REMERAS: Responsive === */
+    @media (max-width: 600px) {
+        #modelos .modelos-container {
+            gap: 1rem;
+        }
+        #modelos .modelo-block {
+            padding: 0;
+        }
+        #modelos .modelo-titulo {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+        #modelos .modelo-images {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #modelos .modelo-img-placeholder {
+            width: 90vw;
+            max-width: 340px;
+            height: auto;
+            margin: 0 auto;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+            background: #fff;
+            padding: 0;
+        }
+        #modelos .modelo-img-placeholder img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: contain;
+            border-radius: 12px;
+        }
+        #modelos .modelo-block {
+            font-size: 0.92rem;
+        }
+        #modelos .info-title {
+            font-size: 1.2rem;
+        }
+        #modelos .info-subtitle {
+            font-size: 0.95rem;
+        }
+        #modelos .modelo-block h3 {
+            font-size: 1rem;
+        }
+        #modelos .modelo-block {
+            margin-bottom: 1.2rem;
+        }
+        #modelos .modelos-container > div {
+            flex-direction: column !important;
+            gap: 0.5rem !important;
+        }
+    }
+    </style>
+
     <!-- Navegación categorías -->
     <nav class="category-nav" id="categoryNav">
         <button class="cat-btn active" data-cat="Album">Álbumes</button>
@@ -1445,40 +1503,40 @@
         <p class="info-subtitle">Seis variantes: hombre y mujer clásico, unisex oversize, en blanco y negro</p>
 
         <div class="modelos-container" style="display: flex; flex-direction: column; gap: 1.5rem;">
-            <!-- Fila 1: Clásica Blanca -->
+            <!-- Fila 1: Clásica Negra -->
             <div style="display: flex; gap: 1rem;">
                 <div class="modelo-block" style="flex:1;">
-                    <h3 class="modelo-titulo">Remera Clásica Hombre Blanca</h3>
+                    <h3 class="modelo-titulo">Remera Clásica Hombre - Negra</h3>
                     <div class="modelo-images">
-                        <div class="modelo-img-placeholder" onclick="openImageModal('images/modelos/hombre_blanca_clasica.jpeg', 'Remera Clásica Hombre Blanca')">
-                            <img src="images/modelos/hombre_blanca_clasica.jpg" alt="Remera Clásica Hombre Blanca">
-                        </div>
-                    </div>
-                </div>
-                <div class="modelo-block" style="flex:1;">
-                    <h3 class="modelo-titulo">Remera Clásica Mujer Blanca</h3>
-                    <div class="modelo-images">
-                        <div class="modelo-img-placeholder" onclick="openImageModal('images/modelos/mujer_blanca_clasica.jpeg', 'Remera Clásica Mujer Blanca')">
-                            <img src="images/modelos/mujer_blanca_clasica.jpg" alt="Remera Clásica Mujer Blanca">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Fila 2: Clásica Negra -->
-            <div style="display: flex; gap: 1rem;">
-                <div class="modelo-block" style="flex:1;">
-                    <h3 class="modelo-titulo">Remera Clásica Hombre Negra</h3>
-                    <div class="modelo-images">
-                        <div class="modelo-img-placeholder" onclick="openImageModal('images/modelos/hombre_negra_clasica.jpeg', 'Remera Clásica Hombre Negra')">
+                        <div class="modelo-img-placeholder" onclick="openImageModal('images/modelos/hombre_negra_clasica.jpg', 'Remera Clásica Hombre Negra')">
                             <img src="images/modelos/hombre_negra_clasica.jpg" alt="Remera Clásica Hombre Negra">
                         </div>
                     </div>
                 </div>
                 <div class="modelo-block" style="flex:1;">
-                    <h3 class="modelo-titulo">Remera Clásica Mujer Negra</h3>
+                    <h3 class="modelo-titulo">Remera Clásica Mujer - Negra</h3>
                     <div class="modelo-images">
-                        <div class="modelo-img-placeholder" onclick="openImageModal('images/modelos/mujer_negra_clasica.jpeg', 'Remera Clásica Mujer Negra')">
+                        <div class="modelo-img-placeholder" onclick="openImageModal('images/modelos/mujer_negra_clasica.jpg', 'Remera Clásica Mujer Negra')">
                             <img src="images/modelos/mujer_negra_clasica.jpg" alt="Remera Clásica Mujer Negra">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Fila 2: Clásica Blanca -->
+            <div style="display: flex; gap: 1rem;">
+                <div class="modelo-block" style="flex:1;">
+                    <h3 class="modelo-titulo">Remera Clásica Hombre - Blanca</h3>
+                    <div class="modelo-images">
+                        <div class="modelo-img-placeholder" onclick="openImageModal('images/modelos/hombre_blanca_clasica.jpg', 'Remera Clásica Hombre Blanca')">
+                            <img src="images/modelos/hombre_blanca_clasica.jpg" alt="Remera Clásica Hombre Blanca">
+                        </div>
+                    </div>
+                </div>
+                <div class="modelo-block" style="flex:1;">
+                    <h3 class="modelo-titulo">Remera Clásica Mujer - Blanca</h3>
+                    <div class="modelo-images">
+                        <div class="modelo-img-placeholder" onclick="openImageModal('images/modelos/mujer_blanca_clasica.jpg', 'Remera Clásica Mujer Blanca')">
+                            <img src="images/modelos/mujer_blanca_clasica.jpg" alt="Remera Clásica Mujer Blanca">
                         </div>
                     </div>
                 </div>
@@ -1486,17 +1544,17 @@
             <!-- Fila 3: Oversize Unisex -->
             <div style="display: flex; gap: 1rem;">
                 <div class="modelo-block" style="flex:1;">
-                    <h3 class="modelo-titulo">Remera Oversize Unisex Blanca</h3>
+                    <h3 class="modelo-titulo">Remera Oversize Unisex - Blanca</h3>
                     <div class="modelo-images">
-                        <div class="modelo-img-placeholder" onclick="openImageModal('images/modelos/unisex_blanca_oversize.jpeg', 'Remera Oversize Unisex Blanca')">
+                        <div class="modelo-img-placeholder" onclick="openImageModal('images/modelos/unisex_blanca_oversize.jpg', 'Remera Oversize Unisex Blanca')">
                             <img src="images/modelos/unisex_blanca_oversize.jpg" alt="Remera Oversize Unisex Blanca">
                         </div>
                     </div>
                 </div>
                 <div class="modelo-block" style="flex:1;">
-                    <h3 class="modelo-titulo">Remera Oversize Unisex Negra</h3>
+                    <h3 class="modelo-titulo">Remera Oversize Unisex - Negra</h3>
                     <div class="modelo-images">
-                        <div class="modelo-img-placeholder" onclick="openImageModal('images/modelos/unisex_negra_oversize.jpeg', 'Remera Oversize Unisex Negra')">
+                        <div class="modelo-img-placeholder" onclick="openImageModal('images/modelos/unisex_negra_oversize.jpg', 'Remera Oversize Unisex Negra')">
                             <img src="images/modelos/unisex_negra_oversize.jpg" alt="Remera Oversize Unisex Negra">
                         </div>
                     </div>
@@ -1696,7 +1754,66 @@
         </a>
     </section>
 
-    <!-- Footer Mejorado -->
+    <!-- ============ FAQ / INFO ============ -->
+    <section class="info-section" id="faq">
+        <h2 class="info-title rust">PREGUNTAS FRECUENTES</h2>
+        <p class="info-subtitle">Todo lo que necesitás saber antes de encargar</p>
+        <div class="faq-list">
+            <div class="faq-item bg-card">
+                <details>
+                    <summary>On Demand y tiempos</summary>
+                    <div class="faq-content">Trabajamos ON DEMAND (sin stock). Tu remera se produce a pedido: 4 a 7 días hábiles + despacho. Como es personalizada, revisá talle y color antes de confirmar.</div>
+                </details>
+            </div>
+            <div class="faq-item bg-card">
+                <details>
+                    <summary>Producto (tela y corte)</summary>
+                    <div class="faq-content">Tela: Algodón peinado 24/1 premium. Corte: Clásico (no slim fit) y Oversize Unisex.</div>
+                </details>
+            </div>
+            <div class="faq-item bg-card">
+                <details>
+                    <summary>Estampa DTG</summary>
+                    <div class="faq-content">Estampa DTG Premium (impresión directa sobre tela con tintas base agua). Alta definición, sin tacto plástico.</div>
+                </details>
+            </div>
+            <div class="faq-item bg-card">
+                <details>
+                    <summary>Cómo buscar</summary>
+                    <div class="faq-content">Usá la lupita y buscá: Rust, Peace, Vic, Mustaine o el nombre del álbum.</div>
+                </details>
+            </div>
+            <div class="faq-item bg-card">
+                <details>
+                    <summary>Cuidados</summary>
+                    <div class="faq-content">Lavar del revés, agua fría. No lavandina. Evitar secadora. No plancha directa sobre la estampa.</div>
+                </details>
+            </div>
+            <div class="faq-item bg-card">
+                <details>
+                    <summary>Envíos (Andreani + tracking)</summary>
+                    <div class="faq-content">Envío gratis a todo el país por Andreani. Te pasamos el tracking apenas despacha.</div>
+                </details>
+            </div>
+            <div class="faq-item bg-card">
+                <details>
+                    <summary>Medios de pago + personalizados</summary>
+                    <div class="faq-content">Transferencia o MercadoPago. ¿Querés tu diseño? Mandame la imagen en buena calidad y lo preparamos para DTG pro.</div>
+                    <!-- Actualización para incluir reconstrucción de diseños -->
+                    <div class="faq-content">¿Tenés una imagen vieja o de baja calidad? No hay problema.</div>
+                    <div class="faq-content">En Five Magics Designs reconstruimos diseños para impresión profesional.</div>
+                    <div class="faq-content">Puede ser:</div>
+                    <ul class="faq-content">
+                        <li>una foto de una remera vieja</li>
+                        <li>una imagen chica o pixelada</li>
+                        <li>una captura de pantalla</li>
+                    </ul>
+                    <div class="faq-content">Si el diseño se entiende, lo rehacemos para DTG premium.</div>
+                    <div class="faq-content">No exigimos archivos perfectos. Hacemos el trabajo fino nosotros.</div>
+                </details>
+            </div>
+        </div>
+    </section>
     <footer>
         <div class="footer-logo">FIVE <span>MAGICS</span></div>
 
@@ -1878,7 +1995,7 @@
                 desc: "El debut legendario de Megadeth. 7 mockups reales disponibles. Deslizá para ver todas las variantes."
             },
             { id: 2, category: "Album", year: "1986", name: "Peace Sells", tipoPrecio: "simple", img: "images/albums/Peace_sells/peace_sells_tapa.jpg", desc: "Vic Rattlehead frente a la ONU en llamas. Colores naranjas intensos." },
-            { id: 3, category: "Album", year: "1988", name: "So Far, So Good", tipoPrecio: "simple", img: "images/albums/SFSGSW/sfsgsw_tapa.jpg", variants: [
+            { id: 3, category: "Album", year: "1988", name: "So Far, So Good", tipoPrecio: "simple", img: "images/albums/SFSGSW/1-sfsgsw_tapa.jpg", variants: [
                 { img: "images/albums/SFSGSW/1-sfsgsw_tapa.jpg", name: "Tapa" },
                 { img: "images/albums/SFSGSW/2-sfsgsw_alternative.jpg", name: "Alternative" },
                 { img: "images/albums/SFSGSW/3-mary_jane.jpg", name: "Mary Jane" }
@@ -2699,6 +2816,84 @@
         // El contador se actualiza en renderFilteredProducts
     </script>
 
+<style>
+/* FAQ/INFO FMD */
+#faq {
+    margin-bottom: 2.5rem;
+}
+#faq .faq-list {
+    max-width: 700px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+}
+#faq .faq-item {
+    border-radius: 12px;
+    border: 1.5px solid var(--rust, #b86c1c);
+    background: var(--bg-card, #181818);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+    overflow: hidden;
+    transition: border-color 0.3s;
+}
+#faq .faq-item details {
+    padding: 0.7rem 1.2rem 0.7rem 1.2rem;
+    color: var(--text-muted, #bdbdbd);
+    font-size: 1.08rem;
+    cursor: pointer;
+    border: none;
+}
+#faq .faq-item summary {
+    font-weight: 600;
+    color: var(--rust, #b86c1c);
+    outline: none;
+    position: relative;
+    padding-right: 2rem;
+    list-style: none;
+    transition: color 0.2s;
+}
+#faq .faq-item summary::-webkit-details-marker {
+    display: none;
+}
+#faq .faq-item summary::after {
+    content: '+';
+    position: absolute;
+    right: 0.5rem;
+    top: 0;
+    font-size: 1.3em;
+    color: var(--rust, #b86c1c);
+    transition: transform 0.3s;
+}
+#faq .faq-item details[open] summary::after {
+    content: '−';
+    transform: rotate(180deg);
+}
+#faq .faq-content {
+    margin-top: 0.7rem;
+    color: var(--text-muted, #bdbdbd);
+    font-size: 1rem;
+    line-height: 1.6;
+    padding-bottom: 0.2rem;
+    animation: faqOpen 0.35s cubic-bezier(.4,1.6,.6,1) both;
+}
+@keyframes faqOpen {
+    0% { opacity: 0; transform: translateY(-10px); }
+    100% { opacity: 1; transform: none; }
+}
+@media (max-width: 600px) {
+    #faq .faq-list {
+        max-width: 98vw;
+        gap: 0.7rem;
+    }
+    #faq .faq-item details {
+        font-size: 0.98rem;
+        padding: 0.7rem 0.7rem 0.7rem 0.7rem;
+    }
+    #faq .faq-content {
+        font-size: 0.95rem;
+    }
+}
+</style>
 </body>
 
 </html>
