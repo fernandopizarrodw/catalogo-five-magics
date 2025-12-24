@@ -21,33 +21,53 @@
         rel="stylesheet">
 
     <style>
-                        /* Mejorar flechas del carrusel y ocultar en móvil */
-                        @media (max-width: 600px) {
-                            .carousel-arrow {
-                                display: none !important;
-                            }
-                        }
-                        .carousel-arrow {
-                            font-size: 0;
-                        }
-                        .carousel-arrow.left::after {
-                            content: '';
-                            display: block;
-                            width: 18px;
-                            height: 18px;
-                            mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="white" d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>') no-repeat center/contain;
-                            background: white;
-                            margin: auto;
-                        }
-                        .carousel-arrow.right::after {
-                            content: '';
-                            display: block;
-                            width: 18px;
-                            height: 18px;
-                            mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="white" d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z"/></svg>') no-repeat center/contain;
-                            background: white;
-                            margin: auto;
-                        }
+        /* Corrección para que el scroll se bloquee bien en móvil */
+        body.modal-open {
+            overflow: hidden !important;
+            position: fixed;
+            width: 100%;
+        }
+
+        /* Mejora en la imagen del zoom para que sea fluida */
+        #zoomImg {
+            transform-origin: 0 0; /* Clave para que el pinch zoom se sienta natural */
+            will-change: transform; /* Optimización de hardware */
+            transition: transform 0.1s linear; /* Suavidad en el movimiento */
+        }
+
+        /* Asegurar que el overlay de zoom capture todos los toques */
+        .zoom-overlay {
+            touch-action: none; /* Deshabilita el zoom nativo del navegador para controlar nosotros */
+            backdrop-filter: blur(5px); /* Toque premium FMD */
+        }
+
+        /* Mejorar flechas del carrusel y ocultar en móvil */
+        @media (max-width: 600px) {
+            .carousel-arrow {
+                display: none !important;
+            }
+        }
+        .carousel-arrow {
+            font-size: 0;
+        }
+        .carousel-arrow.left::after {
+            content: '';
+            display: block;
+            width: 18px;
+            height: 18px;
+            mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="white" d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>') no-repeat center/contain;
+            background: white;
+            margin: auto;
+        }
+        .carousel-arrow.right::after {
+            content: '';
+            display: block;
+            width: 18px;
+            height: 18px;
+            mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="white" d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z"/></svg>') no-repeat center/contain;
+            background: white;
+            margin: auto;
+        }
                 /* Carrusel de variantes en modal */
                 .carousel {
                     display: flex;
