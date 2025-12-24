@@ -2295,6 +2295,11 @@
     }
 }
 </style>
+/* Evita el scroll en iPhone al abrir el modal */
+body.modal-open {
+    touch-action: none;
+    -webkit-overflow-scrolling: none;
+}
 </body>
 
 </html>
