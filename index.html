@@ -96,8 +96,8 @@
             --bg-card: #0e0e0e;
             --bg-modal: #0b0b0b;
             /* Rust & Neon */
-            --rust: #e26843;
-            --rust-glow: #fc7b5f;
+            --rust: #df210c;
+            --rust-glow: #ffffff;
             --magic-green: #39ff14;
             /* Texto */
             --text: #e8e8e8;
@@ -159,7 +159,7 @@
         }
 
         .logo span {
-            color: #39ff14; /* Verde esmeralda */
+            color: #37ff1493; /* Verde esmeralda */
         }
 
         .btn-wa-header {
@@ -207,9 +207,9 @@
         .hero-tagline {
             font-family: var(--font-title);
             font-size: clamp(1.3rem, 6vw, 1.8rem);
-            color: var(--rust);
+            color: #ffe44e !important;
             text-transform: uppercase;
-            text-shadow: 0 3px 12px rgba(133, 44, 12, 0.5);
+            text-shadow: 0 3px 12px rgba(122, 122, 122, 0.637);
             line-height: 1.1;
             font-weight: 800;
             margin-bottom: 20px;
@@ -232,7 +232,7 @@
         }
 
         .hero h1 span {
-            color: var(--rust);
+            color: #ffc04c !important;
         }
 
         .hero p {
@@ -395,12 +395,19 @@
             position: absolute;
             bottom: 70px;
             left: 8px;
-            background: rgba(0, 0, 0, 0.8);
-            color: var(--text);
-            font-size: 0.7rem;
-            padding: 4px 8px;
-            border-radius: 3px;
-            font-weight: 500;
+            background: var(--rust);
+            color: #fff;
+            font-size: 1rem;
+            padding: 6px 14px;
+            border-radius: 6px;
+            font-weight: 700;
+            box-shadow: 0 2px 8px #0006;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            z-index: 2;
+            letter-spacing: 0.5px;
+            transition: background 0.2s, color 0.2s;
         }
 
         /* === MODAL === */
@@ -1385,7 +1392,7 @@
         <p class="hero-welcome">BIENVENIDOS A LA CASA DE FIVE MAGICS DESIGNS</p>
         <h2 class="hero-tagline">Vestite de Gala para la Despedida</h2>
         <div class="hero-divider"></div>
-        <h1>CATÁLOGO <span>2025</span></h1>
+        <h1>CATÁLOGO <span>2026</span></h1>
         <p>Remeras de Megadeth exclusivas. Impresión DTG premium. Algodón 24/1.</p>
     </section>
 
@@ -1975,26 +1982,32 @@
 
     // === BASE DE DATOS COMPLETA (TODOS TUS PRODUCTOS) ===
     const db = [
-        { id: 1, category: "Album", year: "1985", name: "Killing Is My Business", tipoPrecio: "simple", img: "images/albums/Killing_Is_my_bussines/kimb_1985_original_.jpg", variants: [{ img: "images/albums/Killing_Is_my_bussines/kimb_1985_original_.jpg", name: "KIMB_1985_ORIGINAL" }, { img: "images/albums/Killing_Is_my_bussines/kimb_2012.jpg", name: "KIMB 2012" }, { img: "images/albums/Killing_Is_my_bussines/kimb_art_2012.jpg", name: "KIMB_ART_2012" }, { img: "images/albums/Killing_Is_my_bussines/kimb_gris_rojo.jpg", name: "KIMB_GRIS_ROJO" }, { img: "images/albums/Killing_Is_my_bussines/kimb_realistic_1985.jpg", name: "KIMB_REALISTIC_1985" }, { img: "images/albums/Killing_Is_my_bussines/kimb_realistic_2012.jpg", name: "KIMB_REALISTIC_2012" }, { img: "images/albums/Killing_Is_my_bussines/kimb_retro.jpg", name: "KIMB_RETRO" }], desc: "El debut legendario de Megadeth. 7 mockups reales disponibles." },
-        { id: 2, category: "Album", year: "1986", name: "Peace Sells", tipoPrecio: "simple", img: "images/albums/Peace_sells/peace_sells_tapa.jpg", desc: "Vic Rattlehead frente a la ONU en llamas. Colores naranjas intensos." },
-        { id: 3, category: "Album", year: "1988", name: "So Far, So Good", tipoPrecio: "simple", img: "images/albums/SFSGSW/1-sfsgsw_tapa.jpg", variants: [{ img: "images/albums/SFSGSW/1-sfsgsw_tapa.jpg", name: "Tapa" }, { img: "images/albums/SFSGSW/2-sfsgsw_alternative.jpg", name: "Alternative" }, { img: "images/albums/SFSGSW/3-mary_jane.jpg", name: "Mary Jane" }], desc: "Vic bajo la luna llena. Estética oscura y rebelde." },
-        { id: 4, category: "Album", year: "1990", name: "Rust in Peace", tipoPrecio: "simple", img: "images/albums/Rust_in_peace/rust_in_peace.jpg", desc: "La joya del metal técnico. Vic en el Hangar 18." },
-        { id: 5, category: "Album", year: "1992", name: "Countdown to Extinction", tipoPrecio: "simple", img: "images/albums/Countdown_to_extinction/CTE.jpg", desc: "Arte conceptual del álbum más exitoso. Tonos sepia." },
-        { id: 6, category: "Album", year: "1994", name: "Youthanasia", tipoPrecio: "simple", img: "images/albums/Youthanasia/youthanasia.jpg", variants: [{ img: "images/albums/Youthanasia/youthanasia.jpg", name: "Youthanasia" }, { img: "images/albums/Youthanasia/vic_father.jpg", name: "Vic Father" }], desc: "Diseño surrealista y melancólico. Full color HD." },
-        { id: 8, category: "Album", year: "1997", name: "Cryptic Writings", tipoPrecio: "simple", img: "images/albums/Cryptic_Writings/cryptic_writings_tapa.jpg", desc: "El símbolo del caos estilizado. Minimalista." },
-        { id: 9, category: "Album", year: "1999", name: "Risk", tipoPrecio: "simple", img: "images/albums/Risk/risk_tapa.jpg", desc: "La portada del gato en la trampera. Pieza de colección." },
-        { id: 10, category: "Album", year: "2001", name: "The World Needs a Hero", tipoPrecio: "simple", img: "images/albums/TWNAH/the_worlds_needs_a_hero.jpg", desc: "Vic saliendo del pecho del alien. Gore y sci-fi." },
-        { id: 11, category: "Album", year: "2004", name: "The System Has Failed", tipoPrecio: "simple", img: "images/albums/TSHF/the_system_has_failed.jpg", desc: "Vic vendiendo sentencias. Arte político." },
-        { id: 12, category: "Album", year: "2007", name: "United Abominations", tipoPrecio: "simple", img: "images/albums/United_Abominations/united_abominations.jpg", desc: "El ángel de la ONU en llamas. Explosivo." },
-        { id: 13, category: "Album", year: "2009", name: "Endgame", tipoPrecio: "simple", img: "images/albums/Endgame/endgame.jpg", desc: "Concepto distópico de vigilancia. B&W puro." },
-        { id: 14, category: "Album", year: "2011", name: "TH1RT3EN", tipoPrecio: "simple", img: "images/albums/13/13.jpg", desc: "Vic de espaldas con las velas. Misterioso." },
-        { id: 15, category: "Album", year: "2013", name: "Super Collider", tipoPrecio: "simple", img: "images/albums/Super_Collider/super_collider.jpg", desc: "El colisionador de partículas. Geométrico." },
-        { id: 7, category: "Album", year: "2016", name: "Dystopia", tipoPrecio: "simple", img: "images/albums/Dystopia/dystopia.jpg", desc: "Vic futurista con katana. Estética cyberpunk." },
-        { id: 16, category: "Album", year: "2022", name: "The Sick, the Dying...And the Dead!", tipoPrecio: "simple", img: "images/albums/The_sick/the_sick_the_dying_and_the_dead.jpg", desc: "Arte medieval de la peste. Full color." },
-        { id: 17, category: "Album", year: "2026", name: "Megadeth 2026", tipoPrecio: "simple", img: "images/albums/Megadeth/vic_llamas_negro.jpg", variants: [{ img: "images/albums/Megadeth/vic_llamas_negro.jpg", name: "Vic Llamas Negro" }, { img: "images/albums/Megadeth/vic_digital.jpg", name: "Vic Digital" }, { img: "images/albums/Megadeth/i_dont_care.jpg", name: "I Don't Care" }, { img: "images/albums/Megadeth/tipping_point.jpg", name: "Tipping Point" }, { img: "images/albums/Megadeth/let_there_be_shred.jpg", name: "Let There Be Shred" }, { img: "images/albums/Megadeth/let_there_be_shred-realista.jpg", name: "Let There Be Shred Realista" }, { img: "images/albums/Megadeth/fmd_edition_shred.jpg", name: "FMD Edition Shred" }, { img: "images/albums/Megadeth/vic_pelea_v1.jpg", name: "Vic Pelea V1" }, { img: "images/albums/Megadeth/vic_pelea_v2.jpg", name: "Vic Pelea V2" }], desc: "Pre-order del futuro diseño." },
+        { id: 1, category: "Album", year: "1985", name: "Killing Is My Business", tipoPrecio: "simple", img: "images/albums/Killing_Is_my_bussines/kimb_1985_original_.jpg", variants: [{ img: "images/albums/Killing_Is_my_bussines/kimb_1985_original_.jpg", name: "KIMB_1985_ORIGINAL" }, { img: "images/albums/Killing_Is_my_bussines/kimb_2012.jpg", name: "KIMB 2012" }, { img: "images/albums/Killing_Is_my_bussines/kimb_art_2012.jpg", name: "KIMB_ART_2012" }, { img: "images/albums/Killing_Is_my_bussines/kimb_gris_rojo.jpg", name: "KIMB_GRIS_ROJO" }, { img: "images/albums/Killing_Is_my_bussines/kimb_realistic_1985.jpg", name: "KIMB_REALISTIC_1985" }, { img: "images/albums/Killing_Is_my_bussines/kimb_realistic_2012.jpg", name: "KIMB_REALISTIC_2012" }, { img: "images/albums/Killing_Is_my_bussines/kimb_retro.jpg", name: "KIMB_RETRO" }], desc: "Es el debut crudo y frenético de 1985 que definió el thrash metal técnico mediante la velocidad extrema y la sed de venganza de Dave Mustaine en 7 diseños." },
+        { id: 2, category: "Album", year: "1986", name: "Peace Sells", tipoPrecio: "simple", img: "images/albums/Peace_sells/peace_sells_tapa.jpg", desc: "Icónica crítica sociopolítica plasmada en el sarcasmo de Vic Rattlehead frente a la ONU, envuelta en puro virtuosismo thrash." },
+        { id: 3, category: "Album", year: "1988", name: "So Far, So Good", tipoPrecio: "simple", img: "images/albums/SFSGSW/1-sfsgsw_tapa.jpg", variants: [{ img: "images/albums/SFSGSW/1-sfsgsw_tapa.jpg", name: "Tapa" }, { img: "images/albums/SFSGSW/2-sfsgsw_alternative.jpg", name: "Alternative" }, { img: "images/albums/SFSGSW/3-mary_jane.jpg", name: "Mary Jane" }], desc: "Un contraataque de thrash visceral y rebelde con Vic Rattlehead armado para la guerra en un paisaje postapocalíptico." },
+        { id: 4, category: "Album", year: "1990", name: "Rust in Peace", tipoPrecio: "simple", img: "images/albums/Rust_in_peace/rust_in_peace.jpg", desc: "Obra maestra de precisión matemática y alienígenas en el Área 51 que elevó el thrash metal a la perfección técnica." },
+        { id: 5, category: "Album", year: "1992", name: "Countdown to Extinction", tipoPrecio: "simple", img: "images/albums/Countdown_to_extinction/CTE.jpg", desc: "Groove metálico y éxito comercial representados por una impactante crítica a la extinción animal y la codicia humana." },
+        { id: 6, category: "Album", year: "1994", name: "Youthanasia", tipoPrecio: "simple", img: "images/albums/Youthanasia/youthanasia.jpg", variants: [{ img: "images/albums/Youthanasia/youthanasia.jpg", name: "Youthanasia" }, { img: "images/albums/Youthanasia/vic_father.jpg", name: "Vic Father" }], desc: "Heavy metal melódico y oscuro con una portada surrealista que denuncia el sacrificio del futuro de las nuevas generaciones." },
+        { id: 8, category: "Album", year: "1997", name: "Cryptic Writings", tipoPrecio: "simple", img: "images/albums/Cryptic_Writings/cryptic_writings_tapa.jpg", desc: "Melodía accesible y experimentación radial envueltas en un arte místico de simbología críptica y diseño minimalista." },
+        { id: 9, category: "Album", year: "1999", name: "Risk", tipoPrecio: "simple", img: "images/albums/Risk/risk_tapa.jpg", desc: "Exploración de hard rock melódico y comercial bajo el simbolismo de una ratonera que representa el riesgo artístico asumido." },
+        { id: 10, category: "Album", year: "2001", name: "The World Needs a Hero", tipoPrecio: "simple", img: "images/albums/TWNAH/the_worlds_needs_a_hero.jpg", desc: "Vic saliendo del pecho del alien. Gore y sci-fi. Un retorno al sonido pesado y las estructuras tradicionales del thrash metal, buscando recuperar la agresividad perdida en sus discos anteriores." },
+        { id: 11, category: "Album", year: "2004", name: "The System Has Failed", tipoPrecio: "simple", img: "images/albums/TSHF/the_system_has_failed.jpg", desc: "Vic vendiendo sentencias. Arte político. Un regreso triunfal al thrash técnico con una portada que denuncia la corrupción política en la Casa Blanca." },
+        { id: 12, category: "Album", year: "2007", name: "United Abominations", tipoPrecio: "simple", img: "images/albums/United_Abominations/united_abominations.jpg", desc: "Crítica feroz a la ONU y agresividad moderna con un rediseño cinematográfico de Vic Rattlehead." },
+        { id: 13, category: "Album", year: "2009", name: "Endgame", tipoPrecio: "simple", img: "images/albums/Endgame/endgame.jpg", desc: "Velocidad técnica extrema en una atmósfera opresiva que retrata el control totalitario y la vigilancia masiva." },
+        { id: 14, category: "Album", year: "2011", name: "TH1RT3EN", tipoPrecio: "simple", img: "images/albums/13/13.jpg", desc: "Un repaso oscuro por la herencia sonora de la banda bajo la mística numérica y la presencia fantasmal de su mascota." },
+        { id: 15, category: "Album", year: "2013", name: "Super Collider", tipoPrecio: "simple", img: "images/albums/Super_Collider/super_collider.jpg", desc: "Hard rock pesado y riffs directos inspirados en la ciencia del Gran Colisionador de Hadrones." },
+        { id: 7, category: "Album", year: "2016", name: "Dystopia", tipoPrecio: "simple", img: "images/albums/Dystopia/dystopia.jpg", desc: "Resurrección del thrash más crudo y futurista con un Vic cibernético en un mundo postapocalíptico desolado." },
+        { id: 16, category: "Album", year: "2022", name: "The Sick, the Dying...And the Dead!", tipoPrecio: "simple", img: "images/albums/The_sick/the_sick_the_dying_and_the_dead.jpg", desc: "Virtuosismo épico y relatos de pestilencia histórica con un Vic Rattlehead convertido en un guerrero medieval implacable." },
+        { id: 17, category: "Album", year: "2026", name: "Megadeth 2026", tipoPrecio: "simple", img: "images/albums/Megadeth/vic_llamas_negro.jpg", variants: [{ img: "images/albums/Megadeth/vic_llamas_negro.jpg", name: "Vic Llamas Negro" }, { img: "images/albums/Megadeth/vic_digital.jpg", name: "Vic Digital" }, { img: "images/albums/Megadeth/i_dont_care.jpg", name: "I Don't Care" }, { img: "images/albums/Megadeth/tipping_point.jpg", name: "Tipping Point" }, { img: "images/albums/Megadeth/let_there_be_shred.jpg", name: "Let There Be Shred" }, { img: "images/albums/Megadeth/let_there_be_shred-realista.jpg", name: "Let There Be Shred Realista" }, { img: "images/albums/Megadeth/fmd_edition_shred.jpg", name: "FMD Edition Shred" }, { img: "images/albums/Megadeth/vic_pelea_v1.jpg", name: "Vic Pelea V1" }, { img: "images/albums/Megadeth/vic_pelea_v2.jpg", name: "Vic Pelea V2" }], desc: "Un diseño limpio e impactante que captura a Vic Rattlehead consumiéndose en llamas con un traje blanco, listo para el final." },
+       
+       
         { id: 235, category: "Singles", year: "2025", name: "Vic Nuclear", tipoPrecio: "simple", img: "images/singles/vic_nuclear.jpg", desc: "Diseño especial: Vic Nuclear. Rareza exclusiva Five Magics Designs." },
+       
+       
         { id: 28, category: "Musician", year: "Leyenda", name: "Dave Mustaine", tipoPrecio: "simple", img: "images/musicians/Dave_Mustaine/Dave_Mustaine_COLOR_90s.jpg", variants: [{ img: "images/musicians/Dave_Mustaine/Dave_Mustaine_COLOR_90s.jpg", name: "COLOR 90s" }, { img: "images/musicians/Dave_Mustaine/Dave_Mustaine_BN_90s.jpg", name: "BN 90s" }], desc: "El Colorado con su Flying V. El líder." },
         { id: 29, category: "Musician", year: "Leyenda", name: "Marty Friedman", tipoPrecio: "simple", img: "images/musicians/Marty_Friedman/Marty_1990_cte.jpg", variants: [{ img: "images/musicians/Marty_Friedman/Marty_1990_cte.jpg", name: "1990 CTE" }, { img: "images/musicians/Marty_Friedman/Marty_1990_RIP.jpg", name: "1990 RIP" }, { img: "images/musicians/Marty_Friedman/Marty_1992_FIRMA.jpg", name: "1992 FIRMA" }], desc: "El guitarrista exótico. Estilo japonés." },
+       
+       
         { id: 60, category: "Personalizados", year: "2025", name: "AC/DC Europe 84", tipoPrecio: "simple", img: "images/personalizado/ac_dc_europe_84.jpg", desc: "Mockup AC/DC Europe 84." },
         { id: 61, category: "Personalizados", year: "2025", name: "AC/DC Europe 84 Remaster", tipoPrecio: "simple", img: "images/personalizado/ac_dc_europe_84_remaster.jpg", desc: "Mockup AC/DC Europe 84 Remaster." },
         { id: 49, category: "Personalizados", year: "2025", name: "Bifrost Argentina", tipoPrecio: "simple", img: "images/personalizado/bifrost_argentina.jpg", desc: "Mockup Bifrost Argentina." },
@@ -2014,10 +2027,13 @@
         { id: 53, category: "Personalizados", year: "2025", name: "Wintersun", tipoPrecio: "simple", img: "images/personalizado/wintersun.jpg", desc: "Mockup Wintersun." },
         { id: 59, category: "Personalizados", year: "2025", name: "Primal Fear", tipoPrecio: "simple", img: "images/personalizado/primal_fear.jpg", desc: "Mockup Primal Fear." },
         { id: 43, category: "Personalizados", year: "2025", name: "Symphony X", tipoPrecio: "simple", img: "images/personalizado/symphony_x.jpg", desc: "Mockup Symphony X." },
+       
+       
         { id: 42, category: "Tour", year: "2026", name: "Vic Tour 2026", tipoPrecio: "doble", img: "images/tours/Tour_2026/vic_tour_2026.jpg", desc: "Mockup especial: Vic Tour 2026. Edición exclusiva." },
         { id: 39, category: "Tour", year: "2025", name: "VIC GAUCHO ARGENTINO", tipoPrecio: "doble", img: "images/tours/Vic_Gaucho_Argentino/vic_gaucho_original.jpg", variants: [{ img: "images/tours/Vic_Gaucho_Argentino/vic_gaucho_original.jpg", name: "Original" }, { img: "images/tours/Vic_Gaucho_Argentino/vic_gaucho_realista.jpg", name: "Realista" }, { img: "images/tours/Vic_Gaucho_Argentino/vic_gaucho_caballo.jpg", name: "Caballo" }], desc: "Serie especial VIC GAUCHO. Frente + variantes." },
         { id: 40, category: "Tour", year: "2025", name: "Tour Argentina", tipoPrecio: "doble", img: "images/tours/Tour_argentina/poster_tour_argentina.jpg", variants: [{ img: "images/tours/Tour_argentina/poster_tour_argentina.jpg", name: "Poster" }, { img: "images/tours/Tour_argentina/vic_bandera_logo_blanco.jpg", name: "Vic Bandera Blanco" }, { img: "images/tours/Tour_argentina/vic_bandera_logo_dorado.jpg", name: "Vic Bandera Dorado" }, { img: "images/tours/Tour_argentina/vic_edición_fmd.jpg", name: "Edición FMD" }], desc: "Tour Argentina: edición especial con 4 variantes exclusivas." }
     ];
+
 
     // === ELEMENTOS DOM ===
     const productsGrid = document.getElementById('productsGrid');
@@ -2029,6 +2045,8 @@
     const searchClear = document.getElementById('searchClear');
     const zoomOverlay = document.getElementById('zoomOverlay');
     const zoomImg = document.getElementById('zoomImg');
+    const viewGridBtn = document.getElementById('viewGrid');
+    const viewGalleryBtn = document.getElementById('viewGallery');
 
     let currentProduct = null;
     let currentSlide = 0;
@@ -2036,7 +2054,28 @@
     let isScrolling = false;
     let scrollTimeout;
 
-    // === LÓGICA DE MODAL (SIN TRABAS) ===
+    // === LÓGICA DE VISTA (GRID/GALERÍA) ===
+    let currentView = 'grid'; // 'grid' o 'gallery'
+
+    function setView(view) {
+        currentView = view;
+        if (view === 'gallery') {
+            productsGrid.classList.add('gallery-view');
+            viewGalleryBtn.classList.add('active');
+            viewGridBtn.classList.remove('active');
+        } else {
+            productsGrid.classList.remove('gallery-view');
+            viewGridBtn.classList.add('active');
+            viewGalleryBtn.classList.remove('active');
+        }
+    }
+
+    viewGridBtn.addEventListener('click', function() {
+        setView('grid');
+    });
+    viewGalleryBtn.addEventListener('click', function() {
+        setView('gallery');
+    });
     function getImages(p) {
         return (p.variants && p.variants.length > 0) ? p.variants : [{ img: p.img, name: '' }];
     }
@@ -2152,7 +2191,7 @@
         productsGrid.innerHTML = filtered.map(p => {
             const hasVariants = p.variants && p.variants.length > 1;
             return `<div class="product-card" onclick="openModal(${p.id})">
-                ${hasVariants ? `<span class="variants-badge">${p.variants.length} diseños</span>` : ''}
+                ${hasVariants ? `<span class="variants-badge">${p.variants.length} diseños <span style='font-size:0.85em;font-weight:400;margin-left:6px;'>· Ver variantes ➔</span></span>` : ''}
                 <img src="${p.img}" class="product-img" loading="lazy">
                 <div class="product-info">
                     <div class="product-name">${p.name}</div>
@@ -2161,6 +2200,8 @@
                 </div>
             </div>`;
         }).join('');
+        // Mantener la vista seleccionada después de renderizar
+        setView(currentView);
     }
 
     searchInput.addEventListener('input', (e) => {
@@ -2177,6 +2218,17 @@
             e.target.classList.add('active');
             currentCategory = e.target.dataset.cat;
             filterProducts();
+            // Scroll suave a la sección de productos, alineado al tope real (descontando el header)
+            const productsSection = document.querySelector('.products-section');
+            const header = document.querySelector('header');
+            if (productsSection) {
+                const sectionTop = productsSection.getBoundingClientRect().top + window.pageYOffset;
+                const headerHeight = header ? header.offsetHeight : 0;
+                window.scrollTo({
+                    top: sectionTop - headerHeight - 9, // 9px extra para margen visual
+                    behavior: 'smooth'
+                });
+            }
         }
     });
 
@@ -2215,6 +2267,8 @@
     window.addEventListener('popstate', () => { if(modal.classList.contains('active')) closeModal(); });
     
     filterProducts();
+    // Inicializar la vista por defecto
+    setView('grid');
 </script>
 
 <style>
