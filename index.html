@@ -2128,43 +2128,11 @@
         carousel.scrollLeft = 0;
         updateModalInfo();
         modal.classList.add('active');
-
-        // Indicador de 'scroll' dentro del modal: se muestra solo si el contenido es desplazable
-        try {
-            const modalBody = modal.querySelector('.modal-body');
-            if (modalBody && modalBody.scrollHeight > modalBody.clientHeight) {
-                const existing = document.querySelector('.scroll-hint');
-                if (existing) existing.remove();
-
-                const hint = document.createElement('div');
-                hint.className = 'scroll-hint';
-                hint.setAttribute('aria-hidden', 'true');
-                hint.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg>';
-                document.body.appendChild(hint);
-
-                // Ocultar al primer scroll dentro del modal (se elimina automáticamente) o después de 3000ms
-                const hide = () => {
-                    if (!hint) return;
-                    hint.classList.add('hide');
-                    setTimeout(() => { if (hint && hint.parentNode) hint.parentNode.removeChild(hint); }, 260);
-                };
-
-                const onModalScroll = () => hide();
-                modalBody.addEventListener('scroll', onModalScroll, { passive: true, once: true });
-
-                setTimeout(() => { hide(); }, 3000);
-            }
-        } catch (e) { /* no bloquear si algo falla */ }
     }
 
     function closeModal() {
         if (!modal.classList.contains('active')) return;
         modal.classList.remove('active');
-        // Eliminar posible indicador de scroll
-        try {
-            const existing = document.querySelector('.scroll-hint');
-            if (existing) existing.remove();
-        } catch (e) {}
         document.body.style.removeProperty('overflow');
         document.body.style.removeProperty('position');
         document.body.style.removeProperty('top');
