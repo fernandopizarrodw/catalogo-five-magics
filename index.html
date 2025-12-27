@@ -2395,6 +2395,8 @@
         if(!modal || !modalBody) return;
         let touchStartY = 0;
         let dragging = false;
+        let scrollAnim = null;
+        let scrollTarget = null;
 
         modal.addEventListener('touchstart', (e) => {
             const tag = e.target.tagName;
@@ -2403,18 +2405,44 @@
             dragging = true;
         }, { passive: true });
 
+        function scheduleSmoothScroll(delta){
+            if (scrollTarget == null) scrollTarget = modalBody.scrollTop;
+            scrollTarget += delta;
+            if (!scrollAnim) {
+                function step(){
+                    const current = modalBody.scrollTop;
+                    const dist = scrollTarget - current;
+                    const stepAmount = dist * 0.22; // suavizado (0-1)
+                    if (Math.abs(dist) > 0.6){
+                        modalBody.scrollTop = current + stepAmount;
+                        scrollAnim = requestAnimationFrame(step);
+                    } else {
+                        modalBody.scrollTop = scrollTarget;
+                        scrollTarget = null;
+                        scrollAnim = null;
+                    }
+                }
+                scrollAnim = requestAnimationFrame(step);
+            }
+        }
+
         modal.addEventListener('touchmove', (e) => {
             if(!dragging) return;
             const currentY = e.touches[0].clientY;
             const delta = touchStartY - currentY;
-            if(Math.abs(delta) > 2){
-                modalBody.scrollTop += delta;
+            // sensibilidad mínima pequeña para detectar intención
+            if(Math.abs(delta) > 1){
                 touchStartY = currentY;
                 e.preventDefault();
+                // invertir delta para que el movimiento del dedo coincida con scroll
+                scheduleSmoothScroll(delta);
             }
         }, { passive: false });
 
-        modal.addEventListener('touchend', () => { dragging = false; });
+        modal.addEventListener('touchend', () => {
+            dragging = false;
+            if(scrollAnim){ cancelAnimationFrame(scrollAnim); scrollAnim = null; scrollTarget = null; }
+        });
     })();
 
     filterProducts();
