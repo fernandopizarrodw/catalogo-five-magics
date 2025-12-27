@@ -273,6 +273,23 @@
             border-bottom: 1px solid #1a1a1a;
         }
 
+        /* Mobile: permitir que las categorías hagan wrap y reducir paddings para mostrar más items */
+        @media (max-width: 600px) {
+            .category-nav {
+                flex-wrap: wrap;
+                gap: 6px;
+                padding: 8px 10px;
+                align-items: center;
+                /* dejar la navegación visualmente compacta */
+            }
+            .category-nav .cat-btn {
+                padding: 6px 10px;
+                font-size: 0.78rem;
+                border-radius: 14px;
+                min-width: auto;
+            }
+        }
+
         .category-nav::-webkit-scrollbar {
             display: none;
         }
