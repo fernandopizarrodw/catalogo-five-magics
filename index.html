@@ -429,9 +429,10 @@
             opacity: 0;
             transition: opacity 0.25s;
             overflow: hidden;
-            touch-action: none; 
-            -webkit-overflow-scrolling: none; /* Evitar desplazamientos no deseados */
-            overscroll-behavior: none; /* Evitar comportamiento de sobre desplazamiento */
+            /* Permitir interacción táctil dentro del modal (scroll en .modal-body) */
+            touch-action: auto;
+            -webkit-overflow-scrolling: touch; /* Mejor experiencia de scroll en iOS */
+            overscroll-behavior: contain; /* Evita que el body haga bounce pero permite scroll interno */
         }
 
         .modal-overlay.active {
@@ -476,6 +477,8 @@
             flex: 1;
             overflow-y: auto;
             -webkit-overflow-scrolling: touch;
+            touch-action: pan-y; /* Permite arrastrar verticalmente dentro del modal */
+            -ms-touch-action: pan-y;
         }
 
         /* Banner promocional discreto y premium */
