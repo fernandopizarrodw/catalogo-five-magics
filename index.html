@@ -2388,6 +2388,35 @@
     zoomOverlay.onclick = (e) => { if(e.target.id === 'zoomContainer' || e.target === zoomOverlay) closeZoom(); };
     window.addEventListener('popstate', () => { if(modal.classList.contains('active')) closeModal(); });
     
+    // Mejor UX táctil: permitir que arrastrar desde cualquier parte del modal (header/overlay)
+    // haga scroll del contenido `.modal-body` sin requerir iniciar el gesto exactamente sobre él.
+    (function enableModalDragScroll(){
+        const modalBody = modal.querySelector('.modal-body');
+        if(!modal || !modalBody) return;
+        let touchStartY = 0;
+        let dragging = false;
+
+        modal.addEventListener('touchstart', (e) => {
+            const tag = e.target.tagName;
+            if(['BUTTON','A','INPUT','SELECT','TEXTAREA','LABEL'].includes(tag)) { dragging = false; return; }
+            touchStartY = e.touches[0].clientY;
+            dragging = true;
+        }, { passive: true });
+
+        modal.addEventListener('touchmove', (e) => {
+            if(!dragging) return;
+            const currentY = e.touches[0].clientY;
+            const delta = touchStartY - currentY;
+            if(Math.abs(delta) > 2){
+                modalBody.scrollTop += delta;
+                touchStartY = currentY;
+                e.preventDefault();
+            }
+        }, { passive: false });
+
+        modal.addEventListener('touchend', () => { dragging = false; });
+    })();
+
     filterProducts();
     // Inicializar la vista por defecto
     setView('grid');
