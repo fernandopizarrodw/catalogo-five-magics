@@ -21,12 +21,16 @@
     <meta name="twitter:image" content="https://i.imgur.com/F1eHmEK.jpg">
 
     <!-- Favicon: símbolo nuclear (temporal) -->
-    <link rel="icon" type="image/png" href="images/favicon/Nuclear_symbol.svg.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/Nuclear_symbol.svg.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/Nuclear_symbol.svg.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="images/favicon/Nuclear_symbol.svg.png">
-    <link rel="icon" type="image/png" sizes="512x512" href="images/favicon/Nuclear_symbol.svg.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/Nuclear_symbol.svg.png">
+    <!-- Favicon: logo de la marca -->
+    <link rel="icon" type="image/png" href="images/logo/MARCA DE AGUA.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/logo/MARCA DE AGUA.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/logo/MARCA DE AGUA.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="images/logo/MARCA DE AGUA.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="images/logo/MARCA DE AGUA.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/logo/MARCA DE AGUA.png">
+    <!-- Fallbacks para compatibilidad del favicon -->
+    <link rel="shortcut icon" href="images/logo/MARCA DE AGUA.png" type="image/png">
+    <link rel="icon" href="images/logo/MARCA DE AGUA.png" sizes="any">
     <link rel="manifest" href="/site.webmanifest">
     <!-- Usando el símbolo nuclear localmente; reemplaza por PNG/ICO optimizados si quieres mejorar soporte. -->
 
@@ -740,6 +744,20 @@
         /* Botón secundario para pedir doble estampa */
         .btn-doble { border-color: rgba(57,255,20,0.12); color: var(--magic-green); background: #0f1a0f; }
         .btn-doble:hover { background: rgba(57,255,20,0.03); }
+
+        /* Thumbs de dorsos */
+        .thumb-dorso {
+            width:56px;
+            height:80px;
+            object-fit:cover;
+            border-radius:6px;
+            border:1px solid rgba(255,255,255,0.04);
+            cursor:pointer;
+            transition: box-shadow 0.18s, transform 0.12s;
+        }
+        .thumb-dorso.selected { outline: 2px solid var(--rust); box-shadow: 0 8px 20px rgba(223,33,12,0.12); transform: translateY(-2px); }
+        #backsRow { display:flex; gap:8px; overflow-x:auto; padding-bottom:6px; -webkit-overflow-scrolling:touch; scroll-snap-type: x mandatory; }
+        #backsRow .thumb-dorso { flex: 0 0 auto; scroll-snap-align: center; }
 
 
         /* Specs */
@@ -2087,6 +2105,8 @@
                                 <div class="chip" data-val="Tour/Fecha" onclick="toggleChip(this)">Tour/Fecha</div>
                                 <div class="chip" data-val="Ícono/símbolo" onclick="toggleChip(this)">Ícono/símbolo</div>
                             </div>
+                            <!-- Ejemplos de dorsos (desde currentProduct.backs) -->
+                            <div id="backsRow" style="display:flex;gap:8px;margin-top:10px;align-items:center;"></div>
                         </div>
                     </div>
 
@@ -2168,6 +2188,10 @@
 
     // Estado temporal para chips seleccionados (solo durante modal abierto)
     let selectedDorsoChips = new Set();
+    // Estado temporal para dorsos seleccionados (backs)
+    let selectedBacks = new Set();
+
+    // Nota: dorsos deben estar asignados por producto en `db[*].backs`.
 
     function toggleChip(el){
         try{
@@ -2192,6 +2216,9 @@
         if(selectedDorsoChips.size){
             msg += `. Ideas: ${Array.from(selectedDorsoChips).join(', ')}`;
         }
+        if(selectedBacks.size){
+            msg += `. Ejemplo de dorso: ${Array.from(selectedBacks).join(', ')}`;
+        }
         return msg;
     }
 
@@ -2200,6 +2227,32 @@
         if(!btn) return;
         const text = buildDobleMessage();
         btn.href = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(text)}`;
+    }
+
+    function renderBackExamples(){
+        const row = document.getElementById('backsRow');
+        if(!row) return;
+        const list = (currentProduct && currentProduct.backs && currentProduct.backs.length) ? currentProduct.backs : [];
+        if(!list || !list.length){ row.innerHTML = ''; return; }
+        row.innerHTML = list.slice(0,6).map((p, i)=>{
+            const src = p.img || p;
+            let name = p.name || src.split('/').pop();
+            name = name.replace(/[-_]/g,' ').replace(/\.jpg|\.png/i,'');
+            return `<img src="${src}" class="thumb-dorso" data-name="${name}" data-src="${src}" alt="dorso-${i}">`;
+        }).join('');
+        row.querySelectorAll('.thumb-dorso').forEach(el=>{
+            el.onclick = function(){
+                const name = this.dataset.name || this.dataset.src;
+                if(selectedBacks.has(name)){
+                    selectedBacks.delete(name);
+                    this.classList.remove('selected');
+                } else {
+                    selectedBacks.add(name);
+                    this.classList.add('selected');
+                }
+                updateDobleWaLink();
+            };
+        });
     }
 
     // === BASE DE DATOS COMPLETA (TODOS TUS PRODUCTOS) ===
@@ -2228,7 +2281,7 @@
        
         { id: 28, category: "Musician", year: "Leyenda", name: "Dave Mustaine", tipoPrecio: "simple", img: "images/musicians/Dave_Mustaine/Dave_Mustaine_COLOR_90s.jpg", variants: [{ img: "images/musicians/Dave_Mustaine/Dave_Mustaine_COLOR_90s.jpg", name: "COLOR 90s" }, { img: "images/musicians/Dave_Mustaine/Dave_Mustaine_BN_90s.jpg", name: "BN 90s" }], desc: "El Colorado con su Flying V. El líder." },
         { id: 29, category: "Musician", year: "Leyenda", name: "Marty Friedman", tipoPrecio: "simple", img: "images/musicians/Marty_Friedman/Marty_1990_cte.jpg", variants: [{ img: "images/musicians/Marty_Friedman/Marty_1990_cte.jpg", name: "1990 CTE" }, { img: "images/musicians/Marty_Friedman/Marty_1990_RIP.jpg", name: "1990 RIP" }, { img: "images/musicians/Marty_Friedman/Marty_1992_FIRMA.jpg", name: "1992 FIRMA" }], desc: "El guitarrista exótico. Estilo japonés." },
-        { id: 30, category: "Musician", year: "Leyenda", name: "Nick Menza", tipoPrecio: "simple", img: "images/musicians/Nick_Menza/nick_menza.jpg", desc: "El motor de la banda: Nick Menza, baterista legendario." },
+        { id: 30, category: "Musician", year: "Leyenda", name: "Nick Menza", tipoPrecio: "simple", img: "images/musicians/Nick_Menza/nick_menza.jpg", backs: ["images/musicians/Nick_Menza/megadeth_logo_youthansia.jpg","images/musicians/Nick_Menza/megadeth_nick_baquetas.jpg"], desc: "El motor de la banda: Nick Menza, baterista legendario." },
        
        
         { id: 60, category: "Personalizados", year: "2025", name: "AC/DC Europe 84", tipoPrecio: "simple", img: "images/personalizado/ac_dc_europe_84.jpg", desc: "Mockup AC/DC Europe 84." },
@@ -2236,7 +2289,7 @@
         { id: 49, category: "Personalizados", year: "2025", name: "Bifrost Argentina", tipoPrecio: "simple", img: "images/personalizado/bifrost_argentina.jpg", desc: "Mockup Bifrost Argentina." },
         { id: 56, category: "Personalizados", year: "2025", name: "Calavera Guitar", tipoPrecio: "simple", img: "images/personalizado/calavera_guitar.jpg", desc: "Mockup Calavera Guitar." },
         { id: 46, category: "Personalizados", year: "2025", name: "Dimebag Darrell BN", tipoPrecio: "simple", img: "images/personalizado/dimebag_darrell_BN.jpg", desc: "Mockup Dimebag Darrell BN." },
-        { id: 47, category: "Personalizados", year: "2025", name: "Dimebag Darrell Color", tipoPrecio: "simple", img: "images/personalizado/dimebag_darrell_color.jpg", desc: "Mockup Dimebag Darrell Color." },
+        { id: 47, category: "Personalizados", year: "2025", name: "Dimebag Darrell Color", tipoPrecio: "simple", img: "images/personalizado/dimebag_darrell_color.jpg", backs: ["images/personalizado/firma_darrell.jpg","images/personalizado/firma_darrell_pantera.jpg"], desc: "Mockup Dimebag Darrell Color." },
         { id: 48, category: "Personalizados", year: "2025", name: "Dimebag Darrell Guitar Gold", tipoPrecio: "simple", img: "images/personalizado/dimebag_darrell_guitar_gold.jpg", desc: "Mockup Dimebag Darrell Guitar Gold." },
         { id: 51, category: "Personalizados", year: "2025", name: "Flema", tipoPrecio: "simple", img: "images/personalizado/flema.jpg", desc: "Mockup Flema." },
         { id: 44, category: "Personalizados", year: "2025", name: "Gallindez Box", tipoPrecio: "simple", img: "images/personalizado/gallindez_box.jpg", desc: "Mockup Gallindez Box." },
@@ -2437,9 +2490,12 @@
         document.getElementById('variantName').style.display = vName ? 'block' : 'none';
         const msg = `Hola FMD! Quiero info de: ${currentProduct.name}` + (vName ? ` - ${vName}` : '');
         document.getElementById('modalWaBtn').href = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(msg)}`;
-        // Resetear selección de chips al abrir/actualizar modal
+        // Resetear selección de chips y dorsos al abrir/actualizar modal
         selectedDorsoChips.clear();
+        selectedBacks.clear();
         document.querySelectorAll('#chipsRow .chip').forEach(c => c.classList.remove('active'));
+        // Renderizar dorsos (si existen en currentProduct.backs)
+        renderBackExamples();
         // Actualizar link del botón 'Quiero doble estampa'
         updateDobleWaLink();
         document.querySelectorAll('.carousel-dot').forEach((dot, i) => { dot.classList.toggle('active', i === currentSlide); });
