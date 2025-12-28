@@ -683,6 +683,65 @@
             letter-spacing: 0.5px;
         }
 
+        /* Dorso badge pequeño en cards */
+        .dorso-badge {
+            position: absolute;
+            bottom: 56px;
+            left: 8px;
+            background: rgba(0,0,0,0.85);
+            color: var(--text);
+            font-size: 0.68rem;
+            padding: 5px 8px;
+            border-radius: 6px;
+            border: 1px solid rgba(255,255,255,0.04);
+            font-weight: 600;
+            backdrop-filter: blur(4px);
+            box-shadow: 0 6px 18px rgba(0,0,0,0.45);
+        }
+
+        /* Upsell dentro del modal */
+        .upsell-dorso {
+            margin-top: 12px;
+            padding: 12px;
+            background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.003));
+            border: 1px solid rgba(42,42,42,0.9);
+            border-radius: 8px;
+        }
+
+        .upsell-row { display:flex; flex-direction:column; gap:8px; }
+
+        .upsell-pill {
+            display:inline-block;
+            background: #1a1a1a;
+            color: var(--rust);
+            font-weight:800;
+            padding:6px 10px;
+            border-radius:999px;
+            font-size:0.78rem;
+            border:1px solid rgba(255,120,100,0.06);
+        }
+
+        .upsell-prices { color: var(--text-muted); font-size:0.9rem; }
+
+        /* Chips de ideas de dorso */
+        .chips-row { display:flex; gap:8px; flex-wrap:wrap; margin-top:8px; }
+        .chip {
+            padding:6px 10px;
+            background:#111;
+            color:var(--text);
+            border-radius:999px;
+            font-size:0.82rem;
+            border:1px solid rgba(255,255,255,0.03);
+            cursor:pointer;
+            user-select:none;
+        }
+        .chip.active { background: linear-gradient(90deg,#222,#111); border-color: var(--rust); box-shadow: 0 6px 20px rgba(223,33,12,0.08); color: var(--rust); }
+
+        /* Botón secundario para pedir doble estampa */
+        .btn-doble { border-color: rgba(57,255,20,0.12); color: var(--magic-green); background: #0f1a0f; }
+        .btn-doble:hover { background: rgba(57,255,20,0.03); }
+
+
         /* Specs */
         .specs-grid {
             display: grid;
@@ -2014,6 +2073,23 @@
                     <div class="modal-price" id="modalPrice">$37.000</div>
                     <div class="modal-price-note">Envío gratis a todo el país</div>
 
+                    <!-- Sección upsell: Sumá dorso personalizado -->
+                    <div class="upsell-dorso" id="upsellDorso">
+                        <div class="upsell-row">
+                            <span class="upsell-pill">🔥 SUMÁ DORSO PERSONALIZADO</span>
+                            <div style="font-size:0.92rem;color:var(--text-muted);">Podés agregar logo, frase, tour, fecha o arte complementario en la espalda. Se arma a pedido.</div>
+                            <div class="upsell-prices">Solo frente: <strong id="modalPrecioSimple">-</strong> · Frente + Dorso: <strong id="modalPrecioDoble">-</strong></div>
+
+                            <div style="font-size:0.88rem;color:var(--text-muted);margin-top:8px;">Ideas de dorso (tocá para agregar):</div>
+                            <div class="chips-row" id="chipsRow">
+                                <div class="chip" data-val="Logo blanco" onclick="toggleChip(this)">Logo blanco</div>
+                                <div class="chip" data-val="Frase corta" onclick="toggleChip(this)">Frase corta</div>
+                                <div class="chip" data-val="Tour/Fecha" onclick="toggleChip(this)">Tour/Fecha</div>
+                                <div class="chip" data-val="Ícono/símbolo" onclick="toggleChip(this)">Ícono/símbolo</div>
+                            </div>
+                        </div>
+                    </div>
+
                     <!-- Badge doble estampa (se muestra dinámicamente) -->
                     <div class="badge-doble" id="badgeDoble" style="display:none;">
                         🔥 DOBLE ESTAMPA (Frente + Espalda)
@@ -2047,6 +2123,10 @@
                             </svg>
                             Copiar Link
                         </button>
+                        <a href="#" class="btn-share btn-doble" id="btnDobleAction" target="_blank" rel="noopener">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2v4" /></svg>
+                            Quiero doble estampa
+                        </a>
                         <a href="#" class="btn-share btn-share-wa" id="btnShareWa">
                             <svg viewBox="0 0 24 24" fill="currentColor">
                                 <path
@@ -2082,6 +2162,45 @@
     }
 
     const BASE_URL = window.location.origin + window.location.pathname;
+
+    // Categorías para mostrar badge de "Dorso personalizable" en cards
+    const DORSO_CATEGORIES = new Set(['Album','Tour','Musician','VicRattlehead','Personalizados']);
+
+    // Estado temporal para chips seleccionados (solo durante modal abierto)
+    let selectedDorsoChips = new Set();
+
+    function toggleChip(el){
+        try{
+            const val = el.dataset.val;
+            if(!val) return;
+            if(selectedDorsoChips.has(val)){
+                selectedDorsoChips.delete(val);
+                el.classList.remove('active');
+            } else {
+                selectedDorsoChips.add(val);
+                el.classList.add('active');
+            }
+            updateDobleWaLink();
+        }catch(e){console.warn(e)}
+    }
+
+    function buildDobleMessage(){
+        if(!currentProduct) return `Quiero este diseño con DOBLE ESTAMPA (Frente + Dorso).`;
+        const images = getImages(currentProduct);
+        const vName = images[currentSlide]?.name || '';
+        let msg = `Hola FMD! Quiero este diseño con DOBLE ESTAMPA (Frente + Dorso): ${currentProduct.name}` + (vName ? ` - ${vName}` : '');
+        if(selectedDorsoChips.size){
+            msg += `. Ideas: ${Array.from(selectedDorsoChips).join(', ')}`;
+        }
+        return msg;
+    }
+
+    function updateDobleWaLink(){
+        const btn = document.getElementById('btnDobleAction');
+        if(!btn) return;
+        const text = buildDobleMessage();
+        btn.href = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(text)}`;
+    }
 
     // === BASE DE DATOS COMPLETA (TODOS TUS PRODUCTOS) ===
     const db = [
@@ -2302,13 +2421,27 @@
         document.getElementById('modalMeta').textContent = `${currentProduct.year} · ${currentProduct.category}`;
         document.getElementById('modalDesc').textContent = currentProduct.desc || '';
         document.getElementById('modalPrice').textContent = formatPrecio(currentProduct.tipoPrecio || 'simple');
+        // Mostrar precios sugeridos en upsell
+        const pSimple = formatPrecio('simple');
+        const pDoble = formatPrecio('doble');
+        const elSimple = document.getElementById('modalPrecioSimple');
+        const elDoble = document.getElementById('modalPrecioDoble');
+        if(elSimple) elSimple.textContent = pSimple;
+        if(elDoble) elDoble.textContent = pDoble;
         document.getElementById('modalCounter').textContent = `${currentSlide + 1}/${images.length}`;
-        document.getElementById('badgeDoble').style.display = currentProduct.tipoPrecio === 'doble' ? 'block' : 'none';
+        // Mostrar badgeDoble si el producto ya es doble o para reforzar upsell cuando corresponda
+        const shouldShowBadge = currentProduct.tipoPrecio === 'doble' || DORSO_CATEGORIES.has(currentProduct.category);
+        document.getElementById('badgeDoble').style.display = shouldShowBadge ? 'block' : 'none';
         const vName = images[currentSlide]?.name || '';
         document.getElementById('variantName').textContent = vName;
         document.getElementById('variantName').style.display = vName ? 'block' : 'none';
-        const msg = `Hola FMD! Quiero info de: ${currentProduct.name} ${vName}`;
+        const msg = `Hola FMD! Quiero info de: ${currentProduct.name}` + (vName ? ` - ${vName}` : '');
         document.getElementById('modalWaBtn').href = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(msg)}`;
+        // Resetear selección de chips al abrir/actualizar modal
+        selectedDorsoChips.clear();
+        document.querySelectorAll('#chipsRow .chip').forEach(c => c.classList.remove('active'));
+        // Actualizar link del botón 'Quiero doble estampa'
+        updateDobleWaLink();
         document.querySelectorAll('.carousel-dot').forEach((dot, i) => { dot.classList.toggle('active', i === currentSlide); });
         updateShareLinks();
     }
@@ -2329,8 +2462,10 @@
         document.getElementById('productsCount').textContent = `${filtered.length} diseños`;
         productsGrid.innerHTML = filtered.map(p => {
             const hasVariants = p.variants && p.variants.length > 1;
+            const showDorsoBadge = DORSO_CATEGORIES.has(p.category);
             return `<div class="product-card" onclick="openModal(${p.id})">
                 ${hasVariants ? `<span class="variants-badge">${p.variants.length} diseños <span style='font-size:1.2em;margin-left:6px;'>➔</span></span>` : ''}
+                ${showDorsoBadge ? `<span class="dorso-badge">Dorso personalizable</span>` : ''}
                 <img src="${p.img}" class="product-img" loading="lazy">
                 <div class="product-info">
                     <div class="product-name">${p.name}</div>

@@ -11,8 +11,24 @@
     <meta name="description"
         content="Catálogo de remeras personalizadas premium. Diseños de bandas, arte y pedidos a medida. DTG premium.">
 
-    <!-- Favicon nuclear -->
+    <!-- Open Graph / Twitter: custom preview image. Replace with your full hosted URL if this site is served under a domain. -->
+    <meta property="og:title" content="Five Magics Designs | Catálogo">
+    <meta property="og:description" content="Catálogo de remeras personalizadas premium.">
+    <meta property="og:type" content="website">
+    <!-- Usando imagen alojada en Imgur (link proporcionado por cliente) -->
+    <meta property="og:image" content="https://i.imgur.com/F1eHmEK.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://i.imgur.com/F1eHmEK.jpg">
+
+    <!-- Favicon: símbolo nuclear (temporal) -->
     <link rel="icon" type="image/png" href="images/favicon/Nuclear_symbol.svg.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/Nuclear_symbol.svg.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/Nuclear_symbol.svg.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="images/favicon/Nuclear_symbol.svg.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="images/favicon/Nuclear_symbol.svg.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/Nuclear_symbol.svg.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <!-- Usando el símbolo nuclear localmente; reemplaza por PNG/ICO optimizados si quieres mejorar soporte. -->
 
     <!-- Fuentes optimizadas -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -257,6 +273,23 @@
             border-bottom: 1px solid #1a1a1a;
         }
 
+        /* Mobile: permitir que las categorías hagan wrap y reducir paddings para mostrar más items */
+        @media (max-width: 600px) {
+            .category-nav {
+                flex-wrap: wrap;
+                gap: 6px;
+                padding: 8px 10px;
+                align-items: center;
+                /* dejar la navegación visualmente compacta */
+            }
+            .category-nav .cat-btn {
+                padding: 6px 10px;
+                font-size: 0.78rem;
+                border-radius: 14px;
+                min-width: auto;
+            }
+        }
+
         .category-nav::-webkit-scrollbar {
             display: none;
         }
@@ -413,9 +446,10 @@
             opacity: 0;
             transition: opacity 0.25s;
             overflow: hidden;
-            touch-action: none; 
-            -webkit-overflow-scrolling: none; /* Evitar desplazamientos no deseados */
-            overscroll-behavior: none; /* Evitar comportamiento de sobre desplazamiento */
+            /* Permitir interacción táctil dentro del modal (scroll en .modal-body) */
+            touch-action: auto;
+            -webkit-overflow-scrolling: touch; /* Mejor experiencia de scroll en iOS */
+            overscroll-behavior: contain; /* Evita que el body haga bounce pero permite scroll interno */
         }
 
         .modal-overlay.active {
@@ -460,19 +494,32 @@
             flex: 1;
             overflow-y: auto;
             -webkit-overflow-scrolling: touch;
+            touch-action: pan-y; /* Permite arrastrar verticalmente dentro del modal */
+            -ms-touch-action: pan-y;
         }
 
-        /* Banner promocional en catálogo */
+        /* Banner promocional discreto y premium */
         .catalog-promo {
-            margin: 12px 0 18px;
-            padding: 10px 14px;
-            background: linear-gradient(90deg,#111 0%,#222 100%);
-            color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.25);
-            font-size: 0.95rem;
+            margin: 18px auto;
+            padding: 10px 18px;
+            display: inline-flex;
+            gap: 12px;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+            color: var(--text);
+            border-radius: 999px;
+            border: 1px solid rgba(57,255,20,0.08); /* accent: --magic-green */
+            box-shadow: 0 6px 18px rgba(57,255,20,0.04);
+            font-size: 0.92rem;
+            max-width: 520px;
+            padding-left: 22px;
+            padding-right: 22px;
             text-align: center;
         }
+        .catalog-promo .promo-title { font-weight: 600; letter-spacing: 0.6px; text-transform: uppercase; font-size:0.88rem; }
+        .catalog-promo .promo-price { font-weight: 700; margin-left: 6px; color: #df210c; }
+        .catalog-promo .promo-sub { margin-left: 8px; opacity: 0.75; font-size: 0.86rem; color: var(--text-muted); }
 
         /* Indicador de desplazamiento dentro del modal */
         .scroll-hint {
@@ -1494,9 +1541,10 @@
     <!-- Navegación categorías -->
     <nav class="category-nav" id="categoryNav">
         <button class="cat-btn active" data-cat="Album">Álbumes</button>
-        <button class="cat-btn" data-cat="Singles">Singles</button>
+        <button class="cat-btn" data-cat="Singles">Singles/Rarezas</button>
         <button class="cat-btn" data-cat="Musician">Miembros</button>
         <button class="cat-btn" data-cat="Tour">Tours</button>
+        <button class="cat-btn" data-cat="VicRattlehead">Vic Rattlehead</button>
         <button class="cat-btn" data-cat="Personalizados">Especial Personalizados</button>
     </nav>
 
@@ -1537,17 +1585,16 @@
         <div class="search-results-info" id="searchResultsInfo"></div>
     </div>
 
-    <!-- Promo: Opción Doble Estampa para todo el catálogo -->
-    <div class="catalog-promo" id="catalogPromo">
-        <strong>Opción Doble Estampa:</strong> Frente + Dorso a $42.000 · Envío gratis a todo el país. Elige el diseño que quieras y selecciona la opción doble al pedir.
-    </div>
-
     <!-- Productos -->
     <section class="products-section">
         <div class="products-grid" id="productsGrid">
             <!-- Se genera con JS -->
         </div>
     </section>
+    <!-- Promo discreta: Opción Doble Estampa (ubicada abajo del catálogo) -->
+    <div class="catalog-promo" id="catalogPromo">
+        <span class="promo-text">Doble Estampa — Frente + Dorso · <span class="promo-price">$42.000</span> · Envío incluido</span>
+    </div>
 
     <!-- ============ MODELOS DE REMERAS ============ -->
     <section class="info-section" id="modelos">
@@ -1555,7 +1602,7 @@
         <p class="info-subtitle">Seis variantes: hombre y mujer clásico, unisex oversize, en blanco y negro</p>
 
         <div class="modelos-container" style="display: flex; flex-direction: column; gap: 1.5rem;">
-            <!-- Fila 1: Clásica Negra -->
+            <!-- 1: Hombre Clásica - Negra -->
             <div style="display: flex; gap: 1rem;">
                 <div class="modelo-block" style="flex:1;">
                     <h3 class="modelo-titulo" style="text-align: center;">Remera Clásica Hombre - Negra</h3>
@@ -1565,6 +1612,10 @@
                         </div>
                     </div>
                 </div>
+            </div>
+
+            <!-- 2: Mujer Clásica - Negra -->
+            <div style="display: flex; gap: 1rem;">
                 <div class="modelo-block" style="flex:1;">
                     <h3 class="modelo-titulo" style="text-align: center;">Remera Clásica Mujer - Negra</h3>
                     <div class="modelo-images">
@@ -1574,7 +1625,8 @@
                     </div>
                 </div>
             </div>
-            <!-- Fila 2: Clásica Blanca -->
+
+            <!-- 3: Hombre Clásica - Blanca -->
             <div style="display: flex; gap: 1rem;">
                 <div class="modelo-block" style="flex:1;">
                     <h3 class="modelo-titulo" style="text-align: center;">Remera Clásica Hombre - Blanca</h3>
@@ -1584,6 +1636,10 @@
                         </div>
                     </div>
                 </div>
+            </div>
+
+            <!-- 4: Mujer Clásica - Blanca -->
+            <div style="display: flex; gap: 1rem;">
                 <div class="modelo-block" style="flex:1;">
                     <h3 class="modelo-titulo" style="text-align: center;">Remera Clásica Mujer - Blanca</h3>
                     <div class="modelo-images">
@@ -1593,21 +1649,26 @@
                     </div>
                 </div>
             </div>
-            <!-- Fila 3: Oversize Unisex -->
+
+            <!-- 5: Oversize - Negra -->
+            <div style="display: flex; gap: 1rem;">
+                <div class="modelo-block" style="flex:1;">
+                    <h3 class="modelo-titulo" style="text-align: center;">Remera Oversize Unisex - Negra</h3>
+                    <div class="modelo-images">
+                        <div class="modelo-img-placeholder" onclick="openImageModal('images/modelos/unisex_negra_oversize.jpg', 'Remera Oversize Unisex Negra')">
+                            <img src="images/modelos/unisex_negra_oversize.jpg" alt="Remera Oversize Unisex Negra">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 6: Oversize - Blanca -->
             <div style="display: flex; gap: 1rem;">
                 <div class="modelo-block" style="flex:1;">
                     <h3 class="modelo-titulo" style="text-align: center;">Remera Oversize Unisex - Blanca</h3>
                     <div class="modelo-images">
                         <div class="modelo-img-placeholder" onclick="openImageModal('images/modelos/unisex_blanca_oversize.jpg', 'Remera Oversize Unisex Blanca')">
                             <img src="images/modelos/unisex_blanca_oversize.jpg" alt="Remera Oversize Unisex Blanca">
-                        </div>
-                    </div>
-                </div>
-                <div class="modelo-block" style="flex:1;">
-                    <h3 class="modelo-titulo" style="text-align: center;">Remera Oversize Unisex - Negra</h3>
-                    <div class="modelo-images">
-                        <div class="modelo-img-placeholder" onclick="openImageModal('images/modelos/unisex_negra_oversize.jpg', 'Remera Oversize Unisex Negra')">
-                            <img src="images/modelos/unisex_negra_oversize.jpg" alt="Remera Oversize Unisex Negra">
                         </div>
                     </div>
                 </div>
@@ -2031,7 +2092,7 @@
         { id: 5, category: "Album", year: "1992", name: "Countdown to Extinction", tipoPrecio: "simple", img: "images/albums/Countdown_to_extinction/CTE.jpg", desc: "Groove metálico y éxito comercial representados por una impactante crítica a la extinción animal y la codicia humana." },
         { id: 6, category: "Album", year: "1994", name: "Youthanasia", tipoPrecio: "simple", img: "images/albums/Youthanasia/youthanasia.jpg", variants: [{ img: "images/albums/Youthanasia/youthanasia.jpg", name: "Youthanasia" }, { img: "images/albums/Youthanasia/vic_father.jpg", name: "Vic Father" }], desc: "Heavy metal melódico y oscuro con una portada surrealista que denuncia el sacrificio del futuro de las nuevas generaciones." },
         { id: 8, category: "Album", year: "1997", name: "Cryptic Writings", tipoPrecio: "simple", img: "images/albums/Cryptic_Writings/cryptic_writings_tapa.jpg", desc: "Melodía accesible y experimentación radial envueltas en un arte místico de simbología críptica y diseño minimalista." },
-        { id: 9, category: "Album", year: "1999", name: "Risk", tipoPrecio: "simple", img: "images/albums/Risk/risk_tapa.jpg", desc: "Exploración de hard rock melódico y comercial bajo el simbolismo de una ratonera que representa el riesgo artístico asumido." },
+        { id: 9, category: "Album", year: "1999", name: "Risk", tipoPrecio: "simple", img: "images/albums/Risk/risk_tapa_remastered.jpg", variants: [{ img: "images/albums/Risk/risk_tapa_remastered.jpg", name: "Tapa (Remastered)" }, { img: "images/albums/Risk/risk_tapa.jpg", name: "Tapa (Original)" }], desc: "Exploración de hard rock melódico y comercial bajo el simbolismo de una ratonera que representa el riesgo artístico asumido." },
         { id: 10, category: "Album", year: "2001", name: "The World Needs a Hero", tipoPrecio: "simple", img: "images/albums/TWNAH/the_worlds_needs_a_hero.jpg", desc: "Vic saliendo del pecho del alien. Gore y sci-fi. Un retorno al sonido pesado y las estructuras tradicionales del thrash metal, buscando recuperar la agresividad perdida en sus discos anteriores." },
         { id: 11, category: "Album", year: "2004", name: "The System Has Failed", tipoPrecio: "simple", img: "images/albums/TSHF/the_system_has_failed.jpg", desc: "Vic vendiendo sentencias. Arte político. Un regreso triunfal al thrash técnico con una portada que denuncia la corrupción política en la Casa Blanca." },
         { id: 12, category: "Album", year: "2007", name: "United Abominations", tipoPrecio: "simple", img: "images/albums/United_Abominations/united_abominations.jpg", desc: "Crítica feroz a la ONU y agresividad moderna con un rediseño cinematográfico de Vic Rattlehead." },
@@ -2040,7 +2101,7 @@
         { id: 15, category: "Album", year: "2013", name: "Super Collider", tipoPrecio: "simple", img: "images/albums/Super_Collider/super_collider.jpg", desc: "Hard rock pesado y riffs directos inspirados en la ciencia del Gran Colisionador de Hadrones." },
         { id: 7, category: "Album", year: "2016", name: "Dystopia", tipoPrecio: "simple", img: "images/albums/Dystopia/dystopia.jpg", desc: "Resurrección del thrash más crudo y futurista con un Vic cibernético en un mundo postapocalíptico desolado." },
         { id: 16, category: "Album", year: "2022", name: "The Sick, the Dying...And the Dead!", tipoPrecio: "simple", img: "images/albums/The_sick/the_sick_the_dying_and_the_dead.jpg", desc: "Virtuosismo épico y relatos de pestilencia histórica con un Vic Rattlehead convertido en un guerrero medieval implacable." },
-        { id: 17, category: "Album", year: "2026", name: "Megadeth 2026", tipoPrecio: "simple", img: "images/albums/Megadeth/vic_llamas_negro.jpg", variants: [{ img: "images/albums/Megadeth/vic_llamas_negro.jpg", name: "Vic Llamas Negro" }, { img: "images/albums/Megadeth/vic_digital.jpg", name: "Vic Digital" }, { img: "images/albums/Megadeth/i_dont_care.jpg", name: "I Don't Care" }, { img: "images/albums/Megadeth/tipping_point.jpg", name: "Tipping Point" }, { img: "images/albums/Megadeth/let_there_be_shred.jpg", name: "Let There Be Shred" }, { img: "images/albums/Megadeth/let_there_be_shred-realista.jpg", name: "Let There Be Shred Realista" }, { img: "images/albums/Megadeth/fmd_edition_shred.jpg", name: "FMD Edition Shred" }, { img: "images/albums/Megadeth/vic_pelea_v1.jpg", name: "Vic Pelea V1" }, { img: "images/albums/Megadeth/vic_pelea_v2.jpg", name: "Vic Pelea V2" }], desc: "Un diseño limpio e impactante que captura a Vic Rattlehead consumiéndose en llamas con un traje blanco, listo para el final." },
+        { id: 17, category: "Album", year: "2026", name: "Megadeth 2026", tipoPrecio: "simple", img: "images/albums/Megadeth/vic_llamas_blanca.jpg", variants: [{ img: "images/albums/Megadeth/vic_llamas_blanca.jpg", name: "Vic Llamas Blanca" }, { img: "images/albums/Megadeth/vic_llamas_negro.jpg", name: "Vic Llamas Negro" }, { img: "images/albums/Megadeth/vic_digital.jpg", name: "Vic Digital" }, { img: "images/albums/Megadeth/i_dont_care.jpg", name: "I Don't Care" }, { img: "images/albums/Megadeth/tipping_point.jpg", name: "Tipping Point" }, { img: "images/albums/Megadeth/let_there_be_shred.jpg", name: "Let There Be Shred" }, { img: "images/albums/Megadeth/let_there_be_shred-realista.jpg", name: "Let There Be Shred Realista" }, { img: "images/albums/Megadeth/fmd_edition_shred.jpg", name: "FMD Edition Shred" }, { img: "images/albums/Megadeth/vic_pelea_v1.jpg", name: "Vic Pelea V1" }, { img: "images/albums/Megadeth/vic_pelea_v2.jpg", name: "Vic Pelea V2" }], desc: "Un diseño limpio e impactante que captura a Vic Rattlehead consumiéndose en llamas con un traje blanco, listo para el final." },
        
        
         { id: 235, category: "Singles", year: "2025", name: "Vic Nuclear", tipoPrecio: "simple", img: "images/singles/vic_nuclear.jpg", desc: "Diseño especial: Vic Nuclear. Rareza exclusiva Five Magics Designs." },
@@ -2048,6 +2109,7 @@
        
         { id: 28, category: "Musician", year: "Leyenda", name: "Dave Mustaine", tipoPrecio: "simple", img: "images/musicians/Dave_Mustaine/Dave_Mustaine_COLOR_90s.jpg", variants: [{ img: "images/musicians/Dave_Mustaine/Dave_Mustaine_COLOR_90s.jpg", name: "COLOR 90s" }, { img: "images/musicians/Dave_Mustaine/Dave_Mustaine_BN_90s.jpg", name: "BN 90s" }], desc: "El Colorado con su Flying V. El líder." },
         { id: 29, category: "Musician", year: "Leyenda", name: "Marty Friedman", tipoPrecio: "simple", img: "images/musicians/Marty_Friedman/Marty_1990_cte.jpg", variants: [{ img: "images/musicians/Marty_Friedman/Marty_1990_cte.jpg", name: "1990 CTE" }, { img: "images/musicians/Marty_Friedman/Marty_1990_RIP.jpg", name: "1990 RIP" }, { img: "images/musicians/Marty_Friedman/Marty_1992_FIRMA.jpg", name: "1992 FIRMA" }], desc: "El guitarrista exótico. Estilo japonés." },
+        { id: 30, category: "Musician", year: "Leyenda", name: "Nick Menza", tipoPrecio: "simple", img: "images/musicians/Nick_Menza/nick_menza.jpg", desc: "El motor de la banda: Nick Menza, baterista legendario." },
        
        
         { id: 60, category: "Personalizados", year: "2025", name: "AC/DC Europe 84", tipoPrecio: "simple", img: "images/personalizado/ac_dc_europe_84.jpg", desc: "Mockup AC/DC Europe 84." },
@@ -2069,12 +2131,18 @@
         { id: 53, category: "Personalizados", year: "2025", name: "Wintersun", tipoPrecio: "simple", img: "images/personalizado/wintersun.jpg", desc: "Mockup Wintersun." },
         { id: 59, category: "Personalizados", year: "2025", name: "Primal Fear", tipoPrecio: "simple", img: "images/personalizado/primal_fear.jpg", desc: "Mockup Primal Fear." },
         { id: 43, category: "Personalizados", year: "2025", name: "Symphony X", tipoPrecio: "simple", img: "images/personalizado/symphony_x.jpg", desc: "Mockup Symphony X." },
+        { id: 302, category: "Personalizados", year: "2025", name: "Almafuerte En Vida", tipoPrecio: "simple", img: "images/personalizado/almafuerte_en_vida.jpg", desc: "Mockup Almafuerte En Vida." },
+        { id: 303, category: "Personalizados", year: "2025", name: "Hermética", tipoPrecio: "simple", img: "images/personalizado/hermetica.jpg", desc: "Mockup Hermética." },
        
        
         { id: 42, category: "Tour", year: "2026", name: "Vic Tour 2026", tipoPrecio: "simple", img: "images/tours/Tour_2026/vic_tour_2026.jpg", desc: "Mockup especial: Vic Tour 2026. Edición exclusiva." },
         { id: 39, category: "Tour", year: "2025", name: "VIC GAUCHO ARGENTINO", tipoPrecio: "simple", img: "images/tours/Vic_Gaucho_Argentino/vic_gaucho_original.jpg", variants: [{ img: "images/tours/Vic_Gaucho_Argentino/vic_gaucho_original.jpg", name: "Original" }, { img: "images/tours/Vic_Gaucho_Argentino/vic_gaucho_realista.jpg", name: "Realista" }, { img: "images/tours/Vic_Gaucho_Argentino/vic_gaucho_caballo.jpg", name: "Caballo" }], desc: "Serie especial VIC GAUCHO. Frente + variantes." },
         { id: 40, category: "Tour", year: "2025", name: "Tour Argentina", tipoPrecio: "simple", img: "images/tours/Tour_argentina/poster_tour_argentina.jpg", variants: [{ img: "images/tours/Tour_argentina/poster_tour_argentina.jpg", name: "Poster" }, { img: "images/tours/Tour_argentina/vic_bandera_logo_blanco.jpg", name: "Vic Bandera Blanco" }, { img: "images/tours/Tour_argentina/vic_bandera_logo_dorado.jpg", name: "Vic Bandera Dorado" }, { img: "images/tours/Tour_argentina/vic_edición_fmd.jpg", name: "Edición FMD" }], desc: "Tour Argentina: edición especial con 4 variantes exclusivas." },
-        { id: 300, category: "Tour", year: "Live", name: "Live", tipoPrecio: "simple", img: "images/tours/Live/marty_dave.jpg", variants: [{ img: "images/tours/Live/marty_dave.jpg", name: "marty_dave" }], desc: "Tributo a la pareja de guitarras definitiva del thrash: Marty Friedman y Dave Mustaine. Diseño en vivo que captura su química única — técnica incendiaria, melodía punzante y solos que definieron una era. Perfecto para fans que celebran la mejor dupla de guitarras en la historia del género." }
+        { id: 300, category: "Tour", year: "Live", name: "Marty & Dave", tipoPrecio: "simple", img: "images/tours/Live/marty_dave.jpg", variants: [{ img: "images/tours/Live/marty_dave.jpg", name: "marty_dave" }], desc: "Tributo al dúo de guitarras definitiva del thrash: Marty Friedman y Dave Mustaine. Diseño en vivo que captura su química única — técnica incendiaria, melodía punzante y solos que definieron una era. Perfecto para fans que celebran la mejor dupla de guitarras en la historia del género." },
+        { id: 301, category: "Tour", year: "Live", name: "Peace Sells Live", tipoPrecio: "simple", img: "images/tours/Live/peace_sells_live.jpg", variants: [{ img: "images/tours/Live/peace_sells_live.jpg", name: "peace_sells_live" }], desc: "Diseño en vivo 'Peace Sells Live' — edición especial para la colección Tour. Ideal para fans del clásico remasterizado en versión live." },
+       
+
+        { id: 304, category: "VicRattlehead", year: "2025", name: "Vic Rattlehead - My Last Words", tipoPrecio: "simple", img: "images/vic_rattlehead/vic_rattlehead_my_last_words.jpg", desc: "Diseño Vic Rattlehead: My Last Words." }
     ];
 
 
@@ -2337,6 +2405,63 @@
     zoomOverlay.onclick = (e) => { if(e.target.id === 'zoomContainer' || e.target === zoomOverlay) closeZoom(); };
     window.addEventListener('popstate', () => { if(modal.classList.contains('active')) closeModal(); });
     
+    // Mejor UX táctil: permitir que arrastrar desde cualquier parte del modal (header/overlay)
+    // haga scroll del contenido `.modal-body` sin requerir iniciar el gesto exactamente sobre él.
+    (function enableModalDragScroll(){
+        const modalBody = modal.querySelector('.modal-body');
+        if(!modal || !modalBody) return;
+        let touchStartY = 0;
+        let dragging = false;
+        let scrollAnim = null;
+        let scrollTarget = null;
+
+        modal.addEventListener('touchstart', (e) => {
+            const tag = e.target.tagName;
+            if(['BUTTON','A','INPUT','SELECT','TEXTAREA','LABEL'].includes(tag)) { dragging = false; return; }
+            touchStartY = e.touches[0].clientY;
+            dragging = true;
+        }, { passive: true });
+
+        function scheduleSmoothScroll(delta){
+            if (scrollTarget == null) scrollTarget = modalBody.scrollTop;
+            scrollTarget += delta;
+            if (!scrollAnim) {
+                function step(){
+                    const current = modalBody.scrollTop;
+                    const dist = scrollTarget - current;
+                    const stepAmount = dist * 0.22; // suavizado (0-1)
+                    if (Math.abs(dist) > 0.6){
+                        modalBody.scrollTop = current + stepAmount;
+                        scrollAnim = requestAnimationFrame(step);
+                    } else {
+                        modalBody.scrollTop = scrollTarget;
+                        scrollTarget = null;
+                        scrollAnim = null;
+                    }
+                }
+                scrollAnim = requestAnimationFrame(step);
+            }
+        }
+
+        modal.addEventListener('touchmove', (e) => {
+            if(!dragging) return;
+            const currentY = e.touches[0].clientY;
+            const delta = touchStartY - currentY;
+            // sensibilidad mínima pequeña para detectar intención
+            if(Math.abs(delta) > 1){
+                touchStartY = currentY;
+                e.preventDefault();
+                // invertir delta para que el movimiento del dedo coincida con scroll
+                scheduleSmoothScroll(delta);
+            }
+        }, { passive: false });
+
+        modal.addEventListener('touchend', () => {
+            dragging = false;
+            if(scrollAnim){ cancelAnimationFrame(scrollAnim); scrollAnim = null; scrollTarget = null; }
+        });
+    })();
+
     filterProducts();
     // Inicializar la vista por defecto
     setView('grid');
