@@ -2661,6 +2661,21 @@
         });
     })();
 
+    // Inicializar comportamiento de pestañas (Tabla de medidas)
+    (function initSizeTabs(){
+        document.querySelectorAll('.tab-btn').forEach(btn=>{
+            btn.addEventListener('click', function(){
+                const tab = this.dataset.tab;
+                if(!tab) return;
+                document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+                this.classList.add('active');
+                document.querySelectorAll('.tab-content').forEach(c=>c.classList.remove('active'));
+                const el = document.getElementById('tab-' + tab);
+                if(el) el.classList.add('active');
+            });
+        });
+    })();
+
     filterProducts();
     // Inicializar la vista por defecto
     setView('grid');
