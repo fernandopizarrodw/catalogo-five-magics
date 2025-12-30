@@ -1295,9 +1295,9 @@
 
         /* Modelos Container */
         .modelos-container {
-            display: flex;
-            flex-direction: column;
-            gap: 32px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
         }
 
         .modelo-block {
@@ -1567,8 +1567,16 @@
             padding: 0;
         }
         #modelos .modelo-titulo {
-            font-size: 1rem;
-            margin-bottom: 0.5rem;
+            font-size: 0.82rem;
+            margin-bottom: 0.4rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--rust);
+        }
+        #modelos .modelo-desc {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-top: 4px;
         }
         #modelos .modelo-images {
             display: flex;
@@ -1576,22 +1584,20 @@
             align-items: center;
         }
         #modelos .modelo-img-placeholder {
-            width: 90vw;
-            max-width: 340px;
+            width: 100%;
             height: auto;
-            margin: 0 auto;
-            border-radius: 12px;
+            margin: 0;
+            border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.10);
-            background: #fff;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            background: #111;
             padding: 0;
         }
         #modelos .modelo-img-placeholder img {
             width: 100%;
             height: auto;
             display: block;
-            object-fit: contain;
-            border-radius: 12px;
+            object-fit: cover;
         }
         #modelos .modelo-block {
             font-size: 0.92rem;
@@ -1609,8 +1615,7 @@
             margin-bottom: 1.2rem;
         }
         #modelos .modelos-container > div {
-            flex-direction: column !important;
-            gap: 0.5rem !important;
+            display: block;
         }
     }
     </style>
@@ -1678,77 +1683,47 @@
         <h2 class="info-title">MODELOS DE REMERAS</h2>
         <p class="info-subtitle">Seis variantes: hombre y mujer clásico, unisex oversize, en blanco y negro</p>
 
-        <div class="modelos-container" style="display: flex; flex-direction: column; gap: 1.5rem;">
-            <!-- 1: Hombre Clásica - Negra -->
-            <div style="display: flex; gap: 1rem;">
-                <div class="modelo-block" style="flex:1;">
-                    <h3 class="modelo-titulo" style="text-align: center;">Remera Clásica Hombre - Negra</h3>
-                    <div class="modelo-images">
-                        <div class="modelo-img-placeholder" onclick="openImageModal('images/modelos/hombre_negra_clasica.jpg', 'Remera Clásica Hombre Negra')">
-                            <img src="images/modelos/hombre_negra_clasica.jpg" alt="Remera Clásica Hombre Negra">
-                        </div>
-                    </div>
+        <div class="modelos-container" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;">
+            <div class="modelo-item">
+                <div class="modelo-img-placeholder" onclick="openImageModal('images/modelos/hombre_negra_clasica.jpg', 'Remera Clásica Hombre Negra')">
+                    <img src="images/modelos/hombre_negra_clasica.jpg" alt="Remera Clásica Hombre Negra">
                 </div>
+                <h3 class="modelo-titulo" style="text-align:center;margin-top:8px;">Remera Clásica Hombre - Negra</h3>
             </div>
 
-            <!-- 2: Mujer Clásica - Negra -->
-            <div style="display: flex; gap: 1rem;">
-                <div class="modelo-block" style="flex:1;">
-                    <h3 class="modelo-titulo" style="text-align: center;">Remera Clásica Mujer - Negra</h3>
-                    <div class="modelo-images">
-                        <div class="modelo-img-placeholder" onclick="openImageModal('images/modelos/mujer_negra_clasica.jpg', 'Remera Clásica Mujer Negra')">
-                            <img src="images/modelos/mujer_negra_clasica.jpg" alt="Remera Clásica Mujer Negra">
-                        </div>
-                    </div>
+            <div class="modelo-item">
+                <div class="modelo-img-placeholder" onclick="openImageModal('images/modelos/mujer_negra_clasica.jpg', 'Remera Clásica Mujer Negra')">
+                    <img src="images/modelos/mujer_negra_clasica.jpg" alt="Remera Clásica Mujer Negra">
                 </div>
+                <h3 class="modelo-titulo" style="text-align:center;margin-top:8px;">Remera Clásica Mujer - Negra</h3>
             </div>
 
-            <!-- 3: Hombre Clásica - Blanca -->
-            <div style="display: flex; gap: 1rem;">
-                <div class="modelo-block" style="flex:1;">
-                    <h3 class="modelo-titulo" style="text-align: center;">Remera Clásica Hombre - Blanca</h3>
-                    <div class="modelo-images">
-                        <div class="modelo-img-placeholder" onclick="openImageModal('images/modelos/hombre_blanca_clasica.jpg', 'Remera Clásica Hombre Blanca')">
-                            <img src="images/modelos/hombre_blanca_clasica.jpg" alt="Remera Clásica Hombre Blanca">
-                        </div>
-                    </div>
+            <div class="modelo-item">
+                <div class="modelo-img-placeholder" onclick="openImageModal('images/modelos/hombre_blanca_clasica.jpg', 'Remera Clásica Hombre Blanca')">
+                    <img src="images/modelos/hombre_blanca_clasica.jpg" alt="Remera Clásica Hombre Blanca">
                 </div>
+                <h3 class="modelo-titulo" style="text-align:center;margin-top:8px;">Remera Clásica Hombre - Blanca</h3>
             </div>
 
-            <!-- 4: Mujer Clásica - Blanca -->
-            <div style="display: flex; gap: 1rem;">
-                <div class="modelo-block" style="flex:1;">
-                    <h3 class="modelo-titulo" style="text-align: center;">Remera Clásica Mujer - Blanca</h3>
-                    <div class="modelo-images">
-                        <div class="modelo-img-placeholder" onclick="openImageModal('images/modelos/mujer_blanca_clasica.jpg', 'Remera Clásica Mujer Blanca')">
-                            <img src="images/modelos/mujer_blanca_clasica.jpg" alt="Remera Clásica Mujer Blanca">
-                        </div>
-                    </div>
+            <div class="modelo-item">
+                <div class="modelo-img-placeholder" onclick="openImageModal('images/modelos/mujer_blanca_clasica.jpg', 'Remera Clásica Mujer Blanca')">
+                    <img src="images/modelos/mujer_blanca_clasica.jpg" alt="Remera Clásica Mujer Blanca">
                 </div>
+                <h3 class="modelo-titulo" style="text-align:center;margin-top:8px;">Remera Clásica Mujer - Blanca</h3>
             </div>
 
-            <!-- 5: Oversize - Negra -->
-            <div style="display: flex; gap: 1rem;">
-                <div class="modelo-block" style="flex:1;">
-                    <h3 class="modelo-titulo" style="text-align: center;">Remera Oversize Unisex - Negra</h3>
-                    <div class="modelo-images">
-                        <div class="modelo-img-placeholder" onclick="openImageModal('images/modelos/unisex_negra_oversize.jpg', 'Remera Oversize Unisex Negra')">
-                            <img src="images/modelos/unisex_negra_oversize.jpg" alt="Remera Oversize Unisex Negra">
-                        </div>
-                    </div>
+            <div class="modelo-item">
+                <div class="modelo-img-placeholder" onclick="openImageModal('images/modelos/unisex_negra_oversize.jpg', 'Remera Oversize Unisex Negra')">
+                    <img src="images/modelos/unisex_negra_oversize.jpg" alt="Remera Oversize Unisex Negra">
                 </div>
+                <h3 class="modelo-titulo" style="text-align:center;margin-top:8px;">Remera Oversize Unisex - Negra</h3>
             </div>
 
-            <!-- 6: Oversize - Blanca -->
-            <div style="display: flex; gap: 1rem;">
-                <div class="modelo-block" style="flex:1;">
-                    <h3 class="modelo-titulo" style="text-align: center;">Remera Oversize Unisex - Blanca</h3>
-                    <div class="modelo-images">
-                        <div class="modelo-img-placeholder" onclick="openImageModal('images/modelos/unisex_blanca_oversize.jpg', 'Remera Oversize Unisex Blanca')">
-                            <img src="images/modelos/unisex_blanca_oversize.jpg" alt="Remera Oversize Unisex Blanca">
-                        </div>
-                    </div>
+            <div class="modelo-item">
+                <div class="modelo-img-placeholder" onclick="openImageModal('images/modelos/unisex_blanca_oversize.jpg', 'Remera Oversize Unisex Blanca')">
+                    <img src="images/modelos/unisex_blanca_oversize.jpg" alt="Remera Oversize Unisex Blanca">
                 </div>
+                <h3 class="modelo-titulo" style="text-align:center;margin-top:8px;">Remera Oversize Unisex - Blanca</h3>
             </div>
         </div>
     </section>
@@ -2105,6 +2080,10 @@
                                 <div class="chip" data-val="Tour/Fecha" onclick="toggleChip(this)">Tour/Fecha</div>
                                 <div class="chip" data-val="Ícono/símbolo" onclick="toggleChip(this)">Ícono/símbolo</div>
                             </div>
+                            <div style="margin-top:8px;">
+                                <label for="dorsoCustomInput" style="font-size:0.88rem;color:var(--text-muted);display:block;margin-bottom:6px;">Agregar detalle para el dorso (opcional)</label>
+                                <input id="dorsoCustomInput" type="text" placeholder="Ej: Firma Darrell + Pantera" style="width:100%;padding:8px;border-radius:6px;border:1px solid #2a2a2a;background:#0f0f0f;color:var(--text);">
+                            </div>
                             <!-- Ejemplos de dorsos (desde currentProduct.backs) -->
                             <div id="backsRow" style="display:flex;gap:8px;margin-top:10px;align-items:center;"></div>
                         </div>
@@ -2219,6 +2198,12 @@
         if(selectedBacks.size){
             msg += `. Ejemplo de dorso: ${Array.from(selectedBacks).join(', ')}`;
         }
+        // Incluir texto personalizado del dorso si el usuario lo escribió
+        try{
+            const input = document.getElementById('dorsoCustomInput');
+            const custom = input && input.value && input.value.trim();
+            if(custom) msg += `. Detalle dorso: ${custom}`;
+        }catch(e){/* ignore */}
         return msg;
     }
 
@@ -2502,6 +2487,9 @@
         selectedDorsoChips.clear();
         selectedBacks.clear();
         document.querySelectorAll('#chipsRow .chip').forEach(c => c.classList.remove('active'));
+        // Limpiar input personalizado de dorso
+        const dorsoInput = document.getElementById('dorsoCustomInput');
+        if(dorsoInput) dorsoInput.value = '';
         // Renderizar dorsos (si existen en currentProduct.backs)
         renderBackExamples();
         // Actualizar link del botón 'Quiero doble estampa'
@@ -2572,18 +2560,25 @@
 
     // === COMPARTIR Y OTROS ===
     function copyProductLink() {
-        const url = `${BASE_URL}#producto-${currentProduct.id}`;
-        navigator.clipboard.writeText(url).then(() => {
+        if(!currentProduct) return;
+        const msg = getShortReserveMessage();
+        navigator.clipboard.writeText(msg).then(() => {
             const toast = document.getElementById('shareToast');
+            toast.textContent = '✓ Mensaje copiado al portapapeles';
             toast.classList.add('visible');
-            setTimeout(() => toast.classList.remove('visible'), 2000);
+            setTimeout(() => { toast.classList.remove('visible'); toast.textContent = '✓ Link copiado al portapapeles'; }, 2000);
         });
+    }
+
+    function getShortReserveMessage(){
+        const url = `${BASE_URL}#producto-${currentProduct.id}`;
+        return `Hola FMD, quiero reservar este diseño: ${url}`;
     }
 
     function updateShareLinks() {
         if (!currentProduct) return;
-        const url = `${BASE_URL}#producto-${currentProduct.id}`;
-        document.getElementById('btnShareWa').href = `https://wa.me/?text=${encodeURIComponent('Mirá este diseño de Five Magics: ' + url)}`;
+        const msg = getShortReserveMessage();
+        document.getElementById('btnShareWa').href = `https://wa.me/?text=${encodeURIComponent(msg)}`;
     }
 
     function openImageModal(src, alt) {
@@ -2676,6 +2671,10 @@
         });
     })();
 
+    // Enlazar input personalizado para actualizar el link en vivo
+    const dorsoInputLive = document.getElementById('dorsoCustomInput');
+    if(dorsoInputLive) dorsoInputLive.addEventListener('input', updateDobleWaLink);
+
     filterProducts();
     // Inicializar la vista por defecto
     setView('grid');
@@ -2758,11 +2757,10 @@
         font-size: 0.95rem;
     }
 }
-</style>
+
 /* Evita el scroll en iPhone al abrir el modal */
 body.modal-open {
     touch-action: none;
-    -webkit-overflow-scrolling: none;
 }
 
 /* Agregar flecha indicadora de scroll en el modal */
@@ -2777,14 +2775,7 @@ body.modal-open {
     animation: bounce 1.5s infinite;
 }
 
-@keyframes bounce {
-    0%, 100% {
-        transform: translate(-50%, 0);
-    }
-    50% {
-        transform: translate(-50%, 8px);
-    }
-}
+</style>
 </body>
 
 </html>
