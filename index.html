@@ -1628,6 +1628,7 @@
         <button class="cat-btn" data-cat="Tour">Tours</button>
         <button class="cat-btn" data-cat="VicRattlehead">Vic Rattlehead</button>
         <button class="cat-btn" data-cat="Personalizados">Especial Personalizados</button>
+        <button class="cat-btn" data-cat="Dorsales">Dorsales</button>
     </nav>
 
     <!-- Toolbar: Buscador + Contador + Vista -->
@@ -2163,7 +2164,7 @@
     const BASE_URL = window.location.origin + window.location.pathname;
 
     // Categorías para mostrar badge de "Dorso personalizable" en cards
-    const DORSO_CATEGORIES = new Set(['Album','Tour','Musician','VicRattlehead','Personalizados']);
+    const DORSO_CATEGORIES = new Set(['Album','Tour','Musician','VicRattlehead','Personalizados','Dorsales']);
 
     // Estado temporal para chips seleccionados (solo durante modal abierto)
     let selectedDorsoChips = new Set();
@@ -2245,7 +2246,7 @@
         { id: 1, category: "Album", year: "1985", name: "Killing Is My Business", tipoPrecio: "simple", img: "images/albums/Killing_Is_my_bussines/kimb_1985_original_.jpg", variants: [{ img: "images/albums/Killing_Is_my_bussines/kimb_1985_original_.jpg", name: "KIMB_1985_ORIGINAL" }, { img: "images/albums/Killing_Is_my_bussines/kimb_2012.jpg", name: "KIMB 2012" }, { img: "images/albums/Killing_Is_my_bussines/kimb_art_2012.jpg", name: "KIMB_ART_2012" }, { img: "images/albums/Killing_Is_my_bussines/kimb_gris_rojo.jpg", name: "KIMB_GRIS_ROJO" }, { img: "images/albums/Killing_Is_my_bussines/kimb_realistic_1985.jpg", name: "KIMB_REALISTIC_1985" }, { img: "images/albums/Killing_Is_my_bussines/kimb_realistic_2012.jpg", name: "KIMB_REALISTIC_2012" }, { img: "images/albums/Killing_Is_my_bussines/kimb_retro.jpg", name: "KIMB_RETRO" }], desc: "Es el debut crudo y frenético de 1985 que definió el thrash metal técnico mediante la velocidad extrema y la sed de venganza de Dave Mustaine en 7 diseños." },
         { id: 2, category: "Album", year: "1986", name: "Peace Sells", tipoPrecio: "simple", img: "images/albums/Peace_sells/peace_sells_tapa.jpg", desc: "Icónica crítica sociopolítica plasmada en el sarcasmo de Vic Rattlehead frente a la ONU, envuelta en puro virtuosismo thrash." },
         { id: 3, category: "Album", year: "1988", name: "So Far, So Good", tipoPrecio: "simple", img: "images/albums/SFSGSW/1-sfsgsw_tapa.jpg", variants: [{ img: "images/albums/SFSGSW/1-sfsgsw_tapa.jpg", name: "Tapa" }, { img: "images/albums/SFSGSW/2-sfsgsw_alternative.jpg", name: "Alternative" }, { img: "images/albums/SFSGSW/3-mary_jane.jpg", name: "Mary Jane" }], desc: "Un contraataque de thrash visceral y rebelde con Vic Rattlehead armado para la guerra en un paisaje postapocalíptico." },
-        { id: 4, category: "Album", year: "1990", name: "Rust in Peace", tipoPrecio: "simple", img: "images/albums/Rust_in_peace/rust_in_peace.jpg", desc: "Obra maestra de precisión matemática y alienígenas en el Área 51 que elevó el thrash metal a la perfección técnica." },
+        { id: 4, category: "Album", year: "1990", name: "Rust in Peace", tipoPrecio: "simple", img: "images/albums/Rust_in_peace/rust_in_peace.jpg", variants: [{ img: "images/albums/Rust_in_peace/rust_in_peace.jpg", name: "Original" }, { img: "images/albums/Rust_in_peace/alternate-rip.jpg", name: "Alternate RIP" }], desc: "Obra maestra de precisión matemática y alienígenas en el Área 51 que elevó el thrash metal a la perfección técnica." },
         { id: 5, category: "Album", year: "1992", name: "Countdown to Extinction", tipoPrecio: "simple", img: "images/albums/Countdown_to_extinction/CTE.jpg", desc: "Groove metálico y éxito comercial representados por una impactante crítica a la extinción animal y la codicia humana." },
         { id: 6, category: "Album", year: "1994", name: "Youthanasia", tipoPrecio: "simple", img: "images/albums/Youthanasia/youthanasia.jpg", variants: [{ img: "images/albums/Youthanasia/youthanasia.jpg", name: "Youthanasia" }, { img: "images/albums/Youthanasia/vic_father.jpg", name: "Vic Father" }], desc: "Heavy metal melódico y oscuro con una portada surrealista que denuncia el sacrificio del futuro de las nuevas generaciones." },
         { id: 8, category: "Album", year: "1997", name: "Cryptic Writings", tipoPrecio: "simple", img: "images/albums/Cryptic_Writings/cryptic_writings_tapa.jpg", desc: "Melodía accesible y experimentación radial envueltas en un arte místico de simbología críptica y diseño minimalista." },
@@ -2314,7 +2315,20 @@
         { id: 301, category: "Tour", year: "Live", name: "Peace Sells Live", tipoPrecio: "simple", img: "images/tours/Live/peace_sells_live.jpg", variants: [{ img: "images/tours/Live/peace_sells_live.jpg", name: "peace_sells_live" }], desc: "Diseño en vivo 'Peace Sells Live' — edición especial para la colección Tour. Ideal para fans del clásico remasterizado en versión live." },
        
 
-        { id: 304, category: "VicRattlehead", year: "2025", name: "Vic Rattlehead - My Last Words", tipoPrecio: "simple", img: "images/vic_rattlehead/vic_rattlehead_my_last_words.jpg", desc: "Diseño Vic Rattlehead: My Last Words." }
+        { id: 304, category: "VicRattlehead", year: "2025", name: "Vic Rattlehead - My Last Words", tipoPrecio: "simple", img: "images/vic_rattlehead/vic_rattlehead_my_last_words.jpg", variants: [
+            { img: "images/vic_rattlehead/vic_rattlehead_my_last_words.jpg", name: "Original" },
+            { img: "images/vic_rattlehead/vic_my_last_blanco.jpg", name: "Blanco" },
+            { img: "images/vic_rattlehead/vic_my_last_logo_rojo.jpg", name: "Logo Rojo" },
+            { img: "images/vic_rattlehead/vic_my_last_words_logo_gris.jpg", name: "Logo Gris" },
+            { img: "images/vic_rattlehead/vic_my_last_words_logo_negro.jpg", name: "Logo Negro" }
+        ], desc: "Diseño Vic Rattlehead: My Last Words." },
+
+        // --- Ideas de dorsos (carpeta images/dorsos) ---
+        { id: 400, category: "Dorsales", year: "2025", name: "Dorso Tour BN", tipoPrecio: "simple", img: "images/dorsos/dorso_tour_BN.jpg", desc: "Idea de dorso: versión BN para tour." },
+        { id: 401, category: "Dorsales", year: "2025", name: "Dorso Tour Oficial", tipoPrecio: "simple", img: "images/dorsos/dorso_tour_oficial.jpg", desc: "Idea de dorso: versión oficial del tour." },
+        { id: 402, category: "Dorsales", year: "2025", name: "Dorso Tour v1", tipoPrecio: "simple", img: "images/dorsos/dorso_tour_v1.jpg", desc: "Idea de dorso: variante v1." },
+        { id: 403, category: "Dorsales", year: "2025", name: "Dorso Tour v2", tipoPrecio: "simple", img: "images/dorsos/dorso_tour_v2.jpg", desc: "Idea de dorso: variante v2." },
+        { id: 404, category: "Dorsales", year: "2025", name: "Dorso Tour v3", tipoPrecio: "simple", img: "images/dorsos/dorso_tour_v3.jpg", desc: "Idea de dorso: variante v3." }
     ];
 
 
