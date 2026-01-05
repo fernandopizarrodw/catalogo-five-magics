@@ -27,7 +27,14 @@ function formatPrecio(tipo) {
 }
 
 function openPackWhatsapp(packName, packIncludes, packPrice) {
-    const msg = `Hola FMD, quiero más información sobre el pack ${packName}`;
+    // Blindaje anti-NaN: ignorar precio vacío o inválido
+    let msg = `Hola FMD, quiero información sobre el pack ${packName}`;
+    
+    // Si hay detalles del pack, incluirlos en el mensaje
+    if (packIncludes && packIncludes.trim()) {
+        msg += `\n${packIncludes}`;
+    }
+    
     window.location.href = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(msg)}`;
 }
 

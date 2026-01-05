@@ -1565,6 +1565,86 @@ footer p {
     margin: 8px 0 0;
 }
 
+.pack-note {
+    margin: -4px 0 14px;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.35;
+}
+
+.pack-note-small {
+    margin: -8px 0 8px 0;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    font-style: italic;
+    line-height: 1.3;
+}
+
+.pack-benefit {
+    font-size: 0.85rem;
+    color: var(--magic-green);
+    font-weight: 600;
+    margin: 8px 0 0;
+    letter-spacing: 0.3px;
+}
+
+.pack-card-featured {
+    border-color: rgba(57, 255, 20, 0.3) !important;
+    box-shadow: 0 0 0 1px rgba(57, 255, 20, 0.3), 0 12px 32px rgba(57, 255, 20, 0.12) !important;
+}
+
+.pack-badge-highlight {
+    background: rgba(255, 100, 0, 0.15) !important;
+    border-color: rgba(255, 100, 0, 0.4) !important;
+    color: #ff6400 !important;
+}
+
+.pack-badges {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    display: flex;
+    gap: 6px;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.pack-badges .pack-badge {
+    position: static;
+    margin: 0;
+}
+
+.packs-banner {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 0 16px;
+    padding: 10px 14px;
+    border: 1px solid rgba(57, 255, 20, 0.35);
+    border-radius: 999px;
+    background: rgba(57, 255, 20, 0.06);
+    text-align: center;
+}
+
+.packs-banner-badge {
+    font-weight: 900;
+    padding: 6px 10px;
+    border-radius: 999px;
+    background: rgba(57, 255, 20, 0.16);
+    color: var(--magic-green);
+    letter-spacing: 0.4px;
+    white-space: nowrap;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+}
+
+.packs-banner-text {
+    color: var(--text);
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
 .btn-pack-wa {
     display: flex;
     align-items: center;
