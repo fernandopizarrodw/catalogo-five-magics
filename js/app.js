@@ -367,6 +367,21 @@ function updateShareLinks() {
     const variant = images?.[currentSlide]?.name ? `\nVariante: ${images[currentSlide].name}` : '';
     const msg = `Mirá este diseño:\n${currentProduct.name}${variant}\n${getProductUrl()}`;
     document.getElementById('btnShareWa').href = `https://wa.me/?text=${encodeURIComponent(msg)}`;
+    
+    // Actualizar meta tags dinámicamente para compartir el producto
+    const productUrl = `https://catalogo.fivemagicsdesigns.com/#producto-${currentProduct.id}`;
+    const productImage = images[currentSlide]?.img || currentProduct.img;
+    const year = currentProduct.year ? ` (${currentProduct.year})` : '';
+    const desc = currentProduct.desc ? currentProduct.desc.substring(0, 100) : 'Diseño exclusivo premium';
+    
+    document.querySelector('meta[property="og:title"]').setAttribute('content', `${currentProduct.name} - Five Magics Designs`);
+    document.querySelector('meta[property="og:description"]').setAttribute('content', `${currentProduct.name}${year} • ${currentProduct.category}\n${desc}...`);
+    document.querySelector('meta[property="og:image"]').setAttribute('content', productImage);
+    document.querySelector('meta[property="og:url"]').setAttribute('content', productUrl);
+    
+    document.querySelector('meta[name="twitter:title"]').setAttribute('content', currentProduct.name);
+    document.querySelector('meta[name="twitter:description"]').setAttribute('content', `${currentProduct.category}${year}`);
+    document.querySelector('meta[name="twitter:image"]').setAttribute('content', productImage);
 }
 
 function openImageModal(src, alt) {
@@ -459,8 +474,28 @@ window.addEventListener('popstate', () => { if(modal.classList.contains('active'
 const dorsoInputLive = document.getElementById('dorsoCustomInput');
 if(dorsoInputLive) dorsoInputLive.addEventListener('input', updateDobleWaLink);
 
+// Cargar producto desde URL hash (#producto-123)
+function loadProductFromHash() {
+    const hash = window.location.hash.replace('#', '');
+    if (hash.startsWith('producto-')) {
+        const productId = parseInt(hash.split('-')[1]);
+        const product = db.find(p => p.id === productId);
+        if (product) {
+            currentProduct = product;
+            currentSlide = 0;
+            updateShareLinks();
+            openModal(productId);
+        }
+    }
+}
+
 // Inicializar
 document.addEventListener('DOMContentLoaded', () => {
     loadProducts();
     setView('grid');
+    // Pequeño delay para asegurar que db está lleno
+    setTimeout(loadProductFromHash, 500);
 });
+
+// Escuchar cambios en hash (si usuario navega directamente a #producto-123)
+window.addEventListener('hashchange', loadProductFromHash);
