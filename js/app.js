@@ -227,13 +227,13 @@ function closeZoom() {
 carousel.addEventListener('scroll', () => {
     isScrolling = true;
     clearTimeout(scrollTimeout);
-    scrollTimeout = setTimeout(() => { isScrolling = false; }, 100);
+    scrollTimeout = setTimeout(() => { isScrolling = false; }, 50);
     const newSlide = Math.round(carousel.scrollLeft / carousel.offsetWidth);
     if (newSlide !== currentSlide) {
         currentSlide = newSlide;
         updateModalInfo();
     }
-});
+}, { passive: true });
 
 carousel.addEventListener('click', (e) => {
     if (isScrolling) return;

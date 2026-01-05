@@ -435,8 +435,9 @@ header {
     flex: 1;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
-    touch-action: pan-y;
-    -ms-touch-action: pan-y;
+    touch-action: pan-y pinch-zoom;
+    -ms-touch-action: pan-y pinch-zoom;
+    scroll-behavior: auto;
 }
 
 .catalog-promo {
@@ -521,10 +522,13 @@ header {
     scroll-snap-type: x mandatory;
     scrollbar-width: none;
     -ms-overflow-style: none;
-    scroll-behavior: smooth;
+    scroll-behavior: auto;
     -webkit-overflow-scrolling: touch;
     overscroll-behavior-x: contain;
     gap: 0;
+    touch-action: pan-x pinch-zoom;
+    -webkit-user-select: none;
+    user-select: none;
 }
 
 .carousel::-webkit-scrollbar {
@@ -539,6 +543,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
+    touch-action: pinch-zoom;
 }
 
 .carousel-slide img {
@@ -723,7 +728,8 @@ header {
     overflow-x:auto; 
     padding-bottom:6px; 
     -webkit-overflow-scrolling:touch; 
-    scroll-snap-type: x mandatory; 
+    scroll-snap-type: x mandatory;
+    touch-action: pan-x pinch-zoom;
 }
 
 #backsRow .thumb-dorso { 
