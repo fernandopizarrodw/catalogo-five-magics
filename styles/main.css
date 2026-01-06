@@ -58,9 +58,9 @@ body.modal-open {
     --bg: #050505;
     --bg-card: #0e0e0e;
     --bg-modal: #0b0b0b;
-    --rust: #df210c;
+    --rust: #ff0000d0;
     --rust-glow: #ffffff;
-    --magic-green: #7de21f;
+    --magic-green: #04dd66;
     --text: #e8e8e8;
     --text-muted: #8b8b8b;
     --text-primary: var(--text);
