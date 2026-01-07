@@ -4,7 +4,7 @@ body.modal-open {
     overflow: hidden !important;
     position: fixed;
     width: 100%;
-    touch-action: none;
+    /* touch-action removido: se configurará específicamente en elementos */
 }
 
 /* Mejora en la imagen del zoom para que sea fluida */
@@ -514,6 +514,8 @@ header {
 .carousel-container {
     position: relative;
     background: #000;
+    /* El carousel tiene prioridad para el pan-x */
+    touch-action: pan-x pinch-zoom;
 }
 
 .carousel {

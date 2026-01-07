@@ -177,6 +177,16 @@ function openModal(id) {
     `).join('');
 
     carouselDots.innerHTML = images.length > 1 ? images.map((_, i) => `<div class="carousel-dot${i === 0 ? ' active' : ''}" data-index="${i}"></div>`).join('') : '';
+    
+    // Añadir click listeners a los dots para que sean navegables
+    if (images.length > 1) {
+        document.querySelectorAll('.carousel-dot').forEach(dot => {
+            dot.addEventListener('click', function() {
+                const index = parseInt(this.dataset.index);
+                goToSlide(index);
+            });
+        });
+    }
 
     carousel.scrollLeft = 0;
     selectedDorsoChips.clear();
@@ -235,9 +245,14 @@ carousel.addEventListener('scroll', () => {
     isScrolling = true;
     clearTimeout(scrollTimeout);
     scrollTimeout = setTimeout(() => { isScrolling = false; }, 50);
-    const newSlide = Math.round(carousel.scrollLeft / carousel.offsetWidth);
-    if (newSlide !== currentSlide) {
-        currentSlide = newSlide;
+    const slideWidth = carousel.offsetWidth;
+    const scrollLeft = carousel.scrollLeft;
+    // Usar el slide más cercano para mayor precisión
+    const newSlide = Math.round(scrollLeft / slideWidth);
+    const maxSlide = Math.max(0, (carousel.scrollWidth / slideWidth) - 1);
+    const clampedSlide = Math.min(newSlide, Math.floor(maxSlide));
+    if (clampedSlide !== currentSlide) {
+        currentSlide = clampedSlide;
         updateModalInfo();
     }
 }, { passive: true });
@@ -249,7 +264,20 @@ carousel.addEventListener('click', (e) => {
 });
 
 function goToSlide(index) {
-    carousel.scrollTo({ left: index * carousel.offsetWidth, behavior: 'smooth' });
+    const images = getImages(currentProduct);
+    // Asegurar que el índice está dentro del rango válido
+    const validIndex = Math.max(0, Math.min(index, images.length - 1));
+    const slideWidth = carousel.offsetWidth;
+    const targetScrollLeft = validIndex * slideWidth;
+    
+    // Usar requestAnimationFrame para asegurar que el ancho está actualizado
+    requestAnimationFrame(() => {
+        carousel.scrollTo({ 
+            left: targetScrollLeft, 
+            behavior: 'smooth',
+            top: 0
+        });
+    });
 }
 
 document.getElementById('carouselPrev').onclick = () => goToSlide(Math.max(currentSlide - 1, 0));
@@ -407,6 +435,21 @@ document.getElementById('modalClose').onclick = closeModal;
 document.getElementById('zoomClose').onclick = closeZoom;
 zoomOverlay.onclick = (e) => { if(e.target.id === 'zoomContainer' || e.target === zoomOverlay) closeZoom(); };
 window.addEventListener('popstate', () => { if(modal.classList.contains('active')) closeModal(); });
+
+// Agregar soporte de teclado para navegación del carousel
+window.addEventListener('keydown', (e) => {
+    if (!modal.classList.contains('active') || !currentProduct) return;
+    const images = getImages(currentProduct);
+    if (images.length <= 1) return;
+    
+    if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        goToSlide(Math.max(currentSlide - 1, 0));
+    } else if (e.key === 'ArrowRight') {
+        e.preventDefault();
+        goToSlide(Math.min(currentSlide + 1, images.length - 1));
+    }
+});
 
 // Modal drag scroll para móvil
 (function enableModalDragScroll(){
