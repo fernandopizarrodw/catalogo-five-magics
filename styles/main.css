@@ -135,6 +135,10 @@ header {
     gap: 6px;
 }
 
+.btn-wa-header svg {
+    fill: white;
+}
+
 /* === BANNER === */
 .banner {
     background: linear-gradient(90deg, var(--rust), #1a0a05);
@@ -837,7 +841,7 @@ footer {
 .social-link svg {
     width: 22px;
     height: 22px;
-    fill: var(--text);
+    color: white;
 }
 
 .social-link.whatsapp {
@@ -846,7 +850,25 @@ footer {
 }
 
 .social-link.whatsapp svg {
-    fill: #25D366;
+    color: #25D366;
+}
+
+.social-link.instagram {
+    border-color: #dc00ae;
+    background: rgba(220, 0, 174, 0.12);
+}
+
+.social-link.instagram svg {
+    color: #dc00ae;
+}
+
+.social-link.facebook {
+    border-color: #1877F2;
+    background: rgba(24, 119, 242, 0.12);
+}
+
+.social-link.facebook svg {
+    color: #1877F2;
 }
 
 .footer-divider {
@@ -1583,11 +1605,18 @@ footer p {
 }
 
 .pack-benefit {
-    font-size: 0.85rem;
+    font-size: 0.88rem;
     color: var(--magic-green);
     font-weight: 600;
     margin: 8px 0 0;
     letter-spacing: 0.3px;
+}
+
+.pack-description {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin: 4px 0 0;
+    font-weight: 400;
 }
 
 .pack-card-featured {
@@ -1618,15 +1647,61 @@ footer p {
 
 .packs-banner {
     display: flex;
+    flex-direction: column;
     gap: 10px;
     align-items: center;
     justify-content: center;
-    margin: 10px 0 16px;
-    padding: 10px 14px;
-    border: 1px solid rgba(57, 255, 20, 0.35);
-    border-radius: 999px;
-    background: rgba(57, 255, 20, 0.06);
+    margin: 16px 0 24px;
+    padding: 16px 14px;
+    border: 1px solid rgba(57, 255, 20, 0.25);
+    border-radius: 8px;
+    background: rgba(57, 255, 20, 0.04);
     text-align: center;
+}
+
+.packs-banner-text {
+    color: var(--text);
+    font-weight: 500;
+    font-size: 0.9rem;
+    letter-spacing: 0.3px;
+}
+
+.packs-banner-text:first-child {
+    color: var(--magic-green);
+    font-weight: 600;
+}
+
+/* Bloque de Precios */
+.precios-block {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin: 24px 0;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+}
+
+.precio-item {
+    text-align: center;
+}
+
+.precio-item h4 {
+    font-family: var(--font-title);
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--magic-green);
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    margin-bottom: 8px;
+}
+
+.precio-item p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin: 4px 0;
+    line-height: 1.5;
 }
 
 .packs-banner-badge {
@@ -1641,10 +1716,18 @@ footer p {
     text-transform: uppercase;
 }
 
-.packs-banner-text {
-    color: var(--text);
+.pack-badge-envio {
+    display: inline-block;
+    padding: 6px 10px;
+    background: rgba(57, 255, 20, 0.15);
+    border: 1px solid rgba(57, 255, 20, 0.3);
+    color: var(--magic-green);
     font-weight: 600;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    margin-top: auto;
 }
 
 .btn-pack-wa {
@@ -1673,6 +1756,13 @@ footer p {
 @media (max-width: 600px) {
     .packs-2026 {
         padding: 24px 16px;
+    }
+
+    .precios-block {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        margin: 16px 0;
+        padding: 16px;
     }
 
     .packs-grid {

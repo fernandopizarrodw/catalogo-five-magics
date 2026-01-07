@@ -1,9 +1,16 @@
 // === CONFIGURACIÓN DE PRECIOS ===
 const PRECIOS = {
     simple: 37000,
-    doble: 42000
+    doble: 42000,
+    simple_personalizado: 39000,
+    doble_personalizado: 45000
 };
-const FECHA_VIGENCIA = "Diciembre 2025";
+const PRECIOS_ENVIO = {
+    una_unidad: 5000,
+    dos_plus: 0,
+    tres_plus: { descuento: 0.10, envio: 0 }
+};
+const FECHA_VIGENCIA = "Enero 2026";
 const WHATSAPP = "541169667685";
 
 let db = [];
