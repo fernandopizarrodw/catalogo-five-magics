@@ -218,13 +218,7 @@ function openModal(id) {
     modal.classList.add('active');
     // Adjuntar listeners del carrusel una vez el modal está listo
     attachCarouselListeners();
-    // Forzar scroll al slide actual después de que el modal sea visible
-    setTimeout(() => {
-        const slideWidth = carousel.offsetWidth;
-        if (slideWidth > 0) {
-            carousel.scrollLeft = currentSlide * slideWidth;
-        }
-    }, 0);
+    // No forzar scroll aquí - dejar que attachCarouselListeners lo maneje
     try { showScrollHintIfNeeded(); } catch (e) { }
 }
 
@@ -282,6 +276,9 @@ function attachCarouselListeners() {
     // Agregar listeners frescos
     carousel.addEventListener('scroll', onCarouselScroll, { passive: true });
     carousel.addEventListener('click', onCarouselClick);
+    
+    // Forzar scroll a 0 y actualizar state
+    carousel.scrollLeft = 0;
 }
 
 function onCarouselScroll() {
@@ -508,84 +505,38 @@ window.addEventListener('keydown', (e) => {
     }
 });
 
-// Modal drag scroll para móvil - CON EXCLUSION PARA CARRUSEL
-(function enableModalDragScroll(){
-    const modalBody = modal.querySelector('.modal-body');
-    if(!modal || !modalBody) return;
-
-    let touchStartY = 0;
+// Swipe handler AISLADO solo para el carrusel (sin interferir con modal scroll)
+(function enableCarouselSwipe(){
+    if (!carousel) return;
+    
     let touchStartX = 0;
-    let dragging = false;
-    let scrollAnim = null;
-    let scrollTarget = null;
-
-    // Detectar si el touch viene del carrusel
-    function isFromCarousel(target){
-        return !!target.closest('.carousel-container, #carousel, .carousel-slide, .carousel-slide img, .carousel-indicators');
-    }
-
-    modalBody.addEventListener('touchstart', (e) => {
-        // Excluir si viene del carrusel
-        if (isFromCarousel(e.target)) { dragging = false; return; }
-
-        const tag = e.target.tagName;
-        if(['BUTTON','A','INPUT','SELECT','TEXTAREA','LABEL'].includes(tag)) { dragging = false; return; }
-
-        touchStartY = e.touches[0].clientY;
+    let isSwiping = false;
+    
+    carousel.addEventListener('touchstart', (e) => {
         touchStartX = e.touches[0].clientX;
-        dragging = true;
+        isSwiping = true;
     }, { passive: true });
-
-    function scheduleSmoothScroll(delta){
-        if (scrollTarget == null) scrollTarget = modalBody.scrollTop;
-        scrollTarget += delta;
-        if (!scrollAnim) {
-            function step(){
-                const current = modalBody.scrollTop;
-                const dist = scrollTarget - current;
-                const stepAmount = dist * 0.22;
-                if (Math.abs(dist) > 0.6){
-                    modalBody.scrollTop = current + stepAmount;
-                    scrollAnim = requestAnimationFrame(step);
-                } else {
-                    modalBody.scrollTop = scrollTarget;
-                    scrollTarget = null;
-                    scrollAnim = null;
-                }
-            }
-            scrollAnim = requestAnimationFrame(step);
+    
+    carousel.addEventListener('touchend', (e) => {
+        if (!isSwiping) return;
+        
+        const touchEndX = e.changedTouches[0].clientX;
+        const diff = touchStartX - touchEndX;
+        const threshold = 50; // mínimo para detectar swipe
+        
+        if (Math.abs(diff) < threshold) return;
+        
+        // Swipe derecha → slide anterior
+        if (diff < 0) {
+            goToSlide(currentSlide - 1);
         }
-    }
-
-    modalBody.addEventListener('touchmove', (e) => {
-        if(!dragging) return;
-
-        // Excluir si viene del carrusel
-        if (isFromCarousel(e.target)) return;
-
-        const currentY = e.touches[0].clientY;
-        const currentX = e.touches[0].clientX;
-
-        const dy = touchStartY - currentY;
-        const dx = touchStartX - currentX;
-
-        // Si el gesto es más horizontal que vertical, no interceptar (permite swipe del carrusel)
-        if (Math.abs(dx) > Math.abs(dy)) {
-            dragging = false;
-            return;
+        // Swipe izquierda → slide siguiente
+        else if (diff > 0) {
+            goToSlide(currentSlide + 1);
         }
-
-        if(Math.abs(dy) > 1){
-            touchStartY = currentY;
-            e.preventDefault();
-            scheduleSmoothScroll(dy);
-        }
-    }, { passive: false });
-
-    modalBody.addEventListener('touchend', () => {
-        dragging = false;
-        if(scrollAnim){ cancelAnimationFrame(scrollAnim); scrollAnim = null; scrollTarget = null; }
-    });
+        
+        isSwiping = false;
+    }, { passive: true });
 })();
 
 // Inicializar comportamiento de pestañas
