@@ -202,7 +202,28 @@ function openModal(id) {
     const dorsoInput = document.getElementById('dorsoCustomInput');
     if(dorsoInput) dorsoInput.value = '';
     updateModalInfo();
+    // Mostrar/ocultar flechas según cantidad de imágenes
+    try {
+        const prevBtn = document.getElementById('carouselPrev');
+        const nextBtn = document.getElementById('carouselNext');
+        if (images.length > 1) {
+            if(prevBtn) prevBtn.style.display = '';
+            if(nextBtn) nextBtn.style.display = '';
+        } else {
+            if(prevBtn) prevBtn.style.display = 'none';
+            if(nextBtn) nextBtn.style.display = 'none';
+        }
+    } catch (e) { /* no bloquear si falla */ }
+
     modal.classList.add('active');
+    // Adjuntar listeners del carrusel una vez el modal está listo
+    attachCarouselListeners();
+    // Forzar reflow/ajuste del scroll una vez el modal está visible
+    requestAnimationFrame(() => {
+        try {
+            carousel.scrollLeft = currentSlide * (carousel.offsetWidth || carousel.clientWidth || 0);
+        } catch (e) {}
+    });
     try { showScrollHintIfNeeded(); } catch (e) { }
 }
 
@@ -230,6 +251,9 @@ function showScrollHintIfNeeded(){
 function closeModal() {
     if (!modal.classList.contains('active')) return;
     modal.classList.remove('active');
+    // Remover listeners del carrusel para evitar fugas de memoria
+    carousel.removeEventListener('scroll', onCarouselScroll);
+    carousel.removeEventListener('click', onCarouselClick);
     try { const existing = document.querySelector('.scroll-hint'); if(existing) existing.remove(); } catch(e){}
     document.body.classList.remove('modal-open');
     document.body.style.removeProperty('top');
@@ -248,7 +272,18 @@ function closeZoom() {
     setTimeout(() => { zoomOverlay.style.display = 'none'; }, 300);
 }
 
-carousel.addEventListener('scroll', () => {
+// Event listeners para carousel - se agregan en openModal() después de cargar imágenes
+function attachCarouselListeners() {
+    // Remover listeners previos si existen
+    carousel.removeEventListener('scroll', onCarouselScroll);
+    carousel.removeEventListener('click', onCarouselClick);
+    
+    // Agregar listeners frescos
+    carousel.addEventListener('scroll', onCarouselScroll, { passive: true });
+    carousel.addEventListener('click', onCarouselClick);
+}
+
+function onCarouselScroll() {
     isScrolling = true;
     clearTimeout(scrollTimeout);
     scrollTimeout = setTimeout(() => { isScrolling = false; }, 50);
@@ -262,13 +297,13 @@ carousel.addEventListener('scroll', () => {
         currentSlide = clampedSlide;
         updateModalInfo();
     }
-}, { passive: true });
+}
 
-carousel.addEventListener('click', (e) => {
+function onCarouselClick(e) {
     if (isScrolling) return;
     const img = e.target.closest('img');
     if (img) openZoom(img.src);
-});
+}
 
 function goToSlide(index) {
     const images = getImages(currentProduct);
