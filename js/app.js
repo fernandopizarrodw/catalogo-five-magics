@@ -508,19 +508,31 @@ window.addEventListener('keydown', (e) => {
     }
 });
 
-// Modal drag scroll para móvil
+// Modal drag scroll para móvil - CON EXCLUSION PARA CARRUSEL
 (function enableModalDragScroll(){
     const modalBody = modal.querySelector('.modal-body');
     if(!modal || !modalBody) return;
+
     let touchStartY = 0;
+    let touchStartX = 0;
     let dragging = false;
     let scrollAnim = null;
     let scrollTarget = null;
 
-    modal.addEventListener('touchstart', (e) => {
+    // Detectar si el touch viene del carrusel
+    function isFromCarousel(target){
+        return !!target.closest('.carousel-container, #carousel, .carousel-slide, .carousel-slide img, .carousel-indicators');
+    }
+
+    modalBody.addEventListener('touchstart', (e) => {
+        // Excluir si viene del carrusel
+        if (isFromCarousel(e.target)) { dragging = false; return; }
+
         const tag = e.target.tagName;
         if(['BUTTON','A','INPUT','SELECT','TEXTAREA','LABEL'].includes(tag)) { dragging = false; return; }
+
         touchStartY = e.touches[0].clientY;
+        touchStartX = e.touches[0].clientX;
         dragging = true;
     }, { passive: true });
 
@@ -545,18 +557,32 @@ window.addEventListener('keydown', (e) => {
         }
     }
 
-    modal.addEventListener('touchmove', (e) => {
+    modalBody.addEventListener('touchmove', (e) => {
         if(!dragging) return;
+
+        // Excluir si viene del carrusel
+        if (isFromCarousel(e.target)) return;
+
         const currentY = e.touches[0].clientY;
-        const delta = touchStartY - currentY;
-        if(Math.abs(delta) > 1){
+        const currentX = e.touches[0].clientX;
+
+        const dy = touchStartY - currentY;
+        const dx = touchStartX - currentX;
+
+        // Si el gesto es más horizontal que vertical, no interceptar (permite swipe del carrusel)
+        if (Math.abs(dx) > Math.abs(dy)) {
+            dragging = false;
+            return;
+        }
+
+        if(Math.abs(dy) > 1){
             touchStartY = currentY;
             e.preventDefault();
-            scheduleSmoothScroll(delta);
+            scheduleSmoothScroll(dy);
         }
     }, { passive: false });
 
-    modal.addEventListener('touchend', () => {
+    modalBody.addEventListener('touchend', () => {
         dragging = false;
         if(scrollAnim){ cancelAnimationFrame(scrollAnim); scrollAnim = null; scrollTarget = null; }
     });
