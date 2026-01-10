@@ -218,12 +218,13 @@ function openModal(id) {
     modal.classList.add('active');
     // Adjuntar listeners del carrusel una vez el modal está listo
     attachCarouselListeners();
-    // Forzar reflow/ajuste del scroll una vez el modal está visible
-    requestAnimationFrame(() => {
-        try {
-            carousel.scrollLeft = currentSlide * (carousel.offsetWidth || carousel.clientWidth || 0);
-        } catch (e) {}
-    });
+    // Forzar scroll al slide actual después de que el modal sea visible
+    setTimeout(() => {
+        const slideWidth = carousel.offsetWidth;
+        if (slideWidth > 0) {
+            carousel.scrollLeft = currentSlide * slideWidth;
+        }
+    }, 0);
     try { showScrollHintIfNeeded(); } catch (e) { }
 }
 
@@ -284,17 +285,19 @@ function attachCarouselListeners() {
 }
 
 function onCarouselScroll() {
-    isScrolling = true;
-    clearTimeout(scrollTimeout);
-    scrollTimeout = setTimeout(() => { isScrolling = false; }, 50);
+    if (isScrolling) return;
+    
     const slideWidth = carousel.offsetWidth;
+    if (slideWidth <= 0) return;
+    
     const scrollLeft = carousel.scrollLeft;
-    // Usar el slide más cercano para mayor precisión
+    // Calcular qué slide está más visible
     const newSlide = Math.round(scrollLeft / slideWidth);
-    const maxSlide = Math.max(0, (carousel.scrollWidth / slideWidth) - 1);
-    const clampedSlide = Math.min(newSlide, Math.floor(maxSlide));
-    if (clampedSlide !== currentSlide) {
-        currentSlide = clampedSlide;
+    const images = getImages(currentProduct);
+    const maxSlide = Math.max(0, images.length - 1);
+    
+    if (newSlide !== currentSlide && newSlide >= 0 && newSlide <= maxSlide) {
+        currentSlide = newSlide;
         updateModalInfo();
     }
 }
@@ -307,26 +310,38 @@ function onCarouselClick(e) {
 
 function goToSlide(index) {
     const images = getImages(currentProduct);
+    if (!images.length) return;
+    
     // Asegurar que el índice está dentro del rango válido
     const validIndex = Math.max(0, Math.min(index, images.length - 1));
+    currentSlide = validIndex;
+    
+    // Calcular la posición de scroll
     const slideWidth = carousel.offsetWidth;
     const targetScrollLeft = validIndex * slideWidth;
     
-    // Usar requestAnimationFrame para asegurar que el ancho está actualizado
-    requestAnimationFrame(() => {
-        carousel.scrollTo({ 
-            left: targetScrollLeft, 
-            behavior: 'smooth',
-            top: 0
-        });
-    });
+    // Usar scroll suave (fallback a scroll directo si no funciona)
+    if (carousel.scrollTo) {
+        try {
+            carousel.scrollTo({ left: targetScrollLeft, behavior: 'smooth' });
+        } catch (e) {
+            carousel.scrollLeft = targetScrollLeft;
+        }
+    } else {
+        carousel.scrollLeft = targetScrollLeft;
+    }
+    
+    // Actualizar UI
+    updateModalInfo();
 }
 
-document.getElementById('carouselPrev').onclick = () => goToSlide(Math.max(currentSlide - 1, 0));
-document.getElementById('carouselNext').onclick = () => {
-    const images = getImages(currentProduct);
-    goToSlide(Math.min(currentSlide + 1, images.length - 1));
-};
+document.getElementById('carouselPrev').addEventListener('click', () => {
+    goToSlide(currentSlide - 1);
+});
+
+document.getElementById('carouselNext').addEventListener('click', () => {
+    goToSlide(currentSlide + 1);
+});
 
 function updateModalInfo() {
     if (!currentProduct) return;
