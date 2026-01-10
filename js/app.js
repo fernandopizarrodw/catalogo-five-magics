@@ -190,7 +190,7 @@ function openModal(id) {
         document.querySelectorAll('.carousel-dot').forEach(dot => {
             dot.addEventListener('click', function() {
                 const index = parseInt(this.dataset.index);
-                goToSlide(index);
+                goToSlide(index, true); // smooth = true para clicks en dots
             });
         });
     }
@@ -305,7 +305,7 @@ function onCarouselClick(e) {
     if (img) openZoom(img.src);
 }
 
-function goToSlide(index) {
+function goToSlide(index, smooth = true) {
     const images = getImages(currentProduct);
     if (!images.length) return;
     
@@ -317,8 +317,9 @@ function goToSlide(index) {
     const slideWidth = carousel.offsetWidth;
     const targetScrollLeft = validIndex * slideWidth;
     
-    // Usar scroll suave (fallback a scroll directo si no funciona)
-    if (carousel.scrollTo) {
+    // Usar scroll suave si se especifica (clicks en flechas/dots)
+    // Sin suave para swipes (más responsivo)
+    if (smooth && carousel.scrollTo) {
         try {
             carousel.scrollTo({ left: targetScrollLeft, behavior: 'smooth' });
         } catch (e) {
@@ -333,11 +334,11 @@ function goToSlide(index) {
 }
 
 document.getElementById('carouselPrev').addEventListener('click', () => {
-    goToSlide(currentSlide - 1);
+    goToSlide(currentSlide - 1, true); // smooth = true para clicks
 });
 
 document.getElementById('carouselNext').addEventListener('click', () => {
-    goToSlide(currentSlide + 1);
+    goToSlide(currentSlide + 1, true); // smooth = true para clicks
 });
 
 function updateModalInfo() {
@@ -522,17 +523,17 @@ window.addEventListener('keydown', (e) => {
         
         const touchEndX = e.changedTouches[0].clientX;
         const diff = touchStartX - touchEndX;
-        const threshold = 50; // mínimo para detectar swipe
+        const threshold = 30; // threshold más sensible para respuesta rápida
         
         if (Math.abs(diff) < threshold) return;
         
         // Swipe derecha → slide anterior
         if (diff < 0) {
-            goToSlide(currentSlide - 1);
+            goToSlide(currentSlide - 1, false); // false = sin smooth animation
         }
         // Swipe izquierda → slide siguiente
         else if (diff > 0) {
-            goToSlide(currentSlide + 1);
+            goToSlide(currentSlide + 1, false); // false = sin smooth animation
         }
         
         isSwiping = false;
