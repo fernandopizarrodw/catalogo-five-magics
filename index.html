@@ -69,11 +69,18 @@
 
     <!-- Hero Premium -->
     <section class="hero">
-        <p class="hero-welcome">BIENVENIDOS A LA CASA DE FIVE MAGICS DESIGNS</p>
-        <h2 class="hero-tagline">Vestite de Gala para la Despedida</h2>
-        <div class="hero-divider"></div>
-        <h1>CATÁLOGO <span>2026</span></h1>
-        <p>Remeras de Megadeth exclusivas. Impresión DTG premium. Algodón 24/1.</p>
+        <div class="hero-content">
+            <p class="hero-welcome">BIENVENIDOS A LA CASA DE</p>
+            <h1 class="hero-brand">FIVE MAGICS DESIGNS</h1>
+            <h2 class="hero-tagline">Vestite de Gala para la Despedida</h2>
+            <div class="hero-divider"></div>
+            <div class="hero-main">
+                <span class="hero-year">2026</span>
+                <h3 class="hero-subtitle">CATÁLOGO MEGADETH</h3>
+            </div>
+            <p class="hero-description">Remeras premium con impresión DTG. Algodón 24/1 calidad internacional.</p>
+        </div>
+        <div class="hero-accent"></div>
     </section>
 
     <!-- PROMO ENVÍO GRATIS -->
@@ -96,7 +103,7 @@
             </div>
             <div class="precio-item">
                 <h4>Personalizados</h4>
-                <p>$39.000 estampa única</p>
+                <p>$40.000 estampa única</p>
                 <p>$45.000 doble estampa</p>
             </div>
         </div>
@@ -144,17 +151,94 @@
         </div>
     </section>
 
-    <!-- Navegación categorías -->
+    <!-- SECCIÓN DESTACADOS - BANDAS PRINCIPALES -->
+    <section class="featured-bands">
+        <h2 class="info-title">EXPLORA LAS BANDAS PRINCIPALES</h2>
+        <div class="featured-grid">
+            <!-- MEGADETH -->
+            <div class="featured-card" data-trigger="Album">
+                <div class="featured-card-image" style="background: #000;">
+                    <span class="featured-badge">17 diseños</span>
+                    <img src="images/logos/megadeth-logo.png" alt="Megadeth Logo" class="featured-logo">
+                </div>
+                <h3>Álbumes Megadeth</h3>
+                <p>Toda la discografía de Dave Mustaine en remeras premium</p>
+                <button class="btn-explore">Ver colección →</button>
+            </div>
+
+            <!-- PANTERA -->
+            <div class="featured-card" data-trigger="Pantera">
+                <div class="featured-card-image" style="background: #000;">
+                    <span class="featured-badge">19 diseños</span>
+                    <img src="images/logos/pantera-logo.png" alt="Pantera Logo" class="featured-logo">
+                </div>
+                <h3>Pantera</h3>
+                <p>Tributo a la leyenda de Dimebag Darrell y los ícono del metal</p>
+                <button class="btn-explore">Ver colección →</button>
+            </div>
+
+            <!-- IRON MAIDEN -->
+            <div class="featured-card" data-trigger="Iron Maiden">
+                <div class="featured-card-image" style="background: #000;">
+                    <span class="featured-badge">5 diseños</span>
+                    <img src="images/logos/iron-maiden-logo.png" alt="Iron Maiden Logo" class="featured-logo">
+                </div>
+                <h3>Iron Maiden</h3>
+                <p>Legado del heavy metal inglés. Eddie en acción</p>
+                <button class="btn-explore">Ver colección →</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Navegación categorías agrupada -->
     <nav class="category-nav" id="categoryNav">
-        <button class="cat-btn active" data-cat="Album">Álbumes</button>
-        <button class="cat-btn" data-cat="Singles">Singles/Rarezas</button>
-        <button class="cat-btn" data-cat="Musician">Miembros</button>
-        <button class="cat-btn" data-cat="Pantera">Pantera</button>
-        <button class="cat-btn" data-cat="Iron Maiden">Iron Maiden</button>
-        <button class="cat-btn" data-cat="Tour">Tours</button>
-        <button class="cat-btn" data-cat="VicRattlehead">Vic Rattlehead</button>
-        <button class="cat-btn" data-cat="Personalizados">Pedidos Especiales</button>
-        <button class="cat-btn" data-cat="Dorsales">Ideas de Dorso</button>
+        <div class="nav-group">
+            <h3 class="nav-group-title">BANDAS PRINCIPALES</h3>
+            <div class="nav-group-buttons">
+                <button class="cat-btn active" data-cat="Album" data-count="17">
+                    <span class="btn-text">Álbumes Megadeth</span>
+                    <span class="badge">17</span>
+                </button>
+                <button class="cat-btn" data-cat="Pantera" data-count="19">
+                    <span class="btn-text">Pantera</span>
+                    <span class="badge">19</span>
+                </button>
+                <button class="cat-btn" data-cat="Iron Maiden" data-count="5">
+                    <span class="btn-text">Iron Maiden</span>
+                    <span class="badge">5</span>
+                </button>
+            </div>
+        </div>
+
+        <div class="nav-group">
+            <h3 class="nav-group-title">OTROS ARTISTAS Y ESPECIALES</h3>
+            <div class="nav-group-buttons">
+                <button class="cat-btn" data-cat="Musician" data-count="3">
+                    <span class="btn-text">Miembros Megadeth</span>
+                    <span class="badge">3</span>
+                </button>
+                <button class="cat-btn" data-cat="Tour" data-count="7">
+                    <span class="btn-text">Tours</span>
+                    <span class="badge">7</span>
+                </button>
+                <button class="cat-btn" data-cat="VicRattlehead" data-count="8">
+                    <span class="btn-text">Vic Rattlehead</span>
+                    <span class="badge">8</span>
+                </button>
+                <button class="cat-btn" data-cat="Singles" data-count="5">
+                    <span class="btn-text">Singles Especiales</span>
+                    <span class="badge">5</span>
+                </button>
+                <button class="cat-btn" data-cat="Personalizados" data-count="29">
+                    <span class="btn-text">Pedidos Especiales</span>
+                    <span class="badge">29</span>
+                </button>
+                <button class="cat-btn" data-cat="Dorsales" data-count="5">
+                    <span class="btn-text">Ideas de Dorso</span>
+                    <span class="badge">5</span>
+                </button>
+            </div>
+        </div>
     </nav>
 
     <!-- Toolbar: Buscador + Contador + Vista -->
@@ -171,6 +255,30 @@
                 </svg>
             </button>
         </div>
+
+        <!-- Filtros por banda (expandible para 100+ diseños) -->
+        <div class="band-filters">
+            <button class="filter-toggle" id="filterToggle">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
+                    <path d="M3 6h18M9 12h6M12 18h0" stroke="currentColor" stroke-width="2" fill="none"/>
+                </svg>
+                Filtros
+            </button>
+            <div class="filter-dropdown" id="filterDropdown">
+                <h3>Buscar por banda</h3>
+                <div class="filter-pills">
+                    <button class="filter-pill" data-filter="all">Todo (104)</button>
+                    <button class="filter-pill" data-filter="Album">Megadeth (17)</button>
+                    <button class="filter-pill" data-filter="Pantera">Pantera (19)</button>
+                    <button class="filter-pill" data-filter="Iron Maiden">Iron Maiden (5)</button>
+                    <button class="filter-pill" data-filter="Musician">Miembros (3)</button>
+                    <button class="filter-pill" data-filter="Tour">Tours (7)</button>
+                    <button class="filter-pill" data-filter="VicRattlehead">Vic (8)</button>
+                    <button class="filter-pill" data-filter="Personalizados">Especiales (29)</button>
+                </div>
+            </div>
+        </div>
+
         <div class="toolbar-row">
             <span class="products-count" id="productsCount">38 diseños</span>
             <div class="view-toggle">

@@ -2,7 +2,7 @@
 const PRECIOS = {
     simple: 37000,
     doble: 42000,
-    simple_personalizado: 39000,
+    simple_personalizado: 40000,
     doble_personalizado: 45000
 };
 const PRECIOS_ENVIO = {
@@ -433,6 +433,19 @@ categoryNav.addEventListener('click', (e) => {
     }
 });
 
+// Evento para las tarjetas de "Destacados"
+document.addEventListener('click', (e) => {
+    const featuredCard = e.target.closest('.featured-card');
+    if (featuredCard) {
+        const categoryToTrigger = featuredCard.dataset.trigger;
+        if (categoryToTrigger) {
+            // Simular click en el botón de navegación correspondiente
+            const navBtn = document.querySelector(`[data-cat="${categoryToTrigger}"]`);
+            if (navBtn) navBtn.click();
+        }
+    }
+});
+
 function getProductUrl(){
     const base = (location.origin === "null" || !location.origin)
         ? location.href.split('#')[0]
@@ -554,6 +567,47 @@ window.addEventListener('keydown', (e) => {
         });
     });
 })();
+
+// === FILTROS POR BANDA ===
+const filterToggle = document.getElementById('filterToggle');
+const filterDropdown = document.getElementById('filterDropdown');
+
+if (filterToggle) {
+    filterToggle.addEventListener('click', () => {
+        filterDropdown.classList.toggle('active');
+    });
+}
+
+document.querySelectorAll('.filter-pill').forEach(pill => {
+    pill.addEventListener('click', (e) => {
+        const filterValue = e.target.dataset.filter;
+        
+        // Actualizar estilos
+        document.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
+        e.target.classList.add('active');
+        
+        // Actualizar filtro según qué se seleccione
+        if (filterValue === 'all') {
+            currentCategory = null; // Mostrar todo
+        } else {
+            // Simular click en el botón de categoría correspondiente
+            const navBtn = document.querySelector(`[data-cat="${filterValue}"]`);
+            if (navBtn) navBtn.click();
+        }
+        
+        filterProducts();
+        
+        // Cerrar dropdown después de seleccionar
+        filterDropdown.classList.remove('active');
+    });
+});
+
+// Cerrar dropdown al hacer click fuera
+document.addEventListener('click', (e) => {
+    if (!e.target.closest('.band-filters')) {
+        filterDropdown.classList.remove('active');
+    }
+});
 
 // Enlazar input personalizado
 const dorsoInputLive = document.getElementById('dorsoCustomInput');
