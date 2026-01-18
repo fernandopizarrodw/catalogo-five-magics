@@ -21,6 +21,7 @@ async function loadProducts() {
         const response = await fetch('data/products.json');
         if (!response.ok) throw new Error('Error cargando productos');
         db = await response.json();
+        updateCountsUI();
         filterProducts(); // Renderizar después de cargar
     } catch (error) {
         console.error('Error:', error);
@@ -46,7 +47,7 @@ function openPackWhatsapp(packName, packIncludes, packPrice) {
 }
 
 const BASE_URL = window.location.origin + window.location.pathname;
-const DORSO_CATEGORIES = new Set(['Album','Tour','Musician','VicRattlehead','Personalizados','Dorsales']);
+const DORSO_CATEGORIES = new Set(['Album','Tour','Musician','VicRattlehead','Personalizados','Dorsales','Metallica','Pantera','Iron Maiden']);
 
 let selectedDorsoChips = new Set();
 let selectedBacks = new Set();
@@ -369,7 +370,7 @@ function updateModalInfo() {
 }
 
 function filterProducts() {
-    let filtered = db.filter(p => p.category === currentCategory);
+    let filtered = currentCategory ? db.filter(p => p.category === currentCategory) : db.slice();
     if (currentSearch) {
         filtered = filtered.filter(p => {
             const name = (p.name || '').toLowerCase();
@@ -415,10 +416,11 @@ searchInput.addEventListener('input', (e) => {
 searchClear.onclick = () => { searchInput.value = ''; currentSearch = ''; searchClear.classList.remove('visible'); filterProducts(); };
 
 categoryNav.addEventListener('click', (e) => {
-    if (e.target.classList.contains('cat-btn')) {
+    const btn = e.target.closest('.cat-btn');
+    if (btn) {
         document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
-        e.target.classList.add('active');
-        currentCategory = e.target.dataset.cat;
+        btn.classList.add('active');
+        currentCategory = btn.dataset.cat;
         filterProducts();
         const productsSection = document.querySelector('.products-section');
         const header = document.querySelector('header');
@@ -485,6 +487,67 @@ function updateShareLinks() {
     document.querySelector('meta[name="twitter:title"]').setAttribute('content', currentProduct.name);
     document.querySelector('meta[name="twitter:description"]').setAttribute('content', `${currentProduct.category}${year}`);
     document.querySelector('meta[name="twitter:image"]').setAttribute('content', productImage);
+}
+
+// Cálculo de contadores dinámicos
+const MEGADETH_CATS = new Set(['Album','Musician','Tour','VicRattlehead','Singles','Dorsales']);
+
+function computeCounts(){
+    const byCategory = db.reduce((acc, p) => {
+        const c = p.category || 'Otros';
+        acc[c] = (acc[c] || 0) + 1;
+        return acc;
+    }, {});
+    const megadethTotal = db.filter(p => MEGADETH_CATS.has(p.category)).length;
+    const totalAll = db.length;
+    return { byCategory, megadethTotal, totalAll };
+}
+
+function updateCountsUI(){
+    try{
+        if(!Array.isArray(db) || !db.length) return;
+        const { byCategory, megadethTotal, totalAll } = computeCounts();
+
+        // Destacados: badges
+        const ftMegadethCard = document.querySelector('.featured-card[data-trigger="Album"]');
+        if(ftMegadethCard){
+            const badge = ftMegadethCard.querySelector('.featured-badge');
+            if(badge) badge.textContent = `${megadethTotal} diseños`;
+            const title = ftMegadethCard.querySelector('h3');
+            if(title) title.textContent = 'Megadeth';
+        }
+        const ftPantera = document.querySelector('.featured-card[data-trigger="Pantera"] .featured-badge');
+        if(ftPantera) ftPantera.textContent = `${byCategory['Pantera']||0} diseños`;
+        const ftIron = document.querySelector('.featured-card[data-trigger="Iron Maiden"] .featured-badge');
+        if(ftIron) ftIron.textContent = `${byCategory['Iron Maiden']||0} diseños`;
+        const ftMetal = document.querySelector('.featured-card[data-trigger="Metallica"] .featured-badge');
+        if(ftMetal) ftMetal.textContent = `${byCategory['Metallica']||0} diseños`;
+
+        // Navegación categorías: badges
+        const setNavBadge = (cat, val) => {
+            const el = document.querySelector(`.cat-btn[data-cat="${cat}"] .badge`);
+            if(el) el.textContent = val;
+        };
+        setNavBadge('Album', byCategory['Album']||0);
+        setNavBadge('Pantera', byCategory['Pantera']||0);
+        setNavBadge('Iron Maiden', byCategory['Iron Maiden']||0);
+        setNavBadge('Metallica', byCategory['Metallica']||0);
+
+        // Filtros: textos con cantidad (y corrección de etiqueta de Megadeth)
+        const setPill = (filter, label) => {
+            const el = document.querySelector(`.filter-pill[data-filter="${filter}"]`);
+            if(el) el.textContent = label;
+        };
+        setPill('all', `Todo (${totalAll})`);
+        setPill('Album', `Álbumes Megadeth (${byCategory['Album']||0})`);
+        setPill('Pantera', `Pantera (${byCategory['Pantera']||0})`);
+        setPill('Iron Maiden', `Iron Maiden (${byCategory['Iron Maiden']||0})`);
+        setPill('Metallica', `Metallica (${byCategory['Metallica']||0})`);
+        setPill('Musician', `Miembros (${byCategory['Musician']||0})`);
+        setPill('Tour', `Tours (${byCategory['Tour']||0})`);
+        setPill('VicRattlehead', `Vic (${byCategory['VicRattlehead']||0})`);
+        setPill('Personalizados', `Especiales (${byCategory['Personalizados']||0})`);
+    } catch(e){ console.warn('updateCountsUI error', e); }
 }
 
 function openImageModal(src, alt) {

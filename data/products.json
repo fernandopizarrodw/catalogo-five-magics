@@ -1,101 +1,1399 @@
 [
-    { "id": 1, "category": "Album", "year": "1985", "name": "Killing Is My Business", "tipoPrecio": "simple", "img": "images/albums/Killing_Is_my_bussines/kimb_1985_original_.jpg", "variants": [{ "img": "images/albums/Killing_Is_my_bussines/kimb_1985_original_.jpg", "name": "KIMB_1985_ORIGINAL" }, { "img": "images/albums/Killing_Is_my_bussines/kimb_2012.jpg", "name": "KIMB 2012" }, { "img": "images/albums/Killing_Is_my_bussines/kimb_art_2012.jpg", "name": "KIMB_ART_2012" }, { "img": "images/albums/Killing_Is_my_bussines/kimb_gris_rojo.jpg", "name": "KIMB_GRIS_ROJO" }, { "img": "images/albums/Killing_Is_my_bussines/kimb_realistic_1985.jpg", "name": "KIMB_REALISTIC_1985" }, { "img": "images/albums/Killing_Is_my_bussines/kimb_realistic_2012.jpg", "name": "KIMB_REALISTIC_2012" }, { "img": "images/albums/Killing_Is_my_bussines/kimb_retro.jpg", "name": "KIMB_RETRO" }], "desc": "Es el debut crudo y frenético de 1985 que definió el thrash metal técnico mediante la velocidad extrema y la sed de venganza de Dave Mustaine en 7 diseños." },
-    { "id": 2, "category": "Album", "year": "1986", "name": "Peace Sells", "tipoPrecio": "simple", "img": "images/albums/Peace_sells/peace_sells_tapa.jpg", "desc": "Icónica crítica sociopolítica plasmada en el sarcasmo de Vic Rattlehead frente a la ONU, envuelta en puro virtuosismo thrash." },
-    { "id": 3, "category": "Album", "year": "1988", "name": "So Far, So Good", "tipoPrecio": "simple", "img": "images/albums/SFSGSW/1-sfsgsw_tapa.jpg", "variants": [{ "img": "images/albums/SFSGSW/1-sfsgsw_tapa.jpg", "name": "Tapa" }, { "img": "images/albums/SFSGSW/2-sfsgsw_alternative.jpg", "name": "Alternative" }, { "img": "images/albums/SFSGSW/3-mary_jane.jpg", "name": "Mary Jane" }], "desc": "Un contraataque de thrash visceral y rebelde con Vic Rattlehead armado para la guerra en un paisaje postapocalíptico." },
-    { "id": 4, "category": "Album", "year": "1990", "name": "Rust in Peace", "tipoPrecio": "simple", "img": "images/albums/Rust_in_peace/rust_in_peace.jpg", "variants": [{ "img": "images/albums/Rust_in_peace/rust_in_peace.jpg", "name": "Original" }, { "img": "images/albums/Rust_in_peace/alternate-rip.jpg", "name": "Alternate RIP" }], "desc": "Obra maestra de precisión matemática y alienígenas en el Área 51 que elevó el thrash metal a la perfección técnica." },
-    { "id": 5, "category": "Album", "year": "1992", "name": "Countdown to Extinction", "tipoPrecio": "simple", "img": "images/albums/Countdown_to_extinction/CTE.jpg", "desc": "Groove metálico y éxito comercial representados por una impactante crítica a la extinción animal y la codicia humana." },
-    { "id": 6, "category": "Album", "year": "1994", "name": "Youthanasia", "tipoPrecio": "simple", "img": "images/albums/Youthanasia/youthanasia.jpg", "variants": [{ "img": "images/albums/Youthanasia/youthanasia.jpg", "name": "Youthanasia" }, { "img": "images/albums/Youthanasia/vic_father.jpg", "name": "Vic Father" }], "desc": "Heavy metal melódico y oscuro con una portada surrealista que denuncia el sacrificio del futuro de las nuevas generaciones." },
-    { "id": 8, "category": "Album", "year": "1997", "name": "Cryptic Writings", "tipoPrecio": "simple", "img": "images/albums/Cryptic_Writings/cryptic_writings_tapa.jpg", "desc": "Melodía accesible y experimentación radial envueltas en un arte místico de simbología críptica y diseño minimalista." },
-    { "id": 9, "category": "Album", "year": "1999", "name": "Risk", "tipoPrecio": "simple", "img": "images/albums/Risk/risk_tapa_remastered.jpg", "variants": [{ "img": "images/albums/Risk/risk_tapa_remastered.jpg", "name": "Tapa (Remastered)" }, { "img": "images/albums/Risk/risk_tapa.jpg", "name": "Tapa (Original)" }], "desc": "Exploración de hard rock melódico y comercial bajo el simbolismo de una ratonera que representa el riesgo artístico asumido." },
-    { "id": 10, "category": "Album", "year": "2001", "name": "The World Needs a Hero", "tipoPrecio": "simple", "img": "images/albums/TWNAH/the_worlds_needs_a_hero.jpg", "desc": "Vic saliendo del pecho del alien. Gore y sci-fi. Un retorno al sonido pesado y las estructuras tradicionales del thrash metal, buscando recuperar la agresividad perdida en sus discos anteriores." },
-    { "id": 11, "category": "Album", "year": "2004", "name": "The System Has Failed", "tipoPrecio": "simple", "img": "images/albums/TSHF/the_system_has_failed.jpg", "desc": "Vic vendiendo sentencias. Arte político. Un regreso triunfal al thrash técnico con una portada que denuncia la corrupción política en la Casa Blanca." },
-    { "id": 12, "category": "Album", "year": "2007", "name": "United Abominations", "tipoPrecio": "simple", "img": "images/albums/United_Abominations/united_abominations.jpg", "desc": "Crítica feroz a la ONU y agresividad moderna con un rediseño cinematográfico de Vic Rattlehead." },
-    { "id": 13, "category": "Album", "year": "2009", "name": "Endgame", "tipoPrecio": "simple", "img": "images/albums/Endgame/endgame.jpg", "desc": "Velocidad técnica extrema en una atmósfera opresiva que retrata el control totalitario y la vigilancia masiva." },
-    { "id": 14, "category": "Album", "year": "2011", "name": "TH1RT3EN", "tipoPrecio": "simple", "img": "images/albums/13/13.jpg", "desc": "Un repaso oscuro por la herencia sonora de la banda bajo la mística numérica y la presencia fantasmal de su mascota." },
-    { "id": 15, "category": "Album", "year": "2013", "name": "Super Collider", "tipoPrecio": "simple", "img": "images/albums/Super_Collider/super_collider.jpg", "desc": "Hard rock pesado y riffs directos inspirados en la ciencia del Gran Colisionador de Hadrones." },
-    { "id": 7, "category": "Album", "year": "2016", "name": "Dystopia", "tipoPrecio": "simple", "img": "images/albums/Dystopia/dystopia.jpg", "desc": "Resurrección del thrash más crudo y futurista con un Vic cibernético en un mundo postapocalíptico desolado." },
-    { "id": 16, "category": "Album", "year": "2022", "name": "The Sick, the Dying...And the Dead!", "tipoPrecio": "simple", "img": "images/albums/The_sick/the_sick_the_dying_and_the_dead.jpg", "desc": "Virtuosismo épico y relatos de pestilencia histórica con un Vic Rattlehead convertido en un guerrero medieval implacable." },
-    { "id": 17, "category": "Album", "year": "2026", "name": "Megadeth 2026", "tipoPrecio": "simple", "img": "images/albums/Megadeth/vic_llamas_blanca.jpg", "variants": [{ "img": "images/albums/Megadeth/vic_llamas_blanca.jpg", "name": "Vic Llamas Blanca" }, { "img": "images/albums/Megadeth/vic_llamas_negro.jpg", "name": "Vic Llamas Negro" }, { "img": "images/albums/Megadeth/vic_llamas_negro-v2.jpg", "name": "Vic Llamas Negro v2" }, { "img": "images/albums/Megadeth/vic_digital.jpg", "name": "Vic Digital" }, { "img": "images/albums/Megadeth/vic_digital_v2.jpg", "name": "Vic Digital v2" }], "desc": "Un diseño limpio e impactante que captura a Vic Rattlehead consumiéndose en llamas con un traje blanco principal y otras variantes, listo para el final." },
-    { "id": 235, "category": "Singles", "year": "2025", "name": "Vic Nuclear", "tipoPrecio": "simple", "img": "images/singles/vic_nuclear.jpg", "desc": "Diseño especial: Vic Nuclear. Rareza exclusiva Five Magics Designs." },
-    { "id": 236, "category": "Singles", "year": "2025", "name": "Rusted Pieces", "tipoPrecio": "simple", "img": "images/singles/rusted_pieces.jpg", "variants": [{ "img": "images/singles/rusted_pieces.jpg", "name": "Original" }, { "img": "images/singles/rusted_pieces_artv1.jpg", "name": "Art v1" }, { "img": "images/singles/rusted_pieces_artv2.jpg", "name": "Art v2" }, { "img": "images/singles/rusted_pieces_darker.jpg", "name": "Darker" }, { "img": "images/singles/rusted_pieces_realistic.jpg", "name": "Realistic" }], "desc": "Rusted Pieces — edición VHS remasterizada. Diseño exclusivo con 5 variantes." },
-    { "id": 241, "category": "Singles", "year": "2025", "name": "I Don't Care", "tipoPrecio": "simple", "img": "images/singles/i_dont_care.jpg", "variants": [{ "img": "images/singles/i_dont_care.jpg", "name": "Original" }, { "img": "images/singles/i_dont_care_v1.jpg", "name": "v1" }, { "img": "images/singles/i_dont_care_v2.jpg", "name": "v2" }, { "img": "images/singles/i_dont_care_v3.jpg", "name": "v3" }], "desc": "I Don't Care - Edición especial con 4 variantes." },
-    { "id": 242, "category": "Singles", "year": "2025", "name": "Tipping Point", "tipoPrecio": "simple", "img": "images/singles/tipping_point.jpg", "desc": "Tipping Point - Diseño exclusivo de rareza." },
-    { "id": 243, "category": "Singles", "year": "2025", "name": "Megadeth Rarezas", "tipoPrecio": "simple", "img": "images/singles/let_there_be_shred.jpg", "variants": [{ "img": "images/singles/let_there_be_shred.jpg", "name": "Let There Be Shred" }, { "img": "images/singles/let_there_be_shred-realista.jpg", "name": "Let There Be Shred Realista" }, { "img": "images/singles/fmd_edition_shred.jpg", "name": "FMD Edition Shred" }, { "img": "images/singles/vic_pelea_v1.jpg", "name": "Vic Pelea V1" }, { "img": "images/singles/vic_pelea_v2.jpg", "name": "Vic Pelea V2" }], "desc": "Colección especial de rarezas - Let There Be Shred, FMD Edition Shred y Vic Pelea con todas sus variantes." },
-    { "id": 28, "category": "Musician", "year": "Leyenda", "name": "Dave Mustaine", "tipoPrecio": "simple", "img": "images/musicians/Dave_Mustaine/Dave_Mustaine_COLOR_90s.jpg", "variants": [{ "img": "images/musicians/Dave_Mustaine/Dave_Mustaine_COLOR_90s.jpg", "name": "COLOR 90s" }, { "img": "images/musicians/Dave_Mustaine/Dave_Mustaine_BN_90s.jpg", "name": "BN 90s" }, { "img": "images/musicians/Dave_Mustaine/dave_mustaine_1988.jpg", "name": "1988" }, { "img": "images/musicians/Dave_Mustaine/poison_green.jpg", "name": "Poison Green" }, { "img": "images/musicians/Dave_Mustaine/warhead_red.jpg", "name": "Warhead Red" }], "desc": "El Colorado con su Flying V. El líder." },
-    { "id": 29, "category": "Musician", "year": "Leyenda", "name": "Marty Friedman", "tipoPrecio": "simple", "img": "images/musicians/Marty_Friedman/Marty_1990_cte.jpg", "variants": [{ "img": "images/musicians/Marty_Friedman/Marty_1990_cte.jpg", "name": "1990 CTE" }, { "img": "images/musicians/Marty_Friedman/Marty_1990_RIP.jpg", "name": "1990 RIP" }, { "img": "images/musicians/Marty_Friedman/Marty_1992_FIRMA.jpg", "name": "1992 FIRMA" }], "desc": "El guitarrista exótico. Estilo japonés." },
-    { "id": 30, "category": "Musician", "year": "Leyenda", "name": "Nick Menza", "tipoPrecio": "simple", "img": "images/musicians/Nick_Menza/nick_menza.jpg", "variants": [{ "img": "images/musicians/Nick_Menza/nick_menza_youth_era.jpg", "name": "Youth Era" }, { "img": "images/musicians/Nick_Menza/nick_menza_cte_era.jpg", "name": "CTE Era" }, { "img": "images/musicians/Nick_Menza/nick_menza_rip_era.jpg", "name": "RIP Era" }, { "img": "images/musicians/Nick_Menza/megadeth_logo_youthansia.jpg", "name": "Idea para Dorso-1" }, { "img": "images/musicians/Nick_Menza/megadeth_nick_baquetas.jpg", "name": "Idea para Dorso-2" }], "desc": "El motor de la banda: Nick Menza, baterista legendario." },
-    { "id": 60, "category": "Personalizados", "year": "2025", "name": "AC/DC Europe 84", "tipoPrecio": "simple", "img": "images/personalizado/ac_dc_europe_84.jpg", "desc": "Mockup AC/DC Europe 84." },
-    { "id": 61, "category": "Personalizados", "year": "2025", "name": "AC/DC Europe 84 Remaster", "tipoPrecio": "simple", "img": "images/personalizado/ac_dc_europe_84_remaster.jpg", "desc": "Mockup AC/DC Europe 84 Remaster." },
-    { "id": 302, "category": "Personalizados", "year": "2025", "name": "Almafuerte En Vida", "tipoPrecio": "simple", "img": "images/personalizado/almafuerte_en_vida.jpg", "desc": "Mockup Almafuerte En Vida." },
-    { "id": 310, "category": "Personalizados", "year": "2025", "name": "Amon Amarth", "tipoPrecio": "simple", "img": "images/personalizado/amon_amarth.jpg", "desc": "Mockup Amon Amarth." },
-    { "id": 309, "category": "Personalizados", "year": "2025", "name": "Aphex Twin", "tipoPrecio": "simple", "img": "images/personalizado/aphex_twin.jpg", "desc": "Mockup Aphex Twin." },
-    { "id": 49, "category": "Personalizados", "year": "2025", "name": "Bifrost Argentina", "tipoPrecio": "simple", "img": "images/personalizado/bifrost_argentina.jpg", "desc": "Mockup Bifrost Argentina." },
-    { "id": 56, "category": "Personalizados", "year": "2025", "name": "Calavera Guitar", "tipoPrecio": "simple", "img": "images/personalizado/calavera_guitar.jpg", "desc": "Mockup Calavera Guitar." },
-    { "id": 308, "category": "Personalizados", "year": "2025", "name": "Diego Maradona", "tipoPrecio": "simple", "img": "images/personalizado/diego_maradona.jpg", "desc": "Mockup Diego Maradona." },
-    { "id": 46, "category": "Pantera", "year": "2025", "name": "Dimebag Darrell BN", "tipoPrecio": "simple", "img": "images/pantera/dimebag_darrell_BN.jpg", "desc": "Dimebag Darrell en blanco y negro. Tributo al legendario guitarrista de Pantera." },
-    { "id": 47, "category": "Pantera", "year": "2025", "name": "Dimebag Darrell Color", "tipoPrecio": "simple", "img": "images/pantera/dimebag_darrell_color.jpg", "variants": [{ "img": "images/pantera/dimebag_darrell_color.jpg", "name": "Color" }, { "img": "images/pantera/firma_darrell.jpg", "name": "Firma Darrell" }, { "img": "images/pantera/firma_darrell_pantera.jpg", "name": "Firma Pantera" }], "desc": "Dimebag Darrell a todo color con variantes de firmas exclusivas." },
-    { "id": 48, "category": "Pantera", "year": "2025", "name": "Dimebag Darrell Guitar Gold", "tipoPrecio": "simple", "img": "images/pantera/dimebag_darrell_guitar_gold.jpg", "desc": "Dimebag Darrell con guitarra dorada. Edición especial con efecto metalizado." },
-    { "id": 323, "category": "Pantera", "year": "2025", "name": "Dimebag Tribute Edition v1", "tipoPrecio": "simple", "img": "images/pantera/dimebag_tribute_edition_v1.jpg", "desc": "Edición tributo a Dimebag Darrell v1. Homenaje al ícono del metal." },
-    { "id": 324, "category": "Pantera", "year": "2025", "name": "Dime CFH Fuego Edition", "tipoPrecio": "simple", "img": "images/pantera/dime_cfh_fuego_edition.jpg", "desc": "Dimebag CFH Fuego Edition. Diseño exclusivo con efectos de fuego." },
-    { "id": 325, "category": "Pantera", "year": "2025", "name": "Dimebag Darrell Abbott Black", "tipoPrecio": "simple", "img": "images/pantera/dimebag_darrell_abbott_black.jpg", "desc": "Dimebag Darrell Abbott en versión negra. Clásico y audaz." },
-    { "id": 326, "category": "Pantera", "year": "2025", "name": "Dimebag Darrell Abbott White", "tipoPrecio": "simple", "img": "images/pantera/dimebag_darrell_abbott_white.jpg", "desc": "Dimebag Darrell Abbott en versión blanca. Contraste puro." },
-    { "id": 327, "category": "Pantera", "year": "2025", "name": "Dimebag Darrell Homenaje", "tipoPrecio": "simple", "img": "images/pantera/dimebag_darrell_abbott_black.jpg", "desc": "Homenaje a Dimebag Darrell. Tributo permanente al maestro de la guitarra." },
-    { "id": 328, "category": "Pantera", "year": "2025", "name": "Pantera 101 Live", "tipoPrecio": "simple", "img": "images/pantera/pantera_101_live.jpg", "desc": "Pantera 101 Live. Captura la energía cruda de Dimebag en vivo." },
-    { "id": 329, "category": "Pantera", "year": "2025", "name": "Pantera Darrell v2", "tipoPrecio": "simple", "img": "images/pantera/pantera_darrell_v2.jpg", "desc": "Pantera Darrell v2. Segunda variante del diseño icónico." },
-    { "id": 51, "category": "Personalizados", "year": "2025", "name": "Flema", "tipoPrecio": "simple", "img": "images/personalizado/flema.jpg", "desc": "Mockup Flema." },
-    { "id": 44, "category": "Personalizados", "year": "2025", "name": "Gallindez Box", "tipoPrecio": "simple", "img": "images/personalizado/gallindez_box.jpg", "desc": "Mockup Gallindez Box." },
-    { "id": 311, "category": "Personalizados", "year": "2025", "name": "Guitarrista Blues", "tipoPrecio": "simple", "img": "images/personalizado/guitarrista_blues.jpg", "desc": "Mockup Guitarrista Blues." },
-    { "id": 303, "category": "Personalizados", "year": "2025", "name": "Hermética", "tipoPrecio": "simple", "img": "images/personalizado/hermetica.jpg", "desc": "Mockup Hermética." },
-    { "id": 307, "category": "Iron Maiden", "year": "2025", "name": "Iron Maiden - Live After Death", "tipoPrecio": "simple", "img": "images/iron_maiden/maiden_live_after_death.jpg", "variants": [{ "img": "images/iron_maiden/maiden_live_after_death.jpg", "name": "Original" }, { "img": "images/iron_maiden/dorso_maiden_life.jpg", "name": "Dorso" }], "desc": "Iron Maiden - Live After Death. Clásico icónico del heavy metal inglés con carrusel de variantes." },
-    { "id": 312, "category": "Personalizados", "year": "2025", "name": "Jason Becker", "tipoPrecio": "simple", "img": "images/personalizado/jason_becker.jpg", "variants": [{ "img": "images/personalizado/jason_becker.jpg", "name": "Jason Becker" }, { "img": "images/personalizado/jason_becker_th.jpg", "name": "Jason Becker TH" }], "desc": "Mockup Jason Becker con variante TH." },
-    { "id": 305, "category": "Personalizados", "year": "2025", "name": "John Petrucci", "tipoPrecio": "simple", "img": "images/personalizado/john_petrucci.jpg", "variants": [{ "img": "images/personalizado/john_petrucci.jpg", "name": "John Petrucci" }, { "img": "images/personalizado/dream_theater_dorso.jpg", "name": "Dream Theater Dorso" }], "desc": "Mockup personalizado: John Petrucci con variante Dream Theater Dorso." },
-    { "id": 304, "category": "Personalizados", "year": "2025", "name": "Judas Priest", "tipoPrecio": "simple", "img": "images/personalizado/judas_priest.jpg", "desc": "Mockup Judas Priest." },
-    { "id": 41, "category": "Personalizados", "year": "2025", "name": "Kurt Nirvana", "tipoPrecio": "simple", "img": "images/personalizado/kurt_nirvana.jpg", "desc": "Mockup especial: Kurt Cobain (Nirvana)." },
-    { "id": 59, "category": "Personalizados", "year": "2025", "name": "Primal Fear", "tipoPrecio": "simple", "img": "images/personalizado/primal_fear.jpg", "desc": "Mockup Primal Fear." },
-    { "id": 55, "category": "Personalizados", "year": "2025", "name": "Religión", "tipoPrecio": "simple", "img": "images/personalizado/religión.jpg", "desc": "Mockup Religión." },
-    { "id": 45, "category": "Personalizados", "year": "2025", "name": "Roña Castro Box", "tipoPrecio": "simple", "img": "images/personalizado/roña_castro_box.jpg", "desc": "Mockup Roña Castro Box." },
-    { "id": 54, "category": "Personalizados", "year": "2025", "name": "Saltatio Mortis", "tipoPrecio": "simple", "img": "images/personalizado/saltatio_mortis.jpg", "desc": "Mockup Saltatio Mortis." },
-    { "id": 50, "category": "Personalizados", "year": "2025", "name": "Slinka Mascota", "tipoPrecio": "simple", "img": "images/personalizado/slinka_mascota.jpg", "desc": "Mockup Slinka Mascota." },
-    { "id": 43, "category": "Personalizados", "year": "2025", "name": "Symphony X", "tipoPrecio": "simple", "img": "images/personalizado/symphony_x.jpg", "desc": "Mockup Symphony X." },
-    { "id": 57, "category": "Personalizados", "year": "2025", "name": "The Ramones", "tipoPrecio": "simple", "img": "images/personalizado/the_ramones.jpg", "desc": "Mockup The Ramones." },
-    { "id": 58, "category": "Personalizados", "year": "2025", "name": "WASP", "tipoPrecio": "simple", "img": "images/personalizado/wasp.jpg", "variants": [{ "img": "images/personalizado/wasp.jpg", "name": "WASP" }, { "img": "images/personalizado/wasp_dorso.jpg", "name": "Dorso" }], "desc": "Mockup WASP con variante de dorso." },
-    { "id": 322, "category": "Personalizados", "year": "2025", "name": "WASP v2", "tipoPrecio": "simple", "img": "images/personalizado/wasp_v2.jpg", "variants": [{ "img": "images/personalizado/wasp_v2.jpg", "name": "WASP v2" }, { "img": "images/personalizado/wasp_v2_dorso.jpg", "name": "Dorso v2" }], "desc": "Mockup WASP v2 con variante de dorso." },
-    { "id": 53, "category": "Personalizados", "year": "2025", "name": "Wintersun", "tipoPrecio": "simple", "img": "images/personalizado/wintersun.jpg", "desc": "Mockup Wintersun." },
-    { "id": 421, "category": "Personalizados", "year": "2025", "name": "Stranger Things Original", "tipoPrecio": "simple", "img": "images/personalizado/stragers_things_original.jpg", "desc": "Mockup Stranger Things Original." },
-    { "id": 422, "category": "Personalizados", "year": "2025", "name": "M'era Luna Dorso", "tipoPrecio": "simple", "img": "images/personalizado/m'era_luna_dorso.jpg", "desc": "Mockup M'era Luna Dorso." },
-    { "id": 423, "category": "Personalizados", "year": "2025", "name": "M'era Luna Logo", "tipoPrecio": "simple", "img": "images/personalizado/m'era_luna_logo.jpg", "desc": "Mockup M'era Luna Logo." },
-    { "id": 39, "category": "Tour", "year": "2025", "name": "VIC GAUCHO ARGENTINO", "tipoPrecio": "simple", "img": "images/tours/Vic_Gaucho_Argentino/vic_gaucho_original.jpg", "variants": [{ "img": "images/tours/Vic_Gaucho_Argentino/vic_gaucho_original.jpg", "name": "Original" }, { "img": "images/tours/Vic_Gaucho_Argentino/vic_gaucho_realista.jpg", "name": "Realista" }, { "img": "images/tours/Vic_Gaucho_Argentino/vic_gaucho_caballo.jpg", "name": "Caballo" }], "desc": "Serie especial VIC GAUCHO. Frente + variantes." },
-    { "id": 40, "category": "Tour", "year": "2025", "name": "Tour Argentina", "tipoPrecio": "simple", "img": "images/tours/Tour_argentina/poster_tour_argentina.jpg", "variants": [{ "img": "images/tours/Tour_argentina/poster_tour_argentina.jpg", "name": "Poster" }, { "img": "images/tours/Tour_argentina/vic_bandera_logo_blanco.jpg", "name": "Vic Bandera Blanco" }, { "img": "images/tours/Tour_argentina/vic_bandera_logo_dorado.jpg", "name": "Vic Bandera Dorado" }, { "img": "images/tours/Tour_argentina/vic_edición_fmd.jpg", "name": "Edición FMD" }], "desc": "Tour Argentina: edición especial con 4 variantes exclusivas." },
-    { "id": 300, "category": "Tour", "year": "Live", "name": "Marty & Dave", "tipoPrecio": "simple", "img": "images/tours/Live/marty_dave.jpg", "variants": [{ "img": "images/tours/Live/marty_dave.jpg", "name": "marty_dave" }], "desc": "Tributo al dúo de guitarras definitiva del thrash: Marty Friedman y Dave Mustaine. Diseño en vivo que captura su química única — técnica incendiaria, melodía punzante y solos que definieron una era. Perfecto para fans que celebran la mejor dupla de guitarras en la historia del género." },
-    { "id": 301, "category": "Tour", "year": "Live", "name": "Peace Sells Live", "tipoPrecio": "simple", "img": "images/tours/Live/peace_sells_live.jpg", "variants": [{ "img": "images/tours/Live/peace_sells_live.jpg", "name": "peace_sells_live" }], "desc": "Diseño en vivo 'Peace Sells Live' — edición especial para la colección Tour. Ideal para fans del clásico remasterizado en versión live." },
-    { "id": 318, "category": "Tour", "year": "2025", "name": "Poster Tour Argentina v2", "tipoPrecio": "simple", "img": "images/tours/Tour_argentina/poster_tour_argentina_v2.jpg", "desc": "Poster Tour Argentina v2 - Edición actualizada." },
-    { "id": 319, "category": "Tour", "year": "2025", "name": "Poster Tour Argentina White", "tipoPrecio": "simple", "img": "images/tours/Tour_argentina/poster_tour_argentina_white.jpg", "desc": "Poster Tour Argentina White - Versión blanca exclusiva." },
-    { "id": 320, "category": "Tour", "year": "2026", "name": "Vic Tour 2026", "tipoPrecio": "simple", "img": "images/tours/Tour_2026/vic_tour_2026_v1.jpg", "variants": [{ "img": "images/tours/Tour_2026/vic_tour_2026_v1.jpg", "name": "v1" }, { "img": "images/tours/Tour_2026/vic_tour_2026_v2.jpg", "name": "v2" }, { "img": "images/tours/Tour_2026/vic_tour_2026_v3.jpg", "name": "v3" }], "desc": "Vic Tour 2026 - Colección de 3 variantes exclusivas para el tour del año." },
-    
-    { "id": 304, "category": "VicRattlehead", "year": "2025", "name": "Vic Rattlehead - My Last Words", "tipoPrecio": "simple", "img": "images/vic_rattlehead/vic_rattlehead_my_last_words.jpg", "variants": [{ "img": "images/vic_rattlehead/vic_rattlehead_my_last_words.jpg", "name": "Original" }, { "img": "images/vic_rattlehead/vic_my_last_blanco.jpg", "name": "Blanco" }, { "img": "images/vic_rattlehead/vic_my_last_logo_rojo.jpg", "name": "Logo Rojo" }, { "img": "images/vic_rattlehead/vic_my_last_words_logo_gris.jpg", "name": "Logo Gris" }, { "img": "images/vic_rattlehead/vic_my_last_words_logo_negro.jpg", "name": "Logo Negro" }], "desc": "Diseño Vic Rattlehead: My Last Words." },
-    { "id": 314, "category": "VicRattlehead", "year": "2025", "name": "KIMB 40 Edition v1", "tipoPrecio": "simple", "img": "images/vic_rattlehead/kimb_40_edition_v1.jpg", "desc": "Mockup KIMB 40 Edition v1." },
-    { "id": 315, "category": "VicRattlehead", "year": "2025", "name": "KIMB 40 Edition v2", "tipoPrecio": "simple", "img": "images/vic_rattlehead/kimb_40_edition_v2.jpg", "desc": "Mockup KIMB 40 Edition v2." },
-    { "id": 316, "category": "VicRattlehead", "year": "2025", "name": "KIMB 40 Edition v3", "tipoPrecio": "simple", "img": "images/vic_rattlehead/kimb_40_edition_v3.jpg", "desc": "Mockup KIMB 40 Edition v3." },
-    { "id": 317, "category": "VicRattlehead", "year": "2025", "name": "KIMB 40 Edition v4", "tipoPrecio": "simple", "img": "images/vic_rattlehead/kimb_40_edition_v4.jpg", "desc": "Mockup KIMB 40 Edition v4." },
-    { "id": 418, "category": "VicRattlehead", "year": "2025", "name": "Vic Darker Edition", "tipoPrecio": "simple", "img": "images/vic_rattlehead/vic_darker_edition.jpg", "desc": "Vic Darker Edition - Versión oscura de Vic Rattlehead." },
-    { "id": 419, "category": "VicRattlehead", "year": "2025", "name": "Vic Original Patch", "tipoPrecio": "simple", "img": "images/vic_rattlehead/vic_original_patch.jpg", "desc": "Vic Original Patch - Diseño clásico en formato parche." },
-    { "id": 420, "category": "VicRattlehead", "year": "2025", "name": "Vic Realistic Edition", "tipoPrecio": "simple", "img": "images/vic_rattlehead/vic_realistic_edition.jpg", "desc": "Vic Realistic Edition - Versión realista de Vic Rattlehead." },
-    { "id": 400, "category": "Dorsales", "year": "2025", "name": "Dorso Tour BN", "tipoPrecio": "simple", "img": "images/dorsos/dorso_tour_BN.jpg", "desc": "Idea de dorso: versión BN para tour." },
-    { "id": 401, "category": "Dorsales", "year": "2025", "name": "Dorso Tour Oficial", "tipoPrecio": "simple", "img": "images/dorsos/dorso_tour_oficial.jpg", "desc": "Idea de dorso: versión oficial del tour." },
-    { "id": 402, "category": "Dorsales", "year": "2025", "name": "Dorso Tour v1", "tipoPrecio": "simple", "img": "images/dorsos/dorso_tour_v1.jpg", "desc": "Idea de dorso: variante v1." },
-    { "id": 403, "category": "Dorsales", "year": "2025", "name": "Dorso Tour v2", "tipoPrecio": "simple", "img": "images/dorsos/dorso_tour_v2.jpg", "desc": "Idea de dorso: variante v2." },
-    { "id": 404, "category": "Dorsales", "year": "2025", "name": "Dorso Tour v3", "tipoPrecio": "simple", "img": "images/dorsos/dorso_tour_v3.jpg", "desc": "Idea de dorso: variante v3." },
-    { "id": 405, "category": "Iron Maiden", "year": "2025", "name": "Iron Maiden - Eddie v1", "tipoPrecio": "simple", "img": "images/iron_maiden/iron_maiden_eddie_v1.jpg", "desc": "Eddie - Mascota legendaria de Iron Maiden. Versión v1 con toda la intensidad del metal." },
-    { "id": 406, "category": "Iron Maiden", "year": "2025", "name": "Iron Maiden - Eddie v2", "tipoPrecio": "simple", "img": "images/iron_maiden/iron_maiden_eddie_v2.jpg", "desc": "Eddie v2. Variante alternativa del ícono del heavy metal británico." },
-    { "id": 407, "category": "Iron Maiden", "year": "2025", "name": "Iron Maiden - Eddie v3", "tipoPrecio": "simple", "img": "images/iron_maiden/iron_maiden_eddie_v3.jpg", "desc": "Eddie v3. Otra interpretación del personaje más icónico de Iron Maiden." },
-    { "id": 408, "category": "Iron Maiden", "year": "2025", "name": "Iron Maiden - Eddie v4", "tipoPrecio": "simple", "img": "images/iron_maiden/iron_maiden_eddie_v4.jpg", "desc": "Eddie v4. La evolución definitiva del mascotón de hierro." },
-    { "id": 409, "category": "Pantera", "year": "2025", "name": "Dimebag Darrell Live", "tipoPrecio": "simple", "img": "images/pantera/dimebag_darrell_live.jpg", "desc": "Dimebag Darrell en vivo. Captura la energía cruda del legendario guitarrista en escena." },
-    { "id": 410, "category": "Pantera", "year": "2025", "name": "Dimebag Logo Fuego", "tipoPrecio": "simple", "img": "images/pantera/dimebag_darrell_logo_fuego.jpg", "desc": "Dimebag con logo en fuego. Diseño ardiente que captura la intensidad de su legado." },
-    { "id": 411, "category": "Pantera", "year": "2025", "name": "Guitar Dimebag", "tipoPrecio": "simple", "img": "images/pantera/guitar_dimebag.jpg", "desc": "Enfoque en la guitarra de Dimebag. Tributo al instrumento icónico del metal sudoriental." },
-    { "id": 412, "category": "Pantera", "year": "2025", "name": "Pantera Art", "tipoPrecio": "simple", "img": "images/pantera/pantera_art.jpg", "desc": "Pantera Art. Interpretación artística de la banda legendaria." },
-    { "id": 413, "category": "Pantera", "year": "2025", "name": "Pantera Band v1", "tipoPrecio": "simple", "img": "images/pantera/pantera_band_v1.jpg", "desc": "Pantera Band v1. Fotografía de grupo de la alineación clásica." },
-    { "id": 414, "category": "Pantera", "year": "2025", "name": "Pantera Snake v1", "tipoPrecio": "simple", "img": "images/pantera/pantera_snake_v1.jpg", "desc": "Pantera Snake v1. Serpiente con simbolismo Pantera. Variante uno del diseño." },
-    { "id": 415, "category": "Pantera", "year": "2025", "name": "Pantera Snake v2", "tipoPrecio": "simple", "img": "images/pantera/pantera_snake_v2.jpg", "desc": "Pantera Snake v2. Serpiente con simbolismo Pantera. Segunda variante del diseño." },
-    { "id": 416, "category": "Pantera", "year": "2025", "name": "Dimebag Tribute Edition v1", "tipoPrecio": "simple", "img": "images/pantera/dimebag_tribute_edition_v1.jpg", "desc": "Dimebag Tribute Edition v1. Edición especial de tributo al guitarrista legendario de Pantera." },
-    { "id": 417, "category": "Pantera", "year": "2025", "name": "Phil Anselmo v1", "tipoPrecio": "simple", "img": "images/pantera/phil_anselmo_v1.jpg", "variants": [{ "img": "images/pantera/phil_anselmo_v1.jpg", "name": "Phil Anselmo v1" }, { "img": "images/pantera/phil_anselmo_v2.jpg", "name": "Phil Anselmo v2" }], "desc": "Phil Anselmo, vocalista legendario de Pantera. Dos variantes de su icónica presencia en escena." }
+    {
+        "id": 1,
+        "category": "Album",
+        "year": "1985",
+        "name": "Killing Is My Business",
+        "tipoPrecio": "simple",
+        "img": "images/albums/Killing_Is_my_bussines/kimb_1985_original_.jpg",
+        "variants": [
+            {
+                "img": "images/albums/Killing_Is_my_bussines/kimb_1985_original_.jpg",
+                "name": "KIMB_1985_ORIGINAL"
+            },
+            {
+                "img": "images/albums/Killing_Is_my_bussines/kimb_2012.jpg",
+                "name": "KIMB 2012"
+            },
+            {
+                "img": "images/albums/Killing_Is_my_bussines/kimb_art_2012.jpg",
+                "name": "KIMB_ART_2012"
+            },
+            {
+                "img": "images/albums/Killing_Is_my_bussines/kimb_gris_rojo.jpg",
+                "name": "KIMB_GRIS_ROJO"
+            },
+            {
+                "img": "images/albums/Killing_Is_my_bussines/kimb_realistic_1985.jpg",
+                "name": "KIMB_REALISTIC_1985"
+            },
+            {
+                "img": "images/albums/Killing_Is_my_bussines/kimb_realistic_2012.jpg",
+                "name": "KIMB_REALISTIC_2012"
+            },
+            {
+                "img": "images/albums/Killing_Is_my_bussines/kimb_retro.jpg",
+                "name": "KIMB_RETRO"
+            }
+        ],
+        "desc": "Es el debut crudo y frenético de 1985 que definió el thrash metal técnico mediante la velocidad extrema y la sed de venganza de Dave Mustaine en 7 diseños."
+    },
+    {
+        "id": 2,
+        "category": "Album",
+        "year": "1986",
+        "name": "Peace Sells",
+        "tipoPrecio": "simple",
+        "img": "images/albums/Peace_sells/peace_sells_tapa.jpg",
+        "desc": "Icónica crítica sociopolítica plasmada en el sarcasmo de Vic Rattlehead frente a la ONU, envuelta en puro virtuosismo thrash."
+    },
+    {
+        "id": 3,
+        "category": "Album",
+        "year": "1988",
+        "name": "So Far, So Good",
+        "tipoPrecio": "simple",
+        "img": "images/albums/SFSGSW/1-sfsgsw_tapa.jpg",
+        "variants": [
+            {
+                "img": "images/albums/SFSGSW/1-sfsgsw_tapa.jpg",
+                "name": "Tapa"
+            },
+            {
+                "img": "images/albums/SFSGSW/2-sfsgsw_alternative.jpg",
+                "name": "Alternative"
+            },
+            {
+                "img": "images/albums/SFSGSW/3-mary_jane.jpg",
+                "name": "Mary Jane"
+            }
+        ],
+        "desc": "Un contraataque de thrash visceral y rebelde con Vic Rattlehead armado para la guerra en un paisaje postapocalíptico."
+    },
+    {
+        "id": 4,
+        "category": "Album",
+        "year": "1990",
+        "name": "Rust in Peace",
+        "tipoPrecio": "simple",
+        "img": "images/albums/Rust_in_peace/rust_in_peace.jpg",
+        "variants": [
+            {
+                "img": "images/albums/Rust_in_peace/rust_in_peace.jpg",
+                "name": "Original"
+            },
+            {
+                "img": "images/albums/Rust_in_peace/alternate-rip.jpg",
+                "name": "Alternate RIP"
+            }
+        ],
+        "desc": "Obra maestra de precisión matemática y alienígenas en el Área 51 que elevó el thrash metal a la perfección técnica."
+    },
+    {
+        "id": 5,
+        "category": "Album",
+        "year": "1992",
+        "name": "Countdown to Extinction",
+        "tipoPrecio": "simple",
+        "img": "images/albums/Countdown_to_extinction/CTE.jpg",
+        "desc": "Groove metálico y éxito comercial representados por una impactante crítica a la extinción animal y la codicia humana."
+    },
+    {
+        "id": 6,
+        "category": "Album",
+        "year": "1994",
+        "name": "Youthanasia",
+        "tipoPrecio": "simple",
+        "img": "images/albums/Youthanasia/youthanasia.jpg",
+        "variants": [
+            {
+                "img": "images/albums/Youthanasia/youthanasia.jpg",
+                "name": "Youthanasia"
+            },
+            {
+                "img": "images/albums/Youthanasia/vic_father.jpg",
+                "name": "Vic Father"
+            }
+        ],
+        "desc": "Heavy metal melódico y oscuro con una portada surrealista que denuncia el sacrificio del futuro de las nuevas generaciones."
+    },
+    {
+        "id": 8,
+        "category": "Album",
+        "year": "1997",
+        "name": "Cryptic Writings",
+        "tipoPrecio": "simple",
+        "img": "images/albums/Cryptic_Writings/cryptic_writings_tapa.jpg",
+        "desc": "Melodía accesible y experimentación radial envueltas en un arte místico de simbología críptica y diseño minimalista."
+    },
+    {
+        "id": 9,
+        "category": "Album",
+        "year": "1999",
+        "name": "Risk",
+        "tipoPrecio": "simple",
+        "img": "images/albums/Risk/risk_tapa_remastered.jpg",
+        "variants": [
+            {
+                "img": "images/albums/Risk/risk_tapa_remastered.jpg",
+                "name": "Tapa (Remastered)"
+            },
+            {
+                "img": "images/albums/Risk/risk_tapa.jpg",
+                "name": "Tapa (Original)"
+            }
+        ],
+        "desc": "Exploración de hard rock melódico y comercial bajo el simbolismo de una ratonera que representa el riesgo artístico asumido."
+    },
+    {
+        "id": 10,
+        "category": "Album",
+        "year": "2001",
+        "name": "The World Needs a Hero",
+        "tipoPrecio": "simple",
+        "img": "images/albums/TWNAH/the_worlds_needs_a_hero.jpg",
+        "desc": "Vic saliendo del pecho del alien. Gore y sci-fi. Un retorno al sonido pesado y las estructuras tradicionales del thrash metal, buscando recuperar la agresividad perdida en sus discos anteriores."
+    },
+    {
+        "id": 11,
+        "category": "Album",
+        "year": "2004",
+        "name": "The System Has Failed",
+        "tipoPrecio": "simple",
+        "img": "images/albums/TSHF/the_system_has_failed.jpg",
+        "desc": "Vic vendiendo sentencias. Arte político. Un regreso triunfal al thrash técnico con una portada que denuncia la corrupción política en la Casa Blanca."
+    },
+    {
+        "id": 12,
+        "category": "Album",
+        "year": "2007",
+        "name": "United Abominations",
+        "tipoPrecio": "simple",
+        "img": "images/albums/United_Abominations/united_abominations.jpg",
+        "desc": "Crítica feroz a la ONU y agresividad moderna con un rediseño cinematográfico de Vic Rattlehead."
+    },
+    {
+        "id": 13,
+        "category": "Album",
+        "year": "2009",
+        "name": "Endgame",
+        "tipoPrecio": "simple",
+        "img": "images/albums/Endgame/endgame.jpg",
+        "desc": "Velocidad técnica extrema en una atmósfera opresiva que retrata el control totalitario y la vigilancia masiva."
+    },
+    {
+        "id": 14,
+        "category": "Album",
+        "year": "2011",
+        "name": "TH1RT3EN",
+        "tipoPrecio": "simple",
+        "img": "images/albums/13/13.jpg",
+        "desc": "Un repaso oscuro por la herencia sonora de la banda bajo la mística numérica y la presencia fantasmal de su mascota."
+    },
+    {
+        "id": 15,
+        "category": "Album",
+        "year": "2013",
+        "name": "Super Collider",
+        "tipoPrecio": "simple",
+        "img": "images/albums/Super_Collider/super_collider.jpg",
+        "desc": "Hard rock pesado y riffs directos inspirados en la ciencia del Gran Colisionador de Hadrones."
+    },
+    {
+        "id": 7,
+        "category": "Album",
+        "year": "2016",
+        "name": "Dystopia",
+        "tipoPrecio": "simple",
+        "img": "images/albums/Dystopia/dystopia.jpg",
+        "desc": "Resurrección del thrash más crudo y futurista con un Vic cibernético en un mundo postapocalíptico desolado."
+    },
+    {
+        "id": 16,
+        "category": "Album",
+        "year": "2022",
+        "name": "The Sick, the Dying...And the Dead!",
+        "tipoPrecio": "simple",
+        "img": "images/albums/The_sick/the_sick_the_dying_and_the_dead.jpg",
+        "desc": "Virtuosismo épico y relatos de pestilencia histórica con un Vic Rattlehead convertido en un guerrero medieval implacable."
+    },
+    {
+        "id": 17,
+        "category": "Album",
+        "year": "2026",
+        "name": "Megadeth 2026",
+        "tipoPrecio": "simple",
+        "img": "images/albums/Megadeth/vic_llamas_blanca.jpg",
+        "variants": [
+            {
+                "img": "images/albums/Megadeth/vic_llamas_blanca.jpg",
+                "name": "Vic Llamas Blanca"
+            },
+            {
+                "img": "images/albums/Megadeth/vic_llamas_negro.jpg",
+                "name": "Vic Llamas Negro"
+            },
+            {
+                "img": "images/albums/Megadeth/vic_llamas_negro-v2.jpg",
+                "name": "Vic Llamas Negro v2"
+            },
+            {
+                "img": "images/albums/Megadeth/vic_digital.jpg",
+                "name": "Vic Digital"
+            },
+            {
+                "img": "images/albums/Megadeth/vic_digital_v2.jpg",
+                "name": "Vic Digital v2"
+            }
+        ],
+        "desc": "Un diseño limpio e impactante que captura a Vic Rattlehead consumiéndose en llamas con un traje blanco principal y otras variantes, listo para el final."
+    },
+    {
+        "id": 235,
+        "category": "Singles",
+        "year": "2025",
+        "name": "Vic Nuclear",
+        "tipoPrecio": "simple",
+        "img": "images/singles/vic_nuclear.jpg",
+        "desc": "Diseño especial: Vic Nuclear. Rareza exclusiva Five Magics Designs."
+    },
+    {
+        "id": 236,
+        "category": "Singles",
+        "year": "2025",
+        "name": "Rusted Pieces",
+        "tipoPrecio": "simple",
+        "img": "images/singles/rusted_pieces.jpg",
+        "variants": [
+            {
+                "img": "images/singles/rusted_pieces.jpg",
+                "name": "Original"
+            },
+            {
+                "img": "images/singles/rusted_pieces_artv1.jpg",
+                "name": "Art v1"
+            },
+            {
+                "img": "images/singles/rusted_pieces_artv2.jpg",
+                "name": "Art v2"
+            },
+            {
+                "img": "images/singles/rusted_pieces_darker.jpg",
+                "name": "Darker"
+            },
+            {
+                "img": "images/singles/rusted_pieces_realistic.jpg",
+                "name": "Realistic"
+            }
+        ],
+        "desc": "Rusted Pieces — edición VHS remasterizada. Diseño exclusivo con 5 variantes."
+    },
+    {
+        "id": 241,
+        "category": "Singles",
+        "year": "2025",
+        "name": "I Don't Care",
+        "tipoPrecio": "simple",
+        "img": "images/singles/i_dont_care.jpg",
+        "variants": [
+            {
+                "img": "images/singles/i_dont_care.jpg",
+                "name": "Original"
+            },
+            {
+                "img": "images/singles/i_dont_care_v1.jpg",
+                "name": "v1"
+            },
+            {
+                "img": "images/singles/i_dont_care_v2.jpg",
+                "name": "v2"
+            },
+            {
+                "img": "images/singles/i_dont_care_v3.jpg",
+                "name": "v3"
+            }
+        ],
+        "desc": "I Don't Care - Edición especial con 4 variantes."
+    },
+    {
+        "id": 242,
+        "category": "Singles",
+        "year": "2025",
+        "name": "Tipping Point",
+        "tipoPrecio": "simple",
+        "img": "images/singles/tipping_point.jpg",
+        "desc": "Tipping Point - Diseño exclusivo de rareza."
+    },
+    {
+        "id": 243,
+        "category": "Singles",
+        "year": "2025",
+        "name": "Megadeth Rarezas",
+        "tipoPrecio": "simple",
+        "img": "images/singles/let_there_be_shred.jpg",
+        "variants": [
+            {
+                "img": "images/singles/let_there_be_shred.jpg",
+                "name": "Let There Be Shred"
+            },
+            {
+                "img": "images/singles/let_there_be_shred-realista.jpg",
+                "name": "Let There Be Shred Realista"
+            },
+            {
+                "img": "images/singles/fmd_edition_shred.jpg",
+                "name": "FMD Edition Shred"
+            },
+            {
+                "img": "images/singles/vic_pelea_v1.jpg",
+                "name": "Vic Pelea V1"
+            },
+            {
+                "img": "images/singles/vic_pelea_v2.jpg",
+                "name": "Vic Pelea V2"
+            }
+        ],
+        "desc": "Colección especial de rarezas - Let There Be Shred, FMD Edition Shred y Vic Pelea con todas sus variantes."
+    },
+    {
+        "id": 28,
+        "category": "Musician",
+        "year": "Leyenda",
+        "name": "Dave Mustaine",
+        "tipoPrecio": "simple",
+        "img": "images/musicians/Dave_Mustaine/Dave_Mustaine_COLOR_90s.jpg",
+        "variants": [
+            {
+                "img": "images/musicians/Dave_Mustaine/Dave_Mustaine_COLOR_90s.jpg",
+                "name": "COLOR 90s"
+            },
+            {
+                "img": "images/musicians/Dave_Mustaine/Dave_Mustaine_BN_90s.jpg",
+                "name": "BN 90s"
+            },
+            {
+                "img": "images/musicians/Dave_Mustaine/dave_mustaine_1988.jpg",
+                "name": "1988"
+            },
+            {
+                "img": "images/musicians/Dave_Mustaine/poison_green.jpg",
+                "name": "Poison Green"
+            },
+            {
+                "img": "images/musicians/Dave_Mustaine/warhead_red.jpg",
+                "name": "Warhead Red"
+            }
+        ],
+        "desc": "El Colorado con su Flying V. El líder."
+    },
+    {
+        "id": 29,
+        "category": "Musician",
+        "year": "Leyenda",
+        "name": "Marty Friedman",
+        "tipoPrecio": "simple",
+        "img": "images/musicians/Marty_Friedman/Marty_1990_cte.jpg",
+        "variants": [
+            {
+                "img": "images/musicians/Marty_Friedman/Marty_1990_cte.jpg",
+                "name": "1990 CTE"
+            },
+            {
+                "img": "images/musicians/Marty_Friedman/Marty_1990_RIP.jpg",
+                "name": "1990 RIP"
+            },
+            {
+                "img": "images/musicians/Marty_Friedman/Marty_1992_FIRMA.jpg",
+                "name": "1992 FIRMA"
+            }
+        ],
+        "desc": "El guitarrista exótico. Estilo japonés."
+    },
+    {
+        "id": 30,
+        "category": "Musician",
+        "year": "Leyenda",
+        "name": "Nick Menza",
+        "tipoPrecio": "simple",
+        "img": "images/musicians/Nick_Menza/nick_menza.jpg",
+        "variants": [
+            {
+                "img": "images/musicians/Nick_Menza/nick_menza_youth_era.jpg",
+                "name": "Youth Era"
+            },
+            {
+                "img": "images/musicians/Nick_Menza/nick_menza_cte_era.jpg",
+                "name": "CTE Era"
+            },
+            {
+                "img": "images/musicians/Nick_Menza/nick_menza_rip_era.jpg",
+                "name": "RIP Era"
+            },
+            {
+                "img": "images/musicians/Nick_Menza/megadeth_logo_youthansia.jpg",
+                "name": "Idea para Dorso-1"
+            },
+            {
+                "img": "images/musicians/Nick_Menza/megadeth_nick_baquetas.jpg",
+                "name": "Idea para Dorso-2"
+            }
+        ],
+        "desc": "El motor de la banda: Nick Menza, baterista legendario."
+    },
+    {
+        "id": 46,
+        "category": "Pantera",
+        "year": "2025",
+        "name": "Dimebag Darrell BN",
+        "tipoPrecio": "simple",
+        "img": "images/pantera/dimebag_darrell_BN.jpg",
+        "desc": "Dimebag Darrell en blanco y negro. Tributo al legendario guitarrista de Pantera."
+    },
+    {
+        "id": 47,
+        "category": "Pantera",
+        "year": "2025",
+        "name": "Dimebag Darrell Color",
+        "tipoPrecio": "simple",
+        "img": "images/pantera/dimebag_darrell_color.jpg",
+        "variants": [
+            {
+                "img": "images/pantera/dimebag_darrell_color.jpg",
+                "name": "Color"
+            },
+            {
+                "img": "images/pantera/firma_darrell.jpg",
+                "name": "Firma Darrell"
+            },
+            {
+                "img": "images/pantera/firma_darrell_pantera.jpg",
+                "name": "Firma Pantera"
+            }
+        ],
+        "desc": "Dimebag Darrell a todo color con variantes de firmas exclusivas."
+    },
+    {
+        "id": 48,
+        "category": "Pantera",
+        "year": "2025",
+        "name": "Dimebag Darrell Guitar Gold",
+        "tipoPrecio": "simple",
+        "img": "images/pantera/dimebag_darrell_guitar_gold.jpg",
+        "desc": "Dimebag Darrell con guitarra dorada. Edición especial con efecto metalizado."
+    },
+    {
+        "id": 323,
+        "category": "Pantera",
+        "year": "2025",
+        "name": "Dimebag Tribute Edition v1",
+        "tipoPrecio": "simple",
+        "img": "images/pantera/dimebag_tribute_edition_v1.jpg",
+        "desc": "Edición tributo a Dimebag Darrell v1. Homenaje al ícono del metal."
+    },
+    {
+        "id": 324,
+        "category": "Pantera",
+        "year": "2025",
+        "name": "Dime CFH Fuego Edition",
+        "tipoPrecio": "simple",
+        "img": "images/pantera/dime_cfh_fuego_edition.jpg",
+        "desc": "Dimebag CFH Fuego Edition. Diseño exclusivo con efectos de fuego."
+    },
+    {
+        "id": 325,
+        "category": "Pantera",
+        "year": "2025",
+        "name": "Dimebag Darrell Abbott Black",
+        "tipoPrecio": "simple",
+        "img": "images/pantera/dimebag_darrell_abbott_black.jpg",
+        "desc": "Dimebag Darrell Abbott en versión negra. Clásico y audaz."
+    },
+    {
+        "id": 326,
+        "category": "Pantera",
+        "year": "2025",
+        "name": "Dimebag Darrell Abbott White",
+        "tipoPrecio": "simple",
+        "img": "images/pantera/dimebag_darrell_abbott_white.jpg",
+        "desc": "Dimebag Darrell Abbott en versión blanca. Contraste puro."
+    },
+    {
+        "id": 327,
+        "category": "Pantera",
+        "year": "2025",
+        "name": "Dimebag Darrell Homenaje",
+        "tipoPrecio": "simple",
+        "img": "images/pantera/dimebag_darrell_abbott_black.jpg",
+        "desc": "Homenaje a Dimebag Darrell. Tributo permanente al maestro de la guitarra."
+    },
+    {
+        "id": 328,
+        "category": "Pantera",
+        "year": "2025",
+        "name": "Pantera 101 Live",
+        "tipoPrecio": "simple",
+        "img": "images/pantera/pantera_101_live.jpg",
+        "desc": "Pantera 101 Live. Captura la energía cruda de Dimebag en vivo."
+    },
+    {
+        "id": 329,
+        "category": "Pantera",
+        "year": "2025",
+        "name": "Pantera Darrell v2",
+        "tipoPrecio": "simple",
+        "img": "images/pantera/pantera_darrell_v2.jpg",
+        "desc": "Pantera Darrell v2. Segunda variante del diseño icónico."
+    },
+    {
+        "id": 307,
+        "category": "Iron Maiden",
+        "year": "2025",
+        "name": "Iron Maiden - Live After Death",
+        "tipoPrecio": "simple",
+        "img": "images/iron_maiden/maiden_live_after_death.jpg",
+        "variants": [
+            {
+                "img": "images/iron_maiden/maiden_live_after_death.jpg",
+                "name": "Original"
+            },
+            {
+                "img": "images/iron_maiden/dorso_maiden_life.jpg",
+                "name": "Dorso"
+            }
+        ],
+        "desc": "Iron Maiden - Live After Death. Clásico icónico del heavy metal inglés con carrusel de variantes."
+    },
+    {
+        "id": 39,
+        "category": "Tour",
+        "year": "2025",
+        "name": "VIC GAUCHO ARGENTINO",
+        "tipoPrecio": "simple",
+        "img": "images/tours/Vic_Gaucho_Argentino/vic_gaucho_original.jpg",
+        "variants": [
+            {
+                "img": "images/tours/Vic_Gaucho_Argentino/vic_gaucho_original.jpg",
+                "name": "Original"
+            },
+            {
+                "img": "images/tours/Vic_Gaucho_Argentino/vic_gaucho_realista.jpg",
+                "name": "Realista"
+            },
+            {
+                "img": "images/tours/Vic_Gaucho_Argentino/vic_gaucho_caballo.jpg",
+                "name": "Caballo"
+            }
+        ],
+        "desc": "Serie especial VIC GAUCHO. Frente + variantes."
+    },
+    {
+        "id": 40,
+        "category": "Tour",
+        "year": "2025",
+        "name": "Tour Argentina",
+        "tipoPrecio": "simple",
+        "img": "images/tours/Tour_argentina/poster_tour_argentina.jpg",
+        "variants": [
+            {
+                "img": "images/tours/Tour_argentina/poster_tour_argentina.jpg",
+                "name": "Poster"
+            },
+            {
+                "img": "images/tours/Tour_argentina/vic_bandera_logo_blanco.jpg",
+                "name": "Vic Bandera Blanco"
+            },
+            {
+                "img": "images/tours/Tour_argentina/vic_bandera_logo_dorado.jpg",
+                "name": "Vic Bandera Dorado"
+            },
+            {
+                "img": "images/tours/Tour_argentina/vic_edición_fmd.jpg",
+                "name": "Edición FMD"
+            }
+        ],
+        "desc": "Tour Argentina: edición especial con 4 variantes exclusivas."
+    },
+    {
+        "id": 300,
+        "category": "Tour",
+        "year": "Live",
+        "name": "Marty & Dave",
+        "tipoPrecio": "simple",
+        "img": "images/tours/Live/marty_dave.jpg",
+        "variants": [
+            {
+                "img": "images/tours/Live/marty_dave.jpg",
+                "name": "marty_dave"
+            }
+        ],
+        "desc": "Tributo al dúo de guitarras definitiva del thrash: Marty Friedman y Dave Mustaine. Diseño en vivo que captura su química única — técnica incendiaria, melodía punzante y solos que definieron una era. Perfecto para fans que celebran la mejor dupla de guitarras en la historia del género."
+    },
+    {
+        "id": 301,
+        "category": "Tour",
+        "year": "Live",
+        "name": "Peace Sells Live",
+        "tipoPrecio": "simple",
+        "img": "images/tours/Live/peace_sells_live.jpg",
+        "variants": [
+            {
+                "img": "images/tours/Live/peace_sells_live.jpg",
+                "name": "peace_sells_live"
+            }
+        ],
+        "desc": "Diseño en vivo 'Peace Sells Live' — edición especial para la colección Tour. Ideal para fans del clásico remasterizado en versión live."
+    },
+    {
+        "id": 318,
+        "category": "Tour",
+        "year": "2025",
+        "name": "Poster Tour Argentina v2",
+        "tipoPrecio": "simple",
+        "img": "images/tours/Tour_argentina/poster_tour_argentina_v2.jpg",
+        "desc": "Poster Tour Argentina v2 - Edición actualizada."
+    },
+    {
+        "id": 319,
+        "category": "Tour",
+        "year": "2025",
+        "name": "Poster Tour Argentina White",
+        "tipoPrecio": "simple",
+        "img": "images/tours/Tour_argentina/poster_tour_argentina_white.jpg",
+        "desc": "Poster Tour Argentina White - Versión blanca exclusiva."
+    },
+    {
+        "id": 320,
+        "category": "Tour",
+        "year": "2026",
+        "name": "Vic Tour 2026",
+        "tipoPrecio": "simple",
+        "img": "images/tours/Tour_2026/vic_tour_2026_v1.jpg",
+        "variants": [
+            {
+                "img": "images/tours/Tour_2026/vic_tour_2026_v1.jpg",
+                "name": "v1"
+            },
+            {
+                "img": "images/tours/Tour_2026/vic_tour_2026_v2.jpg",
+                "name": "v2"
+            },
+            {
+                "img": "images/tours/Tour_2026/vic_tour_2026_v3.jpg",
+                "name": "v3"
+            }
+        ],
+        "desc": "Vic Tour 2026 - Colección de 3 variantes exclusivas para el tour del año."
+    },
+    {
+        "id": 304,
+        "category": "VicRattlehead",
+        "year": "2025",
+        "name": "Vic Rattlehead - My Last Words",
+        "tipoPrecio": "simple",
+        "img": "images/vic_rattlehead/vic_rattlehead_my_last_words.jpg",
+        "variants": [
+            {
+                "img": "images/vic_rattlehead/vic_rattlehead_my_last_words.jpg",
+                "name": "Original"
+            },
+            {
+                "img": "images/vic_rattlehead/vic_my_last_blanco.jpg",
+                "name": "Blanco"
+            },
+            {
+                "img": "images/vic_rattlehead/vic_my_last_logo_rojo.jpg",
+                "name": "Logo Rojo"
+            },
+            {
+                "img": "images/vic_rattlehead/vic_my_last_words_logo_gris.jpg",
+                "name": "Logo Gris"
+            },
+            {
+                "img": "images/vic_rattlehead/vic_my_last_words_logo_negro.jpg",
+                "name": "Logo Negro"
+            }
+        ],
+        "desc": "Diseño Vic Rattlehead: My Last Words."
+    },
+    {
+        "id": 314,
+        "category": "VicRattlehead",
+        "year": "2025",
+        "name": "KIMB 40 Edition v1",
+        "tipoPrecio": "simple",
+        "img": "images/vic_rattlehead/kimb_40_edition_v1.jpg",
+        "desc": "Mockup KIMB 40 Edition v1."
+    },
+    {
+        "id": 315,
+        "category": "VicRattlehead",
+        "year": "2025",
+        "name": "KIMB 40 Edition v2",
+        "tipoPrecio": "simple",
+        "img": "images/vic_rattlehead/kimb_40_edition_v2.jpg",
+        "desc": "Mockup KIMB 40 Edition v2."
+    },
+    {
+        "id": 316,
+        "category": "VicRattlehead",
+        "year": "2025",
+        "name": "KIMB 40 Edition v3",
+        "tipoPrecio": "simple",
+        "img": "images/vic_rattlehead/kimb_40_edition_v3.jpg",
+        "desc": "Mockup KIMB 40 Edition v3."
+    },
+    {
+        "id": 317,
+        "category": "VicRattlehead",
+        "year": "2025",
+        "name": "KIMB 40 Edition v4",
+        "tipoPrecio": "simple",
+        "img": "images/vic_rattlehead/kimb_40_edition_v4.jpg",
+        "desc": "Mockup KIMB 40 Edition v4."
+    },
+    {
+        "id": 418,
+        "category": "VicRattlehead",
+        "year": "2025",
+        "name": "Vic Darker Edition",
+        "tipoPrecio": "simple",
+        "img": "images/vic_rattlehead/vic_darker_edition.jpg",
+        "desc": "Vic Darker Edition - Versión oscura de Vic Rattlehead."
+    },
+    {
+        "id": 419,
+        "category": "VicRattlehead",
+        "year": "2025",
+        "name": "Vic Original Patch",
+        "tipoPrecio": "simple",
+        "img": "images/vic_rattlehead/vic_original_patch.jpg",
+        "desc": "Vic Original Patch - Diseño clásico en formato parche."
+    },
+    {
+        "id": 420,
+        "category": "VicRattlehead",
+        "year": "2025",
+        "name": "Vic Realistic Edition",
+        "tipoPrecio": "simple",
+        "img": "images/vic_rattlehead/vic_realistic_edition.jpg",
+        "desc": "Vic Realistic Edition - Versión realista de Vic Rattlehead."
+    },
+    {
+        "id": 400,
+        "category": "Dorsales",
+        "year": "2025",
+        "name": "Dorso Tour BN",
+        "tipoPrecio": "simple",
+        "img": "images/dorsos/dorso_tour_BN.jpg",
+        "desc": "Idea de dorso: versión BN para tour."
+    },
+    {
+        "id": 401,
+        "category": "Dorsales",
+        "year": "2025",
+        "name": "Dorso Tour Oficial",
+        "tipoPrecio": "simple",
+        "img": "images/dorsos/dorso_tour_oficial.jpg",
+        "desc": "Idea de dorso: versión oficial del tour."
+    },
+    {
+        "id": 402,
+        "category": "Dorsales",
+        "year": "2025",
+        "name": "Dorso Tour v1",
+        "tipoPrecio": "simple",
+        "img": "images/dorsos/dorso_tour_v1.jpg",
+        "desc": "Idea de dorso: variante v1."
+    },
+    {
+        "id": 403,
+        "category": "Dorsales",
+        "year": "2025",
+        "name": "Dorso Tour v2",
+        "tipoPrecio": "simple",
+        "img": "images/dorsos/dorso_tour_v2.jpg",
+        "desc": "Idea de dorso: variante v2."
+    },
+    {
+        "id": 404,
+        "category": "Dorsales",
+        "year": "2025",
+        "name": "Dorso Tour v3",
+        "tipoPrecio": "simple",
+        "img": "images/dorsos/dorso_tour_v3.jpg",
+        "desc": "Idea de dorso: variante v3."
+    },
+    {
+        "id": 405,
+        "category": "Iron Maiden",
+        "year": "2025",
+        "name": "Iron Maiden - Eddie v1",
+        "tipoPrecio": "simple",
+        "img": "images/iron_maiden/iron_maiden_eddie_v1.jpg",
+        "desc": "Eddie - Mascota legendaria de Iron Maiden. Versión v1 con toda la intensidad del metal."
+    },
+    {
+        "id": 406,
+        "category": "Iron Maiden",
+        "year": "2025",
+        "name": "Iron Maiden - Eddie v2",
+        "tipoPrecio": "simple",
+        "img": "images/iron_maiden/iron_maiden_eddie_v2.jpg",
+        "desc": "Eddie v2. Variante alternativa del ícono del heavy metal británico."
+    },
+    {
+        "id": 407,
+        "category": "Iron Maiden",
+        "year": "2025",
+        "name": "Iron Maiden - Eddie v3",
+        "tipoPrecio": "simple",
+        "img": "images/iron_maiden/iron_maiden_eddie_v3.jpg",
+        "desc": "Eddie v3. Otra interpretación del personaje más icónico de Iron Maiden."
+    },
+    {
+        "id": 408,
+        "category": "Iron Maiden",
+        "year": "2025",
+        "name": "Iron Maiden - Eddie v4",
+        "tipoPrecio": "simple",
+        "img": "images/iron_maiden/iron_maiden_eddie_v4.jpg",
+        "desc": "Eddie v4. La evolución definitiva del mascotón de hierro."
+    },
+    {
+        "id": 409,
+        "category": "Pantera",
+        "year": "2025",
+        "name": "Dimebag Darrell Live",
+        "tipoPrecio": "simple",
+        "img": "images/pantera/dimebag_darrell_live.jpg",
+        "desc": "Dimebag Darrell en vivo. Captura la energía cruda del legendario guitarrista en escena."
+    },
+    {
+        "id": 410,
+        "category": "Pantera",
+        "year": "2025",
+        "name": "Dimebag Logo Fuego",
+        "tipoPrecio": "simple",
+        "img": "images/pantera/dimebag_darrell_logo_fuego.jpg",
+        "desc": "Dimebag con logo en fuego. Diseño ardiente que captura la intensidad de su legado."
+    },
+    {
+        "id": 411,
+        "category": "Pantera",
+        "year": "2025",
+        "name": "Guitar Dimebag",
+        "tipoPrecio": "simple",
+        "img": "images/pantera/guitar_dimebag.jpg",
+        "desc": "Enfoque en la guitarra de Dimebag. Tributo al instrumento icónico del metal sudoriental."
+    },
+    {
+        "id": 412,
+        "category": "Pantera",
+        "year": "2025",
+        "name": "Pantera Art",
+        "tipoPrecio": "simple",
+        "img": "images/pantera/pantera_art.jpg",
+        "desc": "Pantera Art. Interpretación artística de la banda legendaria."
+    },
+    {
+        "id": 413,
+        "category": "Pantera",
+        "year": "2025",
+        "name": "Pantera Band v1",
+        "tipoPrecio": "simple",
+        "img": "images/pantera/pantera_band_v1.jpg",
+        "desc": "Pantera Band v1. Fotografía de grupo de la alineación clásica."
+    },
+    {
+        "id": 414,
+        "category": "Pantera",
+        "year": "2025",
+        "name": "Pantera Snake v1",
+        "tipoPrecio": "simple",
+        "img": "images/pantera/pantera_snake_v1.jpg",
+        "desc": "Pantera Snake v1. Serpiente con simbolismo Pantera. Variante uno del diseño."
+    },
+    {
+        "id": 415,
+        "category": "Pantera",
+        "year": "2025",
+        "name": "Pantera Snake v2",
+        "tipoPrecio": "simple",
+        "img": "images/pantera/pantera_snake_v2.jpg",
+        "desc": "Pantera Snake v2. Serpiente con simbolismo Pantera. Segunda variante del diseño."
+    },
+    {
+        "id": 416,
+        "category": "Pantera",
+        "year": "2025",
+        "name": "Dimebag Tribute Edition v1",
+        "tipoPrecio": "simple",
+        "img": "images/pantera/dimebag_tribute_edition_v1.jpg",
+        "desc": "Dimebag Tribute Edition v1. Edición especial de tributo al guitarrista legendario de Pantera."
+    },
+    {
+        "id": 417,
+        "category": "Pantera",
+        "year": "2025",
+        "name": "Phil Anselmo v1",
+        "tipoPrecio": "simple",
+        "img": "images/pantera/phil_anselmo_v1.jpg",
+        "variants": [
+            {
+                "img": "images/pantera/phil_anselmo_v1.jpg",
+                "name": "Phil Anselmo v1"
+            },
+            {
+                "img": "images/pantera/phil_anselmo_v2.jpg",
+                "name": "Phil Anselmo v2"
+            }
+        ],
+        "desc": "Phil Anselmo, vocalista legendario de Pantera. Dos variantes de su icónica presencia en escena."
+    },
+    {
+        "id": 60,
+        "category": "Personalizados",
+        "year": "2025",
+        "name": "AC/DC Europe 84",
+        "tipoPrecio": "simple",
+        "img": "images/personalizado/ac_dc_europe_84.jpg",
+        "desc": "Mockup AC/DC Europe 84."
+    },
+    {
+        "id": 61,
+        "category": "Personalizados",
+        "year": "2025",
+        "name": "AC/DC Europe 84 Remaster",
+        "tipoPrecio": "simple",
+        "img": "images/personalizado/ac_dc_europe_84_remaster.jpg",
+        "desc": "Mockup AC/DC Europe 84 Remaster."
+    },
+    {
+        "id": 302,
+        "category": "Personalizados",
+        "year": "2025",
+        "name": "Almafuerte En Vida",
+        "tipoPrecio": "simple",
+        "img": "images/personalizado/almafuerte_en_vida.jpg",
+        "desc": "Mockup Almafuerte En Vida."
+    },
+    {
+        "id": 310,
+        "category": "Personalizados",
+        "year": "2025",
+        "name": "Amon Amarth",
+        "tipoPrecio": "simple",
+        "img": "images/personalizado/amon_amarth.jpg",
+        "desc": "Mockup Amon Amarth."
+    },
+    {
+        "id": 309,
+        "category": "Personalizados",
+        "year": "2025",
+        "name": "Aphex Twin",
+        "tipoPrecio": "simple",
+        "img": "images/personalizado/aphex_twin.jpg",
+        "desc": "Mockup Aphex Twin."
+    },
+    {
+        "id": 424,
+        "category": "Personalizados",
+        "year": "2025",
+        "name": "Avenged Sevenfold",
+        "tipoPrecio": "simple",
+        "img": "images/personalizado/ax7_hail_to_the_king.jpg",
+        "variants": [
+            {
+                "img": "images/personalizado/ax7_hail_to_the_king.jpg",
+                "name": "Hail to the King"
+            },
+            {
+                "img": "images/personalizado/ax7_nightmare.jpg",
+                "name": "Nightmare"
+            },
+            {
+                "img": "images/personalizado/ax7_dorso.jpg",
+                "name": "Dorso"
+            },
+            {
+                "img": "images/personalizado/ax7_deadly_rule.jpg",
+                "name": "Deadly Rule"
+            },
+            {
+                "img": "images/personalizado/ax7_deadly_rule_realistic.jpg",
+                "name": "Deadly Rule Realistic"
+            }
+        ],
+        "desc": "Mockup Avenged Sevenfold - Dos frentes y un dorso en un mismo producto."
+    },
+    {
+        "id": 49,
+        "category": "Personalizados",
+        "year": "2025",
+        "name": "Bifrost Argentina",
+        "tipoPrecio": "simple",
+        "img": "images/personalizado/bifrost_argentina.jpg",
+        "desc": "Mockup Bifrost Argentina."
+    },
+    {
+        "id": 56,
+        "category": "Personalizados",
+        "year": "2025",
+        "name": "Calavera Guitar",
+        "tipoPrecio": "simple",
+        "img": "images/personalizado/calavera_guitar.jpg",
+        "desc": "Mockup Calavera Guitar."
+    },
+    {
+        "id": 308,
+        "category": "Personalizados",
+        "year": "2025",
+        "name": "Diego Maradona",
+        "tipoPrecio": "simple",
+        "img": "images/personalizado/diego_maradona.jpg",
+        "desc": "Mockup Diego Maradona."
+    },
+    {
+        "id": 51,
+        "category": "Personalizados",
+        "year": "2025",
+        "name": "Flema",
+        "tipoPrecio": "simple",
+        "img": "images/personalizado/flema.jpg",
+        "desc": "Mockup Flema."
+    },
+    {
+        "id": 44,
+        "category": "Personalizados",
+        "year": "2025",
+        "name": "Gallindez Box",
+        "tipoPrecio": "simple",
+        "img": "images/personalizado/gallindez_box.jpg",
+        "desc": "Mockup Gallindez Box."
+    },
+    {
+        "id": 311,
+        "category": "Personalizados",
+        "year": "2025",
+        "name": "Guitarrista Blues",
+        "tipoPrecio": "simple",
+        "img": "images/personalizado/guitarrista_blues.jpg",
+        "desc": "Mockup Guitarrista Blues."
+    },
+    {
+        "id": 303,
+        "category": "Personalizados",
+        "year": "2025",
+        "name": "Hermética",
+        "tipoPrecio": "simple",
+        "img": "images/personalizado/hermetica.jpg",
+        "desc": "Mockup Hermética."
+    },
+    {
+        "id": 312,
+        "category": "Personalizados",
+        "year": "2025",
+        "name": "Jason Becker",
+        "tipoPrecio": "simple",
+        "img": "images/personalizado/jason_becker.jpg",
+        "variants": [
+            {
+                "img": "images/personalizado/jason_becker.jpg",
+                "name": "Jason Becker"
+            },
+            {
+                "img": "images/personalizado/jason_becker_th.jpg",
+                "name": "Jason Becker TH"
+            }
+        ],
+        "desc": "Mockup Jason Becker con variante TH."
+    },
+    {
+        "id": 305,
+        "category": "Personalizados",
+        "year": "2025",
+        "name": "John Petrucci",
+        "tipoPrecio": "simple",
+        "img": "images/personalizado/john_petrucci.jpg",
+        "variants": [
+            {
+                "img": "images/personalizado/john_petrucci.jpg",
+                "name": "John Petrucci"
+            },
+            {
+                "img": "images/personalizado/dream_theater_dorso.jpg",
+                "name": "Dream Theater Dorso"
+            }
+        ],
+        "desc": "Mockup personalizado: John Petrucci con variante Dream Theater Dorso."
+    },
+    {
+        "id": 304,
+        "category": "Personalizados",
+        "year": "2025",
+        "name": "Judas Priest",
+        "tipoPrecio": "simple",
+        "img": "images/personalizado/judas_priest.jpg",
+        "desc": "Mockup Judas Priest."
+    },
+    {
+        "id": 41,
+        "category": "Personalizados",
+        "year": "2025",
+        "name": "Kurt Nirvana",
+        "tipoPrecio": "simple",
+        "img": "images/personalizado/kurt_nirvana.jpg",
+        "desc": "Mockup especial: Kurt Cobain (Nirvana)."
+    },
+    {
+        "id": 422,
+        "category": "Personalizados",
+        "year": "2025",
+        "name": "M'era Luna",
+        "tipoPrecio": "simple",
+        "img": "images/personalizado/m'era_luna_logo.jpg",
+        "variants": [
+            {
+                "img": "images/personalizado/m'era_luna_logo.jpg",
+                "name": "Frente"
+            },
+            {
+                "img": "images/personalizado/m'era_luna_dorso.jpg",
+                "name": "Dorso"
+            }
+        ],
+        "desc": "Mockup M'era Luna - Frente y dorso en un mismo producto."
+    },
+    {
+        "id": 59,
+        "category": "Personalizados",
+        "year": "2025",
+        "name": "Primal Fear",
+        "tipoPrecio": "simple",
+        "img": "images/personalizado/primal_fear.jpg",
+        "desc": "Mockup Primal Fear."
+    },
+    {
+        "id": 55,
+        "category": "Personalizados",
+        "year": "2025",
+        "name": "Religión",
+        "tipoPrecio": "simple",
+        "img": "images/personalizado/religión.jpg",
+        "desc": "Mockup Religión."
+    },
+    {
+        "id": 45,
+        "category": "Personalizados",
+        "year": "2025",
+        "name": "Roña Castro Box",
+        "tipoPrecio": "simple",
+        "img": "images/personalizado/roña_castro_box.jpg",
+        "desc": "Mockup Roña Castro Box."
+    },
+    {
+        "id": 54,
+        "category": "Personalizados",
+        "year": "2025",
+        "name": "Saltatio Mortis",
+        "tipoPrecio": "simple",
+        "img": "images/personalizado/saltatio_mortis.jpg",
+        "desc": "Mockup Saltatio Mortis."
+    },
+    {
+        "id": 50,
+        "category": "Personalizados",
+        "year": "2025",
+        "name": "Slinka Mascota",
+        "tipoPrecio": "simple",
+        "img": "images/personalizado/slinka_mascota.jpg",
+        "desc": "Mockup Slinka Mascota."
+    },
+    {
+        "id": 421,
+        "category": "Personalizados",
+        "year": "2025",
+        "name": "Stranger Things Original",
+        "tipoPrecio": "simple",
+        "img": "images/personalizado/stragers_things_original.jpg",
+        "desc": "Mockup Stranger Things Original."
+    },
+    {
+        "id": 43,
+        "category": "Personalizados",
+        "year": "2025",
+        "name": "Symphony X",
+        "tipoPrecio": "simple",
+        "img": "images/personalizado/symphony_x.jpg",
+        "desc": "Mockup Symphony X."
+    },
+    {
+        "id": 57,
+        "category": "Personalizados",
+        "year": "2025",
+        "name": "The Ramones",
+        "tipoPrecio": "simple",
+        "img": "images/personalizado/the_ramones.jpg",
+        "desc": "Mockup The Ramones."
+    },
+    {
+        "id": 58,
+        "category": "Personalizados",
+        "year": "2025",
+        "name": "WASP",
+        "tipoPrecio": "simple",
+        "img": "images/personalizado/wasp.jpg",
+        "variants": [
+            {
+                "img": "images/personalizado/wasp.jpg",
+                "name": "WASP"
+            },
+            {
+                "img": "images/personalizado/wasp_dorso.jpg",
+                "name": "Dorso"
+            }
+        ],
+        "desc": "Mockup WASP con variante de dorso."
+    },
+    {
+        "id": 322,
+        "category": "Personalizados",
+        "year": "2025",
+        "name": "WASP v2",
+        "tipoPrecio": "simple",
+        "img": "images/personalizado/wasp_v2.jpg",
+        "variants": [
+            {
+                "img": "images/personalizado/wasp_v2.jpg",
+                "name": "WASP v2"
+            },
+            {
+                "img": "images/personalizado/wasp_v2_dorso.jpg",
+                "name": "Dorso v2"
+            }
+        ],
+        "desc": "Mockup WASP v2 con variante de dorso."
+    },
+    {
+        "id": 53,
+        "category": "Personalizados",
+        "year": "2025",
+        "name": "Wintersun",
+        "tipoPrecio": "simple",
+        "img": "images/personalizado/wintersun.jpg",
+        "desc": "Mockup Wintersun."
+    },
+    {
+        "id": 1059,
+        "category": "Metallica",
+        "year": "2025",
+        "name": "Kill 'Em All",
+        "tipoPrecio": "simple",
+        "img": "images/metallica/metallica_kill_em_all_frente.jpg",
+        "variants": [
+            {
+                "img": "images/metallica/metallica_kill_em_all_frente.jpg",
+                "name": "Kill Frente"
+            },
+            {
+                "img": "images/metallica/metallica_kill_em_all_dorso.jpg",
+                "name": "Dorso"
+            }
+        ],
+        "desc": "Kill 'Em All. El debut brutal de Metallica de 1983 que redefinió el thrash metal mundial."
+    },
+    {
+        "id": 1060,
+        "category": "Metallica",
+        "year": "2025",
+        "name": "Ride the Lightning",
+        "tipoPrecio": "simple",
+        "img": "images/metallica/metallica_ride_the_classic.jpg",
+        "variants": [
+            {
+                "img": "images/metallica/metallica_ride_the_classic.jpg",
+                "name": "Ride Clásico"
+            },
+            {
+                "img": "images/metallica/metallica_ride_the_classic-dorso.jpg",
+                "name": "Dorso"
+            },
+            {
+                "img": "images/metallica/metallica_ride_the_darker_light.jpg",
+                "name": "Ride Más Oscuro"
+            },
+            {
+                "img": "images/metallica/metallica_ride_the_darker_light-dorso.jpg",
+                "name": "Dorso Oscuro"
+            }
+        ],
+        "desc": "Ride the Lightning. El segundo álbum de Metallica de 1984 con variantes clásicas y oscuras del arte legendario."
+    },
+    {
+        "id": 1061,
+        "category": "Metallica",
+        "year": "2025",
+        "name": "Master of Puppets",
+        "tipoPrecio": "simple",
+        "img": "images/metallica/metallica_master_of_puppets_classic.jpg",
+        "variants": [
+            {
+                "img": "images/metallica/metallica_master_of_puppets_classic.jpg",
+                "name": "Master Classic"
+            },
+            {
+                "img": "images/metallica/metallica_master_of_puppets_classic-dorso.jpg",
+                "name": "Dorso"
+            },
+            {
+                "img": "images/metallica/metallica_master_of_puppets_realistic.jpg",
+                "name": "Master Realista"
+            },
+            {
+                "img": "images/metallica/metallica_master_of_puppets_realistic-dorso.jpg",
+                "name": "Dorso Realista"
+            }
+        ],
+        "desc": "Master of Puppets. La obra maestra de Metallica de 1986 con múltiples versiones del arte icónico."
+    },
+    {
+        "id": 1062,
+        "category": "Metallica",
+        "year": "2025",
+        "name": "...And Justice for All",
+        "tipoPrecio": "simple",
+        "img": "images/metallica/metallica_and_justice-classic.jpg",
+        "variants": [
+            {
+                "img": "images/metallica/metallica_and_justice-classic.jpg",
+                "name": "Justice Classic"
+            },
+            {
+                "img": "images/metallica/metallica_and_justice-classic-dorso.jpg",
+                "name": "Dorso"
+            },
+            {
+                "img": "images/metallica/metallica_and_justice-cinematic_glow.jpg",
+                "name": "Efecto Cinemático"
+            },
+            {
+                "img": "images/metallica/metallica_and_justice-heavy_shadows.jpg",
+                "name": "Sombras Oscuras"
+            },
+            {
+                "img": "images/metallica/metallica_and_justice-heavy_shadows-dorso.jpg",
+                "name": "Dorso Sombrío"
+            }
+        ],
+        "desc": "...And Justice for All. El tercer álbum de Metallica de 1988 con múltiples versiones del arte devastador."
+    },
+    {
+        "id": 1063,
+        "category": "Metallica",
+        "year": "2025",
+        "name": "Metallica Early Years",
+        "tipoPrecio": "simple",
+        "img": "images/metallica/metallica_early_years.jpg",
+        "desc": "Metallica Early Years. Tributo a los inicios legendarios de la banda que cambió la historia del metal."
+    }
 ]
