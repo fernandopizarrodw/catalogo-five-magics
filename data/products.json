@@ -1053,7 +1053,7 @@
         "img": "images/personalizado/diego_maradona.jpg",
         "desc": "Mockup Diego Maradona."
     },
-    {
+        {
         "id": 51,
         "category": "Personalizados",
         "year": "2025",
@@ -1218,7 +1218,7 @@
         "img": "images/personalizado/stragers_things_original.jpg",
         "desc": "Mockup Stranger Things Original."
     },
-    {
+        {
         "id": 43,
         "category": "Personalizados",
         "year": "2025",

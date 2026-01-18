@@ -532,6 +532,7 @@ function updateCountsUI(){
         setNavBadge('Pantera', byCategory['Pantera']||0);
         setNavBadge('Iron Maiden', byCategory['Iron Maiden']||0);
         setNavBadge('Metallica', byCategory['Metallica']||0);
+        setNavBadge('Personalizados', byCategory['Personalizados']||0);
 
         // Filtros: textos con cantidad (y corrección de etiqueta de Megadeth)
         const setPill = (filter, label) => {
