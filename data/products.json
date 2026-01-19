@@ -45,6 +45,28 @@
         "name": "Peace Sells",
         "tipoPrecio": "simple",
         "img": "images/albums/Peace_sells/peace_sells_tapa.jpg",
+        "variants": [
+            {
+                "img": "images/albums/Peace_sells/peace_sells_tapa.jpg",
+                "name": "Tapa"
+            },
+            {
+                "img": "images/albums/Peace_sells/peace_sells_frente.jpg",
+                "name": "Frente"
+            },
+            {
+                "img": "images/albums/Peace_sells/peace_sells_frente-V2.jpg",
+                "name": "Frente V2"
+            },
+            {
+                "img": "images/albums/Peace_sells/peace_sells_frente-V3.jpg",
+                "name": "Frente V3"
+            },
+            {
+                "img": "images/albums/Peace_sells/peace_sells_dorso.jpg",
+                "name": "Dorso"
+            }
+        ],
         "desc": "Icónica crítica sociopolítica plasmada en el sarcasmo de Vic Rattlehead frente a la ONU, envuelta en puro virtuosismo thrash."
     },
     {
@@ -1052,6 +1074,25 @@
         "tipoPrecio": "simple",
         "img": "images/personalizado/diego_maradona.jpg",
         "desc": "Mockup Diego Maradona."
+    },
+    {
+        "id": 432,
+        "category": "Personalizados",
+        "year": "2026",
+        "name": "Down",
+        "tipoPrecio": "simple",
+        "img": "images/personalizado/down_frente.jpg",
+        "variants": [
+            {
+                "img": "images/personalizado/down_frente.jpg",
+                "name": "Frente"
+            },
+            {
+                "img": "images/personalizado/down_dorso.jpg",
+                "name": "Dorso"
+            }
+        ],
+        "desc": "Down — Frente + Dorso en una sola card (carrusel)."
     },
         {
         "id": 51,
