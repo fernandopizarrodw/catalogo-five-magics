@@ -58,7 +58,7 @@ body.modal-open {
     --bg: #050505;
     --bg-card: #0e0e0e;
     --bg-modal: #0b0b0b;
-    --rust: #ff0000d0;
+    --rust: #ff0000;
     --rust-glow: #ffffff;
     --magic-green: #04dd66;
     --text: #e8e8e8;
@@ -67,6 +67,7 @@ body.modal-open {
     --border-metal: #2a2a2a;
     --font-title: 'Oswald', sans-serif;
     --font-body: 'Inter', sans-serif;
+    --price: #ff5100;
 }
 
 * {
@@ -526,6 +527,13 @@ header {
     margin: 0 auto;
 }
 
+/* Latest releases */
+.latest-section {
+    padding: 16px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
 .section-title {
     font-family: var(--font-title);
     font-size: 1.2rem;
@@ -629,7 +637,7 @@ header {
 .product-price {
     font-family: var(--font-title);
     font-size: 1.1rem;
-    color: var(--rust);
+    color: var(--price);
     font-weight: 900;
 }
 
@@ -772,7 +780,7 @@ header {
 .catalog-promo .promo-price { 
     font-weight: 700; 
     margin-left: 6px; 
-    color: #df210c; 
+    color: var(--price); 
 }
 
 .catalog-promo .promo-sub { 
@@ -925,7 +933,7 @@ header {
 .modal-price {
     font-family: var(--font-title);
     font-size: 1.8rem;
-    color: var(--rust);
+    color: var(--price);
     font-weight: 700;
     margin-bottom: 4px;
 }
@@ -963,6 +971,20 @@ header {
     font-weight: 600;
     backdrop-filter: blur(4px);
     box-shadow: 0 6px 18px rgba(0,0,0,0.45);
+}
+
+/* Prevent overlap on mobile: let the badge flow or stick with safe offset */
+@media (max-width: 600px) {
+    .dorso-badge {
+        position: static; /* avoid overlaying the image/content */
+        bottom: auto;
+        left: auto;
+        right: auto;
+        top: auto;
+        box-shadow: none;
+        margin: 8px 8px 0 8px;
+        display: inline-block;
+    }
 }
 
 .upsell-dorso {
@@ -1982,7 +2004,7 @@ footer p {
     font-family: var(--font-title);
     font-size: 1.4rem;
     font-weight: 700;
-    color: var(--rust);
+    color: var(--price);
     margin: 8px 0 0;
 }
 

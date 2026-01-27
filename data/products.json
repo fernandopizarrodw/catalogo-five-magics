@@ -378,6 +378,15 @@
         "desc": "Colección especial de rarezas - Let There Be Shred, FMD Edition Shred y Vic Pelea con todas sus variantes."
     },
     {
+        "id": 244,
+        "category": "Singles",
+        "year": "2025",
+        "name": "Mary Jane",
+        "tipoPrecio": "simple",
+        "img": "images/singles/mary_jane.jpg",
+        "desc": "Mary Jane — single exclusivo. Edición especial 2025."
+    },
+    {
         "id": 28,
         "category": "Musician",
         "year": "Leyenda",
@@ -404,6 +413,10 @@
             {
                 "img": "images/musicians/Dave_Mustaine/warhead_red.jpg",
                 "name": "Warhead Red"
+            },
+            {
+                "img": "images/musicians/Dave_Mustaine/dave_mustaine_88-v2.jpg",
+                "name": "1988 v2"
             }
         ],
         "desc": "El Colorado con su Flying V. El líder."

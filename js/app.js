@@ -15,6 +15,35 @@ const WHATSAPP = "541169667685";
 
 let db = [];
 
+function renderLatestReleases(limit = 6) {
+    try {
+        const latestGrid = document.getElementById('latestGrid');
+        if (!latestGrid || !Array.isArray(db) || !db.length) return;
+        const latest = db.slice().sort((a,b)=> (b.id||0) - (a.id||0)).slice(0, limit);
+        latestGrid.innerHTML = latest.map(p => {
+            const hasVariants = p.variants && p.variants.length > 1;
+            const showDorsoBadge = DORSO_CATEGORIES.has(p.category);
+            const isDorsoIdea = p.category === 'Dorsales';
+            return `<div class="product-card" onclick="openModal(${p.id})">
+                ${hasVariants ? `<span class="variants-badge">${p.variants.length} diseños <span style='font-size:1.2em;margin-left:6px;'>➔</span></span>` : ''}
+                ${showDorsoBadge ? `<span class="dorso-badge">Dorso personalizable</span>` : ''}
+                <img src="${p.img}" class="product-img" loading="lazy">
+                <div class="product-info">
+                    <div class="product-name">${p.name}</div>
+                    <div class="product-meta">${p.year} · ${p.category}</div>
+                    <div class="product-price-row">
+                        ${
+                            isDorsoIdea
+                            ? `<span class="product-envio" style="color:var(--magic-green);border:1px solid rgba(57,255,20,.25);">Solo doble estampa</span>`
+                            : `<span class="product-price">${formatPrecio(p.tipoPrecio || 'simple')}</span><span class="product-envio">Envío gratis llevando 2+</span><div style="font-size:0.62rem;color:var(--text-muted);margin-top:2px;">1 unidad: consultar por envío</div>`
+                        }
+                    </div>
+                </div>
+            </div>`;
+        }).join('');
+    } catch(e) { console.warn('renderLatestReleases error', e); }
+}
+
 // Cargar productos desde JSON
 async function loadProducts() {
     try {
@@ -22,6 +51,7 @@ async function loadProducts() {
         if (!response.ok) throw new Error('Error cargando productos');
         db = await response.json();
         updateCountsUI();
+        renderLatestReleases(6);
         filterProducts(); // Renderizar después de cargar
     } catch (error) {
         console.error('Error:', error);
