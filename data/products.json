@@ -266,6 +266,10 @@
             {
                 "img": "images/albums/Megadeth/vic_digital_v2.jpg",
                 "name": "Vic Digital v2"
+            },
+            {
+                "img": "images/albums/Megadeth/megadeth_2026_vic_llamas_v3.jpg",
+                "name": "Vic Llamas v3"
             }
         ],
         "desc": "Un diseño limpio e impactante que captura a Vic Rattlehead consumiéndose en llamas con un traje blanco principal y otras variantes, listo para el final."
@@ -474,6 +478,25 @@
             }
         ],
         "desc": "El motor de la banda: Nick Menza, baterista legendario."
+    },
+    {
+        "id": 31,
+        "category": "Musician",
+        "year": "2026",
+        "name": "Megadeth Band",
+        "tipoPrecio": "simple",
+        "img": "images/musicians/Band/megadeth_2026_frente.jpg",
+        "variants": [
+            {
+                "img": "images/musicians/Band/megadeth_2026_frente.jpg",
+                "name": "Frente"
+            },
+            {
+                "img": "images/musicians/Band/megadeth_2026_dorso.jpg",
+                "name": "Dorso"
+            }
+        ],
+        "desc": "La banda completa de Megadeth en su formación 2026."
     },
     {
         "id": 46,
