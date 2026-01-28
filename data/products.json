@@ -270,6 +270,14 @@
             {
                 "img": "images/albums/Megadeth/megadeth_2026_vic_llamas_v3.jpg",
                 "name": "Vic Llamas v3"
+            },
+            {
+                "img": "images/albums/Megadeth/dorso_fecha_argentina.jpg",
+                "name": "Dorso Fecha Argentina"
+            },
+            {
+                "img": "images/albums/Megadeth/dorso_tour_argentina_black.jpg",
+                "name": "Dorso Tour Argentina Black"
             }
         ],
         "desc": "Un diseño limpio e impactante que captura a Vic Rattlehead consumiéndose en llamas con un traje blanco principal y otras variantes, listo para el final."
