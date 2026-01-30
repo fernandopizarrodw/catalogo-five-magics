@@ -399,6 +399,37 @@
         "desc": "Mary Jane — single exclusivo. Edición especial 2025."
     },
     {
+        "id": 1064,
+        "category": "Singles",
+        "year": "2026",
+        "name": "RIDE THE LIGHTNING BY MEGADETH",
+        "tipoPrecio": "simple",
+        "img": "images/singles/01 - dave_mustaine_argentina.jpg",
+        "variants": [
+            {
+                "img": "images/singles/01 - dave_mustaine_argentina.jpg",
+                "name": "01 - Dave Mustaine Argentina"
+            },
+            {
+                "img": "images/singles/02 - the_condemned-toxic_green.jpg",
+                "name": "02 - The Condemned Toxic Green"
+            },
+            {
+                "img": "images/singles/03 - vic_the_executor_white.jpg",
+                "name": "03 - Vic The Executor White"
+            },
+            {
+                "img": "images/singles/04 - vic_the_executor_red.jpg",
+                "name": "04 - Vic The Executor Red"
+            },
+            {
+                "img": "images/singles/05 - the_switch.jpg",
+                "name": "05 - The Switch"
+            }
+        ],
+        "desc": "⚡ RIDE THE LIGHTNING ⚡\nNo es un cover.\nEs un regreso al origen.\n\nDave Mustaine vuelve a Ride the Lightning\npara cerrar el círculo que empezó en 1981.\n\n1. THE AUTHOR\nDave Mustaine — Guitarra Argentina\n\n2. THE CONDEMNED (TOXIC GREEN)\nVic ejecutado — radiación y electricidad\n\n3. THE EXECUTOR (WHITE SUIT)\nVic Rattlehead — Traje blanco\n\n4. THE EXECUTOR (RED SUIT)\nVic Rattlehead — Era Peace Sells\n\n5. THE SWITCH\nArte oficial Megadeth adaptado — La palanca"
+    },
+    {
         "id": 28,
         "category": "Musician",
         "year": "Leyenda",
