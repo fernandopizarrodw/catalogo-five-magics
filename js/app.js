@@ -65,6 +65,15 @@ function formatPrecio(tipo) {
 }
 
 function openPackWhatsapp(packName, packIncludes, packPrice) {
+    // Rastrear evento en Google Analytics
+    if (typeof gtag !== 'undefined') {
+        gtag('event', 'whatsapp_click', {
+            'event_category': 'engagement',
+            'event_label': `Pack: ${packName}`,
+            'value': packPrice || 0
+        });
+    }
+    
     // Blindaje anti-NaN: ignorar precio vacío o inválido
     let msg = `Hola FMD, quiero información sobre el pack ${packName}`;
     
@@ -77,7 +86,7 @@ function openPackWhatsapp(packName, packIncludes, packPrice) {
 }
 
 const BASE_URL = window.location.origin + window.location.pathname;
-const DORSO_CATEGORIES = new Set(['Album','Tour','Musician','VicRattlehead','Personalizados','Dorsales','Metallica','Pantera','Iron Maiden']);
+const DORSO_CATEGORIES = new Set(['Album','Tour','Musician','VicRattlehead','Personalizados','Dorsales','Metallica','Pantera','Iron Maiden','Avenged Sevenfold']);
 
 let selectedDorsoChips = new Set();
 let selectedBacks = new Set();
@@ -124,6 +133,18 @@ function updateDobleWaLink(){
     if(!btn) return;
     const text = buildDobleMessage();
     btn.href = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(text)}`;
+    // Agregar rastreo de GA al hacer clic
+    if(btn.onclick === null) {
+        btn.onclick = function() {
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'whatsapp_click', {
+                    'event_category': 'engagement',
+                    'event_label': currentProduct ? `Producto Doble: ${currentProduct.name}` : 'Producto Doble',
+                    'product_type': 'doble_estampa'
+                });
+            }
+        };
+    }
 }
 
 function renderBackExamples(){

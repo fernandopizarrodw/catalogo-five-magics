@@ -1511,5 +1511,121 @@
         "tipoPrecio": "simple",
         "img": "images/metallica/metallica_early_years.jpg",
         "desc": "Metallica Early Years. Tributo a los inicios legendarios de la banda que cambió la historia del metal."
+    },
+    {
+        "id": 1064,
+        "category": "VicRattlehead",
+        "year": "2026",
+        "name": "Anatomy of Vic",
+        "tipoPrecio": "simple",
+        "img": "images/vic_rattlehead/anatomy_of_vic_v1.jpg",
+        "variants": [
+            {
+                "img": "images/vic_rattlehead/anatomy_of_vic_v1.jpg",
+                "name": "v1"
+            },
+            {
+                "img": "images/vic_rattlehead/anatomy_of_vic_v2.jpg",
+                "name": "v2"
+            },
+            {
+                "img": "images/vic_rattlehead/anatomy_of_vic_v3.jpg",
+                "name": "v3"
+            }
+        ],
+        "desc": "Anatomy of Vic - Diseño anatómico de Vic Rattlehead con 3 variantes."
+    },
+    {
+        "id": 1065,
+        "category": "VicRattlehead",
+        "year": "2026",
+        "name": "Countdown Vic",
+        "tipoPrecio": "simple",
+        "img": "images/vic_rattlehead/countdown_vic_v1.jpg",
+        "variants": [
+            {
+                "img": "images/vic_rattlehead/countdown_vic_v1.jpg",
+                "name": "v1"
+            },
+            {
+                "img": "images/vic_rattlehead/countdown_vic_v2.jpg",
+                "name": "v2"
+            }
+        ],
+        "desc": "Countdown Vic - Diseño de cuenta regresiva de Vic Rattlehead con 2 variantes."
+    },
+    {
+        "id": 2001,
+        "category": "Avenged Sevenfold",
+        "year": "2026",
+        "name": "Avenged Sevenfold Collection",
+        "tipoPrecio": "simple",
+        "img": "images/avenged_sevenfold/ax7-v1.jpg",
+        "variants": [
+            {
+                "img": "images/avenged_sevenfold/ax7-v1.jpg",
+                "name": "v1"
+            },
+            {
+                "img": "images/avenged_sevenfold/ax7-v2.jpg",
+                "name": "v2"
+            },
+            {
+                "img": "images/avenged_sevenfold/ax7-v3.jpg",
+                "name": "v3"
+            },
+            {
+                "img": "images/avenged_sevenfold/ax7-v4.jpg",
+                "name": "v4"
+            },
+            {
+                "img": "images/avenged_sevenfold/ax7-v5.jpg",
+                "name": "v5"
+            },
+            {
+                "img": "images/avenged_sevenfold/ax7-v6.jpg",
+                "name": "v6"
+            },
+            {
+                "img": "images/avenged_sevenfold/ax7-v7.jpg",
+                "name": "v7"
+            },
+            {
+                "img": "images/avenged_sevenfold/ax7-v8.jpg",
+                "name": "v8"
+            },
+            {
+                "img": "images/avenged_sevenfold/ax7-v9.jpg",
+                "name": "v9"
+            },
+            {
+                "img": "images/avenged_sevenfold/ax7-v10.jpg",
+                "name": "v10"
+            }
+        ],
+        "desc": "Avenged Sevenfold - Colección de 10 diseños frente con arte épico de la banda."
+    },
+    {
+        "id": 2002,
+        "category": "Avenged Sevenfold",
+        "year": "2026",
+        "name": "Avenged Sevenfold Dorsos",
+        "tipoPrecio": "simple",
+        "img": "images/avenged_sevenfold/ax7_dorso.jpg",
+        "variants": [
+            {
+                "img": "images/avenged_sevenfold/ax7_dorso.jpg",
+                "name": "Dorso Classic"
+            },
+            {
+                "img": "images/avenged_sevenfold/ax7_dorso-v2.jpg",
+                "name": "Dorso v2"
+            },
+            {
+                "img": "images/avenged_sevenfold/ax7_dorso-v3.jpg",
+                "name": "Dorso v3"
+            }
+        ],
+        "desc": "Avenged Sevenfold - Opciones de dorso para combinar con los frentes."
     }
 ]
