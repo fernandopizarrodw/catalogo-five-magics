@@ -1054,16 +1054,17 @@
         "name": "AC/DC Europe 84",
         "tipoPrecio": "simple",
         "img": "images/personalizado/ac_dc_europe_84.jpg",
-        "desc": "Mockup AC/DC Europe 84."
-    },
-    {
-        "id": 61,
-        "category": "Personalizados",
-        "year": "2025",
-        "name": "AC/DC Europe 84 Remaster",
-        "tipoPrecio": "simple",
-        "img": "images/personalizado/ac_dc_europe_84_remaster.jpg",
-        "desc": "Mockup AC/DC Europe 84 Remaster."
+        "variants": [
+            {
+                "img": "images/personalizado/ac_dc_europe_84.jpg",
+                "name": "Europe 84 Original"
+            },
+            {
+                "img": "images/personalizado/ac_dc_europe_84_remaster.jpg",
+                "name": "Europe 84 Remaster"
+            }
+        ],
+        "desc": "Mockup AC/DC Europe 84 - Original y Remaster en un mismo carrusel."
     },
     {
         "id": 302,
@@ -1179,15 +1180,6 @@
         "desc": "Mockup Flema."
     },
     {
-        "id": 44,
-        "category": "Personalizados",
-        "year": "2025",
-        "name": "Gallindez Box",
-        "tipoPrecio": "simple",
-        "img": "images/personalizado/gallindez_box.jpg",
-        "desc": "Mockup Gallindez Box."
-    },
-    {
         "id": 311,
         "category": "Personalizados",
         "year": "2025",
@@ -1262,6 +1254,15 @@
         "desc": "Mockup especial: Kurt Cobain (Nirvana)."
     },
     {
+        "id": 62,
+        "category": "Personalizados",
+        "year": "2026",
+        "name": "Lemmy Stone Deaf Forever",
+        "tipoPrecio": "simple",
+        "img": "images/personalizado/lemmy_stone_deaf_forever.jpg",
+        "desc": "Mockup Lemmy Stone Deaf Forever."
+    },
+    {
         "id": 422,
         "category": "Personalizados",
         "year": "2025",
@@ -1281,6 +1282,24 @@
         "desc": "Mockup M'era Luna - Frente y dorso en un mismo producto."
     },
     {
+        "id": 63,
+        "category": "Personalizados",
+        "year": "2026",
+        "name": "Motorhead",
+        "tipoPrecio": "simple",
+        "img": "images/personalizado/motorhead.jpg",
+        "desc": "Mockup Motorhead."
+    },
+    {
+        "id": 64,
+        "category": "Personalizados",
+        "year": "2026",
+        "name": "Motorhead v2",
+        "tipoPrecio": "simple",
+        "img": "images/personalizado/motorhead_v2.jpg",
+        "desc": "Mockup Motorhead v2."
+    },
+    {
         "id": 59,
         "category": "Personalizados",
         "year": "2025",
@@ -1297,15 +1316,6 @@
         "tipoPrecio": "simple",
         "img": "images/personalizado/religión.jpg",
         "desc": "Mockup Religión."
-    },
-    {
-        "id": 45,
-        "category": "Personalizados",
-        "year": "2025",
-        "name": "Roña Castro Box",
-        "tipoPrecio": "simple",
-        "img": "images/personalizado/roña_castro_box.jpg",
-        "desc": "Mockup Roña Castro Box."
     },
     {
         "id": 54,
@@ -1627,5 +1637,242 @@
             }
         ],
         "desc": "Avenged Sevenfold - Opciones de dorso para combinar con los frentes."
+    },
+    {
+        "id": 5001,
+        "category": "Bandas Sugeridas",
+        "year": "2026",
+        "name": "Alice in Chains",
+        "tipoPrecio": "simple",
+        "img": "images/banda_sugeridas/alice_in_chains/alice_in_chains_dirt.jpg",
+        "desc": "Alice in Chains - Diseño del álbum Dirt. Sugerencia de followers."
+    },
+    {
+        "id": 5002,
+        "category": "Bandas Sugeridas",
+        "year": "2026",
+        "name": "Angra",
+        "tipoPrecio": "simple",
+        "img": "images/banda_sugeridas/angra/angra_temple_of_shadows_.jpg",
+        "variants": [
+            {
+                "img": "images/banda_sugeridas/angra/angra_temple_of_shadows_.jpg",
+                "name": "Temple of Shadows"
+            },
+            {
+                "img": "images/banda_sugeridas/angra/angra_rebirth.jpg",
+                "name": "Rebirth"
+            },
+            {
+                "img": "images/banda_sugeridas/angra/angra_angels_cry.jpg",
+                "name": "Angels Cry"
+            }
+        ],
+        "desc": "Angra - Metal progresivo brasileño con 3 diseños de álbumes clásicos."
+    },
+    {
+        "id": 5003,
+        "category": "Bandas Sugeridas",
+        "year": "2026",
+        "name": "Black Sabbath",
+        "tipoPrecio": "simple",
+        "img": "images/banda_sugeridas/black_sabbath/black_sabbath.jpg",
+        "variants": [
+            {
+                "img": "images/banda_sugeridas/black_sabbath/black_sabbath.jpg",
+                "name": "Self Titled"
+            },
+            {
+                "img": "images/banda_sugeridas/black_sabbath/black_sabbath_v2.jpg",
+                "name": "v2"
+            }
+        ],
+        "desc": "Black Sabbath - Los padres del heavy metal con 2 variantes."
+    },
+    {
+        "id": 5004,
+        "category": "Bandas Sugeridas",
+        "year": "2026",
+        "name": "Def Leppard",
+        "tipoPrecio": "simple",
+        "img": "images/banda_sugeridas/def_leppard/def_leppard_hysteria.jpg",
+        "variants": [
+            {
+                "img": "images/banda_sugeridas/def_leppard/def_leppard_hysteria.jpg",
+                "name": "Hysteria"
+            },
+            {
+                "img": "images/banda_sugeridas/def_leppard/def_leppard_pyromania.jpg",
+                "name": "Pyromania"
+            },
+            {
+                "img": "images/banda_sugeridas/def_leppard/def_leppard_hysteria_w.jpg",
+                "name": "Hysteria White"
+            },
+            {
+                "img": "images/banda_sugeridas/def_leppard/def_leppard_pyromania_w.jpg",
+                "name": "Pyromania White"
+            }
+        ],
+        "desc": "Def Leppard - Rock glam de los 80s con 4 diseños de sus álbumes."
+    },
+    {
+        "id": 5005,
+        "category": "Bandas Sugeridas",
+        "year": "2026",
+        "name": "Dream Theater",
+        "tipoPrecio": "simple",
+        "img": "images/banda_sugeridas/dream_theater/dream_theater_parasomnia_frente.jpg",
+        "variants": [
+            {
+                "img": "images/banda_sugeridas/dream_theater/dream_theater_parasomnia_frente.jpg",
+                "name": "Parasomnia Frente"
+            },
+            {
+                "img": "images/banda_sugeridas/dream_theater/dream_theater_parasomnia_dorso.jpg",
+                "name": "Parasomnia Dorso"
+            }
+        ],
+        "desc": "Dream Theater - Metal progresivo con 2 variantes frente y dorso."
+    },
+    {
+        "id": 5006,
+        "category": "Bandas Sugeridas",
+        "year": "2026",
+        "name": "Gojira",
+        "tipoPrecio": "simple",
+        "img": "images/banda_sugeridas/gojira/gojira_the_way.jpg",
+        "variants": [
+            {
+                "img": "images/banda_sugeridas/gojira/gojira_the_way.jpg",
+                "name": "The Way"
+            },
+            {
+                "img": "images/banda_sugeridas/gojira/gojira_from_mars_to_sirus_original.jpg",
+                "name": "From Mars Original"
+            },
+            {
+                "img": "images/banda_sugeridas/gojira/gojira_from_mars_to_sirus.jpg",
+                "name": "From Mars to Sirius"
+            },
+            {
+                "img": "images/banda_sugeridas/gojira/gojira_art.jpg",
+                "name": "Art"
+            }
+        ],
+        "desc": "Gojira - Metal progresivo francés con 4 diseños épicos."
+    },
+    {
+        "id": 5007,
+        "category": "Bandas Sugeridas",
+        "year": "2026",
+        "name": "Guns N' Roses",
+        "tipoPrecio": "simple",
+        "img": "images/banda_sugeridas/guns_and_roses/guns_use_your_illusion.jpg",
+        "variants": [
+            {
+                "img": "images/banda_sugeridas/guns_and_roses/guns_use_your_illusion.jpg",
+                "name": "Use Your Illusion"
+            },
+            {
+                "img": "images/banda_sugeridas/guns_and_roses/guns_appetite_for_destruction.jpg",
+                "name": "Appetite for Destruction"
+            },
+            {
+                "img": "images/banda_sugeridas/guns_and_roses/guns_and_roses.jpg",
+                "name": "Clásico"
+            }
+        ],
+        "desc": "Guns N' Roses - Rock de Los Ángeles con 3 diseños legendarios."
+    },
+    {
+        "id": 5008,
+        "category": "Bandas Sugeridas",
+        "year": "2026",
+        "name": "Hermética",
+        "tipoPrecio": "simple",
+        "img": "images/banda_sugeridas/hermetica/hermetica_acido_argentino.jpg",
+        "desc": "Hermética - Ácido Argentino. Poder del rock progresivo argentino."
+    },
+    {
+        "id": 5009,
+        "category": "Bandas Sugeridas",
+        "year": "2026",
+        "name": "Hawthorne",
+        "tipoPrecio": "simple",
+        "img": "images/banda_sugeridas/howthorne/howthorne.jpg",
+        "desc": "Hawthorne. Diseño sugerido por followers."
+    },
+    {
+        "id": 5010,
+        "category": "Bandas Sugeridas",
+        "year": "2026",
+        "name": "Lethal",
+        "tipoPrecio": "simple",
+        "img": "images/banda_sugeridas/lethal/lethal.jpg",
+        "desc": "Lethal. Poder letal del metal argentino."
+    },
+    {
+        "id": 5011,
+        "category": "Bandas Sugeridas",
+        "year": "2026",
+        "name": "Nightwish",
+        "tipoPrecio": "simple",
+        "img": "images/banda_sugeridas/nightwish/nightwish_once.jpg",
+        "desc": "Nightwish - Once. Metal sinfónico desde los confines de Finlandia."
+    },
+    {
+        "id": 5012,
+        "category": "Bandas Sugeridas",
+        "year": "2026",
+        "name": "Ozzy Osbourne",
+        "tipoPrecio": "simple",
+        "img": "images/banda_sugeridas/ozzy/ozzy.jpg",
+        "desc": "Ozzy Osbourne. La leyenda del metal."
+    },
+    {
+        "id": 5013,
+        "category": "Bandas Sugeridas",
+        "year": "2026",
+        "name": "Slayer",
+        "tipoPrecio": "simple",
+        "img": "images/banda_sugeridas/slayer/slayer.jpg",
+        "desc": "Slayer. Los maestros del thrash más puro y destructivo."
+    },
+    {
+        "id": 5014,
+        "category": "Bandas Sugeridas",
+        "year": "2026",
+        "name": "Sündenrausch",
+        "tipoPrecio": "simple",
+        "img": "images/banda_sugeridas/sundenrausch/sundenrausch.jpg",
+        "desc": "Sündenrausch. Metal atmosférico alemán."
+    },
+    {
+        "id": 5015,
+        "category": "Bandas Sugeridas",
+        "year": "2026",
+        "name": "Testament",
+        "tipoPrecio": "simple",
+        "img": "images/banda_sugeridas/testament/testament_souls_black.jpg",
+        "variants": [
+            {
+                "img": "images/banda_sugeridas/testament/testament_souls_black.jpg",
+                "name": "Souls of Black"
+            },
+            {
+                "img": "images/banda_sugeridas/testament/testament_the_new_order.jpg",
+                "name": "The New Order"
+            },
+            {
+                "img": "images/banda_sugeridas/testament/testament_the_legacy.jpg",
+                "name": "The Legacy"
+            },
+            {
+                "img": "images/banda_sugeridas/testament/testament_brootherhood_of_the_snake.jpg",
+                "name": "Brotherhood of the Snake"
+            }
+        ],
+        "desc": "Testament - Thrash metal legendario con 4 diseños de sus álbumes clásicos."
     }
 ]
