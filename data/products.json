@@ -1048,6 +1048,25 @@
         "desc": "Phil Anselmo, vocalista legendario de Pantera. Dos variantes de su icónica presencia en escena."
     },
     {
+        "id": 418,
+        "category": "Pantera",
+        "year": "2025",
+        "name": "Pantera Tour 2000",
+        "tipoPrecio": "simple",
+        "img": "images/pantera/pantera_tour_2000_frente.jpg",
+        "variants": [
+            {
+                "img": "images/pantera/pantera_tour_2000_frente.jpg",
+                "name": "Frente"
+            },
+            {
+                "img": "images/pantera/pantera_tour_2000_dorso.jpg",
+                "name": "Dorso"
+            }
+        ],
+        "desc": "Pantera Tour 2000 - Frente y dorso en el mismo carrusel. Gira legendaria de la banda."
+    },
+    {
         "id": 60,
         "category": "Personalizados",
         "year": "2025",
@@ -1874,5 +1893,28 @@
             }
         ],
         "desc": "Testament - Thrash metal legendario con 4 diseños de sus álbumes clásicos."
+    },
+    {
+        "id": 5016,
+        "category": "Bandas Sugeridas",
+        "year": "2026",
+        "name": "Sodom",
+        "tipoPrecio": "simple",
+        "img": "images/banda_sugeridas/sodom/sodom_agent_orange.jpg",
+        "variants": [
+            {
+                "img": "images/banda_sugeridas/sodom/sodom_agent_orange.jpg",
+                "name": "Agent Orange"
+            },
+            {
+                "img": "images/banda_sugeridas/sodom/sodom_dorso.jpg",
+                "name": "Dorso"
+            },
+            {
+                "img": "images/banda_sugeridas/sodom/sodom_frente.jpg",
+                "name": "Frente"
+            }
+        ],
+        "desc": "Sodom - Thrash metal alemán con 3 diseños destructivos."
     }
 ]
