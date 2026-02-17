@@ -34,6 +34,10 @@
             {
                 "img": "images/albums/Killing_Is_my_bussines/kimb_retro.jpg",
                 "name": "KIMB_RETRO"
+            },
+            {
+                "img": "images/albums/Killing_Is_my_bussines/dorso_kimb.jpg",
+                "name": "DORSO"
             }
         ],
         "desc": "Es el debut crudo y frenético de 1985 que definió el thrash metal técnico mediante la velocidad extrema y la sed de venganza de Dave Mustaine en 7 diseños."
@@ -118,6 +122,16 @@
         "name": "Countdown to Extinction",
         "tipoPrecio": "simple",
         "img": "images/albums/Countdown_to_extinction/CTE.jpg",
+        "variants": [
+            {
+                "img": "images/albums/Countdown_to_extinction/CTE.jpg",
+                "name": "Frente"
+            },
+            {
+                "img": "images/albums/Countdown_to_extinction/dorso_cte.jpg",
+                "name": "Dorso"
+            }
+        ],
         "desc": "Groove metálico y éxito comercial representados por una impactante crítica a la extinción animal y la codicia humana."
     },
     {
@@ -135,6 +149,10 @@
             {
                 "img": "images/albums/Youthanasia/vic_father.jpg",
                 "name": "Vic Father"
+            },
+            {
+                "img": "images/albums/Youthanasia/youthanasia_vic_street.jpg",
+                "name": "Youthanasia Vic Street"
             }
         ],
         "desc": "Heavy metal melódico y oscuro con una portada surrealista que denuncia el sacrificio del futuro de las nuevas generaciones."
@@ -404,10 +422,10 @@
         "year": "2026",
         "name": "RIDE THE LIGHTNING BY MEGADETH",
         "tipoPrecio": "simple",
-        "img": "images/singles/01 - dave_mustaine_argentina.jpg",
+        "img": "images/musicians/Dave_Mustaine/01 - dave_mustaine_argentina.jpg",
         "variants": [
             {
-                "img": "images/singles/01 - dave_mustaine_argentina.jpg",
+                "img": "images/musicians/Dave_Mustaine/01 - dave_mustaine_argentina.jpg",
                 "name": "01 - Dave Mustaine Argentina"
             },
             {
@@ -428,6 +446,15 @@
             }
         ],
         "desc": "⚡ RIDE THE LIGHTNING ⚡\nNo es un cover.\nEs un regreso al origen.\n\nDave Mustaine vuelve a Ride the Lightning\npara cerrar el círculo que empezó en 1981.\n\n1. THE AUTHOR\nDave Mustaine — Guitarra Argentina\n\n2. THE CONDEMNED (TOXIC GREEN)\nVic ejecutado — radiación y electricidad\n\n3. THE EXECUTOR (WHITE SUIT)\nVic Rattlehead — Traje blanco\n\n4. THE EXECUTOR (RED SUIT)\nVic Rattlehead — Era Peace Sells\n\n5. THE SWITCH\nArte oficial Megadeth adaptado — La palanca"
+    },
+    {
+        "id": 245,
+        "category": "Singles",
+        "year": "2026",
+        "name": "Dogs of Chernobyl",
+        "tipoPrecio": "simple",
+        "img": "images/singles/dogs_of_chernobyl.jpg",
+        "desc": "Dogs of Chernobyl - Single exclusivo con arte relacionado a la famosa canción de Megadeth."
     },
     {
         "id": 28,
@@ -460,6 +487,10 @@
             {
                 "img": "images/musicians/Dave_Mustaine/dave_mustaine_88-v2.jpg",
                 "name": "1988 v2"
+            },
+            {
+                "img": "images/musicians/Dave_Mustaine/01 - dave_mustaine_argentina.jpg",
+                "name": "Argentina 2026"
             }
         ],
         "desc": "El Colorado con su Flying V. El líder."
@@ -522,20 +553,28 @@
         "id": 31,
         "category": "Musician",
         "year": "2026",
-        "name": "Megadeth Band",
+        "name": "Formaciones",
         "tipoPrecio": "simple",
-        "img": "images/musicians/Band/megadeth_2026_frente.jpg",
+        "img": "images/musicians/formaciones/megadeth_2026_frente.jpg",
         "variants": [
             {
-                "img": "images/musicians/Band/megadeth_2026_frente.jpg",
+                "img": "images/musicians/formaciones/megadeth_2026_frente.jpg",
                 "name": "Frente"
             },
             {
-                "img": "images/musicians/Band/megadeth_2026_dorso.jpg",
+                "img": "images/musicians/formaciones/megadeth_2026_dorso.jpg",
                 "name": "Dorso"
+            },
+            {
+                "img": "images/musicians/formaciones/megadeth_90s.png",
+                "name": "90s"
+            },
+            {
+                "img": "images/musicians/formaciones/in_my_darkest_hour.jpg",
+                "name": "In My Darkest Hour"
             }
         ],
-        "desc": "La banda completa de Megadeth en su formación 2026."
+        "desc": "La banda completa de Megadeth en su formación 2026 y versión 90s."
     },
     {
         "id": 46,
@@ -816,64 +855,51 @@
         "id": 314,
         "category": "VicRattlehead",
         "year": "2025",
-        "name": "KIMB 40 Edition v1",
+        "name": "KIMB 40 Edition",
         "tipoPrecio": "simple",
         "img": "images/vic_rattlehead/kimb_40_edition_v1.jpg",
-        "desc": "Mockup KIMB 40 Edition v1."
-    },
-    {
-        "id": 315,
-        "category": "VicRattlehead",
-        "year": "2025",
-        "name": "KIMB 40 Edition v2",
-        "tipoPrecio": "simple",
-        "img": "images/vic_rattlehead/kimb_40_edition_v2.jpg",
-        "desc": "Mockup KIMB 40 Edition v2."
-    },
-    {
-        "id": 316,
-        "category": "VicRattlehead",
-        "year": "2025",
-        "name": "KIMB 40 Edition v3",
-        "tipoPrecio": "simple",
-        "img": "images/vic_rattlehead/kimb_40_edition_v3.jpg",
-        "desc": "Mockup KIMB 40 Edition v3."
-    },
-    {
-        "id": 317,
-        "category": "VicRattlehead",
-        "year": "2025",
-        "name": "KIMB 40 Edition v4",
-        "tipoPrecio": "simple",
-        "img": "images/vic_rattlehead/kimb_40_edition_v4.jpg",
-        "desc": "Mockup KIMB 40 Edition v4."
+        "variants": [
+            {
+                "img": "images/vic_rattlehead/kimb_40_edition_v1.jpg",
+                "name": "v1"
+            },
+            {
+                "img": "images/vic_rattlehead/kimb_40_edition_v2.jpg",
+                "name": "v2"
+            },
+            {
+                "img": "images/vic_rattlehead/kimb_40_edition_v3.jpg",
+                "name": "v3"
+            },
+            {
+                "img": "images/vic_rattlehead/kimb_40_edition_v4.jpg",
+                "name": "v4"
+            }
+        ],
+        "desc": "KIMB 40 Edition - Colección de 4 variantes exclusivas de la edición 40 aniversario."
     },
     {
         "id": 418,
         "category": "VicRattlehead",
         "year": "2025",
-        "name": "Vic Darker Edition",
+        "name": "Vic Editions",
         "tipoPrecio": "simple",
         "img": "images/vic_rattlehead/vic_darker_edition.jpg",
-        "desc": "Vic Darker Edition - Versión oscura de Vic Rattlehead."
-    },
-    {
-        "id": 419,
-        "category": "VicRattlehead",
-        "year": "2025",
-        "name": "Vic Original Patch",
-        "tipoPrecio": "simple",
-        "img": "images/vic_rattlehead/vic_original_patch.jpg",
-        "desc": "Vic Original Patch - Diseño clásico en formato parche."
-    },
-    {
-        "id": 420,
-        "category": "VicRattlehead",
-        "year": "2025",
-        "name": "Vic Realistic Edition",
-        "tipoPrecio": "simple",
-        "img": "images/vic_rattlehead/vic_realistic_edition.jpg",
-        "desc": "Vic Realistic Edition - Versión realista de Vic Rattlehead."
+        "variants": [
+            {
+                "img": "images/vic_rattlehead/vic_darker_edition.jpg",
+                "name": "Darker Edition"
+            },
+            {
+                "img": "images/vic_rattlehead/vic_original_patch.jpg",
+                "name": "Original Patch"
+            },
+            {
+                "img": "images/vic_rattlehead/vic_realistic_edition.jpg",
+                "name": "Realistic Edition"
+            }
+        ],
+        "desc": "Vic Editions - Colección de 3 variantes exclusivas de Vic Rattlehead."
     },
     {
         "id": 400,
@@ -919,6 +945,33 @@
         "tipoPrecio": "simple",
         "img": "images/dorsos/dorso_tour_v3.jpg",
         "desc": "Idea de dorso: variante v3."
+    },
+    {
+        "id": 406,
+        "category": "Dorsales",
+        "year": "2026",
+        "name": "Dorso Vic Tour",
+        "tipoPrecio": "simple",
+        "img": "images/dorsos/dorso_vic_tour.jpg",
+        "desc": "Dorso Vic Tour - Diseño de dorso para tour con Vic Rattlehead."
+    },
+    {
+        "id": 407,
+        "category": "Dorsales",
+        "year": "2026",
+        "name": "Dorso Vic Tour BLK",
+        "tipoPrecio": "simple",
+        "img": "images/dorsos/dorso_vic_tour_blk.jpg",
+        "desc": "Dorso Vic Tour BLK - Variante negra del dorso para tour."
+    },
+    {
+        "id": 5019,
+        "category": "Dorsales",
+        "year": "2026",
+        "name": "Dorso Dave Argentina",
+        "tipoPrecio": "simple",
+        "img": "images/dorsos/dorso_dave_argentina.jpg",
+        "desc": "Dorso Dave Argentina - Diseño especial con Dave Mustaine y Argentina."
     },
     {
         "id": 405,
@@ -1584,6 +1637,34 @@
         "desc": "Countdown Vic - Diseño de cuenta regresiva de Vic Rattlehead con 2 variantes."
     },
     {
+        "id": 1066,
+        "category": "VicRattlehead",
+        "year": "2026",
+        "name": "Vic Kimb Vintage Real",
+        "tipoPrecio": "simple",
+        "img": "images/vic_rattlehead/vic_kimb_vintage_real.jpg",
+        "desc": "Vic Kimb Vintage Real - Diseño vintage de Vic Rattlehead en edición KIMB."
+    },
+    {
+        "id": 5023,
+        "category": "VicRattlehead",
+        "year": "2026",
+        "name": "Vic Terminator",
+        "tipoPrecio": "simple",
+        "img": "images/vic_rattlehead/vic_terminator_frente.jpg",
+        "variants": [
+            {
+                "img": "images/vic_rattlehead/vic_terminator_frente.jpg",
+                "name": "Frente"
+            },
+            {
+                "img": "images/vic_rattlehead/vic_terminator_dorso.jpg",
+                "name": "Dorso"
+            }
+        ],
+        "desc": "Vic Terminator - Diseño de Vic Rattlehead en estilo Terminator con 2 variantes."
+    },
+    {
         "id": 2001,
         "category": "Avenged Sevenfold",
         "year": "2026",
@@ -1916,5 +1997,82 @@
             }
         ],
         "desc": "Sodom - Thrash metal alemán con 3 diseños destructivos."
+    },
+    {
+        "id": 5017,
+        "category": "Bandas Sugeridas",
+        "year": "2026",
+        "name": "Rammstein",
+        "tipoPrecio": "simple",
+        "img": "images/banda_sugeridas/rammstein/rammstein.jpg",
+        "desc": "Rammstein - Industrial metal alemán. Fuego y potencia."
+    },
+    {
+        "id": 5018,
+        "category": "Bandas Sugeridas",
+        "year": "2026",
+        "name": "Sepultura",
+        "tipoPrecio": "simple",
+        "img": "images/banda_sugeridas/sepultura/sepultura_roots.jpg",
+        "desc": "Sepultura - Roots. Metal brasileño brutal y primitivo."
+    },
+    {
+        "id": 5020,
+        "category": "Personalizados",
+        "year": "2026",
+        "name": "Slaughter to Prevail",
+        "tipoPrecio": "simple",
+        "img": "images/personalizado/slaughter_to_prevail.jpg",
+        "desc": "Slaughter to Prevail - Metal extremo ruso."
+    },
+    {
+        "id": 5021,
+        "category": "Bandas Sugeridas",
+        "year": "2026",
+        "name": "Helloween",
+        "tipoPrecio": "simple",
+        "img": "images/banda_sugeridas/helloween/helloween_40_tour.jpg",
+        "variants": [
+            {
+                "img": "images/banda_sugeridas/helloween/helloween_40_tour.jpg",
+                "name": "Frente"
+            },
+            {
+                "img": "images/banda_sugeridas/helloween/dorso_helloween_40_tour.jpg",
+                "name": "Dorso"
+            }
+        ],
+        "desc": "Helloween - Colección 40 Tour con 2 diseños frente y dorso."
+    },
+    {
+        "id": 5022,
+        "category": "Singles",
+        "year": "2026",
+        "name": "The Sick, The Dying... and The Dead",
+        "tipoPrecio": "simple",
+        "img": "images/singles/killing_time.jpg",
+        "variants": [
+            {
+                "img": "images/singles/killing_time.jpg",
+                "name": "Killing Time"
+            },
+            {
+                "img": "images/singles/life_in_hell.jpg",
+                "name": "Life in Hell"
+            },
+            {
+                "img": "images/singles/night_stalkers.jpg",
+                "name": "Night Stalkers"
+            },
+            {
+                "img": "images/singles/the_sick_the_dying_and_the_dead.jpg",
+                "name": "The Sick, The Dying and The Dead"
+            },
+            {
+                "img": "images/singles/well_be_back.jpg",
+                "name": "We'll Be Back"
+            }
+        ],
+        "desc": "The Sick, The Dying... and The Dead - Singles del álbum de Megadeth con 5 diseños."
     }
 ]

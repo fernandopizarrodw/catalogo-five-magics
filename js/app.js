@@ -86,7 +86,7 @@ function openPackWhatsapp(packName, packIncludes, packPrice) {
 }
 
 const BASE_URL = window.location.origin + window.location.pathname;
-const DORSO_CATEGORIES = new Set(['Album','Tour','Musician','VicRattlehead','Personalizados','Dorsales','Metallica','Pantera','Iron Maiden','Avenged Sevenfold']);
+const DORSO_CATEGORIES = new Set(['Album','Tour','Musician','Metallica','Pantera','Iron Maiden','Avenged Sevenfold']);
 
 let selectedDorsoChips = new Set();
 let selectedBacks = new Set();
