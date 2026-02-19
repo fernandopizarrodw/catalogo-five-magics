@@ -363,6 +363,14 @@
             {
                 "img": "images/singles/i_dont_care_v3.jpg",
                 "name": "v3"
+            },
+            {
+                "img": "images/singles/frente-circular-idont-care-blanca.jpg",
+                "name": "frente-circular-idont-care-blanca"
+            },
+            {
+                "img": "images/singles/frente-circular-idont-care-negro.jpg",
+                "name": "frente-circular-idont-care-negro"
             }
         ],
         "desc": "I Don't Care - Edición especial con 4 variantes."
@@ -376,11 +384,32 @@
         "img": "images/singles/tipping_point.jpg",
         "desc": "Tipping Point - Diseño exclusivo de rareza."
     },
+ 
     {
-        "id": 243,
+        "id": 247,
         "category": "Singles",
         "year": "2025",
-        "name": "Megadeth Rarezas",
+        "name": "Made to Kill",
+        "tipoPrecio": "simple",
+        "img": "images/singles/made_to_kill.jpg",
+        "variants": [],
+        "desc": "Made to Kill - Diseño exclusivo."
+    },
+    {
+        "id": 248,
+        "category": "Singles",
+        "year": "2025",
+        "name": "I Am War",
+        "tipoPrecio": "simple",
+        "img": "images/singles/i_am_war.jpg",
+        "variants": [],
+        "desc": "I Am War - Diseño exclusivo."
+    },
+    {
+        "id": 246,
+        "category": "Singles",
+        "year": "2025",
+        "name": "Let There",
         "tipoPrecio": "simple",
         "img": "images/singles/let_there_be_shred.jpg",
         "variants": [
@@ -391,6 +420,10 @@
             {
                 "img": "images/singles/let_there_be_shred-realista.jpg",
                 "name": "Let There Be Shred Realista"
+            },
+            {
+                "img": "images/singles/let_there_v2.jpg",
+                "name": "Let There v2"
             },
             {
                 "img": "images/singles/fmd_edition_shred.jpg",
@@ -405,7 +438,7 @@
                 "name": "Vic Pelea V2"
             }
         ],
-        "desc": "Colección especial de rarezas - Let There Be Shred, FMD Edition Shred y Vic Pelea con todas sus variantes."
+        "desc": "Let There - Carrusel con todas las variantes de Let There."
     },
     {
         "id": 244,
@@ -417,7 +450,7 @@
         "desc": "Mary Jane — single exclusivo. Edición especial 2025."
     },
     {
-        "id": 1064,
+        "id": 1065,
         "category": "Singles",
         "year": "2026",
         "name": "RIDE THE LIGHTNING BY MEGADETH",
@@ -879,7 +912,7 @@
         "desc": "KIMB 40 Edition - Colección de 4 variantes exclusivas de la edición 40 aniversario."
     },
     {
-        "id": 418,
+        "id": 419,
         "category": "VicRattlehead",
         "year": "2025",
         "name": "Vic Editions",
@@ -983,7 +1016,7 @@
         "desc": "Eddie - Mascota legendaria de Iron Maiden. Versión v1 con toda la intensidad del metal."
     },
     {
-        "id": 406,
+        "id": 408,
         "category": "Iron Maiden",
         "year": "2025",
         "name": "Iron Maiden - Eddie v2",
@@ -992,7 +1025,7 @@
         "desc": "Eddie v2. Variante alternativa del ícono del heavy metal británico."
     },
     {
-        "id": 407,
+        "id": 409,
         "category": "Iron Maiden",
         "year": "2025",
         "name": "Iron Maiden - Eddie v3",
@@ -1105,7 +1138,7 @@
         "category": "Pantera",
         "year": "2025",
         "name": "Pantera Tour 2000",
-        "tipoPrecio": "simple",
+        "tipoPrecio": "doble",
         "img": "images/pantera/pantera_tour_2000_frente.jpg",
         "variants": [
             {
@@ -2074,5 +2107,111 @@
             }
         ],
         "desc": "The Sick, The Dying... and The Dead - Singles del álbum de Megadeth con 5 diseños."
+    },
+    {
+        "id": 5024,
+        "category": "VicRattlehead",
+        "year": "2026",
+        "name": "Vic The Sick Trono",
+        "tipoPrecio": "simple",
+        "img": "images/vic_rattlehead/ts_v1.jpg",
+        "variants": [
+            {
+                "img": "images/vic_rattlehead/ts_v1.jpg",
+                "name": "v1"
+            },
+            {
+                "img": "images/vic_rattlehead/ts_v2.jpg",
+                "name": "v2"
+            }
+        ],
+        "desc": "Vic The Sick Trono - 2 variantes exclusivas de Vic Rattlehead."
+    },
+    {
+        "id": 5025,
+        "category": "VicRattlehead",
+        "year": "2026",
+        "name": "Vic Rust Muro",
+        "tipoPrecio": "doble",
+        "img": "images/vic_rattlehead/vic_rust_muro.jpg",
+        "variants": [
+            {
+                "img": "images/vic_rattlehead/vic_rust_muro.jpg",
+                "name": "Frente"
+            },
+            {
+                "img": "images/vic_rattlehead/vic_rust_muro-dorso.jpg",
+                "name": "Dorso"
+            }
+        ],
+        "desc": "Vic Rust Muro - Frente y dorso en carrusel."
+    },
+    {
+        "id": 5026,
+        "category": "VicRattlehead",
+        "year": "2026",
+        "name": "Vic Helicopter",
+        "tipoPrecio": "simple",
+        "img": "images/vic_rattlehead/vic_helicopter.jpg",
+        "variants": [],
+        "desc": "Vic Helicopter - Diseño exclusivo de Vic Rattlehead."
+    },
+    {
+        "id": 5027,
+        "category": "VicRattlehead",
+        "year": "2026",
+        "name": "Vic Bad Omen",
+        "tipoPrecio": "simple",
+        "img": "images/vic_rattlehead/vic_bad_omen.jpg",
+        "variants": [],
+        "desc": "Vic Bad Omen - Diseño exclusivo de Vic Rattlehead."
+    },
+    {
+        "id": 5028,
+        "category": "VicRattlehead",
+        "year": "2026",
+        "name": "Vic Set the World Afire",
+        "tipoPrecio": "simple",
+        "img": "images/vic_rattlehead/vic_set_the_world_afire.jpg",
+        "variants": [],
+        "desc": "Vic Set the World Afire - Diseño exclusivo de Vic Rattlehead."
+    },
+    {
+        "id": 5029,
+        "category": "VicRattlehead",
+        "year": "2026",
+        "name": "Vic Sells",
+        "tipoPrecio": "simple",
+        "img": "images/vic_rattlehead/vic_sells.jpg",
+        "variants": [
+            {
+                "img": "images/vic_rattlehead/vic_sells.jpg",
+                "name": "v1"
+            },
+            {
+                "img": "images/vic_rattlehead/vic_sells_v2.jpg",
+                "name": "v2"
+            }
+        ],
+        "desc": "Vic Sells - 2 variantes exclusivas de Vic Rattlehead."
+    },
+    {
+        "id": 5030,
+        "category": "VicRattlehead",
+        "year": "2026",
+        "name": "Vic Symphony",
+        "tipoPrecio": "doble",
+        "img": "images/vic_rattlehead/vic_symphony.jpg",
+        "variants": [
+            {
+                "img": "images/vic_rattlehead/vic_symphony.jpg",
+                "name": "Frente"
+            },
+            {
+                "img": "images/vic_rattlehead/vic_symphony_dorso.jpg",
+                "name": "Dorso"
+            }
+        ],
+        "desc": "Vic Symphony - Frente y dorso en carrusel."
     }
 ]
