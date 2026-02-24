@@ -15,6 +15,207 @@ const WHATSAPP = "541169667685";
 
 let db = [];
 
+// === SISTEMA DE CARRITO ===
+class CartSystem {
+    constructor() {
+        this.cart = this.loadCart();
+    }
+
+    // Generar abreviatura del nombre del producto
+    generateProductAbbreviation(productName) {
+        if (!productName) return 'PROD';
+        
+        // Limpiar el nombre
+        const cleaned = productName
+            .replace(/[^\w\s]/g, '') // Remover caracteres especiales
+            .toUpperCase()
+            .trim();
+        
+        const words = cleaned.split(/\s+/);
+        
+        // Si es una palabra, usar primeras 6 letras
+        if (words.length === 1) {
+            return cleaned.substring(0, 6);
+        }
+        
+        // Si son dos palabras cortas, usar todo
+        if (words.length === 2 && words.join('').length <= 8) {
+            return words.join('');
+        }
+        
+        // Si son varias palabras, tomar iniciales
+        const abbreviation = words.map(w => w[0]).join('');
+        return abbreviation.substring(0, 6);
+    }
+
+    // Generar código único para un producto
+    generateCode(productId, variantIndex = 0, isDouble = false) {
+        const product = db.find(p => p.id === productId);
+        if (!product) return null;
+        
+        const abbrev = this.generateProductAbbreviation(product.name);
+        const baseCode = `${abbrev}-${String(productId).padStart(3, '0')}`;
+        const variantPart = product.variants && product.variants.length > 1 ? `.V${variantIndex + 1}` : '';
+        const doublePart = isDouble ? '.DBL' : '';
+        return `${baseCode}${variantPart}${doublePart}`;
+    }
+
+    // Agregar al carrito
+    addToCart(productId, variantIndex = 0, isDouble = false) {
+        const product = db.find(p => p.id === productId);
+        if (!product) return false;
+
+        const code = this.generateCode(productId, variantIndex, isDouble);
+        const variantName = product.variants && product.variants[variantIndex] 
+            ? product.variants[variantIndex].name 
+            : product.name;
+
+        const item = {
+            id: productId,
+            code: code,
+            productName: product.name,
+            variantIndex: variantIndex,
+            variantName: variantName,
+            isDouble: isDouble,
+            timestamp: Date.now()
+        };
+
+        this.cart.push(item);
+        this.saveCart();
+        this.updateCartUI();
+        return true;
+    }
+
+    // Remover del carrito
+    removeFromCart(index) {
+        if (index >= 0 && index < this.cart.length) {
+            this.cart.splice(index, 1);
+            this.saveCart();
+            this.updateCartUI();
+            return true;
+        }
+        return false;
+    }
+
+    // Obtener carrito
+    getCart() {
+        return this.cart;
+    }
+
+    // Limpiar carrito
+    clearCart() {
+        this.cart = [];
+        this.saveCart();
+        this.updateCartUI();
+    }
+
+    // Guardar en localStorage
+    saveCart() {
+        localStorage.setItem('fmd_cart', JSON.stringify(this.cart));
+    }
+
+    // Cargar desde localStorage
+    loadCart() {
+        const stored = localStorage.getItem('fmd_cart');
+        return stored ? JSON.parse(stored) : [];
+    }
+
+    // Generar resumen para copiar
+    generateSummary() {
+        if (this.cart.length === 0) return 'Carrito vacío';
+        
+        const codes = this.cart.map(item => item.code).join(', ');
+        const details = this.cart.map((item, idx) => {
+            const variant = item.variantName ? ` - ${item.variantName}` : '';
+            const doble = item.isDouble ? ' (Doble estampa)' : '';
+            return `${idx + 1}. [${item.code}] ${item.productName}${variant}${doble}`;
+        }).join('\n');
+        
+        return `CÓDIGOS: ${codes}\n\nDETALLES:\n${details}\n\nTotal: ${this.cart.length} remera${this.cart.length !== 1 ? 's' : ''}`;
+    }
+
+    // Actualizar UI del carrito
+    updateCartUI() {
+        const cartBtn = document.getElementById('cartBtn');
+        const cartPanel = document.getElementById('cartPanel');
+        const cartCount = this.cart.length;
+
+        if (cartBtn) {
+            if (cartCount > 0) {
+                cartBtn.style.display = 'flex';
+                cartBtn.querySelector('.cart-count').textContent = cartCount;
+            } else {
+                cartBtn.style.display = 'none';
+            }
+        }
+
+        if (cartPanel && cartPanel.classList.contains('active')) {
+            this.renderCartPanel();
+        }
+    }
+
+    // Renderizar panel del carrito
+    renderCartPanel() {
+        const cartList = document.getElementById('cartList');
+        const cartSummary = document.getElementById('cartSummary');
+
+        if (!cartList) return;
+
+        if (this.cart.length === 0) {
+            cartList.innerHTML = '<p style="text-align:center;color:var(--text-muted);padding:20px;">Carrito vacío</p>';
+            if (cartSummary) cartSummary.style.display = 'none';
+            return;
+        }
+
+        cartList.innerHTML = this.cart.map((item, idx) => `
+            <div class="cart-item">
+                <div class="cart-item-info">
+                    <div class="cart-item-code">${item.code}</div>
+                    <div class="cart-item-name">${item.productName}</div>
+                    ${item.variantName ? `<div class="cart-item-variant">${item.variantName}</div>` : ''}
+                    ${item.isDouble ? '<div class="cart-item-double">Doble estampa</div>' : ''}
+                </div>
+                <button class="cart-item-remove" onclick="cart.removeFromCart(${idx})">✕</button>
+            </div>
+        `).join('');
+
+        if (cartSummary) {
+            cartSummary.style.display = 'block';
+            cartSummary.innerHTML = `
+                <div class="cart-summary-content">
+                    <textarea id="summaryText" readonly>${this.generateSummary()}</textarea>
+                    <button onclick="copySummary()" class="btn-copy-summary">
+                        📋 Copiar Resumen
+                    </button>
+                    <button onclick="sendViaWhatsapp()" class="btn-send-whatsapp">
+                        <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                        </svg>
+                        Enviar por WhatsApp
+                    </button>
+                    <button onclick="cart.clearCart()" class="btn-clear-cart">
+                        🗑️ Vaciar carrito
+                    </button>
+                </div>
+            `;
+        }
+    }
+
+    // Mostrar/ocultar panel
+    togglePanel() {
+        const cartPanel = document.getElementById('cartPanel');
+        if (cartPanel) {
+            cartPanel.classList.toggle('active');
+            if (cartPanel.classList.contains('active')) {
+                this.renderCartPanel();
+            }
+        }
+    }
+}
+
+// Instancia global
+let cart = new CartSystem();
+
 function renderLatestReleases(limit = 6) {
     try {
         const latestGrid = document.getElementById('latestGrid');
@@ -22,11 +223,12 @@ function renderLatestReleases(limit = 6) {
         const latest = db.slice().sort((a,b)=> (b.id||0) - (a.id||0)).slice(0, limit);
         latestGrid.innerHTML = latest.map(p => {
             const hasVariants = p.variants && p.variants.length > 1;
+            const isDoble = p.tipoPrecio === 'doble';
             const showDorsoBadge = DORSO_CATEGORIES.has(p.category);
             const isDorsoIdea = p.category === 'Dorsales';
+            const badgeText = isDoble ? '🔥 Doble estampa' : (hasVariants ? `${p.variants.length} diseños <span style='font-size:1.2em;margin-left:6px;'>➔</span>` : '');
             return `<div class="product-card" onclick="openModal(${p.id})">
-                ${hasVariants ? `<span class="variants-badge">${p.variants.length} diseños <span style='font-size:1.2em;margin-left:6px;'>➔</span></span>` : ''}
-                ${showDorsoBadge ? `<span class="dorso-badge">Dorso personalizable</span>` : ''}
+                ${badgeText ? `<span class="variants-badge">${badgeText}</span>` : ''}
                 <img src="${p.img}" class="product-img" loading="lazy">
                 <div class="product-info">
                     <div class="product-name">${p.name}</div>
@@ -82,7 +284,69 @@ function openPackWhatsapp(packName, packIncludes, packPrice) {
         msg += `\n${packIncludes}`;
     }
     
-    window.location.href = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(msg)}`;
+    openWhatsapp(msg);
+}
+
+// === FUNCIONES UTILITARIAS REUTILIZABLES ===
+
+// Mostrar notificación flotante
+function showNotification(text, duration = 2000) {
+    const notification = document.createElement('div');
+    notification.style.cssText = `
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background: var(--magic-green);
+        color: #000;
+        padding: 12px 20px;
+        border-radius: 6px;
+        font-weight: 600;
+        z-index: 10001;
+        animation: slideIn 0.3s ease;
+    `;
+    notification.textContent = text;
+    document.body.appendChild(notification);
+    
+    setTimeout(() => {
+        notification.style.animation = 'slideOut 0.3s ease';
+        setTimeout(() => notification.remove(), 300);
+    }, duration);
+}
+
+// Copiar al portapapeles con feedback visual
+function copyToClipboard(text, feedbackElement = null) {
+    navigator.clipboard.writeText(text).then(() => {
+        if (feedbackElement) {
+            const originalText = feedbackElement.textContent;
+            const originalBg = feedbackElement.style.background;
+            
+            feedbackElement.textContent = '✓';
+            feedbackElement.style.background = 'rgba(0, 0, 0, 0.5)';
+            
+            setTimeout(() => {
+                feedbackElement.textContent = originalText;
+                feedbackElement.style.background = originalBg;
+            }, 1500);
+        }
+        
+        showNotification('✓ Copiado al portapapeles');
+    }).catch(err => {
+        console.error('Error al copiar:', err);
+        showNotification('❌ Error al copiar', 1500);
+    });
+}
+
+// Abrir WhatsApp con mensaje
+function openWhatsapp(message) {
+    if (typeof gtag !== 'undefined') {
+        gtag('event', 'whatsapp_click', {
+            'event_category': 'engagement',
+            'event_label': 'Mensaje WhatsApp'
+        });
+    }
+    
+    const encodedMessage = encodeURIComponent(message);
+    window.location.href = `https://wa.me/${WHATSAPP}?text=${encodedMessage}`;
 }
 
 const BASE_URL = window.location.origin + window.location.pathname;
@@ -132,19 +396,14 @@ function updateDobleWaLink(){
     const btn = document.getElementById('btnDobleAction');
     if(!btn) return;
     const text = buildDobleMessage();
-    btn.href = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(text)}`;
-    // Agregar rastreo de GA al hacer clic
-    if(btn.onclick === null) {
-        btn.onclick = function() {
-            if (typeof gtag !== 'undefined') {
-                gtag('event', 'whatsapp_click', {
-                    'event_category': 'engagement',
-                    'event_label': currentProduct ? `Producto Doble: ${currentProduct.name}` : 'Producto Doble',
-                    'product_type': 'doble_estampa'
-                });
-            }
-        };
-    }
+    
+    // Reemplazar el href con un onclick que use la función centralizada
+    btn.onclick = (e) => {
+        e.preventDefault();
+        openWhatsapp(text);
+    };
+    
+    btn.href = '#'; // Placeholder para accesibilidad
 }
 
 function renderBackExamples(){
@@ -397,6 +656,23 @@ function updateModalInfo() {
     if (!currentProduct) return;
     const images = getImages(currentProduct);
     document.getElementById('modalName').textContent = currentProduct.name;
+    
+    // Actualizar código del producto
+    const code = cart.generateCode(currentProduct.id, currentSlide, selectedBacks.size > 0 || selectedDorsoChips.size > 0);
+    const displayCodeEl = document.getElementById('displayCode');
+    if (displayCodeEl) {
+        displayCodeEl.textContent = code;
+    }
+    
+    // Actualizar breadcrumb
+    const breadcrumbCategory = document.getElementById('breadcrumbCategory');
+    const breadcrumbProduct = document.getElementById('breadcrumbProduct');
+    if (breadcrumbCategory) breadcrumbCategory.textContent = currentProduct.category;
+    if (breadcrumbProduct) breadcrumbProduct.textContent = currentProduct.name;
+    
+    // Actualizar contador de productos
+    updateProductCounter();
+    
     document.getElementById('modalMeta').textContent = `${currentProduct.year} · ${currentProduct.category}`;
     document.getElementById('modalDesc').textContent = currentProduct.desc || '';
     document.getElementById('modalPrice').textContent = formatPrecio(currentProduct.tipoPrecio || 'simple');
@@ -413,11 +689,19 @@ function updateModalInfo() {
     document.getElementById('variantName').textContent = vName;
     document.getElementById('variantName').style.display = vName ? 'block' : 'none';
     const msg = `Hola FMD, quiero más información sobre ${currentProduct.name}`;
-    document.getElementById('modalWaBtn').href = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(msg)}`;
+    const modalWaBtn = document.getElementById('modalWaBtn');
+    if (modalWaBtn) {
+        modalWaBtn.onclick = (e) => {
+            e.preventDefault();
+            openWhatsapp(msg);
+        };
+        modalWaBtn.href = '#';
+    }
     renderBackExamples();
     updateDobleWaLink();
     document.querySelectorAll('.carousel-dot').forEach((dot, i) => { dot.classList.toggle('active', i === currentSlide); });
     updateShareLinks();
+    renderRelatedProducts(currentProduct.category);
 }
 
 function filterProducts() {
@@ -436,11 +720,12 @@ function renderFilteredProducts(filtered) {
     document.getElementById('productsCount').textContent = `${filtered.length} diseños`;
     productsGrid.innerHTML = filtered.map(p => {
         const hasVariants = p.variants && p.variants.length > 1;
+        const isDoble = p.tipoPrecio === 'doble';
         const showDorsoBadge = DORSO_CATEGORIES.has(p.category);
         const isDorsoIdea = p.category === 'Dorsales';
+        const badgeText = isDoble ? '🔥 Doble estampa' : (hasVariants ? `${p.variants.length} diseños <span style='font-size:1.2em;margin-left:6px;'>➔</span>` : '');
         return `<div class="product-card" onclick="openModal(${p.id})">
-            ${hasVariants ? `<span class="variants-badge">${p.variants.length} diseños <span style='font-size:1.2em;margin-left:6px;'>➔</span></span>` : ''}
-            ${showDorsoBadge ? `<span class="dorso-badge">Dorso personalizable</span>` : ''}
+            ${badgeText ? `<span class="variants-badge">${badgeText}</span>` : ''}
             <img src="${p.img}" class="product-img" loading="lazy">
             <div class="product-info">
                 <div class="product-name">${p.name}</div>
@@ -509,12 +794,7 @@ function getProductUrl(){
 function copyProductLink() {
     if(!currentProduct) return;
     const url = getProductUrl();
-    navigator.clipboard.writeText(url).then(() => {
-        const toast = document.getElementById('shareToast');
-        toast.textContent = '✓ Link copiado al portapapeles';
-        toast.classList.add('visible');
-        setTimeout(() => toast.classList.remove('visible'), 2000);
-    });
+    copyToClipboard(url);
 }
 
 function updateShareLinks() {
@@ -522,7 +802,16 @@ function updateShareLinks() {
     const images = getImages(currentProduct);
     const variant = images?.[currentSlide]?.name ? `\nVariante: ${images[currentSlide].name}` : '';
     const msg = `Mirá este diseño:\n${currentProduct.name}${variant}\n${getProductUrl()}`;
-    document.getElementById('btnShareWa').href = `https://wa.me/?text=${encodeURIComponent(msg)}`;
+    
+    // Usar onclick centralizado en lugar de href
+    const btnShareWa = document.getElementById('btnShareWa');
+    if (btnShareWa) {
+        btnShareWa.onclick = (e) => {
+            e.preventDefault();
+            openWhatsapp(msg);
+        };
+        btnShareWa.href = '#';
+    }
     
     // Actualizar meta tags dinámicamente para compartir el producto
     const productUrl = `https://catalogo.fivemagicsdesigns.com/#producto-${currentProduct.id}`;
@@ -727,6 +1016,137 @@ document.addEventListener('click', (e) => {
 // Enlazar input personalizado
 const dorsoInputLive = document.getElementById('dorsoCustomInput');
 if(dorsoInputLive) dorsoInputLive.addEventListener('input', updateDobleWaLink);
+
+// === FUNCIONES PARA CARRITO ===
+function copyProductCode() {
+    const codeEl = document.getElementById('displayCode');
+    if (!codeEl) return;
+    const code = codeEl.textContent;
+    copyToClipboard(code, event.target);
+}
+
+function copySummary() {
+    const summaryText = document.getElementById('summaryText');
+    if (summaryText) {
+        const text = summaryText.value;
+        copyToClipboard(text, event.target);
+    }
+}
+
+function sendViaWhatsapp() {
+    const summary = cart.generateSummary();
+    const message = `Hola FMD!\n\nMe gustaría encargar las siguientes remeras:\n\n${summary}\n\nPor favor confirmame precio y disponibilidad.`;
+    openWhatsapp(message);
+}
+
+function toggleCartPanel() {
+    cart.togglePanel();
+}
+
+function addToCartFromModal() {
+    if (!currentProduct) return false;
+    
+    const isDouble = selectedBacks.size > 0 || selectedDorsoChips.size > 0;
+    const variantIndex = currentSlide;
+    
+    const success = cart.addToCart(currentProduct.id, variantIndex, isDouble);
+    
+    if (success) {
+        showNotification('✓ Agregado al carrito', 2000);
+    }
+    
+    return success;
+}
+
+// Agregar al carrito y abrir WhatsApp directamente
+function addToCartAndOpenWhatsapp() {
+    if (!currentProduct) return;
+    
+    addToCartFromModal();
+    
+    // Pequeño delay para que se vea la notificación
+    setTimeout(() => {
+        const summary = cart.generateSummary();
+        const message = `Hola FMD!\n\nMe gustaría encargar las siguientes remeras:\n\n${summary}\n\nPor favor confirmame precio y disponibilidad.`;
+        openWhatsapp(message);
+    }, 300);
+}
+
+// Función para actualizar el contador de productos
+function updateProductCounter() {
+    if (!currentProduct) return;
+    
+    // Obtener productos de la misma categoría
+    const relatedProducts = db.filter(p => p.category === currentProduct.category);
+    const currentIndex = relatedProducts.findIndex(p => p.id === currentProduct.id);
+    
+    const counterEl = document.getElementById('productCounter');
+    if (counterEl) {
+        counterEl.textContent = `${currentIndex + 1}/${relatedProducts.length}`;
+    }
+    
+    // Habilitar/deshabilitar botones de navegación
+    const btnPrev = document.getElementById('btnNavPrev');
+    const btnNext = document.getElementById('btnNavNext');
+    if (btnPrev) btnPrev.disabled = currentIndex === 0;
+    if (btnNext) btnNext.disabled = currentIndex === relatedProducts.length - 1;
+}
+
+// Navegar al siguiente producto
+function navigateToNextProduct() {
+    if (!currentProduct) return;
+    
+    const relatedProducts = db.filter(p => p.category === currentProduct.category);
+    const currentIndex = relatedProducts.findIndex(p => p.id === currentProduct.id);
+    
+    if (currentIndex < relatedProducts.length - 1) {
+        const nextProduct = relatedProducts[currentIndex + 1];
+        openModal(nextProduct.id);
+    }
+}
+
+// Navegar al producto anterior
+function navigateToPrevProduct() {
+    if (!currentProduct) return;
+    
+    const relatedProducts = db.filter(p => p.category === currentProduct.category);
+    const currentIndex = relatedProducts.findIndex(p => p.id === currentProduct.id);
+    
+    if (currentIndex > 0) {
+        const prevProduct = relatedProducts[currentIndex - 1];
+        openModal(prevProduct.id);
+    }
+}
+
+// Mostrar productos relacionados
+function renderRelatedProducts(category) {
+    if (!category) return;
+    
+    const relatedContainer = document.getElementById('relatedProducts');
+    const relatedGrid = document.getElementById('relatedGrid');
+    
+    if (!relatedContainer || !relatedGrid) return;
+    
+    // Obtener productos de la misma categoría, excluyendo el actual
+    const related = db.filter(p => p.category === category && p.id !== currentProduct.id).slice(0, 6);
+    
+    if (related.length === 0) {
+        relatedContainer.style.display = 'none';
+        return;
+    }
+    
+    relatedContainer.style.display = 'block';
+    
+    relatedGrid.innerHTML = related.map(p => {
+        const thumb = p.img || '';
+        return `
+            <div class="related-item" onclick="openModal(${p.id})">
+                <img src="${thumb}" alt="${p.name}">
+                <div class="related-item-name">${p.name}</div>
+            </div>
+        `;
+    }).join('');
+}
 
 // Cargar producto desde URL hash (#producto-123)
 function loadProductFromHash() {
