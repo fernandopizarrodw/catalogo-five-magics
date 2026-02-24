@@ -2324,13 +2324,17 @@
         "year": "2026",
         "name": "Iron Maiden Fear",
         "tipoPrecio": "simple",
-        "img": "images/iron_maiden/iron_maiden_fear.jpg",
+        "img": "images/iron_maiden/iron_maiden_fear_v1.jpg",
         "variants": [
             {
-                "img": "images/iron_maiden/iron_maiden_fear.jpg",
-                "name": "Diseño"
+                "img": "images/iron_maiden/iron_maiden_fear_v1.jpg",
+                "name": "Variante 1"
+            },
+            {
+                "img": "images/iron_maiden/iron_maiden_fear_v2.jpg",
+                "name": "Variante 2"
             }
         ],
-        "desc": "Iron Maiden Fear - Diseño de la banda clásica."
+        "desc": "Iron Maiden Fear - Diseño de la banda clásica con 2 variantes."
     }
 ]
