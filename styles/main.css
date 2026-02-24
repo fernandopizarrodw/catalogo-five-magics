@@ -2920,6 +2920,187 @@ footer p {
     white-space: nowrap;
 }
 
+/* Botón de búsqueda grande en header */
+.btn-header-search-large {
+    background: rgba(34, 221, 34, 0.15);
+    border: 1.5px solid var(--magic-green);
+    color: var(--magic-green);
+    cursor: pointer;
+    padding: 10px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    font-family: inherit;
+}
+
+.btn-header-search-large:hover {
+    background: var(--magic-green);
+    color: #000;
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(34, 221, 34, 0.3);
+}
+
+.btn-header-search-large:active {
+    transform: scale(0.98);
+}
+
+/* Buscador en header */
+.header-actions {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
+.btn-header-search {
+    background: none;
+    border: none;
+    color: var(--text);
+    cursor: pointer;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    border-radius: 6px;
+}
+
+.btn-header-search:hover {
+    background: rgba(34, 221, 34, 0.1);
+    color: var(--magic-green);
+}
+
+/* Modal de búsqueda */
+.search-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.85);
+    z-index: 1001;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 80px;
+    backdrop-filter: blur(4px);
+    animation: fadeIn 0.3s ease;
+}
+
+.search-modal.active {
+    display: flex;
+}
+
+.search-modal-content {
+    background: var(--bg-dark);
+    border: 1px solid rgba(34, 221, 34, 0.2);
+    border-radius: 12px;
+    padding: 28px;
+    max-width: 600px;
+    width: 90%;
+    position: relative;
+    max-height: 70vh;
+    overflow-y: auto;
+    animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.search-modal-content h2 {
+    margin: 0 0 20px 0;
+    color: var(--text);
+    font-size: 1.3rem;
+}
+
+.search-modal-content input {
+    width: 100%;
+    padding: 14px 16px;
+    background: rgba(34, 221, 34, 0.05);
+    border: 2px solid rgba(34, 221, 34, 0.2);
+    border-radius: 8px;
+    color: var(--text);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    font-family: inherit;
+    box-sizing: border-box;
+}
+
+.search-modal-content input:focus {
+    outline: none;
+    border-color: var(--magic-green);
+    background: rgba(34, 221, 34, 0.1);
+    box-shadow: 0 0 12px rgba(34, 221, 34, 0.2);
+}
+
+.search-modal-content input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.search-modal-close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    font-size: 1.5rem;
+    padding: 4px;
+    transition: color 0.2s ease;
+}
+
+.search-modal-close:hover {
+    color: var(--text);
+}
+
+.search-result-item {
+    padding: 12px 16px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border-left: 3px solid transparent;
+    background: rgba(34, 221, 34, 0.05);
+}
+
+.search-result-item:hover {
+    background: rgba(34, 221, 34, 0.15);
+    border-left-color: var(--magic-green);
+    transform: translateX(4px);
+}
+
+.search-result-name {
+    font-weight: 700;
+    color: var(--magic-green);
+    font-size: 0.95rem;
+    margin-bottom: 4px;
+}
+
+.search-result-meta {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.search-empty {
+    text-align: center;
+    padding: 40px 20px;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
 /* Responsive carrito */
 @media (max-width: 600px) {
     #cartPanel {
@@ -2942,5 +3123,10 @@ footer p {
     
     .modal-product-nav {
         flex-wrap: wrap;
+    }
+    
+    .search-modal-content {
+        width: 95%;
+        padding: 20px;
     }
 }

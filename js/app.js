@@ -1163,10 +1163,74 @@ function loadProductFromHash() {
     }
 }
 
+// Funcionalidad del buscador en header
+function initSearchModal() {
+    const headerSearchBtn = document.getElementById('headerSearchBtn');
+    const searchModal = document.getElementById('searchModal');
+    const searchModalClose = document.getElementById('searchModalClose');
+    const searchModalInput = document.getElementById('searchModalInput');
+    const searchModalResults = document.getElementById('searchModalResults');
+    
+    if (!headerSearchBtn || !searchModal || !searchModalInput) return;
+    
+    // Abrir modal
+    headerSearchBtn.onclick = () => {
+        searchModal.classList.add('active');
+        searchModalInput.focus();
+        searchModalInput.value = '';
+        searchModalResults.innerHTML = '';
+    };
+    
+    // Cerrar modal
+    searchModalClose.onclick = () => searchModal.classList.remove('active');
+    
+    // Cerrar al hacer click fuera
+    searchModal.onclick = (e) => {
+        if (e.target === searchModal) searchModal.classList.remove('active');
+    };
+    
+    // Búsqueda en tiempo real
+    searchModalInput.oninput = (e) => {
+        const query = e.target.value.toLowerCase().trim();
+        
+        if (!query) {
+            searchModalResults.innerHTML = '';
+            return;
+        }
+        
+        const results = db.filter(p => {
+            const name = (p.name || '').toLowerCase();
+            const desc = (p.desc || '').toLowerCase();
+            const category = (p.category || '').toLowerCase();
+            return name.includes(query) || desc.includes(query) || category.includes(query);
+        }).slice(0, 8);
+        
+        if (results.length === 0) {
+            searchModalResults.innerHTML = '<div class="search-empty">Sin resultados para "' + e.target.value + '"</div>';
+            return;
+        }
+        
+        searchModalResults.innerHTML = results.map(p => `
+            <div class="search-result-item" onclick="openModal(${p.id}); document.getElementById('searchModal').classList.remove('active');">
+                <div class="search-result-name">${p.name}</div>
+                <div class="search-result-meta">${p.year} · ${p.category}</div>
+            </div>
+        `).join('');
+    };
+    
+    // Cerrar modal con tecla Escape
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && searchModal.classList.contains('active')) {
+            searchModal.classList.remove('active');
+        }
+    });
+}
+
 // Inicializar
 document.addEventListener('DOMContentLoaded', () => {
     loadProducts();
     setView('grid');
+    initSearchModal();
     // Pequeño delay para asegurar que db está lleno
     setTimeout(loadProductFromHash, 500);
 });

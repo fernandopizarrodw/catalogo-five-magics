@@ -1396,15 +1396,6 @@
         "desc": "Mockup Motorhead."
     },
     {
-        "id": 64,
-        "category": "Personalizados",
-        "year": "2026",
-        "name": "Motorhead v2",
-        "tipoPrecio": "simple",
-        "img": "images/personalizado/motorhead_v2.jpg",
-        "desc": "Mockup Motorhead v2."
-    },
-    {
         "id": 59,
         "category": "Personalizados",
         "year": "2025",
@@ -2213,5 +2204,133 @@
             }
         ],
         "desc": "Vic Symphony - Frente y dorso en carrusel."
+    },
+    {
+        "id": 5031,
+        "category": "Personalizados",
+        "year": "2026",
+        "name": "Black Label",
+        "tipoPrecio": "doble",
+        "img": "images/personalizado/black_label_frente.jpg",
+        "variants": [
+            {
+                "img": "images/personalizado/black_label_frente.jpg",
+                "name": "Frente"
+            },
+            {
+                "img": "images/personalizado/black_label_dorso.jpg",
+                "name": "Dorso"
+            }
+        ],
+        "desc": "Black Label - Diseño personalizado con frente y dorso."
+    },
+    {
+        "id": 5032,
+        "category": "Iron Maiden",
+        "year": "2026",
+        "name": "Iron Maiden Book",
+        "tipoPrecio": "simple",
+        "img": "images/iron_maiden/iron_maiden_book.jpg",
+        "variants": [
+            {
+                "img": "images/iron_maiden/iron_maiden_book.jpg",
+                "name": "Diseño"
+            }
+        ],
+        "desc": "Iron Maiden Book - Diseño de la banda clásica."
+    },
+    {
+        "id": 5033,
+        "category": "Iron Maiden",
+        "year": "2026",
+        "name": "Iron Maiden Can I",
+        "tipoPrecio": "simple",
+        "img": "images/iron_maiden/iron_maiden_can_i.jpg",
+        "variants": [
+            {
+                "img": "images/iron_maiden/iron_maiden_can_i.jpg",
+                "name": "Diseño"
+            }
+        ],
+        "desc": "Iron Maiden Can I - Diseño de la banda clásica."
+    },
+    {
+        "id": 5034,
+        "category": "Iron Maiden",
+        "year": "2026",
+        "name": "Iron Maiden The Book",
+        "tipoPrecio": "simple",
+        "img": "images/iron_maiden/iron_maiden_the_book.jpg",
+        "variants": [
+            {
+                "img": "images/iron_maiden/iron_maiden_the_book.jpg",
+                "name": "Diseño"
+            }
+        ],
+        "desc": "Iron Maiden The Book - Diseño de la banda clásica."
+    },
+    {
+        "id": 5035,
+        "category": "Iron Maiden",
+        "year": "2026",
+        "name": "Iron Maiden Brave",
+        "tipoPrecio": "simple",
+        "img": "images/iron_maiden/iron_maiden_brave.jpg",
+        "variants": [
+            {
+                "img": "images/iron_maiden/iron_maiden_brave.jpg",
+                "name": "Diseño"
+            }
+        ],
+        "desc": "Iron Maiden Brave - Diseño de la banda clásica."
+    },
+    {
+        "id": 5036,
+        "category": "Iron Maiden",
+        "year": "2026",
+        "name": "Iron Maiden Killers",
+        "tipoPrecio": "doble",
+        "img": "images/iron_maiden/iron_maiden_killers_frente.jpg",
+        "variants": [
+            {
+                "img": "images/iron_maiden/iron_maiden_killers_frente.jpg",
+                "name": "Frente"
+            },
+            {
+                "img": "images/iron_maiden/iron_maiden_killers_dorso.jpg",
+                "name": "Dorso"
+            }
+        ],
+        "desc": "Iron Maiden Killers - Frente y dorso."
+    },
+    {
+        "id": 5037,
+        "category": "Iron Maiden",
+        "year": "2026",
+        "name": "Iron Maiden Somewhere",
+        "tipoPrecio": "simple",
+        "img": "images/iron_maiden/iron_maiden_somewhere.jpg",
+        "variants": [
+            {
+                "img": "images/iron_maiden/iron_maiden_somewhere.jpg",
+                "name": "Diseño"
+            }
+        ],
+        "desc": "Iron Maiden Somewhere - Diseño de la banda clásica."
+    },
+    {
+        "id": 5038,
+        "category": "Iron Maiden",
+        "year": "2026",
+        "name": "Iron Maiden Fear",
+        "tipoPrecio": "simple",
+        "img": "images/iron_maiden/iron_maiden_fear.jpg",
+        "variants": [
+            {
+                "img": "images/iron_maiden/iron_maiden_fear.jpg",
+                "name": "Diseño"
+            }
+        ],
+        "desc": "Iron Maiden Fear - Diseño de la banda clásica."
     }
 ]
