@@ -111,6 +111,10 @@
             {
                 "img": "images/albums/Rust_in_peace/alternate-rip.jpg",
                 "name": "Alternate RIP"
+            },
+            {
+                "img": "images/albums/Rust_in_peace/rust_in_peace_dorso.jpg",
+                "name": "Doble Estampa - Dorso"
             }
         ],
         "desc": "Obra maestra de precisión matemática y alienígenas en el Área 51 que elevó el thrash metal a la perfección técnica."
@@ -164,6 +168,16 @@
         "name": "Cryptic Writings",
         "tipoPrecio": "simple",
         "img": "images/albums/Cryptic_Writings/cryptic_writings_tapa.jpg",
+        "variants": [
+            {
+                "img": "images/albums/Cryptic_Writings/cryptic_writings_tapa.jpg",
+                "name": "Original"
+            },
+            {
+                "img": "images/albums/Cryptic_Writings/cryptic_writings_dorso.jpg",
+                "name": "Doble Estampa - Dorso"
+            }
+        ],
         "desc": "Melodía accesible y experimentación radial envueltas en un arte místico de simbología críptica y diseño minimalista."
     },
     {
@@ -1913,22 +1927,41 @@
         "id": 5008,
         "category": "Bandas Sugeridas",
         "year": "2026",
-        "name": "Hermética",
-        "tipoPrecio": "simple",
-        "img": "images/banda_sugeridas/hermetica/hermetica_acido_argentino.jpg",
-        "desc": "Hermética - Ácido Argentino. Poder del rock progresivo argentino."
-    },
-    {
-        "id": 5009,
-        "category": "Bandas Sugeridas",
-        "year": "2026",
         "name": "Hawthorne",
         "tipoPrecio": "simple",
         "img": "images/banda_sugeridas/howthorne/howthorne.jpg",
         "desc": "Hawthorne. Diseño sugerido por followers."
     },
     {
+        "id": 5009,
+        "category": "Bandas Sugeridas",
+        "year": "2026",
+        "name": "Helloween",
+        "tipoPrecio": "simple",
+        "img": "images/banda_sugeridas/helloween/helloween_40_tour.jpg",
+        "variants": [
+            {
+                "img": "images/banda_sugeridas/helloween/helloween_40_tour.jpg",
+                "name": "Frente"
+            },
+            {
+                "img": "images/banda_sugeridas/helloween/dorso_helloween_40_tour.jpg",
+                "name": "Dorso"
+            }
+        ],
+        "desc": "Helloween - Colección 40 Tour con 2 diseños frente y dorso."
+    },
+    {
         "id": 5010,
+        "category": "Bandas Sugeridas",
+        "year": "2026",
+        "name": "Hermética",
+        "tipoPrecio": "simple",
+        "img": "images/banda_sugeridas/hermetica/hermetica_acido_argentino.jpg",
+        "desc": "Hermética - Ácido Argentino. Poder del rock progresivo argentino."
+    },
+    {
+        "id": 5011,
         "category": "Bandas Sugeridas",
         "year": "2026",
         "name": "Lethal",
@@ -1937,7 +1970,7 @@
         "desc": "Lethal. Poder letal del metal argentino."
     },
     {
-        "id": 5011,
+        "id": 5012,
         "category": "Bandas Sugeridas",
         "year": "2026",
         "name": "Nightwish",
@@ -1946,7 +1979,7 @@
         "desc": "Nightwish - Once. Metal sinfónico desde los confines de Finlandia."
     },
     {
-        "id": 5012,
+        "id": 5013,
         "category": "Bandas Sugeridas",
         "year": "2026",
         "name": "Ozzy Osbourne",
@@ -1955,7 +1988,25 @@
         "desc": "Ozzy Osbourne. La leyenda del metal."
     },
     {
-        "id": 5013,
+        "id": 5014,
+        "category": "Bandas Sugeridas",
+        "year": "2026",
+        "name": "Rammstein",
+        "tipoPrecio": "simple",
+        "img": "images/banda_sugeridas/rammstein/rammstein.jpg",
+        "desc": "Rammstein - Industrial metal alemán. Fuego y potencia."
+    },
+    {
+        "id": 5015,
+        "category": "Bandas Sugeridas",
+        "year": "2026",
+        "name": "Sepultura",
+        "tipoPrecio": "simple",
+        "img": "images/banda_sugeridas/sepultura/sepultura_roots.jpg",
+        "desc": "Sepultura - Roots. Metal brasileño brutal y primitivo."
+    },
+    {
+        "id": 5016,
         "category": "Bandas Sugeridas",
         "year": "2026",
         "name": "Slayer",
@@ -1964,7 +2015,30 @@
         "desc": "Slayer. Los maestros del thrash más puro y destructivo."
     },
     {
-        "id": 5014,
+        "id": 5017,
+        "category": "Bandas Sugeridas",
+        "year": "2026",
+        "name": "Sodom",
+        "tipoPrecio": "simple",
+        "img": "images/banda_sugeridas/sodom/sodom_agent_orange.jpg",
+        "variants": [
+            {
+                "img": "images/banda_sugeridas/sodom/sodom_agent_orange.jpg",
+                "name": "Agent Orange"
+            },
+            {
+                "img": "images/banda_sugeridas/sodom/sodom_dorso.jpg",
+                "name": "Dorso"
+            },
+            {
+                "img": "images/banda_sugeridas/sodom/sodom_frente.jpg",
+                "name": "Frente"
+            }
+        ],
+        "desc": "Sodom - Thrash metal alemán con 3 diseños destructivos."
+    },
+    {
+        "id": 5018,
         "category": "Bandas Sugeridas",
         "year": "2026",
         "name": "Sündenrausch",
@@ -1973,7 +2047,7 @@
         "desc": "Sündenrausch. Metal atmosférico alemán."
     },
     {
-        "id": 5015,
+        "id": 5019,
         "category": "Bandas Sugeridas",
         "year": "2026",
         "name": "Testament",
@@ -2000,73 +2074,23 @@
         "desc": "Testament - Thrash metal legendario con 4 diseños de sus álbumes clásicos."
     },
     {
-        "id": 5016,
+        "id": 5200,
         "category": "Bandas Sugeridas",
         "year": "2026",
-        "name": "Sodom",
+        "name": "Cacophony",
         "tipoPrecio": "simple",
-        "img": "images/banda_sugeridas/sodom/sodom_agent_orange.jpg",
+        "img": "images/banda_sugeridas/cacophony/cacophony_sms.jpg",
         "variants": [
             {
-                "img": "images/banda_sugeridas/sodom/sodom_agent_orange.jpg",
-                "name": "Agent Orange"
+                "img": "images/banda_sugeridas/cacophony/cacophony_sms.jpg",
+                "name": "SMS"
             },
             {
-                "img": "images/banda_sugeridas/sodom/sodom_dorso.jpg",
-                "name": "Dorso"
-            },
-            {
-                "img": "images/banda_sugeridas/sodom/sodom_frente.jpg",
-                "name": "Frente"
+                "img": "images/banda_sugeridas/cacophony/cacophony_sms_circular.jpg",
+                "name": "SMS Circular"
             }
         ],
-        "desc": "Sodom - Thrash metal alemán con 3 diseños destructivos."
-    },
-    {
-        "id": 5017,
-        "category": "Bandas Sugeridas",
-        "year": "2026",
-        "name": "Rammstein",
-        "tipoPrecio": "simple",
-        "img": "images/banda_sugeridas/rammstein/rammstein.jpg",
-        "desc": "Rammstein - Industrial metal alemán. Fuego y potencia."
-    },
-    {
-        "id": 5018,
-        "category": "Bandas Sugeridas",
-        "year": "2026",
-        "name": "Sepultura",
-        "tipoPrecio": "simple",
-        "img": "images/banda_sugeridas/sepultura/sepultura_roots.jpg",
-        "desc": "Sepultura - Roots. Metal brasileño brutal y primitivo."
-    },
-    {
-        "id": 5020,
-        "category": "Personalizados",
-        "year": "2026",
-        "name": "Slaughter to Prevail",
-        "tipoPrecio": "simple",
-        "img": "images/personalizado/slaughter_to_prevail.jpg",
-        "desc": "Slaughter to Prevail - Metal extremo ruso."
-    },
-    {
-        "id": 5021,
-        "category": "Bandas Sugeridas",
-        "year": "2026",
-        "name": "Helloween",
-        "tipoPrecio": "simple",
-        "img": "images/banda_sugeridas/helloween/helloween_40_tour.jpg",
-        "variants": [
-            {
-                "img": "images/banda_sugeridas/helloween/helloween_40_tour.jpg",
-                "name": "Frente"
-            },
-            {
-                "img": "images/banda_sugeridas/helloween/dorso_helloween_40_tour.jpg",
-                "name": "Dorso"
-            }
-        ],
-        "desc": "Helloween - Colección 40 Tour con 2 diseños frente y dorso."
+        "desc": "Cacophony - Dúo virtuoso de Jason Becker y Marty Friedman con 2 diseños."
     },
     {
         "id": 5022,
