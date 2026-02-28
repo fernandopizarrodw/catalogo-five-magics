@@ -104,8 +104,8 @@
     </div>
 
     <!-- Botón flotante del carrito -->
-    <button id="cartBtn" onclick="toggleCartPanel()" title="Abrir carrito">
-        🛒
+    <button id="cartBtn" onclick="openCartPreview()" title="Ver carrito">
+        🛒 Ver carrito
         <span class="cart-count">0</span>
     </button>
 
@@ -347,6 +347,9 @@
                 <button class="btn-explore">Ver colección →</button>
             </div>
 
+        </div>
+    </section>
+
     <!-- Últimos lanzamientos -->
     <section class="latest-section" id="latest">
         <h2 class="info-title">ÚLTIMOS LANZAMIENTOS</h2>
@@ -486,17 +489,12 @@
         </div>
     </section>
 
-    <!-- Promo discreta -->
-    <div class="catalog-promo" id="catalogPromo">
-        <span class="promo-text">Diseños del catálogo: $37k (única) · $42k (doble) · 2+ remeras → envío gratis · 1 unidad → envío según zona</span>
-    </div>
-
     <!-- MODELOS DE REMERAS -->
     <section class="info-section" id="modelos">
         <h2 class="info-title">MODELOS DE REMERAS</h2>
         <p class="info-subtitle">Seis variantes: hombre y mujer clásico, unisex oversize, en blanco y negro</p>
 
-        <div class="modelos-container" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;">
+        <div class="modelos-container">
             <div class="modelo-item">
                 <div class="modelo-img-placeholder" onclick="openImageModal('images/modelos/hombre_negra_clasica.jpg', 'Remera Clásica Hombre Negra')">
                     <img src="images/modelos/hombre_negra_clasica.jpg" alt="Remera Clásica Hombre Negra">
@@ -940,8 +938,8 @@
                             </button>
                         </div>
                         <div class="modal-actions-secondary">
-                            <button class="btn-share" id="btnCopyLink" onclick="copyProductLink()">
-                                🔗 Link
+                            <button class="btn-share btn-view-cart" id="btnViewCart" onclick="openCartPreview()">
+                                🛒 Ver carrito (<span id="modalCartCount">0</span>)
                             </button>
                             <button class="btn-share btn-share-wa" id="btnShareWa">
                                 📢 Compartir
@@ -979,6 +977,23 @@
                         COMPRAR POR WHATSAPP
                     </a>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Vista Previa del Carrito -->
+    <div id="cartPreviewModal" class="cart-preview-modal">
+        <div class="cart-preview-overlay" onclick="closeCartPreview()"></div>
+        <div class="cart-preview-container">
+            <div class="cart-preview-header">
+                <h2>🛒 Revisá tu pedido</h2>
+                <button class="cart-preview-close" onclick="closeCartPreview()">✕</button>
+            </div>
+            <div class="cart-preview-body" id="cartPreviewBody">
+                <!-- Contenido dinámico -->
+            </div>
+            <div class="cart-preview-footer" id="cartPreviewFooter">
+                <!-- Resumen y botones -->
             </div>
         </div>
     </div>

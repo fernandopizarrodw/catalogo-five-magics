@@ -298,8 +298,10 @@ class CartSystem {
     updateCartUI() {
         const cartBtn = document.getElementById('cartBtn');
         const cartPanel = document.getElementById('cartPanel');
+        const modalCartCount = document.getElementById('modalCartCount');
         const cartCount = this.cart.length;
 
+        // Actualizar botón flotante
         if (cartBtn) {
             if (cartCount > 0) {
                 cartBtn.style.display = 'flex';
@@ -307,6 +309,11 @@ class CartSystem {
             } else {
                 cartBtn.style.display = 'none';
             }
+        }
+
+        // Actualizar contador en el modal del producto
+        if (modalCartCount) {
+            modalCartCount.textContent = cartCount;
         }
 
         if (cartPanel && cartPanel.classList.contains('active')) {
@@ -350,15 +357,14 @@ class CartSystem {
             cartSummary.style.display = 'block';
             cartSummary.innerHTML = `
                 <div class="cart-summary-content">
-                    <textarea id="summaryText" readonly>${this.generateSummary()}</textarea>
-                    <button onclick="copySummary()" class="btn-copy-summary">
-                        📋 Copiar Resumen
+                    <button onclick="openCartPreview()" class="btn-send-whatsapp" style="background: var(--magic-green); color: #000;">
+                        👁️ Ver pedido completo
                     </button>
-                    <button onclick="sendViaWhatsapp()" class="btn-send-whatsapp">
+                    <button onclick="openCartPreview()" class="btn-send-whatsapp">
                         <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
                             <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
                         </svg>
-                        Enviar por WhatsApp
+                        Revisar y enviar por WhatsApp
                     </button>
                     <button onclick="cart.clearCart()" class="btn-clear-cart">
                         🗑️ Vaciar carrito
@@ -822,6 +828,12 @@ function openModal(id, variantIndex = undefined) {
             }
         }
     } catch (e) { /* no bloquear si falla */ }
+
+    // Actualizar contador del carrito en el modal
+    const modalCartCount = document.getElementById('modalCartCount');
+    if (modalCartCount) {
+        modalCartCount.textContent = cart.getCart().length;
+    }
 
     modal.classList.add('active');
     // Adjuntar listeners del carrusel una vez el modal está listo
@@ -1330,6 +1342,193 @@ function sendViaWhatsapp() {
     const summary = cart.generateSummary();
     const message = `Hola FMD!\n\nMe gustaría encargar las siguientes remeras:\n\n${summary}\n\nPor favor confirmame precio y disponibilidad.`;
     openWhatsapp(message);
+}
+
+// === MODAL VISTA PREVIA DEL CARRITO ===
+function openCartPreview() {
+    const modal = document.getElementById('cartPreviewModal');
+    if (!modal) return;
+    
+    renderCartPreview();
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeCartPreview() {
+    const modal = document.getElementById('cartPreviewModal');
+    if (modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+}
+
+function getProductImage(productId, variantIndex = 0) {
+    const product = db.find(p => p.id === productId);
+    if (!product) return 'images/logo/MARCA DE AGUA.png';
+    
+    if (product.variants && product.variants[variantIndex]) {
+        return product.variants[variantIndex].img;
+    }
+    return product.img || 'images/logo/MARCA DE AGUA.png';
+}
+
+function calculateItemPrice(item) {
+    const precios = item.age === 'chico' ? PRECIOS_CHICOS : PRECIOS;
+    return item.isDouble ? precios.doble : precios.simple;
+}
+
+function calculateCartTotal() {
+    const items = cart.getCart();
+    let subtotal = 0;
+    
+    items.forEach(item => {
+        subtotal += calculateItemPrice(item);
+    });
+    
+    // Calcular envío según cantidad
+    let envio = 0;
+    let descuento = 0;
+    const cantidad = items.length;
+    
+    if (cantidad === 1) {
+        envio = PRECIOS_ENVIO.una_unidad;
+    } else if (cantidad >= 3) {
+        descuento = subtotal * PRECIOS_ENVIO.tres_plus.descuento;
+        envio = PRECIOS_ENVIO.tres_plus.envio;
+    } else {
+        envio = PRECIOS_ENVIO.dos_plus;
+    }
+    
+    return {
+        subtotal,
+        envio,
+        descuento,
+        total: subtotal - descuento + envio,
+        cantidad
+    };
+}
+
+function renderCartPreview() {
+    const body = document.getElementById('cartPreviewBody');
+    const footer = document.getElementById('cartPreviewFooter');
+    const items = cart.getCart();
+    
+    if (!body || !footer) return;
+    
+    if (items.length === 0) {
+        body.innerHTML = `
+            <div class="cart-preview-empty">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M17 18c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2zM7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zm0-3l1.1-2h7.45c.75 0 1.41-.41 1.75-1.03L21.7 4H5.21l-.94-2H1v2h2l3.6 7.59L3.62 17H19v-2H7z"/>
+                </svg>
+                <h3>Tu carrito está vacío</h3>
+                <p>Agregá diseños para continuar</p>
+            </div>
+        `;
+        footer.innerHTML = `
+            <div class="cart-preview-actions">
+                <button class="btn-preview-continue" onclick="closeCartPreview()">
+                    ← Volver al catálogo
+                </button>
+            </div>
+        `;
+        return;
+    }
+    
+    // Renderizar items
+    body.innerHTML = items.map((item, idx) => {
+        const img = getProductImage(item.id, item.variantIndex);
+        const precio = calculateItemPrice(item);
+        const edad = item.age === 'chico' ? 'Niño' : 'Adulto';
+        const talle = item.size || 'Por confirmar';
+        const corte = item.age === 'chico' ? 'Unisex' : (item.cut === 'oversize' ? 'Oversize' : 'Clásica');
+        const color = item.color === 'blanco' ? 'Blanca' : 'Negra';
+        
+        return `
+            <div class="cart-preview-item">
+                <img src="${img}" alt="${item.productName}" class="cart-preview-item-img" 
+                     onerror="this.src='images/logo/MARCA DE AGUA.png'">
+                <div class="cart-preview-item-info">
+                    <div class="cart-preview-item-code">${item.code}</div>
+                    <div class="cart-preview-item-name">${item.productName}</div>
+                    ${item.variantName && item.variantName !== item.productName ? 
+                        `<div class="cart-preview-item-variant">${item.variantName}</div>` : ''}
+                    ${item.isDouble ? '<span class="cart-preview-item-double">🔥 Doble estampa</span>' : ''}
+                    <div class="cart-preview-item-options">
+                        <span class="cart-preview-option-tag">👤 ${edad}</span>
+                        <span class="cart-preview-option-tag">📐 ${talle}</span>
+                        <span class="cart-preview-option-tag">✂️ ${corte}</span>
+                        <span class="cart-preview-option-tag">${color === 'Blanca' ? '⚪' : '⚫'} ${color}</span>
+                    </div>
+                    <div class="cart-preview-item-price">$${precio.toLocaleString('es-AR')}</div>
+                </div>
+                <button class="cart-preview-item-remove" onclick="removeAndRefreshPreview(${idx})" title="Eliminar">
+                    ✕
+                </button>
+            </div>
+        `;
+    }).join('');
+    
+    // Calcular totales
+    const totals = calculateCartTotal();
+    
+    // Renderizar footer con resumen
+    let shippingNote = '';
+    if (totals.cantidad === 1) {
+        shippingNote = `<div class="cart-preview-shipping-note">📦 Agregá 1 remera más para envío GRATIS</div>`;
+    } else if (totals.cantidad >= 2) {
+        shippingNote = `<div class="cart-preview-shipping-note">🚚 ¡ENVÍO GRATIS! ${totals.cantidad >= 3 ? '+ 10% descuento 🎉' : ''}</div>`;
+    }
+    
+    footer.innerHTML = `
+        <div class="cart-preview-summary">
+            <div class="cart-preview-summary-row">
+                <span>Subtotal (${totals.cantidad} ${totals.cantidad === 1 ? 'remera' : 'remeras'})</span>
+                <span class="value">$${totals.subtotal.toLocaleString('es-AR')}</span>
+            </div>
+            ${totals.descuento > 0 ? `
+                <div class="cart-preview-summary-row">
+                    <span>Descuento 10% (3+ remeras)</span>
+                    <span class="value" style="color: var(--magic-green);">-$${totals.descuento.toLocaleString('es-AR')}</span>
+                </div>
+            ` : ''}
+            <div class="cart-preview-summary-row">
+                <span>Envío</span>
+                <span class="value">${totals.envio > 0 ? '$' + totals.envio.toLocaleString('es-AR') : 'GRATIS'}</span>
+            </div>
+            <div class="cart-preview-summary-row total">
+                <span>Total estimado</span>
+                <span class="value">$${totals.total.toLocaleString('es-AR')}</span>
+            </div>
+        </div>
+        ${shippingNote}
+        <div class="cart-preview-actions">
+            <button class="btn-preview-continue" onclick="closeCartPreview()">
+                ← Seguir eligiendo
+            </button>
+            <button class="btn-preview-whatsapp" onclick="confirmAndSendWhatsapp()">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                </svg>
+                Confirmar y enviar por WhatsApp
+            </button>
+        </div>
+    `;
+}
+
+function removeAndRefreshPreview(index) {
+    cart.removeFromCart(index);
+    renderCartPreview();
+    
+    // Si queda vacío, cerrar después de un momento
+    if (cart.getCart().length === 0) {
+        setTimeout(() => closeCartPreview(), 1500);
+    }
+}
+
+function confirmAndSendWhatsapp() {
+    closeCartPreview();
+    sendViaWhatsapp();
 }
 
 function toggleCartPanel() {
