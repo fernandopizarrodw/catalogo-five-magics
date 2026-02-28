@@ -51,10 +51,6 @@
         "img": "images/albums/Peace_sells/peace_sells_tapa.jpg",
         "variants": [
             {
-                "img": "images/albums/Peace_sells/peace_sells_tapa.jpg",
-                "name": "Tapa"
-            },
-            {
                 "img": "images/albums/Peace_sells/peace_sells_frente.jpg",
                 "name": "Frente"
             },
@@ -157,6 +153,11 @@
             {
                 "img": "images/albums/Youthanasia/youthanasia_vic_street.jpg",
                 "name": "Youthanasia Vic Street"
+            },
+            {
+                "img": "images/albums/Youthanasia/dorso_youth.jpg",
+                "name": "DORSO",
+                "isNew": true
             }
         ],
         "desc": "Heavy metal melódico y oscuro con una portada surrealista que denuncia el sacrificio del futuro de las nuevas generaciones."
@@ -538,6 +539,11 @@
             {
                 "img": "images/musicians/Dave_Mustaine/01 - dave_mustaine_argentina.jpg",
                 "name": "Argentina 2026"
+            },
+            {
+                "img": "images/musicians/Dave_Mustaine/dave_so_far_era.jpg",
+                "name": "So Far Era",
+                "isNew": true
             }
         ],
         "desc": "El Colorado con su Flying V. El líder."
@@ -681,15 +687,6 @@
         "tipoPrecio": "simple",
         "img": "images/pantera/dime_cfh_fuego_edition.jpg",
         "desc": "Dimebag CFH Fuego Edition. Diseño exclusivo con efectos de fuego."
-    },
-    {
-        "id": 325,
-        "category": "Pantera",
-        "year": "2025",
-        "name": "Dimebag Darrell Abbott Black",
-        "tipoPrecio": "simple",
-        "img": "images/pantera/dimebag_darrell_abbott_black.jpg",
-        "desc": "Dimebag Darrell Abbott en versión negra. Clásico y audaz."
     },
     {
         "id": 326,
@@ -944,6 +941,16 @@
             {
                 "img": "images/vic_rattlehead/vic_realistic_edition.jpg",
                 "name": "Realistic Edition"
+            },
+            {
+                "img": "images/vic_rattlehead/militar_rattlehead.jpg",
+                "name": "Militar Rattlehead",
+                "isNew": true
+            },
+            {
+                "img": "images/vic_rattlehead/nuclear_vic_bomb.jpg",
+                "name": "Nuclear Vic Bomb",
+                "isNew": true
             }
         ],
         "desc": "Vic Editions - Colección de 3 variantes exclusivas de Vic Rattlehead."
@@ -1118,15 +1125,6 @@
         "tipoPrecio": "simple",
         "img": "images/pantera/pantera_snake_v2.jpg",
         "desc": "Pantera Snake v2. Serpiente con simbolismo Pantera. Segunda variante del diseño."
-    },
-    {
-        "id": 416,
-        "category": "Pantera",
-        "year": "2025",
-        "name": "Dimebag Tribute Edition v1",
-        "tipoPrecio": "simple",
-        "img": "images/pantera/dimebag_tribute_edition_v1.jpg",
-        "desc": "Dimebag Tribute Edition v1. Edición especial de tributo al guitarrista legendario de Pantera."
     },
     {
         "id": 417,

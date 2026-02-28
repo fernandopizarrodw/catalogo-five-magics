@@ -5,6 +5,10 @@ const PRECIOS = {
     simple_personalizado: 40000,
     doble_personalizado: 45000
 };
+const PRECIOS_CHICOS = {
+    simple: 32000,
+    doble: 35000
+};
 const PRECIOS_ENVIO = {
     una_unidad: 5000,
     dos_plus: 0,
@@ -14,6 +18,153 @@ const FECHA_VIGENCIA = "Enero 2026";
 const WHATSAPP = "541169667685";
 
 let db = [];
+let selectedAge = 'adulto';
+let selectedSize = '';
+let selectedCut = 'clasica';
+let selectedColor = 'negro'; // 'adulto' o 'chico'
+
+// Función para cambiar entre Adulto y Chico
+function selectAge(age) {
+    selectedAge = age;
+    selectedSize = ''; // Reset talle al cambiar edad
+    
+    // Estilos activo/inactivo
+    const activeStyle = 'background:#e8432e;border:1px solid #e8432e;color:#fff;padding:6px 12px;border-radius:5px;font-size:0.8rem;font-weight:500;cursor:pointer;';
+    const activeStyleGreen = 'background:#39ff14;border:1px solid #39ff14;color:#000;padding:6px 12px;border-radius:5px;font-size:0.8rem;font-weight:500;cursor:pointer;';
+    const inactiveStyle = 'background:#1a1a1a;border:1px solid #333;color:#888;padding:6px 12px;border-radius:5px;font-size:0.8rem;font-weight:500;cursor:pointer;';
+    
+    // Actualizar botones de edad
+    document.querySelectorAll('#ageSelector button').forEach(btn => {
+        const isActive = btn.dataset.age === age;
+        btn.classList.toggle('active', isActive);
+        if (btn.dataset.age === 'chico') {
+            btn.style.cssText = isActive ? activeStyleGreen : inactiveStyle;
+        } else {
+            btn.style.cssText = isActive ? activeStyle : inactiveStyle;
+        }
+    });
+    
+    // Mostrar/ocultar selectores de talle según edad
+    const sizeAdult = document.getElementById('sizeSelector');
+    const sizeKids = document.getElementById('sizeSelectorKids');
+    const btnOversize = document.getElementById('btnOversize');
+    
+    if (sizeAdult && sizeKids) {
+        if (age === 'adulto') {
+            sizeAdult.style.display = 'flex';
+            sizeKids.style.display = 'none';
+            // Mostrar opción Oversize para adultos
+            if (btnOversize) btnOversize.style.display = '';
+        } else {
+            sizeAdult.style.display = 'none';
+            sizeKids.style.display = 'flex';
+            // Ocultar opción Oversize para niños y forzar Clásica
+            if (btnOversize) btnOversize.style.display = 'none';
+            // Si tenía Oversize seleccionado, cambiar a Clásica
+            if (selectedCut === 'oversize') {
+                selectCut('clasica');
+            }
+        }
+    }
+    
+    // Limpiar selección de talle
+    document.querySelectorAll('#sizeSelector button, #sizeSelectorKids button').forEach(btn => {
+        btn.classList.remove('active');
+        if (!btn.classList.contains('size-oversize')) {
+            btn.style.cssText = inactiveStyle;
+        }
+    });
+    
+    // Ocultar talles oversize (XXS, XS) si estaba en oversize
+    document.querySelectorAll('#sizeSelector .size-oversize').forEach(btn => {
+        btn.style.display = 'none';
+    });
+    
+    updateModalPrices();
+}
+
+// Función para seleccionar talle
+function selectSize(size) {
+    selectedSize = size;
+    const activeStyle = 'background:#e8432e;border:1px solid #e8432e;color:#fff;padding:6px 12px;border-radius:5px;font-size:0.8rem;font-weight:500;cursor:pointer;';
+    const inactiveStyle = 'background:#1a1a1a;border:1px solid #333;color:#888;padding:6px 12px;border-radius:5px;font-size:0.8rem;font-weight:500;cursor:pointer;';
+    
+    const activeSelector = selectedAge === 'adulto' ? '#sizeSelector' : '#sizeSelectorKids';
+    document.querySelectorAll(`${activeSelector} button`).forEach(btn => {
+        const isActive = btn.dataset.size === size;
+        btn.classList.toggle('active', isActive);
+        // Solo aplicar estilo si el botón es visible
+        if (btn.style.display !== 'none') {
+            btn.style.cssText = isActive ? activeStyle : inactiveStyle;
+        }
+    });
+}
+
+// Función para seleccionar corte
+function selectCut(cut) {
+    selectedCut = cut;
+    selectedSize = ''; // Reset talle al cambiar corte
+    
+    const activeStyle = 'background:#e8432e;border:1px solid #e8432e;color:#fff;padding:6px 12px;border-radius:5px;font-size:0.8rem;font-weight:500;cursor:pointer;';
+    const inactiveStyle = 'background:#1a1a1a;border:1px solid #333;color:#888;padding:6px 12px;border-radius:5px;font-size:0.8rem;font-weight:500;cursor:pointer;';
+    
+    document.querySelectorAll('#cutSelector button').forEach(btn => {
+        const isActive = btn.dataset.cut === cut;
+        btn.classList.toggle('active', isActive);
+        if (btn.style.display !== 'none') {
+            btn.style.cssText = isActive ? activeStyle : inactiveStyle;
+        }
+    });
+    
+    // Mostrar/ocultar talles XXS y XS según el corte (solo para adultos)
+    if (selectedAge === 'adulto') {
+        document.querySelectorAll('#sizeSelector .size-oversize').forEach(btn => {
+            if (cut === 'oversize') {
+                btn.style.display = '';
+                btn.style.cssText = inactiveStyle;
+            } else {
+                btn.style.display = 'none';
+            }
+        });
+    }
+    
+    // Limpiar selección de talle
+    document.querySelectorAll('#sizeSelector button').forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.style.display !== 'none') {
+            btn.style.cssText = inactiveStyle;
+        }
+    });
+}
+
+// Función para seleccionar color
+function selectColor(color) {
+    selectedColor = color;
+    const activeStyle = 'background:#e8432e;border:1px solid #e8432e;color:#fff;padding:6px 12px;border-radius:5px;font-size:0.8rem;font-weight:500;cursor:pointer;display:flex;align-items:center;gap:6px;';
+    const inactiveStyle = 'background:#1a1a1a;border:1px solid #333;color:#888;padding:6px 12px;border-radius:5px;font-size:0.8rem;font-weight:500;cursor:pointer;display:flex;align-items:center;gap:6px;';
+    
+    document.querySelectorAll('#colorSelector button').forEach(btn => {
+        const isActive = btn.dataset.color === color;
+        btn.classList.toggle('active', isActive);
+        btn.style.cssText = isActive ? activeStyle : inactiveStyle;
+    });
+}
+
+// Actualizar precios según selección adulto/chico
+function updateModalPrices() {
+    if (!currentProduct) return;
+    const precios = selectedAge === 'chico' ? PRECIOS_CHICOS : PRECIOS;
+    const tipo = currentProduct.tipoPrecio || 'simple';
+    const precio = precios[tipo] || precios.simple;
+    document.getElementById('modalPrice').textContent = '$' + precio.toLocaleString('es-AR');
+    
+    const pSimple = '$' + precios.simple.toLocaleString('es-AR');
+    const pDoble = '$' + precios.doble.toLocaleString('es-AR');
+    const elSimple = document.getElementById('modalPrecioSimple');
+    const elDoble = document.getElementById('modalPrecioDoble');
+    if(elSimple) elSimple.textContent = pSimple;
+    if(elDoble) elDoble.textContent = pDoble;
+}
 
 // === SISTEMA DE CARRITO ===
 class CartSystem {
@@ -61,7 +212,7 @@ class CartSystem {
     }
 
     // Agregar al carrito
-    addToCart(productId, variantIndex = 0, isDouble = false) {
+    addToCart(productId, variantIndex = 0, isDouble = false, options = {}) {
         const product = db.find(p => p.id === productId);
         if (!product) return false;
 
@@ -77,6 +228,10 @@ class CartSystem {
             variantIndex: variantIndex,
             variantName: variantName,
             isDouble: isDouble,
+            age: options.age || 'adulto',
+            size: options.size || '',
+            cut: options.cut || 'clasica',
+            color: options.color || 'negro',
             timestamp: Date.now()
         };
 
@@ -128,8 +283,13 @@ class CartSystem {
         const details = this.cart.map((item, idx) => {
             const variant = item.variantName ? ` - ${item.variantName}` : '';
             const doble = item.isDouble ? ' (Doble estampa)' : '';
-            return `${idx + 1}. [${item.code}] ${item.productName}${variant}${doble}`;
-        }).join('\n');
+            const edad = item.age === 'chico' ? 'Niño' : 'Adulto';
+            const talle = item.size ? `Talle ${item.size}` : 'Talle a confirmar';
+            // Niños siempre es Unisex, adultos puede ser Clásica u Oversize
+            const corte = item.age === 'chico' ? 'Unisex' : (item.cut === 'oversize' ? 'Oversize' : 'Clásica');
+            const color = item.color === 'blanco' ? 'Blanca' : 'Negra';
+            return `${idx + 1}. [${item.code}] ${item.productName}${variant}${doble}\n   → ${edad} | ${talle} | ${corte} | ${color}`;
+        }).join('\n\n');
         
         return `CÓDIGOS: ${codes}\n\nDETALLES:\n${details}\n\nTotal: ${this.cart.length} remera${this.cart.length !== 1 ? 's' : ''}`;
     }
@@ -167,17 +327,24 @@ class CartSystem {
             return;
         }
 
-        cartList.innerHTML = this.cart.map((item, idx) => `
+        cartList.innerHTML = this.cart.map((item, idx) => {
+            const edad = item.age === 'chico' ? 'Niño' : 'Adulto';
+            const talle = item.size || '—';
+            // Niños siempre es Unisex
+            const corte = item.age === 'chico' ? 'Unisex' : (item.cut === 'oversize' ? 'Oversize' : 'Clásica');
+            const color = item.color === 'blanco' ? 'Blanca' : 'Negra';
+            return `
             <div class="cart-item">
                 <div class="cart-item-info">
                     <div class="cart-item-code">${item.code}</div>
                     <div class="cart-item-name">${item.productName}</div>
                     ${item.variantName ? `<div class="cart-item-variant">${item.variantName}</div>` : ''}
                     ${item.isDouble ? '<div class="cart-item-double">Doble estampa</div>' : ''}
+                    <div class="cart-item-options">${edad} · T${talle} · ${corte} · ${color}</div>
                 </div>
                 <button class="cart-item-remove" onclick="cart.removeFromCart(${idx})">✕</button>
             </div>
-        `).join('');
+        `}).join('');
 
         if (cartSummary) {
             cartSummary.style.display = 'block';
@@ -220,24 +387,77 @@ function renderLatestReleases(limit = 6) {
     try {
         const latestGrid = document.getElementById('latestGrid');
         if (!latestGrid || !Array.isArray(db) || !db.length) return;
-        const latest = db.slice().sort((a,b)=> (b.id||0) - (a.id||0)).slice(0, limit);
-        latestGrid.innerHTML = latest.map(p => {
-            const hasVariants = p.variants && p.variants.length > 1;
-            const isDoble = p.tipoPrecio === 'doble';
-            const showDorsoBadge = DORSO_CATEGORIES.has(p.category);
-            const isDorsoIdea = p.category === 'Dorsales';
-            const badgeText = isDoble ? '🔥 Doble estampa' : (hasVariants ? `${p.variants.length} diseños <span style='font-size:1.2em;margin-left:6px;'>➔</span>` : '');
-            return `<div class="product-card" onclick="openModal(${p.id})">
+        
+        let displayCards = [];
+
+        // 1. Extraer TODAS las variantes marcadas como nuevas
+        db.forEach(product => {
+            if (product.variants && product.variants.length > 0) {
+                product.variants.forEach((variant, index) => {
+                    if (variant.isNew) {
+                        displayCards.push({
+                            isNewVariant: true,
+                            productId: product.id,
+                            variantIndex: index,
+                            title: `${product.name} - ${variant.name}`,
+                            img: variant.img,
+                            category: product.category,
+                            year: product.year,
+                            tipoPrecio: product.tipoPrecio
+                        });
+                    }
+                });
+            }
+        });
+
+        // Ordenar variantes nuevas por productId descendente (las más recientes primero)
+        displayCards.sort((a, b) => b.productId - a.productId);
+
+        // 2. Rellenar el resto de los espacios (hasta limit) con los últimos productos
+        if (displayCards.length < limit) {
+            const sortedProducts = [...db].sort((a,b)=> (b.id||0) - (a.id||0));
+
+            for (const product of sortedProducts) {
+                const alreadyHasNewVariant = displayCards.some(card => card.productId === product.id);
+
+                if (!alreadyHasNewVariant) {
+                    displayCards.push({
+                        isNewVariant: false,
+                        productId: product.id,
+                        variantIndex: 0,
+                        title: product.name,
+                        img: product.img,
+                        category: product.category,
+                        year: product.year,
+                        tipoPrecio: product.tipoPrecio,
+                        variants: product.variants
+                    });
+                }
+
+                if (displayCards.length >= limit) break;
+            }
+        }
+
+        displayCards = displayCards.slice(0, limit);
+
+        // 3. Renderizar las tarjetas en el DOM
+        latestGrid.innerHTML = displayCards.map(card => {
+            const hasVariants = card.variants && card.variants.length > 1;
+            const isDoble = card.tipoPrecio === 'doble';
+            const isDorsoIdea = card.category === 'Dorsales';
+            const badgeText = isDoble ? '🔥 Doble estampa' : (hasVariants && !card.isNewVariant ? `${card.variants.length} diseños <span style='font-size:1.2em;margin-left:6px;'>➔</span>` : '');
+            
+            return `<div class="product-card" onclick="openModal(${card.productId}${card.isNewVariant ? ', ' + card.variantIndex : ''})">
                 ${badgeText ? `<span class="variants-badge">${badgeText}</span>` : ''}
-                <img src="${p.img}" class="product-img" loading="lazy">
+                <img src="${card.img}" class="product-img" loading="lazy">
                 <div class="product-info">
-                    <div class="product-name">${p.name}</div>
-                    <div class="product-meta">${p.year} · ${p.category}</div>
+                    <div class="product-name">${card.title}</div>
+                    <div class="product-meta">${card.year} · ${card.category}</div>
                     <div class="product-price-row">
                         ${
                             isDorsoIdea
                             ? `<span class="product-envio" style="color:var(--magic-green);border:1px solid rgba(57,255,20,.25);">Solo doble estampa</span>`
-                            : `<span class="product-price">${formatPrecio(p.tipoPrecio || 'simple')}</span><span class="product-envio">Envío gratis llevando 2+</span><div style="font-size:0.62rem;color:var(--text-muted);margin-top:2px;">1 unidad: consultar por envío</div>`
+                            : `<span class="product-price">${formatPrecio(card.tipoPrecio || 'simple')}</span><span class="product-envio">Envío gratis llevando 2+</span><div style="font-size:0.62rem;color:var(--text-muted);margin-top:2px;">1 unidad: consultar por envío</div>`
                         }
                     </div>
                 </div>
@@ -478,7 +698,7 @@ function getImages(p) {
     return (p.variants && p.variants.length > 0) ? p.variants : [{ img: p.img, name: '' }];
 }
 
-function openModal(id) {
+function openModal(id, variantIndex = undefined) {
     currentProduct = db.find(p => p.id === id);
     if (!currentProduct) return;
 
@@ -487,14 +707,15 @@ function openModal(id) {
     document.body.style.top = `-${scrollPosition}px`;
 
     history.pushState({ modal: true, id }, '', `#producto-${id}`);
-    currentSlide = 0;
+    const hasSpecificVariant = variantIndex !== undefined && variantIndex !== null;
+    currentSlide = hasSpecificVariant ? variantIndex : 0;
     const images = getImages(currentProduct);
 
     carousel.innerHTML = images.map(v => `
         <div class="carousel-slide"><img src="${v.img}" alt="${currentProduct.name}"></div>
     `).join('');
 
-    carouselDots.innerHTML = images.length > 1 ? images.map((_, i) => `<div class="carousel-dot${i === 0 ? ' active' : ''}" data-index="${i}"></div>`).join('') : '';
+    carouselDots.innerHTML = images.length > 1 ? images.map((_, i) => `<div class="carousel-dot${i === currentSlide ? ' active' : ''}" data-index="${i}"></div>`).join('') : '';
     
     // Añadir click listeners a los dots para que sean navegables
     if (images.length > 1) {
@@ -506,30 +727,105 @@ function openModal(id) {
         });
     }
 
-    carousel.scrollLeft = 0;
+    // Ir al slide correcto (sin animación al abrir)
+    if (hasSpecificVariant && currentSlide > 0) {
+        // Usar setTimeout para que el DOM esté listo
+        setTimeout(() => goToSlide(currentSlide, false), 0);
+    } else {
+        carousel.scrollLeft = 0;
+    }
     selectedDorsoChips.clear();
     selectedBacks.clear();
     document.querySelectorAll('#chipsRow .chip').forEach(c => c.classList.remove('active'));
     const dorsoInput = document.getElementById('dorsoCustomInput');
     if(dorsoInput) dorsoInput.value = '';
+    
+    // Estilos para reset
+    const activeStyle = 'background:#e8432e;border:1px solid #e8432e;color:#fff;padding:6px 12px;border-radius:5px;font-size:0.8rem;font-weight:500;cursor:pointer;';
+    const inactiveStyle = 'background:#1a1a1a;border:1px solid #333;color:#888;padding:6px 12px;border-radius:5px;font-size:0.8rem;font-weight:500;cursor:pointer;';
+    const activeColorStyle = 'background:#e8432e;border:1px solid #e8432e;color:#fff;padding:6px 12px;border-radius:5px;font-size:0.8rem;font-weight:500;cursor:pointer;display:flex;align-items:center;gap:6px;';
+    const inactiveColorStyle = 'background:#1a1a1a;border:1px solid #333;color:#888;padding:6px 12px;border-radius:5px;font-size:0.8rem;font-weight:500;cursor:pointer;display:flex;align-items:center;gap:6px;';
+    
+    // Reset todas las opciones del modal
+    selectedAge = 'adulto';
+    selectedSize = '';
+    selectedCut = 'clasica';
+    selectedColor = 'negro';
+    
+    // Reset botones de edad
+    document.querySelectorAll('#ageSelector button').forEach(btn => {
+        const isActive = btn.dataset.age === 'adulto';
+        btn.classList.toggle('active', isActive);
+        btn.style.cssText = isActive ? activeStyle : inactiveStyle;
+    });
+    
+    // Reset botones de talle (ninguno seleccionado)
+    document.querySelectorAll('#sizeSelector button, #sizeSelectorKids button').forEach(btn => {
+        btn.classList.remove('active');
+        if (!btn.classList.contains('size-oversize')) {
+            btn.style.cssText = inactiveStyle;
+        }
+    });
+    
+    // Ocultar talles oversize (XXS, XS)
+    document.querySelectorAll('#sizeSelector .size-oversize').forEach(btn => {
+        btn.style.display = 'none';
+    });
+    
+    // Mostrar talles adulto, ocultar niños
+    const sizeAdult = document.getElementById('sizeSelector');
+    const sizeKids = document.getElementById('sizeSelectorKids');
+    if (sizeAdult) sizeAdult.style.display = 'flex';
+    if (sizeKids) sizeKids.style.display = 'none';
+    
+    // Mostrar botón Oversize (porque es adulto por defecto)
+    const btnOversize = document.getElementById('btnOversize');
+    if (btnOversize) btnOversize.style.display = '';
+    
+    // Reset botones de corte
+    document.querySelectorAll('#cutSelector button').forEach(btn => {
+        const isActive = btn.dataset.cut === 'clasica';
+        btn.classList.toggle('active', isActive);
+        btn.style.cssText = isActive ? activeStyle : inactiveStyle;
+    });
+    
+    // Reset botones de color
+    document.querySelectorAll('#colorSelector button').forEach(btn => {
+        const isActive = btn.dataset.color === 'negro';
+        btn.classList.toggle('active', isActive);
+        btn.style.cssText = isActive ? activeColorStyle : inactiveColorStyle;
+    });
+    
     updateModalInfo();
+    
     // Mostrar/ocultar flechas según cantidad de imágenes
     try {
         const prevBtn = document.getElementById('carouselPrev');
         const nextBtn = document.getElementById('carouselNext');
-        if (images.length > 1) {
-            if(prevBtn) prevBtn.style.display = '';
-            if(nextBtn) nextBtn.style.display = '';
-        } else {
+        const dotsContainer = document.getElementById('carouselDots');
+        
+        if (hasSpecificVariant) {
+            // Ocultar navegación si es variante específica
             if(prevBtn) prevBtn.style.display = 'none';
             if(nextBtn) nextBtn.style.display = 'none';
+            if(dotsContainer) dotsContainer.style.display = 'none';
+        } else {
+            // Mostrar/ocultar según cantidad de imágenes
+            if (images.length > 1) {
+                if(prevBtn) prevBtn.style.display = '';
+                if(nextBtn) nextBtn.style.display = '';
+                if(dotsContainer) dotsContainer.style.display = '';
+            } else {
+                if(prevBtn) prevBtn.style.display = 'none';
+                if(nextBtn) nextBtn.style.display = 'none';
+                if(dotsContainer) dotsContainer.style.display = 'none';
+            }
         }
     } catch (e) { /* no bloquear si falla */ }
 
     modal.classList.add('active');
     // Adjuntar listeners del carrusel una vez el modal está listo
     attachCarouselListeners();
-    // No forzar scroll aquí - dejar que attachCarouselListeners lo maneje
     try { showScrollHintIfNeeded(); } catch (e) { }
 }
 
@@ -675,13 +971,10 @@ function updateModalInfo() {
     
     document.getElementById('modalMeta').textContent = `${currentProduct.year} · ${currentProduct.category}`;
     document.getElementById('modalDesc').textContent = currentProduct.desc || '';
-    document.getElementById('modalPrice').textContent = formatPrecio(currentProduct.tipoPrecio || 'simple');
-    const pSimple = formatPrecio('simple');
-    const pDoble = formatPrecio('doble');
-    const elSimple = document.getElementById('modalPrecioSimple');
-    const elDoble = document.getElementById('modalPrecioDoble');
-    if(elSimple) elSimple.textContent = pSimple;
-    if(elDoble) elDoble.textContent = pDoble;
+    
+    // Actualizar precios según selector adulto/chico
+    updateModalPrices();
+    
     document.getElementById('modalCounter').textContent = `${currentSlide + 1}/${images.length}`;
     const shouldShowBadge = currentProduct.tipoPrecio === 'doble' || DORSO_CATEGORIES.has(currentProduct.category);
     document.getElementById('badgeDoble').style.display = shouldShowBadge ? 'block' : 'none';
@@ -1049,7 +1342,14 @@ function addToCartFromModal() {
     const isDouble = selectedBacks.size > 0 || selectedDorsoChips.size > 0;
     const variantIndex = currentSlide;
     
-    const success = cart.addToCart(currentProduct.id, variantIndex, isDouble);
+    const options = {
+        age: selectedAge,
+        size: selectedSize,
+        cut: selectedCut,
+        color: selectedColor
+    };
+    
+    const success = cart.addToCart(currentProduct.id, variantIndex, isDouble, options);
     
     if (success) {
         showNotification('✓ Agregado al carrito', 2000);

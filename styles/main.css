@@ -153,6 +153,191 @@ header {
     letter-spacing: 0.5px;
 }
 
+.banner-kids {
+    background: linear-gradient(90deg, #0a2010, #0f3018);
+    border-bottom: 1px solid rgba(57, 255, 20, 0.3);
+    font-size: 0.85rem;
+}
+
+/* === SECCIÓN LEGADO FMD === */
+.legado-section {
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.legado-card {
+    background: linear-gradient(145deg, #1a1a1a 0%, #0f0f0f 100%);
+    border: 1px solid #2a2a2a;
+    border-radius: 16px;
+    max-width: 380px;
+    width: 100%;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    transition: all 0.3s ease;
+}
+
+.legado-card:hover {
+    border-color: var(--magic-green);
+    box-shadow: 0 20px 50px rgba(57, 255, 20, 0.1);
+    transform: translateY(-4px);
+}
+
+.legado-header {
+    background: linear-gradient(135deg, rgba(57, 255, 20, 0.15) 0%, rgba(57, 255, 20, 0.05) 100%);
+    padding: 24px 20px;
+    text-align: center;
+    border-bottom: 1px solid rgba(57, 255, 20, 0.2);
+}
+
+.legado-badge {
+    display: inline-block;
+    background: var(--magic-green);
+    color: #000;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-bottom: 12px;
+    letter-spacing: 0.5px;
+}
+
+.legado-title {
+    font-family: var(--font-title);
+    font-size: 1.5rem;
+    color: var(--text);
+    margin: 0 0 4px 0;
+    letter-spacing: 2px;
+}
+
+.legado-subtitle {
+    font-size: 0.85rem;
+    color: var(--magic-green);
+    margin: 0;
+    font-style: italic;
+}
+
+.legado-body {
+    padding: 24px 20px;
+}
+
+.legado-features {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.legado-feature {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.88rem;
+    color: var(--text-muted);
+}
+
+.feature-icon {
+    font-size: 0.7rem;
+    width: 20px;
+    text-align: center;
+    color: var(--magic-green);
+}
+
+.legado-prices {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.legado-price-item {
+    flex: 1;
+    background: #111;
+    border: 1px solid #222;
+    border-radius: 10px;
+    padding: 14px 12px;
+    text-align: center;
+}
+
+.price-label {
+    display: block;
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.price-value {
+    display: block;
+    font-family: var(--font-title);
+    font-size: 1.15rem;
+    color: var(--magic-green);
+    font-weight: 600;
+}
+
+.legado-cta {
+    display: block;
+    background: transparent;
+    color: var(--text);
+    border: 1px solid #333;
+    padding: 14px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-decoration: none;
+    text-align: center;
+    transition: all 0.2s ease;
+}
+
+.legado-cta:hover {
+    background: var(--magic-green);
+    border-color: var(--magic-green);
+    color: #000;
+}
+
+@media (max-width: 600px) {
+    .legado-card {
+        max-width: 100%;
+    }
+    .legado-prices {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+/* === PACK LEGADO === */
+.pack-card-legado {
+    border: 1px solid rgba(57, 255, 20, 0.3) !important;
+}
+
+.pack-card-legado:hover {
+    border-color: var(--magic-green) !important;
+}
+
+/* === PRECIO ITEM KIDS === */
+.precio-item-kids {
+    border: 1px solid rgba(57, 255, 20, 0.2);
+    background: rgba(57, 255, 20, 0.03);
+}
+
+.precio-item-kids h4 {
+    color: var(--magic-green);
+}
+
+@media (max-width: 600px) {
+    .banner-kids {
+        font-size: 0.75rem;
+        padding: 8px 12px;
+    }
+    .generaciones-icon {
+        font-size: 2rem;
+    }
+    .generaciones-precios {
+        flex-direction: column;
+        gap: 8px;
+    }
+}
+
 /* === HERO PREMIUM === */
 .hero {
     position: relative;
@@ -1112,6 +1297,88 @@ header {
     font-size: 0.9rem;
     line-height: 1.5;
     margin-bottom: 16px;
+}
+
+/* === SELECTORES DE PRODUCTO === */
+.product-options {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-bottom: 16px;
+    padding: 16px;
+    background: #111;
+    border: 1px solid #222;
+    border-radius: 10px;
+}
+
+.option-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.option-label {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    font-weight: 500;
+    min-width: 50px;
+}
+
+.option-buttons {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.option-btn {
+    background: #1a1a1a;
+    border: 1px solid #333;
+    color: var(--text-muted);
+    padding: 6px 12px;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.option-btn:hover {
+    border-color: #555;
+    color: var(--text);
+}
+
+.option-btn.active {
+    background: var(--rust);
+    border-color: var(--rust);
+    color: #fff;
+}
+
+/* Botón Niño activo en verde */
+.option-btn[data-age="chico"].active {
+    background: var(--magic-green);
+    border-color: var(--magic-green);
+    color: #000;
+}
+
+/* Botones de color */
+.color-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.color-swatch {
+    width: 14px;
+    height: 14px;
+    border-radius: 3px;
+    display: inline-block;
+}
+
+.cart-item-options {
+    font-size: 0.72rem;
+    color: var(--magic-green);
+    margin-top: 4px;
 }
 
 .modal-price {
