@@ -544,6 +544,16 @@
                 "img": "images/musicians/Dave_Mustaine/dave_so_far_era.jpg",
                 "name": "So Far Era",
                 "isNew": true
+            },
+            {
+                "img": "images/musicians/Dave_Mustaine/dave_92_live_black.jpg",
+                "name": "92 Live Black",
+                "isNew": true
+            },
+            {
+                "img": "images/musicians/Dave_Mustaine/dave_92_live.jpg",
+                "name": "92 Live",
+                "isNew": true
             }
         ],
         "desc": "El Colorado con su Flying V. El líder."
@@ -1166,22 +1176,22 @@
     },
     {
         "id": 60,
-        "category": "Personalizados",
+        "category": "AC/DC",
         "year": "2025",
         "name": "AC/DC Europe 84",
         "tipoPrecio": "simple",
-        "img": "images/personalizado/ac_dc_europe_84.jpg",
+        "img": "images/acdc/ac_dc_europe_84.jpg",
         "variants": [
             {
-                "img": "images/personalizado/ac_dc_europe_84.jpg",
+                "img": "images/acdc/ac_dc_europe_84.jpg",
                 "name": "Europe 84 Original"
             },
             {
-                "img": "images/personalizado/ac_dc_europe_84_remaster.jpg",
+                "img": "images/acdc/ac_dc_europe_84_remaster.jpg",
                 "name": "Europe 84 Remaster"
             }
         ],
-        "desc": "Mockup AC/DC Europe 84 - Original y Remaster en un mismo carrusel."
+        "desc": "AC/DC Europe 84 - Original y Remaster en un mismo carrusel."
     },
     {
         "id": 302,
@@ -2358,5 +2368,184 @@
             }
         ],
         "desc": "Iron Maiden Fear - Diseño de la banda clásica con 2 variantes."
+    },
+    {
+        "id": 5039,
+        "category": "Vic Rattlehead",
+        "year": "2026",
+        "name": "Vic Gaucho FMD",
+        "tipoPrecio": "doble",
+        "img": "images/vic_rattlehead/vic_gaucho_fmd.jpg",
+        "variants": [
+            {
+                "img": "images/vic_rattlehead/vic_gaucho_fmd.jpg",
+                "name": "Frente"
+            },
+            {
+                "img": "images/vic_rattlehead/dorso_vic_gaucho_fmd.jpg",
+                "name": "Dorso"
+            }
+        ],
+        "desc": "Vic Gaucho FMD - Diseño exclusivo de Vic Rattlehead estilo gaucho argentino con frente y dorso."
+    },
+    {
+        "id": 5040,
+        "category": "AC/DC",
+        "year": "2026",
+        "name": "Angus Young V1",
+        "tipoPrecio": "simple",
+        "img": "images/acdc/angus_v1.jpg",
+        "desc": "Angus Young - Diseño clásico del guitarrista legendario de AC/DC.",
+        "isNew": true
+    },
+    {
+        "id": 5041,
+        "category": "AC/DC",
+        "year": "2026",
+        "name": "Black Ice",
+        "tipoPrecio": "simple",
+        "img": "images/acdc/black_ice.jpg",
+        "desc": "Black Ice - Álbum de 2008, regreso triunfal de AC/DC.",
+        "isNew": true
+    },
+    {
+        "id": 5042,
+        "category": "AC/DC",
+        "year": "2026",
+        "name": "Fly on the Wall",
+        "tipoPrecio": "simple",
+        "img": "images/acdc/fly_on_the_wall.jpg",
+        "desc": "Fly on the Wall - Álbum de 1985 con su icónica portada.",
+        "isNew": true
+    },
+    {
+        "id": 5043,
+        "category": "AC/DC",
+        "year": "2026",
+        "name": "For Those Remastered",
+        "tipoPrecio": "simple",
+        "img": "images/acdc/for_those_remastered.jpg",
+        "desc": "For Those About to Rock - Versión remasterizada del clásico.",
+        "isNew": true
+    },
+    {
+        "id": 5044,
+        "category": "AC/DC",
+        "year": "2026",
+        "name": "Let There Be Rock (Black)",
+        "tipoPrecio": "doble",
+        "img": "images/acdc/let_there_black.jpg",
+        "variants": [
+            {
+                "img": "images/acdc/let_there_black.jpg",
+                "name": "Frente"
+            },
+            {
+                "img": "images/acdc/dorso_let_there_black.jpg",
+                "name": "Dorso"
+            }
+        ],
+        "desc": "Let There Be Rock - Versión Black con frente y dorso.",
+        "isNew": true
+    },
+    {
+        "id": 5045,
+        "category": "AC/DC",
+        "year": "2026",
+        "name": "Let There Be Rock (White)",
+        "tipoPrecio": "doble",
+        "img": "images/acdc/let_there_white.jpg",
+        "variants": [
+            {
+                "img": "images/acdc/let_there_white.jpg",
+                "name": "Frente"
+            },
+            {
+                "img": "images/acdc/dorso_let_there_white.jpg",
+                "name": "Dorso"
+            }
+        ],
+        "desc": "Let There Be Rock - Versión White con frente y dorso.",
+        "isNew": true
+    },
+    {
+        "id": 5046,
+        "category": "AC/DC",
+        "year": "2026",
+        "name": "Highway to Hell V1",
+        "tipoPrecio": "simple",
+        "img": "images/acdc/highway_v1.jpg",
+        "desc": "Highway to Hell - Icónico álbum de 1979 con Bon Scott.",
+        "isNew": true
+    },
+    {
+        "id": 5047,
+        "category": "AC/DC",
+        "year": "2026",
+        "name": "AC/DC Argentina",
+        "tipoPrecio": "doble",
+        "img": "images/acdc/acdc_argentina.jpg",
+        "variants": [
+            {
+                "img": "images/acdc/acdc_argentina.jpg",
+                "name": "Frente"
+            },
+            {
+                "img": "images/acdc/acdc_argentina_dorso.jpg",
+                "name": "Dorso"
+            }
+        ],
+        "desc": "AC/DC Argentina - Diseño especial para fans argentinos con frente y dorso.",
+        "isNew": true
+    },
+    {
+        "id": 5048,
+        "category": "AC/DC",
+        "year": "2026",
+        "name": "For Those Angus",
+        "tipoPrecio": "simple",
+        "img": "images/acdc/for_those_angus.jpg",
+        "desc": "For Those About to Rock - Versión con Angus Young destacado.",
+        "isNew": true
+    },
+    {
+        "id": 5049,
+        "category": "AC/DC",
+        "year": "2026",
+        "name": "High Voltage",
+        "tipoPrecio": "simple",
+        "img": "images/acdc/acdc_high_voltage.jpg",
+        "desc": "High Voltage - Álbum debut internacional de 1976.",
+        "isNew": true
+    },
+    {
+        "id": 5050,
+        "category": "AC/DC",
+        "year": "2026",
+        "name": "Power Up",
+        "tipoPrecio": "simple",
+        "img": "images/acdc/pwr_acdc.jpg",
+        "desc": "Power Up - Álbum de 2020, homenaje a Malcolm Young.",
+        "isNew": true
+    },
+    {
+        "id": 5051,
+        "category": "AC/DC",
+        "year": "2026",
+        "name": "Angus Black & White",
+        "tipoPrecio": "simple",
+        "img": "images/acdc/angus_black_and_white.jpg",
+        "desc": "Angus Young - Diseño artístico en blanco y negro.",
+        "isNew": true
+    },
+    {
+        "id": 5052,
+        "category": "AC/DC",
+        "year": "2026",
+        "name": "Highway Circular",
+        "tipoPrecio": "simple",
+        "img": "images/acdc/highway_circular.jpg",
+        "desc": "Highway to Hell - Diseño circular alternativo.",
+        "isNew": true
     }
 ]
