@@ -396,30 +396,50 @@ function renderLatestReleases(limit = 6) {
         
         let displayCards = [];
 
-        // 1. Extraer TODAS las variantes marcadas como nuevas
+        // 1. Primero agregar productos con isNew: true a nivel de producto
+        db.forEach(product => {
+            if (product.isNew) {
+                displayCards.push({
+                    isNewVariant: false,
+                    productId: product.id,
+                    variantIndex: 0,
+                    title: product.name,
+                    img: product.img,
+                    category: product.category,
+                    year: product.year,
+                    tipoPrecio: product.tipoPrecio,
+                    variants: product.variants
+                });
+            }
+        });
+
+        // 2. Luego extraer variantes marcadas como nuevas (si no está ya el producto)
         db.forEach(product => {
             if (product.variants && product.variants.length > 0) {
                 product.variants.forEach((variant, index) => {
                     if (variant.isNew) {
-                        displayCards.push({
-                            isNewVariant: true,
-                            productId: product.id,
-                            variantIndex: index,
-                            title: `${product.name} - ${variant.name}`,
-                            img: variant.img,
-                            category: product.category,
-                            year: product.year,
-                            tipoPrecio: product.tipoPrecio
-                        });
+                        const alreadyAdded = displayCards.some(card => card.productId === product.id);
+                        if (!alreadyAdded) {
+                            displayCards.push({
+                                isNewVariant: true,
+                                productId: product.id,
+                                variantIndex: index,
+                                title: `${product.name} - ${variant.name}`,
+                                img: variant.img,
+                                category: product.category,
+                                year: product.year,
+                                tipoPrecio: product.tipoPrecio
+                            });
+                        }
                     }
                 });
             }
         });
 
-        // Ordenar variantes nuevas por productId descendente (las más recientes primero)
+        // Ordenar por productId descendente (las más recientes primero)
         displayCards.sort((a, b) => b.productId - a.productId);
 
-        // 2. Rellenar el resto de los espacios (hasta limit) con los últimos productos
+        // 3. Rellenar el resto de los espacios (hasta limit) con los últimos productos
         if (displayCards.length < limit) {
             const sortedProducts = [...db].sort((a,b)=> (b.id||0) - (a.id||0));
 
@@ -576,7 +596,7 @@ function openWhatsapp(message) {
 }
 
 const BASE_URL = window.location.origin + window.location.pathname;
-const DORSO_CATEGORIES = new Set(['Album','Tour','Musician','Metallica','Pantera','Iron Maiden','Avenged Sevenfold']);
+const DORSO_CATEGORIES = new Set(['Album','Tour','Musician','Dave Mustaine','Metallica','Pantera','Iron Maiden','Avenged Sevenfold']);
 
 let selectedDorsoChips = new Set();
 let selectedBacks = new Set();
@@ -1177,6 +1197,8 @@ function updateCountsUI(){
         setNavBadge('Pantera', byCategory['Pantera']||0);
         setNavBadge('Iron Maiden', byCategory['Iron Maiden']||0);
         setNavBadge('Metallica', byCategory['Metallica']||0);
+        setNavBadge('Dave Mustaine', byCategory['Dave Mustaine']||0);
+        setNavBadge('Musician', byCategory['Musician']||0);
         setNavBadge('Personalizados', byCategory['Personalizados']||0);
 
         // Filtros: textos con cantidad (y corrección de etiqueta de Megadeth)
@@ -1186,6 +1208,7 @@ function updateCountsUI(){
         };
         setPill('all', `Todo (${totalAll})`);
         setPill('Album', `Álbumes Megadeth (${byCategory['Album']||0})`);
+        setPill('Dave Mustaine', `Dave Mustaine (${byCategory['Dave Mustaine']||0})`);
         setPill('Pantera', `Pantera (${byCategory['Pantera']||0})`);
         setPill('Iron Maiden', `Iron Maiden (${byCategory['Iron Maiden']||0})`);
         setPill('Metallica', `Metallica (${byCategory['Metallica']||0})`);

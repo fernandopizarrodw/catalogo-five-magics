@@ -156,8 +156,7 @@
             },
             {
                 "img": "images/albums/Youthanasia/dorso_youth.jpg",
-                "name": "DORSO",
-                "isNew": true
+                "name": "DORSO"
             }
         ],
         "desc": "Heavy metal melódico y oscuro con una portada surrealista que denuncia el sacrificio del futuro de las nuevas generaciones."
@@ -505,58 +504,195 @@
         "desc": "Dogs of Chernobyl - Single exclusivo con arte relacionado a la famosa canción de Megadeth."
     },
     {
-        "id": 28,
-        "category": "Musician",
-        "year": "Leyenda",
-        "name": "Dave Mustaine",
+        "id": 2801,
+        "category": "Dave Mustaine",
+        "year": "1992",
+        "name": "Dave 1992 V1",
         "tipoPrecio": "simple",
-        "img": "images/musicians/Dave_Mustaine/Dave_Mustaine_COLOR_90s.jpg",
+        "img": "images/musicians/Dave_Mustaine/dave_1992_v1.jpg",
+        "isNew": true,
+        "desc": "Dave Mustaine en su época dorada de 1992."
+    },
+    {
+        "id": 2802,
+        "category": "Dave Mustaine",
+        "year": "90s",
+        "name": "Dave 90s RIP Live",
+        "tipoPrecio": "doble",
+        "img": "images/musicians/Dave_Mustaine/dave_90s_rip_live.jpg",
         "variants": [
             {
-                "img": "images/musicians/Dave_Mustaine/Dave_Mustaine_COLOR_90s.jpg",
-                "name": "COLOR 90s"
+                "img": "images/musicians/Dave_Mustaine/dave_90s_rip_live.jpg",
+                "name": "Frente"
             },
             {
-                "img": "images/musicians/Dave_Mustaine/Dave_Mustaine_BN_90s.jpg",
-                "name": "BN 90s"
-            },
-            {
-                "img": "images/musicians/Dave_Mustaine/dave_mustaine_1988.jpg",
-                "name": "1988"
-            },
-            {
-                "img": "images/musicians/Dave_Mustaine/poison_green.jpg",
-                "name": "Poison Green"
-            },
-            {
-                "img": "images/musicians/Dave_Mustaine/warhead_red.jpg",
-                "name": "Warhead Red"
-            },
-            {
-                "img": "images/musicians/Dave_Mustaine/dave_mustaine_88-v2.jpg",
-                "name": "1988 v2"
-            },
-            {
-                "img": "images/musicians/Dave_Mustaine/01 - dave_mustaine_argentina.jpg",
-                "name": "Argentina 2026"
-            },
-            {
-                "img": "images/musicians/Dave_Mustaine/dave_so_far_era.jpg",
-                "name": "So Far Era",
-                "isNew": true
-            },
-            {
-                "img": "images/musicians/Dave_Mustaine/dave_92_live_black.jpg",
-                "name": "92 Live Black",
-                "isNew": true
-            },
-            {
-                "img": "images/musicians/Dave_Mustaine/dave_92_live.jpg",
-                "name": "92 Live",
-                "isNew": true
+                "img": "images/musicians/Dave_Mustaine/dave_dorso_figure.jpg",
+                "name": "Dorso"
             }
         ],
-        "desc": "El Colorado con su Flying V. El líder."
+        "isNew": true,
+        "desc": "Dave en vivo durante la era Rust in Peace."
+    },
+    {
+        "id": 2803,
+        "category": "Dave Mustaine",
+        "year": "1992",
+        "name": "Dave 92 Live",
+        "tipoPrecio": "simple",
+        "img": "images/musicians/Dave_Mustaine/dave_92_live.jpg",
+        "isNew": true,
+        "desc": "Dave Mustaine en concierto 1992."
+    },
+    {
+        "id": 2804,
+        "category": "Dave Mustaine",
+        "year": "1992",
+        "name": "Dave 92 Live Black",
+        "tipoPrecio": "simple",
+        "img": "images/musicians/Dave_Mustaine/dave_92_live_black.jpg",
+        "desc": "Versión oscura del diseño en vivo 1992."
+    },
+    
+    {
+        "id": 2806,
+        "category": "Dave Mustaine",
+        "year": "Leyenda",
+        "name": "Dave Fuck You",
+        "tipoPrecio": "doble",
+        "img": "images/musicians/Dave_Mustaine/frente_dave_fuck_you.jpg",
+        "variants": [
+            {
+                "img": "images/musicians/Dave_Mustaine/frente_dave_fuck_you.jpg",
+                "name": "Frente"
+            },
+            {
+                "img": "images/musicians/Dave_Mustaine/dave_dorso_fuck_you.jpg",
+                "name": "Dorso"
+            }
+        ],
+        "desc": "Diseño icónico de Dave con frente y dorso."
+    },
+    {
+        "id": 2807,
+        "category": "Dave Mustaine",
+        "year": "Leyenda",
+        "name": "Dave Double Neck Jackson",
+        "tipoPrecio": "simple",
+        "img": "images/musicians/Dave_Mustaine/dave_double_neck_jackson.jpg",
+        "isNew": true,
+        "desc": "Dave con su legendaria Jackson de doble mástil."
+    },
+    {
+        "id": 2808,
+        "category": "Dave Mustaine",
+        "year": "1988",
+        "name": "Dave 1988",
+        "tipoPrecio": "simple",
+        "img": "images/musicians/Dave_Mustaine/dave_mustaine_1988.jpg",
+        "desc": "Dave Mustaine era So Far So Good."
+    },
+    {
+        "id": 2809,
+        "category": "Dave Mustaine",
+        "year": "1988",
+        "name": "Dave 1988 Illustration",
+        "tipoPrecio": "simple",
+        "img": "images/musicians/Dave_Mustaine/dave_mustaine_1988_illustration.jpg",
+        "desc": "Ilustración artística de Dave en 1988."
+    },
+    {
+        "id": 2810,
+        "category": "Dave Mustaine",
+        "year": "1988",
+        "name": "Dave 1988 V2",
+        "tipoPrecio": "simple",
+        "img": "images/musicians/Dave_Mustaine/dave_mustaine_88-v2.jpg",
+        "desc": "Segunda versión del diseño 1988."
+    },
+    {
+        "id": 2811,
+        "category": "Dave Mustaine",
+        "year": "Leyenda",
+        "name": "Dave Angel of Deth",
+        "tipoPrecio": "simple",
+        "img": "images/musicians/Dave_Mustaine/dave_mustaine_angel_of_deth.jpg",
+        "desc": "Dave como el Ángel de la Muerte."
+    },
+    {
+        "id": 2812,
+        "category": "Dave Mustaine",
+        "year": "90s",
+        "name": "Dave BN 90s",
+        "tipoPrecio": "simple",
+        "img": "images/musicians/Dave_Mustaine/Dave_Mustaine_BN_90s.jpg",
+        "desc": "Dave en blanco y negro, era 90s."
+    },
+    {
+        "id": 2813,
+        "category": "Dave Mustaine",
+        "year": "2026",
+        "name": "Dave Ride Argentina",
+        "tipoPrecio": "doble",
+        "img": "images/musicians/Dave_Mustaine/dave_ride_argentina.jpg",
+        "variants": [
+            {
+                "img": "images/musicians/Dave_Mustaine/dave_ride_argentina.jpg",
+                "name": "Frente"
+            },
+            {
+                "img": "images/musicians/Dave_Mustaine/dorso_dave_argentina.jpg",
+                "name": "Dorso"
+            }
+        ],
+        "isNew": true,
+        "desc": "Dave con la guitarra Argentina - Ride the Lightning."
+    },
+    {
+        "id": 2814,
+        "category": "Dave Mustaine",
+        "year": "1988",
+        "name": "Dave So Far Era",
+        "tipoPrecio": "doble",
+        "img": "images/musicians/Dave_Mustaine/dave_so_far_era.jpg",
+        "variants": [
+            {
+                "img": "images/musicians/Dave_Mustaine/dave_so_far_era.jpg",
+                "name": "Frente"
+            },
+            {
+                "img": "images/musicians/Dave_Mustaine/dave_so_far_era_dorso.jpg",
+                "name": "Dorso"
+            }
+        ],
+        "isNew": true,
+        "desc": "Dave en la era So Far So Good So What."
+    },
+    {
+        "id": 2815,
+        "category": "Dave Mustaine",
+        "year": "1990",
+        "name": "Dave Vic RIP",
+        "tipoPrecio": "simple",
+        "img": "images/musicians/Dave_Mustaine/dave_vic_rip.jpg",
+        "desc": "Dave con Vic Rattlehead, era Rust in Peace."
+    },
+    {
+        "id": 2816,
+        "category": "Dave Mustaine",
+        "year": "Leyenda",
+        "name": "Dave Poison Green",
+        "tipoPrecio": "simple",
+        "img": "images/musicians/Dave_Mustaine/poison_green.jpg",
+        "desc": "Diseño verde venenoso de Dave."
+    },
+    {
+        "id": 2817,
+        "category": "Dave Mustaine",
+        "year": "Leyenda",
+        "name": "Dave Warhead Red",
+        "tipoPrecio": "simple",
+        "img": "images/musicians/Dave_Mustaine/warhead_red.jpg",
+        "desc": "Diseño rojo warhead de Dave."
     },
     {
         "id": 29,
@@ -954,13 +1090,11 @@
             },
             {
                 "img": "images/vic_rattlehead/militar_rattlehead.jpg",
-                "name": "Militar Rattlehead",
-                "isNew": true
+                "name": "Militar Rattlehead"
             },
             {
                 "img": "images/vic_rattlehead/nuclear_vic_bomb.jpg",
-                "name": "Nuclear Vic Bomb",
-                "isNew": true
+                "name": "Nuclear Vic Bomb"
             }
         ],
         "desc": "Vic Editions - Colección de 3 variantes exclusivas de Vic Rattlehead."
@@ -2395,8 +2529,7 @@
         "name": "Angus Young V1",
         "tipoPrecio": "simple",
         "img": "images/acdc/angus_v1.jpg",
-        "desc": "Angus Young - Diseño clásico del guitarrista legendario de AC/DC.",
-        "isNew": true
+        "desc": "Angus Young - Diseño clásico del guitarrista legendario de AC/DC."
     },
     {
         "id": 5041,
@@ -2405,8 +2538,7 @@
         "name": "Black Ice",
         "tipoPrecio": "simple",
         "img": "images/acdc/black_ice.jpg",
-        "desc": "Black Ice - Álbum de 2008, regreso triunfal de AC/DC.",
-        "isNew": true
+        "desc": "Black Ice - Álbum de 2008, regreso triunfal de AC/DC."
     },
     {
         "id": 5042,
@@ -2415,8 +2547,7 @@
         "name": "Fly on the Wall",
         "tipoPrecio": "simple",
         "img": "images/acdc/fly_on_the_wall.jpg",
-        "desc": "Fly on the Wall - Álbum de 1985 con su icónica portada.",
-        "isNew": true
+        "desc": "Fly on the Wall - Álbum de 1985 con su icónica portada."
     },
     {
         "id": 5043,
@@ -2425,8 +2556,7 @@
         "name": "For Those Remastered",
         "tipoPrecio": "simple",
         "img": "images/acdc/for_those_remastered.jpg",
-        "desc": "For Those About to Rock - Versión remasterizada del clásico.",
-        "isNew": true
+        "desc": "For Those About to Rock - Versión remasterizada del clásico."
     },
     {
         "id": 5044,
@@ -2445,8 +2575,7 @@
                 "name": "Dorso"
             }
         ],
-        "desc": "Let There Be Rock - Versión Black con frente y dorso.",
-        "isNew": true
+        "desc": "Let There Be Rock - Versión Black con frente y dorso."
     },
     {
         "id": 5045,
@@ -2465,8 +2594,7 @@
                 "name": "Dorso"
             }
         ],
-        "desc": "Let There Be Rock - Versión White con frente y dorso.",
-        "isNew": true
+        "desc": "Let There Be Rock - Versión White con frente y dorso."
     },
     {
         "id": 5046,
@@ -2475,8 +2603,7 @@
         "name": "Highway to Hell V1",
         "tipoPrecio": "simple",
         "img": "images/acdc/highway_v1.jpg",
-        "desc": "Highway to Hell - Icónico álbum de 1979 con Bon Scott.",
-        "isNew": true
+        "desc": "Highway to Hell - Icónico álbum de 1979 con Bon Scott."
     },
     {
         "id": 5047,
@@ -2495,8 +2622,7 @@
                 "name": "Dorso"
             }
         ],
-        "desc": "AC/DC Argentina - Diseño especial para fans argentinos con frente y dorso.",
-        "isNew": true
+        "desc": "AC/DC Argentina - Diseño especial para fans argentinos con frente y dorso."
     },
     {
         "id": 5048,
@@ -2505,8 +2631,7 @@
         "name": "For Those Angus",
         "tipoPrecio": "simple",
         "img": "images/acdc/for_those_angus.jpg",
-        "desc": "For Those About to Rock - Versión con Angus Young destacado.",
-        "isNew": true
+        "desc": "For Those About to Rock - Versión con Angus Young destacado."
     },
     {
         "id": 5049,
@@ -2515,8 +2640,7 @@
         "name": "High Voltage",
         "tipoPrecio": "simple",
         "img": "images/acdc/acdc_high_voltage.jpg",
-        "desc": "High Voltage - Álbum debut internacional de 1976.",
-        "isNew": true
+        "desc": "High Voltage - Álbum debut internacional de 1976."
     },
     {
         "id": 5050,
@@ -2525,8 +2649,7 @@
         "name": "Power Up",
         "tipoPrecio": "simple",
         "img": "images/acdc/pwr_acdc.jpg",
-        "desc": "Power Up - Álbum de 2020, homenaje a Malcolm Young.",
-        "isNew": true
+        "desc": "Power Up - Álbum de 2020, homenaje a Malcolm Young."
     },
     {
         "id": 5051,
@@ -2535,8 +2658,7 @@
         "name": "Angus Black & White",
         "tipoPrecio": "simple",
         "img": "images/acdc/angus_black_and_white.jpg",
-        "desc": "Angus Young - Diseño artístico en blanco y negro.",
-        "isNew": true
+        "desc": "Angus Young - Diseño artístico en blanco y negro."
     },
     {
         "id": 5052,
@@ -2545,7 +2667,6 @@
         "name": "Highway Circular",
         "tipoPrecio": "simple",
         "img": "images/acdc/highway_circular.jpg",
-        "desc": "Highway to Hell - Diseño circular alternativo.",
-        "isNew": true
+        "desc": "Highway to Hell - Diseño circular alternativo."
     }
 ]
