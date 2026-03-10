@@ -500,12 +500,104 @@ async function loadProducts() {
         db = await response.json();
         updateCountsUI();
         renderLatestReleases(6);
+        renderHeroOrbit(4); // Poblar órbita del hero con 4 cards 3D
         filterProducts(); // Renderizar después de cargar
     } catch (error) {
         console.error('Error:', error);
         // Fallback para desarrollo local
         db = [];
     }
+}
+
+// Renderizar órbita del hero con últimos lanzamientos
+function renderHeroOrbit(limit = 8) {
+    try {
+        const orbitRing = document.getElementById('orbitRing');
+        if (!orbitRing || !Array.isArray(db) || !db.length) return;
+
+        let orbitItems = [];
+
+        // 1. Productos con isNew: true
+        db.forEach(product => {
+            if (product.isNew && orbitItems.length < limit) {
+                orbitItems.push({
+                    productId: product.id,
+                    img: product.img,
+                    title: product.name
+                });
+            }
+        });
+
+        // 2. Variantes con isNew: true
+        db.forEach(product => {
+            if (product.variants && product.variants.length > 0) {
+                product.variants.forEach((variant, index) => {
+                    if (variant.isNew && orbitItems.length < limit) {
+                        const alreadyAdded = orbitItems.some(item => item.productId === product.id);
+                        if (!alreadyAdded) {
+                            orbitItems.push({
+                                productId: product.id,
+                                variantIndex: index,
+                                img: variant.img,
+                                title: `${product.name} - ${variant.name}`
+                            });
+                        }
+                    }
+                });
+            }
+        });
+
+        // 3. Rellenar con los últimos productos si necesario
+        if (orbitItems.length < limit) {
+            const sortedProducts = [...db].sort((a, b) => (b.id || 0) - (a.id || 0));
+            for (const product of sortedProducts) {
+                const alreadyAdded = orbitItems.some(item => item.productId === product.id);
+                if (!alreadyAdded) {
+                    orbitItems.push({
+                        productId: product.id,
+                        img: product.img,
+                        title: product.name
+                    });
+                }
+                if (orbitItems.length >= limit) break;
+            }
+        }
+
+        orbitItems = orbitItems.slice(0, limit);
+
+        // Renderizar items en la órbita
+        orbitRing.innerHTML = orbitItems.map((item, index) => 
+            `<div class="orbit-item" onclick="openModal(${item.productId}${item.variantIndex !== undefined ? ', ' + item.variantIndex : ''})" title="${item.title}">
+                <img src="${item.img}" alt="${item.title}" loading="lazy">
+            </div>`
+        ).join('');
+
+        // Intersection Observer para pausar animación cuando no es visible
+        setupOrbitObserver();
+
+    } catch (e) {
+        console.warn('renderHeroOrbit error', e);
+    }
+}
+
+// Pausar órbita cuando no está visible (optimización de rendimiento)
+function setupOrbitObserver() {
+    const heroSection = document.getElementById('heroSection');
+    const orbitRing = document.getElementById('orbitRing');
+    
+    if (!heroSection || !orbitRing || !('IntersectionObserver' in window)) return;
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                orbitRing.classList.remove('paused');
+            } else {
+                orbitRing.classList.add('paused');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    observer.observe(heroSection);
 }
 
 function formatPrecio(tipo) {
