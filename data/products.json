@@ -2169,6 +2169,14 @@
                 "name": "Agent Orange"
             },
             {
+                "img": "images/banda_sugeridas/sodom/agent_orange_dorso.jpg",
+                "name": "Agent Orange Dorso"
+            },
+            {
+                "img": "images/banda_sugeridas/sodom/agent_orange_dorso_v2.jpg",
+                "name": "Agent Orange Dorso V2"
+            },
+            {
                 "img": "images/banda_sugeridas/sodom/sodom_dorso.jpg",
                 "name": "Dorso"
             },
@@ -2177,7 +2185,7 @@
                 "name": "Frente"
             }
         ],
-        "desc": "Sodom - Thrash metal alemán con 3 diseños destructivos."
+        "desc": "Sodom - Thrash metal alemán con 5 diseños destructivos."
     },
     {
         "id": 5018,
