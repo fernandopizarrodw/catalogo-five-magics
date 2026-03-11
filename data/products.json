@@ -2160,32 +2160,43 @@
         "id": 5017,
         "category": "Bandas Sugeridas",
         "year": "2026",
-        "name": "Sodom",
-        "tipoPrecio": "simple",
+        "name": "Sodom - Agent Orange",
+        "tipoPrecio": "doble",
         "img": "images/banda_sugeridas/sodom/sodom_agent_orange.jpg",
         "variants": [
             {
                 "img": "images/banda_sugeridas/sodom/sodom_agent_orange.jpg",
-                "name": "Agent Orange"
+                "name": "Frente"
             },
             {
                 "img": "images/banda_sugeridas/sodom/agent_orange_dorso.jpg",
-                "name": "Agent Orange Dorso"
+                "name": "Dorso V1"
             },
             {
                 "img": "images/banda_sugeridas/sodom/agent_orange_dorso_v2.jpg",
-                "name": "Agent Orange Dorso V2"
+                "name": "Dorso V2"
+            }
+        ],
+        "desc": "Sodom - Agent Orange. Thrash metal alemán. Doble estampa con 2 opciones de dorso."
+    },
+    {
+        "id": 5117,
+        "category": "Bandas Sugeridas",
+        "year": "2026",
+        "name": "Sodom - Logo",
+        "tipoPrecio": "doble",
+        "img": "images/banda_sugeridas/sodom/sodom_frente.jpg",
+        "variants": [
+            {
+                "img": "images/banda_sugeridas/sodom/sodom_frente.jpg",
+                "name": "Frente"
             },
             {
                 "img": "images/banda_sugeridas/sodom/sodom_dorso.jpg",
                 "name": "Dorso"
-            },
-            {
-                "img": "images/banda_sugeridas/sodom/sodom_frente.jpg",
-                "name": "Frente"
             }
         ],
-        "desc": "Sodom - Thrash metal alemán con 5 diseños destructivos."
+        "desc": "Sodom - Logo clásico. Thrash metal alemán. Doble estampa."
     },
     {
         "id": 5018,
