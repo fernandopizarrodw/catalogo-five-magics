@@ -23,6 +23,123 @@ let selectedSize = '';
 let selectedCut = 'clasica';
 let selectedColor = 'negro'; // 'adulto' o 'chico'
 
+// === BUSCADOR POR CÓDIGO PARA PEDIDOS ===
+// Uso: buscar("peace sells") o buscar("PS-002") o buscar(4) 
+// Genera código automático: PREFIJO-ID.Vn
+function buscar(query) {
+    if (!db.length) {
+        console.log('❌ Base de datos no cargada. Esperá a que cargue la página.');
+        return;
+    }
+    
+    const q = String(query).toLowerCase().trim();
+    let results = [];
+    
+    // Mapeo de prefijos comunes
+    const prefijos = {
+        'peace sells': 'PS', 'ps': 'PS',
+        'rust in peace': 'RIP', 'rip': 'RIP', 
+        'killing': 'KIMB', 'kimb': 'KIMB',
+        'so far': 'SFSGSW', 'sfsgsw': 'SFSGSW',
+        'countdown': 'CTE', 'cte': 'CTE',
+        'youthanasia': 'YT', 'yt': 'YT',
+        'cryptic': 'CW', 'cw': 'CW',
+        'risk': 'RISK',
+        'world needs': 'TWNAH', 'twnah': 'TWNAH',
+        'system': 'TSHF', 'tshf': 'TSHF',
+        'united': 'UA', 'ua': 'UA',
+        'endgame': 'EG', 'eg': 'EG',
+        '13': '13', 'thirteen': '13',
+        'super collider': 'SC', 'sc': 'SC',
+        'dystopia': 'DYS', 'dys': 'DYS',
+        'sick': 'TSTDATD', 'tstdatd': 'TSTDATD',
+        'vic': 'VIC', 'rattlehead': 'VIC',
+        'dave': 'DM', 'mustaine': 'DM',
+        'marty': 'MF', 'friedman': 'MF',
+        'nick': 'NM', 'menza': 'NM',
+        'tour': 'TOUR',
+        'pantera': 'PAN', 'pan': 'PAN',
+        'iron maiden': 'IM', 'maiden': 'IM', 'im': 'IM',
+        'metallica': 'MET', 'met': 'MET',
+        'personali': 'CUSTOM'
+    };
+    
+    // Generar prefijo automático basado en nombre
+    function getPrefijo(name) {
+        const n = name.toLowerCase();
+        for (const [key, val] of Object.entries(prefijos)) {
+            if (n.includes(key)) return val;
+        }
+        // Generar prefijo de 3 letras del nombre
+        return name.replace(/[^a-zA-Z]/g, '').substring(0, 3).toUpperCase();
+    }
+    
+    // Buscar por ID exacto
+    const idMatch = q.match(/^(\d+)$/);
+    if (idMatch) {
+        const id = parseInt(idMatch[1]);
+        const product = db.find(p => p.id === id);
+        if (product) results.push(product);
+    }
+    
+    // Buscar por código tipo PS-002.V2
+    const codeMatch = q.match(/^([a-z]+)-?(\d+)(?:\.v(\d+))?$/i);
+    if (codeMatch) {
+        const [, prefix, idStr, variantStr] = codeMatch;
+        const id = parseInt(idStr);
+        const product = db.find(p => p.id === id);
+        if (product) {
+            results.push(product);
+        }
+    }
+    
+    // Buscar por nombre
+    if (!results.length) {
+        results = db.filter(p => 
+            p.name.toLowerCase().includes(q) ||
+            (p.desc && p.desc.toLowerCase().includes(q)) ||
+            (p.category && p.category.toLowerCase().includes(q))
+        );
+    }
+    
+    if (!results.length) {
+        console.log(`❌ No encontré nada para "${query}"`);
+        return;
+    }
+    
+    // Mostrar resultados con códigos generados
+    console.log(`\n🔍 RESULTADOS PARA: "${query}"\n${'='.repeat(50)}`);
+    
+    results.slice(0, 10).forEach(p => {
+        const prefijo = getPrefijo(p.name);
+        const codigo = `${prefijo}-${String(p.id).padStart(3, '0')}`;
+        
+        console.log(`\n📦 ${p.name} (ID: ${p.id})`);
+        console.log(`   Categoría: ${p.category} | Precio: ${p.tipoPrecio}`);
+        console.log(`   Código base: ${codigo}`);
+        
+        if (p.variants && p.variants.length) {
+            console.log(`   Variantes:`);
+            p.variants.forEach((v, i) => {
+                const vCode = `${codigo}.V${i + 1}`;
+                console.log(`      ${vCode} → ${v.name}`);
+            });
+        } else {
+            console.log(`      ${codigo} → Diseño único`);
+        }
+        console.log(`   Imagen: ${p.img}`);
+    });
+    
+    if (results.length > 10) {
+        console.log(`\n... y ${results.length - 10} resultados más`);
+    }
+    
+    return results;
+}
+
+// Alias corto
+window.b = buscar;
+
 // Función para cambiar entre Adulto y Chico
 function selectAge(age) {
     selectedAge = age;

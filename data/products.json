@@ -469,12 +469,8 @@
         "year": "2026",
         "name": "RIDE THE LIGHTNING BY MEGADETH",
         "tipoPrecio": "simple",
-        "img": "images/musicians/Dave_Mustaine/01 - dave_mustaine_argentina.jpg",
+        "img": "images/singles/02 - the_condemned-toxic_green.jpg",
         "variants": [
-            {
-                "img": "images/musicians/Dave_Mustaine/01 - dave_mustaine_argentina.jpg",
-                "name": "01 - Dave Mustaine Argentina"
-            },
             {
                 "img": "images/singles/02 - the_condemned-toxic_green.jpg",
                 "name": "02 - The Condemned Toxic Green"
@@ -492,7 +488,7 @@
                 "name": "05 - The Switch"
             }
         ],
-        "desc": "⚡ RIDE THE LIGHTNING ⚡\nNo es un cover.\nEs un regreso al origen.\n\nDave Mustaine vuelve a Ride the Lightning\npara cerrar el círculo que empezó en 1981.\n\n1. THE AUTHOR\nDave Mustaine — Guitarra Argentina\n\n2. THE CONDEMNED (TOXIC GREEN)\nVic ejecutado — radiación y electricidad\n\n3. THE EXECUTOR (WHITE SUIT)\nVic Rattlehead — Traje blanco\n\n4. THE EXECUTOR (RED SUIT)\nVic Rattlehead — Era Peace Sells\n\n5. THE SWITCH\nArte oficial Megadeth adaptado — La palanca"
+        "desc": "⚡ RIDE THE LIGHTNING ⚡\nNo es un cover.\nEs un regreso al origen.\n\nDave Mustaine vuelve a Ride the Lightning\npara cerrar el círculo que empezó en 1981.\n\n1. THE CONDEMNED (TOXIC GREEN)\nVic ejecutado — radiación y electricidad\n\n2. THE EXECUTOR (WHITE SUIT)\nVic Rattlehead — Traje blanco\n\n3. THE EXECUTOR (RED SUIT)\nVic Rattlehead — Era Peace Sells\n\n4. THE SWITCH\nArte oficial Megadeth adaptado — La palanca"
     },
     {
         "id": 245,
@@ -626,26 +622,6 @@
         "tipoPrecio": "simple",
         "img": "images/musicians/Dave_Mustaine/Dave_Mustaine_BN_90s.jpg",
         "desc": "Dave en blanco y negro, era 90s."
-    },
-    {
-        "id": 2813,
-        "category": "Dave Mustaine",
-        "year": "2026",
-        "name": "Dave Ride Argentina",
-        "tipoPrecio": "doble",
-        "img": "images/musicians/Dave_Mustaine/dave_ride_argentina.jpg",
-        "variants": [
-            {
-                "img": "images/musicians/Dave_Mustaine/dave_ride_argentina.jpg",
-                "name": "Frente"
-            },
-            {
-                "img": "images/musicians/Dave_Mustaine/dorso_dave_argentina.jpg",
-                "name": "Dorso"
-            }
-        ],
-        "isNew": true,
-        "desc": "Dave con la guitarra Argentina - Ride the Lightning."
     },
     {
         "id": 2814,
@@ -1353,37 +1329,6 @@
         "tipoPrecio": "simple",
         "img": "images/personalizado/aphex_twin.jpg",
         "desc": "Mockup Aphex Twin."
-    },
-    {
-        "id": 424,
-        "category": "Personalizados",
-        "year": "2025",
-        "name": "Avenged Sevenfold",
-        "tipoPrecio": "simple",
-        "img": "images/personalizado/ax7_hail_to_the_king.jpg",
-        "variants": [
-            {
-                "img": "images/personalizado/ax7_hail_to_the_king.jpg",
-                "name": "Hail to the King"
-            },
-            {
-                "img": "images/personalizado/ax7_nightmare.jpg",
-                "name": "Nightmare"
-            },
-            {
-                "img": "images/personalizado/ax7_dorso.jpg",
-                "name": "Dorso"
-            },
-            {
-                "img": "images/personalizado/ax7_deadly_rule.jpg",
-                "name": "Deadly Rule"
-            },
-            {
-                "img": "images/personalizado/ax7_deadly_rule_realistic.jpg",
-                "name": "Deadly Rule Realistic"
-            }
-        ],
-        "desc": "Mockup Avenged Sevenfold - Dos frentes y un dorso en un mismo producto."
     },
     {
         "id": 49,

@@ -65,7 +65,6 @@
 | 2810 | Dave 1988 V2 | 1988 | Simple | Segunda versión |
 | 2811 | Dave Angel of Deth | Leyenda | Simple | Ángel de la Muerte |
 | 2812 | Dave BN 90s | 90s | Simple | Blanco y negro |
-| 2813 | Dave Ride Argentina | 2026 | Doble | Guitarra Argentina + Dorso |
 | 2814 | Dave So Far Era | 1988 | Doble | So Far So Good + Dorso |
 | 2815 | Dave Vic RIP | 1990 | Simple | Con Vic Rattlehead |
 | 2816 | Dave Poison Green | Leyenda | Simple | Verde venenoso |
