@@ -1233,6 +1233,44 @@ header {
     font-weight: 900;
 }
 
+/* Precios duales unificados */
+.dual-prices {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    width: 100%;
+}
+
+.dual-prices .price-line {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.dual-prices .price-amount {
+    font-family: var(--font-title);
+    font-size: 1rem;
+    color: var(--price);
+    font-weight: 900;
+    min-width: 70px;
+}
+
+.dual-prices .price-label {
+    font-size: 0.68rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
+.dual-prices .price-line:last-child .price-amount {
+    color: #39ff14;
+}
+
+.dual-prices .price-line:last-child .price-label {
+    color: #39ff14;
+    font-weight: 600;
+}
+
 .product-envio {
     font-size: 0.65rem;
     color: #25D366;

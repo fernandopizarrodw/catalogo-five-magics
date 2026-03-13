@@ -553,11 +553,14 @@ function renderLatestReleases(limit = 6) {
             }
         });
 
-        // Ordenar por productId descendente (las más recientes primero)
+        // Ordenar los isNew por productId descendente, pero mantenerlos todos
+        const newProducts = displayCards.length;
         displayCards.sort((a, b) => b.productId - a.productId);
 
         // 3. Rellenar el resto de los espacios (hasta limit) con los últimos productos
-        if (displayCards.length < limit) {
+        // Solo rellenamos si hay espacio después de mostrar TODOS los isNew
+        const effectiveLimit = Math.max(limit, newProducts);
+        if (displayCards.length < effectiveLimit) {
             const sortedProducts = [...db].sort((a,b)=> (b.id||0) - (a.id||0));
 
             for (const product of sortedProducts) {
@@ -577,11 +580,11 @@ function renderLatestReleases(limit = 6) {
                     });
                 }
 
-                if (displayCards.length >= limit) break;
+                if (displayCards.length >= effectiveLimit) break;
             }
         }
 
-        displayCards = displayCards.slice(0, limit);
+        displayCards = displayCards.slice(0, effectiveLimit);
 
         // 3. Renderizar las tarjetas en el DOM
         latestGrid.innerHTML = displayCards.map(card => {
@@ -600,7 +603,7 @@ function renderLatestReleases(limit = 6) {
                         ${
                             isDorsoIdea
                             ? `<span class="product-envio" style="color:var(--magic-green);border:1px solid rgba(57,255,20,.25);">Solo doble estampa</span>`
-                            : `<span class="product-price">${formatPrecio(card.tipoPrecio || 'simple')}</span><span class="product-envio">Envío gratis llevando 2+</span><div style="font-size:0.62rem;color:var(--text-muted);margin-top:2px;">1 unidad: consultar por envío</div>`
+                            : `${formatPreciosDual()}<div style="font-size:0.62rem;color:var(--text-muted);margin-top:4px;">Envío gratis 2+ · 1 unidad consultar</div>`
                         }
                     </div>
                 </div>
@@ -719,6 +722,15 @@ function setupOrbitObserver() {
 
 function formatPrecio(tipo) {
     return '$' + PRECIOS[tipo].toLocaleString('es-AR');
+}
+
+function formatPreciosDual() {
+    const pSimple = '$' + PRECIOS.simple.toLocaleString('es-AR');
+    const pDoble = '$' + PRECIOS.doble.toLocaleString('es-AR');
+    return `<div class="dual-prices">
+        <div class="price-line"><span class="price-amount">${pSimple}</span><span class="price-label">Estampa frontal</span></div>
+        <div class="price-line"><span class="price-amount">${pDoble}</span><span class="price-label">Doble estampa</span></div>
+    </div>`;
 }
 
 function openPackWhatsapp(packName, packIncludes, packPrice) {
@@ -1268,7 +1280,7 @@ function renderFilteredProducts(filtered) {
                     ${
                         isDorsoIdea
                         ? `<span class="product-envio" style="color:var(--magic-green);border:1px solid rgba(57,255,20,.25);">Solo doble estampa</span>`
-                        : `<span class="product-price">${formatPrecio(p.tipoPrecio || 'simple')}</span><span class="product-envio">Envío gratis llevando 2+</span><div style="font-size:0.62rem;color:var(--text-muted);margin-top:2px;">1 unidad: consultar por envío</div>`
+                        : `${formatPreciosDual()}<div style="font-size:0.62rem;color:var(--text-muted);margin-top:4px;">Envío gratis 2+ · 1 unidad consultar</div>`
                     }
                 </div>
             </div>
