@@ -160,24 +160,45 @@
         "category": "Album",
         "year": "1994",
         "name": "Youthanasia",
-        "tipoPrecio": "simple",
+        "tipoPrecio": "doble",
+        "isNew": true,
         "img": "images/albums/Youthanasia/youthanasia.jpg",
         "variants": [
             {
                 "img": "images/albums/Youthanasia/youthanasia.jpg",
-                "name": "Youthanasia"
+                "name": "Youthanasia Frente"
+            },
+            {
+                "img": "images/albums/Youthanasia/dorso_youthanasia.jpg",
+                "name": "Youthanasia Dorso"
+            },
+            {
+                "img": "images/albums/Youthanasia/photo_band.jpg",
+                "name": "Photo Band Frente"
+            },
+            {
+                "img": "images/albums/Youthanasia/dorso_photo_band.jpg",
+                "name": "Photo Band Dorso"
             },
             {
                 "img": "images/albums/Youthanasia/vic_father.jpg",
-                "name": "Vic Father"
+                "name": "Vic Father Frente"
             },
             {
-                "img": "images/albums/Youthanasia/youthanasia_vic_street.jpg",
-                "name": "Youthanasia Vic Street"
+                "img": "images/albums/Youthanasia/dorso_vic_father.jpg",
+                "name": "Vic Father Dorso"
             },
             {
-                "img": "images/albums/Youthanasia/dorso_youth.jpg",
-                "name": "DORSO"
+                "img": "images/albums/Youthanasia/youth_alternative_art.jpg",
+                "name": "Alternative Art Frente"
+            },
+            {
+                "img": "images/albums/Youthanasia/dorso_youth_alternative_art.jpg",
+                "name": "Alternative Art Dorso"
+            },
+            {
+                "img": "images/albums/Youthanasia/train_of_consequences.jpg",
+                "name": "Train of Consequences"
             }
         ],
         "desc": "Heavy metal melódico y oscuro con una portada surrealista que denuncia el sacrificio del futuro de las nuevas generaciones."
@@ -690,6 +711,16 @@
         "tipoPrecio": "simple",
         "img": "images/musicians/Dave_Mustaine/warhead_red.jpg",
         "desc": "Diseño rojo warhead de Dave."
+    },
+    {
+        "id": 2818,
+        "category": "Dave Mustaine",
+        "year": "Live",
+        "name": "Dave and Vic Live",
+        "tipoPrecio": "simple",
+        "isNew": true,
+        "img": "images/musicians/Dave_Mustaine/dave_and_vic_live.jpg",
+        "desc": "Dave Mustaine junto a Vic Rattlehead en vivo."
     },
     {
         "id": 29,
@@ -2515,6 +2546,35 @@
             }
         ],
         "desc": "Vic Gaucho FMD - Diseño exclusivo de Vic Rattlehead estilo gaucho argentino con frente y dorso."
+    },
+    {
+        "id": 5050,
+        "category": "Vic Rattlehead",
+        "year": "Live",
+        "name": "Dave and Vic Live",
+        "tipoPrecio": "simple",
+        "img": "images/vic_rattlehead/dave_and_vic_live.jpg",
+        "desc": "Dave Mustaine junto a Vic Rattlehead en vivo."
+    },
+    {
+        "id": 5051,
+        "category": "Vic Rattlehead",
+        "year": "2025",
+        "name": "Vic Peace 25",
+        "tipoPrecio": "simple",
+        "isNew": true,
+        "img": "images/vic_rattlehead/vic_peace_25_black.jpg",
+        "variants": [
+            {
+                "img": "images/vic_rattlehead/vic_peace_25_black.jpg",
+                "name": "Black"
+            },
+            {
+                "img": "images/vic_rattlehead/vic_peace_25_white.jpg",
+                "name": "White"
+            }
+        ],
+        "desc": "Vic Rattlehead Peace Sells 25 aniversario en dos versiones: black y white."
     },
     {
         "id": 5040,
