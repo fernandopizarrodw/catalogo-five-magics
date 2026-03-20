@@ -65,6 +65,10 @@
             {
                 "img": "images/albums/Peace_sells/peace_sells_dorso.jpg",
                 "name": "Dorso"
+            },
+            {
+                "img": "images/albums/Peace_sells/peace_sells_but_whos_buying.jpg",
+                "name": "But Who's Buying"
             }
         ],
         "desc": "Icónica crítica sociopolítica plasmada en el sarcasmo de Vic Rattlehead frente a la ONU, envuelta en puro virtuosismo thrash."
@@ -98,19 +102,40 @@
         "year": "1990",
         "name": "Rust in Peace",
         "tipoPrecio": "doble",
+        "isNew": true,
         "img": "images/albums/Rust_in_peace/rust_in_peace.jpg",
         "variants": [
             {
                 "img": "images/albums/Rust_in_peace/rust_in_peace.jpg",
-                "name": "Original"
+                "name": "Rust in Peace"
+            },
+            {
+                "img": "images/albums/Rust_in_peace/rust_in_peace_dorso.jpg",
+                "name": "Rust in Peace - Dorso"
             },
             {
                 "img": "images/albums/Rust_in_peace/alternate-rip.jpg",
                 "name": "Alternate RIP"
             },
             {
-                "img": "images/albums/Rust_in_peace/rust_in_peace_dorso.jpg",
-                "name": "Doble Estampa - Dorso"
+                "img": "images/albums/Rust_in_peace/alternate-rip-dorso.jpg",
+                "name": "Alternate RIP - Dorso"
+            },
+            {
+                "img": "images/albums/Rust_in_peace/rust_in_peace_lineup.jpg",
+                "name": "Rust in Peace Lineup"
+            },
+            {
+                "img": "images/albums/Rust_in_peace/rust_in_peace_lineup-dorso.jpg",
+                "name": "Rust in Peace Lineup - Dorso"
+            },
+            {
+                "img": "images/albums/Rust_in_peace/rust_in_peace_v2.jpg",
+                "name": "Rust in Peace v2"
+            },
+            {
+                "img": "images/albums/Rust_in_peace/rust_in_peace_v2-dorso.jpg",
+                "name": "Rust in Peace v2 - Dorso"
             }
         ],
         "desc": "Obra maestra de precisión matemática y alienígenas en el Área 51 que elevó el thrash metal a la perfección técnica."
@@ -208,16 +233,45 @@
         "category": "Album",
         "year": "1997",
         "name": "Cryptic Writings",
-        "tipoPrecio": "simple",
-        "img": "images/albums/Cryptic_Writings/cryptic_writings_tapa.jpg",
+        "tipoPrecio": "doble",
+        "isNew": true,
+        "img": "images/albums/Cryptic_Writings/cryptic_writings_original.jpg",
         "variants": [
             {
-                "img": "images/albums/Cryptic_Writings/cryptic_writings_tapa.jpg",
-                "name": "Original"
+                "img": "images/albums/Cryptic_Writings/cryptic_writings_original.jpg",
+                "name": "Original (negro)"
             },
             {
-                "img": "images/albums/Cryptic_Writings/cryptic_writings_dorso.jpg",
-                "name": "Doble Estampa - Dorso"
+                "img": "images/albums/Cryptic_Writings/cryptic_writings_original_dorso.jpg",
+                "name": "Original (negro) - Dorso"
+            },
+            {
+                "img": "images/albums/Cryptic_Writings/cryptic_writings_original_white.jpg",
+                "name": "Original (blanco)"
+            },
+            {
+                "img": "images/albums/Cryptic_Writings/cryptic_writings_original_white_dorso.jpg",
+                "name": "Original (blanco) - Dorso"
+            },
+            {
+                "img": "images/albums/Cryptic_Writings/cryptic_writings_remastered.jpg",
+                "name": "Remastered (negro)"
+            },
+            {
+                "img": "images/albums/Cryptic_Writings/cryptic_writings_remastered_dorso.jpg",
+                "name": "Remastered (negro) - Dorso"
+            },
+            {
+                "img": "images/albums/Cryptic_Writings/cryptic_writings_remastered_white.jpg",
+                "name": "Remastered (blanco)"
+            },
+            {
+                "img": "images/albums/Cryptic_Writings/cryptic_writings_remastered_white_dorso.jpg",
+                "name": "Remastered (blanco) - Dorso"
+            },
+            {
+                "img": "images/albums/Cryptic_Writings/cryptic_writings_comic.jpg",
+                "name": "Comic"
             }
         ],
         "desc": "Melodía accesible y experimentación radial envueltas en un arte místico de simbología críptica y diseño minimalista."
@@ -548,7 +602,6 @@
         "name": "Dave 1992 V1",
         "tipoPrecio": "simple",
         "img": "images/musicians/Dave_Mustaine/dave_1992_v1.jpg",
-        "isNew": true,
         "desc": "Dave Mustaine en su época dorada de 1992."
     },
     {
@@ -568,7 +621,6 @@
                 "name": "Dorso"
             }
         ],
-        "isNew": true,
         "desc": "Dave en vivo durante la era Rust in Peace."
     },
     {
@@ -578,7 +630,6 @@
         "name": "Dave 92 Live",
         "tipoPrecio": "simple",
         "img": "images/musicians/Dave_Mustaine/dave_92_live.jpg",
-        "isNew": true,
         "desc": "Dave Mustaine en concierto 1992."
     },
     {
@@ -617,7 +668,6 @@
         "name": "Dave Double Neck Jackson",
         "tipoPrecio": "simple",
         "img": "images/musicians/Dave_Mustaine/dave_double_neck_jackson.jpg",
-        "isNew": true,
         "desc": "Dave con su legendaria Jackson de doble mástil."
     },
     {
@@ -718,7 +768,6 @@
         "year": "Live",
         "name": "Dave and Vic Live",
         "tipoPrecio": "simple",
-        "isNew": true,
         "img": "images/musicians/Dave_Mustaine/dave_and_vic_live.jpg",
         "desc": "Dave Mustaine junto a Vic Rattlehead en vivo."
     },
@@ -751,7 +800,6 @@
         "year": "Leyenda",
         "name": "Nick Menza",
         "tipoPrecio": "doble",
-        "isNew": true,
         "img": "images/musicians/Nick_Menza/nick_menza_rip_tour.jpg",
         "variants": [
             {
@@ -808,6 +856,10 @@
             {
                 "img": "images/musicians/formaciones/in_my_darkest_hour.jpg",
                 "name": "In My Darkest Hour"
+            },
+            {
+                "img": "images/musicians/formaciones/peace_sells_era.jpg",
+                "name": "Peace Sells Era"
             }
         ],
         "desc": "La banda completa de Megadeth en su formación 2026 y versión 90s."
@@ -2740,7 +2792,15 @@
                 "name": "Dorso"
             }
         ],
-        "isNew": true,
         "desc": "Hangar 18 - Single exclusivo de Megadeth con arte frente y dorso. Edición especial Five Magics Designs."
+    },
+    {
+        "id": 5054,
+        "category": "Vic Rattlehead",
+        "year": "2026",
+        "name": "Vic Black Friday",
+        "tipoPrecio": "simple",
+        "img": "images/vic_rattlehead/vic_black_friday.jpg",
+        "desc": "Vic Black Friday - Diseño exclusivo de Vic Rattlehead edición especial."
     }
 ]

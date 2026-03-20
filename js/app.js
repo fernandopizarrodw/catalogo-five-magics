@@ -553,14 +553,11 @@ function renderLatestReleases(limit = 6) {
             }
         });
 
-        // Ordenar los isNew por productId descendente, pero mantenerlos todos
-        const newProducts = displayCards.length;
+        // Ordenar los isNew por productId descendente y respetar el límite estricto
         displayCards.sort((a, b) => b.productId - a.productId);
 
-        // 3. Rellenar el resto de los espacios (hasta limit) con los últimos productos
-        // Solo rellenamos si hay espacio después de mostrar TODOS los isNew
-        const effectiveLimit = Math.max(limit, newProducts);
-        if (displayCards.length < effectiveLimit) {
+        // 3. Rellenar el resto de espacios hasta el límite con productos recientes
+        if (displayCards.length < limit) {
             const sortedProducts = [...db].sort((a,b)=> (b.id||0) - (a.id||0));
 
             for (const product of sortedProducts) {
@@ -580,18 +577,19 @@ function renderLatestReleases(limit = 6) {
                     });
                 }
 
-                if (displayCards.length >= effectiveLimit) break;
+                if (displayCards.length >= limit) break;
             }
         }
 
-        displayCards = displayCards.slice(0, effectiveLimit);
+        // Aplicar límite estricto de 6 cards máximo
+        displayCards = displayCards.slice(0, limit);
 
         // 3. Renderizar las tarjetas en el DOM
         latestGrid.innerHTML = displayCards.map(card => {
             const hasVariants = card.variants && card.variants.length > 1;
             const isDoble = card.tipoPrecio === 'doble';
             const isDorsoIdea = card.category === 'Dorsales';
-            const badgeText = isDoble ? '🔥 Doble estampa' : (hasVariants && !card.isNewVariant ? `${card.variants.length} diseños <span style='font-size:1.2em;margin-left:6px;'>➔</span>` : '');
+            const badgeText = (hasVariants && !card.isNewVariant) ? `${card.variants.length} diseños <span style='font-size:1.2em;margin-left:6px;'>➔</span>` : (isDoble ? '🔥 Doble estampa' : '');
             
             return `<div class="product-card" onclick="openModal(${card.productId}${card.isNewVariant ? ', ' + card.variantIndex : ''})">
                 ${badgeText ? `<span class="variants-badge">${badgeText}</span>` : ''}
@@ -1269,7 +1267,7 @@ function renderFilteredProducts(filtered) {
         const isDoble = p.tipoPrecio === 'doble';
         const showDorsoBadge = DORSO_CATEGORIES.has(p.category);
         const isDorsoIdea = p.category === 'Dorsales';
-        const badgeText = isDoble ? '🔥 Doble estampa' : (hasVariants ? `${p.variants.length} diseños <span style='font-size:1.2em;margin-left:6px;'>➔</span>` : '');
+        const badgeText = hasVariants ? `${p.variants.length} diseños <span style='font-size:1.2em;margin-left:6px;'>➔</span>` : (isDoble ? '🔥 Doble estampa' : '');
         return `<div class="product-card" onclick="openModal(${p.id})">
             ${badgeText ? `<span class="variants-badge">${badgeText}</span>` : ''}
             <img src="${p.img}" class="product-img" loading="lazy">
