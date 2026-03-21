@@ -1125,6 +1125,146 @@ header {
     margin: 0 auto;
 }
 
+/* === HOODIES FMD FEATURED SECTION === */
+.hoodies-featured-section {
+    padding: 16px;
+    max-width: 600px;
+    margin: 0 auto;
+    margin-top: 32px;
+}
+
+.hoodies-banner {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    border: 2px solid var(--rust);
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(232, 67, 46, 0.3);
+}
+
+.hoodies-banner::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(232, 67, 46, 0.1) 0%, transparent 50%);
+    animation: pulse-glow 3s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+    0%, 100% { opacity: 0.5; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.1); }
+}
+
+.hoodies-title {
+    font-family: var(--font-title);
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--rust);
+    margin-bottom: 8px;
+    position: relative;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.hoodies-subtitle {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+    position: relative;
+}
+
+.hoodies-prices {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    position: relative;
+}
+
+.hoodies-prices .price-tag {
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid var(--border-metal);
+    border-radius: 8px;
+    padding: 8px 14px;
+    font-size: 0.8rem;
+    color: var(--text);
+}
+
+.hoodies-prices .price-tag strong {
+    color: var(--price);
+    font-size: 1rem;
+}
+
+.hoodies-prices .price-tag.combo {
+    background: linear-gradient(135deg, rgba(232, 67, 46, 0.2), rgba(255, 90, 66, 0.1));
+    border-color: var(--rust);
+    flex-basis: 100%;
+}
+
+.hoodies-prices .price-tag.combo small {
+    display: block;
+    color: var(--magic-green);
+    font-size: 0.7rem;
+    margin-top: 4px;
+}
+
+/* Hoodie card styling */
+.hoodie-card {
+    border: 1px solid rgba(232, 67, 46, 0.3) !important;
+}
+
+.hoodie-card:hover {
+    border-color: var(--rust) !important;
+    box-shadow: 0 12px 32px rgba(232, 67, 46, 0.25) !important;
+}
+
+.hoodie-badge {
+    background: linear-gradient(135deg, #1a1a2e, #16213e) !important;
+    border: 1px solid var(--rust) !important;
+}
+
+.hoodie-price {
+    color: var(--price) !important;
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+/* Nav group featured (hoodies) */
+.nav-group-featured {
+    background: linear-gradient(135deg, rgba(232, 67, 46, 0.1), rgba(26, 26, 46, 0.5));
+    border: 1px solid rgba(232, 67, 46, 0.3);
+    border-radius: 12px;
+    padding: 12px !important;
+    margin: 8px 0;
+}
+
+.nav-group-featured .nav-group-title {
+    color: var(--rust) !important;
+}
+
+.cat-btn-hoodie {
+    background: linear-gradient(135deg, var(--rust), #ff5a42) !important;
+    border: none !important;
+    color: white !important;
+    font-weight: 600 !important;
+}
+
+.cat-btn-hoodie:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 16px rgba(232, 67, 46, 0.4);
+}
+
+.cat-btn-hoodie .badge {
+    background: rgba(0,0,0,0.3) !important;
+    color: white !important;
+}
+
 .section-title {
     font-family: var(--font-title);
     font-size: 1.2rem;
@@ -2403,6 +2543,23 @@ footer p {
     .products-grid.gallery-view {
         grid-template-columns: repeat(2, 1fr);
     }
+
+    /* Hoodies responsive */
+    .hoodies-featured-section {
+        max-width: 900px;
+    }
+    
+    .hoodies-title {
+        font-size: 1.8rem;
+    }
+    
+    .hoodies-prices {
+        gap: 16px;
+    }
+    
+    .hoodies-prices .price-tag.combo {
+        flex-basis: auto;
+    }
 }
 
 @media (min-width: 768px) {
@@ -2523,6 +2680,7 @@ footer p {
     .header-content,
     .products-section,
     .latest-section,
+    .hoodies-featured-section,
     .featured-bands,
     .search-container,
     .catalog-toolbar,
@@ -2782,6 +2940,17 @@ footer p {
     background: var(--rust);
     border-color: var(--rust);
     color: white;
+}
+
+.tab-btn-hoodie {
+    background: linear-gradient(135deg, #1a1a2e, #16213e) !important;
+    border: 1px solid var(--rust) !important;
+    color: var(--rust) !important;
+}
+
+.tab-btn-hoodie.active {
+    background: linear-gradient(135deg, var(--rust), #ff5a42) !important;
+    color: white !important;
 }
 
 .tab-content {

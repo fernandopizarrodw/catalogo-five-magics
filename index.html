@@ -374,6 +374,20 @@
         <div class="products-grid" id="latestGrid"></div>
     </section>
 
+    <!-- NUEVA LÍNEA: HOODIES FMD -->
+    <section class="hoodies-featured-section" id="hoodiesFeatured">
+        <div class="hoodies-banner">
+            <h2 class="hoodies-title">🔥 NUEVA LÍNEA: HOODIES FMD 2026</h2>
+            <p class="hoodies-subtitle">Canguro oversize unisex · Algodón frizado · Estampa DTG</p>
+            <div class="hoodies-prices">
+                <span class="price-tag">Simple: <strong>$52.000</strong></span>
+                <span class="price-tag">Doble estampa: <strong>$59.000</strong></span>
+                <span class="price-tag combo">🎁 COMBO Hoodie + Remera: <strong>$79.000</strong> <small>(envío gratis)</small></span>
+            </div>
+        </div>
+        <div class="products-grid" id="hoodiesGrid"></div>
+    </section>
+
     <!-- Navegación categorías agrupada -->
     <nav class="category-nav" id="categoryNav">
         <div class="nav-group">
@@ -402,6 +416,16 @@
                 <button class="cat-btn" data-cat="AC/DC" data-count="14">
                     <span class="btn-text">AC/DC</span>
                     <span class="badge">14</span>
+                </button>
+            </div>
+        </div>
+
+        <div class="nav-group nav-group-featured">
+            <h3 class="nav-group-title">🔥 NUEVA LÍNEA</h3>
+            <div class="nav-group-buttons">
+                <button class="cat-btn cat-btn-hoodie" data-cat="Hoodies FMD" data-count="10">
+                    <span class="btn-text">HOODIES FMD</span>
+                    <span class="badge">10</span>
                 </button>
             </div>
         </div>
@@ -471,8 +495,9 @@
             <div class="filter-dropdown" id="filterDropdown">
                 <h3>Buscar por banda</h3>
                 <div class="filter-pills">
-                    <button class="filter-pill" data-filter="all">Todo (109)</button>
+                    <button class="filter-pill" data-filter="all">Todo (119)</button>
                     <button class="filter-pill" data-filter="Album">Megadeth (17)</button>
+                    <button class="filter-pill" data-filter="Hoodies FMD">Hoodies FMD (10)</button>
                     <button class="filter-pill" data-filter="Dave Mustaine">Dave Mustaine (1)</button>
                     <button class="filter-pill" data-filter="Pantera">Pantera (19)</button>
                     <button class="filter-pill" data-filter="Iron Maiden">Iron Maiden (5)</button>
@@ -587,6 +612,7 @@
                 <button class="tab-btn" data-tab="mujer">Mujer</button>
                 <button class="tab-btn" data-tab="oversize">Oversize</button>
                 <button class="tab-btn" data-tab="ninos">Niños</button>
+                <button class="tab-btn tab-btn-hoodie" data-tab="hoodies">🧥 Hoodies</button>
             </div>
 
             <div class="tab-content active" id="tab-hombre">
@@ -667,6 +693,31 @@
                         <tr><td>16</td><td>50</td><td>66</td></tr>
                     </tbody>
                 </table>
+            </div>
+
+            <div class="tab-content" id="tab-hoodies">
+                <div style="background:linear-gradient(135deg,#1a1a2e,#16213e);border:1px solid var(--rust);border-radius:8px;padding:12px;text-align:center;margin-bottom:16px;">
+                    <span style="color:var(--rust);font-weight:600;">🧥 BUZO CANGURO OVERSIZE (UNISEX)</span>
+                    <div style="font-size:0.75rem;color:#888;margin-top:4px;">Algodón frizado · Estampa DTG · Negro y Blanco</div>
+                </div>
+                <table class="size-table">
+                    <thead>
+                        <tr>
+                            <th>Talle</th>
+                            <th>Pecho</th>
+                            <th>Largo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>XS</td><td>64</td><td>67</td></tr>
+                        <tr><td>S</td><td>66</td><td>69</td></tr>
+                        <tr><td>M</td><td>68</td><td>71</td></tr>
+                        <tr><td>L</td><td>70</td><td>73</td></tr>
+                        <tr><td>XL</td><td>72</td><td>75</td></tr>
+                        <tr><td>2XL</td><td>74</td><td>77</td></tr>
+                    </tbody>
+                </table>
+                <p style="font-size:0.75rem;color:var(--text-muted);margin-top:12px;text-align:center;">* Medidas en cm. Pueden variar ±5%</p>
             </div>
         </div>
     </section>
@@ -852,8 +903,14 @@
 
                     <!-- Selectores de personalización -->
                     <div class="product-options" style="display:flex;flex-direction:column;gap:14px;margin-bottom:16px;padding:16px;background:#111;border:1px solid #222;border-radius:10px;">
+                        <!-- Info especial Hoodies (oculto por defecto) -->
+                        <div id="hoodieInfoBanner" style="display:none;background:linear-gradient(135deg,#1a1a2e,#16213e);border:1px solid var(--rust);border-radius:8px;padding:12px;text-align:center;">
+                            <span style="color:var(--rust);font-weight:600;">🧥 HOODIE CANGURO OVERSIZE</span>
+                            <div style="font-size:0.75rem;color:#888;margin-top:4px;">Algodón frizado · Estampa DTG · Unisex</div>
+                        </div>
+                        
                         <!-- Selector Adulto/Chico -->
-                        <div class="option-group" style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+                        <div class="option-group" id="ageGroup" style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
                             <span class="option-label" style="font-size:0.8rem;color:#888;font-weight:500;min-width:50px;">Edad:</span>
                             <div class="option-buttons" id="ageSelector" style="display:flex;gap:6px;flex-wrap:wrap;">
                                 <button type="button" class="option-btn active" data-age="adulto" onclick="selectAge('adulto')" style="background:#e8432e;border:1px solid #e8432e;color:#fff;padding:6px 12px;border-radius:5px;font-size:0.8rem;font-weight:500;cursor:pointer;">Adulto</button>

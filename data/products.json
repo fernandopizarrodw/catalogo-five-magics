@@ -2802,5 +2802,95 @@
         "tipoPrecio": "simple",
         "img": "images/vic_rattlehead/vic_black_friday.jpg",
         "desc": "Vic Black Friday - Diseño exclusivo de Vic Rattlehead edición especial."
+    },
+    {
+        "id": 5055,
+        "category": "Hoodies FMD",
+        "year": "2026",
+        "name": "Hoodie Countdown",
+        "tipoPrecio": "doble",
+        "img": "images/hoddies_fmd/countdown.jpg",
+        "desc": "Hoodie canguro oversize unisex. Algodón frizado, estampa DTG. Diseño Countdown to Extinction frente y dorso. Producción a pedido 4-7 días."
+    },
+    {
+        "id": 5056,
+        "category": "Hoodies FMD",
+        "year": "2026",
+        "name": "Hoodie Dave SFSGSW Era",
+        "tipoPrecio": "doble",
+        "img": "images/hoddies_fmd/dave_sfsgsw_era.jpg",
+        "desc": "Hoodie canguro oversize unisex. Algodón frizado, estampa DTG. Dave Mustaine era SFSGSW frente y dorso. Producción a pedido 4-7 días."
+    },
+    {
+        "id": 5057,
+        "category": "Hoodies FMD",
+        "year": "2026",
+        "name": "Hoodie Killing Original",
+        "tipoPrecio": "doble",
+        "img": "images/hoddies_fmd/killing_original.jpg",
+        "desc": "Hoodie canguro oversize unisex. Algodón frizado, estampa DTG. Killing Is My Business original frente y dorso. Producción a pedido 4-7 días."
+    },
+    {
+        "id": 5058,
+        "category": "Hoodies FMD",
+        "year": "2026",
+        "name": "Hoodie Killing Remaster",
+        "tipoPrecio": "doble",
+        "img": "images/hoddies_fmd/killing_remaster.jpg",
+        "desc": "Hoodie canguro oversize unisex. Algodón frizado, estampa DTG. Killing Is My Business remaster frente y dorso. Producción a pedido 4-7 días."
+    },
+    {
+        "id": 5059,
+        "category": "Hoodies FMD",
+        "year": "2026",
+        "name": "Hoodie Megadeth Final",
+        "tipoPrecio": "doble",
+        "img": "images/hoddies_fmd/megadeth_final_black.jpg",
+        "desc": "Hoodie canguro oversize unisex NEGRO. Algodón frizado, estampa DTG. Diseño Megadeth Final frente y dorso. Producción a pedido 4-7 días."
+    },
+    {
+        "id": 5060,
+        "category": "Hoodies FMD",
+        "year": "2026",
+        "name": "Hoodie Megadeth Blanco",
+        "tipoPrecio": "doble",
+        "img": "images/hoddies_fmd/megadeth_final_white.jpg",
+        "desc": "Hoodie canguro oversize unisex BLANCO exclusivo. Algodón frizado, estampa DTG. Diseño Megadeth Final frente y dorso. Producción a pedido 4-7 días."
+    },
+    {
+        "id": 5061,
+        "category": "Hoodies FMD",
+        "year": "2026",
+        "name": "Hoodie Peace Sells",
+        "tipoPrecio": "doble",
+        "img": "images/hoddies_fmd/peace_sells.jpg",
+        "desc": "Hoodie canguro oversize unisex. Algodón frizado, estampa DTG. Peace Sells frente y dorso. Producción a pedido 4-7 días."
+    },
+    {
+        "id": 5062,
+        "category": "Hoodies FMD",
+        "year": "2026",
+        "name": "Hoodie Rust in Peace",
+        "tipoPrecio": "doble",
+        "img": "images/hoddies_fmd/rust_in_peace.jpg",
+        "desc": "Hoodie canguro oversize unisex. Algodón frizado, estampa DTG. Rust in Peace frente y dorso. Producción a pedido 4-7 días."
+    },
+    {
+        "id": 5063,
+        "category": "Hoodies FMD",
+        "year": "2026",
+        "name": "Hoodie Vic Father",
+        "tipoPrecio": "doble",
+        "img": "images/hoddies_fmd/vic_father_original.jpg",
+        "desc": "Hoodie canguro oversize unisex. Algodón frizado, estampa DTG. Vic Rattlehead Father frente y dorso. Producción a pedido 4-7 días."
+    },
+    {
+        "id": 5064,
+        "category": "Hoodies FMD",
+        "year": "2026",
+        "name": "Hoodie Youthanasia",
+        "tipoPrecio": "doble",
+        "img": "images/hoddies_fmd/youthanasia.jpg",
+        "desc": "Hoodie canguro oversize unisex. Algodón frizado, estampa DTG. Youthanasia frente y dorso. Producción a pedido 4-7 días."
     }
 ]

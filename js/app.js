@@ -9,12 +9,17 @@ const PRECIOS_CHICOS = {
     simple: 32000,
     doble: 35000
 };
+const PRECIOS_HOODIES = {
+    simple: 52000,
+    doble: 59000
+};
+const COMBO_HOODIE_REMERA = 79000; // Incluye envío gratis
 const PRECIOS_ENVIO = {
     una_unidad: 5000,
     dos_plus: 0,
     tres_plus: { descuento: 0.10, envio: 0 }
 };
-const FECHA_VIGENCIA = "Enero 2026";
+const FECHA_VIGENCIA = "Marzo 2026";
 const WHATSAPP = "541169667685";
 
 let db = [];
@@ -267,10 +272,21 @@ function selectColor(color) {
     });
 }
 
-// Actualizar precios según selección adulto/chico
+// Actualizar precios según selección adulto/chico y tipo de producto
 function updateModalPrices() {
     if (!currentProduct) return;
-    const precios = selectedAge === 'chico' ? PRECIOS_CHICOS : PRECIOS;
+    
+    // Detectar si es hoodie
+    const isHoodie = currentProduct.category === 'Hoodies FMD';
+    
+    // Seleccionar tabla de precios según tipo de producto y edad
+    let precios;
+    if (isHoodie) {
+        precios = PRECIOS_HOODIES;
+    } else {
+        precios = selectedAge === 'chico' ? PRECIOS_CHICOS : PRECIOS;
+    }
+    
     const tipo = currentProduct.tipoPrecio || 'simple';
     const precio = precios[tipo] || precios.simple;
     document.getElementById('modalPrice').textContent = '$' + precio.toLocaleString('es-AR');
@@ -281,6 +297,16 @@ function updateModalPrices() {
     const elDoble = document.getElementById('modalPrecioDoble');
     if(elSimple) elSimple.textContent = pSimple;
     if(elDoble) elDoble.textContent = pDoble;
+    
+    // Actualizar nota de precio para hoodies
+    const priceNote = document.querySelector('.modal-price-note');
+    if (priceNote) {
+        if (isHoodie) {
+            priceNote.innerHTML = '🎁 COMBO Hoodie + Remera: <strong style="color:var(--price);">$79.000</strong> (envío gratis)';
+        } else {
+            priceNote.textContent = '2+ remeras → envío gratis · 1 unidad → envío según zona';
+        }
+    }
 }
 
 // === SISTEMA DE CARRITO ===
@@ -618,6 +644,7 @@ async function loadProducts() {
         db = await response.json();
         updateCountsUI();
         renderLatestReleases(6);
+        renderHoodiesGrid(); // Hoodies destacados
         renderHeroOrbit(4); // Poblar órbita del hero con 4 cards 3D
         filterProducts(); // Renderizar después de cargar
     } catch (error) {
@@ -625,6 +652,39 @@ async function loadProducts() {
         // Fallback para desarrollo local
         db = [];
     }
+}
+
+// Renderizar sección destacada de Hoodies FMD
+function renderHoodiesGrid() {
+    try {
+        const hoodiesGrid = document.getElementById('hoodiesGrid');
+        if (!hoodiesGrid || !Array.isArray(db) || !db.length) return;
+        
+        // Filtrar solo productos de la categoría "Hoodies FMD"
+        const hoodies = db.filter(p => p.category === 'Hoodies FMD');
+        
+        if (hoodies.length === 0) {
+            document.getElementById('hoodiesFeatured').style.display = 'none';
+            return;
+        }
+        
+        hoodiesGrid.innerHTML = hoodies.map(product => {
+            const isDoble = product.tipoPrecio === 'doble';
+            const precio = isDoble ? PRECIOS_HOODIES.doble : PRECIOS_HOODIES.simple;
+            
+            return `<div class="product-card hoodie-card" onclick="openModal(${product.id})">
+                <span class="variants-badge hoodie-badge">🧥 HOODIE</span>
+                <img src="${product.img}" class="product-img" loading="lazy">
+                <div class="product-info">
+                    <div class="product-name">${product.name}</div>
+                    <div class="product-meta">${product.year} · ${isDoble ? 'Doble estampa' : 'Simple'}</div>
+                    <div class="product-price-row">
+                        <span class="product-price hoodie-price">$${precio.toLocaleString('es-AR')}</span>
+                    </div>
+                </div>
+            </div>`;
+        }).join('');
+    } catch(e) { console.warn('renderHoodiesGrid error', e); }
 }
 
 // Renderizar órbita del hero con últimos lanzamientos
@@ -1040,6 +1100,38 @@ function openModal(id, variantIndex = undefined) {
         btn.classList.toggle('active', isActive);
         btn.style.cssText = isActive ? activeColorStyle : inactiveColorStyle;
     });
+    
+    // === LÓGICA ESPECIAL PARA HOODIES ===
+    const isHoodie = currentProduct.category === 'Hoodies FMD';
+    const hoodieInfoBanner = document.getElementById('hoodieInfoBanner');
+    const ageGroup = document.getElementById('ageGroup');
+    const cutGroup = document.getElementById('cutGroup');
+    
+    if (isHoodie) {
+        // Mostrar banner de hoodie
+        if (hoodieInfoBanner) hoodieInfoBanner.style.display = 'block';
+        
+        // Ocultar selector de edad (solo adultos para hoodies)
+        if (ageGroup) ageGroup.style.display = 'none';
+        
+        // Ocultar selector de corte (solo oversize para hoodies)
+        if (cutGroup) cutGroup.style.display = 'none';
+        
+        // Forzar oversize como corte seleccionado
+        selectedCut = 'oversize';
+        selectedAge = 'adulto';
+        
+        // Mostrar talles oversize (XXS, XS) para hoodies
+        document.querySelectorAll('#sizeSelector .size-oversize').forEach(btn => {
+            btn.style.display = '';
+            btn.style.cssText = inactiveStyle;
+        });
+    } else {
+        // Restaurar comportamiento normal para remeras
+        if (hoodieInfoBanner) hoodieInfoBanner.style.display = 'none';
+        if (ageGroup) ageGroup.style.display = 'flex';
+        if (cutGroup) cutGroup.style.display = 'flex';
+    }
     
     updateModalInfo();
     
