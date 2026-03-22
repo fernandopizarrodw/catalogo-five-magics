@@ -2892,5 +2892,23 @@
         "tipoPrecio": "doble",
         "img": "images/hoddies_fmd/youthanasia.jpg",
         "desc": "Hoodie canguro oversize unisex. Algodón frizado, estampa DTG. Youthanasia frente y dorso. Producción a pedido 4-7 días."
+    },
+    {
+        "id": 5065,
+        "category": "Hoodies FMD",
+        "year": "2026",
+        "name": "Hoodie Cryptic Writings",
+        "tipoPrecio": "doble",
+        "img": "images/hoddies_fmd/cryptic.jpg",
+        "desc": "Hoodie canguro oversize unisex. Algodón frizado, estampa DTG. Cryptic Writings frente y dorso. Producción a pedido 4-7 días."
+    },
+    {
+        "id": 5066,
+        "category": "Hoodies FMD",
+        "year": "2026",
+        "name": "Hoodie Dystopia",
+        "tipoPrecio": "doble",
+        "img": "images/hoddies_fmd/dystopia.jpg",
+        "desc": "Hoodie canguro oversize unisex. Algodón frizado, estampa DTG. Dystopia frente y dorso. Producción a pedido 4-7 días."
     }
 ]
