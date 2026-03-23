@@ -1,0 +1,63 @@
+[
+  {
+    "id": 1,
+    "category": "Album",
+    "year": "1985",
+    "name": "Killing Is My Business",
+    "tipoPrecio": "simple",
+    "img": "images/albums/Killing_Is_my_bussines/kimb_1985_original_.jpg",
+    "variants": [
+      { "img": "images/albums/Killing_Is_my_bussines/kimb_1985_original_.jpg", "name": "KIMB_1985_ORIGINAL" },
+      { "img": "images/albums/Killing_Is_my_bussines/kimb_2012.jpg", "name": "KIMB 2012" },
+      { "img": "images/albums/Killing_Is_my_bussines/kimb_art_2012.jpg", "name": "KIMB_ART_2012" },
+      { "img": "images/albums/Killing_Is_my_bussines/kimb_gris_rojo.jpg", "name": "KIMB_GRIS_ROJO" },
+      { "img": "images/albums/Killing_Is_my_bussines/kimb_realistic_1985.jpg", "name": "KIMB_REALISTIC_1985" },
+      { "img": "images/albums/Killing_Is_my_bussines/kimb_realistic_2012.jpg", "name": "KIMB_REALISTIC_2012" },
+      { "img": "images/albums/Killing_Is_my_bussines/kimb_retro.jpg", "name": "KIMB_RETRO" },
+      { "img": "images/albums/Killing_Is_my_bussines/dorso_kimb.jpg", "name": "DORSO" }
+    ],
+    "desc": "Es el debut crudo y frenético de 1985 que definió el thrash metal técnico mediante la velocidad extrema y la sed de venganza de Dave Mustaine en 7 diseños.",
+    "garment": "remera",
+    "isHoodieAvailable": true,
+    "isNew": false,
+    "isComboEligible": true,
+    "code": "KIMB-001.V1"
+  },
+  {
+    "id": 4,
+    "category": "Album",
+    "year": "1990",
+    "name": "Rust in Peace",
+    "tipoPrecio": "doble",
+    "isNew": true,
+    "img": "images/albums/Rust_in_peace/rust_in_peace.jpg",
+    "variants": [
+      { "img": "images/albums/Rust_in_peace/rust_in_peace.jpg", "name": "Rust in Peace" },
+      { "img": "images/albums/Rust_in_peace/rust_in_peace_dorso.jpg", "name": "Rust in Peace - Dorso" }
+    ],
+    "desc": "Obra maestra de precisión matemática y alienígenas en el Área 51. Disponible en hoodie doble estampa frente + dorso.",
+    "garment": "remera",
+    "isHoodieAvailable": true,
+    "collection": "Megadeth Final Argentina 30-04",
+    "isComboEligible": true,
+    "code": "RIP-004.V1"
+  },
+  {
+    "id": 101,
+    "category": "Hoodies FMD",
+    "year": "2026",
+    "name": "Hoodie Rust in Peace",
+    "tipoPrecio": "doble",
+    "isNew": false,
+    "img": "images/hoddies_fmd/rip_hoodie.jpg",
+    "variants": [
+      { "img": "images/hoddies_fmd/rip_hoodie.jpg", "name": "Hoodie Rust in Peace" }
+    ],
+    "desc": "Hoodie premium con estampa doble frente + dorso. Edición especial para el show final.",
+    "garment": "hoodie",
+    "isHoodieAvailable": false,
+    "collection": "Megadeth Final Argentina 30-04",
+    "isComboEligible": true,
+    "code": "HRIP-101"
+  }
+]

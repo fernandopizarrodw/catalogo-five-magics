@@ -1,0 +1,39 @@
+[
+  {
+    "id": 4,
+    "category": "Album",
+    "year": "1990",
+    "name": "Rust in Peace",
+    "tipoPrecio": "doble",
+    "isNew": true,
+    "img": "images/albums/Rust_in_peace/rust_in_peace.jpg",
+    "variants": [
+      { "img": "images/albums/Rust_in_peace/rust_in_peace.jpg", "name": "Rust in Peace" },
+      { "img": "images/albums/Rust_in_peace/rust_in_peace_dorso.jpg", "name": "Rust in Peace - Dorso" }
+    ],
+    "desc": "Obra maestra de precisión matemática y alienígenas en el Área 51. Disponible en hoodie doble estampa frente + dorso.",
+    "garment": "remera",
+    "isHoodieAvailable": true,
+    "collection": "Megadeth Final Argentina 30-04",
+    "isComboEligible": true,
+    "code": "RIP-004.V1"
+  },
+  {
+    "id": 101,
+    "category": "Hoodies FMD",
+    "year": "2026",
+    "name": "Hoodie Rust in Peace",
+    "tipoPrecio": "doble",
+    "isNew": false,
+    "img": "images/hoddies_fmd/rip_hoodie.jpg",
+    "variants": [
+      { "img": "images/hoddies_fmd/rip_hoodie.jpg", "name": "Hoodie Rust in Peace" }
+    ],
+    "desc": "Hoodie premium con estampa doble frente + dorso. Edición especial para el show final.",
+    "garment": "hoodie",
+    "isHoodieAvailable": false,
+    "collection": "Megadeth Final Argentina 30-04",
+    "isComboEligible": true,
+    "code": "HRIP-101"
+  }
+]

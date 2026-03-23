@@ -304,7 +304,7 @@ function updateModalPrices() {
         if (isHoodie) {
             priceNote.innerHTML = '🎁 COMBO Hoodie + Remera: <strong style="color:var(--price);">$79.000</strong> (envío gratis)';
         } else {
-            priceNote.textContent = '2+ remeras → envío gratis · 1 unidad → envío según zona';
+            priceNote.textContent = '2+ prendas → envío gratis · 1 unidad → envío según zona';
         }
     }
 }
@@ -359,7 +359,13 @@ class CartSystem {
         const product = db.find(p => p.id === productId);
         if (!product) return false;
 
-        const code = this.generateCode(productId, variantIndex, isDouble);
+        // Forzar doble estampa en todos los hoodies
+        let forceDouble = isDouble;
+        if (product.category === 'Hoodies FMD') {
+            forceDouble = true;
+        }
+
+        const code = this.generateCode(productId, variantIndex, forceDouble);
         const variantName = product.variants && product.variants[variantIndex] 
             ? product.variants[variantIndex].name 
             : product.name;
@@ -368,9 +374,10 @@ class CartSystem {
             id: productId,
             code: code,
             productName: product.name,
+            category: product.category,
             variantIndex: variantIndex,
             variantName: variantName,
-            isDouble: isDouble,
+            isDouble: forceDouble,
             age: options.age || 'adulto',
             size: options.size || '',
             cut: options.cut || 'clasica',
@@ -422,19 +429,60 @@ class CartSystem {
     generateSummary() {
         if (this.cart.length === 0) return 'Carrito vacío';
         
-        const codes = this.cart.map(item => item.code).join(', ');
-        const details = this.cart.map((item, idx) => {
-            const variant = item.variantName ? ` - ${item.variantName}` : '';
+        // Códigos en lista vertical
+        const codes = this.cart.map(item => `[${item.code}]`).join('\n');
+
+
+        // Ordenar productos: adulto primero, luego niño; dentro de adulto, hoodie/remera
+        const sortOrder = item => {
+            // 0: adulto hoodie, 1: adulto remera, 2: niño
+            if (item.age === 'chico') return 2;
+            if (item.category === 'Hoodies FMD') return 0;
+            return 1;
+        };
+        const sortedCart = [...this.cart].sort((a, b) => sortOrder(a) - sortOrder(b));
+
+        // Detalles de cada producto (ajustes de lenguaje y talle)
+        const details = sortedCart.map(item => {
+            const isHoodie = item.category === 'Hoodies FMD';
             const doble = item.isDouble ? ' (Doble estampa)' : '';
             const edad = item.age === 'chico' ? 'Niño' : 'Adulto';
-            const talle = item.size ? `Talle ${item.size}` : 'Talle a confirmar';
-            // Niños siempre es Unisex, adultos puede ser Clásica u Oversize
-            const corte = item.age === 'chico' ? 'Unisex' : (item.cut === 'oversize' ? 'Oversize' : 'Clásica');
+            let talle;
+            if (!item.size) {
+                talle = 'Talle a confirmar con asesoramiento FMD';
+            } else {
+                talle = `Talle ${item.size}`;
+            }
             const color = item.color === 'blanco' ? 'Blanca' : 'Negra';
-            return `${idx + 1}. [${item.code}] ${item.productName}${variant}${doble}\n   → ${edad} | ${talle} | ${corte} | ${color}`;
+            let tipoPrenda;
+            if (isHoodie) {
+                tipoPrenda = 'Hoodie oversize unisex';
+            } else if (item.cut === 'oversize') {
+                tipoPrenda = 'Remera oversize unisex';
+            } else {
+                tipoPrenda = 'Remera clásica';
+            }
+            return `${item.productName}${doble}\n${edad} | ${talle} | ${tipoPrenda} | ${color}`;
         }).join('\n\n');
-        
-        return `CÓDIGOS: ${codes}\n\nDETALLES:\n${details}\n\nTotal: ${this.cart.length} remera${this.cart.length !== 1 ? 's' : ''}`;
+
+        const total = this.cart.length;
+        const tipoConteo = total === 1 ? 'prenda' : 'prendas';
+
+        // Formato limpio para WhatsApp
+        let envioMsg = '';
+        if (total === 1) {
+            envioMsg = '\n\n*Envío a calcular según CP*';
+        }
+
+        // Detectar combos hoodie+remera (promo)
+        const tieneHoodie = sortedCart.some(i => i.category === 'Hoodies FMD');
+        const tieneRemera = sortedCart.some(i => i.category !== 'Hoodies FMD');
+        let promoMsg = '';
+        if (tieneHoodie && tieneRemera) {
+            promoMsg = '\n\n> Este pedido incluye productos combinables en promo vigente.';
+        }
+
+        return `CÓDIGOS:\n${codes}\n\nDETALLE DEL PEDIDO:\n\n${details}\n\nTotal de ${tipoConteo}: ${total}${envioMsg}${promoMsg}`;
     }
 
     // Actualizar UI del carrito
@@ -488,7 +536,7 @@ class CartSystem {
                 <div class="cart-item-info">
                     <div class="cart-item-code">${item.code}</div>
                     <div class="cart-item-name">${item.productName}</div>
-                    ${item.variantName ? `<div class="cart-item-variant">${item.variantName}</div>` : ''}
+                    ${item.variantName && item.variantName !== item.productName ? `<div class="cart-item-variant">${item.variantName}</div>` : ''}
                     ${item.isDouble ? '<div class="cart-item-double">Doble estampa</div>' : ''}
                     <div class="cart-item-options">${edad} · T${talle} · ${corte} · ${color}</div>
                 </div>
@@ -616,12 +664,25 @@ function renderLatestReleases(limit = 6) {
             const isDoble = card.tipoPrecio === 'doble';
             const isDorsoIdea = card.category === 'Dorsales';
             const badgeText = (hasVariants && !card.isNewVariant) ? `${card.variants.length} diseños <span style='font-size:1.2em;margin-left:6px;'>➔</span>` : (isDoble ? '🔥 Doble estampa' : '');
-            
+            // NUEVO badge
+            const isNew = card.isNewVariant || card.isNew;
+            const newBadge = isNew ? `<span class="pack-badge" style="background:var(--magic-green);color:#000;">🆕 NUEVO</span>` : '';
+            // COMBO badge
+            const comboBadge = card.isComboEligible ? `<span class="pack-badge" style="background:var(--magic-orange);color:#000;">COMBO</span>` : '';
+            // Código
+            const code = card.code ? card.code : '';
+            // Badges arriba de la imagen
+            let badges = '';
+            if (badgeText) badges += `<span class="variants-badge">${badgeText}</span>`;
+            if (newBadge) badges += newBadge;
+            if (comboBadge) badges += comboBadge;
+
             return `<div class="product-card" onclick="openModal(${card.productId}${card.isNewVariant ? ', ' + card.variantIndex : ''})">
-                ${badgeText ? `<span class="variants-badge">${badgeText}</span>` : ''}
+                <div class="product-badges">${badges}</div>
                 <img src="${card.img}" class="product-img" loading="lazy">
                 <div class="product-info">
                     <div class="product-name">${card.title}</div>
+                    ${code ? `<div class="product-code" style="font-size:0.85em;color:var(--magic-orange);font-weight:600;letter-spacing:1px;">${code}</div>` : ''}
                     <div class="product-meta">${card.year} · ${card.category}</div>
                     <div class="product-price-row">
                         ${
@@ -1361,14 +1422,27 @@ function renderFilteredProducts(filtered) {
     productsGrid.innerHTML = filtered.map(p => {
         const hasVariants = p.variants && p.variants.length > 1;
         const isDoble = p.tipoPrecio === 'doble';
-        const showDorsoBadge = DORSO_CATEGORIES.has(p.category);
         const isDorsoIdea = p.category === 'Dorsales';
         const badgeText = hasVariants ? `${p.variants.length} diseños <span style='font-size:1.2em;margin-left:6px;'>➔</span>` : (isDoble ? '🔥 Doble estampa' : '');
+        // NUEVO badge
+        const isNew = p.isNew;
+        const newBadge = isNew ? `<span class="pack-badge" style="background:var(--magic-green);color:#000;">🆕 NUEVO</span>` : '';
+        // COMBO badge
+        const comboBadge = p.isComboEligible ? `<span class="pack-badge" style="background:var(--magic-orange);color:#000;">COMBO</span>` : '';
+        // Código
+        const code = p.code ? p.code : '';
+        // Badges arriba de la imagen
+        let badges = '';
+        if (badgeText) badges += `<span class="variants-badge">${badgeText}</span>`;
+        if (newBadge) badges += newBadge;
+        if (comboBadge) badges += comboBadge;
+
         return `<div class="product-card" onclick="openModal(${p.id})">
-            ${badgeText ? `<span class="variants-badge">${badgeText}</span>` : ''}
+            <div class="product-badges">${badges}</div>
             <img src="${p.img}" class="product-img" loading="lazy">
             <div class="product-info">
                 <div class="product-name">${p.name}</div>
+                ${code ? `<div class="product-code" style="font-size:0.85em;color:var(--magic-orange);font-weight:600;letter-spacing:1px;">${code}</div>` : ''}
                 <div class="product-meta">${p.year} · ${p.category}</div>
                 <div class="product-price-row">
                     ${
@@ -1678,7 +1752,7 @@ function copySummary() {
 
 function sendViaWhatsapp() {
     const summary = cart.generateSummary();
-    const message = `Hola FMD!\n\nMe gustaría encargar las siguientes remeras:\n\n${summary}\n\nPor favor confirmame precio y disponibilidad.`;
+    const message = `Hola FMD! 🤘\n\nQuiero encargar los siguientes productos:\n\n${summary}\n\n¿Podrían confirmarme precio final y disponibilidad?`;
     openWhatsapp(message);
 }
 
@@ -1711,7 +1785,14 @@ function getProductImage(productId, variantIndex = 0) {
 }
 
 function calculateItemPrice(item) {
-    const precios = item.age === 'chico' ? PRECIOS_CHICOS : PRECIOS;
+    let precios;
+    if (item.category === 'Hoodies FMD') {
+        precios = PRECIOS_HOODIES;
+    } else if (item.age === 'chico') {
+        precios = PRECIOS_CHICOS;
+    } else {
+        precios = PRECIOS;
+    }
     return item.isDouble ? precios.doble : precios.simple;
 }
 
@@ -1813,7 +1894,7 @@ function renderCartPreview() {
     // Renderizar footer con resumen
     let shippingNote = '';
     if (totals.cantidad === 1) {
-        shippingNote = `<div class="cart-preview-shipping-note">📦 Agregá 1 remera más para envío GRATIS</div>`;
+        shippingNote = `<div class="cart-preview-shipping-note">📦 Agregá 1 prenda más para envío GRATIS</div>`;
     } else if (totals.cantidad >= 2) {
         shippingNote = `<div class="cart-preview-shipping-note">🚚 ¡ENVÍO GRATIS! ${totals.cantidad >= 3 ? '+ 10% descuento 🎉' : ''}</div>`;
     }
@@ -1821,18 +1902,18 @@ function renderCartPreview() {
     footer.innerHTML = `
         <div class="cart-preview-summary">
             <div class="cart-preview-summary-row">
-                <span>Subtotal (${totals.cantidad} ${totals.cantidad === 1 ? 'remera' : 'remeras'})</span>
+                <span>Subtotal (${totals.cantidad} ${totals.cantidad === 1 ? 'prenda' : 'prendas'})</span>
                 <span class="value">$${totals.subtotal.toLocaleString('es-AR')}</span>
             </div>
             ${totals.descuento > 0 ? `
                 <div class="cart-preview-summary-row">
-                    <span>Descuento 10% (3+ remeras)</span>
+                    <span>Descuento 10% (3+ prendas)</span>
                     <span class="value" style="color: var(--magic-green);">-$${totals.descuento.toLocaleString('es-AR')}</span>
                 </div>
             ` : ''}
             <div class="cart-preview-summary-row">
                 <span>Envío</span>
-                <span class="value">${totals.envio > 0 ? '$' + totals.envio.toLocaleString('es-AR') : 'GRATIS'}</span>
+                <span class="value">${totals.cantidad === 1 ? 'A calcular según CP' : (totals.envio > 0 ? '$' + totals.envio.toLocaleString('es-AR') : 'GRATIS')}</span>
             </div>
             <div class="cart-preview-summary-row total">
                 <span>Total estimado</span>
@@ -1904,7 +1985,7 @@ function addToCartAndOpenWhatsapp() {
     // Pequeño delay para que se vea la notificación
     setTimeout(() => {
         const summary = cart.generateSummary();
-        const message = `Hola FMD!\n\nMe gustaría encargar las siguientes remeras:\n\n${summary}\n\nPor favor confirmame precio y disponibilidad.`;
+        const message = `Hola FMD! 🤘\n\nQuiero encargar los siguientes productos:\n\n${summary}\n\n¿Podrían confirmarme precio final y disponibilidad?`;
         openWhatsapp(message);
     }, 300);
 }
