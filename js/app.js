@@ -1121,10 +1121,14 @@ function openModal(id, variantIndex = undefined) {
         selectedCut = 'oversize';
         selectedAge = 'adulto';
         
-        // Mostrar talles oversize (XXS, XS) para hoodies
+        // Mostrar solo talle XS para hoodies (XS a XXL)
         document.querySelectorAll('#sizeSelector .size-oversize').forEach(btn => {
-            btn.style.display = '';
-            btn.style.cssText = inactiveStyle;
+            if (btn.dataset.size === 'XS') {
+                btn.style.display = '';
+                btn.style.cssText = inactiveStyle;
+            } else {
+                btn.style.display = 'none'; // Ocultar XXS
+            }
         });
     } else {
         // Restaurar comportamiento normal para remeras
