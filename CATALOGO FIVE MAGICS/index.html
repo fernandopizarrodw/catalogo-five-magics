@@ -103,7 +103,7 @@
             align-items: center;
             justify-content: center;
             cursor: zoom-out;
-            touch-action: none;
+            /* touch-action: none; */
             -webkit-user-select: none;
             user-select: none;
         }
@@ -112,8 +112,8 @@
         }
         #zoom-container {
             position: relative;
-            width: 100%;
-            height: 100%;
+            width: 100vw;
+            height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -122,6 +122,8 @@
         #zoom-img {
             max-width: none;
             max-height: none;
+            min-width: 100vw;
+            min-height: 100vh;
             width: auto;
             height: auto;
             object-fit: contain;
@@ -1490,8 +1492,8 @@
             position: fixed;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
+            width: 100vw;
+            height: 100vh;
             background: rgba(0, 0, 0, 0.97);
             z-index: 2000;
             display: flex;
@@ -1500,11 +1502,13 @@
             opacity: 0;
             pointer-events: none;
             transition: opacity 0.3s ease;
+            overflow-y: auto;
         }
 
         #modal.active {
             opacity: 1;
             pointer-events: auto;
+            overflow-y: auto;
         }
 
         .modal-box {
