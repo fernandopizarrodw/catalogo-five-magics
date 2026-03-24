@@ -13,7 +13,7 @@ const PRECIOS_HOODIES = {
     simple: 52000,
     doble: 59000
 };
-const COMBO_HOODIE_REMERA = 79000; // Incluye envío gratis
+const COMBO_HOODIE_REMERA = 99000; // Incluye envío gratis
 const PRECIOS_ENVIO = {
     una_unidad: 5000,
     dos_plus: 0,
@@ -302,7 +302,7 @@ function updateModalPrices() {
     const priceNote = document.querySelector('.modal-price-note');
     if (priceNote) {
         if (isHoodie) {
-            priceNote.innerHTML = '🎁 COMBO Hoodie + Remera: <strong style="color:var(--price);">$79.000</strong> (envío gratis)';
+            priceNote.innerHTML = '🎁 COMBO Hoodie + Remera: <strong style="color:var(--price);">$99.000</strong> (envío gratis)';
         } else {
             priceNote.textContent = '2+ prendas → envío gratis · 1 unidad → envío según zona';
         }
