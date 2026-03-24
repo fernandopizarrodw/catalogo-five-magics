@@ -1,13 +1,79 @@
+    {
+        "id": 400,
+        "category": "Personalizado",
+        "year": "2026",
+        "name": "Shadow of Intent",
+        "tipoPrecio": "simple",
+        "isNew": true,
+        "img": "images/personalizado/shadow_of_intent_fmd.jpg",
+        "variants": [
+            { "img": "images/personalizado/shadow_of_intent_fmd.jpg", "name": "Shadow of Intent FMD" },
+            { "img": "images/personalizado/shadow_of_intent.jpg", "name": "Shadow of Intent" }
+        ],
+        "desc": "Diseño personalizado Shadow of Intent en dos variantes: FMD y original."
+    }
 [
     {
-        "id": 1,
-        "category": "Album",
-        "year": "1985",
-        "name": "Killing Is My Business",
+        "id": 242,
+        "category": "Singles",
+        "year": "2025",
+        "name": "Tipping Point",
         "tipoPrecio": "simple",
-        "img": "images/albums/Killing_Is_my_bussines/kimb_1985_original_.jpg",
+        "img": "images/singles/tipping_point.jpg",
+        "desc": "Tipping Point - Diseño exclusivo de rareza."
+    },
+    {
+        "id": 300,
+        "category": "Band",
+        "year": "",
+        "name": "AC/DC Powerage",
+        "tipoPrecio": "simple",
+        "isNew": true,
+        "img": "images/acdc/powerage.jpg",
         "variants": [
-            {
+            { "img": "images/acdc/powerage.jpg", "name": "Powerage" }
+        ],
+        "desc": "Diseño inspirado en el álbum Powerage de AC/DC."
+    },
+    {
+        "id": 301,
+        "category": "Band",
+        "year": "",
+        "name": "AC/DC Money Talks White",
+        "tipoPrecio": "simple",
+        "isNew": true,
+        "img": "images/acdc/money_talks_white.jpg",
+        "variants": [
+            { "img": "images/acdc/money_talks_white.jpg", "name": "Money Talks White" }
+        ],
+        "desc": "Diseño Money Talks versión blanca de AC/DC."
+    },
+    {
+        "id": 302,
+        "category": "Band",
+        "year": "",
+        "name": "AC/DC Money Talks",
+        "tipoPrecio": "simple",
+        "isNew": true,
+        "img": "images/acdc/money_talks.jpg",
+        "variants": [
+            { "img": "images/acdc/money_talks.jpg", "name": "Money Talks" }
+        ],
+        "desc": "Diseño Money Talks clásico de AC/DC."
+    },
+    {
+        "id": 303,
+        "category": "Band",
+        "year": "",
+        "name": "AC/DC Angus PWRD UP",
+        "tipoPrecio": "simple",
+        "isNew": true,
+        "img": "images/acdc/angus_pwrd_up.jpg",
+        "variants": [
+            { "img": "images/acdc/angus_pwrd_up.jpg", "name": "Angus PWRD UP" }
+        ],
+        "desc": "Diseño Angus Young Power Up de AC/DC."
+    }
                 "img": "images/albums/Killing_Is_my_bussines/kimb_1985_original_.jpg",
                 "name": "KIMB_1985_ORIGINAL"
             },
@@ -38,6 +104,10 @@
             {
                 "img": "images/albums/Killing_Is_my_bussines/dorso_kimb.jpg",
                 "name": "DORSO"
+            },
+            {
+                "img": "images/albums/Killing_Is_my_bussines/kimb_1985_original_dorso.jpg",
+                "name": "KIMB_1985_ORIGINAL_DORSO"
             }
         ],
         "desc": "Es el debut crudo y frenético de 1985 que definió el thrash metal técnico mediante la velocidad extrema y la sed de venganza de Dave Mustaine en 7 diseños."
@@ -356,6 +426,13 @@
         "name": "Dystopia",
         "tipoPrecio": "simple",
         "img": "images/albums/Dystopia/dystopia.jpg",
+        "variants": [
+            { "img": "images/albums/Dystopia/dystopia_v1.jpg", "name": "Dystopia v1" },
+            { "img": "images/albums/Dystopia/dystopia_v2.jpg", "name": "Dystopia v2" },
+            { "img": "images/albums/Dystopia/dystopia_v3.jpg", "name": "Dystopia v3" },
+            { "img": "images/albums/Dystopia/dystopia_v4.jpg", "name": "Dystopia v4" },
+            { "img": "images/albums/Dystopia/dystopia_v5.jpg", "name": "Dystopia v5" }
+        ],
         "desc": "Resurrección del thrash más crudo y futurista con un Vic cibernético en un mundo postapocalíptico desolado."
     },
     {
