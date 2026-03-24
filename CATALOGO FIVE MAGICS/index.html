@@ -100,30 +100,26 @@
             background: rgba(0,0,0,0.97);
             z-index: 3000;
             display: none;
-            align-items: center;
-            justify-content: center;
             cursor: zoom-out;
-            /* touch-action: none; */
+            touch-action: pan-x pan-y;
             -webkit-user-select: none;
             user-select: none;
         }
         #zoom-overlay.active {
-            display: flex;
+            display: block;
         }
         #zoom-container {
-            position: relative;
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100vw;
             height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             overflow: auto;
+            display: block;
         }
         #zoom-img {
             max-width: none;
             max-height: none;
-            min-width: 100vw;
-            min-height: 100vh;
             width: auto;
             height: auto;
             object-fit: contain;
