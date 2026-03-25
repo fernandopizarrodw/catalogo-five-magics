@@ -580,7 +580,7 @@ class CartSystem {
 // Instancia global
 let cart = new CartSystem();
 
-function renderLatestReleases(limit = 6) {
+function renderLatestReleases(limit = 20) {
     try {
         const latestGrid = document.getElementById('latestGrid');
         if (!latestGrid || !Array.isArray(db) || !db.length) return;
@@ -604,24 +604,21 @@ function renderLatestReleases(limit = 6) {
             }
         });
 
-        // 2. Luego extraer variantes marcadas como nuevas (si no está ya el producto)
+        // 2. Luego extraer TODAS las variantes marcadas como nuevas (aunque sean del mismo producto)
         db.forEach(product => {
             if (product.variants && product.variants.length > 0) {
                 product.variants.forEach((variant, index) => {
                     if (variant.isNew) {
-                        const alreadyAdded = displayCards.some(card => card.productId === product.id);
-                        if (!alreadyAdded) {
-                            displayCards.push({
-                                isNewVariant: true,
-                                productId: product.id,
-                                variantIndex: index,
-                                title: `${product.name} - ${variant.name}`,
-                                img: variant.img,
-                                category: product.category,
-                                year: product.year,
-                                tipoPrecio: product.tipoPrecio
-                            });
-                        }
+                        displayCards.push({
+                            isNewVariant: true,
+                            productId: product.id,
+                            variantIndex: index,
+                            title: `${product.name} - ${variant.name}`,
+                            img: variant.img,
+                            category: product.category,
+                            year: product.year,
+                            tipoPrecio: product.tipoPrecio
+                        });
                     }
                 });
             }
@@ -655,8 +652,11 @@ function renderLatestReleases(limit = 6) {
             }
         }
 
-        // Aplicar límite estricto de 6 cards máximo
-        displayCards = displayCards.slice(0, limit);
+        // Mostrar todos los diseños nuevos sin límite
+        // Si limit es 0 o negativo, mostrar todos
+        if (limit > 0) {
+            displayCards = displayCards.slice(0, limit);
+        }
 
         // 3. Renderizar las tarjetas en el DOM
         latestGrid.innerHTML = displayCards.map(card => {
@@ -704,7 +704,7 @@ async function loadProducts() {
         if (!response.ok) throw new Error('Error cargando productos');
         db = await response.json();
         updateCountsUI();
-        renderLatestReleases(6);
+        renderLatestReleases(0); // Mostrar todos los nuevos sin límite
         renderHoodiesGrid(); // Hoodies destacados
         renderHeroOrbit(4); // Poblar órbita del hero con 4 cards 3D
         filterProducts(); // Renderizar después de cargar

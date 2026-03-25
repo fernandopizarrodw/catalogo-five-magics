@@ -1,17 +1,3 @@
-    {
-        "id": 400,
-        "category": "Personalizado",
-        "year": "2026",
-        "name": "Shadow of Intent",
-        "tipoPrecio": "simple",
-        "isNew": true,
-        "img": "images/personalizado/shadow_of_intent_fmd.jpg",
-        "variants": [
-            { "img": "images/personalizado/shadow_of_intent_fmd.jpg", "name": "Shadow of Intent FMD" },
-            { "img": "images/personalizado/shadow_of_intent.jpg", "name": "Shadow of Intent" }
-        ],
-        "desc": "Diseño personalizado Shadow of Intent en dos variantes: FMD y original."
-    }
 [
     {
         "id": 242,
@@ -73,42 +59,24 @@
             { "img": "images/acdc/angus_pwrd_up.jpg", "name": "Angus PWRD UP" }
         ],
         "desc": "Diseño Angus Young Power Up de AC/DC."
-    }
-                "img": "images/albums/Killing_Is_my_bussines/kimb_1985_original_.jpg",
-                "name": "KIMB_1985_ORIGINAL"
-            },
-            {
-                "img": "images/albums/Killing_Is_my_bussines/kimb_2012.jpg",
-                "name": "KIMB 2012"
-            },
-            {
-                "img": "images/albums/Killing_Is_my_bussines/kimb_art_2012.jpg",
-                "name": "KIMB_ART_2012"
-            },
-            {
-                "img": "images/albums/Killing_Is_my_bussines/kimb_gris_rojo.jpg",
-                "name": "KIMB_GRIS_ROJO"
-            },
-            {
-                "img": "images/albums/Killing_Is_my_bussines/kimb_realistic_1985.jpg",
-                "name": "KIMB_REALISTIC_1985"
-            },
-            {
-                "img": "images/albums/Killing_Is_my_bussines/kimb_realistic_2012.jpg",
-                "name": "KIMB_REALISTIC_2012"
-            },
-            {
-                "img": "images/albums/Killing_Is_my_bussines/kimb_retro.jpg",
-                "name": "KIMB_RETRO"
-            },
-            {
-                "img": "images/albums/Killing_Is_my_bussines/dorso_kimb.jpg",
-                "name": "DORSO"
-            },
-            {
-                "img": "images/albums/Killing_Is_my_bussines/kimb_1985_original_dorso.jpg",
-                "name": "KIMB_1985_ORIGINAL_DORSO"
-            }
+    },
+    {
+        "id": 1,
+        "category": "Album",
+        "year": "1985",
+        "name": "Killing Is my bussines",
+        "tipoPrecio": "doble",
+        "img": "images/albums/Killing_Is_my_bussines/kimb_1985_original_.jpg",
+        "variants": [
+            { "img": "images/albums/Killing_Is_my_bussines/kimb_1985_original_.jpg", "name": "KIMB_1985_ORIGINAL" },
+            { "img": "images/albums/Killing_Is_my_bussines/kimb_2012.jpg", "name": "KIMB 2012" },
+            { "img": "images/albums/Killing_Is_my_bussines/kimb_art_2012.jpg", "name": "KIMB_ART_2012" },
+            { "img": "images/albums/Killing_Is_my_bussines/kimb_gris_rojo.jpg", "name": "KIMB_GRIS_ROJO" },
+            { "img": "images/albums/Killing_Is_my_bussines/kimb_realistic_1985.jpg", "name": "KIMB_REALISTIC_1985" },
+            { "img": "images/albums/Killing_Is_my_bussines/kimb_realistic_2012.jpg", "name": "KIMB_REALISTIC_2012" },
+            { "img": "images/albums/Killing_Is_my_bussines/kimb_retro.jpg", "name": "KIMB_RETRO" },
+            { "img": "images/albums/Killing_Is_my_bussines/dorso_kimb.jpg", "name": "DORSO" },
+            { "img": "images/albums/Killing_Is_my_bussines/kimb_1985_original_dorso.jpg", "name": "KIMB_1985_ORIGINAL_DORSO" }
         ],
         "desc": "Es el debut crudo y frenético de 1985 que definió el thrash metal técnico mediante la velocidad extrema y la sed de venganza de Dave Mustaine en 7 diseños."
     },
@@ -219,14 +187,24 @@
         "isNew": true,
         "img": "images/albums/Countdown_to_extinction/countdown_to_extinction_frente.jpg",
         "variants": [
-            {
-                "img": "images/albums/Countdown_to_extinction/countdown_to_extinction_frente.jpg",
-                "name": "Frente"
-            },
-            {
-                "img": "images/albums/Countdown_to_extinction/countdown_to_extinction_dorso.jpg",
-                "name": "Dorso"
-            },
+                {
+                    "img": "images/albums/Countdown_to_extinction/countdown_fmd.jpg",
+                    "name": "Countdown FMD",
+                    "isNew": true
+                },
+                {
+                    "img": "images/albums/Countdown_to_extinction/countdown_fmd_dorso.jpg",
+                    "name": "Countdown FMD Dorso",
+                    "isNew": true
+                },
+                {
+                    "img": "images/albums/Countdown_to_extinction/countdown_to_extinction_frente.jpg",
+                    "name": "Frente"
+                },
+                {
+                    "img": "images/albums/Countdown_to_extinction/countdown_to_extinction_dorso.jpg",
+                    "name": "Dorso"
+                },
             {
                 "img": "images/albums/Countdown_to_extinction/countdown_circular.jpg",
                 "name": "Circular Frente"
@@ -245,7 +223,8 @@
             },
             {
                 "img": "images/albums/Countdown_to_extinction/countdown_vic_frente_dorso.jpg",
-                "name": "Vic Frente/Dorso"
+                "name": "Vic Frente/Dorso",
+                "isNew": true
             }
         ],
         "desc": "Groove metálico y éxito comercial representados por una impactante crítica a la extinción animal y la codicia humana."
