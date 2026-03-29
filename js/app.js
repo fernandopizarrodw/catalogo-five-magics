@@ -580,7 +580,7 @@ class CartSystem {
 // Instancia global
 let cart = new CartSystem();
 
-function renderLatestReleases(limit = 20) {
+function renderLatestReleases(limit = 5) {
     try {
         const latestGrid = document.getElementById('latestGrid');
         if (!latestGrid || !Array.isArray(db) || !db.length) return;
