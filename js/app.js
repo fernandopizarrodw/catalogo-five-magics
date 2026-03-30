@@ -704,9 +704,9 @@ async function loadProducts() {
         if (!response.ok) throw new Error('Error cargando productos');
         db = await response.json();
         updateCountsUI();
-        renderLatestReleases(0); // Mostrar todos los nuevos sin límite
+        renderLatestReleases(5); // Mostrar solo 5 nuevos lanzamientos
         renderHoodiesGrid(); // Hoodies destacados
-        renderHeroOrbit(4); // Poblar órbita del hero con 4 cards 3D
+        renderHeroOrbit(5); // Poblar órbita del hero con 5 cards 3D
         filterProducts(); // Renderizar después de cargar
     } catch (error) {
         console.error('Error:', error);
@@ -729,22 +729,62 @@ function renderHoodiesGrid() {
             return;
         }
         
-        hoodiesGrid.innerHTML = hoodies.map(product => {
+        // Mostrar solo los primeros 5 hoodies y el resto oculto
+        const maxVisible = 5;
+        let html = '';
+        hoodies.forEach((product, idx) => {
             const isDoble = product.tipoPrecio === 'doble';
             const precio = isDoble ? PRECIOS_HOODIES.doble : PRECIOS_HOODIES.simple;
-            
-            return `<div class="product-card hoodie-card" onclick="openModal(${product.id})">
-                <span class="variants-badge hoodie-badge">🧥 HOODIE</span>
-                <img src="${product.img}" class="product-img" loading="lazy">
-                <div class="product-info">
-                    <div class="product-name">${product.name}</div>
-                    <div class="product-meta">${product.year} · ${isDoble ? 'Doble estampa' : 'Simple'}</div>
-                    <div class="product-price-row">
-                        <span class="product-price hoodie-price">$${precio.toLocaleString('es-AR')}</span>
+            // Si es la 5ta card y hay más de 5, poner el botón y el blur
+            if (idx === maxVisible - 1 && hoodies.length > maxVisible) {
+                html += `<div class="product-card hoodie-card ver-mas-card" id="verMasHoodiesCard" style="position:relative;overflow:hidden;cursor:pointer;" onclick="mostrarMasHoodies(event)">
+                    <div class="ver-mas-blur"></div>
+                    <span class="variants-badge hoodie-badge">🧥 HOODIE</span>
+                    <img src="${product.img}" class="product-img" loading="lazy">
+                    <div class="product-info">
+                        <div class="product-name">${product.name}</div>
+                        <div class="product-meta">${product.year} · ${isDoble ? 'Doble estampa' : 'Simple'}</div>
+                        <div class="product-price-row">
+                            <span class="product-price hoodie-price">$${precio.toLocaleString('es-AR')}</span>
+                        </div>
                     </div>
-                </div>
-            </div>`;
-        }).join('');
+                    <button class="ver-mas-btn-overlay">VER MÁS HOODIES</button>
+                </div>`;
+            } else if (idx < maxVisible - 1) {
+                html += `<div class="product-card hoodie-card" onclick="openModal(${product.id})">
+                    <span class="variants-badge hoodie-badge">🧥 HOODIE</span>
+                    <img src="${product.img}" class="product-img" loading="lazy">
+                    <div class="product-info">
+                        <div class="product-name">${product.name}</div>
+                        <div class="product-meta">${product.year} · ${isDoble ? 'Doble estampa' : 'Simple'}</div>
+                        <div class="product-price-row">
+                            <span class="product-price hoodie-price">$${precio.toLocaleString('es-AR')}</span>
+                        </div>
+                    </div>
+                </div>`;
+            } else if (idx >= maxVisible) {
+                html += `<div class="product-card hoodie-card hoodie-hidden" style="display:none;" onclick="openModal(${product.id})">
+                    <span class="variants-badge hoodie-badge">🧥 HOODIE</span>
+                    <img src="${product.img}" class="product-img" loading="lazy">
+                    <div class="product-info">
+                        <div class="product-name">${product.name}</div>
+                        <div class="product-meta">${product.year} · ${isDoble ? 'Doble estampa' : 'Simple'}</div>
+                        <div class="product-price-row">
+                            <span class="product-price hoodie-price">$${precio.toLocaleString('es-AR')}</span>
+                        </div>
+                    </div>
+                </div>`;
+            }
+        });
+        hoodiesGrid.innerHTML = html;
+    // Mostrar más hoodies al hacer clic en VER MÁS
+    window.mostrarMasHoodies = function(event) {
+        event.stopPropagation();
+        const cards = document.querySelectorAll('.hoodie-hidden');
+        cards.forEach(card => { card.style.display = 'block'; });
+        const verMasCard = document.getElementById('verMasHoodiesCard');
+        if (verMasCard) verMasCard.style.display = 'none';
+    }
     } catch(e) { console.warn('renderHoodiesGrid error', e); }
 }
 

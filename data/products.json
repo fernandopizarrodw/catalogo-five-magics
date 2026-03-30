@@ -1,38 +1,31 @@
 [
+    
     {
-        "id": 242,
-        "category": "Singles",
-        "year": "2025",
-        "name": "Tipping Point",
-        "tipoPrecio": "simple",
-        "img": "images/singles/tipping_point.jpg",
-        "desc": "Tipping Point - Diseño exclusivo de rareza."
+        "id": 5055,
+        "category": "Hoodies Megadeth",
+        "year": "2026",
+        "name": "Hoodie Countdown",
+        "tipoPrecio": "doble",
+        "img": "images/hoddies_fmd/countdown.jpg",
+        "desc": "Hoodie canguro oversize unisex. Algodón frizado, estampa DTG. Diseño Countdown to Extinction frente y dorso. Producción a pedido 4-7 días."
     },
     {
-        "id": 300,
-        "category": "Band",
-        "year": "",
-        "name": "AC/DC Powerage",
-        "tipoPrecio": "simple",
-        "isNew": true,
-        "img": "images/acdc/powerage.jpg",
-        "variants": [
-            { "img": "images/acdc/powerage.jpg", "name": "Powerage" }
-        ],
-        "desc": "Diseño inspirado en el álbum Powerage de AC/DC."
+        "id": 5057,
+        "category": "Hoodies Megadeth",
+        "year": "2026",
+        "name": "Hoodie Killing Original",
+        "tipoPrecio": "doble",
+        "img": "images/hoddies_fmd/killing_original.jpg",
+        "desc": "Hoodie canguro oversize unisex. Algodón frizado, estampa DTG. Killing Is My Business original frente y dorso. Producción a pedido 4-7 días."
     },
     {
-        "id": 301,
-        "category": "Band",
-        "year": "",
-        "name": "AC/DC Money Talks White",
-        "tipoPrecio": "simple",
-        "isNew": true,
-        "img": "images/acdc/money_talks_white.jpg",
-        "variants": [
-            { "img": "images/acdc/money_talks_white.jpg", "name": "Money Talks White" }
-        ],
-        "desc": "Diseño Money Talks versión blanca de AC/DC."
+        "id": 5058,
+        "category": "Hoodies Megadeth",
+        "year": "2026",
+        "name": "Hoodie Killing Remaster",
+        "tipoPrecio": "doble",
+        "img": "images/hoddies_fmd/killing_remaster.jpg",
+        "desc": "Hoodie canguro oversize unisex. Algodón frizado, estampa DTG. Killing Is My Business remaster frente y dorso. Producción a pedido 4-7 días."
     },
     {
         "id": 302,
@@ -125,129 +118,6 @@
             },
             {
                 "img": "images/albums/SFSGSW/2-sfsgsw_alternative.jpg",
-                "name": "Alternative"
-            },
-            {
-                "img": "images/albums/SFSGSW/3-mary_jane.jpg",
-                "name": "Mary Jane"
-            }
-        ],
-        "desc": "Un contraataque de thrash visceral y rebelde con Vic Rattlehead armado para la guerra en un paisaje postapocalíptico."
-    },
-    {
-        "id": 4,
-        "category": "Album",
-        "year": "1990",
-        "name": "Rust in Peace",
-        "tipoPrecio": "doble",
-        "isNew": true,
-        "img": "images/albums/Rust_in_peace/rust_in_peace.jpg",
-        "variants": [
-            {
-                "img": "images/albums/Rust_in_peace/rust_in_peace.jpg",
-                "name": "Rust in Peace"
-            },
-            {
-                "img": "images/albums/Rust_in_peace/rust_in_peace_dorso.jpg",
-                "name": "Rust in Peace - Dorso"
-            },
-            {
-                "img": "images/albums/Rust_in_peace/alternate-rip.jpg",
-                "name": "Alternate RIP"
-            },
-            {
-                "img": "images/albums/Rust_in_peace/alternate-rip-dorso.jpg",
-                "name": "Alternate RIP - Dorso"
-            },
-            {
-                "img": "images/albums/Rust_in_peace/rust_in_peace_lineup.jpg",
-                "name": "Rust in Peace Lineup"
-            },
-            {
-                "img": "images/albums/Rust_in_peace/rust_in_peace_lineup-dorso.jpg",
-                "name": "Rust in Peace Lineup - Dorso"
-            },
-            {
-                "img": "images/albums/Rust_in_peace/rust_in_peace_v2.jpg",
-                "name": "Rust in Peace v2"
-            },
-            {
-                "img": "images/albums/Rust_in_peace/rust_in_peace_v2-dorso.jpg",
-                "name": "Rust in Peace v2 - Dorso"
-            }
-        ],
-        "desc": "Obra maestra de precisión matemática y alienígenas en el Área 51 que elevó el thrash metal a la perfección técnica."
-    },
-    {
-        "id": 5,
-        "category": "Album",
-        "year": "1992",
-        "name": "Countdown to Extinction",
-        "tipoPrecio": "doble",
-        "isNew": true,
-        "img": "images/albums/Countdown_to_extinction/countdown_to_extinction_frente.jpg",
-        "variants": [
-                {
-                    "img": "images/albums/Countdown_to_extinction/countdown_fmd.jpg",
-                    "name": "Countdown FMD",
-                    "isNew": true
-                },
-                {
-                    "img": "images/albums/Countdown_to_extinction/countdown_fmd_dorso.jpg",
-                    "name": "Countdown FMD Dorso",
-                    "isNew": true
-                },
-                {
-                    "img": "images/albums/Countdown_to_extinction/countdown_to_extinction_frente.jpg",
-                    "name": "Frente"
-                },
-                {
-                    "img": "images/albums/Countdown_to_extinction/countdown_to_extinction_dorso.jpg",
-                    "name": "Dorso"
-                },
-            {
-                "img": "images/albums/Countdown_to_extinction/countdown_circular.jpg",
-                "name": "Circular Frente"
-            },
-            {
-                "img": "images/albums/Countdown_to_extinction/countdown_circular_dorso.jpg",
-                "name": "Circular Dorso"
-            },
-            {
-                "img": "images/albums/Countdown_to_extinction/vic_time_frente.jpg",
-                "name": "Vic Time Frente"
-            },
-            {
-                "img": "images/albums/Countdown_to_extinction/vic_time_dorso.jpg",
-                "name": "Vic Time Dorso"
-            },
-            {
-                "img": "images/albums/Countdown_to_extinction/countdown_vic_frente_dorso.jpg",
-                "name": "Vic Frente/Dorso",
-                "isNew": true
-            }
-        ],
-        "desc": "Groove metálico y éxito comercial representados por una impactante crítica a la extinción animal y la codicia humana."
-    },
-    {
-        "id": 6,
-        "category": "Album",
-        "year": "1994",
-        "name": "Youthanasia",
-        "tipoPrecio": "doble",
-        "isNew": true,
-        "img": "images/albums/Youthanasia/youthanasia.jpg",
-        "variants": [
-            {
-                "img": "images/albums/Youthanasia/youthanasia.jpg",
-                "name": "Youthanasia Frente"
-            },
-            {
-                "img": "images/albums/Youthanasia/dorso_youthanasia.jpg",
-                "name": "Youthanasia Dorso"
-            },
-            {
-                "img": "images/albums/Youthanasia/photo_band.jpg",
                 "name": "Photo Band Frente"
             },
             {
@@ -850,6 +720,23 @@
         ],
         "desc": "El guitarrista exótico. Estilo japonés."
     },
+
+        {
+            "id": 2901,
+            "category": "Musician",
+            "year": "2026",
+            "name": "Marty Friedman BN",
+            "tipoPrecio": "simple",
+            "isNew": true,
+            "img": "images/musicians/Marty_Friedman/marty_bn.jpg",
+            "variants": [
+                {
+                    "img": "images/musicians/Marty_Friedman/marty_bn.jpg",
+                    "name": "Marty BN"
+                }
+            ],
+            "desc": "Marty Friedman en blanco y negro. Diseño exclusivo Five Magics Designs."
+        },
     {
         "id": 30,
         "category": "Musician",
@@ -1033,6 +920,24 @@
             }
         ],
         "desc": "Iron Maiden - Live After Death. Clásico icónico del heavy metal inglés con carrusel de variantes."
+    },
+    {
+        "id": 308,
+        "category": "Iron Maiden",
+        "year": "2026",
+        "name": "Iron Maiden",
+        "tipoPrecio": "simple",
+        "img": "images/iron_maiden/iron_maiden.jpg",
+        "desc": "Diseño clásico de Iron Maiden."
+    },
+    {
+        "id": 309,
+        "category": "Iron Maiden",
+        "year": "2026",
+        "name": "Dorso 666",
+        "tipoPrecio": "simple",
+        "img": "images/iron_maiden/dorso_666.jpg",
+        "desc": "Diseño dorso 666 de Iron Maiden."
     },
     {
         "id": 39,
@@ -1453,6 +1358,27 @@
         ],
         "desc": "Pantera Tour 2000 - Frente y dorso en el mismo carrusel. Gira legendaria de la banda."
     },
+
+        {
+            "id": 4190,
+            "category": "Pantera",
+            "year": "2026",
+            "name": "Phil Emblem",
+            "tipoPrecio": "simple",
+            "isNew": true,
+            "img": "images/pantera/phil_emblem.jpg",
+            "desc": "Phil Anselmo Emblem - Diseño exclusivo de Phil, vocalista de Pantera."
+        },
+        {
+            "id": 4191,
+            "category": "Pantera",
+            "year": "2026",
+            "name": "Vulgar FMD",
+            "tipoPrecio": "doble",
+            "isNew": true,
+            "img": "images/pantera/vulgar_fmd.jpg",
+            "desc": "Vulgar FMD - Inspirado en el clásico Vulgar Display of Power, edición Five Magics Designs."
+        },
     {
         "id": 60,
         "category": "AC/DC",
@@ -2966,5 +2892,126 @@
         "tipoPrecio": "doble",
         "img": "images/hoddies_fmd/dystopia.jpg",
         "desc": "Hoodie canguro oversize unisex. Algodón frizado, estampa DTG. Dystopia frente y dorso. Producción a pedido 4-7 días."
-    }
-]
+    },
+        {
+            "id": 5067,
+            "category": "Hoodies FMD",
+            "year": "2026",
+            "name": "Hoodie Made to Kill",
+            "tipoPrecio": "doble",
+            "isNew": true,
+            "img": "images/hoddies_fmd/made_to_kill.jpg",
+            "desc": "Hoodie canguro oversize unisex. Algodón frizado, estampa DTG. Made to Kill frente y dorso. Producción a pedido 4-7 días."
+        },
+        {
+            "id": 5068,
+            "category": "Hoodies FMD",
+            "year": "2026",
+            "name": "Hoodie I Don't Care",
+            "tipoPrecio": "doble",
+            "isNew": true,
+            "img": "images/hoddies_fmd/i_dont_care.jpg",
+            "desc": "Hoodie canguro oversize unisex. Algodón frizado, estampa DTG. I Don't Care frente y dorso. Producción a pedido 4-7 días."
+        },
+        {
+            "id": 5069,
+            "category": "Hoodies FMD",
+            "year": "2026",
+            "name": "Hoodie Let There Be Shred",
+            "tipoPrecio": "doble",
+            "isNew": true,
+            "img": "images/hoddies_fmd/let_there_be_shred.jpg",
+            "desc": "Hoodie canguro oversize unisex. Algodón frizado, estampa DTG. Let There Be Shred frente y dorso. Producción a pedido 4-7 días."
+        },
+        {
+            "id": 5070,
+            "category": "Hoodies FMD",
+            "year": "2026",
+            "name": "Hoodie Tipping Point",
+            "tipoPrecio": "doble",
+            "isNew": true,
+            "img": "images/hoddies_fmd/tipping_point.jpg",
+            "desc": "Hoodie canguro oversize unisex. Algodón frizado, estampa DTG. Tipping Point frente y dorso. Producción a pedido 4-7 días."
+        },
+        {
+            "id": 6001,
+            "category": "Hoodies Otras Bandas",
+            "year": "2026",
+            "name": "Hoodie Black Label",
+            "tipoPrecio": "doble",
+            "img": "images/hoddies_fmd/hoodies_otras_bandas/black_label.jpg",
+            "desc": "Hoodie canguro oversize unisex. Algodón frizado, estampa DTG. Black Label Society. Producción a pedido 4-7 días."
+        },
+        {
+            "id": 6002,
+            "category": "Hoodies Otras Bandas",
+            "year": "2026",
+            "name": "Hoodie Dimebag Fire",
+            "tipoPrecio": "doble",
+            "img": "images/hoddies_fmd/hoodies_otras_bandas/dimebag_fire.jpg",
+            "desc": "Hoodie canguro oversize unisex. Algodón frizado, estampa DTG. Dimebag Darrell Fire. Producción a pedido 4-7 días."
+        },
+        {
+            "id": 6003,
+            "category": "Hoodies Otras Bandas",
+            "year": "2026",
+            "name": "Hoodie Exodus",
+            "tipoPrecio": "doble",
+            "img": "images/hoddies_fmd/hoodies_otras_bandas/exodus.jpg",
+            "desc": "Hoodie canguro oversize unisex. Algodón frizado, estampa DTG. Exodus. Producción a pedido 4-7 días."
+        },
+        {
+            "id": 6004,
+            "category": "Hoodies Otras Bandas",
+            "year": "2026",
+            "name": "Hoodie Iron Maiden",
+            "tipoPrecio": "doble",
+            "img": "images/hoddies_fmd/hoodies_otras_bandas/iron_maiden.jpg",
+            "desc": "Hoodie canguro oversize unisex. Algodón frizado, estampa DTG. Iron Maiden clásico. Producción a pedido 4-7 días."
+        },
+        {
+            "id": 6005,
+            "category": "Hoodies Otras Bandas",
+            "year": "2026",
+            "name": "Hoodie Iron Maiden 666",
+            "tipoPrecio": "doble",
+            "img": "images/hoddies_fmd/hoodies_otras_bandas/iron_maiden_666.jpg",
+            "desc": "Hoodie canguro oversize unisex. Algodón frizado, estampa DTG. Iron Maiden 666. Producción a pedido 4-7 días."
+        },
+        {
+            "id": 6006,
+            "category": "Hoodies Otras Bandas",
+            "year": "2026",
+            "name": "Hoodie Iron Maiden Killers v1",
+            "tipoPrecio": "doble",
+            "img": "images/hoddies_fmd/hoodies_otras_bandas/iron_maiden_killers_v1.jpg",
+            "desc": "Hoodie canguro oversize unisex. Algodón frizado, estampa DTG. Iron Maiden Killers v1. Producción a pedido 4-7 días."
+        },
+        {
+            "id": 6007,
+            "category": "Hoodies Otras Bandas",
+            "year": "2026",
+            "name": "Hoodie Iron Maiden Killers v2",
+            "tipoPrecio": "doble",
+            "img": "images/hoddies_fmd/hoodies_otras_bandas/iron_maiden_killers_v2.jpg",
+            "desc": "Hoodie canguro oversize unisex. Algodón frizado, estampa DTG. Iron Maiden Killers v2. Producción a pedido 4-7 días."
+        },
+        {
+            "id": 6008,
+            "category": "Hoodies Otras Bandas",
+            "year": "2026",
+            "name": "Hoodie Pantera",
+            "tipoPrecio": "doble",
+            "img": "images/hoddies_fmd/hoodies_otras_bandas/pantera.jpg",
+            "desc": "Hoodie canguro oversize unisex. Algodón frizado, estampa DTG. Pantera. Producción a pedido 4-7 días."
+        },
+        {
+            "id": 6009,
+            "category": "Hoodies Otras Bandas",
+            "year": "2026",
+            "name": "Hoodie Rhapsody",
+            "tipoPrecio": "doble",
+            "img": "images/hoddies_fmd/hoodies_otras_bandas/rapshody.jpg",
+            "desc": "Hoodie canguro oversize unisex. Algodón frizado, estampa DTG. Rhapsody. Producción a pedido 4-7 días."
+        }
+    ]
