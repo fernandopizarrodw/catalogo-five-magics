@@ -1,35 +1,7 @@
 [
-    
-    {
-        "id": 5055,
-        "category": "Hoodies Megadeth",
-        "year": "2026",
-        "name": "Hoodie Countdown",
-        "tipoPrecio": "doble",
-        "img": "images/hoddies_fmd/countdown.jpg",
-        "desc": "Hoodie canguro oversize unisex. Algodón frizado, estampa DTG. Diseño Countdown to Extinction frente y dorso. Producción a pedido 4-7 días."
-    },
-    {
-        "id": 5057,
-        "category": "Hoodies Megadeth",
-        "year": "2026",
-        "name": "Hoodie Killing Original",
-        "tipoPrecio": "doble",
-        "img": "images/hoddies_fmd/killing_original.jpg",
-        "desc": "Hoodie canguro oversize unisex. Algodón frizado, estampa DTG. Killing Is My Business original frente y dorso. Producción a pedido 4-7 días."
-    },
-    {
-        "id": 5058,
-        "category": "Hoodies Megadeth",
-        "year": "2026",
-        "name": "Hoodie Killing Remaster",
-        "tipoPrecio": "doble",
-        "img": "images/hoddies_fmd/killing_remaster.jpg",
-        "desc": "Hoodie canguro oversize unisex. Algodón frizado, estampa DTG. Killing Is My Business remaster frente y dorso. Producción a pedido 4-7 días."
-    },
     {
         "id": 302,
-        "category": "Band",
+        "category": "AC/DC",
         "year": "",
         "name": "AC/DC Money Talks",
         "tipoPrecio": "simple",
@@ -42,7 +14,7 @@
     },
     {
         "id": 303,
-        "category": "Band",
+        "category": "AC/DC",
         "year": "",
         "name": "AC/DC Angus PWRD UP",
         "tipoPrecio": "simple",
@@ -1267,7 +1239,7 @@
         "desc": "Eddie v3. Otra interpretación del personaje más icónico de Iron Maiden."
     },
     {
-        "id": 408,
+        "id": 5125,
         "category": "Iron Maiden",
         "year": "2025",
         "name": "Iron Maiden - Eddie v4",
@@ -1276,7 +1248,7 @@
         "desc": "Eddie v4. La evolución definitiva del mascotón de hierro."
     },
     {
-        "id": 409,
+        "id": 5126,
         "category": "Pantera",
         "year": "2025",
         "name": "Dimebag Darrell Live",
@@ -1417,7 +1389,7 @@
         "desc": "AC/DC Europe 84 - Original y Remaster en un mismo carrusel."
     },
     {
-        "id": 302,
+        "id": 5118,
         "category": "Personalizados",
         "year": "2025",
         "name": "Almafuerte En Vida",
@@ -1435,7 +1407,7 @@
         "desc": "Mockup Amon Amarth."
     },
     {
-        "id": 309,
+        "id": 5122,
         "category": "Personalizados",
         "year": "2025",
         "name": "Aphex Twin",
@@ -1462,7 +1434,7 @@
         "desc": "Mockup Calavera Guitar."
     },
     {
-        "id": 308,
+        "id": 5121,
         "category": "Personalizados",
         "year": "2025",
         "name": "Diego Maradona",
@@ -1508,7 +1480,7 @@
         "desc": "Mockup Guitarrista Blues."
     },
     {
-        "id": 303,
+        "id": 5119,
         "category": "Personalizados",
         "year": "2025",
         "name": "Hermética",
@@ -1555,7 +1527,7 @@
         "desc": "Mockup personalizado: John Petrucci con variante Dream Theater Dorso."
     },
     {
-        "id": 304,
+        "id": 5120,
         "category": "Personalizados",
         "year": "2025",
         "name": "Judas Priest",
@@ -1856,7 +1828,7 @@
         "desc": "Anatomy of Vic - Diseño anatómico de Vic Rattlehead con 3 variantes."
     },
     {
-        "id": 1065,
+        "id": 5124,
         "category": "VicRattlehead",
         "year": "2026",
         "name": "Countdown Vic",
@@ -2266,7 +2238,7 @@
         "desc": "Sündenrausch. Metal atmosférico alemán."
     },
     {
-        "id": 5019,
+        "id": 5123,
         "category": "Bandas Sugeridas",
         "year": "2026",
         "name": "Testament",
@@ -2582,7 +2554,7 @@
     },
     {
         "id": 5039,
-        "category": "Vic Rattlehead",
+        "category": "VicRattlehead",
         "year": "2026",
         "name": "Vic Gaucho FMD",
         "tipoPrecio": "doble",
@@ -2601,7 +2573,7 @@
     },
     {
         "id": 5050,
-        "category": "Vic Rattlehead",
+        "category": "VicRattlehead",
         "year": "Live",
         "name": "Dave and Vic Live",
         "tipoPrecio": "simple",
@@ -2610,7 +2582,7 @@
     },
     {
         "id": 5051,
-        "category": "Vic Rattlehead",
+        "category": "VicRattlehead",
         "year": "2025",
         "name": "Vic Peace 25",
         "tipoPrecio": "simple",
@@ -2749,7 +2721,7 @@
         "desc": "High Voltage - Álbum debut internacional de 1976."
     },
     {
-        "id": 5050,
+        "id": 5127,
         "category": "AC/DC",
         "year": "2026",
         "name": "Power Up",
@@ -2758,7 +2730,7 @@
         "desc": "Power Up - Álbum de 2020, homenaje a Malcolm Young."
     },
     {
-        "id": 5051,
+        "id": 5128,
         "category": "AC/DC",
         "year": "2026",
         "name": "Angus Black & White",
@@ -2774,6 +2746,46 @@
         "tipoPrecio": "simple",
         "img": "images/acdc/highway_circular.jpg",
         "desc": "Highway to Hell - Diseño circular alternativo."
+    },
+    {
+        "id": 5102,
+        "category": "AC/DC",
+        "year": "2026",
+        "name": "Are You Ready",
+        "tipoPrecio": "doble",
+        "isNew": true,
+        "img": "images/acdc/are_you_ready.jpg",
+        "variants": [
+            {
+                "img": "images/acdc/are_you_ready.jpg",
+                "name": "Frente"
+            },
+            {
+                "img": "images/acdc/are_you_ready_dorso.jpg",
+                "name": "Dorso"
+            }
+        ],
+        "desc": "Are You Ready - Diseño AC/DC con frente y dorso en un mismo carrusel."
+    },
+    {
+        "id": 5103,
+        "category": "AC/DC",
+        "year": "2026",
+        "name": "AC/DC PWR UP",
+        "tipoPrecio": "doble",
+        "isNew": true,
+        "img": "images/acdc/acdc_pwrup.jpg",
+        "variants": [
+            {
+                "img": "images/acdc/acdc_pwrup.jpg",
+                "name": "Frente"
+            },
+            {
+                "img": "images/acdc/acdc_pwrup_dorso.jpg",
+                "name": "Dorso"
+            }
+        ],
+        "desc": "AC/DC PWR UP - Diseño con frente y dorso en un mismo carrusel."
     },
     {
         "id": 5053,
@@ -2796,7 +2808,7 @@
     },
     {
         "id": 5054,
-        "category": "Vic Rattlehead",
+        "category": "VicRattlehead",
         "year": "2026",
         "name": "Vic Black Friday",
         "tipoPrecio": "simple",

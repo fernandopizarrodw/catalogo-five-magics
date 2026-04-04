@@ -683,7 +683,7 @@ function renderLatestReleases(limit = 5) {
                 <div class="product-info">
                     <div class="product-name">${card.title}</div>
                     ${code ? `<div class="product-code" style="font-size:0.85em;color:var(--magic-orange);font-weight:600;letter-spacing:1px;">${code}</div>` : ''}
-                    <div class="product-meta">${card.year} · ${card.category}</div>
+                    <div class="product-meta">${formatCategoryMeta(card.year, getCategoryLabel(card.category))}</div>
                     <div class="product-price-row">
                         ${
                             isDorsoIdea
@@ -1411,13 +1411,13 @@ function updateModalInfo() {
     // Actualizar breadcrumb
     const breadcrumbCategory = document.getElementById('breadcrumbCategory');
     const breadcrumbProduct = document.getElementById('breadcrumbProduct');
-    if (breadcrumbCategory) breadcrumbCategory.textContent = currentProduct.category;
+    if (breadcrumbCategory) breadcrumbCategory.textContent = getCategoryLabel(currentProduct.category);
     if (breadcrumbProduct) breadcrumbProduct.textContent = currentProduct.name;
     
     // Actualizar contador de productos
     updateProductCounter();
     
-    document.getElementById('modalMeta').textContent = `${currentProduct.year} · ${currentProduct.category}`;
+    document.getElementById('modalMeta').textContent = formatCategoryMeta(currentProduct.year, getCategoryLabel(currentProduct.category));
     document.getElementById('modalDesc').textContent = currentProduct.desc || '';
     
     // Actualizar precios según selector adulto/chico
@@ -1483,7 +1483,7 @@ function renderFilteredProducts(filtered) {
             <div class="product-info">
                 <div class="product-name">${p.name}</div>
                 ${code ? `<div class="product-code" style="font-size:0.85em;color:var(--magic-orange);font-weight:600;letter-spacing:1px;">${code}</div>` : ''}
-                <div class="product-meta">${p.year} · ${p.category}</div>
+                <div class="product-meta">${formatCategoryMeta(p.year, getCategoryLabel(p.category))}</div>
                 <div class="product-price-row">
                     ${
                         isDorsoIdea
@@ -1574,17 +1574,44 @@ function updateShareLinks() {
     const desc = currentProduct.desc ? currentProduct.desc.substring(0, 100) : 'Diseño exclusivo premium';
     
     document.querySelector('meta[property="og:title"]').setAttribute('content', `${currentProduct.name} - Five Magics Designs`);
-    document.querySelector('meta[property="og:description"]').setAttribute('content', `${currentProduct.name}${year} • ${currentProduct.category}\n${desc}...`);
+    document.querySelector('meta[property="og:description"]').setAttribute('content', `${currentProduct.name}${year} • ${getCategoryLabel(currentProduct.category)}\n${desc}...`);
     document.querySelector('meta[property="og:image"]').setAttribute('content', productImage);
     document.querySelector('meta[property="og:url"]').setAttribute('content', productUrl);
     
     document.querySelector('meta[name="twitter:title"]').setAttribute('content', currentProduct.name);
-    document.querySelector('meta[name="twitter:description"]').setAttribute('content', `${currentProduct.category}${year}`);
+    document.querySelector('meta[name="twitter:description"]').setAttribute('content', `${getCategoryLabel(currentProduct.category)}${year}`);
     document.querySelector('meta[name="twitter:image"]').setAttribute('content', productImage);
 }
 
 // Cálculo de contadores dinámicos
+const CATEGORY_LABELS = {
+    'Album': 'Álbumes Megadeth',
+    'Hoodies FMD': 'Hoodies Megadeth',
+    'Hoodies Otras Bandas': 'Hoodies Otras Bandas',
+    'Bandas Sugeridas': 'Bandas Sugeridas',
+    'Dave Mustaine': 'Dave Mustaine',
+    'Dorsales': 'Ideas de Dorso',
+    'Musician': 'Miembros Megadeth',
+    'Personalizados': 'Pedidos Especiales',
+    'Singles': 'Singles Especiales',
+    'Tour': 'Tours',
+    'VicRattlehead': 'Vic Rattlehead',
+    'AC/DC': 'AC/DC',
+    'Pantera': 'Pantera',
+    'Iron Maiden': 'Iron Maiden',
+    'Metallica': 'Metallica',
+    'Avenged Sevenfold': 'Avenged Sevenfold'
+};
+
 const MEGADETH_CATS = new Set(['Album','Musician','Tour','VicRattlehead','Singles','Dorsales']);
+
+function getCategoryLabel(category) {
+    return CATEGORY_LABELS[category] || category || 'Otros';
+}
+
+function formatCategoryMeta(year, categoryLabel) {
+    return year ? `${year} · ${categoryLabel}` : categoryLabel;
+}
 
 function computeCounts(){
     const byCategory = db.reduce((acc, p) => {
@@ -1623,12 +1650,21 @@ function updateCountsUI(){
             if(el) el.textContent = val;
         };
         setNavBadge('Album', byCategory['Album']||0);
+        setNavBadge('Avenged Sevenfold', byCategory['Avenged Sevenfold']||0);
+        setNavBadge('AC/DC', byCategory['AC/DC']||0);
         setNavBadge('Pantera', byCategory['Pantera']||0);
         setNavBadge('Iron Maiden', byCategory['Iron Maiden']||0);
         setNavBadge('Metallica', byCategory['Metallica']||0);
+        setNavBadge('Hoodies FMD', byCategory['Hoodies FMD']||0);
+        setNavBadge('Hoodies Otras Bandas', byCategory['Hoodies Otras Bandas']||0);
+        setNavBadge('Bandas Sugeridas', byCategory['Bandas Sugeridas']||0);
         setNavBadge('Dave Mustaine', byCategory['Dave Mustaine']||0);
+        setNavBadge('Dorsales', byCategory['Dorsales']||0);
         setNavBadge('Musician', byCategory['Musician']||0);
         setNavBadge('Personalizados', byCategory['Personalizados']||0);
+        setNavBadge('Singles', byCategory['Singles']||0);
+        setNavBadge('Tour', byCategory['Tour']||0);
+        setNavBadge('VicRattlehead', byCategory['VicRattlehead']||0);
 
         // Filtros: textos con cantidad (y corrección de etiqueta de Megadeth)
         const setPill = (filter, label) => {
@@ -1636,15 +1672,18 @@ function updateCountsUI(){
             if(el) el.textContent = label;
         };
         setPill('all', `Todo (${totalAll})`);
-        setPill('Album', `Álbumes Megadeth (${byCategory['Album']||0})`);
-        setPill('Dave Mustaine', `Dave Mustaine (${byCategory['Dave Mustaine']||0})`);
-        setPill('Pantera', `Pantera (${byCategory['Pantera']||0})`);
-        setPill('Iron Maiden', `Iron Maiden (${byCategory['Iron Maiden']||0})`);
-        setPill('Metallica', `Metallica (${byCategory['Metallica']||0})`);
-        setPill('Musician', `Miembros (${byCategory['Musician']||0})`);
-        setPill('Tour', `Tours (${byCategory['Tour']||0})`);
-        setPill('VicRattlehead', `Vic (${byCategory['VicRattlehead']||0})`);
-        setPill('Personalizados', `Especiales (${byCategory['Personalizados']||0})`);
+        setPill('Album', `${getCategoryLabel('Album')} (${byCategory['Album']||0})`);
+        setPill('Hoodies FMD', `${getCategoryLabel('Hoodies FMD')} (${byCategory['Hoodies FMD']||0})`);
+        setPill('Hoodies Otras Bandas', `${getCategoryLabel('Hoodies Otras Bandas')} (${byCategory['Hoodies Otras Bandas']||0})`);
+        setPill('Dave Mustaine', `${getCategoryLabel('Dave Mustaine')} (${byCategory['Dave Mustaine']||0})`);
+        setPill('Pantera', `${getCategoryLabel('Pantera')} (${byCategory['Pantera']||0})`);
+        setPill('Iron Maiden', `${getCategoryLabel('Iron Maiden')} (${byCategory['Iron Maiden']||0})`);
+        setPill('Metallica', `${getCategoryLabel('Metallica')} (${byCategory['Metallica']||0})`);
+        setPill('Avenged Sevenfold', `${getCategoryLabel('Avenged Sevenfold')} (${byCategory['Avenged Sevenfold']||0})`);
+        setPill('Musician', `${getCategoryLabel('Musician')} (${byCategory['Musician']||0})`);
+        setPill('Tour', `${getCategoryLabel('Tour')} (${byCategory['Tour']||0})`);
+        setPill('VicRattlehead', `${getCategoryLabel('VicRattlehead')} (${byCategory['VicRattlehead']||0})`);
+        setPill('Personalizados', `${getCategoryLabel('Personalizados')} (${byCategory['Personalizados']||0})`);
     } catch(e){ console.warn('updateCountsUI error', e); }
 }
 
