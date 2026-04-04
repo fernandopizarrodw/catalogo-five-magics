@@ -54,6 +54,20 @@
         "desc": "Diseño Angus Young Power Up de AC/DC."
     },
     {
+        "id": 5101,
+        "category": "AC/DC",
+        "year": "",
+        "name": "AC/DC Holy Shit",
+        "tipoPrecio": "doble",
+        "isNew": true,
+        "img": "images/acdc/ac_dc_holy_shit.jpg",
+        "variants": [
+            { "img": "images/acdc/ac_dc_holy_shit.jpg", "name": "Holy Shit Frente" },
+            { "img": "images/acdc/ac_dc_holy_shit_dorso.jpg", "name": "Holy Shit Dorso" }
+        ],
+        "desc": "Diseño AC/DC Holy Shit con frente y dorso."
+    },
+    {
         "id": 1,
         "category": "Album",
         "year": "1985",
@@ -305,6 +319,10 @@
                 "img": "images/albums/Megadeth/vic_llamas_blanca.jpg",
                 "name": "Vic Llamas Blanca"
             },
+                {
+                    "img": "images/albums/Megadeth/vic_llamas_blanca_v2.jpg",
+                    "name": "Vic Llamas Blanca v2"
+                },
             {
                 "img": "images/albums/Megadeth/vic_llamas_negro.jpg",
                 "name": "Vic Llamas Negro"
