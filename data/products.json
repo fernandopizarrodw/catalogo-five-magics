@@ -2788,6 +2788,16 @@
         "desc": "AC/DC PWR UP - Diseño con frente y dorso en un mismo carrusel."
     },
     {
+        "id": 6010,
+        "category": "AC/DC",
+        "year": "2026",
+        "name": "Brian Camiseta Argentina",
+        "tipoPrecio": "simple",
+        "isNew": true,
+        "img": "images/acdc/brian_camiseta_argentina.jpg",
+        "desc": "Brian Camiseta Argentina - Diseño AC/DC edición 2026."
+    },
+    {
         "id": 5053,
         "category": "Singles",
         "year": "2026",

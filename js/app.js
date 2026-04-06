@@ -1680,8 +1680,12 @@ function updateCountsUI(){
         setPill('Iron Maiden', `${getCategoryLabel('Iron Maiden')} (${byCategory['Iron Maiden']||0})`);
         setPill('Metallica', `${getCategoryLabel('Metallica')} (${byCategory['Metallica']||0})`);
         setPill('Avenged Sevenfold', `${getCategoryLabel('Avenged Sevenfold')} (${byCategory['Avenged Sevenfold']||0})`);
+        setPill('AC/DC', `${getCategoryLabel('AC/DC')} (${byCategory['AC/DC']||0})`);
+        setPill('Bandas Sugeridas', `${getCategoryLabel('Bandas Sugeridas')} (${byCategory['Bandas Sugeridas']||0})`);
         setPill('Musician', `${getCategoryLabel('Musician')} (${byCategory['Musician']||0})`);
+        setPill('Singles', `${getCategoryLabel('Singles')} (${byCategory['Singles']||0})`);
         setPill('Tour', `${getCategoryLabel('Tour')} (${byCategory['Tour']||0})`);
+        setPill('Dorsales', `${getCategoryLabel('Dorsales')} (${byCategory['Dorsales']||0})`);
         setPill('VicRattlehead', `${getCategoryLabel('VicRattlehead')} (${byCategory['VicRattlehead']||0})`);
         setPill('Personalizados', `${getCategoryLabel('Personalizados')} (${byCategory['Personalizados']||0})`);
     } catch(e){ console.warn('updateCountsUI error', e); }
