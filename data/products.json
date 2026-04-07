@@ -2852,6 +2852,16 @@
         "name": "Hoodie Countdown",
         "tipoPrecio": "doble",
         "img": "images/hoddies_fmd/countdown.jpg",
+        "variants": [
+            {
+                "img": "images/hoddies_fmd/countdown.jpg",
+                "name": "Countdown"
+            },
+            {
+                "img": "images/hoddies_fmd/countdown_v2.jpg",
+                "name": "Countdown v2"
+            }
+        ],
         "desc": "Hoodie canguro oversize unisex. Algodón frizado, estampa DTG. Diseño Countdown to Extinction frente y dorso. Producción a pedido 4-7 días."
     },
     {
