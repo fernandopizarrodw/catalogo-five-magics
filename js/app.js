@@ -145,6 +145,71 @@ function buscar(query) {
 // Alias corto
 window.b = buscar;
 
+function parseProductCode(query) {
+    const normalized = String(query || '').trim().toLowerCase();
+    const match = normalized.match(/^([a-z0-9]+)[-.]?(\d+)(?:\.v(\d+))?$/i);
+    if (!match) return null;
+
+    const [, prefix, idStr, variantStr] = match;
+    return {
+        prefix,
+        id: parseInt(idStr, 10),
+        variantIndex: variantStr ? Math.max(parseInt(variantStr, 10) - 1, 0) : undefined,
+        raw: normalized
+    };
+}
+
+function matchesTextQuery(product, query) {
+    const name = (product.name || '').toLowerCase();
+    const desc = (product.desc || '').toLowerCase();
+    const category = (product.category || '').toLowerCase();
+    const idText = String(product.id || '');
+    const variantsText = (product.variants || []).map(v => `${v.name || ''} ${v.img || ''}`.toLowerCase()).join(' ');
+    return name.includes(query) || desc.includes(query) || category.includes(query) || idText.includes(query) || variantsText.includes(query);
+}
+
+function getSearchResults(query, sourceProducts = db, useGlobalCodeLookup = false) {
+    const normalized = String(query || '').trim().toLowerCase();
+    if (!normalized) return [];
+
+    const codeData = parseProductCode(normalized);
+    if (codeData) {
+        const searchPool = useGlobalCodeLookup ? db : sourceProducts;
+        const codeMatches = searchPool
+            .filter(product => product.id === codeData.id)
+            .map(product => ({
+                ...product,
+                matchedVariantIndex: typeof codeData.variantIndex === 'number'
+                    ? Math.min(codeData.variantIndex, Math.max((product.variants?.length || 1) - 1, 0))
+                    : undefined,
+                matchedCode: normalized
+            }));
+
+        if (codeMatches.length) {
+            return codeMatches;
+        }
+    }
+
+    return sourceProducts.filter(product => matchesTextQuery(product, normalized));
+}
+
+function openExactCodeMatch(query, afterOpen) {
+    const results = getSearchResults(query, db, true);
+    if (!results.length) return false;
+
+    const normalized = String(query || '').trim().toLowerCase();
+    const codeData = parseProductCode(normalized);
+    const firstMatch = results[0];
+
+    if (!codeData || !firstMatch || firstMatch.id !== codeData.id) {
+        return false;
+    }
+
+    openModal(firstMatch.id, firstMatch.matchedVariantIndex);
+    if (typeof afterOpen === 'function') afterOpen(firstMatch);
+    return true;
+}
+
 // Función para cambiar entre Adulto y Chico
 function selectAge(age) {
     selectedAge = age;
@@ -1448,11 +1513,7 @@ function updateModalInfo() {
 function filterProducts() {
     let filtered = currentCategory ? db.filter(p => p.category === currentCategory) : db.slice();
     if (currentSearch) {
-        filtered = filtered.filter(p => {
-            const name = (p.name || '').toLowerCase();
-            const desc = (p.desc || '').toLowerCase();
-            return name.includes(currentSearch) || desc.includes(currentSearch);
-        });
+        filtered = getSearchResults(currentSearch, filtered, true);
     }
     renderFilteredProducts(filtered);
 }
@@ -1477,7 +1538,7 @@ function renderFilteredProducts(filtered) {
         if (newBadge) badges += newBadge;
         if (comboBadge) badges += comboBadge;
 
-        return `<div class="product-card" onclick="openModal(${p.id})">
+        return `<div class="product-card" onclick="openModal(${p.id}${typeof p.matchedVariantIndex === 'number' ? ', ' + p.matchedVariantIndex : ''})">
             <div class="product-badges">${badges}</div>
             <img src="${p.img}" class="product-img" loading="lazy">
             <div class="product-info">
@@ -1498,9 +1559,15 @@ function renderFilteredProducts(filtered) {
 }
 
 searchInput.addEventListener('input', (e) => {
-    currentSearch = e.target.value.toLowerCase();
+    currentSearch = e.target.value.toLowerCase().trim();
     searchClear.classList.toggle('visible', currentSearch.length > 0);
     filterProducts();
+});
+
+searchInput.addEventListener('keydown', (e) => {
+    if (e.key !== 'Enter') return;
+    if (!openExactCodeMatch(e.target.value)) return;
+    e.preventDefault();
 });
 
 searchClear.onclick = () => { searchInput.value = ''; currentSearch = ''; searchClear.classList.remove('visible'); filterProducts(); };
@@ -2198,13 +2265,8 @@ function initSearchModal() {
             searchModalResults.innerHTML = '';
             return;
         }
-        
-        const results = db.filter(p => {
-            const name = (p.name || '').toLowerCase();
-            const desc = (p.desc || '').toLowerCase();
-            const category = (p.category || '').toLowerCase();
-            return name.includes(query) || desc.includes(query) || category.includes(query);
-        }).slice(0, 8);
+
+        const results = getSearchResults(query, db, true).slice(0, 8);
         
         if (results.length === 0) {
             searchModalResults.innerHTML = '<div class="search-empty">Sin resultados para "' + e.target.value + '"</div>';
@@ -2212,12 +2274,18 @@ function initSearchModal() {
         }
         
         searchModalResults.innerHTML = results.map(p => `
-            <div class="search-result-item" onclick="openModal(${p.id}); document.getElementById('searchModal').classList.remove('active');">
+            <div class="search-result-item" onclick="openModal(${p.id}${typeof p.matchedVariantIndex === 'number' ? ', ' + p.matchedVariantIndex : ''}); document.getElementById('searchModal').classList.remove('active');">
                 <div class="search-result-name">${p.name}</div>
-                <div class="search-result-meta">${p.year} · ${p.category}</div>
+                <div class="search-result-meta">${formatCategoryMeta(p.year, getCategoryLabel(p.category))}${typeof p.matchedVariantIndex === 'number' && p.variants?.[p.matchedVariantIndex] ? ' · ' + p.variants[p.matchedVariantIndex].name : ''}</div>
             </div>
         `).join('');
     };
+
+    searchModalInput.addEventListener('keydown', (e) => {
+        if (e.key !== 'Enter') return;
+        if (!openExactCodeMatch(e.target.value, () => searchModal.classList.remove('active'))) return;
+        e.preventDefault();
+    });
     
     // Cerrar modal con tecla Escape
     document.addEventListener('keydown', (e) => {

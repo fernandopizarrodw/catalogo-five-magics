@@ -177,6 +177,10 @@
             {
                 "img": "images/albums/Cryptic_Writings/cryptic_writings_comic.jpg",
                 "name": "Comic"
+            },
+            {
+                "img": "images/albums/Cryptic_Writings/cryptic_writings_art.jpg",
+                "name": "Art"
             }
         ],
         "desc": "Melodía accesible y experimentación radial envueltas en un arte místico de simbología críptica y diseño minimalista."
@@ -1046,9 +1050,13 @@
             {
                 "img": "images/tours/Tour_2026/vic_tour_2026_v3.jpg",
                 "name": "v3"
+            },
+            {
+                "img": "images/tours/Tour_2026/vic_tour_2026_blancoFMD.jpg",
+                "name": "Blanco FMD"
             }
         ],
-        "desc": "Vic Tour 2026 - Colección de 3 variantes exclusivas para el tour del año."
+        "desc": "Vic Tour 2026 - Colección de variantes exclusivas para el tour del año, incluyendo edición Blanco FMD."
     },
     {
         "id": 304,
@@ -1995,9 +2003,17 @@
             {
                 "img": "images/banda_sugeridas/black_sabbath/black_sabbath_v2.jpg",
                 "name": "v2"
+            },
+            {
+                "img": "images/banda_sugeridas/black_sabbath/black_sabbath_tour.jpg",
+                "name": "Tour Frente"
+            },
+            {
+                "img": "images/banda_sugeridas/black_sabbath/black_sabbath_tour_dorso.jpg",
+                "name": "Tour Dorso"
             }
         ],
-        "desc": "Black Sabbath - Los padres del heavy metal con 2 variantes."
+        "desc": "Black Sabbath - Los padres del heavy metal con variantes clásicas y versión tour frente y dorso."
     },
     {
         "id": 5004,
@@ -2119,9 +2135,13 @@
             {
                 "img": "images/banda_sugeridas/helloween/dorso_helloween_40_tour.jpg",
                 "name": "Dorso"
+            },
+            {
+                "img": "images/banda_sugeridas/helloween/helloween.jpg",
+                "name": "Helloween"
             }
         ],
-        "desc": "Helloween - Colección 40 Tour con 2 diseños frente y dorso."
+        "desc": "Helloween - Colección con diseño 40 Tour, dorso y variante clásica adicional."
     },
     {
         "id": 5010,
