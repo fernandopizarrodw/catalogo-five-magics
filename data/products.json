@@ -104,6 +104,123 @@
             },
             {
                 "img": "images/albums/SFSGSW/2-sfsgsw_alternative.jpg",
+                "name": "Alternative"
+            },
+            {
+                "img": "images/albums/SFSGSW/3-mary_jane.jpg",
+                "name": "Mary Jane"
+            }
+        ],
+        "desc": "Thrash áspero, oscuro y visceral con variantes del arte clásico de So Far, So Good... So What!"
+    },
+    {
+        "id": 4,
+        "category": "Album",
+        "year": "1990",
+        "name": "Rust in Peace",
+        "tipoPrecio": "simple",
+        "img": "images/albums/Rust_in_peace/rust_in_peace.jpg",
+        "variants": [
+            {
+                "img": "images/albums/Rust_in_peace/rust_in_peace.jpg",
+                "name": "Frente"
+            },
+            {
+                "img": "images/albums/Rust_in_peace/rust_in_peace_dorso.jpg",
+                "name": "Dorso"
+            },
+            {
+                "img": "images/albums/Rust_in_peace/rust_in_peace_v2.jpg",
+                "name": "v2 Frente"
+            },
+            {
+                "img": "images/albums/Rust_in_peace/rust_in_peace_v2-dorso.jpg",
+                "name": "v2 Dorso"
+            },
+            {
+                "img": "images/albums/Rust_in_peace/rust_in_peace_lineup.jpg",
+                "name": "Lineup Frente"
+            },
+            {
+                "img": "images/albums/Rust_in_peace/rust_in_peace_lineup-dorso.jpg",
+                "name": "Lineup Dorso"
+            },
+            {
+                "img": "images/albums/Rust_in_peace/alternate-rip.jpg",
+                "name": "Alternate Frente"
+            },
+            {
+                "img": "images/albums/Rust_in_peace/alternate-rip-dorso.jpg",
+                "name": "Alternate Dorso"
+            }
+        ],
+        "desc": "La obra maestra del thrash técnico con variantes frente y dorso de Rust in Peace."
+    },
+    {
+        "id": 5,
+        "category": "Album",
+        "year": "1992",
+        "name": "Countdown to Extinction",
+        "tipoPrecio": "simple",
+        "img": "images/albums/Countdown_to_extinction/countdown_to_extinction_frente.jpg",
+        "variants": [
+            {
+                "img": "images/albums/Countdown_to_extinction/countdown_to_extinction_frente.jpg",
+                "name": "Frente"
+            },
+            {
+                "img": "images/albums/Countdown_to_extinction/countdown_to_extinction_dorso.jpg",
+                "name": "Dorso"
+            },
+            {
+                "img": "images/albums/Countdown_to_extinction/countdown_circular.jpg",
+                "name": "Circular Frente"
+            },
+            {
+                "img": "images/albums/Countdown_to_extinction/countdown_circular_dorso.jpg",
+                "name": "Circular Dorso"
+            },
+            {
+                "img": "images/albums/Countdown_to_extinction/countdown_fmd.jpg",
+                "name": "FMD Frente"
+            },
+            {
+                "img": "images/albums/Countdown_to_extinction/countdown_fmd_dorso.jpg",
+                "name": "FMD Dorso"
+            },
+            {
+                "img": "images/albums/Countdown_to_extinction/vic_time_frente.jpg",
+                "name": "Vic Time Frente"
+            },
+            {
+                "img": "images/albums/Countdown_to_extinction/vic_time_dorso.jpg",
+                "name": "Vic Time Dorso"
+            },
+            {
+                "img": "images/albums/Countdown_to_extinction/countdown_vic_frente_dorso.jpg",
+                "name": "Vic Frente Dorso"
+            }
+        ],
+        "desc": "Countdown to Extinction con variantes clásicas, circulares y versiones FMD frente y dorso."
+    },
+    {
+        "id": 6,
+        "category": "Album",
+        "year": "1994",
+        "name": "Youthanasia",
+        "tipoPrecio": "simple",
+        "img": "images/albums/Youthanasia/youthanasia.jpg",
+        "variants": [
+            {
+                "img": "images/albums/Youthanasia/youthanasia.jpg",
+                "name": "Frente"
+            },
+            {
+                "img": "images/albums/Youthanasia/dorso_youthanasia.jpg",
+                "name": "Dorso"
+            },
+            {
+                "img": "images/albums/Youthanasia/photo_band.jpg",
                 "name": "Photo Band Frente"
             },
             {
@@ -131,7 +248,7 @@
                 "name": "Train of Consequences"
             }
         ],
-        "desc": "Heavy metal melódico y oscuro con una portada surrealista que denuncia el sacrificio del futuro de las nuevas generaciones."
+        "desc": "Youthanasia con variantes clásicas, photo band, Vic Father y alternative art frente y dorso."
     },
     {
         "id": 8,
