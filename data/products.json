@@ -152,6 +152,11 @@
             {
                 "img": "images/albums/Rust_in_peace/alternate-rip-dorso.jpg",
                 "name": "Alternate Dorso"
+            },
+            {
+                "img": "images/albums/Rust_in_peace/rust_in_peace_lineup_v2.jpg",
+                "name": "Lineup V2",
+                "isNew": true
             }
         ],
         "desc": "La obra maestra del thrash técnico con variantes frente y dorso de Rust in Peace."
@@ -809,6 +814,19 @@
         "desc": "Dave Mustaine junto a Vic Rattlehead en vivo."
     },
     {
+        "id": 6013,
+        "category": "Dave Mustaine",
+        "year": "1988",
+        "name": "Dave So Far Era V2",
+        "tipoPrecio": "simple",
+        "isNew": true,
+        "img": "images/musicians/Dave_Mustaine/dave_so_far_era_v2.jpg",
+        "variants": [
+            { "img": "images/musicians/Dave_Mustaine/dave_so_far_era_v2.jpg", "name": "So Far Era V2" }
+        ],
+        "desc": "Dave en la era So Far So Good So What - Versión 2."
+    },
+    {
         "id": 29,
         "category": "Musician",
         "year": "Leyenda",
@@ -1039,7 +1057,17 @@
         "name": "Iron Maiden",
         "tipoPrecio": "simple",
         "img": "images/iron_maiden/iron_maiden.jpg",
-        "desc": "Diseño clásico de Iron Maiden."
+            "variants": [
+                {
+                    "img": "images/iron_maiden/iron_maiden.jpg",
+                    "label": "Frente"
+                },
+                {
+                    "img": "images/iron_maiden/iron_maiden_empire.jpg",
+                    "label": "Empire"
+                }
+            ],
+            "desc": "Diseño clásico de Iron Maiden con variante Empire."
     },
     {
         "id": 309,
@@ -2935,6 +2963,19 @@
         "desc": "Brian Camiseta Argentina - Diseño AC/DC edición 2026."
     },
     {
+        "id": 6011,
+        "category": "AC/DC",
+        "year": "",
+        "name": "Angus Young Electric",
+        "tipoPrecio": "simple",
+        "isNew": true,
+        "img": "images/acdc/angus_young_electric.jpg",
+        "variants": [
+            { "img": "images/acdc/angus_young_electric.jpg", "name": "Angus Electric" }
+        ],
+        "desc": "Diseño Angus Young Electric de AC/DC."
+    },
+    {
         "id": 5053,
         "category": "Singles",
         "year": "2026",
@@ -3121,6 +3162,36 @@
             "desc": "Hoodie canguro oversize unisex. Algodón frizado, estampa DTG. Tipping Point frente y dorso. Producción a pedido 4-7 días."
         },
         {
+            "id": 5071,
+            "category": "Hoodies FMD",
+            "year": "2026",
+            "name": "Hoodie Rust in Peace 1990",
+            "tipoPrecio": "doble",
+            "isNew": true,
+            "img": "images/hoddies_fmd/rust_in_peace_1990.jpg",
+            "desc": "Hoodie canguro oversize unisex. Algodón frizado, estampa DTG. Rust in Peace 1990 frente y dorso. Producción a pedido 4-7 días."
+        },
+        {
+            "id": 5072,
+            "category": "Hoodies FMD",
+            "year": "2026",
+            "name": "Hoodie Vic Promo Tour 2026",
+            "tipoPrecio": "doble",
+            "isNew": true,
+            "img": "images/hoddies_fmd/vic_promo_tour_2026.jpg",
+            "desc": "Hoodie canguro oversize unisex. Algodón frizado, estampa DTG. Vic Promo Tour 2026 frente y dorso. Producción a pedido 4-7 días."
+        },
+        {
+            "id": 5073,
+            "category": "Hoodies FMD",
+            "year": "2026",
+            "name": "Hoodie Vic Digital DLB",
+            "tipoPrecio": "doble",
+            "isNew": true,
+            "img": "images/hoddies_fmd/vic_digital_dlb.jpg",
+            "desc": "Hoodie canguro oversize unisex. Algodón frizado, estampa DTG. Vic Digital DLB frente y dorso. Producción a pedido 4-7 días."
+        },
+        {
             "id": 6001,
             "category": "Hoodies Otras Bandas",
             "year": "2026",
@@ -3200,5 +3271,15 @@
             "tipoPrecio": "doble",
             "img": "images/hoddies_fmd/hoodies_otras_bandas/rapshody.jpg",
             "desc": "Hoodie canguro oversize unisex. Algodón frizado, estampa DTG. Rhapsody. Producción a pedido 4-7 días."
+        },
+        {
+            "id": 6012,
+            "category": "Hoodies Otras Bandas",
+            "year": "2026",
+            "name": "Hoodie Sepultura",
+            "tipoPrecio": "doble",
+            "isNew": true,
+            "img": "images/hoddies_fmd/hoodies_otras_bandas/sepultura.jpg",
+            "desc": "Hoodie canguro oversize unisex. Algodón frizado, estampa DTG. Sepultura. Producción a pedido 4-7 días."
         }
     ]
