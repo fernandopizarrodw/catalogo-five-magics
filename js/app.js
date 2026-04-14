@@ -26,7 +26,8 @@ let db = [];
 let selectedAge = 'adulto';
 let selectedSize = '';
 let selectedCut = 'clasica';
-let selectedColor = 'negro'; // 'adulto' o 'chico'
+let selectedColor = 'negro';
+let selectedBackIndex = -1; // Índice del dorso seleccionado para doble estampa (-1 = ninguno)
 
 // === BUSCADOR POR CÓDIGO PARA PEDIDOS ===
 // Uso: buscar("peace sells") o buscar("PS-002") o buscar(4) 
@@ -352,8 +353,9 @@ function updateModalPrices() {
         precios = selectedAge === 'chico' ? PRECIOS_CHICOS : PRECIOS;
     }
     
-    const tipo = currentProduct.tipoPrecio || 'simple';
-    const precio = precios[tipo] || precios.simple;
+    // Precio depende de si hay dorso seleccionado (doble) o no (simple)
+    const tieneDoble = selectedBackIndex >= 0 || selectedBacks.size > 0 || selectedDorsoChips.size > 0;
+    const precio = tieneDoble ? precios.doble : precios.simple;
     document.getElementById('modalPrice').textContent = '$' + precio.toLocaleString('es-AR');
     
     const pSimple = '$' + precios.simple.toLocaleString('es-AR');
@@ -407,19 +409,18 @@ class CartSystem {
         return abbreviation.substring(0, 6);
     }
 
-    // Generar código único para un producto
-    generateCode(productId, variantIndex = 0, isDouble = false) {
+    // Generar código único para un producto (sin .DBL, solo base + variante)
+    generateCode(productId, variantIndex = 0) {
         const product = db.find(p => p.id === productId);
         if (!product) return null;
         
         const abbrev = this.generateProductAbbreviation(product.name);
         const baseCode = `${abbrev}-${String(productId).padStart(3, '0')}`;
         const variantPart = product.variants && product.variants.length > 1 ? `.V${variantIndex + 1}` : '';
-        const doublePart = isDouble ? '.DBL' : '';
-        return `${baseCode}${variantPart}${doublePart}`;
+        return `${baseCode}${variantPart}`;
     }
 
-    // Agregar al carrito
+    // Agregar al carrito con soporte para dorso específico
     addToCart(productId, variantIndex = 0, isDouble = false, options = {}) {
         const product = db.find(p => p.id === productId);
         if (!product) return false;
@@ -430,19 +431,37 @@ class CartSystem {
             forceDouble = true;
         }
 
-        const code = this.generateCode(productId, variantIndex, forceDouble);
-        const variantName = product.variants && product.variants[variantIndex] 
+        // Código del frente
+        const frontCode = this.generateCode(productId, variantIndex);
+        const frontName = product.variants && product.variants[variantIndex] 
             ? product.variants[variantIndex].name 
             : product.name;
 
+        // Información del dorso (si es doble estampa)
+        let backCode = null;
+        let backName = null;
+        let backIndex = options.backIndex !== undefined ? options.backIndex : -1;
+        
+        if (forceDouble && backIndex >= 0 && product.variants && product.variants[backIndex]) {
+            backCode = this.generateCode(productId, backIndex);
+            backName = product.variants[backIndex].name;
+        }
+
         const item = {
             id: productId,
-            code: code,
+            code: frontCode, // Código principal (frente)
             productName: product.name,
             category: product.category,
             variantIndex: variantIndex,
-            variantName: variantName,
+            variantName: frontName,
             isDouble: forceDouble,
+            // Nuevos campos para doble estampa
+            frontCode: frontCode,
+            frontName: frontName,
+            backIndex: backIndex,
+            backCode: backCode,
+            backName: backName,
+            // Opciones de prenda
             age: options.age || 'adulto',
             size: options.size || '',
             cut: options.cut || 'clasica',
@@ -494,9 +513,30 @@ class CartSystem {
     generateSummary() {
         if (this.cart.length === 0) return 'Carrito vacío';
         
-        // Códigos en lista vertical
-        const codes = this.cart.map(item => `[${item.code}]`).join('\n');
+        // Detectar si hay doble estampa y separar mensaje
+        const tieneDoble = this.cart.some(item => item.isDouble);
+        const tieneDobleConDorso = this.cart.some(item => item.isDouble && item.backCode);
+        const tieneDoubleSinDorso = this.cart.some(item => item.isDouble && !item.backCode);
+        
+        // Determinar tipo de pedido para el encabezado
+        let tipoPedido = '';
+        if (tieneDoble) {
+            tipoPedido = tieneDobleConDorso ? 'remeras DOBLE ESTAMPA' : 'remeras DOBLE ESTAMPA (dorso a definir)';
+        }
 
+        // Códigos en formato mejorado
+        const codes = this.cart.map(item => {
+            if (item.isDouble && item.backCode) {
+                // Doble estampa con dorso elegido
+                return `- Frente [${item.frontCode}] + dorso [${item.backCode}]. "${item.frontName}" + "${item.backName}"`;
+            } else if (item.isDouble) {
+                // Doble estampa sin dorso (pedir asesoramiento)
+                return `- [${item.frontCode}] "${item.frontName}" (dorso a definir con asesoramiento FMD)`;
+            } else {
+                // Simple
+                return `- [${item.code}] "${item.variantName}"`;
+            }
+        }).join('\n');
 
         // Ordenar productos: adulto primero, luego niño; dentro de adulto, hoodie/remera
         const sortOrder = item => {
@@ -510,7 +550,9 @@ class CartSystem {
         // Detalles de cada producto (ajustes de lenguaje y talle)
         const details = sortedCart.map(item => {
             const isHoodie = item.category === 'Hoodies FMD';
-            const doble = item.isDouble ? ' (Doble estampa)' : '';
+            const dobleLabel = item.isDouble 
+                ? (item.backCode ? ' doble estampa' : ' doble estampa (dorso pendiente)')
+                : '';
             const edad = item.age === 'chico' ? 'Niño' : 'Adulto';
             let talle;
             if (!item.size) {
@@ -523,21 +565,15 @@ class CartSystem {
             if (isHoodie) {
                 tipoPrenda = 'Hoodie oversize unisex';
             } else if (item.cut === 'oversize') {
-                tipoPrenda = 'Remera oversize unisex';
+                tipoPrenda = 'Remera oversize unisex' + dobleLabel;
             } else {
-                tipoPrenda = 'Remera clásica';
+                tipoPrenda = 'Remera clásica' + dobleLabel;
             }
-            return `${item.productName}${doble}\n${edad} | ${talle} | ${tipoPrenda} | ${color}`;
+            return `${item.productName}\n${edad} | ${talle} | ${tipoPrenda} | ${color}`;
         }).join('\n\n');
 
         const total = this.cart.length;
         const tipoConteo = total === 1 ? 'prenda' : 'prendas';
-
-        // Formato limpio para WhatsApp
-        let envioMsg = '';
-        if (total === 1) {
-            envioMsg = '\n\n*Envío a calcular según CP*';
-        }
 
         // Detectar combos hoodie+remera (promo)
         const tieneHoodie = sortedCart.some(i => i.category === 'Hoodies FMD');
@@ -547,7 +583,7 @@ class CartSystem {
             promoMsg = '\n\n> Este pedido incluye productos combinables en promo vigente.';
         }
 
-        return `CÓDIGOS:\n${codes}\n\nDETALLE DEL PEDIDO:\n\n${details}\n\nTotal de ${tipoConteo}: ${total}${envioMsg}${promoMsg}`;
+        return `CÓDIGOS:\n${codes}\n\nDETALLE DEL PEDIDO:\n\n${details}\n\nTotal de ${tipoConteo}: ${total}${promoMsg}`;
     }
 
     // Actualizar UI del carrito
@@ -1095,6 +1131,9 @@ function updateDobleWaLink(){
     };
     
     btn.href = '#'; // Placeholder para accesibilidad
+    
+    // Actualizar precio según si hay dorso seleccionado
+    updateModalPrices();
 }
 
 function renderBackExamples(){
@@ -1121,6 +1160,94 @@ function renderBackExamples(){
             updateDobleWaLink();
         };
     });
+}
+
+// === SELECTOR DE DORSO PARA DOBLE ESTAMPA ===
+
+// Detectar variantes de dorso en el producto actual
+function getDorsoVariants(product) {
+    if (!product || !product.variants) return [];
+    return product.variants
+        .map((v, index) => ({ ...v, index }))
+        .filter(v => v.name && v.name.toLowerCase().includes('dorso'));
+}
+
+// Renderizar selector de dorso con variantes disponibles
+function renderDorsoSelector() {
+    const variantsSection = document.getElementById('dorsoVariantsSection');
+    const variantsGrid = document.getElementById('dorsoVariantsGrid');
+    const customSection = document.getElementById('dorsoCustomSection');
+    const summarySection = document.getElementById('dorsoSelectionSummary');
+    
+    if (!variantsSection || !variantsGrid || !currentProduct) return;
+    
+    const dorsoVariants = getDorsoVariants(currentProduct);
+    
+    if (dorsoVariants.length > 0) {
+        // Hay variantes de dorso disponibles
+        variantsSection.style.display = 'block';
+        customSection.style.display = 'none'; // Ocultar opciones de personalización
+        
+        variantsGrid.innerHTML = dorsoVariants.map(v => `
+            <div class="dorso-variant-item" data-index="${v.index}" onclick="selectDorsoVariant(${v.index})" 
+                 style="cursor:pointer;border:2px solid #333;border-radius:8px;overflow:hidden;transition:all 0.2s;">
+                <img src="${v.img}" alt="${v.name}" style="width:100%;height:60px;object-fit:cover;">
+                <div style="font-size:0.7rem;color:#888;text-align:center;padding:4px;background:#111;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">
+                    ${v.name.replace('Dorso ', '').replace(' Dorso', '')}
+                </div>
+            </div>
+        `).join('');
+    } else {
+        // No hay variantes de dorso, mostrar opciones de personalización
+        variantsSection.style.display = 'none';
+        customSection.style.display = 'block';
+    }
+    
+    // Resetear resumen
+    if (summarySection) summarySection.style.display = 'none';
+}
+
+// Seleccionar una variante de dorso
+function selectDorsoVariant(index) {
+    const variantsGrid = document.getElementById('dorsoVariantsGrid');
+    const summarySection = document.getElementById('dorsoSelectionSummary');
+    const summaryText = document.getElementById('dorsoSelectionText');
+    
+    if (!variantsGrid || !currentProduct || !currentProduct.variants) return;
+    
+    // Actualizar variable global
+    if (selectedBackIndex === index) {
+        // Si ya estaba seleccionado, deseleccionar
+        selectedBackIndex = -1;
+    } else {
+        selectedBackIndex = index;
+    }
+    
+    // Actualizar UI - marcar el seleccionado
+    variantsGrid.querySelectorAll('.dorso-variant-item').forEach(item => {
+        const itemIndex = parseInt(item.dataset.index);
+        if (itemIndex === selectedBackIndex) {
+            item.style.borderColor = '#39ff14';
+            item.style.boxShadow = '0 0 10px rgba(57,255,20,0.3)';
+        } else {
+            item.style.borderColor = '#333';
+            item.style.boxShadow = 'none';
+        }
+    });
+    
+    // Actualizar resumen
+    if (summarySection && summaryText) {
+        if (selectedBackIndex >= 0 && currentProduct.variants[selectedBackIndex]) {
+            const variant = currentProduct.variants[selectedBackIndex];
+            summaryText.textContent = variant.name;
+            summarySection.style.display = 'block';
+        } else {
+            summarySection.style.display = 'none';
+        }
+    }
+    
+    // Actualizar precio (simple si no hay dorso, doble si hay)
+    updateModalPrices();
 }
 
 // === ELEMENTOS DOM ===
@@ -1222,6 +1349,7 @@ function openModal(id, variantIndex = undefined) {
     selectedSize = '';
     selectedCut = 'clasica';
     selectedColor = 'negro';
+    selectedBackIndex = -1; // Reset dorso seleccionado
     
     // Reset botones de edad
     document.querySelectorAll('#ageSelector button').forEach(btn => {
@@ -1504,6 +1632,7 @@ function updateModalInfo() {
         modalWaBtn.href = '#';
     }
     renderBackExamples();
+    renderDorsoSelector(); // Renderizar selector de dorso
     updateDobleWaLink();
     document.querySelectorAll('.carousel-dot').forEach((dot, i) => { dot.classList.toggle('active', i === currentSlide); });
     updateShareLinks();
@@ -1954,25 +2083,23 @@ function calculateCartTotal() {
         subtotal += calculateItemPrice(item);
     });
     
-    // Calcular envío según cantidad
-    let envio = 0;
+    // Calcular descuento según cantidad (10% para 3+ prendas)
     let descuento = 0;
     const cantidad = items.length;
     
-    if (cantidad === 1) {
-        envio = PRECIOS_ENVIO.una_unidad;
-    } else if (cantidad >= 3) {
-        descuento = subtotal * PRECIOS_ENVIO.tres_plus.descuento;
-        envio = PRECIOS_ENVIO.tres_plus.envio;
-    } else {
-        envio = PRECIOS_ENVIO.dos_plus;
+    if (cantidad >= 3) {
+        descuento = subtotal * 0.10; // 10% descuento
     }
+    
+    // Envío: gratis para 2+, a calcular para 1
+    const envioGratis = cantidad >= 2;
     
     return {
         subtotal,
-        envio,
+        envio: 0, // No sumamos envío fijo, es dinámico
+        envioGratis,
         descuento,
-        total: subtotal - descuento + envio,
+        total: subtotal - descuento, // Total SIN envío
         cantidad
     };
 }
@@ -2063,14 +2190,22 @@ function renderCartPreview() {
             ` : ''}
             <div class="cart-preview-summary-row">
                 <span>Envío</span>
-                <span class="value">${totals.cantidad === 1 ? 'A calcular según CP' : (totals.envio > 0 ? '$' + totals.envio.toLocaleString('es-AR') : 'GRATIS')}</span>
+                <span class="value">${totals.envioGratis ? '<span style="color:var(--magic-green);">GRATIS ✓</span>' : 'A calcular según zona'}</span>
             </div>
             <div class="cart-preview-summary-row total">
-                <span>Total estimado</span>
+                <span>Total${totals.envioGratis ? '' : ' (+ envío)'}</span>
                 <span class="value">$${totals.total.toLocaleString('es-AR')}</span>
             </div>
         </div>
         ${shippingNote}
+        <div class="cart-preview-info" style="margin-top:12px;padding:12px;background:#0a0a0a;border:1px solid #222;border-radius:8px;font-size:0.8rem;color:#888;">
+            <div style="margin-bottom:8px;">
+                <span style="color:#39ff14;">📦 ENVÍO:</span> Andreani a todo el país (domicilio o punto de retiro). Entrega en 4-7 días hábiles.
+            </div>
+            <div>
+                <span style="color:#39ff14;">💳 PAGO:</span> Transferencia o MercadoPago. Tarjeta de crédito con recargo $8.000.
+            </div>
+        </div>
         <div class="cart-preview-actions">
             <button class="btn-preview-continue" onclick="closeCartPreview()">
                 ← Seguir eligiendo
@@ -2107,20 +2242,25 @@ function toggleCartPanel() {
 function addToCartFromModal() {
     if (!currentProduct) return false;
     
-    const isDouble = selectedBacks.size > 0 || selectedDorsoChips.size > 0;
+    // Determinar si es doble estampa basándose en el dorso seleccionado
+    const isDouble = selectedBackIndex >= 0 || selectedBacks.size > 0 || selectedDorsoChips.size > 0;
     const variantIndex = currentSlide;
     
     const options = {
         age: selectedAge,
         size: selectedSize,
         cut: selectedCut,
-        color: selectedColor
+        color: selectedColor,
+        backIndex: selectedBackIndex // Índice del dorso seleccionado
     };
     
     const success = cart.addToCart(currentProduct.id, variantIndex, isDouble, options);
     
     if (success) {
-        showNotification('✓ Agregado al carrito', 2000);
+        const msg = isDouble && selectedBackIndex >= 0 
+            ? '✓ Agregado con frente + dorso' 
+            : (isDouble ? '✓ Agregado (dorso a definir)' : '✓ Agregado al carrito');
+        showNotification(msg, 2000);
     }
     
     return success;

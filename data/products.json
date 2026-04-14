@@ -47,15 +47,15 @@
         "tipoPrecio": "doble",
         "img": "images/albums/Killing_Is_my_bussines/kimb_1985_original_.jpg",
         "variants": [
-            { "img": "images/albums/Killing_Is_my_bussines/kimb_1985_original_.jpg", "name": "KIMB_1985_ORIGINAL" },
-            { "img": "images/albums/Killing_Is_my_bussines/kimb_2012.jpg", "name": "KIMB 2012" },
-            { "img": "images/albums/Killing_Is_my_bussines/kimb_art_2012.jpg", "name": "KIMB_ART_2012" },
-            { "img": "images/albums/Killing_Is_my_bussines/kimb_gris_rojo.jpg", "name": "KIMB_GRIS_ROJO" },
-            { "img": "images/albums/Killing_Is_my_bussines/kimb_realistic_1985.jpg", "name": "KIMB_REALISTIC_1985" },
-            { "img": "images/albums/Killing_Is_my_bussines/kimb_realistic_2012.jpg", "name": "KIMB_REALISTIC_2012" },
-            { "img": "images/albums/Killing_Is_my_bussines/kimb_retro.jpg", "name": "KIMB_RETRO" },
-            { "img": "images/albums/Killing_Is_my_bussines/dorso_kimb.jpg", "name": "DORSO" },
-            { "img": "images/albums/Killing_Is_my_bussines/kimb_1985_original_dorso.jpg", "name": "KIMB_1985_ORIGINAL_DORSO" }
+            { "img": "images/albums/Killing_Is_my_bussines/kimb_1985_original_.jpg", "name": "Original 1985" },
+            { "img": "images/albums/Killing_Is_my_bussines/kimb_2012.jpg", "name": "Edición 2012" },
+            { "img": "images/albums/Killing_Is_my_bussines/kimb_art_2012.jpg", "name": "Art 2012" },
+            { "img": "images/albums/Killing_Is_my_bussines/kimb_gris_rojo.jpg", "name": "Gris Rojo" },
+            { "img": "images/albums/Killing_Is_my_bussines/kimb_realistic_1985.jpg", "name": "Realista 1985" },
+            { "img": "images/albums/Killing_Is_my_bussines/kimb_realistic_2012.jpg", "name": "Realista 2012" },
+            { "img": "images/albums/Killing_Is_my_bussines/kimb_retro.jpg", "name": "Retro" },
+            { "img": "images/albums/Killing_Is_my_bussines/dorso_kimb.jpg", "name": "Dorso Tracklist" },
+            { "img": "images/albums/Killing_Is_my_bussines/kimb_1985_original_dorso.jpg", "name": "Dorso Original 1985" }
         ],
         "desc": "Es el debut crudo y frenético de 1985 que definió el thrash metal técnico mediante la velocidad extrema y la sed de venganza de Dave Mustaine en 7 diseños."
     },
@@ -825,6 +825,19 @@
             { "img": "images/musicians/Dave_Mustaine/dave_so_far_era_v2.jpg", "name": "So Far Era V2" }
         ],
         "desc": "Dave en la era So Far So Good So What - Versión 2."
+    },
+    {
+        "id": 6014,
+        "category": "Dave Mustaine",
+        "year": "2026",
+        "name": "Dave Mustaine Argentina V1",
+        "tipoPrecio": "simple",
+        "isNew": true,
+        "img": "images/musicians/Dave_Mustaine/dave_mustaine_argv1.jpg",
+        "variants": [
+            { "img": "images/musicians/Dave_Mustaine/dave_mustaine_argv1.jpg", "name": "Argentina V1" }
+        ],
+        "desc": "Diseño exclusivo Dave Mustaine Argentina - Edición especial Five Magics Designs."
     },
     {
         "id": 29,

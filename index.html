@@ -878,6 +878,11 @@
             </a>
         </div>
 
+        <div class="footer-info" style="margin: 24px auto; max-width: 500px; text-align: center; font-size: 0.85rem; line-height: 1.6; opacity: 0.85;">
+            <p style="margin-bottom: 8px;">📦 <strong>ENVÍO:</strong> Andreani a todo el país (domicilio o punto de retiro). Entrega en 4-7 días hábiles.</p>
+            <p>💳 <strong>PAGO:</strong> Transferencia o MercadoPago. Tarjeta de crédito con recargo $8.000.</p>
+        </div>
+
         <div class="footer-divider"></div>
 
         <p>© 2025 Five Magics Designs · Argentina</p>
@@ -1010,22 +1015,35 @@
 
                     <div class="upsell-dorso" id="upsellDorso">
                         <div class="upsell-row">
-                            <span class="upsell-pill">🔥 SUMÁ DORSO PERSONALIZADO</span>
-                            <div style="font-size:0.92rem;color:var(--text-muted);">Podés agregar logo, frase, tour, fecha o arte complementario en la espalda. Se arma a pedido.</div>
+                            <span class="upsell-pill">🔥 SUMÁ DORSO</span>
                             <div class="upsell-prices">Solo frente: <strong id="modalPrecioSimple">-</strong> · Frente + Dorso: <strong id="modalPrecioDoble">-</strong></div>
-
-                            <div style="font-size:0.88rem;color:var(--text-muted);margin-top:8px;">Ideas de dorso (tocá para agregar):</div>
-                            <div class="chips-row" id="chipsRow">
-                                <div class="chip" data-val="Logo blanco" onclick="toggleChip(this)">Logo blanco</div>
-                                <div class="chip" data-val="Frase corta" onclick="toggleChip(this)">Frase corta</div>
-                                <div class="chip" data-val="Tour/Fecha" onclick="toggleChip(this)">Tour/Fecha</div>
-                                <div class="chip" data-val="Ícono/símbolo" onclick="toggleChip(this)">Ícono/símbolo</div>
+                            
+                            <!-- Selector de dorso con variantes disponibles -->
+                            <div id="dorsoVariantsSection" style="margin-top:12px;display:none;">
+                                <div style="font-size:0.88rem;color:#39ff14;font-weight:600;margin-bottom:8px;">📋 Elegí el dorso:</div>
+                                <div id="dorsoVariantsGrid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(80px,1fr));gap:8px;"></div>
                             </div>
-                            <div style="margin-top:8px;">
-                                <label for="dorsoCustomInput" style="font-size:0.88rem;color:var(--text-muted);display:block;margin-bottom:6px;">Agregar detalle para el dorso (opcional)</label>
-                                <input id="dorsoCustomInput" type="text" placeholder="Ej: Firma Darrell + Pantera" style="width:100%;padding:8px;border-radius:6px;border:1px solid #2a2a2a;background:#0f0f0f;color:var(--text);">
+                            
+                            <!-- Si no hay variantes de dorso, mostrar opciones de personalización -->
+                            <div id="dorsoCustomSection" style="margin-top:12px;">
+                                <div style="font-size:0.88rem;color:var(--text-muted);margin-bottom:6px;">Ideas de dorso (tocá para agregar):</div>
+                                <div class="chips-row" id="chipsRow">
+                                    <div class="chip" data-val="Logo blanco" onclick="toggleChip(this)">Logo blanco</div>
+                                    <div class="chip" data-val="Frase corta" onclick="toggleChip(this)">Frase corta</div>
+                                    <div class="chip" data-val="Tour/Fecha" onclick="toggleChip(this)">Tour/Fecha</div>
+                                    <div class="chip" data-val="Ícono/símbolo" onclick="toggleChip(this)">Ícono/símbolo</div>
+                                </div>
+                                <div style="margin-top:8px;">
+                                    <input id="dorsoCustomInput" type="text" placeholder="Ej: Firma Darrell + Pantera" style="width:100%;padding:8px;border-radius:6px;border:1px solid #2a2a2a;background:#0f0f0f;color:var(--text);">
+                                </div>
                             </div>
                             <div id="backsRow" style="display:flex;gap:8px;margin-top:10px;align-items:center;"></div>
+                            
+                            <!-- Resumen de selección -->
+                            <div id="dorsoSelectionSummary" style="display:none;margin-top:12px;padding:10px;background:#0a2a0a;border:1px solid #39ff14;border-radius:8px;">
+                                <div style="font-size:0.85rem;color:#39ff14;font-weight:600;">✓ Dorso seleccionado:</div>
+                                <div id="dorsoSelectionText" style="font-size:0.9rem;color:#fff;margin-top:4px;"></div>
+                            </div>
                         </div>
                     </div>
 
