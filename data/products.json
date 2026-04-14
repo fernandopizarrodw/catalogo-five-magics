@@ -593,13 +593,19 @@
         "desc": "Let There - Carrusel con todas las variantes de Let There."
     },
     {
-        "id": 244,
+        "id": 6015,
         "category": "Singles",
-        "year": "2025",
+        "year": "2026",
         "name": "Mary Jane",
         "tipoPrecio": "simple",
+        "isNew": true,
         "img": "images/singles/mary_jane.jpg",
-        "desc": "Mary Jane — single exclusivo. Edición especial 2025."
+        "variants": [
+            { "img": "images/singles/mary_jane.jpg", "name": "Mary Jane Original" },
+            { "img": "images/albums/SFSGSW/mary_jane_remastered.jpg", "name": "Remastered", "isNew": true },
+            { "img": "images/albums/SFSGSW/mary_jane_remasteredv2.jpg", "name": "Remastered V2", "isNew": true }
+        ],
+        "desc": "Mary Jane — single exclusivo con versiones remastered. Edición especial Five Magics Designs."
     },
     {
         "id": 1065,
