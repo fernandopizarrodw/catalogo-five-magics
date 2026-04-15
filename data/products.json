@@ -3023,9 +3023,64 @@
         "desc": "Vic Black Friday - Diseño exclusivo de Vic Rattlehead edición especial."
     },
     {
+        "id": 5057,
+        "category": "Hoodies FMD",
+        "year": "1985",
+        "name": "Hoodie Killing Original",
+        "tipoPrecio": "doble",
+        "img": "images/hoddies_fmd/killing_original.jpg",
+        "desc": "Hoodie canguro oversize unisex. Algodón frizado, estampa DTG. Killing Is My Business original frente y dorso. Producción a pedido 4-7 días."
+    },
+    {
+        "id": 5058,
+        "category": "Hoodies FMD",
+        "year": "1985",
+        "name": "Hoodie Killing Remaster",
+        "tipoPrecio": "doble",
+        "img": "images/hoddies_fmd/killing_remaster.jpg",
+        "desc": "Hoodie canguro oversize unisex. Algodón frizado, estampa DTG. Killing Is My Business remaster frente y dorso. Producción a pedido 4-7 días."
+    },
+    {
+        "id": 5061,
+        "category": "Hoodies FMD",
+        "year": "1986",
+        "name": "Hoodie Peace Sells",
+        "tipoPrecio": "doble",
+        "img": "images/hoddies_fmd/peace_sells.jpg",
+        "desc": "Hoodie canguro oversize unisex. Algodón frizado, estampa DTG. Peace Sells frente y dorso. Producción a pedido 4-7 días."
+    },
+    {
+        "id": 5056,
+        "category": "Hoodies FMD",
+        "year": "1988",
+        "name": "Hoodie Dave SFSGSW Era",
+        "tipoPrecio": "doble",
+        "img": "images/hoddies_fmd/dave_sfsgsw_era.jpg",
+        "desc": "Hoodie canguro oversize unisex. Algodón frizado, estampa DTG. Dave Mustaine era SFSGSW frente y dorso. Producción a pedido 4-7 días."
+    },
+    {
+        "id": 5062,
+        "category": "Hoodies FMD",
+        "year": "1990",
+        "name": "Hoodie Rust in Peace",
+        "tipoPrecio": "doble",
+        "img": "images/hoddies_fmd/rust_in_peace.jpg",
+        "desc": "Hoodie canguro oversize unisex. Algodón frizado, estampa DTG. Rust in Peace frente y dorso. Producción a pedido 4-7 días."
+    },
+    {
+        "id": 5071,
+        "category": "Hoodies FMD",
+        "year": "1990",
+        "name": "Hoodie Rust in Peace 1990",
+        "tipoPrecio": "doble",
+        "isNew": true,
+        "img": "images/hoddies_fmd/rust_in_peace_1990.jpg",
+        "desc": "Hoodie canguro oversize unisex. Algodón frizado, estampa DTG. Rust in Peace 1990 frente y dorso. Producción a pedido 4-7 días."
+    },
+    {
         "id": 5055,
         "category": "Hoodies FMD",
-        "year": "2026",
+        "year": "1992",
         "name": "Hoodie Countdown",
         "tipoPrecio": "doble",
         "img": "images/hoddies_fmd/countdown.jpg",
@@ -3042,31 +3097,31 @@
         "desc": "Hoodie canguro oversize unisex. Algodón frizado, estampa DTG. Diseño Countdown to Extinction frente y dorso. Producción a pedido 4-7 días."
     },
     {
-        "id": 5056,
+        "id": 5064,
         "category": "Hoodies FMD",
-        "year": "2026",
-        "name": "Hoodie Dave SFSGSW Era",
+        "year": "1994",
+        "name": "Hoodie Youthanasia",
         "tipoPrecio": "doble",
-        "img": "images/hoddies_fmd/dave_sfsgsw_era.jpg",
-        "desc": "Hoodie canguro oversize unisex. Algodón frizado, estampa DTG. Dave Mustaine era SFSGSW frente y dorso. Producción a pedido 4-7 días."
+        "img": "images/hoddies_fmd/youthanasia.jpg",
+        "desc": "Hoodie canguro oversize unisex. Algodón frizado, estampa DTG. Youthanasia frente y dorso. Producción a pedido 4-7 días."
     },
     {
-        "id": 5057,
+        "id": 5065,
         "category": "Hoodies FMD",
-        "year": "2026",
-        "name": "Hoodie Killing Original",
+        "year": "1997",
+        "name": "Hoodie Cryptic Writings",
         "tipoPrecio": "doble",
-        "img": "images/hoddies_fmd/killing_original.jpg",
-        "desc": "Hoodie canguro oversize unisex. Algodón frizado, estampa DTG. Killing Is My Business original frente y dorso. Producción a pedido 4-7 días."
+        "img": "images/hoddies_fmd/cryptic.jpg",
+        "desc": "Hoodie canguro oversize unisex. Algodón frizado, estampa DTG. Cryptic Writings frente y dorso. Producción a pedido 4-7 días."
     },
     {
-        "id": 5058,
+        "id": 5066,
         "category": "Hoodies FMD",
-        "year": "2026",
-        "name": "Hoodie Killing Remaster",
+        "year": "2016",
+        "name": "Hoodie Dystopia",
         "tipoPrecio": "doble",
-        "img": "images/hoddies_fmd/killing_remaster.jpg",
-        "desc": "Hoodie canguro oversize unisex. Algodón frizado, estampa DTG. Killing Is My Business remaster frente y dorso. Producción a pedido 4-7 días."
+        "img": "images/hoddies_fmd/dystopia.jpg",
+        "desc": "Hoodie canguro oversize unisex. Algodón frizado, estampa DTG. Dystopia frente y dorso. Producción a pedido 4-7 días."
     },
     {
         "id": 5059,
@@ -3087,24 +3142,6 @@
         "desc": "Hoodie canguro oversize unisex BLANCO exclusivo. Algodón frizado, estampa DTG. Diseño Megadeth Final frente y dorso. Producción a pedido 4-7 días."
     },
     {
-        "id": 5061,
-        "category": "Hoodies FMD",
-        "year": "2026",
-        "name": "Hoodie Peace Sells",
-        "tipoPrecio": "doble",
-        "img": "images/hoddies_fmd/peace_sells.jpg",
-        "desc": "Hoodie canguro oversize unisex. Algodón frizado, estampa DTG. Peace Sells frente y dorso. Producción a pedido 4-7 días."
-    },
-    {
-        "id": 5062,
-        "category": "Hoodies FMD",
-        "year": "2026",
-        "name": "Hoodie Rust in Peace",
-        "tipoPrecio": "doble",
-        "img": "images/hoddies_fmd/rust_in_peace.jpg",
-        "desc": "Hoodie canguro oversize unisex. Algodón frizado, estampa DTG. Rust in Peace frente y dorso. Producción a pedido 4-7 días."
-    },
-    {
         "id": 5063,
         "category": "Hoodies FMD",
         "year": "2026",
@@ -3114,102 +3151,65 @@
         "desc": "Hoodie canguro oversize unisex. Algodón frizado, estampa DTG. Vic Rattlehead Father frente y dorso. Producción a pedido 4-7 días."
     },
     {
-        "id": 5064,
+        "id": 5067,
         "category": "Hoodies FMD",
         "year": "2026",
-        "name": "Hoodie Youthanasia",
+        "name": "Hoodie Made to Kill",
         "tipoPrecio": "doble",
-        "img": "images/hoddies_fmd/youthanasia.jpg",
-        "desc": "Hoodie canguro oversize unisex. Algodón frizado, estampa DTG. Youthanasia frente y dorso. Producción a pedido 4-7 días."
+        "isNew": true,
+        "img": "images/hoddies_fmd/made_to_kill.jpg",
+        "desc": "Hoodie canguro oversize unisex. Algodón frizado, estampa DTG. Made to Kill frente y dorso. Producción a pedido 4-7 días."
     },
     {
-        "id": 5065,
+        "id": 5068,
         "category": "Hoodies FMD",
         "year": "2026",
-        "name": "Hoodie Cryptic Writings",
+        "name": "Hoodie I Don't Care",
         "tipoPrecio": "doble",
-        "img": "images/hoddies_fmd/cryptic.jpg",
-        "desc": "Hoodie canguro oversize unisex. Algodón frizado, estampa DTG. Cryptic Writings frente y dorso. Producción a pedido 4-7 días."
+        "isNew": true,
+        "img": "images/hoddies_fmd/i_dont_care.jpg",
+        "desc": "Hoodie canguro oversize unisex. Algodón frizado, estampa DTG. I Don't Care frente y dorso. Producción a pedido 4-7 días."
     },
     {
-        "id": 5066,
+        "id": 5069,
         "category": "Hoodies FMD",
         "year": "2026",
-        "name": "Hoodie Dystopia",
+        "name": "Hoodie Let There Be Shred",
         "tipoPrecio": "doble",
-        "img": "images/hoddies_fmd/dystopia.jpg",
-        "desc": "Hoodie canguro oversize unisex. Algodón frizado, estampa DTG. Dystopia frente y dorso. Producción a pedido 4-7 días."
+        "isNew": true,
+        "img": "images/hoddies_fmd/let_there_be_shred.jpg",
+        "desc": "Hoodie canguro oversize unisex. Algodón frizado, estampa DTG. Let There Be Shred frente y dorso. Producción a pedido 4-7 días."
     },
-        {
-            "id": 5067,
-            "category": "Hoodies FMD",
-            "year": "2026",
-            "name": "Hoodie Made to Kill",
-            "tipoPrecio": "doble",
-            "isNew": true,
-            "img": "images/hoddies_fmd/made_to_kill.jpg",
-            "desc": "Hoodie canguro oversize unisex. Algodón frizado, estampa DTG. Made to Kill frente y dorso. Producción a pedido 4-7 días."
-        },
-        {
-            "id": 5068,
-            "category": "Hoodies FMD",
-            "year": "2026",
-            "name": "Hoodie I Don't Care",
-            "tipoPrecio": "doble",
-            "isNew": true,
-            "img": "images/hoddies_fmd/i_dont_care.jpg",
-            "desc": "Hoodie canguro oversize unisex. Algodón frizado, estampa DTG. I Don't Care frente y dorso. Producción a pedido 4-7 días."
-        },
-        {
-            "id": 5069,
-            "category": "Hoodies FMD",
-            "year": "2026",
-            "name": "Hoodie Let There Be Shred",
-            "tipoPrecio": "doble",
-            "isNew": true,
-            "img": "images/hoddies_fmd/let_there_be_shred.jpg",
-            "desc": "Hoodie canguro oversize unisex. Algodón frizado, estampa DTG. Let There Be Shred frente y dorso. Producción a pedido 4-7 días."
-        },
-        {
-            "id": 5070,
-            "category": "Hoodies FMD",
-            "year": "2026",
-            "name": "Hoodie Tipping Point",
-            "tipoPrecio": "doble",
-            "isNew": true,
-            "img": "images/hoddies_fmd/tipping_point.jpg",
-            "desc": "Hoodie canguro oversize unisex. Algodón frizado, estampa DTG. Tipping Point frente y dorso. Producción a pedido 4-7 días."
-        },
-        {
-            "id": 5071,
-            "category": "Hoodies FMD",
-            "year": "2026",
-            "name": "Hoodie Rust in Peace 1990",
-            "tipoPrecio": "doble",
-            "isNew": true,
-            "img": "images/hoddies_fmd/rust_in_peace_1990.jpg",
-            "desc": "Hoodie canguro oversize unisex. Algodón frizado, estampa DTG. Rust in Peace 1990 frente y dorso. Producción a pedido 4-7 días."
-        },
-        {
-            "id": 5072,
-            "category": "Hoodies FMD",
-            "year": "2026",
-            "name": "Hoodie Vic Promo Tour 2026",
-            "tipoPrecio": "doble",
-            "isNew": true,
-            "img": "images/hoddies_fmd/vic_promo_tour_2026.jpg",
-            "desc": "Hoodie canguro oversize unisex. Algodón frizado, estampa DTG. Vic Promo Tour 2026 frente y dorso. Producción a pedido 4-7 días."
-        },
-        {
-            "id": 5073,
-            "category": "Hoodies FMD",
-            "year": "2026",
-            "name": "Hoodie Vic Digital DLB",
-            "tipoPrecio": "doble",
-            "isNew": true,
-            "img": "images/hoddies_fmd/vic_digital_dlb.jpg",
-            "desc": "Hoodie canguro oversize unisex. Algodón frizado, estampa DTG. Vic Digital DLB frente y dorso. Producción a pedido 4-7 días."
-        },
+    {
+        "id": 5070,
+        "category": "Hoodies FMD",
+        "year": "2026",
+        "name": "Hoodie Tipping Point",
+        "tipoPrecio": "doble",
+        "isNew": true,
+        "img": "images/hoddies_fmd/tipping_point.jpg",
+        "desc": "Hoodie canguro oversize unisex. Algodón frizado, estampa DTG. Tipping Point frente y dorso. Producción a pedido 4-7 días."
+    },
+    {
+        "id": 5072,
+        "category": "Hoodies FMD",
+        "year": "2026",
+        "name": "Hoodie Vic Promo Tour 2026",
+        "tipoPrecio": "doble",
+        "isNew": true,
+        "img": "images/hoddies_fmd/vic_promo_tour_2026.jpg",
+        "desc": "Hoodie canguro oversize unisex. Algodón frizado, estampa DTG. Vic Promo Tour 2026 frente y dorso. Producción a pedido 4-7 días."
+    },
+    {
+        "id": 5073,
+        "category": "Hoodies FMD",
+        "year": "2026",
+        "name": "Hoodie Vic Digital DLB",
+        "tipoPrecio": "doble",
+        "isNew": true,
+        "img": "images/hoddies_fmd/vic_digital_dlb.jpg",
+        "desc": "Hoodie canguro oversize unisex. Algodón frizado, estampa DTG. Vic Digital DLB frente y dorso. Producción a pedido 4-7 días."
+    },
         {
             "id": 6001,
             "category": "Hoodies Otras Bandas",
@@ -3300,5 +3300,45 @@
             "isNew": true,
             "img": "images/hoddies_fmd/hoodies_otras_bandas/sepultura.jpg",
             "desc": "Hoodie canguro oversize unisex. Algodón frizado, estampa DTG. Sepultura. Producción a pedido 4-7 días."
+        },
+        {
+            "id": 6016,
+            "category": "Hoodies Otras Bandas",
+            "year": "2026",
+            "name": "Hoodie Death",
+            "tipoPrecio": "doble",
+            "isNew": true,
+            "img": "images/hoddies_fmd/hoodies_otras_bandas/death.jpg",
+            "desc": "Hoodie canguro oversize unisex. Algodón frizado, estampa DTG. Death. Producción a pedido 4-7 días."
+        },
+        {
+            "id": 6017,
+            "category": "Hoodies Otras Bandas",
+            "year": "2026",
+            "name": "Hoodie Rhapsody V1",
+            "tipoPrecio": "doble",
+            "isNew": true,
+            "img": "images/hoddies_fmd/hoodies_otras_bandas/raphsody_v1.jpg",
+            "desc": "Hoodie canguro oversize unisex. Algodón frizado, estampa DTG. Rhapsody V1. Producción a pedido 4-7 días."
+        },
+        {
+            "id": 6018,
+            "category": "Hoodies Otras Bandas",
+            "year": "2026",
+            "name": "Hoodie Black Sabbath The End",
+            "tipoPrecio": "doble",
+            "isNew": true,
+            "img": "images/hoddies_fmd/hoodies_otras_bandas/black_sabbath_the_end.jpg",
+            "desc": "Hoodie canguro oversize unisex. Algodón frizado, estampa DTG. Black Sabbath The End. Producción a pedido 4-7 días."
+        },
+        {
+            "id": 6019,
+            "category": "Hoodies Otras Bandas",
+            "year": "2026",
+            "name": "Hoodie Black Sabbath Tour",
+            "tipoPrecio": "doble",
+            "isNew": true,
+            "img": "images/hoddies_fmd/hoodies_otras_bandas/black_sabbath_tour.jpg",
+            "desc": "Hoodie canguro oversize unisex. Algodón frizado, estampa DTG. Black Sabbath Tour. Producción a pedido 4-7 días."
         }
     ]
