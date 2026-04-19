@@ -5,6 +5,12 @@ const PRECIOS = {
     simple_personalizado: 40000,
     doble_personalizado: 45000
 };
+const PRECIOS_OVERSIZE = {
+    simple: 39000,
+    doble: 44000,
+    simple_personalizado: 42000,
+    doble_personalizado: 47000
+};
 const PRECIOS_CHICOS = {
     simple: 32000,
     doble: 35000
@@ -323,6 +329,9 @@ function selectCut(cut) {
             btn.style.cssText = inactiveStyle;
         }
     });
+    
+    // Actualizar precios al cambiar corte
+    updateModalPrices();
 }
 
 // Función para seleccionar color
@@ -338,19 +347,26 @@ function selectColor(color) {
     });
 }
 
-// Actualizar precios según selección adulto/chico y tipo de producto
+// Actualizar precios según selección adulto/chico, oversize y tipo de producto
 function updateModalPrices() {
     if (!currentProduct) return;
     
     // Detectar si es hoodie
     const isHoodie = currentProduct.category === 'Hoodies FMD';
     
-    // Seleccionar tabla de precios según tipo de producto y edad
+    // Detectar si es oversize
+    const isOversize = selectedCut === 'oversize';
+    
+    // Seleccionar tabla de precios según tipo de producto, edad y corte
     let precios;
     if (isHoodie) {
         precios = PRECIOS_HOODIES;
+    } else if (selectedAge === 'chico') {
+        precios = PRECIOS_CHICOS;
+    } else if (isOversize) {
+        precios = PRECIOS_OVERSIZE;
     } else {
-        precios = selectedAge === 'chico' ? PRECIOS_CHICOS : PRECIOS;
+        precios = PRECIOS;
     }
     
     // Precio depende de si hay dorso seleccionado (doble) o no (simple)
@@ -808,6 +824,8 @@ async function loadProducts() {
         renderLatestReleases(5); // Mostrar solo 5 nuevos lanzamientos
         renderHoodiesGrid(); // Hoodies destacados
         renderHeroOrbit(5); // Poblar órbita del hero con 5 cards 3D
+        loadMegadethDestacados(); // Destacados para el show
+        loadMegadethCollections(); // Colecciones Megadeth con preview
         filterProducts(); // Renderizar después de cargar
     } catch (error) {
         console.error('Error:', error);
@@ -834,8 +852,8 @@ function renderHoodiesGrid() {
         const maxVisible = 5;
         let html = '';
         hoodies.forEach((product, idx) => {
-            const isDoble = product.tipoPrecio === 'doble';
-            const precio = isDoble ? PRECIOS_HOODIES.doble : PRECIOS_HOODIES.simple;
+            // Hoodies: siempre doble estampa por defecto ($59.000)
+            const precio = PRECIOS_HOODIES.doble;
             // Si es la 5ta card y hay más de 5, poner el botón y el blur
             if (idx === maxVisible - 1 && hoodies.length > maxVisible) {
                 html += `<div class="product-card hoodie-card ver-mas-card" id="verMasHoodiesCard" style="position:relative;overflow:hidden;cursor:pointer;" onclick="mostrarMasHoodies(event)">
@@ -844,7 +862,7 @@ function renderHoodiesGrid() {
                     <img src="${product.img}" class="product-img" loading="lazy">
                     <div class="product-info">
                         <div class="product-name">${product.name}</div>
-                        <div class="product-meta">${product.year} · ${isDoble ? 'Doble estampa' : 'Simple'}</div>
+                        <div class="product-meta">${product.year} · Doble estampa</div>
                         <div class="product-price-row">
                             <span class="product-price hoodie-price">$${precio.toLocaleString('es-AR')}</span>
                         </div>
@@ -857,7 +875,7 @@ function renderHoodiesGrid() {
                     <img src="${product.img}" class="product-img" loading="lazy">
                     <div class="product-info">
                         <div class="product-name">${product.name}</div>
-                        <div class="product-meta">${product.year} · ${isDoble ? 'Doble estampa' : 'Simple'}</div>
+                        <div class="product-meta">${product.year} · Doble estampa</div>
                         <div class="product-price-row">
                             <span class="product-price hoodie-price">$${precio.toLocaleString('es-AR')}</span>
                         </div>
@@ -869,7 +887,7 @@ function renderHoodiesGrid() {
                     <img src="${product.img}" class="product-img" loading="lazy">
                     <div class="product-info">
                         <div class="product-name">${product.name}</div>
-                        <div class="product-meta">${product.year} · ${isDoble ? 'Doble estampa' : 'Simple'}</div>
+                        <div class="product-meta">${product.year} · Doble estampa</div>
                         <div class="product-price-row">
                             <span class="product-price hoodie-price">$${precio.toLocaleString('es-AR')}</span>
                         </div>
@@ -1490,6 +1508,8 @@ function showScrollHintIfNeeded(){
 
     modalBody.addEventListener('scroll', removeHint, { passive: true, once: true });
 }
+// Exponer openModal globalmente para onclick
+window.openModal = openModal;
 
 function closeModal() {
     if (!modal.classList.contains('active')) return;
@@ -2435,13 +2455,194 @@ function initSearchModal() {
     });
 }
 
+// === COUNTDOWN MEGADETH - ÚLTIMA GIRA ===
+function initCountdown() {
+    const showDate = new Date('2026-04-30T20:00:00-03:00'); // 30 abril 2026, 20:00 Argentina
+    
+    function updateCountdown() {
+        const now = new Date();
+        const diff = showDate - now;
+        
+        if (diff <= 0) {
+            document.getElementById('countdownBanner').innerHTML = '<div class="countdown-content"><span style="font-size:1.5rem;color:#ffb300;">🎸 ¡HOY ES EL DÍA! MEGADETH EN ARGENTINA 🇦🇷</span></div>';
+            return;
+        }
+        
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const secs = Math.floor((diff % (1000 * 60)) / 1000);
+        
+        document.getElementById('countDays').textContent = String(days).padStart(2, '0');
+        document.getElementById('countHours').textContent = String(hours).padStart(2, '0');
+        document.getElementById('countMins').textContent = String(mins).padStart(2, '0');
+        document.getElementById('countSecs').textContent = String(secs).padStart(2, '0');
+    }
+    
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+}
+
+// === CARGAR PRODUCTOS DESTACADOS MEGADETH ===
+function loadMegadethDestacados() {
+    const grid = document.getElementById('megadethDestacadosGrid');
+    if (!grid) return;
+    
+    // IDs de los productos MÁS VENDIDOS según ventas reales (análisis abril 2026)
+    const destacadosIds = [
+        6020,  // 🔥 AGUANTE MEGADETH - Diseño estrella lanzado hoy!
+        17,    // Megadeth 2026 - VIC LLAMAS (TOP 1 absoluto)
+        4,     // Rust in Peace (TOP 2 - siempre vende)
+        39,    // Vic Gaucho Argentino (TOP 3 - tour Argentina)
+        6,     // Youthanasia (clásico)
+        5,     // Countdown to Extinction
+        5062,  // Hoodie Rust in Peace (buzo más vendido)
+        40     // Tour Argentina
+    ];
+    
+    // Filtrar productos por IDs destacados
+    const destacados = destacadosIds
+        .map(id => db.find(p => p.id === id))
+        .filter(p => p);
+    
+    grid.innerHTML = destacados.map(p => {
+        const isHoodie = p.category === 'Hoodies FMD' || p.category === 'Hoodies Otras Bandas';
+        // Hoodies: precio doble por defecto ($59.000), remeras: precio según tipoPrecio
+        const precioBase = isHoodie ? PRECIOS_HOODIES.doble : PRECIOS.simple;
+        
+        return `
+            <div class="megadeth-product-card" onclick="openModal(${p.id})">
+                <div class="megadeth-product-badge">TOP VENTAS</div>
+                <div class="megadeth-product-img">
+                    <img src="${p.img}" alt="${p.name}" loading="lazy">
+                </div>
+                <div class="megadeth-product-info">
+                    <h3>${p.name}</h3>
+                    <p class="megadeth-product-year">${p.year || ''}</p>
+                    <p class="megadeth-product-price">$${precioBase.toLocaleString('es-AR')}</p>
+                </div>
+            </div>
+        `;
+    }).join('');
+}
+
+// === COLECCIONES MEGADETH CON PREVIEW ===
+// IDs prioritarios por categoría para mostrar en preview
+const PREVIEW_PRIORITY_IDS = {
+    'Dave Mustaine': [6020, 6013, 6014, 2814, 2815] // Aguante Megadeth (NUEVO!), So Far V2, Argentina V1, So Far Era, Vic RIP
+};
+
+function renderCollectionPreview(gridId, category, maxItems = 5, buttonText = 'VER MÁS') {
+    const grid = document.getElementById(gridId);
+    if (!grid || !db.length) return;
+    
+    // Filtrar productos por categoría
+    let products = db.filter(p => p.category === category);
+    
+    // Si hay IDs prioritarios para esta categoría, reordenar
+    if (PREVIEW_PRIORITY_IDS[category]) {
+        const priorityIds = PREVIEW_PRIORITY_IDS[category];
+        const priorityProducts = priorityIds.map(id => db.find(p => p.id === id)).filter(Boolean);
+        const otherProducts = products.filter(p => !priorityIds.includes(p.id));
+        products = [...priorityProducts, ...otherProducts];
+    }
+    if (products.length === 0) return;
+    
+    let html = '';
+    // Siempre mostrar 4 cards normales + 1 card VER MÁS
+    const normalCards = Math.min(4, products.length - 1);
+    
+    // Renderizar las primeras 4 cards normales
+    for (let i = 0; i < normalCards; i++) {
+        const product = products[i];
+        const isHoodie = category === 'Hoodies FMD';
+        // Hoodies: siempre doble estampa por defecto ($59.000)
+        const precio = isHoodie 
+            ? PRECIOS_HOODIES.doble
+            : (product.tipoPrecio === 'doble' ? PRECIOS.doble : PRECIOS.simple);
+        
+        html += `
+            <div class="collection-card" onclick="openModal(${product.id})">
+                <div class="collection-card-img">
+                    <img src="${product.img}" alt="${product.name}" loading="lazy">
+                </div>
+                <div class="collection-card-info">
+                    <h4>${product.name}</h4>
+                    <span class="price">$${precio.toLocaleString('es-AR')}</span>
+                </div>
+            </div>
+        `;
+    }
+    
+    // El 5to card (o último) siempre es VER MÁS
+    const verMasProduct = products[normalCards] || products[products.length - 1];
+    const isHoodieVerMas = category === 'Hoodies FMD';
+    // Hoodies: siempre doble estampa por defecto ($59.000)
+    const precioVerMas = isHoodieVerMas 
+        ? PRECIOS_HOODIES.doble
+        : (verMasProduct.tipoPrecio === 'doble' ? PRECIOS.doble : PRECIOS.simple);
+    
+    html += `
+        <div class="collection-card collection-card-vermas" onclick="filterByCategory('${category}')">
+            <div class="collection-blur"></div>
+            <div class="collection-card-img">
+                <img src="${verMasProduct.img}" alt="${verMasProduct.name}" loading="lazy">
+            </div>
+            <div class="collection-card-info">
+                <h4>${verMasProduct.name}</h4>
+                <span class="price">$${precioVerMas.toLocaleString('es-AR')}</span>
+            </div>
+            <button class="collection-vermas-btn" onclick="event.stopPropagation(); filterByCategory('${category}')">${buttonText} (${products.length})</button>
+        </div>
+    `;
+    
+    grid.innerHTML = html;
+}
+
+// Función para filtrar por categoría y hacer scroll al catálogo
+function filterByCategory(category) {
+    // Activar el botón de categoría correspondiente
+    const catBtns = document.querySelectorAll('.cat-btn');
+    catBtns.forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.dataset.cat === category) {
+            btn.classList.add('active');
+        }
+    });
+    
+    // Actualizar categoría actual y filtrar
+    currentCategory = category;
+    filterProducts();
+    
+    // Scroll al catálogo
+    const catalogToolbar = document.querySelector('.catalog-toolbar');
+    if (catalogToolbar) {
+        catalogToolbar.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+}
+// Exponer globalmente para onclick
+window.filterByCategory = filterByCategory;
+
+// Cargar todas las colecciones Megadeth
+function loadMegadethCollections() {
+    renderCollectionPreview('gridTour', 'Tour', 5, 'VER TODO');
+    renderCollectionPreview('gridAlbum', 'Album', 5, 'VER TODO');
+    renderCollectionPreview('gridVic', 'VicRattlehead', 5, 'VER TODO');
+    renderCollectionPreview('gridDave', 'Dave Mustaine', 5, 'VER TODO');
+    renderCollectionPreview('gridSingles', 'Singles', 5, 'VER TODO');
+    renderCollectionPreview('gridHoodies', 'Hoodies FMD', 5, 'VER TODO');
+}
+
 // Inicializar
 document.addEventListener('DOMContentLoaded', () => {
     loadProducts();
     setView('grid');
     initSearchModal();
-    // Pequeño delay para asegurar que db está lleno
-    setTimeout(loadProductFromHash, 500);
+    initCountdown();
+    // Pequeño delay para hash de producto
+    setTimeout(() => {
+        loadProductFromHash();
+    }, 500);
 });
 
 // Escuchar cambios en hash (si usuario navega directamente a #producto-123)

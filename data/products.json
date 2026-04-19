@@ -719,33 +719,6 @@
         "desc": "Dave con su legendaria Jackson de doble mástil."
     },
     {
-        "id": 2808,
-        "category": "Dave Mustaine",
-        "year": "1988",
-        "name": "Dave 1988",
-        "tipoPrecio": "simple",
-        "img": "images/musicians/Dave_Mustaine/dave_mustaine_1988.jpg",
-        "desc": "Dave Mustaine era So Far So Good."
-    },
-    {
-        "id": 2809,
-        "category": "Dave Mustaine",
-        "year": "1988",
-        "name": "Dave 1988 Illustration",
-        "tipoPrecio": "simple",
-        "img": "images/musicians/Dave_Mustaine/dave_mustaine_1988_illustration.jpg",
-        "desc": "Ilustración artística de Dave en 1988."
-    },
-    {
-        "id": 2810,
-        "category": "Dave Mustaine",
-        "year": "1988",
-        "name": "Dave 1988 V2",
-        "tipoPrecio": "simple",
-        "img": "images/musicians/Dave_Mustaine/dave_mustaine_88-v2.jpg",
-        "desc": "Segunda versión del diseño 1988."
-    },
-    {
         "id": 2811,
         "category": "Dave Mustaine",
         "year": "Leyenda",
@@ -844,6 +817,20 @@
             { "img": "images/musicians/Dave_Mustaine/dave_mustaine_argv1.jpg", "name": "Argentina V1" }
         ],
         "desc": "Diseño exclusivo Dave Mustaine Argentina - Edición especial Five Magics Designs."
+    },
+    {
+        "id": 6020,
+        "category": "Dave Mustaine",
+        "year": "2026",
+        "name": "Aguante Megadeth",
+        "tipoPrecio": "doble",
+        "isNew": true,
+        "img": "images/musicians/Dave_Mustaine/aguante_megadeth_frente.jpg",
+        "variants": [
+            { "img": "images/musicians/Dave_Mustaine/aguante_megadeth_frente.jpg", "name": "Frente" },
+            { "img": "images/musicians/Dave_Mustaine/aguante_megadeth_dorso.jpg", "name": "Dorso" }
+        ],
+        "desc": "🇦🇷🔥 AGUANTE MEGADETH - Doble estampa con todas las fechas en Argentina 1994–2026. Edición especial exclusiva Five Magics Designs."
     },
     {
         "id": 29,
@@ -1116,9 +1103,17 @@
             {
                 "img": "images/tours/Vic_Gaucho_Argentino/vic_gaucho_caballo.jpg",
                 "name": "Caballo"
+            },
+            {
+                "img": "images/vic_rattlehead/vic_gaucho_fmd.jpg",
+                "name": "FMD Frente"
+            },
+            {
+                "img": "images/vic_rattlehead/dorso_vic_gaucho_fmd.jpg",
+                "name": "FMD Dorso"
             }
         ],
-        "desc": "Serie especial VIC GAUCHO. Frente + variantes."
+        "desc": "Serie especial VIC GAUCHO. 4 diseños únicos + dorso FMD."
     },
     {
         "id": 40,

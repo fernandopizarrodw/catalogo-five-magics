@@ -1193,6 +1193,23 @@ header {
     filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
 }
 
+/* Imagen de portada que cubre toda la tarjeta */
+.featured-img-cover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.featured-card:hover .featured-img-cover {
+    transform: scale(1.05);
+}
+
+.featured-badge-fire {
+    background: var(--rust) !important;
+    color: #fff !important;
+}
+
 .featured-card h3 {
     padding: 12px 12px 4px 12px;
     font-family: var(--font-title);
@@ -4328,6 +4345,583 @@ footer p {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
     gap: 12px;
+}
+
+/* ============================================
+   MEGADETH ÚLTIMA GIRA - ESTILOS ESPECIALES
+   ============================================ */
+
+/* COUNTDOWN BANNER */
+.megadeth-countdown-banner {
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a0505 50%, #0a0a0a 100%);
+    border-bottom: 3px solid var(--rust);
+    padding: 12px 16px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 20px rgba(232, 67, 46, 0.3);
+}
+
+.countdown-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1400px;
+    margin: 0 auto;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.countdown-left {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.countdown-label {
+    font-family: var(--font-title);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--rust);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.countdown-date {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: #aaa;
+}
+
+.countdown-timer {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.countdown-unit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(180deg, #1a1a1a, #0d0d0d);
+    border: 1px solid #333;
+    border-radius: 8px;
+    padding: 8px 12px;
+    min-width: 55px;
+}
+
+.countdown-unit span {
+    font-family: var(--font-title);
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1;
+}
+
+.countdown-unit small {
+    font-size: 0.65rem;
+    color: var(--text-muted);
+    letter-spacing: 1px;
+    margin-top: 2px;
+}
+
+.countdown-separator {
+    font-family: var(--font-title);
+    font-size: 1.5rem;
+    color: var(--rust);
+    font-weight: 700;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+}
+
+.countdown-right {
+    text-align: right;
+}
+
+.countdown-cta {
+    font-family: var(--font-title);
+    font-size: 0.95rem;
+    color: var(--magic-green);
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+@media (max-width: 768px) {
+    .countdown-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 12px;
+    }
+    
+    .countdown-left, .countdown-right {
+        text-align: center;
+    }
+    
+    .countdown-label {
+        font-size: 0.9rem;
+    }
+    
+    .countdown-unit {
+        padding: 6px 10px;
+        min-width: 48px;
+    }
+    
+    .countdown-unit span {
+        font-size: 1.4rem;
+    }
+}
+
+/* HERO MEGADETH */
+.megadeth-hero {
+    background: linear-gradient(180deg, 
+        rgba(232, 67, 46, 0.15) 0%,
+        rgba(13, 13, 13, 1) 100%
+    );
+    position: relative;
+}
+
+.megadeth-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 30%, rgba(232, 67, 46, 0.08) 0%, transparent 60%);
+    pointer-events: none;
+}
+
+.megadeth-orbit-logo {
+    filter: drop-shadow(0 0 20px rgba(232, 67, 46, 0.5));
+}
+
+.hero-cta-btn {
+    display: inline-block;
+    margin-top: 24px;
+    padding: 16px 32px;
+    background: linear-gradient(135deg, var(--rust), var(--rust-glow));
+    color: #fff;
+    font-family: var(--font-title);
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 8px;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(232, 67, 46, 0.4);
+}
+
+.hero-cta-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(232, 67, 46, 0.6);
+}
+
+/* SECCIÓN DESTACADOS MEGADETH */
+.megadeth-destacados {
+    padding: 40px 20px 60px;
+    background: linear-gradient(180deg, 
+        rgba(13, 13, 13, 1) 0%,
+        rgba(26, 5, 5, 0.5) 50%,
+        rgba(13, 13, 13, 1) 100%
+    );
+}
+
+.megadeth-destacados-header {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.megadeth-title {
+    font-family: var(--font-title);
+    font-size: 2rem;
+    font-weight: 700;
+    color: #fff;
+    margin: 0 0 8px;
+    letter-spacing: 2px;
+}
+
+.megadeth-subtitle {
+    font-size: 1rem;
+    color: var(--text-muted);
+    margin: 0;
+}
+
+.megadeth-destacados-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.megadeth-product-card {
+    position: relative;
+    background: var(--bg-card);
+    border: 1px solid #2a2a2a;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.megadeth-product-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--rust);
+    box-shadow: 0 8px 30px rgba(232, 67, 46, 0.3);
+}
+
+.megadeth-product-badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: linear-gradient(135deg, var(--rust), var(--rust-glow));
+    color: #fff;
+    font-family: var(--font-title);
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 20px;
+    z-index: 2;
+    letter-spacing: 0.5px;
+}
+
+.megadeth-product-img {
+    aspect-ratio: 1;
+    overflow: hidden;
+    background: #0a0a0a;
+}
+
+.megadeth-product-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.megadeth-product-card:hover .megadeth-product-img img {
+    transform: scale(1.05);
+}
+
+.megadeth-product-info {
+    padding: 16px;
+}
+
+.megadeth-product-info h3 {
+    font-family: var(--font-title);
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fff;
+    margin: 0 0 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.megadeth-product-year {
+    font-size: 0.8rem;
+    color: var(--rust);
+    margin: 0 0 8px;
+}
+
+.megadeth-product-price {
+    font-family: var(--font-title);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--price);
+    margin: 0;
+}
+
+.megadeth-destacados-footer {
+    text-align: center;
+    margin-top: 32px;
+}
+
+.btn-ver-todo-megadeth {
+    display: inline-block;
+    padding: 14px 28px;
+    background: transparent;
+    border: 2px solid var(--rust);
+    color: var(--rust);
+    font-family: var(--font-title);
+    font-size: 1rem;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 8px;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.btn-ver-todo-megadeth:hover {
+    background: var(--rust);
+    color: #fff;
+}
+
+@media (max-width: 600px) {
+    .megadeth-title {
+        font-size: 1.5rem;
+    }
+    
+    .megadeth-destacados-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+    
+    .megadeth-product-info {
+        padding: 12px;
+    }
+    
+    .megadeth-product-info h3 {
+        font-size: 0.85rem;
+    }
+    
+    .megadeth-product-price {
+        font-size: 0.95rem;
+    }
+}
+
+/* FEATURED CARD HIGHLIGHT - TOUR */
+.featured-card-highlight {
+    border: 2px solid var(--rust) !important;
+    box-shadow: 0 0 30px rgba(232, 67, 46, 0.3);
+    position: relative;
+    overflow: visible;
+}
+
+.featured-card-highlight::before {
+    content: 'RECOMENDADO';
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--rust);
+    color: #fff;
+    font-family: var(--font-title);
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 20px;
+    letter-spacing: 1px;
+    z-index: 10;
+    white-space: nowrap;
+}
+
+.featured-card-highlight:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 12px 40px rgba(232, 67, 46, 0.5);
+}
+
+/* ============================================
+   COLECCIONES MEGADETH CON PREVIEW
+   ============================================ */
+
+.megadeth-collections {
+    padding: 40px 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.collection-preview {
+    margin-bottom: 48px;
+    background: linear-gradient(180deg, rgba(26, 26, 26, 0.5), rgba(13, 13, 13, 0.8));
+    border-radius: 16px;
+    padding: 24px;
+    border: 1px solid #222;
+}
+
+.collection-preview:first-of-type {
+    border: 2px solid var(--rust);
+    box-shadow: 0 0 30px rgba(232, 67, 46, 0.2);
+}
+
+.collection-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #333;
+}
+
+.collection-info h3 {
+    font-family: var(--font-title);
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #fff;
+    margin: 0 0 4px;
+    letter-spacing: 1px;
+}
+
+.collection-info p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin: 0;
+}
+
+.collection-badge {
+    display: inline-block;
+    background: var(--magic-green);
+    color: #000;
+    font-family: var(--font-title);
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 20px;
+    margin-bottom: 8px;
+    letter-spacing: 1px;
+}
+
+.collection-badge-fire {
+    background: var(--rust);
+    color: #fff;
+}
+
+.collection-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
+}
+
+.collection-card {
+    position: relative;
+    background: var(--bg-card);
+    border: 1px solid #2a2a2a;
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.collection-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--rust);
+    box-shadow: 0 8px 20px rgba(232, 67, 46, 0.25);
+}
+
+.collection-card-img {
+    aspect-ratio: 1;
+    overflow: hidden;
+    background: #0a0a0a;
+}
+
+.collection-card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.collection-card:hover .collection-card-img img {
+    transform: scale(1.08);
+}
+
+.collection-card-info {
+    padding: 12px;
+}
+
+.collection-card-info h4 {
+    font-family: var(--font-title);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #fff;
+    margin: 0 0 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.collection-card-info .price {
+    font-family: var(--font-title);
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--price);
+}
+
+/* Ver más card */
+.collection-card-vermas {
+    position: relative;
+}
+
+.collection-card-vermas .collection-blur {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    backdrop-filter: blur(3px) brightness(0.6);
+    background: rgba(13, 13, 13, 0.4);
+    pointer-events: none;
+    border-radius: inherit;
+}
+
+.collection-card-vermas .collection-vermas-btn {
+    position: absolute;
+    z-index: 3;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--rust);
+    color: #fff;
+    font-family: var(--font-title);
+    font-size: 0.85rem;
+    font-weight: 700;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 20px;
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    transition: all 0.2s;
+    letter-spacing: 1px;
+    white-space: nowrap;
+}
+
+.collection-card-vermas .collection-vermas-btn:hover {
+    background: var(--rust-glow);
+    transform: translate(-50%, -50%) scale(1.05);
+}
+
+/* Responsive */
+@media (max-width: 1100px) {
+    .collection-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (max-width: 900px) {
+    .collection-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .collection-preview {
+        padding: 16px;
+        margin-bottom: 32px;
+    }
+    
+    .collection-info h3 {
+        font-size: 1.1rem;
+    }
+    
+    .collection-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+    
+    .collection-card-info {
+        padding: 10px;
+    }
+    
+    .collection-card-info h4 {
+        font-size: 0.75rem;
+    }
+    
+    .collection-card-info .price {
+        font-size: 0.85rem;
+    }
+    
+    .collection-card-vermas .collection-vermas-btn {
+        font-size: 0.75rem;
+        padding: 10px 16px;
+    }
 }
 
 .related-item {
