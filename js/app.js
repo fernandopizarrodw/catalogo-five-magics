@@ -907,16 +907,36 @@ function renderHoodiesGrid() {
     } catch(e) { console.warn('renderHoodiesGrid error', e); }
 }
 
-// Renderizar órbita del hero con últimos lanzamientos
+function isMegadethUniverseProduct(product) {
+    const category = String(product?.category || '').toLowerCase();
+    const haystack = `${product?.name || ''} ${product?.desc || ''}`.toLowerCase();
+    const megadethCategories = [
+        'album',
+        'dave mustaine',
+        'musician',
+        'vicrattlehead',
+        'singles',
+        'tour',
+        'dorsales',
+        'hoodies fmd',
+        'personalizados'
+    ];
+
+    return megadethCategories.includes(category) || /megadeth|mustaine|vic rattlehead|rust in peace|peace sells|youthanasia|countdown/.test(haystack);
+}
+
+// Renderizar órbita del hero solo con el universo Megadeth
 function renderHeroOrbit(limit = 8) {
     try {
         const orbitRing = document.getElementById('orbitRing');
         if (!orbitRing || !Array.isArray(db) || !db.length) return;
 
+        const heroPool = db.filter(isMegadethUniverseProduct);
+        const sourcePool = heroPool.length ? heroPool : db;
         let orbitItems = [];
 
-        // 1. Productos con isNew: true
-        db.forEach(product => {
+        // 1. Productos nuevos del universo Megadeth
+        sourcePool.forEach(product => {
             if (product.isNew && orbitItems.length < limit) {
                 orbitItems.push({
                     productId: product.id,
@@ -926,8 +946,8 @@ function renderHeroOrbit(limit = 8) {
             }
         });
 
-        // 2. Variantes con isNew: true
-        db.forEach(product => {
+        // 2. Variantes nuevas del universo Megadeth
+        sourcePool.forEach(product => {
             if (product.variants && product.variants.length > 0) {
                 product.variants.forEach((variant, index) => {
                     if (variant.isNew && orbitItems.length < limit) {
@@ -945,9 +965,9 @@ function renderHeroOrbit(limit = 8) {
             }
         });
 
-        // 3. Rellenar con los últimos productos si necesario
+        // 3. Rellenar con productos relevantes si hace falta
         if (orbitItems.length < limit) {
-            const sortedProducts = [...db].sort((a, b) => (b.id || 0) - (a.id || 0));
+            const sortedProducts = [...sourcePool].sort((a, b) => (b.id || 0) - (a.id || 0));
             for (const product of sortedProducts) {
                 const alreadyAdded = orbitItems.some(item => item.productId === product.id);
                 if (!alreadyAdded) {
@@ -2625,11 +2645,11 @@ window.filterByCategory = filterByCategory;
 
 // Cargar todas las colecciones Megadeth
 function loadMegadethCollections() {
-    renderCollectionPreview('gridTour', 'Tour', 5, 'VER TODO');
     renderCollectionPreview('gridAlbum', 'Album', 5, 'VER TODO');
-    renderCollectionPreview('gridVic', 'VicRattlehead', 5, 'VER TODO');
     renderCollectionPreview('gridDave', 'Dave Mustaine', 5, 'VER TODO');
+    renderCollectionPreview('gridVic', 'VicRattlehead', 5, 'VER TODO');
     renderCollectionPreview('gridSingles', 'Singles', 5, 'VER TODO');
+    renderCollectionPreview('gridTour', 'Tour', 5, 'VER TODO');
     renderCollectionPreview('gridHoodies', 'Hoodies FMD', 5, 'VER TODO');
 }
 

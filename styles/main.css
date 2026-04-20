@@ -647,9 +647,6 @@ header {
     border-color: rgba(255, 0, 0, 0.6);
 }
 
-.orbit-ring.paused .orbit-item {
-    /* Items no necesitan contra-rotación en 3D */
-}
 
 .orbit-item img {
     width: 100%;
@@ -4515,6 +4512,92 @@ footer p {
 .hero-cta-btn:hover {
     transform: translateY(-2px);
     box-shadow: 0 8px 30px rgba(232, 67, 46, 0.6);
+}
+
+.hero-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin-top: 24px;
+}
+
+.hero-cta-btn-secondary {
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.22);
+    box-shadow: none;
+}
+
+.hero-cta-btn-secondary:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28);
+}
+
+.hero-proof {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 14px;
+}
+
+.hero-proof span {
+    padding: 8px 12px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.08);
+    font-size: 0.82rem;
+    color: #d9d9d9;
+}
+
+.campaign-summary-bar {
+    padding: 0 16px 10px;
+}
+
+.campaign-summary-shell {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: linear-gradient(90deg, rgba(232,67,46,0.14), rgba(30,215,96,0.08));
+    border: 1px solid rgba(232,67,46,0.25);
+    border-radius: 14px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    padding: 14px;
+}
+
+.campaign-summary-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    text-align: center;
+}
+
+.campaign-summary-item strong {
+    font-family: var(--font-title);
+    letter-spacing: 0.5px;
+    color: #fff;
+}
+
+.campaign-summary-item span {
+    color: var(--text-muted);
+    font-size: 0.88rem;
+}
+
+@media (max-width: 768px) {
+    .hero-actions {
+        flex-direction: column;
+    }
+
+    .hero-cta-btn,
+    .hero-cta-btn-secondary {
+        width: 100%;
+        text-align: center;
+    }
+
+    .campaign-summary-shell {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* SECCIÓN DESTACADOS MEGADETH */
