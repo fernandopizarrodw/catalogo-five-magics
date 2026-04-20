@@ -369,8 +369,8 @@ function updateModalPrices() {
         precios = PRECIOS;
     }
     
-    // Precio depende de si hay dorso seleccionado (doble) o no (simple)
-    const tieneDoble = selectedBackIndex >= 0 || selectedBacks.size > 0 || selectedDorsoChips.size > 0;
+    // Precio depende de si el producto ya es doble o si el usuario sumó dorso
+    const tieneDoble = currentProduct.tipoPrecio === 'doble' || selectedBackIndex >= 0 || selectedBacks.size > 0 || selectedDorsoChips.size > 0;
     const precio = tieneDoble ? precios.doble : precios.simple;
     document.getElementById('modalPrice').textContent = '$' + precio.toLocaleString('es-AR');
     
@@ -1101,17 +1101,31 @@ function copyToClipboard(text, feedbackElement = null) {
     });
 }
 
+function buildWhatsappFallbackMessage() {
+    if (currentProduct) {
+        const images = getImages(currentProduct);
+        const variantName = images?.[currentSlide]?.name ? `\nVariante: ${images[currentSlide].name}` : '';
+        return `Hola FMD, quiero reservar esta remera para el show final de Megadeth del 30/04.\n\nDiseño: ${currentProduct.name}${variantName}\nTalle: ___\nColor: ___\nCiudad: ___`;
+    }
+
+    return `Hola FMD, quiero reservar mi remera para el show final de Megadeth del 30/04.\n\nDiseño o idea: ___\nTalle: ___\nCiudad: ___`;
+}
+
 // Abrir WhatsApp con mensaje
-function openWhatsapp(message) {
+function openWhatsapp(message, source = 'general') {
+    const finalMessage = (message && String(message).trim()) ? message : buildWhatsappFallbackMessage();
+
     if (typeof gtag !== 'undefined') {
         gtag('event', 'whatsapp_click', {
             'event_category': 'engagement',
-            'event_label': 'Mensaje WhatsApp'
+            'event_label': source,
+            'page_path': window.location.pathname,
+            'product_name': currentProduct?.name || 'general'
         });
     }
     
-    const encodedMessage = encodeURIComponent(message);
-    window.location.href = `https://wa.me/${WHATSAPP}?text=${encodedMessage}`;
+    const encodedMessage = encodeURIComponent(finalMessage);
+    window.open(`https://wa.me/${WHATSAPP}?text=${encodedMessage}`, '_blank', 'noopener');
 }
 
 const BASE_URL = window.location.origin + window.location.pathname;
@@ -1502,6 +1516,11 @@ function openModal(id, variantIndex = undefined) {
         modalCartCount.textContent = cart.getCart().length;
     }
 
+    const modalAdvancedPanel = document.getElementById('modalAdvancedPanel');
+    if (modalAdvancedPanel) {
+        modalAdvancedPanel.open = false;
+    }
+
     modal.classList.add('active');
     // Adjuntar listeners del carrusel una vez el modal está listo
     attachCarouselListeners();
@@ -1662,12 +1681,12 @@ function updateModalInfo() {
     const vName = images[currentSlide]?.name || '';
     document.getElementById('variantName').textContent = vName;
     document.getElementById('variantName').style.display = vName ? 'block' : 'none';
-    const msg = `Hola FMD, quiero más información sobre ${currentProduct.name}`;
+    const msg = `Hola FMD, quiero ayuda para reservar ${currentProduct.name} para el show final de Megadeth del 30/04.\n\nNecesito confirmar talle, color y entrega.`;
     const modalWaBtn = document.getElementById('modalWaBtn');
     if (modalWaBtn) {
         modalWaBtn.onclick = (e) => {
             e.preventDefault();
-            openWhatsapp(msg);
+            openWhatsapp(msg, 'modal_help');
         };
         modalWaBtn.href = '#';
     }
@@ -2315,8 +2334,8 @@ function addToCartAndOpenWhatsapp() {
     // Pequeño delay para que se vea la notificación
     setTimeout(() => {
         const summary = cart.generateSummary();
-        const message = `Hola FMD! 🤘\n\nQuiero encargar los siguientes productos:\n\n${summary}\n\n¿Podrían confirmarme precio final y disponibilidad?`;
-        openWhatsapp(message);
+        const message = `Hola FMD! 🤘\n\nQuiero RESERVAR estos productos para el show del 30/04:\n\n${summary}\n\n¿Podrían confirmarme precio final, forma de pago y entrega?`;
+        openWhatsapp(message, 'cart_reserva');
     }, 300);
 }
 
@@ -2510,13 +2529,13 @@ function loadMegadethDestacados() {
     
     // IDs de los productos MÁS VENDIDOS según ventas reales (análisis abril 2026)
     const destacadosIds = [
-        6020,  // 🔥 AGUANTE MEGADETH - Diseño estrella lanzado hoy!
-        17,    // Megadeth 2026 - VIC LLAMAS (TOP 1 absoluto)
-        4,     // Rust in Peace (TOP 2 - siempre vende)
-        39,    // Vic Gaucho Argentino (TOP 3 - tour Argentina)
-        6,     // Youthanasia (clásico)
-        5,     // Countdown to Extinction
-        5062,  // Hoodie Rust in Peace (buzo más vendido)
+        6014,  // 🇦🇷 Dave Mustaine Argentina V1 - destacado principal para el show
+        6020,  // 🔥 Aguante Megadeth - frente y dorso
+        17,    // Megadeth 2026 - VIC LLAMAS
+        4,     // Rust in Peace
+        39,    // Vic Gaucho Argentino
+        6,     // Youthanasia
+        5062,  // Hoodie Rust in Peace
         40     // Tour Argentina
     ];
     
@@ -2527,8 +2546,8 @@ function loadMegadethDestacados() {
     
     grid.innerHTML = destacados.map(p => {
         const isHoodie = p.category === 'Hoodies FMD' || p.category === 'Hoodies Otras Bandas';
-        // Hoodies: precio doble por defecto ($59.000), remeras: precio según tipoPrecio
-        const precioBase = isHoodie ? PRECIOS_HOODIES.doble : PRECIOS.simple;
+        // Hoodies: precio doble por defecto, remeras: respetar simple o doble
+        const precioBase = isHoodie ? PRECIOS_HOODIES.doble : (p.tipoPrecio === 'doble' ? PRECIOS.doble : PRECIOS.simple);
         
         return `
             <div class="megadeth-product-card" onclick="openModal(${p.id})">
@@ -2549,7 +2568,7 @@ function loadMegadethDestacados() {
 // === COLECCIONES MEGADETH CON PREVIEW ===
 // IDs prioritarios por categoría para mostrar en preview
 const PREVIEW_PRIORITY_IDS = {
-    'Dave Mustaine': [6020, 6013, 6014, 2814, 2815] // Aguante Megadeth (NUEVO!), So Far V2, Argentina V1, So Far Era, Vic RIP
+    'Dave Mustaine': [6014, 6020, 6013, 2814, 2815] // Argentina V1 + Aguante Megadeth primero para el show
 };
 
 function renderCollectionPreview(gridId, category, maxItems = 5, buttonText = 'VER MÁS') {

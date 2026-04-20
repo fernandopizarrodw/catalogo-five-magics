@@ -810,13 +810,14 @@
         "category": "Dave Mustaine",
         "year": "2026",
         "name": "Dave Mustaine Argentina V1",
-        "tipoPrecio": "simple",
+        "tipoPrecio": "doble",
         "isNew": true,
         "img": "images/musicians/Dave_Mustaine/dave_mustaine_argv1.jpg",
         "variants": [
-            { "img": "images/musicians/Dave_Mustaine/dave_mustaine_argv1.jpg", "name": "Argentina V1" }
+            { "img": "images/musicians/Dave_Mustaine/dave_mustaine_argv1.jpg", "name": "Frente Argentina V1" },
+            { "img": "images/musicians/Dave_Mustaine/dave_mustaine_argv1_dorso.jpg", "name": "Dorso Argentina V1" }
         ],
-        "desc": "Diseño exclusivo Dave Mustaine Argentina - Edición especial Five Magics Designs."
+        "desc": "Diseño exclusivo Dave Mustaine Argentina V1 con frente y dorso, edición especial Five Magics Designs para el show final."
     },
     {
         "id": 6020,
