@@ -3019,6 +3019,16 @@
         "desc": "Vic Black Friday - Diseño exclusivo de Vic Rattlehead edición especial."
     },
     {
+        "id": 6021,
+        "category": "VicRattlehead",
+        "year": "2026",
+        "name": "Vic Celeste y Blanco",
+        "tipoPrecio": "simple",
+        "isNew": true,
+        "img": "images/vic_rattlehead/vic_celeste_y_blanco.jpg",
+        "desc": "Vic Celeste y Blanco - Edición especial con identidad argentina para la colección Vic Rattlehead."
+    },
+    {
         "id": 5057,
         "category": "Hoodies FMD",
         "year": "1985",

@@ -1105,10 +1105,10 @@ function buildWhatsappFallbackMessage() {
     if (currentProduct) {
         const images = getImages(currentProduct);
         const variantName = images?.[currentSlide]?.name ? `\nVariante: ${images[currentSlide].name}` : '';
-        return `Hola FMD, quiero reservar esta remera para el show final de Megadeth del 30/04.\n\nDiseño: ${currentProduct.name}${variantName}\nTalle: ___\nColor: ___\nCiudad: ___`;
+        return `Hola FMD, quiero reservar esta prenda para el show final de Megadeth del 30/04.\n\nDiseño: ${currentProduct.name}${variantName}\nTalle: ___\nColor: ___\nCiudad: ___\n\nSi se puede, quiero coordinar retiro en zona Tecnópolis antes del show.`;
     }
 
-    return `Hola FMD, quiero reservar mi remera para el show final de Megadeth del 30/04.\n\nDiseño o idea: ___\nTalle: ___\nCiudad: ___`;
+    return `Hola FMD, quiero reservar mi remera para el show final de Megadeth del 30/04.\n\nDiseño o idea: ___\nTalle: ___\nCiudad: ___\n\nSi se puede, quiero coordinar retiro en zona Tecnópolis antes del show.`;
 }
 
 // Abrir WhatsApp con mensaje

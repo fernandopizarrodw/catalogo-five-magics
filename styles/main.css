@@ -4751,6 +4751,51 @@ footer p {
     white-space: nowrap;
 }
 
+.logistica-show-bar {
+    padding: 0 16px 18px;
+}
+
+.logistica-show-shell {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    background: linear-gradient(90deg, rgba(30,215,96,0.12), rgba(13,13,13,0.95));
+    border: 1px solid rgba(30,215,96,0.32);
+    border-radius: 14px;
+    padding: 16px 18px;
+}
+
+.logistica-show-copy strong {
+    display: block;
+    font-family: var(--font-title);
+    letter-spacing: 1px;
+    color: #fff;
+    margin-bottom: 6px;
+}
+
+.logistica-show-copy p {
+    color: #c8d3cb;
+    font-size: 0.92rem;
+    margin: 0;
+    line-height: 1.45;
+}
+
+.logistica-show-btn {
+    background: linear-gradient(135deg, #1ed760, #13b24a);
+    color: #001406;
+    text-decoration: none;
+    font-family: var(--font-title);
+    font-weight: 700;
+    letter-spacing: 0.6px;
+    padding: 14px 18px;
+    border-radius: 10px;
+    white-space: nowrap;
+    border: 1px solid rgba(255,255,255,0.14);
+}
+
 @media (max-width: 768px) {
     .decision-boost-shell {
         flex-direction: column;
@@ -4758,6 +4803,15 @@ footer p {
     }
 
     .decision-boost-btn {
+        text-align: center;
+    }
+
+    .logistica-show-shell {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .logistica-show-btn {
         text-align: center;
     }
     .hero-actions {
