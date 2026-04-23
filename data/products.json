@@ -3029,6 +3029,26 @@
         "desc": "Vic Celeste y Blanco - Edición especial con identidad argentina para la colección Vic Rattlehead."
     },
     {
+        "id": 6022,
+        "category": "Orígenes",
+        "year": "1984",
+        "name": "Fast... Loud... and Rude! — Skull Splitting Metal",
+        "tipoPrecio": "doble",
+        "isNew": true,
+        "img": "images/orígenes/frente_blanca_v1.png",
+        "variants": [
+            { "img": "images/orígenes/frente_blanca_v1.png", "name": "Blanca — Frente V1" },
+            { "img": "images/orígenes/frente_blanca_v2.png", "name": "Blanca — Frente V2" },
+            { "img": "images/orígenes/dorso_blanca.png", "name": "Blanca — Dorso Flyer 1984" },
+            { "img": "images/orígenes/frente_negra_v1.png", "name": "Negra — Frente V1" },
+            { "img": "images/orígenes/frente_negra_v2.png", "name": "Negra — Frente V2" },
+            { "img": "images/orígenes/frente_negra_v3.png", "name": "Negra — Frente V3" },
+            { "img": "images/orígenes/frente_negra_fmd_edition.png", "name": "Negra — FMD Edition" },
+            { "img": "images/orígenes/dorso_negra.png", "name": "Negra — Dorso Flyer 1984" }
+        ],
+        "desc": "🎸 SKULL SPLITTING METAL 💀\n\nHace unas horas el Colo mostró una de las primeras remeras que diseñó para Megadeth. 'Fast... Loud... and Rude!' Tomamos ese concepto original y lo llevamos al siguiente nivel con el enfoque de Five Magics Designs.\n\nUn homenaje directo al nacimiento de Megadeth, nada menos que para su despedida. Poético. ✍️\n\nY en el dorso: el flyer original de las primeras fechas de 1984. 🤯\n\nLa historia completa, frente y dorso. Don't just wear a shirt, wear the history.\n\n⚡ Disponible ahora para entrega antes del show del 30/04\n📍 Retiro zona Tecnópolis\n📦 Producción activa esta semana\n🎨 Talles del S al XXL\n✨ Impresión DTG Premium"
+    },
+    {
         "id": 5057,
         "category": "Hoodies FMD",
         "year": "1985",

@@ -1840,6 +1840,7 @@ function updateShareLinks() {
 
 // Cálculo de contadores dinámicos
 const CATEGORY_LABELS = {
+    'Orígenes': '💀 Orígenes Megadeth 1984',
     'Album': 'Álbumes Megadeth',
     'Hoodies FMD': 'Hoodies Megadeth',
     'Hoodies Otras Bandas': 'Hoodies Otras Bandas',
@@ -1858,7 +1859,7 @@ const CATEGORY_LABELS = {
     'Avenged Sevenfold': 'Avenged Sevenfold'
 };
 
-const MEGADETH_CATS = new Set(['Album','Musician','Tour','VicRattlehead','Singles','Dorsales']);
+const MEGADETH_CATS = new Set(['Orígenes','Album','Musician','Tour','VicRattlehead','Singles','Dorsales']);
 
 function getCategoryLabel(category) {
     return CATEGORY_LABELS[category] || category || 'Otros';
@@ -2529,6 +2530,7 @@ function loadMegadethDestacados() {
     
     // IDs de los productos MÁS VENDIDOS según ventas reales (análisis abril 2026)
     const destacadosIds = [
+        6022,  // 💀 HISTÓRICO — Fast Loud and Rude 1984 Origins
         6014,  // 🇦🇷 Dave Mustaine Argentina V1 - destacado principal para el show
         6020,  // 🔥 Aguante Megadeth - frente y dorso
         17,    // Megadeth 2026 - VIC LLAMAS
@@ -2568,6 +2570,7 @@ function loadMegadethDestacados() {
 // === COLECCIONES MEGADETH CON PREVIEW ===
 // IDs prioritarios por categoría para mostrar en preview
 const PREVIEW_PRIORITY_IDS = {
+    'Orígenes': [6022],
     'Dave Mustaine': [6014, 6020, 6013, 2814, 2815] // Argentina V1 + Aguante Megadeth primero para el show
 };
 

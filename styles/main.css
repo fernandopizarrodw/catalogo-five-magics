@@ -5024,6 +5024,204 @@ footer p {
 }
 
 /* ============================================
+   SKULL SPLITTING METAL — SECCIÓN ESPECIAL
+   ============================================ */
+
+.skull-splitting-hero {
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a0000 50%, #0d0d0d 100%);
+    border-top: 3px solid #c40000;
+    border-bottom: 3px solid #c40000;
+    padding: 60px 20px;
+    margin: 40px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.skull-splitting-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 20% 50%, rgba(196, 0, 0, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 215, 0, 0.05) 0%, transparent 40%);
+    pointer-events: none;
+}
+
+.skull-splitting-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+}
+
+.skull-splitting-content h2 {
+    font-size: 48px;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    letter-spacing: 4px;
+    color: #fff;
+    text-shadow: 2px 2px 10px rgba(196, 0, 0, 0.5);
+    margin: 12px 0 8px;
+}
+
+.skull-badge {
+    display: inline-block;
+    background: linear-gradient(90deg, #7a0000, #c40000);
+    color: #ffd700;
+    font-weight: 700;
+    letter-spacing: 2px;
+    padding: 8px 16px;
+    border: 1px solid #ffd70055;
+    border-radius: 20px;
+    font-size: 13px;
+    margin-bottom: 16px;
+}
+
+.skull-subtitle {
+    font-size: 18px;
+    color: #ccc;
+    font-style: italic;
+    margin-bottom: 24px;
+    letter-spacing: 1px;
+}
+
+.skull-copy {
+    background: rgba(0, 0, 0, 0.4);
+    border-left: 3px solid var(--magic-green);
+    padding: 24px;
+    border-radius: 8px;
+    margin-bottom: 24px;
+}
+
+.skull-copy p {
+    font-size: 15px;
+    line-height: 1.8;
+    color: #e0e0e0;
+    margin-bottom: 16px;
+}
+
+.skull-copy p strong {
+    color: #ffd700;
+    font-weight: 700;
+}
+
+.skull-specs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 32px;
+}
+
+.skull-spec-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    color: #ddd;
+    padding: 8px 12px;
+    background: rgba(255, 215, 0, 0.05);
+    border-radius: 6px;
+    border-left: 2px solid var(--magic-green);
+}
+
+.skull-spec-item .spec-icon {
+    font-size: 18px;
+    min-width: 20px;
+}
+
+.skull-cta-btn {
+    background: linear-gradient(90deg, #c40000, #7a0000);
+    color: #ffd700;
+    border: 2px solid #ffd700;
+    font-weight: 700;
+    font-size: 16px;
+    letter-spacing: 2px;
+    padding: 16px 32px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    text-transform: uppercase;
+}
+
+.skull-cta-btn:hover {
+    background: linear-gradient(90deg, #7a0000, #c40000);
+    box-shadow: 0 0 24px rgba(255, 215, 0, 0.4), 0 0 40px rgba(196, 0, 0, 0.3);
+    transform: translateY(-2px);
+}
+
+.skull-splitting-gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.skull-gallery-main {
+    flex: 1;
+    border: 2px solid rgba(255, 215, 0, 0.3);
+    border-radius: 8px;
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.skull-gallery-main img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.skull-gallery-main:hover img {
+    transform: scale(1.02);
+}
+
+.skull-gallery-secondary {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.skull-gallery-secondary img {
+    width: 100%;
+    height: auto;
+    border: 1px solid rgba(255, 215, 0, 0.2);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.skull-gallery-secondary img:hover {
+    border-color: var(--magic-green);
+    box-shadow: 0 0 16px rgba(0, 255, 0, 0.3);
+}
+
+@media (max-width: 768px) {
+    .skull-splitting-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .skull-splitting-content h2 {
+        font-size: 32px;
+    }
+    
+    .skull-specs {
+        grid-template-columns: 1fr;
+    }
+    
+    .skull-splitting-hero {
+        padding: 40px 16px;
+        margin: 20px 0;
+    }
+}
+
+/* ============================================
    COLECCIONES MEGADETH CON PREVIEW
    ============================================ */
 
@@ -5086,6 +5284,23 @@ footer p {
 .collection-badge-fire {
     background: var(--rust);
     color: #fff;
+}
+
+.collection-badge-historico {
+    background: linear-gradient(90deg, #7a0000, #c40000);
+    color: #ffd700;
+    font-weight: 700;
+    letter-spacing: 2px;
+    border: 1px solid #ffd70055;
+}
+
+.collection-preview-historico {
+    border: 1px solid #ffd70033;
+    background: linear-gradient(135deg, #1a0000 0%, #0d0d0d 60%, #1a1200 100%);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 8px;
+    box-shadow: 0 0 32px #c4000033;
 }
 
 .collection-grid {
