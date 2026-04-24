@@ -3029,6 +3029,20 @@
         "desc": "Vic Celeste y Blanco - Edición especial con identidad argentina para la colección Vic Rattlehead."
     },
     {
+        "id": 6023,
+        "category": "VicRattlehead",
+        "year": "2026",
+        "name": "Vic & Friends — FMD Edition",
+        "tipoPrecio": "simple",
+        "isNew": true,
+        "img": "images/vic_rattlehead/vic_and_friends_fmd_edition.jpg",
+        "variants": [
+            { "img": "images/vic_rattlehead/vic_and_friends_fmd_edition.jpg", "name": "FMD Edition" },
+            { "img": "images/vic_rattlehead/vic_and_friends_original.jpg", "name": "Original" }
+        ],
+        "desc": "Vic & Friends — las icónicas criaturas de Megadeth reunidas en un diseño exclusivo Five Magics Designs. Edición especial 2026."
+    },
+    {
         "id": 6022,
         "category": "Orígenes",
         "year": "1984",
@@ -3366,5 +3380,5 @@
             "isNew": true,
             "img": "images/hoddies_fmd/hoodies_otras_bandas/black_sabbath_tour.jpg",
             "desc": "Hoodie canguro oversize unisex. Algodón frizado, estampa DTG. Black Sabbath Tour. Producción a pedido 4-7 días."
-        }
+        },
     ]
