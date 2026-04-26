@@ -154,14 +154,14 @@ window.b = buscar;
 
 function parseProductCode(query) {
     const normalized = String(query || '').trim().toLowerCase();
-    const match = normalized.match(/^([a-z0-9]+)[-.]?(\d+)(?:\.v(\d+))?$/i);
+    // Soporta: PS-002, PS-002.V1, ps002, 002, 2, etc.
+    const match = normalized.match(/^[a-z]*-?0*(\d+)(?:\.v(\d+))?$/i);
     if (!match) return null;
-
-    const [, prefix, idStr, variantStr] = match;
+    const id = parseInt(match[1], 10);
+    if (!id && id !== 0) return null;
     return {
-        prefix,
-        id: parseInt(idStr, 10),
-        variantIndex: variantStr ? Math.max(parseInt(variantStr, 10) - 1, 0) : undefined,
+        id,
+        variantIndex: match[2] ? Math.max(parseInt(match[2], 10) - 1, 0) : undefined,
         raw: normalized
     };
 }
@@ -1754,8 +1754,12 @@ searchInput.addEventListener('input', (e) => {
 
 searchInput.addEventListener('keydown', (e) => {
     if (e.key !== 'Enter') return;
-    if (!openExactCodeMatch(e.target.value)) return;
-    e.preventDefault();
+    // Enter con código exacto (ej: PS-002.V1) abre el modal directo
+    const opened = openExactCodeMatch(e.target.value);
+    if (opened) {
+        e.preventDefault();
+        searchInput.blur();
+    }
 });
 
 searchClear.onclick = () => { searchInput.value = ''; currentSearch = ''; searchClear.classList.remove('visible'); filterProducts(); };
@@ -2464,6 +2468,12 @@ function initSearchModal() {
         if (!query) {
             searchModalResults.innerHTML = '';
             return;
+        }
+
+        // Si es código exacto, abrir modal directo (solo si la búsqueda es SOLO el código, sin espacios)
+        if (!query.includes(' ') && query.length >= 2 && parseProductCode(query)) {
+            const opened = openExactCodeMatch(query, () => searchModal.classList.remove('active'));
+            if (opened) return;
         }
 
         const results = getSearchResults(query, db, true).slice(0, 8);
