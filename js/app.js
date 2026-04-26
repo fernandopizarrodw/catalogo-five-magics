@@ -154,8 +154,9 @@ window.b = buscar;
 
 function parseProductCode(query) {
     const normalized = String(query || '').trim().toLowerCase();
-    // Soporta: PS-002, PS-002.V1, ps002, 002, 2, etc.
-    const match = normalized.match(/^[a-z]*-?0*(\d+)(?:\.v(\d+))?$/i);
+    // Soporta: PS-002, PS-002.V1, M2-017.V7, ps002, 002, 2, etc.
+    // Prefijo puede tener letras Y números (ej: M2, HBST, TA)
+    const match = normalized.match(/^(?:[a-z0-9]+-)?0*(\d+)(?:\.v(\d+))?$/i);
     if (!match) return null;
     const id = parseInt(match[1], 10);
     if (!id && id !== 0) return null;
