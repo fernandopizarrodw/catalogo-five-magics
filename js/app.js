@@ -565,10 +565,10 @@ class CartSystem {
 
         // Detalles de cada producto (ajustes de lenguaje y talle)
         const details = sortedCart.map(item => {
-            const isHoodie = item.category === 'Hoodies FMD';
+            const isHoodie = item.category === 'Hoodies FMD' || item.category === 'Hoodies Otras Bandas';
             const dobleLabel = item.isDouble 
-                ? (item.backCode ? ' doble estampa' : ' doble estampa (dorso pendiente)')
-                : '';
+                ? (item.backCode ? ' — DOBLE ESTAMPA' : ' — DOBLE ESTAMPA (dorso pendiente)')
+                : ' — estampa simple';
             const edad = item.age === 'chico' ? 'Niño' : 'Adulto';
             let talle;
             if (!item.size) {
@@ -579,7 +579,7 @@ class CartSystem {
             const color = item.color === 'blanco' ? 'Blanca' : 'Negra';
             let tipoPrenda;
             if (isHoodie) {
-                tipoPrenda = 'Hoodie oversize unisex';
+                tipoPrenda = 'Hoodie oversize unisex' + dobleLabel;
             } else if (item.cut === 'oversize') {
                 tipoPrenda = 'Remera oversize unisex' + dobleLabel;
             } else {
