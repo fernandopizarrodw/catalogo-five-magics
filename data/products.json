@@ -130,10 +130,6 @@
                 "name": "Dorso"
             },
             {
-                "img": "images/albums/Rust_in_peace/rust_in_peace_v2.jpg",
-                "name": "v2 Frente"
-            },
-            {
                 "img": "images/albums/Rust_in_peace/rust_in_peace_v2-dorso.jpg",
                 "name": "v2 Dorso"
             },
@@ -927,10 +923,6 @@
             {
                 "img": "images/musicians/formaciones/megadeth_2026_dorso.jpg",
                 "name": "Dorso"
-            },
-            {
-                "img": "images/musicians/formaciones/megadeth_90s.png",
-                "name": "90s"
             },
             {
                 "img": "images/musicians/formaciones/in_my_darkest_hour.jpg",
