@@ -817,7 +817,7 @@ function renderLatestReleases(limit = 5) {
 // Cargar productos desde JSON
 async function loadProducts() {
     try {
-        const response = await fetch('data/products.json');
+        const response = await fetch('data/products.json?v=' + Date.now());
         if (!response.ok) throw new Error('Error cargando productos');
         db = await response.json();
         updateCountsUI();
