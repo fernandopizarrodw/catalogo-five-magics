@@ -2265,8 +2265,8 @@ function renderCartPreview() {
         ${shippingNote}
         <div class="cart-preview-info" style="margin-top:12px;padding:12px;background:#0a0a0a;border:1px solid #222;border-radius:8px;font-size:0.8rem;color:#888;">
             <div style="margin-bottom:8px;">
-                <span style="color:#e8432e;">🎸 HASTA EL JUE 30/04 16HS:</span> Solo retiro en zona Tecnópolis (show Megadeth).<br>
-                <span style="color:#39ff14;">📦 DESDE EL VIE 1/5:</span> Andreani a todo el país · domicilio o punto de retiro · 3-7 días hábiles.
+                <span style="color:#e8432e;">🎸 ¿Querés tenerla para el show del 30/04?</span> Retiro en zona Tecnópolis hasta el <strong style="color:#fff;">jue 30/04 a las 16hs</strong>. Coordiná por WhatsApp.<br>
+                <span style="color:#39ff14;">📦 Sin urgencia:</span> Andreani a todo el país · domicilio o punto de retiro · 3-7 días hábiles.
             </div>
             <div>
                 <span style="color:#39ff14;">💳 PAGO:</span> Transferencia o MercadoPago. Tarjeta de crédito con recargo $8.000.
