@@ -2106,6 +2106,59 @@ function normalizePhone(value = '') {
     return String(value).replace(/[^\d+\s()-]/g, '').trim();
 }
 
+const SHIPPING_FORM_STORAGE_KEY = 'fmd_shipping_form_v1';
+const SHIPPING_FORM_FIELD_MAP = {
+    nombre: 'inputNombre',
+    apellido: 'inputApellido',
+    telefono: 'inputTelefono',
+    direccion: 'inputDireccion',
+    cp: 'inputCP',
+    localidad: 'inputLocalidad',
+    provincia: 'inputProvincia'
+};
+
+function loadShippingCustomerDataFromStorage() {
+    try {
+        const raw = localStorage.getItem(SHIPPING_FORM_STORAGE_KEY);
+        if (!raw) return {};
+        const parsed = JSON.parse(raw);
+        return parsed && typeof parsed === 'object' ? parsed : {};
+    } catch (error) {
+        return {};
+    }
+}
+
+function saveShippingCustomerDataToStorage(data) {
+    try {
+        localStorage.setItem(SHIPPING_FORM_STORAGE_KEY, JSON.stringify(data || {}));
+    } catch (error) {
+        // Ignorar errores de storage para no romper el checkout
+    }
+}
+
+function hydrateAndBindShippingForm() {
+    const saved = loadShippingCustomerDataFromStorage();
+
+    Object.entries(SHIPPING_FORM_FIELD_MAP).forEach(([key, inputId]) => {
+        const input = document.getElementById(inputId);
+        if (!input) return;
+
+        if (saved[key]) {
+            input.value = String(saved[key]);
+        }
+
+        input.addEventListener('input', () => {
+            if (inputId === 'inputCP') {
+                input.value = normalizePostalCode(input.value);
+            }
+            if (inputId === 'inputTelefono') {
+                input.value = normalizePhone(input.value);
+            }
+            saveShippingCustomerDataToStorage(getShippingCustomerData());
+        });
+    });
+}
+
 function getShippingCustomerData() {
     const nombre = (document.getElementById('inputNombre')?.value || '').trim();
     const apellido = (document.getElementById('inputApellido')?.value || '').trim();
@@ -2388,6 +2441,8 @@ function renderCartPreview() {
             </button>
         </div>
     `;
+
+    hydrateAndBindShippingForm();
 }
 
 function removeAndRefreshPreview(index) {
@@ -2415,6 +2470,7 @@ function confirmAndSendWhatsapp() {
         return;
     }
 
+    saveShippingCustomerDataToStorage(customerData);
     closeCartPreview();
     sendViaWhatsapp(cp, customerData);
 }
