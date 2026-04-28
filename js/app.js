@@ -2102,7 +2102,44 @@ function isValidPostalCode(value = '') {
     return /^\d{4,8}$/.test(value);
 }
 
-function buildShippingContextForWhatsapp(postalCode = '') {
+function normalizePhone(value = '') {
+    return String(value).replace(/[^\d+\s()-]/g, '').trim();
+}
+
+function getShippingCustomerData() {
+    const nombre = (document.getElementById('inputNombre')?.value || '').trim();
+    const apellido = (document.getElementById('inputApellido')?.value || '').trim();
+    const telefono = normalizePhone(document.getElementById('inputTelefono')?.value || '');
+    const direccion = (document.getElementById('inputDireccion')?.value || '').trim();
+    const cp = normalizePostalCode(document.getElementById('inputCP')?.value || '');
+    const localidad = (document.getElementById('inputLocalidad')?.value || '').trim();
+    const provincia = (document.getElementById('inputProvincia')?.value || '').trim();
+
+    return { nombre, apellido, telefono, direccion, cp, localidad, provincia };
+}
+
+function buildCustomerDataForWhatsapp(data) {
+    const lines = [];
+    if (data.nombre) lines.push(`• Nombre: ${data.nombre}`);
+    if (data.apellido) lines.push(`• Apellido: ${data.apellido}`);
+    if (data.telefono) lines.push(`• Teléfono: ${data.telefono}`);
+    if (data.direccion) lines.push(`• Dirección: ${data.direccion}`);
+    if (data.cp) lines.push(`• Código postal: ${data.cp}`);
+    if (data.localidad) lines.push(`• Localidad: ${data.localidad}`);
+    if (data.provincia) lines.push(`• Provincia: ${data.provincia}`);
+
+    if (!lines.length) {
+        return '\n\n📦 DATOS DE ENVÍO:\n• A confirmar por WhatsApp';
+    }
+
+    return `\n\n📦 DATOS DE ENVÍO:\n${lines.join('\n')}`;
+}
+
+function buildShippingContextForWhatsapp(postalCode = '', customerData = null) {
+    if (customerData) {
+        return buildCustomerDataForWhatsapp(customerData);
+    }
+
     const quantity = cart.getCart().length;
 
     if (quantity >= 2) {
@@ -2116,9 +2153,9 @@ function buildShippingContextForWhatsapp(postalCode = '') {
     return '\n\n📦 DATOS DE ENVÍO (1 prenda):\n• Código postal: no informado';
 }
 
-function sendViaWhatsapp(postalCode = '') {
+function sendViaWhatsapp(postalCode = '', customerData = null) {
     const summary = cart.generateSummary();
-    const shippingContext = buildShippingContextForWhatsapp(postalCode);
+    const shippingContext = buildShippingContextForWhatsapp(postalCode, customerData);
     const message = `Hola FMD! 🤘\n\nQuiero ENCARGAR estos productos:\n\n${summary}${shippingContext}\n\n¿Podrían confirmarme precio final, forma de pago y envío?`;
     openWhatsapp(message);
 }
@@ -2259,16 +2296,54 @@ function renderCartPreview() {
     // Renderizar footer con resumen
     let shippingNote = '';
     if (totals.cantidad === 1) {
-        shippingNote = `
-        <div class="cart-preview-shipping-note">¡Agregá 1 prenda más y el envío es GRATIS!</div>
-        <div class="cart-cp-field">
-            <label for="inputCP">📮 Ingresá tu código postal para calcular el envío</label>
-            <input type="text" id="inputCP" placeholder="Ej: 1425" maxlength="8" inputmode="numeric" pattern="[0-9]{4,8}" oninput="this.value=this.value.replace(/[^0-9]/g,'').slice(0,8)">
-            <small>Se adjunta automáticamente en tu mensaje de WhatsApp.</small>
-        </div>`;
+        shippingNote = `<div class="cart-preview-shipping-note">¡Agregá 1 prenda más y el envío es GRATIS!</div>`;
     } else if (totals.cantidad >= 2) {
         shippingNote = `<div class="cart-preview-shipping-note">🚚 ¡ENVÍO GRATIS! ${totals.cantidad >= 3 ? '+ 10% descuento 🎉' : ''}</div>`;
     }
+
+    const shippingForm = `
+        <div class="cart-customer-fields ${totals.cantidad >= 2 ? 'compact' : ''}">
+            <p class="cart-customer-title">Datos para el envío (opcional, agiliza la respuesta)</p>
+            <div class="cart-customer-grid">
+                <div class="cart-cp-field">
+                    <label for="inputNombre">Nombre</label>
+                    <input type="text" id="inputNombre" placeholder="Ej: Juan">
+                </div>
+                <div class="cart-cp-field">
+                    <label for="inputApellido">Apellido</label>
+                    <input type="text" id="inputApellido" placeholder="Ej: Pérez">
+                </div>
+            </div>
+            <div class="cart-customer-grid single">
+                <div class="cart-cp-field">
+                    <label for="inputTelefono">Teléfono</label>
+                    <input type="text" id="inputTelefono" placeholder="Ej: 11 1234 5678" inputmode="tel">
+                </div>
+            </div>
+            <div class="cart-customer-grid single">
+                <div class="cart-cp-field">
+                    <label for="inputDireccion">Dirección</label>
+                    <input type="text" id="inputDireccion" placeholder="Ej: Av. Corrientes 1234">
+                </div>
+            </div>
+            <div class="cart-customer-grid">
+                <div class="cart-cp-field">
+                    <label for="inputCP">Código postal</label>
+                    <input type="text" id="inputCP" placeholder="Ej: 1425" maxlength="8" inputmode="numeric" pattern="[0-9]{4,8}" oninput="this.value=this.value.replace(/[^0-9]/g,'').slice(0,8)">
+                </div>
+                <div class="cart-cp-field">
+                    <label for="inputLocalidad">Localidad</label>
+                    <input type="text" id="inputLocalidad" placeholder="Ej: CABA">
+                </div>
+            </div>
+            <div class="cart-customer-grid single">
+                <div class="cart-cp-field">
+                    <label for="inputProvincia">Provincia</label>
+                    <input type="text" id="inputProvincia" placeholder="Ej: Buenos Aires">
+                </div>
+            </div>
+            <p class="cart-customer-hint">Se adjuntan automáticamente en tu mensaje de WhatsApp.</p>
+        </div>`;
     
     footer.innerHTML = `
         <div class="cart-preview-summary">
@@ -2292,6 +2367,7 @@ function renderCartPreview() {
             </div>
         </div>
         ${shippingNote}
+        ${shippingForm}
         <div class="cart-preview-info" style="margin-top:12px;padding:12px;background:#0a0a0a;border:1px solid #222;border-radius:8px;font-size:0.8rem;color:#888;">
             <div style="margin-bottom:8px;">
                 <span style="color:#39ff14;">📦 ENVÍO ANDREANI:</span> A domicilio o punto de retiro Andreani · 3-7 días hábiles a todo el país. Envío gratis en pedidos de 2 o más prendas.
@@ -2325,12 +2401,13 @@ function removeAndRefreshPreview(index) {
 }
 
 function confirmAndSendWhatsapp() {
-    const cpInput = document.getElementById('inputCP');
     const isSingleItem = cart.getCart().length === 1;
-    const cp = cpInput ? normalizePostalCode(cpInput.value.trim()) : '';
+    const customerData = getShippingCustomerData();
+    const cp = customerData.cp;
 
     if (isSingleItem && !isValidPostalCode(cp)) {
         showNotification('Ingresá un código postal válido (4 a 8 números).', 2500);
+        const cpInput = document.getElementById('inputCP');
         if (cpInput) {
             cpInput.focus();
             cpInput.value = cp;
@@ -2339,7 +2416,7 @@ function confirmAndSendWhatsapp() {
     }
 
     closeCartPreview();
-    sendViaWhatsapp(cp);
+    sendViaWhatsapp(cp, customerData);
 }
 
 function toggleCartPanel() {
