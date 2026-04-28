@@ -6041,6 +6041,28 @@ footer p {
     color: #7e7e7e;
 }
 
+.cart-customer-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 2px;
+}
+
+.btn-clear-shipping {
+    background: transparent;
+    border: 1px solid #3a3a3a;
+    border-radius: 6px;
+    color: #b9b9b9;
+    font-size: 0.72rem;
+    padding: 6px 10px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-clear-shipping:hover {
+    border-color: #666;
+    color: #fff;
+}
+
 .cart-cp-field label {
     font-size: 0.78rem;
     color: #aaa;

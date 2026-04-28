@@ -2136,6 +2136,21 @@ function saveShippingCustomerDataToStorage(data) {
     }
 }
 
+function clearShippingCustomerData() {
+    try {
+        localStorage.removeItem(SHIPPING_FORM_STORAGE_KEY);
+    } catch (error) {
+        // Ignorar errores de storage
+    }
+
+    Object.values(SHIPPING_FORM_FIELD_MAP).forEach((inputId) => {
+        const input = document.getElementById(inputId);
+        if (input) input.value = '';
+    });
+
+    showNotification('Datos de envío limpiados', 1800);
+}
+
 function hydrateAndBindShippingForm() {
     const saved = loadShippingCustomerDataFromStorage();
 
@@ -2394,6 +2409,9 @@ function renderCartPreview() {
                     <label for="inputProvincia">Provincia</label>
                     <input type="text" id="inputProvincia" placeholder="Ej: Buenos Aires">
                 </div>
+            </div>
+            <div class="cart-customer-actions">
+                <button type="button" class="btn-clear-shipping" onclick="clearShippingCustomerData()">Limpiar datos de envío</button>
             </div>
             <p class="cart-customer-hint">Se adjuntan automáticamente en tu mensaje de WhatsApp.</p>
         </div>`;
