@@ -6011,6 +6011,11 @@ footer p {
     color: #aaa;
 }
 
+.cart-cp-field small {
+    font-size: 0.72rem;
+    color: #7e7e7e;
+}
+
 .cart-cp-field input {
     background: #111;
     border: 1px solid #333;

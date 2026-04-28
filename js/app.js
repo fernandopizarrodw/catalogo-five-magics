@@ -2094,10 +2094,32 @@ function copySummary() {
     }
 }
 
+function normalizePostalCode(value = '') {
+    return String(value).replace(/\D/g, '').slice(0, 8);
+}
+
+function isValidPostalCode(value = '') {
+    return /^\d{4,8}$/.test(value);
+}
+
+function buildShippingContextForWhatsapp(postalCode = '') {
+    const quantity = cart.getCart().length;
+
+    if (quantity >= 2) {
+        return '\n\n📦 DATOS DE ENVÍO:\n• Envío gratis por pedido de 2 o más prendas.';
+    }
+
+    if (postalCode) {
+        return `\n\n📦 DATOS DE ENVÍO (1 prenda):\n• Código postal: ${postalCode}`;
+    }
+
+    return '\n\n📦 DATOS DE ENVÍO (1 prenda):\n• Código postal: no informado';
+}
+
 function sendViaWhatsapp(postalCode = '') {
     const summary = cart.generateSummary();
-    const cpLine = postalCode ? `\n\n📮 Código postal: ${postalCode}` : '';
-    const message = `Hola FMD! 🤘\n\nQuiero ENCARGAR estos productos:\n\n${summary}${cpLine}\n\n¿Podrían confirmarme precio final, forma de pago y envío?`;
+    const shippingContext = buildShippingContextForWhatsapp(postalCode);
+    const message = `Hola FMD! 🤘\n\nQuiero ENCARGAR estos productos:\n\n${summary}${shippingContext}\n\n¿Podrían confirmarme precio final, forma de pago y envío?`;
     openWhatsapp(message);
 }
 
@@ -2241,7 +2263,8 @@ function renderCartPreview() {
         <div class="cart-preview-shipping-note">¡Agregá 1 prenda más y el envío es GRATIS!</div>
         <div class="cart-cp-field">
             <label for="inputCP">📮 Ingresá tu código postal para calcular el envío</label>
-            <input type="text" id="inputCP" placeholder="Ej: 1425" maxlength="8" inputmode="numeric">
+            <input type="text" id="inputCP" placeholder="Ej: 1425" maxlength="8" inputmode="numeric" pattern="[0-9]{4,8}" oninput="this.value=this.value.replace(/[^0-9]/g,'').slice(0,8)">
+            <small>Se adjunta automáticamente en tu mensaje de WhatsApp.</small>
         </div>`;
     } else if (totals.cantidad >= 2) {
         shippingNote = `<div class="cart-preview-shipping-note">🚚 ¡ENVÍO GRATIS! ${totals.cantidad >= 3 ? '+ 10% descuento 🎉' : ''}</div>`;
@@ -2303,7 +2326,18 @@ function removeAndRefreshPreview(index) {
 
 function confirmAndSendWhatsapp() {
     const cpInput = document.getElementById('inputCP');
-    const cp = cpInput ? cpInput.value.trim() : '';
+    const isSingleItem = cart.getCart().length === 1;
+    const cp = cpInput ? normalizePostalCode(cpInput.value.trim()) : '';
+
+    if (isSingleItem && !isValidPostalCode(cp)) {
+        showNotification('Ingresá un código postal válido (4 a 8 números).', 2500);
+        if (cpInput) {
+            cpInput.focus();
+            cpInput.value = cp;
+        }
+        return;
+    }
+
     closeCartPreview();
     sendViaWhatsapp(cp);
 }
