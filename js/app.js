@@ -529,31 +529,6 @@ class CartSystem {
     // Generar resumen para copiar
     generateSummary() {
         if (this.cart.length === 0) return 'Carrito vacío';
-        
-        // Detectar si hay doble estampa y separar mensaje
-        const tieneDoble = this.cart.some(item => item.isDouble);
-        const tieneDobleConDorso = this.cart.some(item => item.isDouble && item.backCode);
-        const tieneDoubleSinDorso = this.cart.some(item => item.isDouble && !item.backCode);
-        
-        // Determinar tipo de pedido para el encabezado
-        let tipoPedido = '';
-        if (tieneDoble) {
-            tipoPedido = tieneDobleConDorso ? 'remeras DOBLE ESTAMPA' : 'remeras DOBLE ESTAMPA (dorso a definir)';
-        }
-
-        // Códigos en formato mejorado
-        const codes = this.cart.map(item => {
-            if (item.isDouble && item.backCode) {
-                // Doble estampa con dorso elegido
-                return `- Frente [${item.frontCode}] + dorso [${item.backCode}]. "${item.frontName}" + "${item.backName}"`;
-            } else if (item.isDouble) {
-                // Doble estampa sin dorso (pedir asesoramiento)
-                return `- [${item.frontCode}] "${item.frontName}" (dorso a definir con asesoramiento FMD)`;
-            } else {
-                // Simple
-                return `- [${item.code}] "${item.variantName}"`;
-            }
-        }).join('\n');
 
         // Ordenar productos: adulto primero, luego niño; dentro de adulto, hoodie/remera
         const sortOrder = item => {
@@ -564,29 +539,49 @@ class CartSystem {
         };
         const sortedCart = [...this.cart].sort((a, b) => sortOrder(a) - sortOrder(b));
 
-        // Detalles de cada producto (ajustes de lenguaje y talle)
-        const details = sortedCart.map(item => {
-            const isHoodie = item.category === 'Hoodies FMD' || item.category === 'Hoodies Otras Bandas';
-            const dobleLabel = item.isDouble 
-                ? (item.backCode ? ' — DOBLE ESTAMPA' : ' — DOBLE ESTAMPA (dorso pendiente)')
-                : ' — estampa simple';
-            const edad = item.age === 'chico' ? 'Niño' : 'Adulto';
-            let talle;
-            if (!item.size) {
-                talle = 'Talle a confirmar con asesoramiento FMD';
-            } else {
-                talle = `Talle ${item.size}`;
+        const codes = sortedCart.map((item, idx) => {
+            if (item.isDouble && item.backCode) {
+                return `${idx + 1}. Frente [${item.frontCode}] + dorso [${item.backCode}]`;
             }
+            if (item.isDouble) {
+                return `${idx + 1}. [${item.frontCode}] (dorso a definir)`;
+            }
+            return `${idx + 1}. [${item.code}]`;
+        }).join('\n');
+
+        // Detalles de cada producto (ajustes de lenguaje y talle)
+        const details = sortedCart.map((item, idx) => {
+            const isHoodie = item.category === 'Hoodies FMD' || item.category === 'Hoodies Otras Bandas';
+            const edad = item.age === 'chico' ? 'Niño' : 'Adulto';
+            const talle = item.size ? item.size : 'A confirmar';
             const color = item.color === 'blanco' ? 'Blanca' : 'Negra';
             let tipoPrenda;
             if (isHoodie) {
-                tipoPrenda = 'Hoodie oversize unisex' + dobleLabel;
+                tipoPrenda = 'Hoodie oversize unisex';
             } else if (item.cut === 'oversize') {
-                tipoPrenda = 'Remera oversize unisex' + dobleLabel;
+                tipoPrenda = 'Remera oversize unisex';
             } else {
-                tipoPrenda = 'Remera clásica' + dobleLabel;
+                tipoPrenda = 'Remera clásica';
             }
-            return `${item.productName}\n${edad} | ${talle} | ${tipoPrenda} | ${color}`;
+
+            let estampado;
+            if (item.isDouble && item.backCode) {
+                estampado = `Doble estampa (frente ${item.frontCode} + dorso ${item.backCode})`;
+            } else if (item.isDouble) {
+                estampado = `Doble estampa (dorso a definir)`;
+            } else {
+                estampado = 'Estampa simple';
+            }
+
+            return [
+                `${idx + 1}) ${item.productName}`,
+                `• Código: ${item.code}`,
+                `• Prenda: ${tipoPrenda}`,
+                `• Edad: ${edad}`,
+                `• Talle: ${talle}`,
+                `• Color: ${color}`,
+                `• Estampa: ${estampado}`
+            ].join('\n');
         }).join('\n\n');
 
         const total = this.cart.length;
@@ -600,7 +595,7 @@ class CartSystem {
             promoMsg = '\n\n> Este pedido incluye productos combinables en promo vigente.';
         }
 
-        return `CÓDIGOS:\n${codes}\n\nDETALLE DEL PEDIDO:\n\n${details}\n\nTotal de ${tipoConteo}: ${total}${promoMsg}`;
+        return `CÓDIGOS DEL PEDIDO:\n${codes}\n\nDETALLE DEL PEDIDO:\n\n${details}\n\nTOTAL: ${total} ${tipoConteo}${promoMsg}`;
     }
 
     // Actualizar UI del carrito
@@ -2224,7 +2219,7 @@ function buildShippingContextForWhatsapp(postalCode = '', customerData = null) {
 function sendViaWhatsapp(postalCode = '', customerData = null) {
     const summary = cart.generateSummary();
     const shippingContext = buildShippingContextForWhatsapp(postalCode, customerData);
-    const message = `Hola FMD! 🤘\n\nQuiero ENCARGAR estos productos:\n\n${summary}${shippingContext}\n\n¿Podrían confirmarme precio final, forma de pago y envío?`;
+    const message = `Hola FMD! 🤘\n\nQuiero encargar este pedido:\n\n${summary}${shippingContext}\n\n¿Podrían confirmarme precio final, forma de pago y envío?`;
     openWhatsapp(message);
 }
 
