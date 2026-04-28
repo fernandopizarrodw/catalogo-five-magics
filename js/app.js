@@ -1109,7 +1109,7 @@ function buildWhatsappFallbackMessage() {
         return `Hola FMD! Quiero encargar esta prenda 🤘\n\nDiseño: ${currentProduct.name}${variantName}\nTalle: ___\nColor: ___\n\nPor favor confirmame precio, disponibilidad y opciones de envío.`;
     }
 
-    return `Hola FMD! Quiero encargar una remera de la colección Megadeth 🤘\n\nDiseño o idea: ___\nTalle: ___\nCiudad (para envío): ___\n\nPor favor confirmame precio y disponibilidad.`;
+    return `Hola FMD! Quiero encargar una prenda de la colección Megadeth 🤘\n\nDiseño: ___\nTalle: ___\nColor: ___\nCP o ciudad: ___\n\n¿Me confirmás precio final y tiempo de envío?`;
 }
 
 // Abrir WhatsApp con mensaje
