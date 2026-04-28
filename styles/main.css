@@ -5999,6 +5999,35 @@ footer p {
     border-radius: 6px;
 }
 
+.cart-cp-field {
+    margin: 8px 0 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.cart-cp-field label {
+    font-size: 0.78rem;
+    color: #aaa;
+}
+
+.cart-cp-field input {
+    background: #111;
+    border: 1px solid #333;
+    border-radius: 6px;
+    color: #fff;
+    font-size: 1rem;
+    padding: 10px 12px;
+    outline: none;
+    transition: border-color 0.2s;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.cart-cp-field input:focus {
+    border-color: var(--magic-green);
+}
+
 .cart-preview-actions {
     display: flex;
     flex-direction: column;

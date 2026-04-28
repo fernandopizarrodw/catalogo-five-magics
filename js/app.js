@@ -1106,10 +1106,10 @@ function buildWhatsappFallbackMessage() {
     if (currentProduct) {
         const images = getImages(currentProduct);
         const variantName = images?.[currentSlide]?.name ? `\nVariante: ${images[currentSlide].name}` : '';
-        return `Hola FMD, quiero reservar esta prenda para el show final de Megadeth del 30/04.\n\nDiseño: ${currentProduct.name}${variantName}\nTalle: ___\nColor: ___\n\nQuiero coordinar retiro en zona Tecnópolis (plazo: jueves 30/04 hasta las 16hs).`;
+        return `Hola FMD! Quiero encargar esta prenda 🤘\n\nDiseño: ${currentProduct.name}${variantName}\nTalle: ___\nColor: ___\n\nPor favor confirmame precio, disponibilidad y opciones de envío.`;
     }
 
-    return `Hola FMD, quiero reservar mi remera para el show final de Megadeth del 30/04.\n\nDiseño o idea: ___\nTalle: ___\nCiudad: ___\n\nSi se puede, quiero coordinar retiro en zona Tecnópolis antes del show.`;
+    return `Hola FMD! Quiero encargar una remera de la colección Megadeth 🤘\n\nDiseño o idea: ___\nTalle: ___\nCiudad (para envío): ___\n\nPor favor confirmame precio y disponibilidad.`;
 }
 
 // Abrir WhatsApp con mensaje
@@ -1682,7 +1682,7 @@ function updateModalInfo() {
     const vName = images[currentSlide]?.name || '';
     document.getElementById('variantName').textContent = vName;
     document.getElementById('variantName').style.display = vName ? 'block' : 'none';
-    const msg = `Hola FMD, quiero ayuda para reservar ${currentProduct.name} para el show final de Megadeth del 30/04.\n\nNecesito confirmar talle, color y entrega.`;
+    const msg = `Hola FMD! Quiero encargar ${currentProduct.name} 🤘\n\nNecesito confirmar talle, color y opciones de envío.`;
     const modalWaBtn = document.getElementById('modalWaBtn');
     if (modalWaBtn) {
         modalWaBtn.onclick = (e) => {
@@ -2094,9 +2094,10 @@ function copySummary() {
     }
 }
 
-function sendViaWhatsapp() {
+function sendViaWhatsapp(postalCode = '') {
     const summary = cart.generateSummary();
-    const message = `Hola FMD! 🤘\n\nQuiero encargar los siguientes productos:\n\n${summary}\n\n¿Podrían confirmarme precio final y disponibilidad?`;
+    const cpLine = postalCode ? `\n\n📮 Código postal: ${postalCode}` : '';
+    const message = `Hola FMD! 🤘\n\nQuiero ENCARGAR estos productos:\n\n${summary}${cpLine}\n\n¿Podrían confirmarme precio final, forma de pago y envío?`;
     openWhatsapp(message);
 }
 
@@ -2236,7 +2237,12 @@ function renderCartPreview() {
     // Renderizar footer con resumen
     let shippingNote = '';
     if (totals.cantidad === 1) {
-        shippingNote = `<div class="cart-preview-shipping-note">📦 Agregá 1 prenda más para envío GRATIS</div>`;
+        shippingNote = `
+        <div class="cart-preview-shipping-note">¡Agregá 1 prenda más y el envío es GRATIS!</div>
+        <div class="cart-cp-field">
+            <label for="inputCP">📮 Ingresá tu código postal para calcular el envío</label>
+            <input type="text" id="inputCP" placeholder="Ej: 1425" maxlength="8" inputmode="numeric">
+        </div>`;
     } else if (totals.cantidad >= 2) {
         shippingNote = `<div class="cart-preview-shipping-note">🚚 ¡ENVÍO GRATIS! ${totals.cantidad >= 3 ? '+ 10% descuento 🎉' : ''}</div>`;
     }
@@ -2265,8 +2271,7 @@ function renderCartPreview() {
         ${shippingNote}
         <div class="cart-preview-info" style="margin-top:12px;padding:12px;background:#0a0a0a;border:1px solid #222;border-radius:8px;font-size:0.8rem;color:#888;">
             <div style="margin-bottom:8px;">
-                <span style="color:#e8432e;">🎸 ¿Querés tenerla para el show del 30/04?</span> Retiro en zona Tecnópolis hasta el <strong style="color:#fff;">jue 30/04 a las 16hs</strong>. Coordiná por WhatsApp.<br>
-                <span style="color:#39ff14;">📦 Sin urgencia:</span> Andreani a todo el país · domicilio o punto de retiro · 3-7 días hábiles.
+                <span style="color:#39ff14;">📦 ENVÍO ANDREANI:</span> A domicilio o punto de retiro Andreani · 3-7 días hábiles a todo el país. Envío gratis en pedidos de 2 o más prendas.
             </div>
             <div>
                 <span style="color:#39ff14;">💳 PAGO:</span> Transferencia o MercadoPago. Tarjeta de crédito con recargo $8.000.
@@ -2297,8 +2302,10 @@ function removeAndRefreshPreview(index) {
 }
 
 function confirmAndSendWhatsapp() {
+    const cpInput = document.getElementById('inputCP');
+    const cp = cpInput ? cpInput.value.trim() : '';
     closeCartPreview();
-    sendViaWhatsapp();
+    sendViaWhatsapp(cp);
 }
 
 function toggleCartPanel() {
@@ -2341,7 +2348,7 @@ function addToCartAndOpenWhatsapp() {
     // Pequeño delay para que se vea la notificación
     setTimeout(() => {
         const summary = cart.generateSummary();
-        const message = `Hola FMD! 🤘\n\nQuiero RESERVAR estos productos para el show del 30/04:\n\n${summary}\n\n¿Podrían confirmarme precio final, forma de pago y entrega?`;
+        const message = `Hola FMD! 🤘\n\nQuiero ENCARGAR estos productos:\n\n${summary}\n\n¿Podrían confirmarme precio final, forma de pago y envío?`;
         openWhatsapp(message, 'cart_reserva');
     }, 300);
 }
