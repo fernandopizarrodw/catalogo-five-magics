@@ -1134,35 +1134,43 @@
             },
             {
                 "img": "images/tours/Tour_argentina/dave_final_show_frente.jpg",
-                "name": "Dave Final Show Frente"
+                "name": "Dave Final Show Frente",
+                "isNew": true
             },
             {
                 "img": "images/tours/Tour_argentina/set_list_show_dorso.jpg",
-                "name": "Set List Show Dorso"
+                "name": "Set List Show Dorso",
+                "isNew": true
             },
             {
                 "img": "images/tours/Tour_argentina/tour_merch_2026-v1_frente.jpg",
-                "name": "Tour Merch 2026 v1 Frente"
+                "name": "Tour Merch 2026 v1 Frente",
+                "isNew": true
             },
             {
                 "img": "images/tours/Tour_argentina/tour_merch_2026-v1_dorso.jpg",
-                "name": "Tour Merch 2026 v1 Dorso"
+                "name": "Tour Merch 2026 v1 Dorso",
+                "isNew": true
             },
             {
                 "img": "images/tours/Tour_argentina/tour_merch_2026-v2_frente.jpg",
-                "name": "Tour Merch 2026 v2 Frente"
+                "name": "Tour Merch 2026 v2 Frente",
+                "isNew": true
             },
             {
                 "img": "images/tours/Tour_argentina/tour_merch_2026-v2_dorso.jpg",
-                "name": "Tour Merch 2026 v2 Dorso"
+                "name": "Tour Merch 2026 v2 Dorso",
+                "isNew": true
             },
             {
                 "img": "images/tours/Tour_argentina/tour_merch_2026-v3_frente.jpg",
-                "name": "Tour Merch 2026 v3 Frente"
+                "name": "Tour Merch 2026 v3 Frente",
+                "isNew": true
             },
             {
                 "img": "images/tours/Tour_argentina/dorso_tour_merch.png",
-                "name": "Dorso Tour Merch"
+                "name": "Dorso Tour Merch",
+                "isNew": true
             }
         ],
         "desc": "Tour Argentina: edición especial con 12 variantes exclusivas."
