@@ -1131,9 +1131,41 @@
             {
                 "img": "images/tours/Tour_argentina/vic_edición_fmd.jpg",
                 "name": "Edición FMD"
+            },
+            {
+                "img": "images/tours/Tour_argentina/dave_final_show_frente.jpg",
+                "name": "Dave Final Show Frente"
+            },
+            {
+                "img": "images/tours/Tour_argentina/set_list_show_dorso.jpg",
+                "name": "Set List Show Dorso"
+            },
+            {
+                "img": "images/tours/Tour_argentina/tour_merch_2026-v1_frente.jpg",
+                "name": "Tour Merch 2026 v1 Frente"
+            },
+            {
+                "img": "images/tours/Tour_argentina/tour_merch_2026-v1_dorso.jpg",
+                "name": "Tour Merch 2026 v1 Dorso"
+            },
+            {
+                "img": "images/tours/Tour_argentina/tour_merch_2026-v2_frente.jpg",
+                "name": "Tour Merch 2026 v2 Frente"
+            },
+            {
+                "img": "images/tours/Tour_argentina/tour_merch_2026-v2_dorso.jpg",
+                "name": "Tour Merch 2026 v2 Dorso"
+            },
+            {
+                "img": "images/tours/Tour_argentina/tour_merch_2026-v3_frente.jpg",
+                "name": "Tour Merch 2026 v3 Frente"
+            },
+            {
+                "img": "images/tours/Tour_argentina/dorso_tour_merch.png",
+                "name": "Dorso Tour Merch"
             }
         ],
-        "desc": "Tour Argentina: edición especial con 4 variantes exclusivas."
+        "desc": "Tour Argentina: edición especial con 12 variantes exclusivas."
     },
     {
         "id": 300,

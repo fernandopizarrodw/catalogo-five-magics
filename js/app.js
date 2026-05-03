@@ -1906,6 +1906,7 @@ function updateCountsUI(){
             if(el) el.textContent = val;
         };
         setNavBadge('Album', byCategory['Album']||0);
+        setNavBadge('Orígenes', byCategory['Orígenes']||0);
         setNavBadge('Avenged Sevenfold', byCategory['Avenged Sevenfold']||0);
         setNavBadge('AC/DC', byCategory['AC/DC']||0);
         setNavBadge('Pantera', byCategory['Pantera']||0);
@@ -1929,6 +1930,7 @@ function updateCountsUI(){
         };
         setPill('all', `Todo (${totalAll})`);
         setPill('Album', `${getCategoryLabel('Album')} (${byCategory['Album']||0})`);
+        setPill('Orígenes', `${getCategoryLabel('Orígenes')} (${byCategory['Orígenes']||0})`);
         setPill('Hoodies FMD', `${getCategoryLabel('Hoodies FMD')} (${byCategory['Hoodies FMD']||0})`);
         setPill('Hoodies Otras Bandas', `${getCategoryLabel('Hoodies Otras Bandas')} (${byCategory['Hoodies Otras Bandas']||0})`);
         setPill('Dave Mustaine', `${getCategoryLabel('Dave Mustaine')} (${byCategory['Dave Mustaine']||0})`);
@@ -2697,13 +2699,20 @@ function initSearchModal() {
 // === COUNTDOWN MEGADETH - ÚLTIMA GIRA ===
 function initCountdown() {
     const showDate = new Date('2026-04-30T20:00:00-03:00'); // 30 abril 2026, 20:00 Argentina
+    const banner = document.getElementById('countdownBanner');
+    if (!banner) return;
+
+    if (new Date() >= showDate) {
+        banner.innerHTML = '<div class="countdown-content"><span style="font-size:1.1rem;color:#ffb300;font-weight:700;letter-spacing:.3px;">SHOW REALIZADO EL 30.04.2026 · COLECCION CONMEMORATIVA DISPONIBLE</span></div>';
+        return;
+    }
     
     function updateCountdown() {
         const now = new Date();
         const diff = showDate - now;
         
         if (diff <= 0) {
-            document.getElementById('countdownBanner').innerHTML = '<div class="countdown-content"><span style="font-size:1.5rem;color:#ffb300;">🎸 ¡HOY ES EL DÍA! MEGADETH EN ARGENTINA 🇦🇷</span></div>';
+            banner.innerHTML = '<div class="countdown-content"><span style="font-size:1.1rem;color:#ffb300;font-weight:700;letter-spacing:.3px;">SHOW REALIZADO EL 30.04.2026 · COLECCION CONMEMORATIVA DISPONIBLE</span></div>';
             return;
         }
         
