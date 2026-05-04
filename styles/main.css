@@ -59,6 +59,164 @@
     margin: 2px 0 4px 0;
     font-family: 'Fira Mono', 'Consolas', monospace;
 }
+
+/* --- DOBLE ESTAMPA SECTION --- */
+.doble-estampa-section {
+    margin: 48px auto 32px auto;
+    max-width: 1200px;
+    padding: 0 16px;
+}
+.doble-estampa-section .info-title {
+    color: var(--magic-green);
+    font-size: 2rem;
+    margin-bottom: 0.2em;
+    text-align: center;
+}
+.doble-estampa-section .info-subtitle {
+    color: #aaa;
+    text-align: center;
+    margin-bottom: 1.5em;
+}
+.doble-estampa-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 28px;
+    margin-top: 12px;
+}
+.doble-card {
+    background: #181818;
+    border-radius: 14px;
+    box-shadow: 0 2px 16px #0004;
+    padding: 18px 14px 12px 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: box-shadow 0.2s, transform 0.2s;
+}
+.doble-card:hover {
+    box-shadow: 0 6px 32px var(--magic-green-glow, #39ff201a);
+    transform: translateY(-2px) scale(1.03);
+}
+.doble-card img {
+    width: 100%;
+    max-width: 260px;
+    aspect-ratio: 1/1;
+    object-fit: contain;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    background: #222;
+    border: 2px solid #222;
+}
+.doble-card p {
+    color: #fff;
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.1rem;
+    margin: 0;
+    text-align: center;
+}
+
+/* --- UNIVERSAL DOBLE ESTAMPA CARD --- */
+.doble-estampa-universal {
+    position: relative;
+    background: #181818;
+    border-radius: 16px;
+    box-shadow: 0 2px 16px #0004;
+    padding: 22px 18px 18px 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 340px;
+    margin: 0 auto;
+}
+.estampa-label {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    background: var(--magic-green, #39ff20);
+    color: #181818;
+    font-size: 0.82rem;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 12px;
+    letter-spacing: 0.5px;
+    z-index: 2;
+}
+.frente-dorso-mockup {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    margin-bottom: 16px;
+}
+.frente-img {
+    width: 210px;
+    height: 210px;
+    object-fit: contain;
+    border-radius: 12px;
+    background: #222;
+    border: 2px solid #222;
+    box-shadow: 0 2px 12px #0003;
+}
+.dorso-module {
+    position: absolute;
+    right: 12px;
+    bottom: 12px;
+    width: 70px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #222;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px #0005;
+    border: 2px solid #333;
+}
+.dorso-img {
+    width: 62px;
+    height: 62px;
+    object-fit: contain;
+    border-radius: 8px;
+}
+.dorso-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    color: #bbb;
+    font-size: 0.95rem;
+    font-family: 'Oswald', sans-serif;
+    text-align: center;
+    gap: 2px;
+}
+.dorso-placeholder span {
+    font-weight: 700;
+    color: var(--magic-green, #39ff20);
+    font-size: 1.05rem;
+}
+.dorso-placeholder small {
+    font-size: 0.75rem;
+    color: #aaa;
+}
+.product-info {
+    margin-top: 10px;
+    text-align: center;
+}
+.product-title {
+    color: #fff;
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.25rem;
+    margin: 0 0 4px 0;
+}
+.product-desc {
+    color: #aaa;
+    font-size: 0.98rem;
+    margin: 0;
+}
+}
+}
 /* Corrección para que el scroll se bloquee bien en móvil */
 /* === BLOQUEO DE SCROLL AL ABRIR MODAL === */
 body.modal-open {
