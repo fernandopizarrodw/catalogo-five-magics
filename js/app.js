@@ -2751,7 +2751,7 @@ function initCountdown() {
     if (!banner) return;
 
     if (new Date() >= showDate) {
-        banner.innerHTML = '<div class="countdown-content"><span style="font-size:1.1rem;color:#ffb300;font-weight:700;letter-spacing:.3px;">SHOW REALIZADO · COLECCION CONMEMORATIVA DISPONIBLE</span></div>';
+        banner.innerHTML = '';
         return;
     }
     
@@ -2760,7 +2760,7 @@ function initCountdown() {
         const diff = showDate - now;
         
         if (diff <= 0) {
-            banner.innerHTML = '<div class="countdown-content"><span style="font-size:1.1rem;color:#ffb300;font-weight:700;letter-spacing:.3px;">SHOW REALIZADO · COLECCION CONMEMORATIVA DISPONIBLE</span></div>';
+            banner.innerHTML = '';
             return;
         }
         
