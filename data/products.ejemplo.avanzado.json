@@ -1,15 +1,19 @@
 [
   {
     "id": 4,
+    "band": "Megadeth",
     "category": "Album",
+    "collections": ["Tour Argentina 2026", "Edicion Argentina", "Post Show"],
+    "tags": ["Megadeth", "Rust in Peace", "Tour", "Argentina", "Album"],
     "year": "1990",
+    "priority": 95,
     "name": "Rust in Peace",
     "tipoPrecio": "doble",
     "isNew": true,
     "img": "images/albums/Rust_in_peace/rust_in_peace.jpg",
     "variants": [
-      { "img": "images/albums/Rust_in_peace/rust_in_peace.jpg", "name": "Rust in Peace" },
-      { "img": "images/albums/Rust_in_peace/rust_in_peace_dorso.jpg", "name": "Rust in Peace - Dorso" }
+      { "img": "images/albums/Rust_in_peace/rust_in_peace.jpg", "name": "Rust in Peace", "role": "front" },
+      { "img": "images/albums/Rust_in_peace/rust_in_peace_dorso.jpg", "name": "Rust in Peace - Dorso", "role": "back" }
     ],
     "desc": "Obra maestra de precisión matemática y alienígenas en el Área 51. Disponible en hoodie doble estampa frente + dorso.",
     "garment": "remera",
@@ -20,14 +24,18 @@
   },
   {
     "id": 101,
+    "band": "Megadeth",
     "category": "Hoodies FMD",
+    "collections": ["Tour Argentina 2026", "Edicion Argentina"],
+    "tags": ["Hoodie", "Megadeth", "Rust in Peace", "Tour", "Argentina"],
     "year": "2026",
+    "priority": 88,
     "name": "Hoodie Rust in Peace",
     "tipoPrecio": "doble",
     "isNew": false,
     "img": "images/hoddies_fmd/rip_hoodie.jpg",
     "variants": [
-      { "img": "images/hoddies_fmd/rip_hoodie.jpg", "name": "Hoodie Rust in Peace" }
+      { "img": "images/hoddies_fmd/rip_hoodie.jpg", "name": "Hoodie Rust in Peace", "role": "front" }
     ],
     "desc": "Hoodie premium con estampa doble frente + dorso. Edición especial para el show final.",
     "garment": "hoodie",

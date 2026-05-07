@@ -167,13 +167,77 @@ function parseProductCode(query) {
     };
 }
 
+function normalizeText(value) {
+    return String(value || '')
+        .toLowerCase()
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .trim();
+}
+
+function getProductPriority(product) {
+    const priority = Number(product?.priority);
+    return Number.isFinite(priority) ? priority : 0;
+}
+
+function getMetadataText(product) {
+    const tags = Array.isArray(product?.tags) ? product.tags : [];
+    const collections = Array.isArray(product?.collections)
+        ? product.collections
+        : (product?.collection ? [product.collection] : []);
+    const band = product?.band ? [product.band] : [];
+    return [...tags, ...collections, ...band].map(normalizeText).join(' ');
+}
+
+function compareProductsByPriorityThenId(a, b) {
+    const priorityDiff = getProductPriority(b) - getProductPriority(a);
+    if (priorityDiff !== 0) return priorityDiff;
+    return (b?.id || 0) - (a?.id || 0);
+}
+
+function isBackVariant(variant) {
+    if (!variant) return false;
+    if (normalizeText(variant.role) === 'back') return true;
+    return normalizeText(variant.name).includes('dorso');
+}
+
+function isFrontVariant(variant) {
+    if (!variant) return false;
+    return normalizeText(variant.role) === 'front';
+}
+
+function matchesCategoryOrMetadata(product, categoryValue) {
+    const categoryQuery = normalizeText(categoryValue);
+    if (!categoryQuery) return true;
+
+    const category = normalizeText(product?.category);
+    if (category === categoryQuery) return true;
+
+    const tags = Array.isArray(product?.tags) ? product.tags : [];
+    if (tags.some(tag => normalizeText(tag) === categoryQuery)) return true;
+
+    const collections = Array.isArray(product?.collections)
+        ? product.collections
+        : (product?.collection ? [product.collection] : []);
+    if (collections.some(collection => normalizeText(collection).includes(categoryQuery))) return true;
+
+    return false;
+}
+
 function matchesTextQuery(product, query) {
-    const name = (product.name || '').toLowerCase();
-    const desc = (product.desc || '').toLowerCase();
-    const category = (product.category || '').toLowerCase();
+    const normalizedQuery = normalizeText(query);
+    const name = normalizeText(product.name);
+    const desc = normalizeText(product.desc);
+    const category = normalizeText(product.category);
     const idText = String(product.id || '');
-    const variantsText = (product.variants || []).map(v => `${v.name || ''} ${v.img || ''}`.toLowerCase()).join(' ');
-    return name.includes(query) || desc.includes(query) || category.includes(query) || idText.includes(query) || variantsText.includes(query);
+    const variantsText = (product.variants || []).map(v => `${normalizeText(v.name)} ${normalizeText(v.role)} ${normalizeText(v.img)}`).join(' ');
+    const metadataText = getMetadataText(product);
+    return name.includes(normalizedQuery)
+        || desc.includes(normalizedQuery)
+        || category.includes(normalizedQuery)
+        || metadataText.includes(normalizedQuery)
+        || idText.includes(normalizedQuery)
+        || variantsText.includes(normalizedQuery);
 }
 
 function getSearchResults(query, sourceProducts = db, useGlobalCodeLookup = false) {
@@ -218,10 +282,24 @@ function openExactCodeMatch(query, afterOpen) {
     return true;
 }
 
+function clearSelectionError(groupId) {
+    const group = document.getElementById(groupId);
+    if (group) group.classList.remove('field-required-error');
+}
+
+function markSelectionError(groupId) {
+    const group = document.getElementById(groupId);
+    if (!group) return;
+    group.classList.add('field-required-error');
+    group.scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+
 // Función para cambiar entre Adulto y Chico
 function selectAge(age) {
     selectedAge = age;
     selectedSize = ''; // Reset talle al cambiar edad
+    clearSelectionError('ageGroup');
+    clearSelectionError('sizeGroup');
     
     // Estilos activo/inactivo
     const activeStyle = 'background:#e8432e;border:1px solid #e8432e;color:#fff;padding:6px 12px;border-radius:5px;font-size:0.8rem;font-weight:500;cursor:pointer;';
@@ -280,7 +358,14 @@ function selectAge(age) {
 
 // Función para seleccionar talle
 function selectSize(size) {
+    if (!selectedAge) {
+        showNotification('Primero elegí edad.', 1800);
+        markSelectionError('ageGroup');
+        return;
+    }
+
     selectedSize = size;
+    clearSelectionError('sizeGroup');
     const activeStyle = 'background:#e8432e;border:1px solid #e8432e;color:#fff;padding:6px 12px;border-radius:5px;font-size:0.8rem;font-weight:500;cursor:pointer;';
     const inactiveStyle = 'background:#1a1a1a;border:1px solid #333;color:#888;padding:6px 12px;border-radius:5px;font-size:0.8rem;font-weight:500;cursor:pointer;';
     
@@ -299,6 +384,8 @@ function selectSize(size) {
 function selectCut(cut) {
     selectedCut = cut;
     selectedSize = ''; // Reset talle al cambiar corte
+    clearSelectionError('cutGroup');
+    clearSelectionError('sizeGroup');
     
     const activeStyle = 'background:#e8432e;border:1px solid #e8432e;color:#fff;padding:6px 12px;border-radius:5px;font-size:0.8rem;font-weight:500;cursor:pointer;';
     const inactiveStyle = 'background:#1a1a1a;border:1px solid #333;color:#888;padding:6px 12px;border-radius:5px;font-size:0.8rem;font-weight:500;cursor:pointer;';
@@ -338,6 +425,7 @@ function selectCut(cut) {
 // Función para seleccionar color
 function selectColor(color) {
     selectedColor = color;
+    clearSelectionError('colorGroup');
     const activeStyle = 'background:#e8432e;border:1px solid #e8432e;color:#fff;padding:6px 12px;border-radius:5px;font-size:0.8rem;font-weight:500;cursor:pointer;display:flex;align-items:center;gap:6px;';
     const inactiveStyle = 'background:#1a1a1a;border:1px solid #333;color:#888;padding:6px 12px;border-radius:5px;font-size:0.8rem;font-weight:500;cursor:pointer;display:flex;align-items:center;gap:6px;';
     
@@ -668,7 +756,7 @@ class CartSystem {
                         <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
                             <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
                         </svg>
-                        Revisar y enviar por WhatsApp
+                        Revisar y enviar pedido
                     </button>
                     <button onclick="cart.clearCart()" class="btn-clear-cart">
                         🗑️ Vaciar carrito
@@ -741,15 +829,18 @@ function renderLatestReleases(limit = 5) {
         displayCards.sort((a, b) => {
             const tourBoostA = (a.isNewVariant && a.category === 'Tour') ? 2000000 : 0;
             const tourBoostB = (b.isNewVariant && b.category === 'Tour') ? 2000000 : 0;
+            const priorityBoostA = Number.isFinite(Number(a.priority)) ? Number(a.priority) * 1000 : 0;
+            const priorityBoostB = Number.isFinite(Number(b.priority)) ? Number(b.priority) * 1000 : 0;
             const scoreA = tourBoostA + (a.isNewVariant ? 1000000 : 0) + (typeof a.variantIndex === 'number' ? a.variantIndex : 0);
             const scoreB = tourBoostB + (b.isNewVariant ? 1000000 : 0) + (typeof b.variantIndex === 'number' ? b.variantIndex : 0);
+            if ((scoreB + priorityBoostB) !== (scoreA + priorityBoostA)) return (scoreB + priorityBoostB) - (scoreA + priorityBoostA);
             if (scoreB !== scoreA) return scoreB - scoreA;
             return (b.productId || 0) - (a.productId || 0);
         });
 
         // 3. Rellenar el resto de espacios hasta el límite con productos recientes
         if (displayCards.length < limit) {
-            const sortedProducts = [...db].sort((a,b)=> (b.id||0) - (a.id||0));
+            const sortedProducts = [...db].sort(compareProductsByPriorityThenId);
 
             for (const product of sortedProducts) {
                 const alreadyHasNewVariant = displayCards.some(card => card.productId === product.id);
@@ -763,6 +854,7 @@ function renderLatestReleases(limit = 5) {
                         img: product.img,
                         category: product.category,
                         year: product.year,
+                        priority: product.priority,
                         tipoPrecio: product.tipoPrecio,
                         variants: product.variants
                     });
@@ -830,6 +922,7 @@ async function loadProducts() {
         loadMegadethDestacados(); // Destacados para el show
         loadMegadethCollections(); // Colecciones Megadeth con preview
         filterProducts(); // Renderizar después de cargar
+        loadProductFromHash(); // Abrir producto desde URL hash si existe
     } catch (error) {
         console.error('Error:', error);
         // Fallback para desarrollo local
@@ -911,8 +1004,9 @@ function renderHoodiesGrid() {
 }
 
 function isMegadethUniverseProduct(product) {
-    const category = String(product?.category || '').toLowerCase();
-    const haystack = `${product?.name || ''} ${product?.desc || ''}`.toLowerCase();
+    const category = normalizeText(product?.category);
+    const haystack = normalizeText(`${product?.name || ''} ${product?.desc || ''}`);
+    const metadata = getMetadataText(product);
     const megadethCategories = [
         'album',
         'dave mustaine',
@@ -922,10 +1016,12 @@ function isMegadethUniverseProduct(product) {
         'tour',
         'dorsales',
         'hoodies fmd',
-        'personalizados'
-    ];
+        'orígenes'
+    ].map(normalizeText);
 
-    return megadethCategories.includes(category) || /megadeth|mustaine|vic rattlehead|rust in peace|peace sells|youthanasia|countdown/.test(haystack);
+    return megadethCategories.includes(category)
+        || /megadeth|mustaine|vic rattlehead|rust in peace|peace sells|youthanasia|countdown/.test(haystack)
+        || /megadeth|mustaine|vic rattlehead|tour argentina|edicion argentina|post show/.test(metadata);
 }
 
 // Renderizar órbita del hero solo con el universo Megadeth
@@ -970,7 +1066,7 @@ function renderHeroOrbit(limit = 8) {
 
         // 3. Rellenar con productos relevantes si hace falta
         if (orbitItems.length < limit) {
-            const sortedProducts = [...sourcePool].sort((a, b) => (b.id || 0) - (a.id || 0));
+            const sortedProducts = [...sourcePool].sort(compareProductsByPriorityThenId);
             for (const product of sortedProducts) {
                 const alreadyAdded = orbitItems.some(item => item.productId === product.id);
                 if (!alreadyAdded) {
@@ -1137,6 +1233,21 @@ const DORSO_CATEGORIES = new Set(['Album','Tour','Musician','Dave Mustaine','Met
 let selectedDorsoChips = new Set();
 let selectedBacks = new Set();
 
+const MGX_SHOWCASE_TABS = [
+    { key: 'todo', label: 'Todo Megadeth' },
+    { key: 'nuevos', label: 'Nuevos' },
+    { key: 'tour', label: 'Tour 2026' },
+    { key: 'albumes', label: 'Albumes' },
+    { key: 'musicos', label: 'Musicos' },
+    { key: 'dorsos', label: 'Dorsos' }
+];
+
+const mgxState = {
+    tab: 'todo',
+    prenda: 'all',
+    estampa: 'all'
+};
+
 function toggleChip(el){
     try{
         const val = el.dataset.val;
@@ -1224,7 +1335,7 @@ function getDorsoVariants(product) {
     if (!product || !product.variants) return [];
     return product.variants
         .map((v, index) => ({ ...v, index }))
-        .filter(v => v.name && v.name.toLowerCase().includes('dorso'));
+    .filter(v => isBackVariant(v));
 }
 
 // Renderizar selector de dorso con variantes disponibles
@@ -1348,7 +1459,20 @@ viewGalleryBtn.addEventListener('click', function() {
 });
 
 function getImages(p) {
-    return (p.variants && p.variants.length > 0) ? p.variants : [{ img: p.img, name: '' }];
+    if (!p?.variants || !p.variants.length) {
+        return [{ img: p?.img, name: '', role: 'front' }];
+    }
+
+    const variants = p.variants.map(v => ({ ...v }));
+    const hasFront = variants.some(isFrontVariant);
+    const hasBack = variants.some(isBackVariant);
+
+    if (!hasFront && hasBack) {
+        const fallbackFront = { img: p.img, name: p.name || 'Frente', role: 'front' };
+        variants.unshift(fallbackFront);
+    }
+
+    return variants;
 }
 
 function openModal(id, variantIndex = undefined) {
@@ -1400,17 +1524,16 @@ function openModal(id, variantIndex = undefined) {
     const inactiveColorStyle = 'background:#1a1a1a;border:1px solid #333;color:#888;padding:6px 12px;border-radius:5px;font-size:0.8rem;font-weight:500;cursor:pointer;display:flex;align-items:center;gap:6px;';
     
     // Reset todas las opciones del modal
-    selectedAge = 'adulto';
+    selectedAge = '';
     selectedSize = '';
-    selectedCut = 'clasica';
-    selectedColor = 'negro';
+    selectedCut = '';
+    selectedColor = '';
     selectedBackIndex = -1; // Reset dorso seleccionado
     
-    // Reset botones de edad
+    // Reset botones de edad (sin preselección)
     document.querySelectorAll('#ageSelector button').forEach(btn => {
-        const isActive = btn.dataset.age === 'adulto';
-        btn.classList.toggle('active', isActive);
-        btn.style.cssText = isActive ? activeStyle : inactiveStyle;
+        btn.classList.remove('active');
+        btn.style.cssText = inactiveStyle;
     });
     
     // Reset botones de talle (ninguno seleccionado)
@@ -1436,18 +1559,16 @@ function openModal(id, variantIndex = undefined) {
     const btnOversize = document.getElementById('btnOversize');
     if (btnOversize) btnOversize.style.display = '';
     
-    // Reset botones de corte
+    // Reset botones de corte (sin preselección)
     document.querySelectorAll('#cutSelector button').forEach(btn => {
-        const isActive = btn.dataset.cut === 'clasica';
-        btn.classList.toggle('active', isActive);
-        btn.style.cssText = isActive ? activeStyle : inactiveStyle;
+        btn.classList.remove('active');
+        btn.style.cssText = inactiveStyle;
     });
     
-    // Reset botones de color
+    // Reset botones de color (sin preselección)
     document.querySelectorAll('#colorSelector button').forEach(btn => {
-        const isActive = btn.dataset.color === 'negro';
-        btn.classList.toggle('active', isActive);
-        btn.style.cssText = isActive ? activeColorStyle : inactiveColorStyle;
+        btn.classList.remove('active');
+        btn.style.cssText = inactiveColorStyle;
     });
     
     // === LÓGICA ESPECIAL PARA HOODIES ===
@@ -1702,10 +1823,11 @@ function updateModalInfo() {
 }
 
 function filterProducts() {
-    let filtered = currentCategory ? db.filter(p => p.category === currentCategory) : db.slice();
+    let filtered = currentCategory ? db.filter(p => matchesCategoryOrMetadata(p, currentCategory)) : db.slice();
     if (currentSearch) {
         filtered = getSearchResults(currentSearch, filtered, true);
     }
+    filtered.sort(compareProductsByPriorityThenId);
     renderFilteredProducts(filtered);
 }
 
@@ -1847,13 +1969,13 @@ function updateShareLinks() {
 
 // Cálculo de contadores dinámicos
 const CATEGORY_LABELS = {
-    'Orígenes': '💀 Orígenes Megadeth 1984',
+    'Orígenes': 'Orígenes Megadeth',
     'Album': 'Álbumes Megadeth',
     'Hoodies FMD': 'Hoodies Megadeth',
-    'Hoodies Otras Bandas': 'Hoodies Otras Bandas',
+    'Hoodies Otras Bandas': 'Hoodies de otras bandas',
     'Bandas Sugeridas': 'Bandas Sugeridas',
     'Dave Mustaine': 'Dave Mustaine',
-    'Dorsales': 'Ideas de Dorso',
+    'Dorsales': 'Dorsos para combinar',
     'Musician': 'Miembros Megadeth',
     'Personalizados': 'Pedidos Especiales',
     'Singles': 'Singles Especiales',
@@ -1891,6 +2013,7 @@ function updateCountsUI(){
     try{
         if(!Array.isArray(db) || !db.length) return;
         const { byCategory, megadethTotal, totalAll } = computeCounts();
+        const origenesCount = byCategory['Orígenes'] || 0;
 
         // Destacados: badges
         const ftMegadethCard = document.querySelector('.featured-card[data-trigger="Album"]');
@@ -1912,6 +2035,10 @@ function updateCountsUI(){
             const el = document.querySelector(`.cat-btn[data-cat="${cat}"] .badge`);
             if(el) el.textContent = val;
         };
+        const toggleNavCategory = (cat, isVisible) => {
+            const btn = document.querySelector(`.cat-btn[data-cat="${cat}"]`);
+            if(btn) btn.style.display = isVisible ? '' : 'none';
+        };
         setNavBadge('Album', byCategory['Album']||0);
         setNavBadge('Orígenes', byCategory['Orígenes']||0);
         setNavBadge('Avenged Sevenfold', byCategory['Avenged Sevenfold']||0);
@@ -1929,11 +2056,16 @@ function updateCountsUI(){
         setNavBadge('Singles', byCategory['Singles']||0);
         setNavBadge('Tour', byCategory['Tour']||0);
         setNavBadge('VicRattlehead', byCategory['VicRattlehead']||0);
+        toggleNavCategory('Orígenes', origenesCount > 0);
 
         // Filtros: textos con cantidad (y corrección de etiqueta de Megadeth)
         const setPill = (filter, label) => {
             const el = document.querySelector(`.filter-pill[data-filter="${filter}"]`);
             if(el) el.textContent = label;
+        };
+        const togglePill = (filter, isVisible) => {
+            const el = document.querySelector(`.filter-pill[data-filter="${filter}"]`);
+            if(el) el.style.display = isVisible ? '' : 'none';
         };
         setPill('all', `Todo (${totalAll})`);
         setPill('Album', `${getCategoryLabel('Album')} (${byCategory['Album']||0})`);
@@ -1953,6 +2085,16 @@ function updateCountsUI(){
         setPill('Dorsales', `${getCategoryLabel('Dorsales')} (${byCategory['Dorsales']||0})`);
         setPill('VicRattlehead', `${getCategoryLabel('VicRattlehead')} (${byCategory['VicRattlehead']||0})`);
         setPill('Personalizados', `${getCategoryLabel('Personalizados')} (${byCategory['Personalizados']||0})`);
+        togglePill('Orígenes', origenesCount > 0);
+
+        if (origenesCount === 0 && currentCategory === 'Orígenes') {
+            currentCategory = 'Album';
+            document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+            const albumBtn = document.querySelector('.cat-btn[data-cat="Album"]');
+            if (albumBtn) albumBtn.classList.add('active');
+            filterProducts();
+            return;
+        }
     } catch(e){ console.warn('updateCountsUI error', e); }
 }
 
@@ -2268,11 +2410,23 @@ function sendViaWhatsapp(postalCode = '', customerData = null) {
 // === MODAL VISTA PREVIA DEL CARRITO ===
 function openCartPreview() {
     const modal = document.getElementById('cartPreviewModal');
-    if (!modal) return;
-    
-    renderCartPreview();
+    if (!modal) {
+        toggleCartPanel();
+        return;
+    }
+
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
+
+    try {
+        renderCartPreview();
+    } catch (error) {
+        console.error('Error renderizando vista previa del carrito:', error);
+        // Fallback seguro para no perder funcionalidad
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+        toggleCartPanel();
+    }
 }
 
 function closeCartPreview() {
@@ -2282,6 +2436,9 @@ function closeCartPreview() {
         document.body.style.overflow = '';
     }
 }
+
+window.openCartPreview = openCartPreview;
+window.closeCartPreview = closeCartPreview;
 
 function getProductImage(productId, variantIndex = 0) {
     const product = db.find(p => p.id === productId);
@@ -2408,7 +2565,7 @@ function renderCartPreview() {
 
     const shippingForm = `
         <div class="cart-customer-fields ${totals.cantidad >= 2 ? 'compact' : ''}">
-            <p class="cart-customer-title">Datos para el envio (obligatorio para confirmar pedido)</p>
+            <p class="cart-customer-title">Datos para el envio (para finalizar tu pedido)</p>
             <div class="cart-customer-grid">
                 <div class="cart-cp-field">
                     <label for="inputNombre">Nombre</label>
@@ -2545,6 +2702,37 @@ function toggleCartPanel() {
 
 function addToCartFromModal() {
     if (!currentProduct) return false;
+
+    const isHoodie = currentProduct.category === 'Hoodies FMD';
+
+    clearSelectionError('ageGroup');
+    clearSelectionError('sizeGroup');
+    clearSelectionError('cutGroup');
+    clearSelectionError('colorGroup');
+
+    if (!isHoodie && !selectedAge) {
+        showNotification('Elegí edad antes de continuar.', 2200);
+        markSelectionError('ageGroup');
+        return false;
+    }
+
+    if (!selectedSize) {
+        showNotification('Elegí talle antes de continuar.', 2200);
+        markSelectionError('sizeGroup');
+        return false;
+    }
+
+    if (!isHoodie && !selectedCut) {
+        showNotification('Elegí corte antes de continuar.', 2200);
+        markSelectionError('cutGroup');
+        return false;
+    }
+
+    if (!selectedColor) {
+        showNotification('Elegí color antes de continuar.', 2200);
+        markSelectionError('colorGroup');
+        return false;
+    }
     
     // Determinar si es doble estampa basándose en el dorso seleccionado
     const isDouble = selectedBackIndex >= 0 || selectedBacks.size > 0 || selectedDorsoChips.size > 0;
@@ -2573,8 +2761,9 @@ function addToCartFromModal() {
 // Agregar al carrito y abrir WhatsApp directamente
 function addToCartAndOpenWhatsapp() {
     if (!currentProduct) return;
-    
-    addToCartFromModal();
+
+    const added = addToCartFromModal();
+    if (!added) return;
     
     // Redirigir al checkout del carrito para completar datos de envio antes de WhatsApp
     setTimeout(() => {
@@ -2639,7 +2828,10 @@ function renderRelatedProducts(category) {
     if (!relatedContainer || !relatedGrid) return;
     
     // Obtener productos de la misma categoría, excluyendo el actual
-    const related = db.filter(p => p.category === category && p.id !== currentProduct.id).slice(0, 6);
+    const related = db
+        .filter(p => matchesCategoryOrMetadata(p, category) && p.id !== currentProduct.id)
+        .sort(compareProductsByPriorityThenId)
+        .slice(0, 6);
     
     if (related.length === 0) {
         relatedContainer.style.display = 'none';
@@ -2751,7 +2943,7 @@ function initCountdown() {
     if (!banner) return;
 
     if (new Date() >= showDate) {
-        banner.innerHTML = '';
+        banner.style.display = 'none';
         return;
     }
     
@@ -2760,7 +2952,7 @@ function initCountdown() {
         const diff = showDate - now;
         
         if (diff <= 0) {
-            banner.innerHTML = '';
+            banner.style.display = 'none';
             return;
         }
         
@@ -2931,16 +3123,212 @@ function loadMegadethCollections() {
     renderCollectionPreview('gridHoodies', 'Hoodies FMD', 5, 'VER TODO');
 }
 
+function resolveMegadethSegment(product) {
+    const category = String(product?.category || '').toLowerCase();
+
+    if (category === 'tour') return 'tour';
+    if (category === 'album' || category === 'origenes' || category === 'orígenes') return 'albumes';
+    if (category === 'musician' || category === 'dave mustaine' || category === 'vicrattlehead') return 'musicos';
+    if (category === 'dorsales') return 'dorsos';
+    return 'todo';
+}
+
+function isMegadethNewDrop(product) {
+    if (!product) return false;
+    const year = Number.parseInt(product.year, 10);
+    return Boolean(product.isNew) || (!Number.isNaN(year) && year >= 2025) || (product.id >= 6000);
+}
+
+function getMegadethShowcaseProducts() {
+    if (!Array.isArray(db) || !db.length) return [];
+
+    return db
+        .filter(isMegadethUniverseProduct)
+        .filter(p => String(p.category || '').toLowerCase() !== 'personalizados')
+        .map((p) => {
+            const variants = Array.isArray(p.variants) ? p.variants : [];
+            const dorsoIndex = variants.findIndex(v => /dorso|back/i.test(String(v?.name || '')));
+            const fallbackBack = dorsoIndex >= 0 ? dorsoIndex : (variants.length > 1 ? 1 : -1);
+
+            return {
+                ...p,
+                mgxSegment: resolveMegadethSegment(p),
+                mgxNew: isMegadethNewDrop(p),
+                mgxFrontImg: p.img,
+                mgxBackImg: fallbackBack >= 0 ? variants[fallbackBack].img : null,
+                mgxHasBack: fallbackBack >= 0
+            };
+        })
+        .sort((a, b) => (b.id || 0) - (a.id || 0));
+}
+
+function applyMegadethShowcaseFilters(items) {
+    return items.filter((p) => {
+        if (mgxState.tab === 'nuevos' && !p.mgxNew) return false;
+        if (mgxState.tab !== 'todo' && mgxState.tab !== 'nuevos' && p.mgxSegment !== mgxState.tab) return false;
+
+        if (mgxState.prenda === 'hoodie' && String(p.category || '').toLowerCase() !== 'hoodies fmd') return false;
+        if (mgxState.prenda === 'remera' && String(p.category || '').toLowerCase() === 'hoodies fmd') return false;
+
+        if (mgxState.estampa === 'simple' && p.tipoPrecio !== 'simple') return false;
+        if (mgxState.estampa === 'doble' && p.tipoPrecio !== 'doble') return false;
+
+        return true;
+    });
+}
+
+function renderMegadethShowcaseTabs(items) {
+    const tabsHost = document.getElementById('mgxTabs');
+    if (!tabsHost) return;
+
+    const counts = {
+        todo: items.length,
+        nuevos: items.filter(p => p.mgxNew).length,
+        tour: items.filter(p => p.mgxSegment === 'tour').length,
+        albumes: items.filter(p => p.mgxSegment === 'albumes').length,
+        musicos: items.filter(p => p.mgxSegment === 'musicos').length,
+        dorsos: items.filter(p => p.mgxSegment === 'dorsos').length
+    };
+
+    tabsHost.innerHTML = MGX_SHOWCASE_TABS.map(tab => {
+        const activeClass = mgxState.tab === tab.key ? 'active' : '';
+        const label = `${tab.label} (${counts[tab.key] || 0})`;
+        return `<button class="mgx-tab ${activeClass}" data-mgx-tab="${tab.key}">${label}</button>`;
+    }).join('');
+}
+
+function renderMegadethShowcaseCards(filtered) {
+    const grid = document.getElementById('mgxGrid');
+    if (!grid) return;
+
+    if (!filtered.length) {
+        grid.innerHTML = '<div class="mgx-empty">No hay resultados con esos filtros. Proba otra combinacion.</div>';
+        return;
+    }
+
+    const preview = filtered.slice(0, 10);
+
+    grid.innerHTML = preview.map((p) => {
+        const categoryLabel = getCategoryLabel(p.category);
+        const faceBadge = p.mgxHasBack ? 'Frente' : 'Diseno unico';
+        const codeLabel = p.code || `ID-${String(p.id).padStart(4, '0')}`;
+        const toggleLabel = p.mgxHasBack ? 'Ver dorso' : 'Sin dorso';
+
+        return `
+            <article class="mgx-card" data-mgx-id="${p.id}">
+                <div class="mgx-media">
+                    <span class="mgx-face-badge">${faceBadge}</span>
+                    <img src="${p.mgxFrontImg}" alt="${p.name}" data-front="${p.mgxFrontImg}" data-back="${p.mgxBackImg || ''}" data-face="front" loading="lazy">
+                </div>
+                <div class="mgx-card-info">
+                    <h3 class="mgx-card-title">${p.name}</h3>
+                    <p class="mgx-card-meta">${categoryLabel} · ${codeLabel}</p>
+                    <div class="mgx-actions">
+                        <button class="mgx-btn mgx-btn-toggle" data-mgx-toggle="${p.id}" ${p.mgxHasBack ? '' : 'disabled'}>${toggleLabel}</button>
+                        <button class="mgx-btn mgx-btn-open" data-mgx-open="${p.id}">Abrir ficha</button>
+                    </div>
+                </div>
+            </article>
+        `;
+    }).join('');
+}
+
+function renderMegadethShowcase() {
+    const section = document.getElementById('mgxShowcase');
+    if (!section) return;
+
+    const items = getMegadethShowcaseProducts();
+    renderMegadethShowcaseTabs(items);
+    const filtered = applyMegadethShowcaseFilters(items);
+    renderMegadethShowcaseCards(filtered);
+}
+
+function initMegadethShowcase() {
+    const section = document.getElementById('mgxShowcase');
+    if (!section) return;
+
+    renderMegadethShowcase();
+
+    section.addEventListener('click', (event) => {
+        const tabBtn = event.target.closest('[data-mgx-tab]');
+        if (tabBtn) {
+            mgxState.tab = tabBtn.dataset.mgxTab;
+            renderMegadethShowcase();
+            return;
+        }
+
+        const prendaBtn = event.target.closest('[data-prenda]');
+        if (prendaBtn) {
+            mgxState.prenda = prendaBtn.dataset.prenda;
+            section.querySelectorAll('[data-prenda]').forEach(btn => btn.classList.remove('active'));
+            prendaBtn.classList.add('active');
+            renderMegadethShowcase();
+            return;
+        }
+
+        const estampaBtn = event.target.closest('[data-estampa]');
+        if (estampaBtn) {
+            mgxState.estampa = estampaBtn.dataset.estampa;
+            section.querySelectorAll('[data-estampa]').forEach(btn => btn.classList.remove('active'));
+            estampaBtn.classList.add('active');
+            renderMegadethShowcase();
+            return;
+        }
+
+        const openBtn = event.target.closest('[data-mgx-open]');
+        if (openBtn) {
+            const id = Number(openBtn.dataset.mgxOpen);
+            if (!Number.isNaN(id)) openModal(id);
+            return;
+        }
+
+        const toggleBtn = event.target.closest('[data-mgx-toggle]');
+        if (toggleBtn) {
+            const card = toggleBtn.closest('.mgx-card');
+            if (!card) return;
+
+            const image = card.querySelector('img[data-front]');
+            const badge = card.querySelector('.mgx-face-badge');
+            if (!image || !badge || !image.dataset.back) return;
+
+            const showingFront = image.dataset.face !== 'back';
+            if (showingFront) {
+                image.src = image.dataset.back;
+                image.dataset.face = 'back';
+                badge.textContent = 'Dorso';
+                toggleBtn.textContent = 'Ver frente';
+            } else {
+                image.src = image.dataset.front;
+                image.dataset.face = 'front';
+                badge.textContent = 'Frente';
+                toggleBtn.textContent = 'Ver dorso';
+            }
+        }
+    });
+}
+
 // Inicializar
 document.addEventListener('DOMContentLoaded', () => {
+    const cartBtnEl = document.getElementById('cartBtn');
+    if (cartBtnEl) {
+        cartBtnEl.addEventListener('click', (e) => {
+            e.preventDefault();
+            openCartPreview();
+        });
+    }
+
+    const btnViewCartEl = document.getElementById('btnViewCart');
+    if (btnViewCartEl) {
+        btnViewCartEl.addEventListener('click', (e) => {
+            e.preventDefault();
+            openCartPreview();
+        });
+    }
+
     loadProducts();
     setView('grid');
     initSearchModal();
     initCountdown();
-    // Pequeño delay para hash de producto
-    setTimeout(() => {
-        loadProductFromHash();
-    }, 500);
 });
 
 // Escuchar cambios en hash (si usuario navega directamente a #producto-123)

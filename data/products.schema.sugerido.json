@@ -4,14 +4,30 @@
   "type": "object",
   "properties": {
     "id": { "type": "integer" },
+    "band": { "type": "string" },
     "category": { "type": "string" },
     "year": { "type": "string" },
     "name": { "type": "string" },
     "tipoPrecio": { "type": "string", "enum": ["simple", "doble"] },
     "isNew": { "type": "boolean" },
+    "priority": { "type": "number" },
     "img": { "type": "string" },
-    "variants": { "type": "array", "items": { "type": "object" } },
+    "variants": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "img": { "type": "string" },
+          "name": { "type": "string" },
+          "role": { "type": "string", "enum": ["front", "back"] },
+          "isNew": { "type": "boolean" }
+        },
+        "required": ["img"]
+      }
+    },
     "desc": { "type": "string" },
+    "tags": { "type": "array", "items": { "type": "string" } },
+    "collections": { "type": "array", "items": { "type": "string" } },
     "garment": { "type": "string", "enum": ["remera", "hoodie"] },
     "isHoodieAvailable": { "type": "boolean" },
     "collection": { "type": "string" },

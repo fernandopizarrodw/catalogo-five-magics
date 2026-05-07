@@ -70,7 +70,7 @@
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
                     </svg>
-                    Pedir ahora
+                    Encargar por WhatsApp
                 </a>
             </div>
         </div>
@@ -137,16 +137,16 @@
         <div class="hero-content">
             <!-- <p class="hero-welcome">COLECCION CONMEMORATIVA ARGENTINA</p> -->
             <h1 class="hero-brand">MEGADETH</h1>
-            <h2 class="hero-tagline">Edicion Argentina · Buenos Aires</h2>
+            <h2 class="hero-tagline">Edición Argentina · Buenos Aires</h2>
             <div class="hero-divider"></div>
-            <p class="hero-description">Diseños exclusivos inspirados en la fecha histórica de Megadeth en Argentina.<br>Encargá y recibís en casa por Andreani.</p>
+            <p class="hero-description">Diseños exclusivos inspirados en la fecha histórica de Megadeth en Argentina.<br>Encargá y recibí en casa por Andreani.</p>
             <div class="hero-actions">
-                <a href="#megadeth-destacados" class="hero-cta-btn">VER DISEÑOS DESTACADOS</a>
+                <a href="#categoryNav" class="hero-cta-btn">VER CATEGORÍAS MEGADETH</a>
                 <a href="https://wa.me/541169667685?text=Hola%20FMD%2C%20quiero%20encargar%20una%20prenda%20de%20Megadeth" class="hero-cta-btn hero-cta-btn-secondary" target="_blank" rel="noopener" onclick="openWhatsapp('Hola FMD! Quiero encargar una prenda de la colección Megadeth 🤘\n\nDiseño: ___\nTalle: ___\nColor: ___\nCP o ciudad: ___\n\n¿Me confirmás precio final y tiempo de envío?', 'hero_reserva'); return false;">ENCARGAR POR WHATSAPP</a>
             </div>
             <div class="hero-proof">
                 <span>🚚 Envío a todo el país por Andreani</span>
-                <span>🎸 Diseños exclusivos conmemorativos</span>
+                <span>🎸 Diseños exclusivos</span>
                 <span>🧒 Talles adultos y chicos</span>
             </div>
         </div>
@@ -162,7 +162,7 @@
             </div>
             <div class="campaign-summary-item">
                 <strong>Promo colección Megadeth</strong>
-                <span>2+ envío gratis · 3+ 10% OFF</span>
+                <span>2 prendas o más: envío gratis · 3 o más: 10% OFF</span>
             </div>
             <div class="campaign-summary-item">
                 <strong>Compra rápida</strong>
@@ -175,7 +175,7 @@
         <div class="decision-boost-shell">
             <div class="decision-boost-copy">
                 <strong>🎸 COLECCIÓN MEGADETH — EDICIÓN ARGENTINA 2026</strong>
-                <p>Diseños exclusivos conmemorativos de Megadeth en Argentina. Encargá el tuyo y lo recibís en casa en <strong>3 a 7 días hábiles</strong> por Andreani a todo el país.</p>
+                <p>Diseños exclusivos conmemorativos de Megadeth en Argentina. Encargá y recibí en casa en <strong>3 a 7 días hábiles</strong> por Andreani a todo el país.</p>
             </div>
             <a href="https://wa.me/541169667685?text=Hola%20FMD%2C%20quiero%20encargar%20una%20prenda%20de%20Megadeth" class="decision-boost-btn" onclick="openWhatsapp('Hola FMD! Quiero encargar una prenda de la colección Megadeth 🤘\n\nDiseño: ___\nTalle: ___\nColor: ___\nCP o ciudad: ___\n\n¿Me confirmás precio final y tiempo de envío?', 'decision_bar'); return false;">ENCARGAR AHORA</a>
         </div>
@@ -333,6 +333,33 @@
         </div>
     </section>
 
+    <!-- UNIVERSO MEGADETH -->
+    <section class="mgx-showcase" id="mgxShowcase">
+        <div class="mgx-head">
+            <p class="mgx-kicker">Coleccion oficial Five Magics</p>
+            <h2 class="mgx-title">Universo Megadeth</h2>
+            <p class="mgx-copy">Explora frentes y dorsos, elegi tu combinacion y encargalo en minutos por WhatsApp.</p>
+        </div>
+
+        <div class="mgx-controls">
+            <div class="mgx-tabs" id="mgxTabs"></div>
+            <div class="mgx-chip-row">
+                <div class="mgx-chip-group" id="mgxPrendaFilter">
+                    <button class="mgx-chip active" data-prenda="all">Todas las prendas</button>
+                    <button class="mgx-chip" data-prenda="remera">Remeras</button>
+                    <button class="mgx-chip" data-prenda="hoodie">Hoodies</button>
+                </div>
+                <div class="mgx-chip-group" id="mgxEstampaFilter">
+                    <button class="mgx-chip active" data-estampa="all">Simple + Doble</button>
+                    <button class="mgx-chip" data-estampa="simple">Simple</button>
+                    <button class="mgx-chip" data-estampa="doble">Doble</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="mgx-grid" id="mgxGrid"></div>
+    </section>
+
     <!-- SECCIÓN OTRAS BANDAS - AL FINAL -->
     <section class="featured-bands otras-bandas-section" id="otrasBandas">
         <h2 class="info-title">OTRAS BANDAS</h2>
@@ -340,7 +367,7 @@
             <!-- PANTERA -->
             <div class="featured-card" data-trigger="Pantera">
                 <div class="featured-card-image" style="background: #000;">
-                    <span class="featured-badge">19 diseños</span>
+                    <span class="featured-badge">20 diseños</span>
                     <img src="images/logos/pantera-logo.png" alt="Pantera Logo" class="featured-logo">
                 </div>
                 <h3>Pantera</h3>
@@ -351,7 +378,7 @@
             <!-- IRON MAIDEN -->
             <div class="featured-card" data-trigger="Iron Maiden">
                 <div class="featured-card-image" style="background: #000;">
-                    <span class="featured-badge">12 diseños</span>
+                    <span class="featured-badge">14 diseños</span>
                     <img src="images/logos/iron-maiden-logo.png" alt="Iron Maiden Logo" class="featured-logo">
                 </div>
                 <h3>Iron Maiden</h3>
@@ -373,7 +400,7 @@
             <!-- AVENGED SEVENFOLD -->
             <div class="featured-card" data-trigger="Avenged Sevenfold">
                 <div class="featured-card-image" style="background: #000;">
-                    <span class="featured-badge">12 diseños</span>
+                    <span class="featured-badge">2 diseños</span>
                     <img src="images/logos/avenged-sevenfold-logo.jpg" alt="Avenged Sevenfold Logo" class="featured-logo">
                 </div>
                 <h3>Avenged Sevenfold</h3>
@@ -384,7 +411,7 @@
             <!-- AC/DC -->
             <div class="featured-card" data-trigger="AC/DC">
                 <div class="featured-card-image" style="background: #000;">
-                    <span class="featured-badge">14 diseños</span>
+                    <span class="featured-badge">21 diseños</span>
                     <img src="images/logos/logo-ac-dc.jpg" alt="AC/DC Logo" class="featured-logo">
                 </div>
                 <h3>AC/DC</h3>
@@ -422,14 +449,14 @@
         <div class="category-nav-shell">
             <div class="category-nav-intro">
                 <p class="category-nav-kicker">Explorar catálogo</p>
-                <p class="category-nav-copy">Elegí una colección para filtrar rápido todos los diseños disponibles.</p>
+                <p class="category-nav-copy">Elegí una colección para ver rápido todos los diseños disponibles.</p>
             </div>
 
             <div class="nav-groups-grid">
                 <div class="nav-group">
                     <div class="nav-group-head">
                         <h3 class="nav-group-title">Universo Megadeth</h3>
-                        <p class="nav-group-copy">Todo lo vinculado a Megadeth, más allá de los discos.</p>
+                        <p class="nav-group-copy">Discos, Vic, Dave, tours, músicos y dorsos.</p>
                     </div>
                     <div class="nav-group-buttons">
                         <button class="cat-btn active" data-cat="Album" data-count="17">
@@ -448,9 +475,9 @@
                             <span class="btn-text">Miembros Megadeth</span>
                             <span class="badge">4</span>
                         </button>
-                        <button class="cat-btn" data-cat="VicRattlehead" data-count="18">
+                        <button class="cat-btn" data-cat="VicRattlehead" data-count="20">
                             <span class="btn-text">Vic Rattlehead</span>
-                            <span class="badge">18</span>
+                            <span class="badge">20</span>
                         </button>
                         <button class="cat-btn" data-cat="Singles" data-count="12">
                             <span class="btn-text">Singles Especiales</span>
@@ -461,7 +488,7 @@
                             <span class="badge">7</span>
                         </button>
                         <button class="cat-btn" data-cat="Dorsales" data-count="8">
-                            <span class="btn-text">Ideas de Dorso</span>
+                            <span class="btn-text">Dorsos para combinar</span>
                             <span class="badge">8</span>
                         </button>
                     </div>
@@ -473,13 +500,13 @@
                         <p class="nav-group-copy">Hoodies y pedidos hechos a medida.</p>
                     </div>
                     <div class="nav-group-buttons">
-                        <button class="cat-btn cat-btn-hoodie" data-cat="Hoodies FMD" data-count="16">
+                        <button class="cat-btn cat-btn-hoodie" data-cat="Hoodies FMD" data-count="19">
                             <span class="btn-text">Hoodies Megadeth</span>
-                            <span class="badge">16</span>
+                            <span class="badge">19</span>
                         </button>
-                        <button class="cat-btn cat-btn-hoodie" data-cat="Hoodies Otras Bandas" data-count="9">
-                            <span class="btn-text">Hoodies Otras Bandas</span>
-                            <span class="badge">9</span>
+                        <button class="cat-btn cat-btn-hoodie" data-cat="Hoodies Otras Bandas" data-count="14">
+                            <span class="btn-text">Hoodies de otras bandas</span>
+                            <span class="badge">14</span>
                         </button>
                         <button class="cat-btn" data-cat="Personalizados" data-count="28">
                             <span class="btn-text">Pedidos Especiales</span>
@@ -491,7 +518,7 @@
                 <div class="nav-group">
                     <div class="nav-group-head">
                         <h3 class="nav-group-title">Otras bandas</h3>
-                        <p class="nav-group-copy">Explorá otras bandas. Si no ves la que buscás, la hacemos: agregamos bandas nuevas todas las semanas.</p>
+                        <p class="nav-group-copy">Explorá otras bandas. Si no ves la que buscás, también podemos hacer diseños personalizados a pedido.</p>
                     </div>
                     <div class="nav-group-buttons">
                         <button class="cat-btn" data-cat="Pantera" data-count="20">
@@ -510,9 +537,9 @@
                             <span class="btn-text">Avenged Sevenfold</span>
                             <span class="badge">2</span>
                         </button>
-                        <button class="cat-btn" data-cat="AC/DC" data-count="20">
+                        <button class="cat-btn" data-cat="AC/DC" data-count="21">
                             <span class="btn-text">AC/DC</span>
-                            <span class="badge">20</span>
+                            <span class="badge">21</span>
                         </button>
                         <button class="cat-btn" data-cat="Bandas Sugeridas" data-count="21">
                             <span class="btn-text">Bandas Sugeridas</span>
@@ -524,8 +551,9 @@
         </div>
     </nav>
 
+    <!-- CATALOGO PRINCIPAL -->
     <!-- Toolbar: Buscador + Contador + Vista -->
-    <div class="catalog-toolbar">
+    <div class="catalog-toolbar" id="catalogoPrincipal">
         <div class="search-box">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <circle cx="11" cy="11" r="8" />
@@ -550,23 +578,23 @@
             <div class="filter-dropdown" id="filterDropdown">
                 <h3>Buscar por banda</h3>
                 <div class="filter-pills">
-                    <button class="filter-pill" data-filter="all">Todo (217)</button>
+                    <button class="filter-pill" data-filter="all">Todo (229)</button>
                     <button class="filter-pill" data-filter="Album">Álbumes Megadeth (17)</button>
                     <button class="filter-pill" data-filter="Orígenes">Orígenes Megadeth (1)</button>
                     <button class="filter-pill" data-filter="Dave Mustaine">Dave Mustaine (16)</button>
                     <button class="filter-pill" data-filter="Musician">Miembros Megadeth (4)</button>
-                    <button class="filter-pill" data-filter="VicRattlehead">Vic Rattlehead (18)</button>
+                    <button class="filter-pill" data-filter="VicRattlehead">Vic Rattlehead (20)</button>
                     <button class="filter-pill" data-filter="Singles">Singles Especiales (12)</button>
                     <button class="filter-pill" data-filter="Tour">Tours (7)</button>
-                    <button class="filter-pill" data-filter="Dorsales">Ideas de Dorso (8)</button>
+                    <button class="filter-pill" data-filter="Dorsales">Dorsos para combinar (8)</button>
                     <button class="filter-pill" data-filter="Pantera">Pantera (20)</button>
                     <button class="filter-pill" data-filter="Iron Maiden">Iron Maiden (14)</button>
                     <button class="filter-pill" data-filter="Metallica">Metallica (5)</button>
                     <button class="filter-pill" data-filter="Avenged Sevenfold">Avenged Sevenfold (2)</button>
-                    <button class="filter-pill" data-filter="AC/DC">AC/DC (20)</button>
+                    <button class="filter-pill" data-filter="AC/DC">AC/DC (21)</button>
                     <button class="filter-pill" data-filter="Bandas Sugeridas">Bandas Sugeridas (21)</button>
-                    <button class="filter-pill" data-filter="Hoodies FMD">Hoodies Megadeth (16)</button>
-                    <button class="filter-pill" data-filter="Hoodies Otras Bandas">Hoodies Otras Bandas (9)</button>
+                    <button class="filter-pill" data-filter="Hoodies FMD">Hoodies Megadeth (19)</button>
+                    <button class="filter-pill" data-filter="Hoodies Otras Bandas">Hoodies de otras bandas (14)</button>
                     <button class="filter-pill" data-filter="Personalizados">Pedidos Especiales (28)</button>
                 </div>
             </div>
@@ -868,7 +896,7 @@
             <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
                 <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
             </svg>
-            ENCARGAR MI REMERA AHORA
+            ENCARGAR POR WHATSAPP
         </a>
     </section>
 
@@ -1036,7 +1064,7 @@
                         </div>
                         
                         <!-- Selector de Talle -->
-                        <div class="option-group" style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+                        <div class="option-group" id="sizeGroup" style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
                             <span class="option-label" style="font-size:0.8rem;color:#888;font-weight:500;min-width:50px;">Talle:</span>
                             <div class="option-buttons" id="sizeSelector" style="display:flex;gap:6px;flex-wrap:wrap;">
                                 <button type="button" class="option-btn size-oversize" data-size="XXS" onclick="selectSize('XXS')" style="display:none;background:#1a1a1a;border:1px solid #333;color:#888;padding:6px 12px;border-radius:5px;font-size:0.8rem;font-weight:500;cursor:pointer;">XXS</button>
@@ -1069,7 +1097,7 @@
                         </div>
                         
                         <!-- Selector de Color -->
-                        <div class="option-group" style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+                        <div class="option-group" id="colorGroup" style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
                             <span class="option-label" style="font-size:0.8rem;color:#888;font-weight:500;min-width:50px;">Color:</span>
                             <div class="option-buttons" id="colorSelector" style="display:flex;gap:6px;flex-wrap:wrap;">
                                 <button type="button" class="option-btn color-btn active" data-color="negro" onclick="selectColor('negro')" style="background:#e8432e;border:1px solid #e8432e;color:#fff;padding:6px 12px;border-radius:5px;font-size:0.8rem;font-weight:500;cursor:pointer;display:flex;align-items:center;gap:6px;">
@@ -1114,7 +1142,7 @@
                                     </div>
                                     
                                     <div id="dorsoCustomSection" style="margin-top:12px;">
-                                        <div style="font-size:0.88rem;color:var(--text-muted);margin-bottom:6px;">Ideas de dorso (tocá para agregar):</div>
+                                        <div style="font-size:0.88rem;color:var(--text-muted);margin-bottom:6px;">Dorsos para combinar (tocá para agregar):</div>
                                         <div class="chips-row" id="chipsRow">
                                             <div class="chip" data-val="Logo blanco" onclick="toggleChip(this)">Logo blanco</div>
                                             <div class="chip" data-val="Frase corta" onclick="toggleChip(this)">Frase corta</div>
