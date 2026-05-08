@@ -918,11 +918,12 @@ async function loadProducts() {
         updateCountsUI();
         renderLatestReleases(10); // Mostrar más lanzamientos recientes
         renderHoodiesGrid(); // Hoodies destacados
-        renderHeroOrbit(5); // Poblar órbita del hero con 5 cards 3D
+        renderHeroOrbit(6); // Poblar órbita del hero con 6 cards 3D
         loadMegadethDestacados(); // Destacados para el show
         loadMegadethCollections(); // Colecciones Megadeth con preview
         filterProducts(); // Renderizar después de cargar
         loadProductFromHash(); // Abrir producto desde URL hash si existe
+        loadCategoryFromURL();  // Ir a categoría desde ?cat= si existe
     } catch (error) {
         console.error('Error:', error);
         // Fallback para desarrollo local
@@ -2863,6 +2864,23 @@ function loadProductFromHash() {
             updateShareLinks();
             openModal(productId);
         }
+    }
+}
+
+// Cargar categoría desde URL query param (?cat=HoodiesFMD)
+function loadCategoryFromURL() {
+    const params = new URLSearchParams(window.location.search);
+    const cat = params.get('cat');
+    if (!cat) return;
+    // Buscar coincidencia flexible (case-insensitive, ignorando espacios/guiones)
+    const normalize = s => s.toLowerCase().replace(/[\s_-]/g, '');
+    const catBtns = document.querySelectorAll('.cat-btn');
+    let matched = null;
+    catBtns.forEach(btn => {
+        if (normalize(btn.dataset.cat) === normalize(cat)) matched = btn.dataset.cat;
+    });
+    if (matched) {
+        filterByCategory(matched);
     }
 }
 
