@@ -714,7 +714,29 @@
         "name":  "Dave 1992 V1",
         "tipoPrecio":  "simple",
         "img":  "images/musicians/Dave_Mustaine/dave_1992_v1.jpg",
-        "desc":  "Dave Mustaine en su Ã©poca dorada de 1992.",
+        "variants":  [
+                         {
+                             "img":  "images/musicians/Dave_Mustaine/dave_1992_v1.jpg",
+                             "name":  "1992 V1",
+                             "role":  "front"
+                         },
+                         {
+                             "img":  "images/musicians/Dave_Mustaine/dave_92_live.jpg",
+                             "name":  "92 Live",
+                             "role":  "front"
+                         },
+                         {
+                             "img":  "images/musicians/Dave_Mustaine/dave_92_live_black.jpg",
+                             "name":  "92 Live Black",
+                             "role":  "front"
+                         },
+                         {
+                             "img":  "images/musicians/Dave_Mustaine/dave_double_neck_jackson.jpg",
+                             "name":  "Double Neck Jackson",
+                             "role":  "front"
+                         }
+                     ],
+        "desc":  "ColecciÃ³n Dave Mustaine con 4 variantes unificadas en una sola card.",
         "band":  "Megadeth",
         "collections":  [
                             "Dave Mustaine Spotlight"
@@ -752,50 +774,17 @@
                              "role":  "front"
                          },
                          {
+                             "img":  "images/musicians/Dave_Mustaine/Dave_Mustaine_BN_90s.jpg",
+                             "name":  "BN 90s",
+                             "role":  "front"
+                         },
+                         {
                              "img":  "images/musicians/Dave_Mustaine/dave_dorso_figure.jpg",
                              "name":  "Dorso",
                              "role":  "back"
                          }
                      ],
         "desc":  "Dave en vivo durante la era Rust in Peace."
-    },
-    {
-        "id":  2803,
-        "category":  "Dave Mustaine",
-        "year":  "1992",
-        "name":  "Dave 92 Live",
-        "tipoPrecio":  "simple",
-        "img":  "images/musicians/Dave_Mustaine/dave_92_live.jpg",
-        "desc":  "Dave Mustaine en concierto 1992.",
-        "band":  "Megadeth",
-        "collections":  [
-                            "Dave Mustaine Spotlight"
-                        ],
-        "tags":  [
-                     "Megadeth",
-                     "Dave Mustaine",
-                     "Live"
-                 ],
-        "priority":  74
-    },
-    {
-        "id":  2804,
-        "category":  "Dave Mustaine",
-        "year":  "1992",
-        "name":  "Dave 92 Live Black",
-        "tipoPrecio":  "simple",
-        "img":  "images/musicians/Dave_Mustaine/dave_92_live_black.jpg",
-        "desc":  "VersiÃ³n oscura del diseÃ±o en vivo 1992.",
-        "band":  "Megadeth",
-        "collections":  [
-                            "Dave Mustaine Spotlight"
-                        ],
-        "tags":  [
-                     "Megadeth",
-                     "Dave Mustaine",
-                     "Live"
-                 ],
-        "priority":  74
     },
     {
         "id":  2806,
@@ -829,24 +818,6 @@
         "priority":  74
     },
     {
-        "id":  2807,
-        "category":  "Dave Mustaine",
-        "year":  "Leyenda",
-        "name":  "Dave Double Neck Jackson",
-        "tipoPrecio":  "simple",
-        "img":  "images/musicians/Dave_Mustaine/dave_double_neck_jackson.jpg",
-        "desc":  "Dave con su legendaria Jackson de doble mÃ¡stil.",
-        "band":  "Megadeth",
-        "collections":  [
-                            "Dave Mustaine Spotlight"
-                        ],
-        "tags":  [
-                     "Megadeth",
-                     "Dave Mustaine"
-                 ],
-        "priority":  74
-    },
-    {
         "id":  2811,
         "category":  "Dave Mustaine",
         "year":  "Leyenda",
@@ -854,24 +825,6 @@
         "tipoPrecio":  "simple",
         "img":  "images/musicians/Dave_Mustaine/dave_mustaine_angel_of_deth.jpg",
         "desc":  "Dave como el Ãngel de la Muerte.",
-        "band":  "Megadeth",
-        "collections":  [
-                            "Dave Mustaine Spotlight"
-                        ],
-        "tags":  [
-                     "Megadeth",
-                     "Dave Mustaine"
-                 ],
-        "priority":  74
-    },
-    {
-        "id":  2812,
-        "category":  "Dave Mustaine",
-        "year":  "90s",
-        "name":  "Dave BN 90s",
-        "tipoPrecio":  "simple",
-        "img":  "images/musicians/Dave_Mustaine/Dave_Mustaine_BN_90s.jpg",
-        "desc":  "Dave en blanco y negro, era 90s.",
         "band":  "Megadeth",
         "collections":  [
                             "Dave Mustaine Spotlight"
@@ -894,6 +847,12 @@
                              "img":  "images/musicians/Dave_Mustaine/dave_so_far_era.jpg",
                              "name":  "Frente",
                              "role":  "front"
+                         },
+                         {
+                             "img":  "images/musicians/Dave_Mustaine/dave_so_far_era_v2.jpg",
+                             "name":  "Frente V2",
+                             "role":  "front",
+                             "isNew":  true
                          },
                          {
                              "img":  "images/musicians/Dave_Mustaine/dave_so_far_era_dorso.jpg",
@@ -921,7 +880,29 @@
         "name":  "Dave Vic RIP",
         "tipoPrecio":  "simple",
         "img":  "images/musicians/Dave_Mustaine/dave_vic_rip.jpg",
-        "desc":  "Dave con Vic Rattlehead, era Rust in Peace.",
+        "variants":  [
+                         {
+                             "img":  "images/musicians/Dave_Mustaine/dave_vic_rip.jpg",
+                             "name":  "Vic RIP",
+                             "role":  "front"
+                         },
+                         {
+                             "img":  "images/musicians/Dave_Mustaine/poison_green.jpg",
+                             "name":  "Poison Green",
+                             "role":  "front"
+                         },
+                         {
+                             "img":  "images/musicians/Dave_Mustaine/warhead_red.jpg",
+                             "name":  "Warhead Red",
+                             "role":  "front"
+                         },
+                         {
+                             "img":  "images/musicians/Dave_Mustaine/dave_and_vic_live.jpg",
+                             "name":  "Dave and Vic Live",
+                             "role":  "front"
+                         }
+                     ],
+        "desc":  "ColecciÃ³n Dave Mustaine 90s/Leyenda con 4 variantes icÃ³nicas en una sola card.",
         "band":  "Megadeth",
         "collections":  [
                             "Dave Mustaine Spotlight"
@@ -932,88 +913,6 @@
                      "Rust in Peace"
                  ],
         "priority":  74
-    },
-    {
-        "id":  2816,
-        "category":  "Dave Mustaine",
-        "year":  "Leyenda",
-        "name":  "Dave Poison Green",
-        "tipoPrecio":  "simple",
-        "img":  "images/musicians/Dave_Mustaine/poison_green.jpg",
-        "desc":  "DiseÃ±o verde venenoso de Dave.",
-        "band":  "Megadeth",
-        "collections":  [
-                            "Dave Mustaine Spotlight"
-                        ],
-        "tags":  [
-                     "Megadeth",
-                     "Dave Mustaine"
-                 ],
-        "priority":  74
-    },
-    {
-        "id":  2817,
-        "category":  "Dave Mustaine",
-        "year":  "Leyenda",
-        "name":  "Dave Warhead Red",
-        "tipoPrecio":  "simple",
-        "img":  "images/musicians/Dave_Mustaine/warhead_red.jpg",
-        "desc":  "DiseÃ±o rojo warhead de Dave.",
-        "band":  "Megadeth",
-        "collections":  [
-                            "Dave Mustaine Spotlight"
-                        ],
-        "tags":  [
-                     "Megadeth",
-                     "Dave Mustaine"
-                 ],
-        "priority":  74
-    },
-    {
-        "id":  2818,
-        "category":  "Dave Mustaine",
-        "year":  "Live",
-        "name":  "Dave and Vic Live",
-        "tipoPrecio":  "simple",
-        "img":  "images/musicians/Dave_Mustaine/dave_and_vic_live.jpg",
-        "desc":  "Dave Mustaine junto a Vic Rattlehead en vivo.",
-        "band":  "Megadeth",
-        "collections":  [
-                            "Dave Mustaine Spotlight"
-                        ],
-        "tags":  [
-                     "Megadeth",
-                     "Dave Mustaine",
-                     "Live"
-                 ],
-        "priority":  74
-    },
-    {
-        "id":  6013,
-        "category":  "Dave Mustaine",
-        "year":  "1988",
-        "name":  "Dave So Far Era V2",
-        "tipoPrecio":  "simple",
-        "isNew":  true,
-        "img":  "images/musicians/Dave_Mustaine/dave_so_far_era_v2.jpg",
-        "variants":  [
-                         {
-                             "img":  "images/musicians/Dave_Mustaine/dave_so_far_era_v2.jpg",
-                             "name":  "So Far Era V2",
-                             "role":  "front"
-                         }
-                     ],
-        "desc":  "Dave en la era So Far So Good So What - VersiÃ³n 2.",
-        "band":  "Megadeth",
-        "collections":  [
-                            "Dave Mustaine Spotlight",
-                            "Post Show"
-                        ],
-        "tags":  [
-                     "Megadeth",
-                     "Dave Mustaine"
-                 ],
-        "priority":  89
     },
     {
         "id":  6014,
@@ -1425,7 +1324,7 @@
                              "role":  "front"
                          },
                          {
-                             "img":  "images/tours/Tour_argentina/vic_ediciÃ³n_fmd.jpg",
+                             "img":  "images/tours/Tour_argentina/vic_edicion_fmd.jpg",
                              "name":  "EdiciÃ³n FMD",
                              "role":  "front"
                          },
@@ -1472,13 +1371,35 @@
                              "isNew":  true
                          },
                          {
+                             "img":  "images/tours/Tour_argentina/poster_tour_argentina_v2.jpg",
+                             "name":  "Poster Tour Argentina v2",
+                             "role":  "front"
+                         },
+                         {
+                             "img":  "images/tours/Tour_argentina/poster_tour_argentina_white.jpg",
+                             "name":  "Poster Tour Argentina White",
+                             "role":  "front"
+                         },
+                         {
+                             "img":  "images/vic_rattlehead/vic_celeste_y_blanco.jpg",
+                             "name":  "Vic Celeste y Blanco",
+                             "role":  "front",
+                             "isNew":  true
+                         },
+                         {
+                             "img":  "images/tours/merch tour this was our life 2026/remeras/merch_tour_v1-dorso.png",
+                             "name":  "Merch Tour This Was Our Life 2026 v1 Dorso",
+                             "role":  "back",
+                             "isNew":  true
+                         },
+                         {
                              "img":  "images/tours/Tour_argentina/dorso_tour_merch.png",
                              "name":  "Dorso Tour Merch",
                              "role":  "back",
                              "isNew":  true
                          }
                      ],
-        "desc":  "Tour Argentina: ediciÃ³n especial con 12 variantes exclusivas."
+        "desc":  "Tour Argentina: ediciÃ³n especial consolidada con variantes clave (frentes y dorsos) de la cÃ¡psula 2026."
     },
     {
         "id":  300,
@@ -1532,45 +1453,6 @@
                          }
                      ],
         "desc":  "DiseÃ±o en vivo \u0027Peace Sells Live\u0027 â€” ediciÃ³n especial para la colecciÃ³n Tour. Ideal para fans del clÃ¡sico remasterizado en versiÃ³n live."
-    },
-    {
-        "id":  318,
-        "category":  "Tour",
-        "year":  "2025",
-        "name":  "Poster Tour Argentina v2",
-        "tipoPrecio":  "simple",
-        "img":  "images/tours/Tour_argentina/poster_tour_argentina_v2.jpg",
-        "desc":  "Poster Tour Argentina v2 - EdiciÃ³n actualizada.",
-        "band":  "Megadeth",
-        "collections":  [
-                            "Tour Argentina 2026",
-                            "Edicion Argentina"
-                        ],
-        "tags":  [
-                     "Megadeth",
-                     "Tour",
-                     "Argentina"
-                 ],
-        "priority":  85
-    },
-    {
-        "id":  319,
-        "category":  "Tour",
-        "year":  "2025",
-        "name":  "Poster Tour Argentina White",
-        "img":  "images/tours/Tour_argentina/poster_tour_argentina_white.jpg",
-        "desc":  "Poster Tour Argentina White - VersiÃ³n blanca exclusiva.",
-        "band":  "Megadeth",
-        "collections":  [
-                            "Tour Argentina 2026",
-                            "Edicion Argentina"
-                        ],
-        "tags":  [
-                     "Megadeth",
-                     "Tour",
-                     "Argentina"
-                 ],
-        "priority":  85
     },
     {
         "id":  320,
@@ -3319,44 +3201,6 @@
         "desc":  "Iron Maiden Fear - DiseÃ±o de la banda clÃ¡sica con 2 variantes."
     },
     {
-        "id":  5039,
-        "band":  "Megadeth",
-        "category":  "VicRattlehead",
-        "collections":  [
-                            "Tour Argentina 2026",
-                            "Edicion Argentina",
-                            "Vic Legacy",
-                            "Post Show"
-                        ],
-        "tags":  [
-                     "Vic Rattlehead",
-                     "Gaucho",
-                     "Argentina",
-                     "Megadeth",
-                     "Doble estampa",
-                     "VicRattlehead",
-                     "Dorso"
-                 ],
-        "year":  "2026",
-        "priority":  97,
-        "name":  "Vic Gaucho FMD",
-        "tipoPrecio":  "doble",
-        "img":  "images/vic_rattlehead/vic_gaucho_fmd.jpg",
-        "variants":  [
-                         {
-                             "img":  "images/vic_rattlehead/vic_gaucho_fmd.jpg",
-                             "name":  "Frente",
-                             "role":  "front"
-                         },
-                         {
-                             "img":  "images/vic_rattlehead/dorso_vic_gaucho_fmd.jpg",
-                             "name":  "Dorso",
-                             "role":  "back"
-                         }
-                     ],
-        "desc":  "Vic Gaucho FMD - DiseÃ±o exclusivo de Vic Rattlehead estilo gaucho argentino con frente y dorso."
-    },
-    {
         "id":  5050,
         "category":  "VicRattlehead",
         "year":  "Live",
@@ -3663,30 +3507,6 @@
         "priority":  79
     },
     {
-        "id":  6021,
-        "category":  "VicRattlehead",
-        "year":  "2026",
-        "name":  "Vic Celeste y Blanco",
-        "tipoPrecio":  "simple",
-        "isNew":  true,
-        "img":  "images/vic_rattlehead/vic_celeste_y_blanco.jpg",
-        "desc":  "Vic Celeste y Blanco - EdiciÃ³n especial con identidad argentina para la colecciÃ³n Vic Rattlehead.",
-        "band":  "Megadeth",
-        "collections":  [
-                            "Vic Legacy",
-                            "Edicion Argentina",
-                            "Tour Argentina 2026",
-                            "Post Show"
-                        ],
-        "tags":  [
-                     "Megadeth",
-                     "VicRattlehead",
-                     "Vic Rattlehead",
-                     "Argentina"
-                 ],
-        "priority":  99
-    },
-    {
         "id":  6023,
         "category":  "VicRattlehead",
         "year":  "2026",
@@ -3950,6 +3770,16 @@
         "isNew":  true,
         "img":  "images/hoddies_fmd/vic_digital_dlb.jpg",
         "desc":  "Hoodie canguro oversize unisex. AlgodÃ³n frizado, estampa DTG. Vic Digital DLB frente y dorso. ProducciÃ³n a pedido 4-7 dÃ­as."
+    },
+    {
+        "id":  5074,
+        "category":  "Hoodies FMD",
+        "year":  "2026",
+        "name":  "Hoodie Merch Tour V1",
+        "tipoPrecio":  "doble",
+        "isNew":  true,
+        "img":  "images/tours/merch tour this was our life 2026/hoodies/merch_tour_v1.jpg",
+        "desc":  "Hoodie canguro oversize unisex. AlgodÃ³n frizado, estampa DTG. Merch Tour V1 frente y dorso. ProducciÃ³n a pedido 4-7 dÃ­as."
     },
     {
         "id":  6001,
