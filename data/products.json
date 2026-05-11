@@ -47,6 +47,10 @@
                          {
                              "img":  "images/acdc/ac_dc_holy_shit_dorso.jpg",
                              "name":  "Holy Shit Dorso"
+                         },
+                         {
+                             "img":  "images/acdc/acdc_holy_shit.jpg",
+                             "name":  "Holy Shit FMD"
                          }
                      ],
         "desc":  "DiseÃ±o AC/DC Holy Shit con frente y dorso."
@@ -125,6 +129,10 @@
                          {
                              "img":  "images/albums/Peace_sells/peace_sells_but_whos_buying.jpg",
                              "name":  "But Who\u0027s Buying"
+                         },
+                         {
+                             "img":  "images/albums/Peace_sells/peace_sells_fmd.jpg",
+                             "name":  "Peace Sells FMD"
                          }
                      ],
         "desc":  "IcÃ³nica crÃ­tica sociopolÃ­tica plasmada en el sarcasmo de Vic Rattlehead frente a la ONU, envuelta en puro virtuosismo thrash."
@@ -148,6 +156,10 @@
                          {
                              "img":  "images/albums/SFSGSW/3-mary_jane.jpg",
                              "name":  "Mary Jane"
+                         },
+                         {
+                             "img":  "images/albums/SFSGSW/4-sfsgsw_alternative_fmd.png",
+                             "name":  "Alternative FMD"
                          }
                      ],
         "desc":  "Thrash Ã¡spero, oscuro y visceral con variantes del arte clÃ¡sico de So Far, So Good... So What!"
@@ -192,6 +204,10 @@
                              "img":  "images/albums/Rust_in_peace/rust_in_peace_lineup_v2.jpg",
                              "name":  "Lineup V2",
                              "isNew":  true
+                         },
+                         {
+                             "img":  "images/albums/Rust_in_peace/rust_in_peace_fmd.jpg",
+                             "name":  "Rust in Peace FMD"
                          }
                      ],
         "desc":  "La obra maestra del thrash tÃ©cnico con variantes frente y dorso de Rust in Peace."
@@ -543,78 +559,10 @@
         "desc":  "Rusted Pieces â€” ediciÃ³n VHS remasterizada. DiseÃ±o exclusivo con 5 variantes."
     },
     {
-        "id":  241,
-        "category":  "Singles",
-        "year":  "2025",
-        "name":  "I Don\u0027t Care",
-        "tipoPrecio":  "simple",
-        "img":  "images/singles/i_dont_care.jpg",
-        "variants":  [
-                         {
-                             "img":  "images/singles/i_dont_care.jpg",
-                             "name":  "Original"
-                         },
-                         {
-                             "img":  "images/singles/i_dont_care_v1.jpg",
-                             "name":  "v1"
-                         },
-                         {
-                             "img":  "images/singles/i_dont_care_v2.jpg",
-                             "name":  "v2"
-                         },
-                         {
-                             "img":  "images/singles/i_dont_care_v3.jpg",
-                             "name":  "v3"
-                         },
-                         {
-                             "img":  "images/singles/frente-circular-idont-care-blanca.jpg",
-                             "name":  "frente-circular-idont-care-blanca"
-                         },
-                         {
-                             "img":  "images/singles/frente-circular-idont-care-negro.jpg",
-                             "name":  "frente-circular-idont-care-negro"
-                         }
-                     ],
-        "desc":  "I Don\u0027t Care - EdiciÃ³n especial con 4 variantes."
-    },
-    {
-        "id":  242,
-        "category":  "Singles",
-        "year":  "2025",
-        "name":  "Tipping Point",
-        "tipoPrecio":  "simple",
-        "img":  "images/singles/tipping_point.jpg",
-        "desc":  "Tipping Point - DiseÃ±o exclusivo de rareza."
-    },
-    {
-        "id":  247,
-        "category":  "Singles",
-        "year":  "2025",
-        "name":  "Made to Kill",
-        "tipoPrecio":  "simple",
-        "img":  "images/singles/made_to_kill.jpg",
-        "variants":  [
-
-                     ],
-        "desc":  "Made to Kill - DiseÃ±o exclusivo."
-    },
-    {
-        "id":  248,
-        "category":  "Singles",
-        "year":  "2025",
-        "name":  "I Am War",
-        "tipoPrecio":  "simple",
-        "img":  "images/singles/i_am_war.jpg",
-        "variants":  [
-
-                     ],
-        "desc":  "I Am War - DiseÃ±o exclusivo."
-    },
-    {
         "id":  246,
         "category":  "Singles",
         "year":  "2025",
-        "name":  "Let There",
+        "name":  "Singles Ultimo Disco",
         "tipoPrecio":  "simple",
         "img":  "images/singles/let_there_be_shred.jpg",
         "variants":  [
@@ -641,9 +589,45 @@
                          {
                              "img":  "images/singles/vic_pelea_v2.jpg",
                              "name":  "Vic Pelea V2"
+                         },
+                         {
+                             "img":  "images/singles/tipping_point.jpg",
+                             "name":  "Tipping Point"
+                         },
+                         {
+                             "img":  "images/singles/i_dont_care.jpg",
+                             "name":  "I Don\u0027t Care Original"
+                         },
+                         {
+                             "img":  "images/singles/i_dont_care_v1.jpg",
+                             "name":  "I Don\u0027t Care v1"
+                         },
+                         {
+                             "img":  "images/singles/i_dont_care_v2.jpg",
+                             "name":  "I Don\u0027t Care v2"
+                         },
+                         {
+                             "img":  "images/singles/i_dont_care_v3.jpg",
+                             "name":  "I Don\u0027t Care v3"
+                         },
+                         {
+                             "img":  "images/singles/frente-circular-idont-care-blanca.jpg",
+                             "name":  "I Don\u0027t Care Circular Blanca"
+                         },
+                         {
+                             "img":  "images/singles/frente-circular-idont-care-negro.jpg",
+                             "name":  "I Don\u0027t Care Circular Negro"
+                         },
+                         {
+                             "img":  "images/singles/made_to_kill.jpg",
+                             "name":  "Made to Kill"
+                         },
+                         {
+                             "img":  "images/singles/i_am_war.jpg",
+                             "name":  "I Am War"
                          }
                      ],
-        "desc":  "Let There - Carrusel con todas las variantes de Let There."
+        "desc":  "Singles del ultimo disco agrupados en una sola card con variantes de Let There, Tipping Point, I Don\u0027t Care, Made to Kill e I Am War."
     },
     {
         "id":  6015,
@@ -655,10 +639,6 @@
         "img":  "images/singles/mary_jane.jpg",
         "variants":  [
                          {
-                             "img":  "images/singles/mary_jane.jpg",
-                             "name":  "Mary Jane Original"
-                         },
-                         {
                              "img":  "images/albums/SFSGSW/mary_jane_remastered.jpg",
                              "name":  "Remastered",
                              "isNew":  true
@@ -667,6 +647,10 @@
                              "img":  "images/albums/SFSGSW/mary_jane_remasteredv2.jpg",
                              "name":  "Remastered V2",
                              "isNew":  true
+                         },
+                         {
+                             "img":  "images/singles/mary_jane.jpg",
+                             "name":  "Mary Jane Original"
                          }
                      ],
         "desc":  "Mary Jane â€” single exclusivo con versiones remastered. EdiciÃ³n especial Five Magics Designs."
@@ -1008,25 +992,13 @@
                          {
                              "img":  "images/musicians/Marty_Friedman/Marty_1992_FIRMA.jpg",
                              "name":  "1992 FIRMA"
-                         }
-                     ],
-        "desc":  "El guitarrista exÃ³tico. Estilo japonÃ©s."
-    },
-    {
-        "id":  2901,
-        "category":  "Musician",
-        "year":  "2026",
-        "name":  "Marty Friedman BN",
-        "tipoPrecio":  "simple",
-        "isNew":  true,
-        "img":  "images/musicians/Marty_Friedman/marty_bn.jpg",
-        "variants":  [
+                         },
                          {
                              "img":  "images/musicians/Marty_Friedman/marty_bn.jpg",
                              "name":  "Marty BN"
                          }
                      ],
-        "desc":  "Marty Friedman en blanco y negro. DiseÃ±o exclusivo Five Magics Designs."
+        "desc":  "El guitarrista exÃ³tico. Estilo japonÃ©s."
     },
     {
         "id":  30,
@@ -1073,16 +1045,8 @@
         "year":  "2026",
         "name":  "Formaciones",
         "tipoPrecio":  "simple",
-        "img":  "images/musicians/formaciones/megadeth_2026_frente.jpg",
+        "img":  "images/musicians/formaciones/peace_sells_era.jpg",
         "variants":  [
-                         {
-                             "img":  "images/musicians/formaciones/megadeth_2026_frente.jpg",
-                             "name":  "Frente"
-                         },
-                         {
-                             "img":  "images/musicians/formaciones/megadeth_2026_dorso.jpg",
-                             "name":  "Dorso"
-                         },
                          {
                              "img":  "images/musicians/formaciones/in_my_darkest_hour.jpg",
                              "name":  "In My Darkest Hour"
@@ -1353,7 +1317,7 @@
                              "isNew":  true
                          },
                          {
-                             "img":  "images/tours/Tour_argentina/tour_merch_2026-v2_frente.jpg",
+                             "img":  "images/tours/Tour_argentina/tour_merch_2026-v2_frente.png",
                              "name":  "Tour Merch 2026 v2 Frente",
                              "role":  "front",
                              "isNew":  true
@@ -1389,6 +1353,18 @@
                          {
                              "img":  "images/tours/merch tour this was our life 2026/remeras/merch_tour_v1-dorso.png",
                              "name":  "Merch Tour This Was Our Life 2026 v1 Dorso",
+                             "role":  "back",
+                             "isNew":  true
+                         },
+                         {
+                             "img":  "images/musicians/formaciones/megadeth_2026_frente.jpg",
+                             "name":  "Formaciones 2026 Frente",
+                             "role":  "front",
+                             "isNew":  true
+                         },
+                         {
+                             "img":  "images/musicians/formaciones/megadeth_2026_dorso.jpg",
+                             "name":  "Formaciones 2026 Dorso",
                              "role":  "back",
                              "isNew":  true
                          },
@@ -1475,6 +1451,11 @@
                          {
                              "img":  "images/tours/Tour_2026/vic_tour_2026_v3.jpg",
                              "name":  "v3",
+                             "role":  "front"
+                         },
+                         {
+                             "img":  "images/tours/Tour_2026/vic_tour_2026_v4.png",
+                             "name":  "v4",
                              "role":  "front"
                          },
                          {
@@ -1605,19 +1586,142 @@
                              "img":  "images/vic_rattlehead/vic_realistic_edition.jpg",
                              "name":  "Realistic Edition",
                              "role":  "front"
-                         },
-                         {
-                             "img":  "images/vic_rattlehead/militar_rattlehead.jpg",
-                             "name":  "Militar Rattlehead",
-                             "role":  "front"
-                         },
-                         {
-                             "img":  "images/vic_rattlehead/nuclear_vic_bomb.jpg",
-                             "name":  "Nuclear Vic Bomb",
-                             "role":  "front"
                          }
                      ],
         "desc":  "Vic Editions - ColecciÃ³n de 3 variantes exclusivas de Vic Rattlehead.",
+        "band":  "Megadeth",
+        "collections":  [
+                            "Vic Legacy"
+                        ],
+        "tags":  [
+                     "Megadeth",
+                     "VicRattlehead",
+                     "Vic Rattlehead"
+                 ],
+        "priority":  72
+    },
+    {
+        "id":  420,
+        "category":  "VicRattlehead",
+        "year":  "2025",
+        "name":  "Militar Rattlehead",
+        "tipoPrecio":  "simple",
+        "img":  "images/vic_rattlehead/militar_rattlehead.jpg",
+        "desc":  "Militar Rattlehead - card individual de Vic Rattlehead.",
+        "band":  "Megadeth",
+        "collections":  [
+                            "Vic Legacy"
+                        ],
+        "tags":  [
+                     "Megadeth",
+                     "VicRattlehead",
+                     "Vic Rattlehead"
+                 ],
+        "priority":  72
+    },
+    {
+        "id":  423,
+        "category":  "VicRattlehead",
+        "year":  "2025",
+        "name":  "Nuclear Vic Bomb",
+        "tipoPrecio":  "simple",
+        "img":  "images/vic_rattlehead/nuclear_vic_bomb.jpg",
+        "desc":  "Nuclear Vic Bomb - card individual de Vic Rattlehead.",
+        "band":  "Megadeth",
+        "collections":  [
+                            "Vic Legacy"
+                        ],
+        "tags":  [
+                     "Megadeth",
+                     "VicRattlehead",
+                     "Vic Rattlehead"
+                 ],
+        "priority":  72
+    },
+    {
+        "id":  424,
+        "category":  "VicRattlehead",
+        "year":  "2026",
+        "name":  "Vic The Arsenal of Megadeth",
+        "tipoPrecio":  "simple",
+        "img":  "images/vic_rattlehead/vic_the_arsenal_of_megadeth.png",
+        "desc":  "Vic The Arsenal of Megadeth - card individual de Vic Rattlehead.",
+        "band":  "Megadeth",
+        "collections":  [
+                            "Vic Legacy"
+                        ],
+        "tags":  [
+                     "Megadeth",
+                     "VicRattlehead",
+                     "Vic Rattlehead"
+                 ],
+        "priority":  72
+    },
+    {
+        "id":  425,
+        "category":  "VicRattlehead",
+        "year":  "2026",
+        "name":  "Vic Explosion",
+        "tipoPrecio":  "simple",
+        "img":  "images/vic_rattlehead/vic_explosion.png",
+        "desc":  "Vic Explosion - card individual de Vic Rattlehead.",
+        "band":  "Megadeth",
+        "collections":  [
+                            "Vic Legacy"
+                        ],
+        "tags":  [
+                     "Megadeth",
+                     "VicRattlehead",
+                     "Vic Rattlehead"
+                 ],
+        "priority":  72
+    },
+    {
+        "id":  426,
+        "category":  "VicRattlehead",
+        "year":  "2026",
+        "name":  "Vic Face Black",
+        "tipoPrecio":  "simple",
+        "img":  "images/vic_rattlehead/vic_face_black.png",
+        "desc":  "Vic Face Black - card individual de Vic Rattlehead.",
+        "band":  "Megadeth",
+        "collections":  [
+                            "Vic Legacy"
+                        ],
+        "tags":  [
+                     "Megadeth",
+                     "VicRattlehead",
+                     "Vic Rattlehead"
+                 ],
+        "priority":  72
+    },
+    {
+        "id":  427,
+        "category":  "VicRattlehead",
+        "year":  "2026",
+        "name":  "Vic Punk",
+        "tipoPrecio":  "simple",
+        "img":  "images/vic_rattlehead/vic_punk.png",
+        "desc":  "Vic Punk - card individual de Vic Rattlehead.",
+        "band":  "Megadeth",
+        "collections":  [
+                            "Vic Legacy"
+                        ],
+        "tags":  [
+                     "Megadeth",
+                     "VicRattlehead",
+                     "Vic Rattlehead"
+                 ],
+        "priority":  72
+    },
+    {
+        "id":  428,
+        "category":  "VicRattlehead",
+        "year":  "2026",
+        "name":  "Vic Radioactivo",
+        "tipoPrecio":  "simple",
+        "img":  "images/vic_rattlehead/vic_radioactivo.jpg",
+        "desc":  "Vic Radioactivo - card individual de Vic Rattlehead.",
         "band":  "Megadeth",
         "collections":  [
                             "Vic Legacy"
@@ -1668,11 +1772,20 @@
     {
         "id":  404,
         "category":  "Dorsales",
-        "year":  "2025",
-        "name":  "Dorso Tour v3",
+        "year":  "2026",
+        "name":  "Guitarra Arg Dorso Blanca",
         "tipoPrecio":  "simple",
-        "img":  "images/dorsos/dorso_tour_v3.jpg",
-        "desc":  "Idea de dorso: variante v3."
+        "img":  "images/dorsos/guitarra_arg_dorso_blanca (1).png",
+        "desc":  "Dorso de guitarra argentina en versión blanca."
+    },
+    {
+        "id":  405,
+        "category":  "Dorsales",
+        "year":  "2026",
+        "name":  "Vic Tour",
+        "tipoPrecio":  "simple",
+        "img":  "images/tours/Tour_2026/vic_tour_2026_v4.png",
+        "desc":  "Dorso Vic Tour en versión 2026."
     },
     {
         "id":  406,
@@ -1700,6 +1813,24 @@
         "tipoPrecio":  "simple",
         "img":  "images/dorsos/dorso_dave_argentina.jpg",
         "desc":  "Dorso Dave Argentina - DiseÃ±o especial con Dave Mustaine y Argentina."
+    },
+    {
+        "id":  5020,
+        "category":  "Dorsales",
+        "year":  "2026",
+        "name":  "Dorso Tour",
+        "tipoPrecio":  "simple",
+        "img":  "images/dorsos/dorso_tour.jpg",
+        "desc":  "Dorso Tour - versión clásica para la línea tour."
+    },
+    {
+        "id":  5021,
+        "category":  "Dorsales",
+        "year":  "2026",
+        "name":  "Dorso Arg Tour",
+        "tipoPrecio":  "simple",
+        "img":  "images/dorsos/dorso_arg_tour.png",
+        "desc":  "Dorso Arg Tour - variante argentina para colección tour."
     },
     {
         "id":  405,
@@ -2080,15 +2211,6 @@
         "desc":  "Mockup Primal Fear."
     },
     {
-        "id":  55,
-        "category":  "Personalizados",
-        "year":  "2025",
-        "name":  "ReligiÃ³n",
-        "tipoPrecio":  "simple",
-        "img":  "images/personalizado/religiÃ³n.jpg",
-        "desc":  "Mockup ReligiÃ³n."
-    },
-    {
         "id":  54,
         "category":  "Personalizados",
         "year":  "2025",
@@ -2179,6 +2301,15 @@
         "tipoPrecio":  "simple",
         "img":  "images/personalizado/wintersun.jpg",
         "desc":  "Mockup Wintersun."
+    },
+    {
+        "id":  5130,
+        "category":  "Personalizados",
+        "year":  "2026",
+        "name":  "Kanonenfiebe Argentina",
+        "tipoPrecio":  "simple",
+        "img":  "images/personalizado/kanonenfiebe_argentina.jpg",
+        "desc":  "Mockup Kanonenfiebe Argentina."
     },
     {
         "id":  1059,
@@ -3482,6 +3613,10 @@
                          {
                              "img":  "images/singles/hangar_18_single_dorso.jpg",
                              "name":  "Dorso"
+                         },
+                         {
+                             "img":  "images/singles/hangar_18.png",
+                             "name":  "FMD"
                          }
                      ],
         "desc":  "Hangar 18 - Single exclusivo de Megadeth con arte frente y dorso. EdiciÃ³n especial Five Magics Designs."
@@ -3911,5 +4046,15 @@
         "isNew":  true,
         "img":  "images/hoddies_fmd/hoodies_otras_bandas/black_sabbath_tour.jpg",
         "desc":  "Hoodie canguro oversize unisex. AlgodÃ³n frizado, estampa DTG. Black Sabbath Tour. ProducciÃ³n a pedido 4-7 dÃ­as."
+    },
+    {
+        "id":  6021,
+        "category":  "Hoodies Otras Bandas",
+        "year":  "2026",
+        "name":  "Hoodie AC/DC Are You Ready",
+        "tipoPrecio":  "doble",
+        "isNew":  true,
+        "img":  "images/hoddies_fmd/hoodies_otras_bandas/acdc_are_you_ready.jpg",
+        "desc":  "Hoodie canguro oversize unisex. AlgodÃ³n frizado, estampa DTG. AC/DC Are You Ready. ProducciÃ³n a pedido 4-7 dÃ­as."
     }
 ]

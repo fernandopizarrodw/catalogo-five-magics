@@ -195,6 +195,13 @@ function compareProductsByPriorityThenId(a, b) {
     return (b?.id || 0) - (a?.id || 0);
 }
 
+function compareAlbumProductsByYearAscThenId(a, b) {
+    const yearA = Number(a?.year) || 0;
+    const yearB = Number(b?.year) || 0;
+    if (yearA !== yearB) return yearA - yearB;
+    return (a?.id || 0) - (b?.id || 0);
+}
+
 function isBackVariant(variant) {
     if (!variant) return false;
     if (normalizeText(variant.role) === 'back') return true;
@@ -1828,7 +1835,9 @@ function filterProducts() {
     if (currentSearch) {
         filtered = getSearchResults(currentSearch, filtered, true);
     }
-    filtered.sort(compareProductsByPriorityThenId);
+    const normalizedCategory = normalizeText(currentCategory);
+    const shouldSortAlbumsByYear = normalizedCategory === 'album' && filtered.every(p => normalizeText(p?.category) === 'album');
+    filtered.sort(shouldSortAlbumsByYear ? compareAlbumProductsByYearAscThenId : compareProductsByPriorityThenId);
     renderFilteredProducts(filtered);
 }
 
