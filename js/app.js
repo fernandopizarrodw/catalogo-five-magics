@@ -1863,7 +1863,7 @@ function renderFilteredProducts(filtered) {
 
         return `<div class="product-card" onclick="openModal(${p.id}${typeof p.matchedVariantIndex === 'number' ? ', ' + p.matchedVariantIndex : ''})">
             <div class="product-badges">${badges}</div>
-            <img src="${p.img}" class="product-img" loading="lazy">
+            <img src="${p.img}" class="product-img" loading="lazy" decoding="async" fetchpriority="low">
             <div class="product-info">
                 <div class="product-name">${p.name}</div>
                 ${code ? `<div class="product-code" style="font-size:0.85em;color:var(--magic-orange);font-weight:600;letter-spacing:1px;">${code}</div>` : ''}
