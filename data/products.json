@@ -1734,6 +1734,44 @@
         "priority":  72
     },
     {
+        "id":  429,
+        "category":  "VicRattlehead",
+        "year":  "2026",
+        "name":  "Vic Symphony Music",
+        "tipoPrecio":  "simple",
+        "img":  "images/vic_rattlehead/vic_symphony_music.png",
+        "desc":  "Vic Symphony Music - card individual de Vic Rattlehead.",
+        "band":  "Megadeth",
+        "collections":  [
+                            "Vic Legacy"
+                        ],
+        "tags":  [
+                     "Megadeth",
+                     "VicRattlehead",
+                     "Vic Rattlehead"
+                 ],
+        "priority":  72
+    },
+    {
+        "id":  430,
+        "category":  "VicRattlehead",
+        "year":  "2026",
+        "name":  "Vic Militar",
+        "tipoPrecio":  "simple",
+        "img":  "images/vic_rattlehead/vic_militar.png",
+        "desc":  "Vic Militar - card individual de Vic Rattlehead.",
+        "band":  "Megadeth",
+        "collections":  [
+                            "Vic Legacy"
+                        ],
+        "tags":  [
+                     "Megadeth",
+                     "VicRattlehead",
+                     "Vic Rattlehead"
+                 ],
+        "priority":  72
+    },
+    {
         "id":  400,
         "category":  "Dorsales",
         "year":  "2025",
@@ -3915,6 +3953,16 @@
         "isNew":  true,
         "img":  "images/tours/merch tour this was our life 2026/hoodies/merch_tour_v1.jpg",
         "desc":  "Hoodie canguro oversize unisex. AlgodÃ³n frizado, estampa DTG. Merch Tour V1 frente y dorso. ProducciÃ³n a pedido 4-7 dÃ­as."
+    },
+    {
+        "id":  5075,
+        "category":  "Hoodies FMD",
+        "year":  "2026",
+        "name":  "Hoodie Vic Militar",
+        "tipoPrecio":  "doble",
+        "isNew":  true,
+        "img":  "images/hoddies_fmd/vic_militar_hoodie.png",
+        "desc":  "Hoodie canguro oversize unisex. AlgodÃ³n frizado, estampa DTG. Vic Militar frente y dorso. ProducciÃ³n a pedido 4-7 dÃ­as."
     },
     {
         "id":  6001,
