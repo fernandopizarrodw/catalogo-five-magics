@@ -208,6 +208,11 @@
                          {
                              "img":  "images/albums/Rust_in_peace/rust_in_peace_fmd.jpg",
                              "name":  "Rust in Peace FMD"
+                         },
+                         {
+                             "img":  "images/albums/Rust_in_peace/rust_in_peace_lineup-dorso.png",
+                             "name":  "Lineup Dorso NG",
+                             "isNew":  true
                          }
                      ],
         "desc":  "La obra maestra del thrash tÃ©cnico con variantes frente y dorso de Rust in Peace."
@@ -1054,6 +1059,11 @@
                          {
                              "img":  "images/musicians/formaciones/peace_sells_era.jpg",
                              "name":  "Peace Sells Era"
+                         },
+                         {
+                             "img":  "images/musicians/formaciones/rust_in_peace_lineup.png",
+                             "name":  "Rust in Peace Lineup",
+                             "isNew":  true
                          }
                      ],
         "desc":  "La banda completa de Megadeth en su formaciÃ³n 2026 y versiÃ³n 90s."
@@ -3711,6 +3721,33 @@
                      "Vic Rattlehead"
                  ],
         "priority":  94
+    },
+    {
+        "id":  6024,
+        "category":  "VicRattlehead",
+        "year":  "2026",
+        "name":  "Vic Demons",
+        "tipoPrecio":  "simple",
+        "isNew":  true,
+        "img":  "images/vic_rattlehead/vic_demons.jpg",
+        "variants":  [
+                         {
+                             "img":  "images/vic_rattlehead/vic_demons.jpg",
+                             "name":  "Demons",
+                             "role":  "front"
+                         }
+                     ],
+        "desc":  "Vic Demons - Diseño exclusivo con Vic Rattlehead en versión dark demoníaca. Colección 2026.",
+        "band":  "Megadeth",
+        "collections":  [
+                            "Vic Legacy"
+                        ],
+        "tags":  [
+                     "Megadeth",
+                     "VicRattlehead",
+                     "Vic Rattlehead"
+                 ],
+        "priority":  85
     },
     {
         "id":  6022,
