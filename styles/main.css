@@ -1785,6 +1785,65 @@ header {
     margin-top: 4px;
 }
 
+.hoodie-spotlight {
+    margin: 0 0 18px;
+    border: 1px solid rgba(232, 67, 46, 0.45);
+    border-radius: 14px;
+    background: linear-gradient(145deg, rgba(232,67,46,0.16), rgba(20,20,20,0.86));
+    box-shadow: 0 10px 28px rgba(0,0,0,0.35);
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 12px;
+    align-items: center;
+    padding: 12px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.hoodie-spotlight:hover {
+    border-color: rgba(57,255,20,0.5);
+    transform: translateY(-2px);
+}
+
+.hoodie-spotlight-badge {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    font-size: 0.66rem;
+    font-weight: 800;
+    color: #0a0a0a;
+    background: linear-gradient(135deg, #39ff14, #f3ff59);
+    border-radius: 999px;
+    padding: 4px 8px;
+    letter-spacing: 0.4px;
+}
+
+.hoodie-spotlight img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+.hoodie-spotlight-content h3 {
+    margin: 0 0 4px;
+    color: #fff;
+    font-size: 1.05rem;
+}
+
+.hoodie-spotlight-content p {
+    margin: 0 0 6px;
+    color: #d2d7e2;
+    font-size: 0.82rem;
+}
+
+.hoodie-spotlight-content strong {
+    color: var(--price);
+    font-size: 1.1rem;
+}
+
 /* Hoodie card styling */
 .hoodie-card {
     border: 1px solid rgba(232, 67, 46, 0.3) !important;
@@ -3504,6 +3563,18 @@ footer p {
 
     #faq .faq-list {
         max-width: 800px;
+    }
+}
+
+@media (max-width: 560px) {
+    .hoodie-spotlight {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .hoodie-spotlight img {
+        max-width: 220px;
+        margin: 0 auto;
     }
 }
 

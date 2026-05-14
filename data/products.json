@@ -1,5 +1,78 @@
 [
     {
+        "id":  6026,
+        "category":  "Album",
+        "year":  "2026",
+        "name":  "Killing Is my Bussines FMD Edition",
+        "tipoPrecio":  "doble",
+        "isNew":  true,
+        "priority":  95,
+        "img":  "images/albums/Killing_Is_my_bussines/kimb_fmd_edition_frente.png",
+        "variants":  [
+                         {
+                             "img":  "images/albums/Killing_Is_my_bussines/kimb_fmd_edition_frente.png",
+                             "name":  "Frente",
+                             "role":  "front"
+                         },
+                         {
+                             "img":  "images/albums/Killing_Is_my_bussines/kimb_fmd_edition_dorso.png",
+                             "name":  "Dorso",
+                             "role":  "back"
+                         }
+                     ],
+        "desc":  "Killing Is my Bussines FMD Edition - Nuevo arte del clásico debut de 1985. Frente y dorso en edición exclusiva Five Magics 2026.",
+        "band":  "Megadeth",
+        "collections":  [
+                            "KIMB Legacy",
+                            "Últimos Lanzamientos 2026"
+                        ],
+        "tags":  [
+                     "Megadeth",
+                     "KIMB",
+                     "Album",
+                     "Nuevo",
+                     "Doble Estampa",
+                     "FMD Edition"
+                 ]
+    },
+    {
+        "id":  6025,
+        "category":  "Album",
+        "year":  "2026",
+        "name":  "Vic Llamas FMD Edition",
+        "tipoPrecio":  "doble",
+        "isNew":  true,
+        "priority":  99,
+        "img":  "images/albums/Megadeth/vic_fmd_llamas_frente.png",
+        "variants":  [
+                         {
+                             "img":  "images/albums/Megadeth/vic_fmd_llamas_frente.png",
+                             "name":  "Frente",
+                             "role":  "front"
+                         },
+                         {
+                             "img":  "images/albums/Megadeth/vic_fmd_llamas_dorso.png",
+                             "name":  "Dorso",
+                             "role":  "back"
+                         }
+                     ],
+        "desc":  "Vic Llamas FMD Edition - Nuevo arte exclusivo del último disco. Frente y dorso con diseño inflamable.",
+        "band":  "Megadeth",
+        "collections":  [
+                            "Megadeth 2026",
+                            "Último Disco 2026"
+                        ],
+        "tags":  [
+                     "Megadeth",
+                     "Album",
+                     "VicRattlehead",
+                     "Vic Rattlehead",
+                     "Último Disco",
+                     "Nuevo",
+                     "Doble Estampa"
+                 ]
+    },
+    {
         "id":  302,
         "category":  "AC/DC",
         "year":  "",
@@ -98,6 +171,18 @@
                          {
                              "img":  "images/albums/Killing_Is_my_bussines/kimb_1985_original_dorso.jpg",
                              "name":  "Dorso Original 1985"
+                         },
+                         {
+                             "img":  "images/albums/Killing_Is_my_bussines/kimb_fmd_edition_frente.png",
+                             "name":  "KIMB FMD Edition Frente",
+                             "role":  "front",
+                             "isNew":  true
+                         },
+                         {
+                             "img":  "images/albums/Killing_Is_my_bussines/kimb_fmd_edition_dorso.png",
+                             "name":  "KIMB FMD Edition Dorso",
+                             "role":  "back",
+                             "isNew":  true
                          }
                      ],
         "desc":  "Es el debut crudo y frenÃ©tico de 1985 que definiÃ³ el thrash metal tÃ©cnico mediante la velocidad extrema y la sed de venganza de Dave Mustaine en 7 diseÃ±os."
@@ -485,6 +570,18 @@
         "img":  "images/albums/Megadeth/vic_llamas_blanca.jpg",
         "variants":  [
                          {
+                             "img":  "images/albums/Megadeth/vic_fmd_llamas_frente.png",
+                             "name":  "VIC LLAMAS FMD EDITION Frente",
+                             "role":  "front",
+                             "isNew":  true
+                         },
+                         {
+                             "img":  "images/albums/Megadeth/vic_fmd_llamas_dorso.png",
+                             "name":  "VIC LLAMAS FMD EDITION Dorso",
+                             "role":  "back",
+                             "isNew":  true
+                         },
+                         {
                              "img":  "images/albums/Megadeth/vic_llamas_blanca.jpg",
                              "name":  "Vic Llamas Blanca"
                          },
@@ -521,7 +618,7 @@
                              "name":  "Dorso Tour Argentina Black"
                          }
                      ],
-        "desc":  "Un diseÃ±o limpio e impactante que captura a Vic Rattlehead consumiÃ©ndose en llamas con un traje blanco principal y otras variantes, listo para el final."
+        "desc":  "Un diseÃ±o limpio e impactante que captura a Vic Rattlehead consumiÃ©ndose en llamas. Incluye VIC LLAMAS FMD EDITION frente/dorso y variantes clásicas 2026."
     },
     {
         "id":  235,
@@ -4000,6 +4097,17 @@
         "isNew":  true,
         "img":  "images/hoddies_fmd/vic_militar_hoodie.png",
         "desc":  "Hoodie canguro oversize unisex. AlgodÃ³n frizado, estampa DTG. Vic Militar frente y dorso. ProducciÃ³n a pedido 4-7 dÃ­as."
+    },
+    {
+        "id":  5076,
+        "category":  "Hoodies FMD",
+        "year":  "2026",
+        "name":  "Hoodie Guitarra Argentina",
+        "tipoPrecio":  "doble",
+        "isNew":  true,
+        "priority":  98,
+        "img":  "images/hoddies_fmd/guitarra_argentina.png",
+        "desc":  "Hoodie canguro oversize unisex. AlgodÃ³n frizado, estampa DTG. Guitarra Argentina edición especial frente y dorso. ProducciÃ³n a pedido 4-7 dÃ­as."
     },
     {
         "id":  6001,

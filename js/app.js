@@ -1483,6 +1483,21 @@ function getImages(p) {
     return variants;
 }
 
+function getAutoHighlightSlideIndex(product, images) {
+    if (!product || !Array.isArray(images) || !images.length) return -1;
+
+    // Abrir Megadeth 2026 en el arte FMD por defecto, manteniendo el carrusel navegable.
+    if (product.id === 17) {
+        const byImg = images.findIndex(v => String(v?.img || '').includes('vic_fmd_llamas_frente'));
+        if (byImg >= 0) return byImg;
+
+        const byName = images.findIndex(v => /fmd edition.*frente/i.test(String(v?.name || '')));
+        if (byName >= 0) return byName;
+    }
+
+    return -1;
+}
+
 function openModal(id, variantIndex = undefined) {
     currentProduct = db.find(p => p.id === id);
     if (!currentProduct) return;
@@ -1492,9 +1507,10 @@ function openModal(id, variantIndex = undefined) {
     document.body.style.top = `-${scrollPosition}px`;
 
     history.pushState({ modal: true, id }, '', `#producto-${id}`);
-    const hasSpecificVariant = variantIndex !== undefined && variantIndex !== null;
-    currentSlide = hasSpecificVariant ? variantIndex : 0;
     const images = getImages(currentProduct);
+    const hasSpecificVariant = variantIndex !== undefined && variantIndex !== null;
+    const autoHighlightSlide = hasSpecificVariant ? -1 : getAutoHighlightSlideIndex(currentProduct, images);
+    currentSlide = hasSpecificVariant ? variantIndex : (autoHighlightSlide >= 0 ? autoHighlightSlide : 0);
 
     carousel.innerHTML = images.map(v => `
         <div class="carousel-slide"><img src="${v.img}" alt="${currentProduct.name}"></div>
@@ -1513,7 +1529,7 @@ function openModal(id, variantIndex = undefined) {
     }
 
     // Ir al slide correcto (sin animación al abrir)
-    if (hasSpecificVariant && currentSlide > 0) {
+    if (currentSlide > 0) {
         // Usar setTimeout para que el DOM esté listo
         setTimeout(() => goToSlide(currentSlide, false), 0);
     } else {
@@ -3008,7 +3024,8 @@ function loadMegadethDestacados() {
         6022,  // 💀 HISTÓRICO — Fast Loud and Rude 1984 Origins
         6014,  // 🇦🇷 Dave Mustaine Argentina V1 - destacado principal para el show
         6020,  // 🔥 Aguante Megadeth - frente y dorso
-        17,    // Megadeth 2026 - VIC LLAMAS
+        6025,  // Megadeth 2026 - VIC LLAMAS FMD EDITION
+        6026,  // KIMB FMD Edition
         4,     // Rust in Peace
         39,    // Vic Gaucho Argentino
         6,     // Youthanasia
@@ -3045,6 +3062,7 @@ function loadMegadethDestacados() {
 // === COLECCIONES MEGADETH CON PREVIEW ===
 // IDs prioritarios por categoría para mostrar en preview
 const PREVIEW_PRIORITY_IDS = {
+    'Album': [6025, 6026, 1],
     'Orígenes': [6022],
     'Dave Mustaine': [6014, 6020, 6013, 2814, 2815] // Argentina V1 + Aguante Megadeth primero para el show
 };
