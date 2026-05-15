@@ -1,5 +1,45 @@
 [
     {
+        "id":  6028,
+        "category":  "VicRattlehead",
+        "year":  "2026",
+        "name":  "Vic Silent FMD",
+        "tipoPrecio":  "simple",
+        "isNew":  true,
+        "priority":  96,
+        "img":  "images/vic_rattlehead/vic_silent_fmd.png",
+        "variants":  [
+            {
+                "img":  "images/vic_rattlehead/vic_silent_fmd.png",
+                "name":  "Vic Silent FMD"
+            }
+        ],
+        "desc":  "Vic Silent FMD - Nuevo diseño exclusivo 2026 de Vic Rattlehead.",
+        "band":  "Megadeth",
+        "collections":  [
+            "Vic Legacy",
+            "Últimos Lanzamientos 2026"
+        ],
+        "tags":  [
+            "Megadeth",
+            "VicRattlehead",
+            "Vic Rattlehead",
+            "Nuevo",
+            "FMD Edition"
+        ]
+    },
+    {
+        "id":  5077,
+        "category":  "Hoodies FMD",
+        "year":  "2026",
+        "name":  "Hoodie Rusted Pieces",
+        "tipoPrecio":  "doble",
+        "isNew":  true,
+        "priority":  97,
+        "img":  "images/hoddies_fmd/hoodie_rusted.png",
+        "desc":  "Hoodie canguro oversize unisex. Algodón frizado, estampa DTG. Rusted Pieces edición especial frente y dorso. Producción a pedido 4-7 días."
+    },
+    {
         "id":  6027,
         "category":  "Album",
         "year":  "2026",
@@ -686,6 +726,11 @@
                          {
                              "img":  "images/singles/rusted_pieces_realistic.jpg",
                              "name":  "Realistic"
+                         },
+                         {
+                             "img":  "images/singles/rusted_pieces_fmd_edition.png",
+                             "name":  "FMD Edition",
+                             "isNew":  true
                          }
                      ],
         "desc":  "Rusted Pieces â€” ediciÃ³n VHS remasterizada. DiseÃ±o exclusivo con 5 variantes."
