@@ -1,5 +1,35 @@
 [
     {
+        "id":  6027,
+        "category":  "Album",
+        "year":  "2026",
+        "name":  "Peace Sells FMD Edition",
+        "tipoPrecio":  "simple",
+        "isNew":  true,
+        "priority":  94,
+        "img":  "images/albums/Peace_sells/peace_fmd_edition_frente.png",
+        "variants":  [
+            {
+                "img":  "images/albums/Peace_sells/peace_fmd_edition_frente.png",
+                "name":  "Frente",
+                "role":  "front"
+            }
+        ],
+        "desc":  "Peace Sells FMD Edition - Nuevo arte exclusivo 2026. Edición especial Five Magics Designs.",
+        "band":  "Megadeth",
+        "collections":  [
+            "Peace Sells Legacy",
+            "Últimos Lanzamientos 2026"
+        ],
+        "tags":  [
+            "Megadeth",
+            "Peace Sells",
+            "Album",
+            "Nuevo",
+            "FMD Edition"
+        ]
+    },
+    {
         "id":  6026,
         "category":  "Album",
         "year":  "2026",
