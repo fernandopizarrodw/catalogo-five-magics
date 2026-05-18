@@ -260,6 +260,49 @@
     gap: 10px;
 }
 
+.combo-more-block {
+    margin-top: 10px;
+}
+
+.combo-more-toggle {
+    list-style: none;
+    cursor: pointer;
+    user-select: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-family: var(--font-title);
+    letter-spacing: 0.5px;
+    font-size: 0.88rem;
+    color: #d9ffe0;
+    border: 1px solid rgba(57,255,20,0.45);
+    border-radius: 999px;
+    padding: 8px 14px;
+    background: rgba(57,255,20,0.08);
+}
+
+.combo-more-toggle::-webkit-details-marker {
+    display: none;
+}
+
+.combo-more-toggle::after {
+    content: '+';
+    font-size: 1rem;
+    line-height: 1;
+}
+
+.combo-more-block[open] .combo-more-toggle::after {
+    content: '-';
+}
+
+.combo-more-grid {
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+}
+
 .combo-media {
     display: block;
     border-radius: 12px;
@@ -316,8 +359,33 @@
         gap: 12px;
     }
 
+    .combo-more-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px;
+    }
+
     .combo-media-benefits {
         grid-column: span 3;
+    }
+}
+
+@media (max-width: 600px) {
+    .combo-showcase {
+        padding: 12px;
+        margin-bottom: 18px;
+    }
+
+    .combo-showcase-pills {
+        gap: 6px;
+    }
+
+    .combo-showcase-pills span {
+        font-size: 0.76rem;
+        padding: 5px 10px;
+    }
+
+    .combo-more-toggle {
+        width: 100%;
     }
 }
 
@@ -556,10 +624,10 @@ header {
 .btn-wa-header {
     background: linear-gradient(135deg, var(--rust) 0%, #c43520 100%);
     color: white;
-    padding: 8px 16px;
+    padding: 8px 14px;
     border-radius: 6px;
     text-decoration: none;
-    font-size: 0.85rem;
+    font-size: 0.82rem;
     font-weight: 700;
     display: flex;
     align-items: center;
@@ -5166,7 +5234,7 @@ footer p {
         linear-gradient(135deg, rgba(8,4,4,0.92) 0%, rgba(10,10,10,0.85) 50%, rgba(8,4,4,0.95) 100%),
         url('../images/hero/Gemini_Generated_Image_1bx4u21bx4u21bx4.png') center / cover no-repeat;
     position: relative;
-    min-height: 640px;
+    min-height: 500px;
 }
 
 .megadeth-hero::before {
@@ -5192,7 +5260,7 @@ footer p {
         align-items: center;
         justify-content: center;
         gap: 0;
-        padding: 80px 8% 80px;
+        padding: 56px 8% 56px;
         text-align: left;
         overflow: visible;
     }
@@ -5230,7 +5298,7 @@ footer p {
 /* ── Tablet intermedia ── */
 @media (min-width: 601px) and (max-width: 900px) {
     .megadeth-hero {
-        padding: 80px 20px 100px;
+        padding: 56px 20px 72px;
     }
     .megadeth-hero .orbit-container {
         width: min(400px, 88vw);
@@ -5316,6 +5384,13 @@ footer p {
     letter-spacing: 0.3px;
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
+}
+
+.hero-proof span.hero-proof-priority {
+    background: rgba(57,255,20,0.12);
+    border-color: rgba(57,255,20,0.4);
+    color: #d8ffd0;
+    font-weight: 700;
 }
 
 .campaign-summary-bar {

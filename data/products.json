@@ -53,6 +53,12 @@
                 "img":  "images/albums/Peace_sells/peace_fmd_edition_frente.png",
                 "name":  "Frente",
                 "role":  "front"
+            },
+            {
+                "img":  "images/albums/Peace_sells/peace_fmd_edition_frenteV2.jpg",
+                "name":  "Frente V2",
+                "role":  "front",
+                "isNew":  true
             }
         ],
         "desc":  "Peace Sells FMD Edition - Nuevo arte exclusivo 2026. Edición especial Five Magics Designs.",
@@ -233,6 +239,11 @@
                          {
                              "img":  "images/albums/Killing_Is_my_bussines/kimb_retro.jpg",
                              "name":  "Retro"
+                         },
+                         {
+                             "img":  "images/albums/Killing_Is_my_bussines/kimb_retro_remaster_fmd.jpg",
+                             "name":  "Retro Remaster FMD",
+                             "isNew":  true
                          },
                          {
                              "img":  "images/albums/Killing_Is_my_bussines/dorso_kimb.jpg",
@@ -544,6 +555,22 @@
         "name":  "The World Needs a Hero",
         "tipoPrecio":  "simple",
         "img":  "images/albums/TWNAH/the_worlds_needs_a_hero.jpg",
+        "variants":  [
+                         {
+                             "img":  "images/albums/TWNAH/the_worlds_needs_a_hero.jpg",
+                             "name":  "Original"
+                         },
+                         {
+                             "img":  "images/albums/TWNAH/twnah_fmd_edition.png",
+                             "name":  "TWNAH FMD Edition",
+                             "isNew":  true
+                         },
+                         {
+                             "img":  "images/albums/TWNAH/twnah_fmd_editionv2.png",
+                             "name":  "TWNAH FMD Edition V2",
+                             "isNew":  true
+                         }
+                     ],
         "desc":  "Vic saliendo del pecho del alien. Gore y sci-fi. Un retorno al sonido pesado y las estructuras tradicionales del thrash metal, buscando recuperar la agresividad perdida en sus discos anteriores."
     },
     {
@@ -562,6 +589,28 @@
         "name":  "United Abominations",
         "tipoPrecio":  "simple",
         "img":  "images/albums/United_Abominations/united_abominations.jpg",
+        "variants":  [
+                         {
+                             "img":  "images/albums/United_Abominations/united_abominations.jpg",
+                             "name":  "Original"
+                         },
+                         {
+                             "img":  "images/albums/United_Abominations/united_vic_4horsemen.png",
+                             "name":  "United Vic 4Horsemen"
+                         },
+                         {
+                             "img":  "images/albums/United_Abominations/united_abominations_back.png",
+                             "name":  "United Abominations Back"
+                         },
+                         {
+                             "img":  "images/albums/United_Abominations/united_fmd_v2.png",
+                             "name":  "United FMD V2"
+                         },
+                         {
+                             "img":  "images/albums/United_Abominations/united_fmd_tapa.png",
+                             "name":  "United FMD Tapa"
+                         }
+                     ],
         "desc":  "CrÃ­tica feroz a la ONU y agresividad moderna con un rediseÃ±o cinematogrÃ¡fico de Vic Rattlehead."
     },
     {
