@@ -776,6 +776,10 @@
                              "img":  "images/singles/rusted_pieces_realistic.jpg",
                              "name":  "Realistic"
                          },
+                        {
+                            "img":  "images/singles/rusted_pieces_fmd.png",
+                            "name":  "FMD"
+                        },
                          {
                              "img":  "images/singles/rusted_pieces_fmd_edition.png",
                              "name":  "FMD Edition",
