@@ -1,5 +1,63 @@
 [
     {
+        "id":  6030,
+        "category":  "VicRattlehead",
+        "year":  "2026",
+        "name":  "Vic Arrested",
+        "tipoPrecio":  "simple",
+        "isNew":  true,
+        "priority":  98,
+        "img":  "images/vic_rattlehead/vic_arrested.png",
+        "variants":  [
+            {
+                "img":  "images/vic_rattlehead/vic_arrested.png",
+                "name":  "Vic Arrested"
+            }
+        ],
+        "desc":  "Vic Arrested - Nuevo diseño exclusivo 2026 de Vic Rattlehead.",
+        "band":  "Megadeth",
+        "collections":  [
+            "Vic Legacy",
+            "Últimos Lanzamientos 2026"
+        ],
+        "tags":  [
+            "Megadeth",
+            "VicRattlehead",
+            "Vic Rattlehead",
+            "Nuevo",
+            "FMD Edition"
+        ]
+    },
+    {
+        "id":  6029,
+        "category":  "VicRattlehead",
+        "year":  "2026",
+        "name":  "Vic Doctor",
+        "tipoPrecio":  "simple",
+        "isNew":  true,
+        "priority":  97,
+        "img":  "images/vic_rattlehead/vic_doctor.png",
+        "variants":  [
+            {
+                "img":  "images/vic_rattlehead/vic_doctor.png",
+                "name":  "Vic Doctor"
+            }
+        ],
+        "desc":  "Vic Doctor - Nuevo diseño exclusivo 2026 de Vic Rattlehead.",
+        "band":  "Megadeth",
+        "collections":  [
+            "Vic Legacy",
+            "Últimos Lanzamientos 2026"
+        ],
+        "tags":  [
+            "Megadeth",
+            "VicRattlehead",
+            "Vic Rattlehead",
+            "Nuevo",
+            "FMD Edition"
+        ]
+    },
+    {
         "id":  6028,
         "category":  "VicRattlehead",
         "year":  "2026",
