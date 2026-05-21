@@ -474,6 +474,11 @@
                              "name":  "FMD Dorso"
                          },
                          {
+                             "img":  "images/albums/Countdown_to_extinction/countdown_fmd_v2.jpg",
+                             "name":  "FMD V2",
+                             "isNew":  true
+                         },
+                         {
                              "img":  "images/albums/Countdown_to_extinction/vic_time_frente.jpg",
                              "name":  "Vic Time Frente"
                          },
