@@ -907,7 +907,7 @@ function renderLatestReleases(limit = 5) {
                         ${
                             isDorsoIdea
                             ? `<span class="product-envio" style="color:var(--magic-green);border:1px solid rgba(57,255,20,.25);">Solo doble estampa</span>`
-                            : `${formatPreciosDual()}<div style="font-size:0.62rem;color:var(--text-muted);margin-top:4px;">Envío gratis 2+ · 1 unidad consultar</div>`
+                            : `${formatPreciosDual(card)}<div style="font-size:0.62rem;color:var(--text-muted);margin-top:4px;">Envío gratis 2+ · 1 unidad consultar</div>`
                         }
                     </div>
                 </div>
@@ -1129,9 +1129,11 @@ function formatPrecio(tipo) {
     return '$' + PRECIOS[tipo].toLocaleString('es-AR');
 }
 
-function formatPreciosDual() {
-    const pSimple = '$' + PRECIOS.simple.toLocaleString('es-AR');
-    const pDoble = '$' + PRECIOS.doble.toLocaleString('es-AR');
+function formatPreciosDual(product = null) {
+    const isHoodie = product && (product.category === 'Hoodies FMD' || product.category === 'Hoodies Otras Bandas');
+    const tabla = isHoodie ? PRECIOS_HOODIES : PRECIOS;
+    const pSimple = '$' + tabla.simple.toLocaleString('es-AR');
+    const pDoble = '$' + tabla.doble.toLocaleString('es-AR');
     return `<div class="dual-prices">
         <div class="price-line"><span class="price-amount">${pSimple}</span><span class="price-label">Estampa frontal</span></div>
         <div class="price-line"><span class="price-amount">${pDoble}</span><span class="price-label">Doble estampa</span></div>
@@ -1888,7 +1890,7 @@ function renderFilteredProducts(filtered) {
                     ${
                         isDorsoIdea
                         ? `<span class="product-envio" style="color:var(--magic-green);border:1px solid rgba(57,255,20,.25);">Solo doble estampa</span>`
-                        : `${formatPreciosDual()}<div style="font-size:0.62rem;color:var(--text-muted);margin-top:4px;">Envío gratis 2+ · 1 unidad consultar</div>`
+                        : `${formatPreciosDual(p)}<div style="font-size:0.62rem;color:var(--text-muted);margin-top:4px;">Envío gratis 2+ · 1 unidad consultar</div>`
                     }
                 </div>
             </div>
