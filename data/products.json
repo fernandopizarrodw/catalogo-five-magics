@@ -105,15 +105,15 @@
         "tipoPrecio":  "simple",
         "isNew":  true,
         "priority":  94,
-        "img":  "images/albums/Peace_sells/peace_fmd_edition_frente.png",
+        "img":  "images/fmd-edition-3d/peace/peace_3d_edition_v1.jpg",
         "variants":  [
             {
-                "img":  "images/albums/Peace_sells/peace_fmd_edition_frente.png",
+                             "img":  "images/fmd-edition-3d/peace/peace_3d_edition_v1.jpg",
                 "name":  "Frente",
                 "role":  "front"
             },
             {
-                "img":  "images/albums/Peace_sells/peace_fmd_edition_frenteV2.jpg",
+                             "img":  "images/fmd-edition-3d/peace/peace_3d_edition_v2.png",
                 "name":  "Frente V2",
                 "role":  "front",
                 "isNew":  true
@@ -141,15 +141,15 @@
         "tipoPrecio":  "doble",
         "isNew":  true,
         "priority":  95,
-        "img":  "images/albums/Killing_Is_my_bussines/kimb_fmd_edition_frente.png",
+        "img":  "images/fmd-edition-3d/killing/killing_final_3d_edition.png",
         "variants":  [
                          {
-                             "img":  "images/albums/Killing_Is_my_bussines/kimb_fmd_edition_frente.png",
+                             "img":  "images/fmd-edition-3d/killing/killing_final_3d_edition.png",
                              "name":  "Frente",
                              "role":  "front"
                          },
                          {
-                             "img":  "images/albums/Killing_Is_my_bussines/kimb_fmd_edition_dorso.png",
+                             "img":  "images/fmd-edition-3d/killing/killing_retro_3d_edition.jpg",
                              "name":  "Dorso",
                              "role":  "back"
                          }
@@ -177,15 +177,15 @@
         "tipoPrecio":  "doble",
         "isNew":  true,
         "priority":  99,
-        "img":  "images/albums/Megadeth/vic_fmd_llamas_frente.png",
+        "img":  "images/fmd-edition-3d/megadeth_last_album/vic_llamas_3d_edition_frente.png",
         "variants":  [
                          {
-                             "img":  "images/albums/Megadeth/vic_fmd_llamas_frente.png",
+                             "img":  "images/fmd-edition-3d/megadeth_last_album/vic_llamas_3d_edition_frente.png",
                              "name":  "Frente",
                              "role":  "front"
                          },
                          {
-                             "img":  "images/albums/Megadeth/vic_fmd_llamas_dorso.png",
+                             "img":  "images/fmd-edition-3d/megadeth_last_album/vic_llamas_3d_edition_dorso.png",
                              "name":  "Dorso",
                              "role":  "back"
                          }
@@ -299,11 +299,6 @@
                              "name":  "Retro"
                          },
                          {
-                             "img":  "images/albums/Killing_Is_my_bussines/kimb_retro_remaster_fmd.jpg",
-                             "name":  "Retro Remaster FMD",
-                             "isNew":  true
-                         },
-                         {
                              "img":  "images/albums/Killing_Is_my_bussines/dorso_kimb.jpg",
                              "name":  "Dorso Tracklist"
                          },
@@ -312,13 +307,13 @@
                              "name":  "Dorso Original 1985"
                          },
                          {
-                             "img":  "images/albums/Killing_Is_my_bussines/kimb_fmd_edition_frente.png",
+                             "img":  "images/fmd-edition-3d/killing/killing_final_3d_edition.png",
                              "name":  "KIMB FMD Edition Frente",
                              "role":  "front",
                              "isNew":  true
                          },
                          {
-                             "img":  "images/albums/Killing_Is_my_bussines/kimb_fmd_edition_dorso.png",
+                             "img":  "images/fmd-edition-3d/killing/killing_retro_3d_edition.jpg",
                              "name":  "KIMB FMD Edition Dorso",
                              "role":  "back",
                              "isNew":  true
@@ -353,10 +348,20 @@
                          {
                              "img":  "images/albums/Peace_sells/peace_sells_but_whos_buying.jpg",
                              "name":  "But Who\u0027s Buying"
-                         },
-                         {
-                             "img":  "images/albums/Peace_sells/peace_sells_fmd.jpg",
-                             "name":  "Peace Sells FMD"
+                        },
+                        {
+                            "img":  "images/albums/Peace_sells/peace_sells_fmd.jpg",
+                            "name":  "Peace Sells FMD"
+                        },
+                        {
+                            "img":  "images/fmd-edition-3d/peace/peace_3d_edition_v1.jpg",
+                            "name":  "Peace 3D",
+                            "isNew":  true
+                        },
+                        {
+                            "img":  "images/fmd-edition-3d/peace/peace_3d_edition_v2.png",
+                            "name":  "Peace 3D V2",
+                            "isNew":  true
                          }
                      ],
         "desc":  "IcÃ³nica crÃ­tica sociopolÃ­tica plasmada en el sarcasmo de Vic Rattlehead frente a la ONU, envuelta en puro virtuosismo thrash."
@@ -382,8 +387,13 @@
                              "name":  "Mary Jane"
                          },
                          {
-                             "img":  "images/albums/SFSGSW/4-sfsgsw_alternative_fmd.png",
+                             "img":  "images/albums/SFSGSW/mary_jane_remastered.jpg",
                              "name":  "Alternative FMD"
+                         },
+                         {
+                             "img":  "images/fmd-edition-3d/so_far/so_far_3d_edition.png",
+                             "name":  "So Far 3D",
+                             "isNew":  true
                          }
                      ],
         "desc":  "Thrash Ã¡spero, oscuro y visceral con variantes del arte clÃ¡sico de So Far, So Good... So What!"
@@ -430,8 +440,14 @@
                              "isNew":  true
                          },
                          {
-                             "img":  "images/albums/Rust_in_peace/rust_in_peace_fmd.jpg",
-                             "name":  "Rust in Peace FMD"
+                             "img":  "images/fmd-edition-3d/rust/rust_in_peace_3d_edition_frente.jpg",
+                             "name":  "Rust in Peace 3D Frente",
+                             "isNew":  true
+                         },
+                         {
+                             "img":  "images/fmd-edition-3d/rust/rust_in_peace_3d_edition_dorso.jpg",
+                             "name":  "Rust in Peace 3D Dorso",
+                             "isNew":  true
                          },
                          {
                              "img":  "images/albums/Rust_in_peace/rust_in_peace_lineup-dorso.png",
@@ -474,7 +490,7 @@
                              "name":  "FMD Dorso"
                          },
                          {
-                             "img":  "images/albums/Countdown_to_extinction/countdown_fmd_v2.jpg",
+                             "img":  "images/fmd-edition-3d/countdown/countdown_3d_edition.jpg",
                              "name":  "FMD V2",
                              "isNew":  true
                          },
@@ -588,6 +604,11 @@
                          {
                              "img":  "images/albums/Cryptic_Writings/cryptic_writings_art.jpg",
                              "name":  "Art"
+                         },
+                         {
+                             "img":  "images/fmd-edition-3d/cryptic/cryptic_3d_edition.jpg",
+                             "name":  "Cryptic 3D",
+                             "isNew":  true
                          }
                      ],
         "desc":  "MelodÃ­a accesible y experimentaciÃ³n radial envueltas en un arte mÃ­stico de simbologÃ­a crÃ­ptica y diseÃ±o minimalista."
@@ -629,7 +650,7 @@
                              "isNew":  true
                          },
                          {
-                             "img":  "images/albums/TWNAH/twnah_fmd_editionv2.png",
+                             "img":  "images/fmd-edition-3d/world_needs/the_world_needs_a_hero_3d_edition.png",
                              "name":  "TWNAH FMD Edition V2",
                              "isNew":  true
                          }
@@ -666,12 +687,14 @@
                              "name":  "United Abominations Back"
                          },
                          {
-                             "img":  "images/albums/United_Abominations/united_fmd_v2.png",
-                             "name":  "United FMD V2"
+                             "img":  "images/fmd-edition-3d/united/united_3d_edition.png",
+                             "name":  "United 3D",
+                             "isNew":  true
                          },
                          {
-                             "img":  "images/albums/United_Abominations/united_fmd_tapa.png",
-                             "name":  "United FMD Tapa"
+                             "img":  "images/fmd-edition-3d/united/united_3d_edition_v2.png",
+                             "name":  "United 3D V2",
+                             "isNew":  true
                          }
                      ],
         "desc":  "CrÃ­tica feroz a la ONU y agresividad moderna con un rediseÃ±o cinematogrÃ¡fico de Vic Rattlehead."
@@ -701,6 +724,17 @@
         "name":  "Super Collider",
         "tipoPrecio":  "simple",
         "img":  "images/albums/Super_Collider/super_collider.jpg",
+        "variants":  [
+                         {
+                             "img":  "images/albums/Super_Collider/super_collider.jpg",
+                             "name":  "Original"
+                         },
+                         {
+                             "img":  "images/fmd-edition-3d/supercollider/supercollider_3d_edition.jpg",
+                             "name":  "FMD 3D",
+                             "isNew":  true
+                         }
+                     ],
         "desc":  "Hard rock pesado y riffs directos inspirados en la ciencia del Gran Colisionador de Hadrones."
     },
     {
@@ -712,12 +746,22 @@
         "img":  "images/albums/Dystopia/dystopia.jpg",
         "variants":  [
                          {
-                             "img":  "images/albums/Dystopia/dystopia_v1.jpg",
+                             "img":  "images/albums/Dystopia/dystopia_v1_3d.jpg",
                              "name":  "Dystopia v1"
                          },
                          {
                              "img":  "images/albums/Dystopia/dystopia_v2.jpg",
                              "name":  "Dystopia v2"
+                         },
+                         {
+                             "img":  "images/fmd-edition-3d/dystopia/dystopia_3d_edition_v1.jpg",
+                             "name":  "Dystopia v1 3D",
+                             "isNew":  true
+                         },
+                         {
+                             "img":  "images/fmd-edition-3d/dystopia/dystopia_3d_edition_v2.jpg",
+                             "name":  "Dystopia v2 FMD 3D",
+                             "isNew":  true
                          },
                          {
                              "img":  "images/albums/Dystopia/dystopia_v3.jpg",
@@ -751,18 +795,6 @@
         "tipoPrecio":  "simple",
         "img":  "images/albums/Megadeth/vic_llamas_blanca.jpg",
         "variants":  [
-                         {
-                             "img":  "images/albums/Megadeth/vic_fmd_llamas_frente.png",
-                             "name":  "VIC LLAMAS FMD EDITION Frente",
-                             "role":  "front",
-                             "isNew":  true
-                         },
-                         {
-                             "img":  "images/albums/Megadeth/vic_fmd_llamas_dorso.png",
-                             "name":  "VIC LLAMAS FMD EDITION Dorso",
-                             "role":  "back",
-                             "isNew":  true
-                         },
                          {
                              "img":  "images/albums/Megadeth/vic_llamas_blanca.jpg",
                              "name":  "Vic Llamas Blanca"
@@ -798,9 +830,21 @@
                          {
                              "img":  "images/albums/Megadeth/dorso_tour_argentina_black.jpg",
                              "name":  "Dorso Tour Argentina Black"
+                         },
+                         {
+                             "img":  "images/fmd-edition-3d/megadeth_last_album/vic_llamas_3d_edition_frente.png",
+                             "name":  "VIC LLAMAS FMD EDITION Frente",
+                             "role":  "front",
+                             "isNew":  true
+                         },
+                         {
+                             "img":  "images/fmd-edition-3d/megadeth_last_album/vic_llamas_3d_edition_dorso.png",
+                             "name":  "VIC LLAMAS FMD EDITION Dorso",
+                             "role":  "back",
+                             "isNew":  true
                          }
                      ],
-        "desc":  "Un diseÃ±o limpio e impactante que captura a Vic Rattlehead consumiÃ©ndose en llamas. Incluye VIC LLAMAS FMD EDITION frente/dorso y variantes clásicas 2026."
+        "desc":  "Un diseÃ±o limpio e impactante que captura a Vic Rattlehead consumiÃ©ndose en llamas. Incluye variantes clásicas 2026."
     },
     {
         "id":  235,
@@ -3956,6 +4000,22 @@
                          }
                      ],
         "desc":  "Hangar 18 - Single exclusivo de Megadeth con arte frente y dorso. EdiciÃ³n especial Five Magics Designs."
+    },
+    {
+        "id":  6031,
+        "category":  "Singles",
+        "year":  "2026",
+        "name":  "Lucretia",
+        "tipoPrecio":  "simple",
+        "isNew":  true,
+        "img":  "images/singles/lucretia.jpg",
+        "variants":  [
+                         {
+                             "img":  "images/singles/lucretia.jpg",
+                             "name":  "Lucretia"
+                         }
+                     ],
+        "desc":  "Lucretia - Single especial de Megadeth en ediciÃ³n Five Magics Designs."
     },
     {
         "id":  5054,

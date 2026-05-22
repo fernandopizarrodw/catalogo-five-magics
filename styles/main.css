@@ -379,6 +379,273 @@
     object-fit: cover;
 }
 
+.fmd-edition-3d-showcase,
+.latest-section,
+.category-nav {
+    scroll-margin-top: 110px;
+}
+
+.fmd-edition-3d-showcase {
+    max-width: 1240px;
+    margin: 0 auto 24px;
+    padding: 18px;
+    border-radius: 20px;
+    border: 1px solid rgba(120, 180, 255, 0.24);
+    background:
+        radial-gradient(circle at 18% 18%, rgba(92, 156, 255, 0.16), transparent 28%),
+        radial-gradient(circle at 82% 72%, rgba(57, 255, 20, 0.06), transparent 30%),
+        linear-gradient(145deg, #07101f 0%, #0b1324 46%, #090f1b 100%);
+    box-shadow: 0 20px 44px rgba(0, 0, 0, 0.42), inset 0 0 28px rgba(120, 180, 255, 0.08);
+    overflow: hidden;
+}
+
+.fmd3d-shell {
+    display: grid;
+    gap: 16px;
+}
+
+.fmd3d-kicker {
+    margin: 0 0 6px;
+    color: #8fc2ff;
+    letter-spacing: 2px;
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+.fmd3d-title {
+    margin: 0;
+    color: #f4f8ff;
+    font-family: var(--font-title);
+    font-size: clamp(1.4rem, 3vw, 2.15rem);
+    letter-spacing: 0.7px;
+}
+
+.fmd3d-desc {
+    margin: 10px 0 0;
+    color: #c6d8ee;
+    max-width: 58ch;
+    line-height: 1.5;
+}
+
+.fmd3d-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.fmd3d-pills span {
+    font-size: 0.78rem;
+    color: #dbeafe;
+    border: 1px solid rgba(148, 198, 255, 0.38);
+    background: rgba(77, 130, 219, 0.16);
+    border-radius: 999px;
+    padding: 5px 10px;
+}
+
+.fmd3d-cta-row {
+    margin-top: 14px;
+}
+
+.fmd3d-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: #041019;
+    background: linear-gradient(135deg, #9bd4ff, #63b6ff);
+    border: 1px solid rgba(160, 214, 255, 0.9);
+    box-shadow: 0 10px 24px rgba(76, 151, 255, 0.28);
+    border-radius: 10px;
+    padding: 12px 16px;
+    font-size: 0.9rem;
+    font-family: var(--font-title);
+    letter-spacing: 0.6px;
+}
+
+.fmd3d-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.fmd3d-group {
+    border-radius: 16px;
+    border: 1px solid rgba(145, 193, 255, 0.24);
+    background: rgba(6, 10, 18, 0.72);
+    box-shadow: 0 12px 26px rgba(0, 0, 0, 0.25);
+    padding: 10px;
+}
+
+.fmd3d-group-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 8px;
+    margin-bottom: 8px;
+    min-height: 40px;
+}
+
+.fmd3d-group-head strong {
+    display: block;
+    color: #f4f8ff;
+    font-size: 0.92rem;
+    line-height: 1.15;
+    letter-spacing: 0.2px;
+}
+
+.fmd3d-group-head span {
+    padding-top: 2px;
+    color: #9db9d8;
+    font-size: 0.78rem;
+    white-space: nowrap;
+}
+
+.fmd3d-group-carousel {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.fmd3d-group-track {
+    display: flex;
+    transition: transform 0.25s ease;
+}
+
+.fmd3d-group-slide {
+    min-width: 100%;
+    border: 0;
+    padding: 0;
+    background: transparent;
+    cursor: pointer;
+    text-align: left;
+}
+
+.fmd3d-group-slide img {
+    width: 100%;
+    display: block;
+    aspect-ratio: 1 / 1.1;
+    object-fit: cover;
+}
+
+.fmd3d-group-slide span {
+    display: block;
+    color: #d9e8fb;
+    font-size: 0.8rem;
+    padding: 8px 10px 10px;
+}
+
+.fmd3d-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 28px;
+    height: 28px;
+    border: 0;
+    border-radius: 999px;
+    background: rgba(4, 16, 25, 0.85);
+    color: #dff1ff;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.fmd3d-nav.prev {
+    left: 8px;
+}
+
+.fmd3d-nav.next {
+    right: 8px;
+}
+
+.fmd3d-dots {
+    display: flex;
+    gap: 6px;
+    justify-content: center;
+    margin-top: 8px;
+}
+
+.fmd3d-dots button {
+    width: 7px;
+    height: 7px;
+    border: 0;
+    border-radius: 999px;
+    background: rgba(157, 185, 216, 0.45);
+    cursor: pointer;
+}
+
+.fmd3d-dots button.active {
+    background: #b9dcff;
+}
+
+.fmd3d-group.single .fmd3d-nav,
+.fmd3d-group.single .fmd3d-dots {
+    display: none;
+}
+
+.fmd3d-more {
+    margin-top: 10px;
+}
+
+.fmd3d-more > summary {
+    list-style: none;
+    cursor: pointer;
+    user-select: none;
+    text-align: center;
+    color: #d8e8ff;
+    border: 1px solid rgba(145, 193, 255, 0.35);
+    background: rgba(20, 34, 54, 0.45);
+    border-radius: 10px;
+    padding: 10px 12px;
+    font-family: var(--font-title);
+    letter-spacing: 0.5px;
+}
+
+.fmd3d-more > summary::-webkit-details-marker {
+    display: none;
+}
+
+.fmd3d-grid-more {
+    margin-top: 10px;
+}
+
+@media (min-width: 980px) {
+    .fmd3d-shell {
+        grid-template-columns: 0.95fr 1.05fr;
+        align-items: start;
+        gap: 18px;
+    }
+}
+
+@media (max-width: 640px) {
+    .fmd-edition-3d-showcase {
+        padding: 14px;
+        margin-bottom: 18px;
+    }
+
+    .fmd3d-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .fmd3d-group {
+        padding: 12px;
+    }
+
+    .fmd3d-group-head {
+        min-height: 0;
+    }
+
+    .fmd3d-group-slide img {
+        aspect-ratio: 4 / 5;
+    }
+
+    .fmd3d-nav {
+        width: 32px;
+        height: 32px;
+    }
+}
+
 @media (min-width: 980px) {
     .reimagined-shell {
         grid-template-columns: 1.1fr 0.9fr;
@@ -6009,7 +6276,6 @@ footer p {
 .megadeth-destacados,
 .megadeth-collections,
 .hoodies-featured-section,
-.latest-section,
 .doble-estampa-section,
 .doble-estampa-universal,
 .mgx-showcase {

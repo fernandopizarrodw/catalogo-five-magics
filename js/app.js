@@ -35,6 +35,57 @@ let selectedCut = 'clasica';
 let selectedColor = 'negro';
 let selectedBackIndex = -1; // Índice del dorso seleccionado para doble estampa (-1 = ninguno)
 
+function scrollToSection(sectionId) {
+    const target = document.getElementById(sectionId);
+    if (!target) return;
+
+    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    if (window.location.hash !== `#${sectionId}`) {
+        history.replaceState(null, '', `#${sectionId}`);
+    }
+}
+
+function fmd3dSync(group, index) {
+    if (!group) return;
+    const track = group.querySelector('.fmd3d-group-track');
+    if (!track) return;
+
+    const slides = track.querySelectorAll('.fmd3d-group-slide');
+    if (!slides.length) return;
+
+    const safeIndex = ((Number(index) || 0) % slides.length + slides.length) % slides.length;
+    group.dataset.index = String(safeIndex);
+    track.style.transform = `translateX(-${safeIndex * 100}%)`;
+
+    const dots = group.querySelectorAll('.fmd3d-dots button');
+    dots.forEach((dot, dotIndex) => dot.classList.toggle('active', dotIndex === safeIndex));
+}
+
+function fmd3dMove(button, direction) {
+    const group = button.closest('.fmd3d-group');
+    if (!group) return;
+
+    const current = Number(group.dataset.index || 0);
+    fmd3dSync(group, current + direction);
+}
+
+function fmd3dGo(button, targetIndex) {
+    const group = button.closest('.fmd3d-group');
+    if (!group) return;
+    fmd3dSync(group, targetIndex);
+}
+
+function initFmd3dCarousels() {
+    const groups = document.querySelectorAll('.fmd3d-group');
+    groups.forEach(group => {
+        const slides = group.querySelectorAll('.fmd3d-group-slide');
+        if (slides.length <= 1) {
+            group.classList.add('single');
+        }
+        fmd3dSync(group, 0);
+    });
+}
+
 // === BUSCADOR POR CÓDIGO PARA PEDIDOS ===
 // Uso: buscar("peace sells") o buscar("PS-002") o buscar(4) 
 // Genera código automático: PREFIJO-ID.Vn
@@ -923,7 +974,6 @@ async function loadProducts() {
         if (!response.ok) throw new Error('Error cargando productos');
         db = await response.json();
         updateCountsUI();
-        renderLatestReleases(10); // Mostrar más lanzamientos recientes
         renderHoodiesGrid(); // Hoodies destacados
         renderHeroOrbit(6); // Poblar órbita del hero con 6 cards 3D
         loadMegadethDestacados(); // Destacados para el show
@@ -1212,7 +1262,7 @@ function copyToClipboard(text, feedbackElement = null) {
 
 function buildWhatsappFallbackMessage() {
     if (currentProduct) {
-        const images = getImages(currentProduct);
+        const images = getModalImages();
         const variantName = images?.[currentSlide]?.name ? `\nVariante: ${images[currentSlide].name}` : '';
         return `Hola FMD! Quiero encargar esta prenda 🤘\n\nDiseño: ${currentProduct.name}${variantName}\nTalle: ___\nColor: ___\n\nPor favor confirmame precio, disponibilidad y opciones de envío.`;
     }
@@ -1278,7 +1328,7 @@ function buildDobleMessage(){
         ? `Hola FMD, quiero DOBLE ESTAMPA de: ${currentProduct.name}`
         : `Hola FMD, quiero DOBLE ESTAMPA`;
 
-    const images = currentProduct ? getImages(currentProduct) : [];
+    const images = currentProduct ? getModalImages() : [];
     const variant = images?.[currentSlide]?.name ? `\nVariante: ${images[currentSlide].name}` : '';
 
     const chips = selectedDorsoChips.size
@@ -1441,6 +1491,8 @@ const viewGalleryBtn = document.getElementById('viewGallery');
 
 let currentProduct = null;
 let currentSlide = 0;
+let currentModalImages = [];
+let currentModalSourceIndexes = [];
 let scrollPosition = 0;
 let isScrolling = false;
 let scrollTimeout;
@@ -1474,7 +1526,7 @@ function getImages(p) {
     }
 
     const variants = p.variants.map(v => ({ ...v }));
-    const hasFront = variants.some(isFrontVariant);
+    const hasFront = variants.some(isFrontVariant) || variants.some(v => !isBackVariant(v));
     const hasBack = variants.some(isBackVariant);
 
     if (!hasFront && hasBack) {
@@ -1485,22 +1537,30 @@ function getImages(p) {
     return variants;
 }
 
+function getModalImages() {
+    if (Array.isArray(currentModalImages) && currentModalImages.length) {
+        return currentModalImages;
+    }
+    return currentProduct ? getImages(currentProduct) : [];
+}
+
+function getActiveVariantIndex() {
+    if (!Array.isArray(currentModalSourceIndexes) || !currentModalSourceIndexes.length) {
+        return currentSlide;
+    }
+
+    const safeSlide = Math.max(0, Math.min(currentSlide, currentModalSourceIndexes.length - 1));
+    const sourceIndex = currentModalSourceIndexes[safeSlide];
+    return Number.isFinite(sourceIndex) ? sourceIndex : currentSlide;
+}
+
 function getAutoHighlightSlideIndex(product, images) {
     if (!product || !Array.isArray(images) || !images.length) return -1;
-
-    // Abrir Megadeth 2026 en el arte FMD por defecto, manteniendo el carrusel navegable.
-    if (product.id === 17) {
-        const byImg = images.findIndex(v => String(v?.img || '').includes('vic_fmd_llamas_frente'));
-        if (byImg >= 0) return byImg;
-
-        const byName = images.findIndex(v => /fmd edition.*frente/i.test(String(v?.name || '')));
-        if (byName >= 0) return byName;
-    }
 
     return -1;
 }
 
-function openModal(id, variantIndex = undefined) {
+function openModal(id, variantIndex = undefined, scopedVariantIndexes = undefined) {
     currentProduct = db.find(p => p.id === id);
     if (!currentProduct) return;
 
@@ -1511,17 +1571,49 @@ function openModal(id, variantIndex = undefined) {
     history.pushState({ modal: true, id }, '', `#producto-${id}`);
     const images = getImages(currentProduct);
     const hasSpecificVariant = variantIndex !== undefined && variantIndex !== null;
+    const hasScopedVariants = Array.isArray(scopedVariantIndexes) && scopedVariantIndexes.length > 0;
     const autoHighlightSlide = hasSpecificVariant ? -1 : getAutoHighlightSlideIndex(currentProduct, images);
-    currentSlide = hasSpecificVariant ? variantIndex : (autoHighlightSlide >= 0 ? autoHighlightSlide : 0);
 
-    carousel.innerHTML = images.map(v => `
+    if (hasScopedVariants) {
+        const safeScopedIndexes = Array.from(new Set(
+            scopedVariantIndexes
+                .map(index => Number(index))
+                .filter(index => Number.isFinite(index) && index >= 0 && index < images.length)
+        ));
+
+        if (!safeScopedIndexes.length) {
+            currentModalImages = images;
+            currentModalSourceIndexes = images.map((_, index) => index);
+            currentSlide = autoHighlightSlide >= 0 ? autoHighlightSlide : 0;
+        } else {
+            currentModalSourceIndexes = safeScopedIndexes;
+            currentModalImages = safeScopedIndexes.map(index => images[index]);
+
+            const safeVariantIndex = Math.max(0, Math.min(Number(variantIndex) || 0, images.length - 1));
+            const scopedStartIndex = currentModalSourceIndexes.indexOf(safeVariantIndex);
+            currentSlide = scopedStartIndex >= 0 ? scopedStartIndex : 0;
+        }
+    } else if (hasSpecificVariant) {
+        const safeVariantIndex = Math.max(0, Math.min(Number(variantIndex) || 0, images.length - 1));
+        currentModalImages = [images[safeVariantIndex]];
+        currentModalSourceIndexes = [safeVariantIndex];
+        currentSlide = 0;
+    } else {
+        currentModalImages = images;
+        currentModalSourceIndexes = images.map((_, index) => index);
+        currentSlide = autoHighlightSlide >= 0 ? autoHighlightSlide : 0;
+    }
+
+    const modalImages = getModalImages();
+
+    carousel.innerHTML = modalImages.map(v => `
         <div class="carousel-slide"><img src="${v.img}" alt="${currentProduct.name}"></div>
     `).join('');
 
-    carouselDots.innerHTML = images.length > 1 ? images.map((_, i) => `<div class="carousel-dot${i === currentSlide ? ' active' : ''}" data-index="${i}"></div>`).join('') : '';
+    carouselDots.innerHTML = modalImages.length > 1 ? modalImages.map((_, i) => `<div class="carousel-dot${i === currentSlide ? ' active' : ''}" data-index="${i}"></div>`).join('') : '';
     
     // Añadir click listeners a los dots para que sean navegables
-    if (images.length > 1) {
+    if (modalImages.length > 1) {
         document.querySelectorAll('.carousel-dot').forEach(dot => {
             dot.addEventListener('click', function() {
                 const index = parseInt(this.dataset.index);
@@ -1641,14 +1733,15 @@ function openModal(id, variantIndex = undefined) {
         const nextBtn = document.getElementById('carouselNext');
         const dotsContainer = document.getElementById('carouselDots');
         
-        if (hasSpecificVariant) {
+        const lockToSingle = hasSpecificVariant && !hasScopedVariants;
+        if (lockToSingle) {
             // Ocultar navegación si es variante específica
             if(prevBtn) prevBtn.style.display = 'none';
             if(nextBtn) nextBtn.style.display = 'none';
             if(dotsContainer) dotsContainer.style.display = 'none';
         } else {
             // Mostrar/ocultar según cantidad de imágenes
-            if (images.length > 1) {
+            if (modalImages.length > 1) {
                 if(prevBtn) prevBtn.style.display = '';
                 if(nextBtn) nextBtn.style.display = '';
                 if(dotsContainer) dotsContainer.style.display = '';
@@ -1710,6 +1803,8 @@ function closeModal() {
     document.body.classList.remove('modal-open');
     document.body.style.removeProperty('top');
     window.scrollTo(0, scrollPosition);
+    currentModalImages = [];
+    currentModalSourceIndexes = [];
     closeZoom();
 }
 
@@ -1747,7 +1842,7 @@ function onCarouselScroll() {
     const scrollLeft = carousel.scrollLeft;
     // Calcular qué slide está más visible
     const newSlide = Math.round(scrollLeft / slideWidth);
-    const images = getImages(currentProduct);
+    const images = getModalImages();
     const maxSlide = Math.max(0, images.length - 1);
     
     if (newSlide !== currentSlide && newSlide >= 0 && newSlide <= maxSlide) {
@@ -1763,7 +1858,7 @@ function onCarouselClick(e) {
 }
 
 function goToSlide(index, smooth = true) {
-    const images = getImages(currentProduct);
+    const images = getModalImages();
     if (!images.length) return;
     
     // Asegurar que el índice está dentro del rango válido
@@ -1800,11 +1895,12 @@ document.getElementById('carouselNext').addEventListener('click', () => {
 
 function updateModalInfo() {
     if (!currentProduct) return;
-    const images = getImages(currentProduct);
+    const images = getModalImages();
+    const activeVariantIndex = getActiveVariantIndex();
     document.getElementById('modalName').textContent = currentProduct.name;
     
     // Actualizar código del producto
-    const code = cart.generateCode(currentProduct.id, currentSlide, selectedBacks.size > 0 || selectedDorsoChips.size > 0);
+    const code = cart.generateCode(currentProduct.id, activeVariantIndex, selectedBacks.size > 0 || selectedDorsoChips.size > 0);
     const displayCodeEl = document.getElementById('displayCode');
     if (displayCodeEl) {
         displayCodeEl.textContent = code;
@@ -1854,6 +1950,9 @@ function filterProducts() {
         filtered = getSearchResults(currentSearch, filtered, true);
     }
     const normalizedCategory = normalizeText(currentCategory);
+    if (normalizedCategory === 'album') {
+        filtered = filtered.filter(p => !HIDDEN_FROM_ALBUM_CATEGORY.has(Number(p?.id)));
+    }
     const shouldSortAlbumsByYear = normalizedCategory === 'album' && filtered.every(p => normalizeText(p?.category) === 'album');
     filtered.sort(shouldSortAlbumsByYear ? compareAlbumProductsByYearAscThenId : compareProductsByPriorityThenId);
     renderFilteredProducts(filtered);
@@ -1922,6 +2021,13 @@ categoryNav.addEventListener('click', (e) => {
     if (btn) {
         document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
+
+        const scrollTarget = btn.dataset.scrollTarget;
+        if (scrollTarget) {
+            scrollToSection(scrollTarget);
+            return;
+        }
+
         currentCategory = btn.dataset.cat;
         filterProducts();
         const productsSection = document.querySelector('.products-section');
@@ -1965,7 +2071,7 @@ function copyProductLink() {
 
 function updateShareLinks() {
     if (!currentProduct) return;
-    const images = getImages(currentProduct);
+    const images = getModalImages();
     const variant = images?.[currentSlide]?.name ? `\nVariante: ${images[currentSlide].name}` : '';
     const msg = `Mirá este diseño:\n${currentProduct.name}${variant}\n${getProductUrl()}`;
     
@@ -2017,6 +2123,7 @@ const CATEGORY_LABELS = {
 };
 
 const MEGADETH_CATS = new Set(['Orígenes','Album','Musician','Tour','VicRattlehead','Singles','Dorsales']);
+const HIDDEN_FROM_ALBUM_CATEGORY = new Set([6025, 6026, 6027]);
 
 function getCategoryLabel(category) {
     return CATEGORY_LABELS[category] || category || 'Otros';
@@ -2042,6 +2149,7 @@ function updateCountsUI(){
         if(!Array.isArray(db) || !db.length) return;
         const { byCategory, megadethTotal, totalAll } = computeCounts();
         const origenesCount = byCategory['Orígenes'] || 0;
+        const albumVisibleCount = Math.max(0, (byCategory['Album'] || 0) - Array.from(HIDDEN_FROM_ALBUM_CATEGORY).filter(id => db.some(p => Number(p?.id) === id)).length);
 
         // Destacados: badges
         const ftMegadethCard = document.querySelector('.featured-card[data-trigger="Album"]');
@@ -2067,7 +2175,7 @@ function updateCountsUI(){
             const btn = document.querySelector(`.cat-btn[data-cat="${cat}"]`);
             if(btn) btn.style.display = isVisible ? '' : 'none';
         };
-        setNavBadge('Album', byCategory['Album']||0);
+        setNavBadge('Album', albumVisibleCount);
         setNavBadge('Orígenes', byCategory['Orígenes']||0);
         setNavBadge('Avenged Sevenfold', byCategory['Avenged Sevenfold']||0);
         setNavBadge('AC/DC', byCategory['AC/DC']||0);
@@ -2096,7 +2204,7 @@ function updateCountsUI(){
             if(el) el.style.display = isVisible ? '' : 'none';
         };
         setPill('all', `Todo (${totalAll})`);
-        setPill('Album', `${getCategoryLabel('Album')} (${byCategory['Album']||0})`);
+        setPill('Album', `${getCategoryLabel('Album')} (${albumVisibleCount})`);
         setPill('Orígenes', `${getCategoryLabel('Orígenes')} (${byCategory['Orígenes']||0})`);
         setPill('Hoodies FMD', `${getCategoryLabel('Hoodies FMD')} (${byCategory['Hoodies FMD']||0})`);
         setPill('Hoodies Otras Bandas', `${getCategoryLabel('Hoodies Otras Bandas')} (${byCategory['Hoodies Otras Bandas']||0})`);
@@ -2127,10 +2235,124 @@ function updateCountsUI(){
 }
 
 function openImageModal(src, alt) {
+    const normalizedSrc = normalizeAssetPath(src);
+    if (normalizedSrc.includes('images/fmd-edition-3d/') && openFmd3dPurchaseModal(src)) {
+        return;
+    }
+
     const imgModal = document.getElementById('imageModal');
     document.getElementById('imageModalImg').src = src;
     imgModal.classList.add('active');
     document.body.style.overflow = 'hidden';
+}
+
+function normalizeAssetPath(pathValue) {
+    return decodeURIComponent(String(pathValue || ''))
+        .toLowerCase()
+        .replace(/\\/g, '/')
+        .replace(/^https?:\/\/[^/]+\//, '')
+        .replace(/^\.\//, '')
+        .replace(/^\//, '');
+}
+
+function isSameAssetPath(targetPath, candidatePath) {
+    const target = normalizeAssetPath(targetPath);
+    const candidate = normalizeAssetPath(candidatePath);
+    if (!target || !candidate) return false;
+    return target === candidate || target.endsWith(candidate) || candidate.endsWith(target);
+}
+
+function getFmd3dGroupContextFromEvent() {
+    const evt = window.event;
+    const baseTarget = evt?.currentTarget || evt?.target;
+    const slideBtn = baseTarget?.closest ? baseTarget.closest('.fmd3d-group-slide') : null;
+    if (!slideBtn) return null;
+
+    const group = slideBtn.closest('.fmd3d-group');
+    if (!group) return null;
+
+    const images = Array.from(group.querySelectorAll('.fmd3d-group-slide img'))
+        .map(img => img.getAttribute('src') || '')
+        .filter(Boolean);
+
+    return { images };
+}
+
+function findMatchesBySrc(src) {
+    if (!Array.isArray(db) || !db.length) return [];
+
+    const matches = [];
+    for (const product of db) {
+        if (!product) continue;
+
+        const variants = Array.isArray(product.variants) ? product.variants : [];
+        const variantIndex = variants.findIndex(variant => isSameAssetPath(src, variant?.img));
+        if (variantIndex >= 0) {
+            matches.push({ productId: product.id, variantIndex });
+            continue;
+        }
+
+        if (isSameAssetPath(src, product.img)) {
+            matches.push({ productId: product.id, variantIndex: variants.length ? 0 : 0 });
+        }
+    }
+
+    return matches;
+}
+
+function getScopedVariantIndexes(productId, groupImages) {
+    const product = db.find(p => p.id === productId);
+    if (!product) return [];
+
+    const variants = Array.isArray(product.variants) ? product.variants : [];
+    const indexes = groupImages
+        .map(imageSrc => {
+            const idx = variants.findIndex(variant => isSameAssetPath(imageSrc, variant?.img));
+            if (idx >= 0) return idx;
+            if (isSameAssetPath(imageSrc, product.img)) return variants.length ? 0 : 0;
+            return -1;
+        })
+        .filter(idx => idx >= 0);
+
+    return Array.from(new Set(indexes));
+}
+
+function resolveProductVariantBySrc(src, groupImages = []) {
+    const matches = findMatchesBySrc(src);
+    if (!matches.length) return null;
+    if (matches.length === 1 || !groupImages.length) return matches[0];
+
+    let best = null;
+    let bestScore = -1;
+
+    for (const match of matches) {
+        const scoped = getScopedVariantIndexes(match.productId, groupImages);
+        const score = scoped.length;
+        if (score > bestScore) {
+            best = match;
+            bestScore = score;
+        }
+    }
+
+    return best || matches[0];
+}
+
+function openFmd3dPurchaseModal(src) {
+    const context = getFmd3dGroupContextFromEvent();
+    const groupImages = context?.images || [];
+    const selected = resolveProductVariantBySrc(src, groupImages);
+    if (!selected) return false;
+
+    if (groupImages.length > 1) {
+        const scopedVariantIndexes = getScopedVariantIndexes(selected.productId, groupImages);
+        if (scopedVariantIndexes.length > 1) {
+            openModal(selected.productId, selected.variantIndex, scopedVariantIndexes);
+            return true;
+        }
+    }
+
+    openModal(selected.productId, selected.variantIndex);
+    return true;
 }
 
 function closeImageModal() {
@@ -2146,7 +2368,7 @@ window.addEventListener('popstate', () => { if(modal.classList.contains('active'
 // Agregar soporte de teclado para navegación del carousel
 window.addEventListener('keydown', (e) => {
     if (!modal.classList.contains('active') || !currentProduct) return;
-    const images = getImages(currentProduct);
+    const images = getModalImages();
     if (images.length <= 1) return;
     
     if (e.key === 'ArrowLeft') {
@@ -2764,7 +2986,7 @@ function addToCartFromModal() {
     
     // Determinar si es doble estampa basándose en el dorso seleccionado
     const isDouble = selectedBackIndex >= 0 || selectedBacks.size > 0 || selectedDorsoChips.size > 0;
-    const variantIndex = currentSlide;
+    const variantIndex = getActiveVariantIndex();
     
     const options = {
         age: selectedAge,
@@ -3376,6 +3598,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setView('grid');
     initSearchModal();
     initCountdown();
+    initFmd3dCarousels();
 });
 
 // Escuchar cambios en hash (si usuario navega directamente a #producto-123)
