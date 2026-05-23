@@ -1239,7 +1239,11 @@
                     <button class="carousel-arrow left" id="carouselPrev" style="display:none;" aria-label="Anterior"></button>
                     <div class="carousel" id="carousel"></div>
                     <button class="carousel-arrow right" id="carouselNext" style="display:none;" aria-label="Siguiente"></button>
-                    <button class="carousel-reset" id="carouselReset" style="display:none;position:absolute;top:12px;right:56px;z-index:10;padding:6px 14px;font-size:0.9rem;background:#222;color:#fff;border-radius:6px;border:none;box-shadow:0 2px 8px #0002;cursor:pointer;">Reset</button>
+                    <div class="modal-zoom-controls" aria-label="Controles de zoom de imagen">
+                        <button type="button" class="modal-zoom-btn" id="modalZoomOut" aria-label="Alejar imagen">-</button>
+                        <button type="button" class="modal-zoom-btn modal-zoom-reset" id="carouselReset" aria-label="Volver a posición normal">Normal</button>
+                        <button type="button" class="modal-zoom-btn" id="modalZoomIn" aria-label="Acercar imagen">+</button>
+                    </div>
                     <div class="carousel-indicators" id="carouselDots"></div>
                 </div>
                 <div class="variant-name" id="variantName">Original Art</div>

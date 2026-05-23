@@ -2983,6 +2983,12 @@ header {
     user-select: none;
 }
 
+.carousel.is-zoomed {
+    overflow-x: hidden;
+    scroll-snap-type: none;
+    touch-action: none;
+}
+
 .carousel::-webkit-scrollbar {
     display: none;
 }
@@ -3007,11 +3013,72 @@ header {
     user-select: none;
     -webkit-user-drag: none;
     max-height: 72vh;
+    transform-origin: center center;
+    transition: transform 0.12s ease-out;
+    will-change: transform;
 }
 
 .modal .carousel-slide img {
     touch-action: pan-x;
     cursor: zoom-in;
+}
+
+.modal .carousel-slide img.is-inline-zoomed {
+    cursor: grab;
+    touch-action: none;
+}
+
+.modal .carousel-slide img.is-inline-dragging {
+    cursor: grabbing;
+    transition: none;
+}
+
+.modal-zoom-controls {
+    position: absolute;
+    top: 12px;
+    right: 56px;
+    z-index: 12;
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    padding: 5px;
+    background: rgba(8, 8, 8, 0.72);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 999px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.45);
+    backdrop-filter: blur(10px);
+}
+
+.modal-zoom-btn {
+    min-width: 34px;
+    height: 34px;
+    padding: 0 10px;
+    border: 0;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.12);
+    color: #fff;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 800;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.modal-zoom-btn:hover {
+    background: rgba(255,255,255,0.2);
+}
+
+.modal-zoom-btn:disabled {
+    opacity: 0.4;
+    cursor: default;
+}
+
+.modal-zoom-reset {
+    min-width: 64px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
 }
 
 .carousel-indicators {
