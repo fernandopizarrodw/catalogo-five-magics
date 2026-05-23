@@ -3019,7 +3019,7 @@ header {
 }
 
 .modal .carousel-slide img {
-    touch-action: pan-x;
+    touch-action: pan-x pinch-zoom;
     cursor: zoom-in;
 }
 

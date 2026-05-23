@@ -1594,10 +1594,13 @@ let modalImageZoom = {
     x: 0,
     y: 0,
     isDragging: false,
+    isPinching: false,
     lastX: 0,
     lastY: 0,
     dragMoved: false,
-    pointerId: null
+    pointerId: null,
+    pinchStartDistance: 0,
+    pinchStartScale: 1
 };
 
 function setView(view) {
@@ -1989,10 +1992,13 @@ function resetModalImageZoom() {
         x: 0,
         y: 0,
         isDragging: false,
+        isPinching: false,
         lastX: 0,
         lastY: 0,
         dragMoved: false,
-        pointerId: null
+        pointerId: null,
+        pinchStartDistance: 0,
+        pinchStartScale: 1
     };
     applyModalImageZoom();
 }
@@ -2011,7 +2017,46 @@ function onModalZoomWheel(e) {
     setModalImageZoom(modalImageZoom.scale + direction * MODAL_ZOOM_STEP);
 }
 
+function getTouchDistance(touches) {
+    const dx = touches[0].clientX - touches[1].clientX;
+    const dy = touches[0].clientY - touches[1].clientY;
+    return Math.hypot(dx, dy);
+}
+
+function onModalZoomTouchStart(e) {
+    if (!modal.classList.contains('active')) return;
+    const targetImg = e.target.closest?.('.carousel-slide img');
+    if (!targetImg || e.touches.length < 2) return;
+
+    e.preventDefault();
+    modalImageZoom.isPinching = true;
+    modalImageZoom.isDragging = false;
+    modalImageZoom.pinchStartDistance = getTouchDistance(e.touches);
+    modalImageZoom.pinchStartScale = modalImageZoom.scale;
+}
+
+function onModalZoomTouchMove(e) {
+    if (!modalImageZoom.isPinching || e.touches.length < 2) return;
+
+    e.preventDefault();
+    const currentDistance = getTouchDistance(e.touches);
+    if (!modalImageZoom.pinchStartDistance) return;
+
+    const nextScale = modalImageZoom.pinchStartScale * (currentDistance / modalImageZoom.pinchStartDistance);
+    setModalImageZoom(nextScale);
+}
+
+function endModalZoomTouch(e) {
+    if (!modalImageZoom.isPinching) return;
+    if (e.touches && e.touches.length >= 2) return;
+
+    modalImageZoom.isPinching = false;
+    modalImageZoom.pinchStartDistance = 0;
+    modalImageZoom.pinchStartScale = modalImageZoom.scale;
+}
+
 function onModalZoomPointerDown(e) {
+    if (modalImageZoom.isPinching) return;
     if (!isModalImageZoomed()) return;
     const targetImg = e.target.closest?.('.carousel-slide img');
     if (!targetImg) return;
@@ -2027,6 +2072,7 @@ function onModalZoomPointerDown(e) {
 }
 
 function onModalZoomPointerMove(e) {
+    if (modalImageZoom.isPinching) return;
     if (!modalImageZoom.isDragging || modalImageZoom.pointerId !== e.pointerId) return;
 
     e.preventDefault();
@@ -2053,6 +2099,10 @@ function attachCarouselListeners() {
     carousel.removeEventListener('scroll', onCarouselScroll);
     carousel.removeEventListener('click', onCarouselClick);
     carousel.removeEventListener('wheel', onModalZoomWheel);
+    carousel.removeEventListener('touchstart', onModalZoomTouchStart);
+    carousel.removeEventListener('touchmove', onModalZoomTouchMove);
+    carousel.removeEventListener('touchend', endModalZoomTouch);
+    carousel.removeEventListener('touchcancel', endModalZoomTouch);
     carousel.removeEventListener('pointerdown', onModalZoomPointerDown);
     carousel.removeEventListener('pointermove', onModalZoomPointerMove);
     carousel.removeEventListener('pointerup', endModalZoomPointerDrag);
@@ -2062,6 +2112,10 @@ function attachCarouselListeners() {
     carousel.addEventListener('scroll', onCarouselScroll, { passive: true });
     carousel.addEventListener('click', onCarouselClick);
     carousel.addEventListener('wheel', onModalZoomWheel, { passive: false });
+    carousel.addEventListener('touchstart', onModalZoomTouchStart, { passive: false });
+    carousel.addEventListener('touchmove', onModalZoomTouchMove, { passive: false });
+    carousel.addEventListener('touchend', endModalZoomTouch);
+    carousel.addEventListener('touchcancel', endModalZoomTouch);
     carousel.addEventListener('pointerdown', onModalZoomPointerDown);
     carousel.addEventListener('pointermove', onModalZoomPointerMove);
     carousel.addEventListener('pointerup', endModalZoomPointerDrag);
@@ -2652,9 +2706,11 @@ window.addEventListener('keydown', (e) => {
     
     let touchStartX = 0;
     let isSwiping = false;
+    let isMultiTouch = false;
     
     carousel.addEventListener('touchstart', (e) => {
-        if (isModalImageZoomed()) {
+        isMultiTouch = e.touches.length > 1;
+        if (isMultiTouch || isModalImageZoomed()) {
             isSwiping = false;
             return;
         }
@@ -2663,8 +2719,9 @@ window.addEventListener('keydown', (e) => {
     }, { passive: true });
     
     carousel.addEventListener('touchend', (e) => {
-        if (isModalImageZoomed()) {
+        if (isMultiTouch || isModalImageZoomed()) {
             isSwiping = false;
+            if (!e.touches || e.touches.length === 0) isMultiTouch = false;
             return;
         }
         if (!isSwiping) return;
