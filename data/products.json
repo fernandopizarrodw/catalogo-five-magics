@@ -113,7 +113,7 @@
                 "role":  "front"
             },
             {
-                             "img":  "images/fmd-edition-3d/peace/peace_3d_edition_v2.png",
+                            "img":  "images/fmd-edition-3d/peace/peace_3d_edition_v2.jpg",
                 "name":  "Frente V2",
                 "role":  "front",
                 "isNew":  true
@@ -141,10 +141,10 @@
         "tipoPrecio":  "doble",
         "isNew":  true,
         "priority":  95,
-        "img":  "images/fmd-edition-3d/killing/killing_final_3d_edition.png",
+        "img":  "images/fmd-edition-3d/killing/killing_final_3d_edition.jpg",
         "variants":  [
                          {
-                             "img":  "images/fmd-edition-3d/killing/killing_final_3d_edition.png",
+                             "img":  "images/fmd-edition-3d/killing/killing_final_3d_edition.jpg",
                              "name":  "Frente",
                              "role":  "front"
                          },
@@ -177,15 +177,15 @@
         "tipoPrecio":  "doble",
         "isNew":  true,
         "priority":  99,
-        "img":  "images/fmd-edition-3d/megadeth_last_album/vic_llamas_3d_edition_frente.png",
+        "img":  "images/fmd-edition-3d/megadeth_last_album/vic_llamas_3d_edition_frente.jpg",
         "variants":  [
                          {
-                             "img":  "images/fmd-edition-3d/megadeth_last_album/vic_llamas_3d_edition_frente.png",
+                             "img":  "images/fmd-edition-3d/megadeth_last_album/vic_llamas_3d_edition_frente.jpg",
                              "name":  "Frente",
                              "role":  "front"
                          },
                          {
-                             "img":  "images/fmd-edition-3d/megadeth_last_album/vic_llamas_3d_edition_dorso.png",
+                             "img":  "images/fmd-edition-3d/megadeth_last_album/vic_llamas_3d_edition_dorso.jpg",
                              "name":  "Dorso",
                              "role":  "back"
                          }
@@ -307,7 +307,7 @@
                              "name":  "Dorso Original 1985"
                          },
                          {
-                             "img":  "images/fmd-edition-3d/killing/killing_final_3d_edition.png",
+                            "img":  "images/fmd-edition-3d/killing/killing_final_3d_edition.jpg",
                              "name":  "KIMB FMD Edition Frente",
                              "role":  "front",
                              "isNew":  true
@@ -359,7 +359,7 @@
                             "isNew":  true
                         },
                         {
-                            "img":  "images/fmd-edition-3d/peace/peace_3d_edition_v2.png",
+                            "img":  "images/fmd-edition-3d/peace/peace_3d_edition_v2.jpg",
                             "name":  "Peace 3D V2",
                             "isNew":  true
                          }
@@ -391,7 +391,7 @@
                              "name":  "Alternative FMD"
                          },
                          {
-                             "img":  "images/fmd-edition-3d/so_far/so_far_3d_edition.png",
+                            "img":  "images/fmd-edition-3d/so_far/so_far_3d_edition.jpg",
                              "name":  "So Far 3D",
                              "isNew":  true
                          }
@@ -650,7 +650,7 @@
                              "isNew":  true
                          },
                          {
-                             "img":  "images/fmd-edition-3d/world_needs/the_world_needs_a_hero_3d_edition.png",
+                            "img":  "images/fmd-edition-3d/world_needs/the_world_needs_a_hero_3d_edition.jpg",
                              "name":  "TWNAH FMD Edition V2",
                              "isNew":  true
                          }
@@ -687,12 +687,12 @@
                              "name":  "United Abominations Back"
                          },
                          {
-                             "img":  "images/fmd-edition-3d/united/united_3d_edition.png",
+                            "img":  "images/fmd-edition-3d/united/united_3d_edition.jpg",
                              "name":  "United 3D",
                              "isNew":  true
                          },
                          {
-                             "img":  "images/fmd-edition-3d/united/united_3d_edition_v2.png",
+                            "img":  "images/fmd-edition-3d/united/united_3d_edition_v2.jpg",
                              "name":  "United 3D V2",
                              "isNew":  true
                          }
@@ -864,13 +864,13 @@
                              "name":  "Dorso Tour Argentina Black"
                          },
                          {
-                             "img":  "images/fmd-edition-3d/megadeth_last_album/vic_llamas_3d_edition_frente.png",
+                            "img":  "images/fmd-edition-3d/megadeth_last_album/vic_llamas_3d_edition_frente.jpg",
                              "name":  "VIC LLAMAS FMD EDITION Frente",
                              "role":  "front",
                              "isNew":  true
                          },
                          {
-                             "img":  "images/fmd-edition-3d/megadeth_last_album/vic_llamas_3d_edition_dorso.png",
+                            "img":  "images/fmd-edition-3d/megadeth_last_album/vic_llamas_3d_edition_dorso.jpg",
                              "name":  "VIC LLAMAS FMD EDITION Dorso",
                              "role":  "back",
                              "isNew":  true
@@ -2192,9 +2192,9 @@
     },
     {
         "id":  405,
-        "category":  "Dorsales",
+        "category":  "Tour",
         "year":  "2026",
-        "name":  "Vic Tour",
+        "name":  "Vic Tour 2026",
         "tipoPrecio":  "simple",
         "img":  "images/tours/Tour_2026/vic_tour_2026_v4.png",
         "desc":  "Dorso Vic Tour en versión 2026."
