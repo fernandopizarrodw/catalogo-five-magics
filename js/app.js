@@ -75,6 +75,86 @@ function fmd3dGo(button, targetIndex) {
     fmd3dSync(group, targetIndex);
 }
 
+function initFmd3dMobileAccordion() {
+    const groups = document.querySelectorAll('.fmd3d-group');
+    if (!groups.length) return;
+
+    const isMobile = window.matchMedia('(max-width: 640px)').matches;
+
+    groups.forEach((group, index) => {
+        const head = group.querySelector('.fmd3d-group-head');
+        if (!head) return;
+
+        if (!head.dataset.accordionBound) {
+            head.dataset.accordionBound = '1';
+            head.addEventListener('click', () => {
+                if (!window.matchMedia('(max-width: 640px)').matches) return;
+
+                const willOpen = !group.classList.contains('is-open');
+                groups.forEach(item => item.classList.remove('is-open'));
+                if (willOpen) {
+                    group.classList.add('is-open');
+                    fmd3dSync(group, Number(group.dataset.index || 0));
+                }
+            });
+        }
+
+        if (isMobile) {
+            group.classList.toggle('is-open', index === 0);
+        } else {
+            group.classList.add('is-open');
+        }
+    });
+}
+
+function initFmdEditionTags() {
+    const groups = document.querySelectorAll('.fmd3d-group');
+    const forbiddenLabels = new Set(['3D Pop-Out', 'Album Editions']);
+    const normalizeTag = (tag) => {
+        const clean = (tag || '').trim();
+        if (!clean || forbiddenLabels.has(clean)) return '';
+        if (clean.toLowerCase() === 'v1 / v2') return '2 versiones';
+        if (clean.toLowerCase() === '3d') return 'Edición 3D';
+        return clean;
+    };
+
+    groups.forEach(group => {
+        const head = group.querySelector('.fmd3d-group-head');
+        if (!head) return;
+
+        const legacyInfo = head.querySelector('span');
+        const legacyTag = legacyInfo ? legacyInfo.textContent.trim() : '';
+        const customTags = (group.dataset.tags || '')
+            .split(',')
+            .map(normalizeTag)
+            .filter(Boolean);
+
+        const fallbackTag = normalizeTag(legacyTag) || 'Edición 3D';
+        const tags = customTags.length ? customTags : [fallbackTag];
+        const uniqueTags = [...new Set(tags)].slice(0, 1);
+
+        const existing = head.querySelector('.fmd3d-card-tags');
+        if (existing) existing.remove();
+
+        const tagWrap = document.createElement('div');
+        tagWrap.className = 'fmd3d-card-tags';
+        tagWrap.setAttribute('aria-label', 'Etiquetas de edición');
+
+        uniqueTags.forEach(tag => {
+            const badge = document.createElement('span');
+            badge.className = 'fmd3d-card-tag';
+            badge.textContent = tag;
+            tagWrap.appendChild(badge);
+        });
+
+        if (legacyInfo) {
+            legacyInfo.style.display = 'none';
+        }
+
+        head.appendChild(tagWrap);
+    });
+}
+
 function initFmd3dCarousels() {
     const groups = document.querySelectorAll('.fmd3d-group');
     groups.forEach(group => {
@@ -84,6 +164,10 @@ function initFmd3dCarousels() {
         }
         fmd3dSync(group, 0);
     });
+
+    initFmd3dMobileAccordion();
+    initFmdEditionTags();
+    window.addEventListener('resize', initFmd3dMobileAccordion);
 }
 
 // === BUSCADOR POR CÓDIGO PARA PEDIDOS ===

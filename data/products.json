@@ -715,6 +715,22 @@
         "name":  "TH1RT3EN",
         "tipoPrecio":  "simple",
         "img":  "images/albums/13/13.jpg",
+        "variants":  [
+                         {
+                             "img":  "images/albums/13/13.jpg",
+                             "name":  "Original"
+                         },
+                         {
+                             "img":  "images/fmd-edition-3d/thirteen/13_3d_fmd_edition_v1.jpg",
+                             "name":  "13 3D V1",
+                             "isNew":  true
+                         },
+                         {
+                             "img":  "images/fmd-edition-3d/thirteen/13_3d_fmd_edition_v2.jpg",
+                             "name":  "13 3D V2",
+                             "isNew":  true
+                         }
+                     ],
         "desc":  "Un repaso oscuro por la herencia sonora de la banda bajo la mÃ­stica numÃ©rica y la presencia fantasmal de su mascota."
     },
     {
@@ -785,6 +801,22 @@
         "name":  "The Sick, the Dying...And the Dead!",
         "tipoPrecio":  "simple",
         "img":  "images/albums/The_sick/the_sick_the_dying_and_the_dead.jpg",
+        "variants":  [
+                         {
+                             "img":  "images/albums/The_sick/the_sick_the_dying_and_the_dead.jpg",
+                             "name":  "Original"
+                         },
+                         {
+                             "img":  "images/fmd-edition-3d/sick/the_sick_fmd_3d.jpg",
+                             "name":  "The Sick 3D",
+                             "isNew":  true
+                         },
+                         {
+                             "img":  "images/fmd-edition-3d/sick/vic_the_sick_fmd_3d.jpg",
+                             "name":  "Vic The Sick 3D",
+                             "isNew":  true
+                         }
+                     ],
         "desc":  "Virtuosismo Ã©pico y relatos de pestilencia histÃ³rica con un Vic Rattlehead convertido en un guerrero medieval implacable."
     },
     {

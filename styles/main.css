@@ -501,6 +501,29 @@
     white-space: nowrap;
 }
 
+.fmd3d-card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-left: auto;
+    justify-content: flex-end;
+}
+
+.fmd3d-card-tag {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px 8px;
+    border-radius: 999px;
+    border: 1px solid rgba(145, 193, 255, 0.42);
+    background: rgba(77, 130, 219, 0.16);
+    color: #dbeafe;
+    font-size: 0.68rem;
+    line-height: 1;
+    letter-spacing: 0.2px;
+    white-space: nowrap;
+}
+
 .fmd3d-group-carousel {
     position: relative;
     overflow: hidden;
@@ -634,6 +657,54 @@
 
     .fmd3d-group-head {
         min-height: 0;
+        margin-bottom: 0;
+        cursor: pointer;
+        position: relative;
+        padding-right: 24px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .fmd3d-card-tags {
+        margin-left: 0;
+        justify-content: flex-start;
+        padding-right: 6px;
+    }
+
+    .fmd3d-group-head::after {
+        content: '+';
+        position: absolute;
+        right: 0;
+        top: 2px;
+        color: #9db9d8;
+        font-size: 1rem;
+        line-height: 1;
+    }
+
+    .fmd3d-group .fmd3d-group-carousel {
+        display: none;
+        margin-top: 10px;
+    }
+
+    .fmd3d-group .fmd3d-dots {
+        display: none;
+    }
+
+    .fmd3d-group.is-open .fmd3d-group-carousel {
+        display: block;
+    }
+
+    .fmd3d-group.is-open .fmd3d-dots {
+        display: flex;
+    }
+
+    .fmd3d-group.is-open.single .fmd3d-dots {
+        display: none;
+    }
+
+    .fmd3d-group.is-open .fmd3d-group-head::after {
+        content: '−';
     }
 
     .fmd3d-group-slide img {
