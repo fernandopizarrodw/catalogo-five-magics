@@ -1589,6 +1589,9 @@ let currentSearch = '';
 const MODAL_ZOOM_MIN = 1;
 const MODAL_ZOOM_MAX = 3;
 const MODAL_ZOOM_STEP = 0.25;
+const FULL_ZOOM_MIN = 1;
+const FULL_ZOOM_MAX = 4;
+const FULL_ZOOM_STEP = 0.25;
 let modalImageZoom = {
     scale: 1,
     x: 0,
@@ -1598,6 +1601,18 @@ let modalImageZoom = {
     lastX: 0,
     lastY: 0,
     dragMoved: false,
+    pointerId: null,
+    pinchStartDistance: 0,
+    pinchStartScale: 1
+};
+let fullImageZoom = {
+    scale: 1,
+    x: 0,
+    y: 0,
+    isDragging: false,
+    isPinching: false,
+    lastX: 0,
+    lastY: 0,
     pointerId: null,
     pinchStartDistance: 0,
     pinchStartScale: 1
@@ -1915,13 +1930,149 @@ function closeModal() {
 
 function openZoom(src) {
     zoomImg.src = src;
+    resetFullImageZoom();
     zoomOverlay.style.display = 'flex';
     setTimeout(() => zoomOverlay.classList.add('active'), 10);
 }
 
 function closeZoom() {
     zoomOverlay.classList.remove('active');
-    setTimeout(() => { zoomOverlay.style.display = 'none'; }, 300);
+    setTimeout(() => {
+        zoomOverlay.style.display = 'none';
+        resetFullImageZoom();
+    }, 300);
+}
+
+function clampFullImageZoomPan() {
+    if (!zoomImg || fullImageZoom.scale <= FULL_ZOOM_MIN) {
+        fullImageZoom.x = 0;
+        fullImageZoom.y = 0;
+        return;
+    }
+
+    const overflowX = Math.max(0, (zoomImg.clientWidth * (fullImageZoom.scale - 1)) / 2);
+    const overflowY = Math.max(0, (zoomImg.clientHeight * (fullImageZoom.scale - 1)) / 2);
+    fullImageZoom.x = Math.max(-overflowX, Math.min(overflowX, fullImageZoom.x));
+    fullImageZoom.y = Math.max(-overflowY, Math.min(overflowY, fullImageZoom.y));
+}
+
+function applyFullImageZoom() {
+    clampFullImageZoomPan();
+    const isZoomed = fullImageZoom.scale > FULL_ZOOM_MIN;
+    zoomImg.style.transform = isZoomed
+        ? `translate(${fullImageZoom.x}px, ${fullImageZoom.y}px) scale(${fullImageZoom.scale})`
+        : '';
+    zoomImg.classList.toggle('zoomed', isZoomed);
+}
+
+function setFullImageZoom(scale) {
+    fullImageZoom.scale = Math.max(FULL_ZOOM_MIN, Math.min(FULL_ZOOM_MAX, scale));
+    if (fullImageZoom.scale <= FULL_ZOOM_MIN) {
+        fullImageZoom.scale = FULL_ZOOM_MIN;
+        fullImageZoom.x = 0;
+        fullImageZoom.y = 0;
+    }
+    applyFullImageZoom();
+}
+
+function resetFullImageZoom() {
+    fullImageZoom = {
+        scale: 1,
+        x: 0,
+        y: 0,
+        isDragging: false,
+        isPinching: false,
+        lastX: 0,
+        lastY: 0,
+        pointerId: null,
+        pinchStartDistance: 0,
+        pinchStartScale: 1
+    };
+    if (zoomImg) {
+        zoomImg.style.transform = '';
+        zoomImg.classList.remove('zoomed');
+    }
+}
+
+function onFullZoomWheel(e) {
+    if (!zoomOverlay.classList.contains('active')) return;
+    e.preventDefault();
+    const direction = e.deltaY > 0 ? -1 : 1;
+    setFullImageZoom(fullImageZoom.scale + direction * FULL_ZOOM_STEP);
+}
+
+function onFullZoomTouchStart(e) {
+    if (!zoomOverlay.classList.contains('active')) return;
+    if (e.touches.length === 1 && fullImageZoom.scale > FULL_ZOOM_MIN) {
+        e.preventDefault();
+        fullImageZoom.isDragging = true;
+        fullImageZoom.isPinching = false;
+        fullImageZoom.lastX = e.touches[0].clientX;
+        fullImageZoom.lastY = e.touches[0].clientY;
+        return;
+    }
+
+    if (e.touches.length < 2) return;
+    e.preventDefault();
+    fullImageZoom.isPinching = true;
+    fullImageZoom.isDragging = false;
+    fullImageZoom.pinchStartDistance = getTouchDistance(e.touches);
+    fullImageZoom.pinchStartScale = fullImageZoom.scale;
+}
+
+function onFullZoomTouchMove(e) {
+    if (fullImageZoom.isPinching && e.touches.length >= 2) {
+        e.preventDefault();
+        const currentDistance = getTouchDistance(e.touches);
+        if (!fullImageZoom.pinchStartDistance) return;
+        setFullImageZoom(fullImageZoom.pinchStartScale * (currentDistance / fullImageZoom.pinchStartDistance));
+        return;
+    }
+
+    if (!fullImageZoom.isDragging || fullImageZoom.scale <= FULL_ZOOM_MIN || e.touches.length !== 1) return;
+    e.preventDefault();
+    const touch = e.touches[0];
+    fullImageZoom.x += touch.clientX - fullImageZoom.lastX;
+    fullImageZoom.y += touch.clientY - fullImageZoom.lastY;
+    fullImageZoom.lastX = touch.clientX;
+    fullImageZoom.lastY = touch.clientY;
+    applyFullImageZoom();
+}
+
+function endFullZoomTouch(e) {
+    if (e.touches && e.touches.length >= 2) return;
+    fullImageZoom.isDragging = false;
+    fullImageZoom.isPinching = false;
+    fullImageZoom.pinchStartDistance = 0;
+    fullImageZoom.pinchStartScale = fullImageZoom.scale;
+    applyFullImageZoom();
+}
+
+function onFullZoomPointerDown(e) {
+    if (e.pointerType === 'touch' || fullImageZoom.scale <= FULL_ZOOM_MIN) return;
+    e.preventDefault();
+    fullImageZoom.isDragging = true;
+    fullImageZoom.lastX = e.clientX;
+    fullImageZoom.lastY = e.clientY;
+    fullImageZoom.pointerId = e.pointerId;
+    zoomImg.setPointerCapture?.(e.pointerId);
+}
+
+function onFullZoomPointerMove(e) {
+    if (e.pointerType === 'touch' || !fullImageZoom.isDragging || fullImageZoom.pointerId !== e.pointerId) return;
+    e.preventDefault();
+    fullImageZoom.x += e.clientX - fullImageZoom.lastX;
+    fullImageZoom.y += e.clientY - fullImageZoom.lastY;
+    fullImageZoom.lastX = e.clientX;
+    fullImageZoom.lastY = e.clientY;
+    applyFullImageZoom();
+}
+
+function endFullZoomPointerDrag(e) {
+    if (e.pointerType === 'touch' || fullImageZoom.pointerId !== e.pointerId) return;
+    fullImageZoom.isDragging = false;
+    fullImageZoom.pointerId = null;
+    applyFullImageZoom();
 }
 
 function getActiveCarouselImage() {
@@ -2026,7 +2177,20 @@ function getTouchDistance(touches) {
 function onModalZoomTouchStart(e) {
     if (!modal.classList.contains('active')) return;
     const targetImg = e.target.closest?.('.carousel-slide img');
-    if (!targetImg || e.touches.length < 2) return;
+    if (!targetImg) return;
+
+    if (e.touches.length === 1 && isModalImageZoomed()) {
+        e.preventDefault();
+        modalImageZoom.isDragging = true;
+        modalImageZoom.isPinching = false;
+        modalImageZoom.lastX = e.touches[0].clientX;
+        modalImageZoom.lastY = e.touches[0].clientY;
+        modalImageZoom.dragMoved = false;
+        applyModalImageZoom();
+        return;
+    }
+
+    if (e.touches.length < 2) return;
 
     e.preventDefault();
     modalImageZoom.isPinching = true;
@@ -2036,26 +2200,42 @@ function onModalZoomTouchStart(e) {
 }
 
 function onModalZoomTouchMove(e) {
-    if (!modalImageZoom.isPinching || e.touches.length < 2) return;
+    if (modalImageZoom.isPinching && e.touches.length >= 2) {
+        e.preventDefault();
+        const currentDistance = getTouchDistance(e.touches);
+        if (!modalImageZoom.pinchStartDistance) return;
+
+        const nextScale = modalImageZoom.pinchStartScale * (currentDistance / modalImageZoom.pinchStartDistance);
+        setModalImageZoom(nextScale);
+        return;
+    }
+
+    if (!modalImageZoom.isDragging || !isModalImageZoomed() || e.touches.length !== 1) return;
 
     e.preventDefault();
-    const currentDistance = getTouchDistance(e.touches);
-    if (!modalImageZoom.pinchStartDistance) return;
-
-    const nextScale = modalImageZoom.pinchStartScale * (currentDistance / modalImageZoom.pinchStartDistance);
-    setModalImageZoom(nextScale);
+    const touch = e.touches[0];
+    const dx = touch.clientX - modalImageZoom.lastX;
+    const dy = touch.clientY - modalImageZoom.lastY;
+    if (Math.abs(dx) > 1 || Math.abs(dy) > 1) modalImageZoom.dragMoved = true;
+    modalImageZoom.x += dx;
+    modalImageZoom.y += dy;
+    modalImageZoom.lastX = touch.clientX;
+    modalImageZoom.lastY = touch.clientY;
+    applyModalImageZoom();
 }
 
 function endModalZoomTouch(e) {
-    if (!modalImageZoom.isPinching) return;
     if (e.touches && e.touches.length >= 2) return;
 
     modalImageZoom.isPinching = false;
+    modalImageZoom.isDragging = false;
     modalImageZoom.pinchStartDistance = 0;
     modalImageZoom.pinchStartScale = modalImageZoom.scale;
+    applyModalImageZoom();
 }
 
 function onModalZoomPointerDown(e) {
+    if (e.pointerType === 'touch') return;
     if (modalImageZoom.isPinching) return;
     if (!isModalImageZoomed()) return;
     const targetImg = e.target.closest?.('.carousel-slide img');
@@ -2072,6 +2252,7 @@ function onModalZoomPointerDown(e) {
 }
 
 function onModalZoomPointerMove(e) {
+    if (e.pointerType === 'touch') return;
     if (modalImageZoom.isPinching) return;
     if (!modalImageZoom.isDragging || modalImageZoom.pointerId !== e.pointerId) return;
 
@@ -2087,6 +2268,7 @@ function onModalZoomPointerMove(e) {
 }
 
 function endModalZoomPointerDrag(e) {
+    if (e.pointerType === 'touch') return;
     if (modalImageZoom.pointerId !== null && e.pointerId !== modalImageZoom.pointerId) return;
     modalImageZoom.isDragging = false;
     modalImageZoom.pointerId = null;
@@ -2683,6 +2865,15 @@ function closeImageModal() {
 document.getElementById('modalClose').onclick = closeModal;
 document.getElementById('zoomClose').onclick = closeZoom;
 zoomOverlay.onclick = (e) => { if(e.target.id === 'zoomContainer' || e.target === zoomOverlay) closeZoom(); };
+zoomOverlay.addEventListener('wheel', onFullZoomWheel, { passive: false });
+zoomOverlay.addEventListener('touchstart', onFullZoomTouchStart, { passive: false });
+zoomOverlay.addEventListener('touchmove', onFullZoomTouchMove, { passive: false });
+zoomOverlay.addEventListener('touchend', endFullZoomTouch);
+zoomOverlay.addEventListener('touchcancel', endFullZoomTouch);
+zoomImg.addEventListener('pointerdown', onFullZoomPointerDown);
+zoomImg.addEventListener('pointermove', onFullZoomPointerMove);
+zoomImg.addEventListener('pointerup', endFullZoomPointerDrag);
+zoomImg.addEventListener('pointercancel', endFullZoomPointerDrag);
 window.addEventListener('popstate', () => { if(modal.classList.contains('active')) closeModal(); });
 
 // Agregar soporte de teclado para navegación del carousel
