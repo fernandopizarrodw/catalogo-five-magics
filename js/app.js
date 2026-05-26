@@ -155,6 +155,35 @@ function initFmdEditionTags() {
     });
 }
 
+function initFmdOriginalsAccordion() {
+    const groups = document.querySelectorAll('#fmdOriginals .fmd-originals-group');
+    if (!groups.length) return;
+
+    const isMobile = window.matchMedia('(max-width: 640px)').matches;
+
+    groups.forEach((group, index) => {
+        const head = group.querySelector('.fmd-originals-group-head');
+        if (!head) return;
+
+        if (!head.dataset.accordionBound) {
+            head.dataset.accordionBound = '1';
+            head.addEventListener('click', () => {
+                if (!window.matchMedia('(max-width: 640px)').matches) return;
+
+                const willOpen = !group.classList.contains('is-open');
+                groups.forEach(item => item.classList.remove('is-open'));
+                if (willOpen) group.classList.add('is-open');
+            });
+        }
+
+        if (isMobile) {
+            group.classList.toggle('is-open', index === 0);
+        } else {
+            group.classList.add('is-open');
+        }
+    });
+}
+
 function initFmd3dCarousels() {
     const groups = document.querySelectorAll('.fmd3d-group');
     groups.forEach(group => {
@@ -167,7 +196,9 @@ function initFmd3dCarousels() {
 
     initFmd3dMobileAccordion();
     initFmdEditionTags();
+    initFmdOriginalsAccordion();
     window.addEventListener('resize', initFmd3dMobileAccordion);
+    window.addEventListener('resize', initFmdOriginalsAccordion);
 }
 
 // === BUSCADOR POR CÓDIGO PARA PEDIDOS ===
@@ -1603,7 +1634,9 @@ let modalImageZoom = {
     dragMoved: false,
     pointerId: null,
     pinchStartDistance: 0,
-    pinchStartScale: 1
+    pinchStartScale: 1,
+    pinchLastCenterX: 0,
+    pinchLastCenterY: 0
 };
 let fullImageZoom = {
     scale: 1,
@@ -2089,8 +2122,11 @@ function clampModalZoomPan() {
         return;
     }
 
-    const scaleOverflowX = Math.max(0, (img.clientWidth * (modalImageZoom.scale - 1)) / 2);
-    const scaleOverflowY = Math.max(0, (img.clientHeight * (modalImageZoom.scale - 1)) / 2);
+    const slide = img.closest('.carousel-slide');
+    const viewportWidth = slide?.clientWidth || carousel?.clientWidth || img.clientWidth;
+    const viewportHeight = slide?.clientHeight || img.clientHeight;
+    const scaleOverflowX = Math.max(0, ((img.clientWidth * modalImageZoom.scale) - viewportWidth) / 2);
+    const scaleOverflowY = Math.max(0, ((img.clientHeight * modalImageZoom.scale) - viewportHeight) / 2);
     modalImageZoom.x = Math.max(-scaleOverflowX, Math.min(scaleOverflowX, modalImageZoom.x));
     modalImageZoom.y = Math.max(-scaleOverflowY, Math.min(scaleOverflowY, modalImageZoom.y));
 }
@@ -2121,7 +2157,7 @@ function applyModalImageZoom() {
             ? `translate(${modalImageZoom.x}px, ${modalImageZoom.y}px) scale(${modalImageZoom.scale})`
             : '';
         activeImg.classList.toggle('is-inline-zoomed', isZoomed);
-        activeImg.classList.toggle('is-inline-dragging', modalImageZoom.isDragging);
+        activeImg.classList.toggle('is-inline-dragging', modalImageZoom.isDragging || modalImageZoom.isPinching);
     }
 
     updateModalZoomControls();
@@ -2149,7 +2185,9 @@ function resetModalImageZoom() {
         dragMoved: false,
         pointerId: null,
         pinchStartDistance: 0,
-        pinchStartScale: 1
+        pinchStartScale: 1,
+        pinchLastCenterX: 0,
+        pinchLastCenterY: 0
     };
     applyModalImageZoom();
 }
@@ -2172,6 +2210,25 @@ function getTouchDistance(touches) {
     const dx = touches[0].clientX - touches[1].clientX;
     const dy = touches[0].clientY - touches[1].clientY;
     return Math.hypot(dx, dy);
+}
+
+function getTouchCenter(touches) {
+    return {
+        x: (touches[0].clientX + touches[1].clientX) / 2,
+        y: (touches[0].clientY + touches[1].clientY) / 2
+    };
+}
+
+function getModalZoomCenterOffset(clientX, clientY) {
+    const img = getActiveCarouselImage();
+    const slide = img?.closest('.carousel-slide');
+    const rect = (slide || carousel || img)?.getBoundingClientRect();
+    if (!rect) return { x: 0, y: 0 };
+
+    return {
+        x: clientX - (rect.left + rect.width / 2),
+        y: clientY - (rect.top + rect.height / 2)
+    };
 }
 
 function onModalZoomTouchStart(e) {
@@ -2197,6 +2254,9 @@ function onModalZoomTouchStart(e) {
     modalImageZoom.isDragging = false;
     modalImageZoom.pinchStartDistance = getTouchDistance(e.touches);
     modalImageZoom.pinchStartScale = modalImageZoom.scale;
+    const center = getTouchCenter(e.touches);
+    modalImageZoom.pinchLastCenterX = center.x;
+    modalImageZoom.pinchLastCenterY = center.y;
 }
 
 function onModalZoomTouchMove(e) {
@@ -2205,8 +2265,20 @@ function onModalZoomTouchMove(e) {
         const currentDistance = getTouchDistance(e.touches);
         if (!modalImageZoom.pinchStartDistance) return;
 
+        const previousScale = modalImageZoom.scale;
+        const center = getTouchCenter(e.touches);
+        const centerOffset = getModalZoomCenterOffset(center.x, center.y);
         const nextScale = modalImageZoom.pinchStartScale * (currentDistance / modalImageZoom.pinchStartDistance);
-        setModalImageZoom(nextScale);
+        const clampedScale = Math.max(MODAL_ZOOM_MIN, Math.min(MODAL_ZOOM_MAX, nextScale));
+        const ratio = previousScale > 0 ? clampedScale / previousScale : 1;
+        const centerMoveX = center.x - modalImageZoom.pinchLastCenterX;
+        const centerMoveY = center.y - modalImageZoom.pinchLastCenterY;
+
+        modalImageZoom.x = centerOffset.x - (centerOffset.x - modalImageZoom.x) * ratio + centerMoveX;
+        modalImageZoom.y = centerOffset.y - (centerOffset.y - modalImageZoom.y) * ratio + centerMoveY;
+        modalImageZoom.pinchLastCenterX = center.x;
+        modalImageZoom.pinchLastCenterY = center.y;
+        setModalImageZoom(clampedScale);
         return;
     }
 
