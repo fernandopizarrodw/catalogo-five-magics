@@ -34,6 +34,9 @@ let selectedSize = '';
 let selectedCut = 'clasica';
 let selectedColor = 'negro';
 let selectedBackIndex = -1; // Índice del dorso seleccionado para doble estampa (-1 = ninguno)
+let fmdSpotlightTimer = null;
+let fmdSpotlightPaused = false;
+let fmdSpotlightTouchResume = null;
 
 function scrollToSection(sectionId) {
     const target = document.getElementById(sectionId);
@@ -43,6 +46,165 @@ function scrollToSection(sectionId) {
     if (window.location.hash !== `#${sectionId}`) {
         history.replaceState(null, '', `#${sectionId}`);
     }
+}
+
+function parseOpenModalArgs(onclickValue) {
+    if (!onclickValue) return null;
+    const match = onclickValue.match(/openModal\(([^)]*)\)/);
+    if (!match) return null;
+
+    const args = match[1].match(/^\s*(\d+)\s*(?:,\s*(\d+))?\s*(?:,\s*\[([0-9\s,]+)\])?/);
+    if (!args) return null;
+
+    const id = Number(args[1]);
+    const variantIndex = args[2] !== undefined ? Number(args[2]) : undefined;
+    const scopedVariantIndexes = args[3]
+        ? args[3].split(',').map(v => Number(v.trim())).filter(Number.isFinite)
+        : undefined;
+
+    return { id, variantIndex, scopedVariantIndexes };
+}
+
+function openSpotlightItem(item) {
+    if (!item || typeof openModal !== 'function') return;
+    openModal(item.id, item.variantIndex, item.scopedVariantIndexes);
+}
+
+function initFmdSpotlight() {
+    const section = document.getElementById('fmdSpotlight');
+    if (!section) return;
+
+    const mediaBtn = document.getElementById('fmdSpotlightMedia');
+    const imageEl = document.getElementById('fmdSpotlightImage');
+    const titleEl = document.getElementById('fmdSpotlightTitle');
+    const descEl = document.getElementById('fmdSpotlightDesc');
+    const typeEl = document.getElementById('fmdSpotlightType');
+    const counterEl = document.getElementById('fmdSpotlightCounter');
+    const ctaEl = document.getElementById('fmdSpotlightCTA');
+    if (!mediaBtn || !imageEl || !titleEl || !descEl || !typeEl || !counterEl || !ctaEl) return;
+
+    const items = [];
+
+    document.querySelectorAll('#fmdEdition3dGrid .fmd3d-group').forEach(group => {
+        const groupTitle = group.querySelector('.fmd3d-group-head strong')?.textContent?.trim() || 'FMD Edition';
+        const groupType = group.querySelector('.fmd3d-group-head span')?.textContent?.trim() || 'Albumes FMD';
+
+        group.querySelectorAll('.fmd3d-group-slide').forEach(slide => {
+            const img = slide.querySelector('img');
+            const label = slide.querySelector('span')?.textContent?.trim() || 'Edicion';
+            const args = parseOpenModalArgs(slide.getAttribute('onclick'));
+            if (!img || !args) return;
+
+            items.push({
+                section: 'Albumes FMD',
+                title: groupTitle,
+                type: groupType,
+                label,
+                img: img.getAttribute('src') || '',
+                alt: img.getAttribute('alt') || groupTitle,
+                ...args
+            });
+        });
+    });
+
+    document.querySelectorAll('#fmdOriginalsGrid .fmd-originals-group').forEach(group => {
+        const groupTitle = group.querySelector('.fmd-originals-group-head strong')?.textContent?.trim() || 'Original FMD';
+        const groupType = group.querySelector('.fmd-originals-group-head span')?.textContent?.trim() || 'Original FMD';
+        const media = group.querySelector('.fmd-originals-media');
+        const img = media?.querySelector('img');
+        const args = parseOpenModalArgs(media?.getAttribute('onclick'));
+        if (!img || !args) return;
+
+        items.push({
+            section: 'Originales FMD',
+            title: groupTitle,
+            type: groupType,
+            label: 'Original FMD',
+            img: img.getAttribute('src') || '',
+            alt: img.getAttribute('alt') || groupTitle,
+            ...args
+        });
+    });
+
+    if (!items.length) return;
+
+    let order = [...Array(items.length).keys()].sort(() => Math.random() - 0.5);
+    let current = 0;
+    let swapTimeout = null;
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    const applyItem = (item) => {
+        imageEl.src = item.img;
+        imageEl.alt = item.alt;
+        titleEl.textContent = item.title;
+        descEl.textContent = `${item.type} · ${item.label}`;
+        typeEl.textContent = item.section;
+        counterEl.textContent = `${current + 1} / ${items.length}`;
+        mediaBtn.onclick = () => openSpotlightItem(item);
+        ctaEl.onclick = () => openSpotlightItem(item);
+    };
+
+    const render = (animated = false) => {
+        const item = items[order[current]];
+        if (!item) return;
+
+        if (!animated || reducedMotion) {
+            applyItem(item);
+            return;
+        }
+
+        if (swapTimeout) {
+            clearTimeout(swapTimeout);
+            swapTimeout = null;
+        }
+
+        mediaBtn.classList.add('is-swapping');
+        swapTimeout = setTimeout(() => {
+            applyItem(item);
+            mediaBtn.classList.remove('is-swapping');
+            swapTimeout = null;
+        }, 140);
+    };
+
+    const next = () => {
+        current += 1;
+        if (current >= order.length) {
+            order = [...Array(items.length).keys()].sort(() => Math.random() - 0.5);
+            current = 0;
+        }
+        render(true);
+    };
+
+    const stopTimer = () => {
+        if (fmdSpotlightTimer) {
+            clearInterval(fmdSpotlightTimer);
+            fmdSpotlightTimer = null;
+        }
+    };
+
+    const startTimer = () => {
+        stopTimer();
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || items.length < 2) return;
+        fmdSpotlightTimer = setInterval(() => {
+            if (!fmdSpotlightPaused) next();
+        }, 3800);
+    };
+
+    if (!section.dataset.spotlightBound) {
+        section.dataset.spotlightBound = '1';
+        section.addEventListener('mouseenter', () => { fmdSpotlightPaused = true; });
+        section.addEventListener('mouseleave', () => { fmdSpotlightPaused = false; });
+        section.addEventListener('focusin', () => { fmdSpotlightPaused = true; });
+        section.addEventListener('focusout', () => { fmdSpotlightPaused = false; });
+        section.addEventListener('touchstart', () => {
+            fmdSpotlightPaused = true;
+            if (fmdSpotlightTouchResume) clearTimeout(fmdSpotlightTouchResume);
+            fmdSpotlightTouchResume = setTimeout(() => { fmdSpotlightPaused = false; }, 4200);
+        }, { passive: true });
+    }
+
+    render();
+    startTimer();
 }
 
 function fmd3dSync(group, index) {
@@ -4193,6 +4355,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initSearchModal();
     initCountdown();
     initFmd3dCarousels();
+    initFmdSpotlight();
 });
 
 // Escuchar cambios en hash (si usuario navega directamente a #producto-123)
