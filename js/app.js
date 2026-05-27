@@ -34,6 +34,9 @@ let selectedSize = '';
 let selectedCut = 'clasica';
 let selectedColor = 'negro';
 let selectedBackIndex = -1; // Índice del dorso seleccionado para doble estampa (-1 = ninguno)
+let fmdSpotlightTimer = null;
+let fmdSpotlightPaused = false;
+let fmdSpotlightTouchResume = null;
 
 function scrollToSection(sectionId) {
     const target = document.getElementById(sectionId);
@@ -43,6 +46,224 @@ function scrollToSection(sectionId) {
     if (window.location.hash !== `#${sectionId}`) {
         history.replaceState(null, '', `#${sectionId}`);
     }
+}
+
+function parseOpenModalArgs(onclickValue) {
+    if (!onclickValue) return null;
+    const match = onclickValue.match(/openModal\(([^)]*)\)/);
+    if (!match) return null;
+
+    const args = match[1].match(/^\s*(\d+)\s*(?:,\s*(\d+))?\s*(?:,\s*\[([0-9\s,]+)\])?/);
+    if (!args) return null;
+
+    const id = Number(args[1]);
+    const variantIndex = args[2] !== undefined ? Number(args[2]) : undefined;
+    const scopedVariantIndexes = args[3]
+        ? args[3].split(',').map(v => Number(v.trim())).filter(Number.isFinite)
+        : undefined;
+
+    return { id, variantIndex, scopedVariantIndexes };
+}
+
+function openSpotlightItem(item) {
+    if (!item || typeof openModal !== 'function') return;
+    openModal(item.id, item.variantIndex, item.scopedVariantIndexes);
+}
+
+function initFmdSpotlight() {
+    const section = document.getElementById('fmdSpotlight');
+    if (!section) return;
+
+    const mediaBtn = document.getElementById('fmdSpotlightMedia');
+    const imageEl = document.getElementById('fmdSpotlightImage');
+    const titleEl = document.getElementById('fmdSpotlightTitle');
+    const descEl = document.getElementById('fmdSpotlightDesc');
+    const typeEl = document.getElementById('fmdSpotlightType');
+    const counterEl = document.getElementById('fmdSpotlightCounter');
+    const ctaEl = document.getElementById('fmdSpotlightCTA');
+    if (!mediaBtn || !imageEl || !titleEl || !descEl || !typeEl || !counterEl || !ctaEl) return;
+
+    const items = [];
+    const seen = new Set();
+
+    const pushSpotlightItem = (item) => {
+        if (!item || !item.img || !Number.isFinite(item.id)) return;
+        const variantKey = Number.isFinite(item.variantIndex) ? item.variantIndex : 'base';
+        const key = `${item.id}|${variantKey}|${item.img}`;
+        if (seen.has(key)) return;
+        seen.add(key);
+        items.push(item);
+    };
+
+    document.querySelectorAll('#fmdEdition3dGrid .fmd3d-group').forEach(group => {
+        const groupTitle = group.querySelector('.fmd3d-group-head strong')?.textContent?.trim() || 'FMD Edition';
+        const groupType = group.querySelector('.fmd3d-group-head span')?.textContent?.trim() || 'Albumes FMD';
+
+        group.querySelectorAll('.fmd3d-group-slide').forEach(slide => {
+            const img = slide.querySelector('img');
+            const label = slide.querySelector('span')?.textContent?.trim() || 'Edicion';
+            const args = parseOpenModalArgs(slide.getAttribute('onclick'));
+            if (!img || !args) return;
+
+            pushSpotlightItem({
+                section: 'Albumes FMD',
+                title: groupTitle,
+                type: groupType,
+                label,
+                img: img.getAttribute('src') || '',
+                alt: img.getAttribute('alt') || groupTitle,
+                ...args
+            });
+        });
+    });
+
+    document.querySelectorAll('#fmdOriginalsGrid .fmd-originals-group').forEach(group => {
+        const groupTitle = group.querySelector('.fmd-originals-group-head strong')?.textContent?.trim() || 'Original FMD';
+        const groupType = group.querySelector('.fmd-originals-group-head span')?.textContent?.trim() || 'Original FMD';
+        const media = group.querySelector('.fmd-originals-media');
+        const img = media?.querySelector('img');
+        const args = parseOpenModalArgs(media?.getAttribute('onclick'));
+        if (!img || !args) return;
+
+        pushSpotlightItem({
+            section: 'Originales FMD',
+            title: groupTitle,
+            type: groupType,
+            label: 'Original FMD',
+            img: img.getAttribute('src') || '',
+            alt: img.getAttribute('alt') || groupTitle,
+            ...args
+        });
+    });
+
+    // Soporta auto-alta de nuevos diseños en JOYAS OCULTAS FMD
+    // con solo agregarlos al JSON en images/fmd-edition-3d/vic_tour_2026/
+    const vicTourPath = 'images/fmd-edition-3d/vic_tour_2026/';
+    if (Array.isArray(db) && db.length) {
+        db.forEach(product => {
+            const productId = Number(product?.id);
+            if (!Number.isFinite(productId)) return;
+
+            if (Array.isArray(product?.variants) && product.variants.length) {
+                product.variants.forEach((variant, index) => {
+                    const variantImg = String(variant?.img || '');
+                    if (!variantImg.includes(vicTourPath)) return;
+
+                    const variantName = String(variant?.name || product?.name || 'Original FMD').trim();
+                    const year = String(product?.year || '2026').trim();
+                    pushSpotlightItem({
+                        section: 'Originales FMD',
+                        title: `${year} · ${variantName.replace(/\s+FMD(?:\s+Edition)?$/i, '').trim()}`,
+                        type: 'Original FMD',
+                        label: 'Drop 2026',
+                        img: variantImg,
+                        alt: `${year} ${variantName}`,
+                        id: productId,
+                        variantIndex: index,
+                        scopedVariantIndexes: [index]
+                    });
+                });
+                return;
+            }
+
+            const baseImg = String(product?.img || '');
+            if (!baseImg.includes(vicTourPath)) return;
+
+            const baseName = String(product?.name || 'Original FMD').trim();
+            const year = String(product?.year || '2026').trim();
+            pushSpotlightItem({
+                section: 'Originales FMD',
+                title: `${year} · ${baseName.replace(/\s+FMD(?:\s+Edition)?$/i, '').trim()}`,
+                type: 'Original FMD',
+                label: 'Drop 2026',
+                img: baseImg,
+                alt: `${year} ${baseName}`,
+                id: productId,
+                variantIndex: undefined,
+                scopedVariantIndexes: undefined
+            });
+        });
+    }
+
+    if (!items.length) return;
+
+    let order = [...Array(items.length).keys()].sort(() => Math.random() - 0.5);
+    let current = 0;
+    let swapTimeout = null;
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    const applyItem = (item) => {
+        imageEl.src = item.img;
+        imageEl.alt = item.alt;
+        titleEl.textContent = item.title;
+        descEl.textContent = `${item.type} · ${item.label}`;
+        typeEl.textContent = item.section;
+        counterEl.textContent = `${current + 1} / ${items.length}`;
+        mediaBtn.onclick = () => openSpotlightItem(item);
+        ctaEl.onclick = () => openSpotlightItem(item);
+    };
+
+    const render = (animated = false) => {
+        const item = items[order[current]];
+        if (!item) return;
+
+        if (!animated || reducedMotion) {
+            applyItem(item);
+            return;
+        }
+
+        if (swapTimeout) {
+            clearTimeout(swapTimeout);
+            swapTimeout = null;
+        }
+
+        mediaBtn.classList.add('is-swapping');
+        swapTimeout = setTimeout(() => {
+            applyItem(item);
+            mediaBtn.classList.remove('is-swapping');
+            swapTimeout = null;
+        }, 140);
+    };
+
+    const next = () => {
+        current += 1;
+        if (current >= order.length) {
+            order = [...Array(items.length).keys()].sort(() => Math.random() - 0.5);
+            current = 0;
+        }
+        render(true);
+    };
+
+    const stopTimer = () => {
+        if (fmdSpotlightTimer) {
+            clearInterval(fmdSpotlightTimer);
+            fmdSpotlightTimer = null;
+        }
+    };
+
+    const startTimer = () => {
+        stopTimer();
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || items.length < 2) return;
+        fmdSpotlightTimer = setInterval(() => {
+            if (!fmdSpotlightPaused) next();
+        }, 3800);
+    };
+
+    if (!section.dataset.spotlightBound) {
+        section.dataset.spotlightBound = '1';
+        section.addEventListener('mouseenter', () => { fmdSpotlightPaused = true; });
+        section.addEventListener('mouseleave', () => { fmdSpotlightPaused = false; });
+        section.addEventListener('focusin', () => { fmdSpotlightPaused = true; });
+        section.addEventListener('focusout', () => { fmdSpotlightPaused = false; });
+        section.addEventListener('touchstart', () => {
+            fmdSpotlightPaused = true;
+            if (fmdSpotlightTouchResume) clearTimeout(fmdSpotlightTouchResume);
+            fmdSpotlightTouchResume = setTimeout(() => { fmdSpotlightPaused = false; }, 4200);
+        }, { passive: true });
+    }
+
+    render();
+    startTimer();
 }
 
 function fmd3dSync(group, index) {
@@ -155,6 +376,35 @@ function initFmdEditionTags() {
     });
 }
 
+function initFmdOriginalsAccordion() {
+    const groups = document.querySelectorAll('#fmdOriginals .fmd-originals-group');
+    if (!groups.length) return;
+
+    const isMobile = window.matchMedia('(max-width: 640px)').matches;
+
+    groups.forEach((group, index) => {
+        const head = group.querySelector('.fmd-originals-group-head');
+        if (!head) return;
+
+        if (!head.dataset.accordionBound) {
+            head.dataset.accordionBound = '1';
+            head.addEventListener('click', () => {
+                if (!window.matchMedia('(max-width: 640px)').matches) return;
+
+                const willOpen = !group.classList.contains('is-open');
+                groups.forEach(item => item.classList.remove('is-open'));
+                if (willOpen) group.classList.add('is-open');
+            });
+        }
+
+        if (isMobile) {
+            group.classList.toggle('is-open', index === 0);
+        } else {
+            group.classList.add('is-open');
+        }
+    });
+}
+
 function initFmd3dCarousels() {
     const groups = document.querySelectorAll('.fmd3d-group');
     groups.forEach(group => {
@@ -167,7 +417,9 @@ function initFmd3dCarousels() {
 
     initFmd3dMobileAccordion();
     initFmdEditionTags();
+    initFmdOriginalsAccordion();
     window.addEventListener('resize', initFmd3dMobileAccordion);
+    window.addEventListener('resize', initFmdOriginalsAccordion);
 }
 
 // === BUSCADOR POR CÓDIGO PARA PEDIDOS ===
@@ -1566,6 +1818,9 @@ const categoryNav = document.getElementById('categoryNav');
 const modal = document.getElementById('modal');
 const carousel = document.getElementById('carousel');
 const carouselDots = document.getElementById('carouselDots');
+const modalZoomInBtn = document.getElementById('modalZoomIn');
+const modalZoomOutBtn = document.getElementById('modalZoomOut');
+const modalZoomResetBtn = document.getElementById('carouselReset');
 const searchInput = document.getElementById('searchInput');
 const searchClear = document.getElementById('searchClear');
 const zoomOverlay = document.getElementById('zoomOverlay');
@@ -1583,6 +1838,39 @@ let scrollTimeout;
 let currentView = 'grid';
 let currentCategory = 'Album';
 let currentSearch = '';
+const MODAL_ZOOM_MIN = 1;
+const MODAL_ZOOM_MAX = 3;
+const MODAL_ZOOM_STEP = 0.25;
+const FULL_ZOOM_MIN = 1;
+const FULL_ZOOM_MAX = 4;
+const FULL_ZOOM_STEP = 0.25;
+let modalImageZoom = {
+    scale: 1,
+    x: 0,
+    y: 0,
+    isDragging: false,
+    isPinching: false,
+    lastX: 0,
+    lastY: 0,
+    dragMoved: false,
+    pointerId: null,
+    pinchStartDistance: 0,
+    pinchStartScale: 1,
+    pinchLastCenterX: 0,
+    pinchLastCenterY: 0
+};
+let fullImageZoom = {
+    scale: 1,
+    x: 0,
+    y: 0,
+    isDragging: false,
+    isPinching: false,
+    lastX: 0,
+    lastY: 0,
+    pointerId: null,
+    pinchStartDistance: 0,
+    pinchStartScale: 1
+};
 
 function setView(view) {
     currentView = view;
@@ -1693,6 +1981,7 @@ function openModal(id, variantIndex = undefined, scopedVariantIndexes = undefine
     carousel.innerHTML = modalImages.map(v => `
         <div class="carousel-slide"><img src="${v.img}" alt="${currentProduct.name}"></div>
     `).join('');
+    resetModalImageZoom();
 
     carouselDots.innerHTML = modalImages.length > 1 ? modalImages.map((_, i) => `<div class="carousel-dot${i === currentSlide ? ' active' : ''}" data-index="${i}"></div>`).join('') : '';
     
@@ -1889,18 +2178,394 @@ function closeModal() {
     window.scrollTo(0, scrollPosition);
     currentModalImages = [];
     currentModalSourceIndexes = [];
+    resetModalImageZoom();
     closeZoom();
 }
 
 function openZoom(src) {
     zoomImg.src = src;
+    resetFullImageZoom();
     zoomOverlay.style.display = 'flex';
     setTimeout(() => zoomOverlay.classList.add('active'), 10);
 }
 
 function closeZoom() {
     zoomOverlay.classList.remove('active');
-    setTimeout(() => { zoomOverlay.style.display = 'none'; }, 300);
+    setTimeout(() => {
+        zoomOverlay.style.display = 'none';
+        resetFullImageZoom();
+    }, 300);
+}
+
+function clampFullImageZoomPan() {
+    if (!zoomImg || fullImageZoom.scale <= FULL_ZOOM_MIN) {
+        fullImageZoom.x = 0;
+        fullImageZoom.y = 0;
+        return;
+    }
+
+    const overflowX = Math.max(0, (zoomImg.clientWidth * (fullImageZoom.scale - 1)) / 2);
+    const overflowY = Math.max(0, (zoomImg.clientHeight * (fullImageZoom.scale - 1)) / 2);
+    fullImageZoom.x = Math.max(-overflowX, Math.min(overflowX, fullImageZoom.x));
+    fullImageZoom.y = Math.max(-overflowY, Math.min(overflowY, fullImageZoom.y));
+}
+
+function applyFullImageZoom() {
+    clampFullImageZoomPan();
+    const isZoomed = fullImageZoom.scale > FULL_ZOOM_MIN;
+    zoomImg.style.transform = isZoomed
+        ? `translate(${fullImageZoom.x}px, ${fullImageZoom.y}px) scale(${fullImageZoom.scale})`
+        : '';
+    zoomImg.classList.toggle('zoomed', isZoomed);
+}
+
+function setFullImageZoom(scale) {
+    fullImageZoom.scale = Math.max(FULL_ZOOM_MIN, Math.min(FULL_ZOOM_MAX, scale));
+    if (fullImageZoom.scale <= FULL_ZOOM_MIN) {
+        fullImageZoom.scale = FULL_ZOOM_MIN;
+        fullImageZoom.x = 0;
+        fullImageZoom.y = 0;
+    }
+    applyFullImageZoom();
+}
+
+function resetFullImageZoom() {
+    fullImageZoom = {
+        scale: 1,
+        x: 0,
+        y: 0,
+        isDragging: false,
+        isPinching: false,
+        lastX: 0,
+        lastY: 0,
+        pointerId: null,
+        pinchStartDistance: 0,
+        pinchStartScale: 1
+    };
+    if (zoomImg) {
+        zoomImg.style.transform = '';
+        zoomImg.classList.remove('zoomed');
+    }
+}
+
+function onFullZoomWheel(e) {
+    if (!zoomOverlay.classList.contains('active')) return;
+    e.preventDefault();
+    const direction = e.deltaY > 0 ? -1 : 1;
+    setFullImageZoom(fullImageZoom.scale + direction * FULL_ZOOM_STEP);
+}
+
+function onFullZoomTouchStart(e) {
+    if (!zoomOverlay.classList.contains('active')) return;
+    if (e.touches.length === 1 && fullImageZoom.scale > FULL_ZOOM_MIN) {
+        e.preventDefault();
+        fullImageZoom.isDragging = true;
+        fullImageZoom.isPinching = false;
+        fullImageZoom.lastX = e.touches[0].clientX;
+        fullImageZoom.lastY = e.touches[0].clientY;
+        return;
+    }
+
+    if (e.touches.length < 2) return;
+    e.preventDefault();
+    fullImageZoom.isPinching = true;
+    fullImageZoom.isDragging = false;
+    fullImageZoom.pinchStartDistance = getTouchDistance(e.touches);
+    fullImageZoom.pinchStartScale = fullImageZoom.scale;
+}
+
+function onFullZoomTouchMove(e) {
+    if (fullImageZoom.isPinching && e.touches.length >= 2) {
+        e.preventDefault();
+        const currentDistance = getTouchDistance(e.touches);
+        if (!fullImageZoom.pinchStartDistance) return;
+        setFullImageZoom(fullImageZoom.pinchStartScale * (currentDistance / fullImageZoom.pinchStartDistance));
+        return;
+    }
+
+    if (!fullImageZoom.isDragging || fullImageZoom.scale <= FULL_ZOOM_MIN || e.touches.length !== 1) return;
+    e.preventDefault();
+    const touch = e.touches[0];
+    fullImageZoom.x += touch.clientX - fullImageZoom.lastX;
+    fullImageZoom.y += touch.clientY - fullImageZoom.lastY;
+    fullImageZoom.lastX = touch.clientX;
+    fullImageZoom.lastY = touch.clientY;
+    applyFullImageZoom();
+}
+
+function endFullZoomTouch(e) {
+    if (e.touches && e.touches.length >= 2) return;
+    fullImageZoom.isDragging = false;
+    fullImageZoom.isPinching = false;
+    fullImageZoom.pinchStartDistance = 0;
+    fullImageZoom.pinchStartScale = fullImageZoom.scale;
+    applyFullImageZoom();
+}
+
+function onFullZoomPointerDown(e) {
+    if (e.pointerType === 'touch' || fullImageZoom.scale <= FULL_ZOOM_MIN) return;
+    e.preventDefault();
+    fullImageZoom.isDragging = true;
+    fullImageZoom.lastX = e.clientX;
+    fullImageZoom.lastY = e.clientY;
+    fullImageZoom.pointerId = e.pointerId;
+    zoomImg.setPointerCapture?.(e.pointerId);
+}
+
+function onFullZoomPointerMove(e) {
+    if (e.pointerType === 'touch' || !fullImageZoom.isDragging || fullImageZoom.pointerId !== e.pointerId) return;
+    e.preventDefault();
+    fullImageZoom.x += e.clientX - fullImageZoom.lastX;
+    fullImageZoom.y += e.clientY - fullImageZoom.lastY;
+    fullImageZoom.lastX = e.clientX;
+    fullImageZoom.lastY = e.clientY;
+    applyFullImageZoom();
+}
+
+function endFullZoomPointerDrag(e) {
+    if (e.pointerType === 'touch' || fullImageZoom.pointerId !== e.pointerId) return;
+    fullImageZoom.isDragging = false;
+    fullImageZoom.pointerId = null;
+    applyFullImageZoom();
+}
+
+function getActiveCarouselImage() {
+    if (!carousel) return null;
+    const slides = carousel.querySelectorAll('.carousel-slide img');
+    return slides[currentSlide] || slides[0] || null;
+}
+
+function clampModalZoomPan() {
+    const img = getActiveCarouselImage();
+    if (!img || modalImageZoom.scale <= MODAL_ZOOM_MIN) {
+        modalImageZoom.x = 0;
+        modalImageZoom.y = 0;
+        return;
+    }
+
+    const slide = img.closest('.carousel-slide');
+    const viewportWidth = slide?.clientWidth || carousel?.clientWidth || img.clientWidth;
+    const viewportHeight = slide?.clientHeight || img.clientHeight;
+    const scaleOverflowX = Math.max(0, ((img.clientWidth * modalImageZoom.scale) - viewportWidth) / 2);
+    const scaleOverflowY = Math.max(0, ((img.clientHeight * modalImageZoom.scale) - viewportHeight) / 2);
+    modalImageZoom.x = Math.max(-scaleOverflowX, Math.min(scaleOverflowX, modalImageZoom.x));
+    modalImageZoom.y = Math.max(-scaleOverflowY, Math.min(scaleOverflowY, modalImageZoom.y));
+}
+
+function updateModalZoomControls() {
+    if (modalZoomOutBtn) modalZoomOutBtn.disabled = modalImageZoom.scale <= MODAL_ZOOM_MIN;
+    if (modalZoomResetBtn) modalZoomResetBtn.disabled = modalImageZoom.scale <= MODAL_ZOOM_MIN;
+    if (modalZoomInBtn) modalZoomInBtn.disabled = modalImageZoom.scale >= MODAL_ZOOM_MAX;
+}
+
+function applyModalImageZoom() {
+    if (!carousel) return;
+    const activeImg = getActiveCarouselImage();
+
+    carousel.querySelectorAll('.carousel-slide img').forEach(img => {
+        if (img !== activeImg) {
+            img.style.transform = '';
+            img.classList.remove('is-inline-zoomed', 'is-inline-dragging');
+        }
+    });
+
+    clampModalZoomPan();
+    const isZoomed = modalImageZoom.scale > MODAL_ZOOM_MIN;
+    carousel.classList.toggle('is-zoomed', isZoomed);
+
+    if (activeImg) {
+        activeImg.style.transform = isZoomed
+            ? `translate(${modalImageZoom.x}px, ${modalImageZoom.y}px) scale(${modalImageZoom.scale})`
+            : '';
+        activeImg.classList.toggle('is-inline-zoomed', isZoomed);
+        activeImg.classList.toggle('is-inline-dragging', modalImageZoom.isDragging || modalImageZoom.isPinching);
+    }
+
+    updateModalZoomControls();
+}
+
+function setModalImageZoom(scale) {
+    modalImageZoom.scale = Math.max(MODAL_ZOOM_MIN, Math.min(MODAL_ZOOM_MAX, scale));
+    if (modalImageZoom.scale <= MODAL_ZOOM_MIN) {
+        modalImageZoom.scale = MODAL_ZOOM_MIN;
+        modalImageZoom.x = 0;
+        modalImageZoom.y = 0;
+    }
+    applyModalImageZoom();
+}
+
+function resetModalImageZoom() {
+    modalImageZoom = {
+        scale: 1,
+        x: 0,
+        y: 0,
+        isDragging: false,
+        isPinching: false,
+        lastX: 0,
+        lastY: 0,
+        dragMoved: false,
+        pointerId: null,
+        pinchStartDistance: 0,
+        pinchStartScale: 1,
+        pinchLastCenterX: 0,
+        pinchLastCenterY: 0
+    };
+    applyModalImageZoom();
+}
+
+function isModalImageZoomed() {
+    return modalImageZoom.scale > MODAL_ZOOM_MIN;
+}
+
+function onModalZoomWheel(e) {
+    if (!modal.classList.contains('active')) return;
+    const targetImg = e.target.closest?.('.carousel-slide img');
+    if (!targetImg) return;
+
+    e.preventDefault();
+    const direction = e.deltaY > 0 ? -1 : 1;
+    setModalImageZoom(modalImageZoom.scale + direction * MODAL_ZOOM_STEP);
+}
+
+function getTouchDistance(touches) {
+    const dx = touches[0].clientX - touches[1].clientX;
+    const dy = touches[0].clientY - touches[1].clientY;
+    return Math.hypot(dx, dy);
+}
+
+function getTouchCenter(touches) {
+    return {
+        x: (touches[0].clientX + touches[1].clientX) / 2,
+        y: (touches[0].clientY + touches[1].clientY) / 2
+    };
+}
+
+function getModalZoomCenterOffset(clientX, clientY) {
+    const img = getActiveCarouselImage();
+    const slide = img?.closest('.carousel-slide');
+    const rect = (slide || carousel || img)?.getBoundingClientRect();
+    if (!rect) return { x: 0, y: 0 };
+
+    return {
+        x: clientX - (rect.left + rect.width / 2),
+        y: clientY - (rect.top + rect.height / 2)
+    };
+}
+
+function onModalZoomTouchStart(e) {
+    if (!modal.classList.contains('active')) return;
+    const targetImg = e.target.closest?.('.carousel-slide img');
+    if (!targetImg) return;
+
+    if (e.touches.length === 1 && isModalImageZoomed()) {
+        e.preventDefault();
+        modalImageZoom.isDragging = true;
+        modalImageZoom.isPinching = false;
+        modalImageZoom.lastX = e.touches[0].clientX;
+        modalImageZoom.lastY = e.touches[0].clientY;
+        modalImageZoom.dragMoved = false;
+        applyModalImageZoom();
+        return;
+    }
+
+    if (e.touches.length < 2) return;
+
+    e.preventDefault();
+    modalImageZoom.isPinching = true;
+    modalImageZoom.isDragging = false;
+    modalImageZoom.pinchStartDistance = getTouchDistance(e.touches);
+    modalImageZoom.pinchStartScale = modalImageZoom.scale;
+    const center = getTouchCenter(e.touches);
+    modalImageZoom.pinchLastCenterX = center.x;
+    modalImageZoom.pinchLastCenterY = center.y;
+}
+
+function onModalZoomTouchMove(e) {
+    if (modalImageZoom.isPinching && e.touches.length >= 2) {
+        e.preventDefault();
+        const currentDistance = getTouchDistance(e.touches);
+        if (!modalImageZoom.pinchStartDistance) return;
+
+        const previousScale = modalImageZoom.scale;
+        const center = getTouchCenter(e.touches);
+        const centerOffset = getModalZoomCenterOffset(center.x, center.y);
+        const nextScale = modalImageZoom.pinchStartScale * (currentDistance / modalImageZoom.pinchStartDistance);
+        const clampedScale = Math.max(MODAL_ZOOM_MIN, Math.min(MODAL_ZOOM_MAX, nextScale));
+        const ratio = previousScale > 0 ? clampedScale / previousScale : 1;
+        const centerMoveX = center.x - modalImageZoom.pinchLastCenterX;
+        const centerMoveY = center.y - modalImageZoom.pinchLastCenterY;
+
+        modalImageZoom.x = centerOffset.x - (centerOffset.x - modalImageZoom.x) * ratio + centerMoveX;
+        modalImageZoom.y = centerOffset.y - (centerOffset.y - modalImageZoom.y) * ratio + centerMoveY;
+        modalImageZoom.pinchLastCenterX = center.x;
+        modalImageZoom.pinchLastCenterY = center.y;
+        setModalImageZoom(clampedScale);
+        return;
+    }
+
+    if (!modalImageZoom.isDragging || !isModalImageZoomed() || e.touches.length !== 1) return;
+
+    e.preventDefault();
+    const touch = e.touches[0];
+    const dx = touch.clientX - modalImageZoom.lastX;
+    const dy = touch.clientY - modalImageZoom.lastY;
+    if (Math.abs(dx) > 1 || Math.abs(dy) > 1) modalImageZoom.dragMoved = true;
+    modalImageZoom.x += dx;
+    modalImageZoom.y += dy;
+    modalImageZoom.lastX = touch.clientX;
+    modalImageZoom.lastY = touch.clientY;
+    applyModalImageZoom();
+}
+
+function endModalZoomTouch(e) {
+    if (e.touches && e.touches.length >= 2) return;
+
+    modalImageZoom.isPinching = false;
+    modalImageZoom.isDragging = false;
+    modalImageZoom.pinchStartDistance = 0;
+    modalImageZoom.pinchStartScale = modalImageZoom.scale;
+    applyModalImageZoom();
+}
+
+function onModalZoomPointerDown(e) {
+    if (e.pointerType === 'touch') return;
+    if (modalImageZoom.isPinching) return;
+    if (!isModalImageZoomed()) return;
+    const targetImg = e.target.closest?.('.carousel-slide img');
+    if (!targetImg) return;
+
+    e.preventDefault();
+    modalImageZoom.isDragging = true;
+    modalImageZoom.lastX = e.clientX;
+    modalImageZoom.lastY = e.clientY;
+    modalImageZoom.dragMoved = false;
+    modalImageZoom.pointerId = e.pointerId;
+    targetImg.setPointerCapture?.(e.pointerId);
+    applyModalImageZoom();
+}
+
+function onModalZoomPointerMove(e) {
+    if (e.pointerType === 'touch') return;
+    if (modalImageZoom.isPinching) return;
+    if (!modalImageZoom.isDragging || modalImageZoom.pointerId !== e.pointerId) return;
+
+    e.preventDefault();
+    const dx = e.clientX - modalImageZoom.lastX;
+    const dy = e.clientY - modalImageZoom.lastY;
+    if (Math.abs(dx) > 1 || Math.abs(dy) > 1) modalImageZoom.dragMoved = true;
+    modalImageZoom.x += dx;
+    modalImageZoom.y += dy;
+    modalImageZoom.lastX = e.clientX;
+    modalImageZoom.lastY = e.clientY;
+    applyModalImageZoom();
+}
+
+function endModalZoomPointerDrag(e) {
+    if (e.pointerType === 'touch') return;
+    if (modalImageZoom.pointerId !== null && e.pointerId !== modalImageZoom.pointerId) return;
+    modalImageZoom.isDragging = false;
+    modalImageZoom.pointerId = null;
+    applyModalImageZoom();
 }
 
 // Event listeners para carousel - se agregan en openModal() después de cargar imágenes
@@ -1908,10 +2573,28 @@ function attachCarouselListeners() {
     // Remover listeners previos si existen
     carousel.removeEventListener('scroll', onCarouselScroll);
     carousel.removeEventListener('click', onCarouselClick);
+    carousel.removeEventListener('wheel', onModalZoomWheel);
+    carousel.removeEventListener('touchstart', onModalZoomTouchStart);
+    carousel.removeEventListener('touchmove', onModalZoomTouchMove);
+    carousel.removeEventListener('touchend', endModalZoomTouch);
+    carousel.removeEventListener('touchcancel', endModalZoomTouch);
+    carousel.removeEventListener('pointerdown', onModalZoomPointerDown);
+    carousel.removeEventListener('pointermove', onModalZoomPointerMove);
+    carousel.removeEventListener('pointerup', endModalZoomPointerDrag);
+    carousel.removeEventListener('pointercancel', endModalZoomPointerDrag);
     
     // Agregar listeners frescos
     carousel.addEventListener('scroll', onCarouselScroll, { passive: true });
     carousel.addEventListener('click', onCarouselClick);
+    carousel.addEventListener('wheel', onModalZoomWheel, { passive: false });
+    carousel.addEventListener('touchstart', onModalZoomTouchStart, { passive: false });
+    carousel.addEventListener('touchmove', onModalZoomTouchMove, { passive: false });
+    carousel.addEventListener('touchend', endModalZoomTouch);
+    carousel.addEventListener('touchcancel', endModalZoomTouch);
+    carousel.addEventListener('pointerdown', onModalZoomPointerDown);
+    carousel.addEventListener('pointermove', onModalZoomPointerMove);
+    carousel.addEventListener('pointerup', endModalZoomPointerDrag);
+    carousel.addEventListener('pointercancel', endModalZoomPointerDrag);
     
     // Forzar scroll a 0 y actualizar state
     carousel.scrollLeft = 0;
@@ -1931,12 +2614,18 @@ function onCarouselScroll() {
     
     if (newSlide !== currentSlide && newSlide >= 0 && newSlide <= maxSlide) {
         currentSlide = newSlide;
+        resetModalImageZoom();
         updateModalInfo();
     }
 }
 
 function onCarouselClick(e) {
     if (isScrolling) return;
+    if (modalImageZoom.dragMoved) {
+        modalImageZoom.dragMoved = false;
+        return;
+    }
+    if (isModalImageZoomed()) return;
     const img = e.target.closest('img');
     if (img) openZoom(img.src);
 }
@@ -1948,6 +2637,7 @@ function goToSlide(index, smooth = true) {
     // Asegurar que el índice está dentro del rango válido
     const validIndex = Math.max(0, Math.min(index, images.length - 1));
     currentSlide = validIndex;
+    resetModalImageZoom();
     
     // Calcular la posición de scroll
     const slideWidth = carousel.offsetWidth;
@@ -1976,6 +2666,27 @@ document.getElementById('carouselPrev').addEventListener('click', () => {
 document.getElementById('carouselNext').addEventListener('click', () => {
     goToSlide(currentSlide + 1, true); // smooth = true para clicks
 });
+
+if (modalZoomInBtn) {
+    modalZoomInBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        setModalImageZoom(modalImageZoom.scale + MODAL_ZOOM_STEP);
+    });
+}
+
+if (modalZoomOutBtn) {
+    modalZoomOutBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        setModalImageZoom(modalImageZoom.scale - MODAL_ZOOM_STEP);
+    });
+}
+
+if (modalZoomResetBtn) {
+    modalZoomResetBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        resetModalImageZoom();
+    });
+}
 
 function updateModalInfo() {
     if (!currentProduct) return;
@@ -2447,6 +3158,15 @@ function closeImageModal() {
 document.getElementById('modalClose').onclick = closeModal;
 document.getElementById('zoomClose').onclick = closeZoom;
 zoomOverlay.onclick = (e) => { if(e.target.id === 'zoomContainer' || e.target === zoomOverlay) closeZoom(); };
+zoomOverlay.addEventListener('wheel', onFullZoomWheel, { passive: false });
+zoomOverlay.addEventListener('touchstart', onFullZoomTouchStart, { passive: false });
+zoomOverlay.addEventListener('touchmove', onFullZoomTouchMove, { passive: false });
+zoomOverlay.addEventListener('touchend', endFullZoomTouch);
+zoomOverlay.addEventListener('touchcancel', endFullZoomTouch);
+zoomImg.addEventListener('pointerdown', onFullZoomPointerDown);
+zoomImg.addEventListener('pointermove', onFullZoomPointerMove);
+zoomImg.addEventListener('pointerup', endFullZoomPointerDrag);
+zoomImg.addEventListener('pointercancel', endFullZoomPointerDrag);
 window.addEventListener('popstate', () => { if(modal.classList.contains('active')) closeModal(); });
 
 // Agregar soporte de teclado para navegación del carousel
@@ -2470,13 +3190,24 @@ window.addEventListener('keydown', (e) => {
     
     let touchStartX = 0;
     let isSwiping = false;
+    let isMultiTouch = false;
     
     carousel.addEventListener('touchstart', (e) => {
+        isMultiTouch = e.touches.length > 1;
+        if (isMultiTouch || isModalImageZoomed()) {
+            isSwiping = false;
+            return;
+        }
         touchStartX = e.touches[0].clientX;
         isSwiping = true;
     }, { passive: true });
     
     carousel.addEventListener('touchend', (e) => {
+        if (isMultiTouch || isModalImageZoomed()) {
+            isSwiping = false;
+            if (!e.touches || e.touches.length === 0) isMultiTouch = false;
+            return;
+        }
         if (!isSwiping) return;
         
         const touchEndX = e.changedTouches[0].clientX;
@@ -3678,7 +4409,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    loadProducts();
+    loadProducts().finally(() => {
+        initFmdSpotlight();
+    });
     setView('grid');
     initSearchModal();
     initCountdown();

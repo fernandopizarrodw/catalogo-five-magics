@@ -65,11 +65,56 @@
         "tipoPrecio":  "simple",
         "isNew":  true,
         "priority":  96,
-        "img":  "images/vic_rattlehead/vic_silent_fmd.png",
+        "img":  "images/fmd-edition-3d/vic_tour_2026/vic_silent_fmd_edition.jpg",
         "variants":  [
             {
-                "img":  "images/vic_rattlehead/vic_silent_fmd.png",
+                "img":  "images/fmd-edition-3d/vic_tour_2026/vic_silent_fmd_edition.jpg",
                 "name":  "Vic Silent FMD"
+            },
+            {
+                "img":  "images/fmd-edition-3d/vic_tour_2026/vic_alien_fmd_edition.jpg",
+                "name":  "Vic Alien FMD",
+                "isNew":  true
+            },
+            {
+                "img":  "images/fmd-edition-3d/vic_tour_2026/vic_forever_fmd_edition.jpg",
+                "name":  "Vic Forever FMD",
+                "isNew":  true
+            },
+            {
+                "img":  "images/fmd-edition-3d/vic_tour_2026/mary_jane_fmd_edition.jpg",
+                "name":  "Mary Jane FMD Edition",
+                "isNew":  true
+            },
+            {
+                "img":  "images/fmd-edition-3d/vic_tour_2026/arsenal_fmd_edition.jpg",
+                "name":  "Arsenal FMD Edition",
+                "isNew":  true
+            },
+            {
+                "img":  "images/fmd-edition-3d/vic_tour_2026/vic_punk_fmd_edition.jpg",
+                "name":  "Vic Punk FMD",
+                "isNew":  true
+            },
+            {
+                "img":  "images/fmd-edition-3d/vic_tour_2026/vic_political.jpg",
+                "name":  "Vic Political",
+                "isNew":  true
+            },
+            {
+                "img":  "images/fmd-edition-3d/vic_tour_2026/vic_victory.jpg",
+                "name":  "Vic Victory",
+                "isNew":  true
+            },
+            {
+                "img":  "images/fmd-edition-3d/vic_tour_2026/vic_symphony_fmd_edition.jpg",
+                "name":  "Vic Symphony FMD",
+                "isNew":  true
+            },
+            {
+                "img":  "images/fmd-edition-3d/vic_tour_2026/vic_warheads.jpg",
+                "name":  "Vic Warheads FMD",
+                "isNew":  true
             }
         ],
         "desc":  "Vic Silent FMD - Nuevo diseño exclusivo 2026 de Vic Rattlehead.",
@@ -505,6 +550,11 @@
                          {
                              "img":  "images/albums/Countdown_to_extinction/countdown_vic_frente_dorso.jpg",
                              "name":  "Vic Frente Dorso"
+                         },
+                         {
+                             "img":  "images/fmd-edition-3d/countdown/vic_cte_fmd_edition.jpg",
+                             "name":  "Vic CTE FMD Edition",
+                             "isNew":  true
                          }
                      ],
         "desc":  "Countdown to Extinction con variantes clÃ¡sicas, circulares y versiones FMD frente y dorso."
@@ -555,6 +605,23 @@
                          }
                      ],
         "desc":  "Youthanasia con variantes clÃ¡sicas, photo band, Vic Father y alternative art frente y dorso."
+    },
+    {
+        "id":  18,
+        "category":  "Album",
+        "year":  "1995",
+        "name":  "Hidden Treasures",
+        "tipoPrecio":  "simple",
+        "isNew":  true,
+        "img":  "images/fmd-edition-3d/hidden_treasures/hidden_treasures_fmd_edition.jpg",
+        "variants":  [
+                         {
+                             "img":  "images/fmd-edition-3d/hidden_treasures/hidden_treasures_fmd_edition.jpg",
+                             "name":  "Hidden Treasures FMD Edition",
+                             "isNew":  true
+                         }
+                     ],
+        "desc":  "Hidden Treasures reimaginado por FMD con una lectura visual renovada del clásico de 1995."
     },
     {
         "id":  8,
@@ -628,6 +695,16 @@
                          {
                              "img":  "images/albums/Risk/risk_tapa.jpg",
                              "name":  "Tapa (Original)"
+                         },
+                         {
+                             "img":  "images/fmd-edition-3d/risk/risk_fmd_edition.jpg",
+                             "name":  "Risk FMD Edition",
+                             "isNew":  true
+                         },
+                         {
+                             "img":  "images/fmd-edition-3d/risk/risk_fmd_edition_v2.jpg",
+                             "name":  "Risk FMD Edition V2",
+                             "isNew":  true
                          }
                      ],
         "desc":  "ExploraciÃ³n de hard rock melÃ³dico y comercial bajo el simbolismo de una ratonera que representa el riesgo artÃ­stico asumido."
@@ -664,6 +741,17 @@
         "name":  "The System Has Failed",
         "tipoPrecio":  "simple",
         "img":  "images/albums/TSHF/the_system_has_failed.jpg",
+        "variants":  [
+                         {
+                             "img":  "images/albums/TSHF/the_system_has_failed.jpg",
+                             "name":  "Original"
+                         },
+                         {
+                             "img":  "images/fmd-edition-3d/system/the_system_fmd_edition.jpg",
+                             "name":  "The System FMD Edition",
+                             "isNew":  true
+                         }
+                     ],
         "desc":  "Vic vendiendo sentencias. Arte polÃ­tico. Un regreso triunfal al thrash tÃ©cnico con una portada que denuncia la corrupciÃ³n polÃ­tica en la Casa Blanca."
     },
     {
@@ -729,6 +817,11 @@
                              "img":  "images/fmd-edition-3d/thirteen/13_3d_fmd_edition_v2.jpg",
                              "name":  "13 3D V2",
                              "isNew":  true
+                         },
+                         {
+                             "img":  "images/fmd-edition-3d/thirteen/13_fmd_edition.jpg",
+                             "name":  "13 FMD Edition",
+                             "isNew":  true
                          }
                      ],
         "desc":  "Un repaso oscuro por la herencia sonora de la banda bajo la mÃ­stica numÃ©rica y la presencia fantasmal de su mascota."
@@ -777,6 +870,11 @@
                          {
                              "img":  "images/fmd-edition-3d/dystopia/dystopia_3d_edition_v2.jpg",
                              "name":  "Dystopia v2 FMD 3D",
+                             "isNew":  true
+                         },
+                         {
+                             "img":  "images/fmd-edition-3d/dystopia/dystopia_fmd_edition.jpg",
+                             "name":  "Dystopia FMD Edition",
                              "isNew":  true
                          },
                          {
