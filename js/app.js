@@ -1821,6 +1821,9 @@ const carouselDots = document.getElementById('carouselDots');
 const modalZoomInBtn = document.getElementById('modalZoomIn');
 const modalZoomOutBtn = document.getElementById('modalZoomOut');
 const modalZoomResetBtn = document.getElementById('carouselReset');
+const fullZoomInBtn = document.getElementById('zoomIn');
+const fullZoomOutBtn = document.getElementById('zoomOut');
+const fullZoomResetBtn = document.getElementById('zoomReset');
 const searchInput = document.getElementById('searchInput');
 const searchClear = document.getElementById('searchClear');
 const zoomOverlay = document.getElementById('zoomOverlay');
@@ -2217,6 +2220,9 @@ function applyFullImageZoom() {
         ? `translate(${fullImageZoom.x}px, ${fullImageZoom.y}px) scale(${fullImageZoom.scale})`
         : '';
     zoomImg.classList.toggle('zoomed', isZoomed);
+    if (fullZoomOutBtn) fullZoomOutBtn.disabled = fullImageZoom.scale <= FULL_ZOOM_MIN;
+    if (fullZoomResetBtn) fullZoomResetBtn.disabled = fullImageZoom.scale <= FULL_ZOOM_MIN;
+    if (fullZoomInBtn) fullZoomInBtn.disabled = fullImageZoom.scale >= FULL_ZOOM_MAX;
 }
 
 function setFullImageZoom(scale) {
@@ -2685,6 +2691,27 @@ if (modalZoomResetBtn) {
     modalZoomResetBtn.addEventListener('click', (e) => {
         e.preventDefault();
         resetModalImageZoom();
+    });
+}
+
+if (fullZoomInBtn) {
+    fullZoomInBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        setFullImageZoom(fullImageZoom.scale + FULL_ZOOM_STEP);
+    });
+}
+
+if (fullZoomOutBtn) {
+    fullZoomOutBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        setFullImageZoom(fullImageZoom.scale - FULL_ZOOM_STEP);
+    });
+}
+
+if (fullZoomResetBtn) {
+    fullZoomResetBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        resetFullImageZoom();
     });
 }
 
