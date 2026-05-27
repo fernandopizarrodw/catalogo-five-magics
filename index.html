@@ -102,26 +102,6 @@
         <div id="cartSummary"></div>
     </div>
 
-    <!-- BANNER MEGADETH - POST SHOW ARGENTINA -->
-    <div class="megadeth-countdown-banner" id="countdownBanner">
-        <div class="countdown-content">
-            <div class="countdown-left">
-                <span class="countdown-date">BUENOS AIRES · ARGENTINA</span>
-            </div>
-            <div class="countdown-timer" id="countdownTimer">
-                <div class="countdown-unit"><span id="countDays">10</span><small>DÍAS</small></div>
-                <div class="countdown-separator">:</div>
-                <div class="countdown-unit"><span id="countHours">00</span><small>HORAS</small></div>
-                <div class="countdown-separator">:</div>
-                <div class="countdown-unit"><span id="countMins">00</span><small>MIN</small></div>
-                <div class="countdown-separator">:</div>
-                <div class="countdown-unit"><span id="countSecs">00</span><small>SEG</small></div>
-            </div>
-            <div class="countdown-right">
-                <span class="countdown-cta">DISEÑOS DISPONIBLES · ENVÍO A TODO EL PAÍS</span>
-            </div>
-        </div>
-    </div>
 
     <!-- Hero Premium - MEGADETH COLECCION ARGENTINA -->
     <section class="hero megadeth-hero" id="heroSection">
@@ -137,17 +117,17 @@
         <div class="hero-content">
             <!-- <p class="hero-welcome">COLECCION CONMEMORATIVA ARGENTINA</p> -->
             <h1 class="hero-brand">MEGADETH</h1>
-            <h2 class="hero-tagline">Edición Argentina · Buenos Aires</h2>
+            <h2 class="hero-tagline">FMD Editions · Universo Megadeth</h2>
             <div class="hero-divider"></div>
-            <p class="hero-description">Diseños exclusivos inspirados en la histórica fecha de Megadeth en Argentina.<br>Encargá online y recibí en todo el país por Andreani.</p>
+            <p class="hero-description">Reinterpretaciones cinematográficas, diseños exclusivos y ediciones 3D inspiradas en el universo Megadeth.<br>Remeras, hoodies y combos de invierno. Envíos a todo el país por Andreani.</p>
             <div class="hero-actions">
-                <a href="#categoryNav" class="hero-cta-btn">VER CATEGORÍAS MEGADETH</a>
-                <a href="https://wa.me/541169667685?text=Hola%20FMD%2C%20quiero%20encargar%20una%20prenda%20de%20Megadeth" class="hero-cta-btn hero-cta-btn-secondary" target="_blank" rel="noopener" onclick="openWhatsapp('Hola FMD! Quiero encargar una prenda de la colección Megadeth 🤘\n\nDiseño: ___\nTalle: ___\nColor: ___\nCP o ciudad: ___\n\n¿Me confirmás precio final y tiempo de envío?', 'hero_reserva'); return false;">ENCARGAR POR WHATSAPP</a>
+                <a href="#fmdEdition3d" class="hero-cta-btn" onclick="scrollToSection('fmdEdition3d'); return false;">EXPLORAR FMD EDITIONS</a>
+                <a href="https://wa.me/541169667685?text=Hola%20FMD%2C%20quiero%20armar%20el%20combo%20hoodie%20%2B%20remera%20de%20%2499.000" class="hero-cta-btn hero-cta-btn-secondary" target="_blank" rel="noopener" onclick="openWhatsapp('Hola FMD! Quiero armar el combo hoodie + remera de $99.000 con envío gratis 🤘\n\nHoodie: ___\nRemera: ___\nTalle hoodie: ___\nTalle remera: ___\nColor: ___\nCP o ciudad: ___', 'hero_combo'); return false;">ARMAR COMBO POR WHATSAPP</a>
             </div>
             <div class="hero-proof">
-                <span class="hero-proof-priority">🚚 Envíos a todo el país</span>
-                <span>🎸 Diseños exclusivos</span>
-                <span>🧒 Talles adultos y chicos</span>
+                <span class="hero-proof-priority">🔥 Hoodies + remeras</span>
+                <span>🚚 Envío gratis desde 2 prendas</span>
+                <span>🎸 Diseños exclusivos FMD</span>
             </div>
         </div>
         <div class="hero-accent"></div>
@@ -485,6 +465,19 @@
                     </button>
                 </div>
             </article>
+
+            <article class="fmd-originals-group">
+                <div class="fmd-originals-group-head">
+                    <strong>2026 · Vic Warheads</strong>
+                    <span>Original FMD</span>
+                </div>
+                <div class="fmd-originals-group-body">
+                    <button type="button" class="fmd-originals-media" onclick="openModal(6028,9,[9]); return false;">
+                        <img src="images/fmd-edition-3d/vic_tour_2026/vic_warheads.jpg" alt="2026 Vic Warheads FMD Edition" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='images/vic_rattlehead/vic_silent_fmd.png';">
+                        <em>Ver diseño</em>
+                    </button>
+                </div>
+            </article>
         </div>
     </section>
 
@@ -630,32 +623,6 @@
         }
     </style>
 
-    <!-- Diseño estrella recomendado -->
-    <div class="estrella-banner" onclick="openModal(6020)" style="cursor:pointer; background: linear-gradient(135deg, #0d0d0d 0%, #1a1a1a 50%, rgba(57,255,20,0.15) 100%); border: 2px solid var(--magic-green); border-radius: 16px; padding: 20px; margin: 0 auto 1.5rem auto; max-width: 760px; display: flex; align-items: center; gap: 20px; box-shadow: 0 8px 32px rgba(57,255,20,0.2); transition: transform 0.2s, box-shadow 0.2s;">
-        <div style="flex-shrink: 0; position: relative;">
-            <img src="images/musicians/Dave_Mustaine/aguante_megadeth_frente.jpg" alt="Aguante Megadeth" style="width: 120px; height: 120px; object-fit: cover; border-radius: 12px; border: 2px solid var(--magic-green);">
-            <span style="position: absolute; top: -8px; left: -8px; background: var(--magic-green); color: #000; font-size: 0.65rem; font-weight: 700; padding: 4px 8px; border-radius: 12px;">🔥 MAS PEDIDA</span>
-        </div>
-        <div style="flex: 1; text-align: left;">
-            <div style="font-size: 0.75rem; color: var(--magic-green); font-weight: 700; letter-spacing: 2px; margin-bottom: 4px;">EL DISEÑO MAS PEDIDO</div>
-            <h3 style="font-family: 'Oswald', sans-serif; font-size: 1.4rem; color: #fff; margin: 0 0 6px 0; letter-spacing: 1px;">AGUANTE MEGADETH PARA SIEMPRE</h3>
-            <p style="font-size: 0.85rem; color: #aaa; margin: 0 0 8px 0; line-height: 1.4;">Doble estampa con todas las fechas en Argentina 1994-2026</p>
-            <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
-                <span style="font-family: 'Oswald', sans-serif; font-size: 1.3rem; color: var(--price); font-weight: 600;">$42.000</span>
-                <span style="font-size: 0.75rem; color: var(--magic-green); background: rgba(57,255,20,0.15); padding: 4px 10px; border-radius: 20px;">Frente + Dorso</span>
-            </div>
-        </div>
-        <div style="flex-shrink: 0;">
-            <span style="display: block; background: var(--rust); color: #fff; font-family: 'Oswald', sans-serif; font-size: 0.85rem; font-weight: 600; padding: 12px 16px; border-radius: 8px; letter-spacing: 1px;">VER →</span>
-        </div>
-    </div>
-    <style>
-        .estrella-banner:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(57,255,20,0.3); }
-        @media (max-width: 600px) {
-            .estrella-banner { flex-direction: column; text-align: center !important; padding: 16px; }
-            .estrella-banner > div:nth-child(2) { text-align: center !important; }
-        }
-    </style>
 
     <!-- SECCIÓN DESTACADOS MEGADETH -->
     <section class="megadeth-destacados" id="megadeth-destacados">

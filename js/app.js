@@ -84,6 +84,16 @@ function initFmdSpotlight() {
     if (!mediaBtn || !imageEl || !titleEl || !descEl || !typeEl || !counterEl || !ctaEl) return;
 
     const items = [];
+    const seen = new Set();
+
+    const pushSpotlightItem = (item) => {
+        if (!item || !item.img || !Number.isFinite(item.id)) return;
+        const variantKey = Number.isFinite(item.variantIndex) ? item.variantIndex : 'base';
+        const key = `${item.id}|${variantKey}|${item.img}`;
+        if (seen.has(key)) return;
+        seen.add(key);
+        items.push(item);
+    };
 
     document.querySelectorAll('#fmdEdition3dGrid .fmd3d-group').forEach(group => {
         const groupTitle = group.querySelector('.fmd3d-group-head strong')?.textContent?.trim() || 'FMD Edition';
@@ -95,7 +105,7 @@ function initFmdSpotlight() {
             const args = parseOpenModalArgs(slide.getAttribute('onclick'));
             if (!img || !args) return;
 
-            items.push({
+            pushSpotlightItem({
                 section: 'Albumes FMD',
                 title: groupTitle,
                 type: groupType,
@@ -115,7 +125,7 @@ function initFmdSpotlight() {
         const args = parseOpenModalArgs(media?.getAttribute('onclick'));
         if (!img || !args) return;
 
-        items.push({
+        pushSpotlightItem({
             section: 'Originales FMD',
             title: groupTitle,
             type: groupType,
@@ -125,6 +135,55 @@ function initFmdSpotlight() {
             ...args
         });
     });
+
+    // Soporta auto-alta de nuevos diseños en JOYAS OCULTAS FMD
+    // con solo agregarlos al JSON en images/fmd-edition-3d/vic_tour_2026/
+    const vicTourPath = 'images/fmd-edition-3d/vic_tour_2026/';
+    if (Array.isArray(db) && db.length) {
+        db.forEach(product => {
+            const productId = Number(product?.id);
+            if (!Number.isFinite(productId)) return;
+
+            if (Array.isArray(product?.variants) && product.variants.length) {
+                product.variants.forEach((variant, index) => {
+                    const variantImg = String(variant?.img || '');
+                    if (!variantImg.includes(vicTourPath)) return;
+
+                    const variantName = String(variant?.name || product?.name || 'Original FMD').trim();
+                    const year = String(product?.year || '2026').trim();
+                    pushSpotlightItem({
+                        section: 'Originales FMD',
+                        title: `${year} · ${variantName.replace(/\s+FMD(?:\s+Edition)?$/i, '').trim()}`,
+                        type: 'Original FMD',
+                        label: 'Drop 2026',
+                        img: variantImg,
+                        alt: `${year} ${variantName}`,
+                        id: productId,
+                        variantIndex: index,
+                        scopedVariantIndexes: [index]
+                    });
+                });
+                return;
+            }
+
+            const baseImg = String(product?.img || '');
+            if (!baseImg.includes(vicTourPath)) return;
+
+            const baseName = String(product?.name || 'Original FMD').trim();
+            const year = String(product?.year || '2026').trim();
+            pushSpotlightItem({
+                section: 'Originales FMD',
+                title: `${year} · ${baseName.replace(/\s+FMD(?:\s+Edition)?$/i, '').trim()}`,
+                type: 'Original FMD',
+                label: 'Drop 2026',
+                img: baseImg,
+                alt: `${year} ${baseName}`,
+                id: productId,
+                variantIndex: undefined,
+                scopedVariantIndexes: undefined
+            });
+        });
+    }
 
     if (!items.length) return;
 
@@ -4350,12 +4409,13 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    loadProducts();
+    loadProducts().finally(() => {
+        initFmdSpotlight();
+    });
     setView('grid');
     initSearchModal();
     initCountdown();
     initFmd3dCarousels();
-    initFmdSpotlight();
 });
 
 // Escuchar cambios en hash (si usuario navega directamente a #producto-123)

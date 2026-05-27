@@ -110,6 +110,11 @@
                 "img":  "images/fmd-edition-3d/vic_tour_2026/vic_symphony_fmd_edition.jpg",
                 "name":  "Vic Symphony FMD",
                 "isNew":  true
+            },
+            {
+                "img":  "images/fmd-edition-3d/vic_tour_2026/vic_warheads.jpg",
+                "name":  "Vic Warheads FMD",
+                "isNew":  true
             }
         ],
         "desc":  "Vic Silent FMD - Nuevo diseño exclusivo 2026 de Vic Rattlehead.",
