@@ -1342,7 +1342,7 @@ body.modal-open {
 
 /* Mejora en la imagen del zoom para que sea fluida */
 #zoomImg {
-    transform-origin: 0 0;
+    transform-origin: center center;
     will-change: transform;
     transition: transform 0.1s linear;
 }
