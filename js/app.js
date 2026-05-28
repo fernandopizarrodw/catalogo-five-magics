@@ -2,14 +2,14 @@
 const PRECIOS = {
     simple: 37000,
     doble: 42000,
-    simple_personalizado: 40000,
-    doble_personalizado: 45000
-};
-const PRECIOS_OVERSIZE = {
-    simple: 39000,
-    doble: 44000,
     simple_personalizado: 42000,
     doble_personalizado: 47000
+};
+const PRECIOS_OVERSIZE = {
+    simple: 40000,
+    doble: 45000,
+    simple_personalizado: 45000,
+    doble_personalizado: 50000
 };
 const PRECIOS_CHICOS = {
     simple: 32000,

@@ -79,9 +79,12 @@
 ### **Categoría Base:**
 | Tipo | Precio |
 |------|--------|
-| Diseño Único (frente) | $37 ARS |
-| Doble Estampa (frente + dorso) | $42 ARS |
-| Diseño Custom Simple | $25-30 ARS |
+| Remera clásica simple | $37.000 + envío |
+| Remera clásica doble | $42.000 + envío |
+| Remera oversize simple | $40.000 + envío |
+| Remera oversize doble | $45.000 + envío |
+| Personalizado simple | base + $5.000 + envío |
+| Personalizado doble | base + $5.000 + envío |
 | Pack x2 (sin doble) | $74 ARS |
 | Pack x3 (sin doble) | $111 ARS |
 | Pack x4 (con doble) | $140 ARS |
@@ -152,10 +155,13 @@
 ### **CONSULTA: "¿Cuánto cuesta?"**
 **Respuesta Sugerida:**
 "Tenemos dos opciones:
-- **Diseño único (frente):** $37
-- **Doble estampa (frente + dorso):** $42
+- **Clásica simple:** $37.000 + envío
+- **Clásica doble:** $42.000 + envío
+- **Oversize simple:** $40.000 + envío
+- **Oversize doble:** $45.000 + envío
+- **Personalizados:** suman $5.000 sobre la base que corresponda
 
-¿Quieres un solo lado o ambos lados?"
+¿Querés clásica u oversize? ¿Simple, doble o personalizado?"
 
 ---
 
