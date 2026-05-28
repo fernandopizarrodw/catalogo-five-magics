@@ -19,6 +19,7 @@ const PRECIOS_HOODIES = {
     simple: 52000,
     doble: 59000
 };
+const PERSONALIZADO_EXTRA = 5000;
 const COMBO_HOODIE_REMERA = 99000; // Incluye envío gratis
 const PRECIOS_ENVIO = {
     una_unidad: 5000,
@@ -831,46 +832,74 @@ function selectColor(color) {
 }
 
 // Actualizar precios según selección adulto/chico, oversize y tipo de producto
+function isPersonalizedSelection(product = currentProduct) {
+    if (!product) return false;
+
+    const personalizedByCategory = normalizeText(product.category) === 'personalizados';
+    const personalizedByInput = Boolean((document.getElementById('dorsoCustomInput')?.value || '').trim());
+    return personalizedByCategory || personalizedByInput;
+}
+
+function resolveModalPriceConfig(product = currentProduct) {
+    if (!product) {
+        return {
+            simple: PRECIOS.simple,
+            doble: PRECIOS.doble,
+            isHoodie: false,
+            isCustom: false
+        };
+    }
+
+    const isHoodie = product.category === 'Hoodies FMD';
+    const isOversize = selectedCut === 'oversize';
+    const isKids = selectedAge === 'chico';
+    const isCustom = isPersonalizedSelection(product) && !isHoodie && !isKids;
+
+    let basePrices;
+    if (isHoodie) {
+        basePrices = PRECIOS_HOODIES;
+    } else if (isKids) {
+        basePrices = PRECIOS_CHICOS;
+    } else if (isOversize) {
+        basePrices = PRECIOS_OVERSIZE;
+    } else {
+        basePrices = PRECIOS;
+    }
+
+    const simple = isCustom
+        ? (basePrices.simple_personalizado ?? (basePrices.simple + PERSONALIZADO_EXTRA))
+        : basePrices.simple;
+    const doble = isCustom
+        ? (basePrices.doble_personalizado ?? (basePrices.doble + PERSONALIZADO_EXTRA))
+        : basePrices.doble;
+
+    return { simple, doble, isHoodie, isCustom };
+}
+
 function updateModalPrices() {
     if (!currentProduct) return;
-    
-    // Detectar si es hoodie
-    const isHoodie = currentProduct.category === 'Hoodies FMD';
-    
-    // Detectar si es oversize
-    const isOversize = selectedCut === 'oversize';
-    
-    // Seleccionar tabla de precios según tipo de producto, edad y corte
-    let precios;
-    if (isHoodie) {
-        precios = PRECIOS_HOODIES;
-    } else if (selectedAge === 'chico') {
-        precios = PRECIOS_CHICOS;
-    } else if (isOversize) {
-        precios = PRECIOS_OVERSIZE;
-    } else {
-        precios = PRECIOS;
-    }
-    
+    const precios = resolveModalPriceConfig(currentProduct);
+
     // Precio depende de si el producto ya es doble o si el usuario sumó dorso
     const tieneDoble = currentProduct.tipoPrecio === 'doble' || selectedBackIndex >= 0 || selectedBacks.size > 0 || selectedDorsoChips.size > 0;
     const precio = tieneDoble ? precios.doble : precios.simple;
     document.getElementById('modalPrice').textContent = '$' + precio.toLocaleString('es-AR');
-    
+
     const pSimple = '$' + precios.simple.toLocaleString('es-AR');
     const pDoble = '$' + precios.doble.toLocaleString('es-AR');
     const elSimple = document.getElementById('modalPrecioSimple');
     const elDoble = document.getElementById('modalPrecioDoble');
     if(elSimple) elSimple.textContent = pSimple;
     if(elDoble) elDoble.textContent = pDoble;
-    
+
     // Actualizar nota de precio para hoodies
     const priceNote = document.querySelector('.modal-price-note');
     if (priceNote) {
-        if (isHoodie) {
+        if (precios.isHoodie) {
             priceNote.innerHTML = '🎁 COMBO Hoodie + Remera: <strong style="color:var(--price);">$99.000</strong> (envío gratis)';
         } else {
-            priceNote.textContent = '2+ prendas → envío gratis · 1 unidad → envío según zona';
+            const customTag = precios.isCustom ? ' · personalizado' : '';
+            priceNote.textContent = `$${precio.toLocaleString('es-AR')} + envío${customTag}`;
         }
     }
 }
@@ -965,6 +994,7 @@ class CartSystem {
             size: options.size || '',
             cut: options.cut || 'clasica',
             color: options.color || 'negro',
+            isCustom: Boolean(options.isCustom),
             timestamp: Date.now()
         };
 
@@ -2719,7 +2749,9 @@ function updateModalInfo() {
     if (!currentProduct) return;
     const images = getModalImages();
     const activeVariantIndex = getActiveVariantIndex();
-    document.getElementById('modalName').textContent = currentProduct.name;
+    const activeVariantName = images?.[currentSlide]?.name?.trim() || '';
+    const displayName = activeVariantName || currentProduct.name;
+    document.getElementById('modalName').textContent = displayName;
     
     // Actualizar código del producto
     const code = cart.generateCode(currentProduct.id, activeVariantIndex, selectedBacks.size > 0 || selectedDorsoChips.size > 0);
@@ -2732,7 +2764,7 @@ function updateModalInfo() {
     const breadcrumbCategory = document.getElementById('breadcrumbCategory');
     const breadcrumbProduct = document.getElementById('breadcrumbProduct');
     if (breadcrumbCategory) breadcrumbCategory.textContent = getCategoryLabel(currentProduct.category);
-    if (breadcrumbProduct) breadcrumbProduct.textContent = currentProduct.name;
+    if (breadcrumbProduct) breadcrumbProduct.textContent = displayName;
     
     // Actualizar contador de productos
     updateProductCounter();
@@ -2746,10 +2778,10 @@ function updateModalInfo() {
     document.getElementById('modalCounter').textContent = `${currentSlide + 1}/${images.length}`;
     const shouldShowBadge = currentProduct.tipoPrecio === 'doble' || DORSO_CATEGORIES.has(currentProduct.category);
     document.getElementById('badgeDoble').style.display = shouldShowBadge ? 'block' : 'none';
-    const vName = images[currentSlide]?.name || '';
+    const vName = activeVariantName;
     document.getElementById('variantName').textContent = vName;
     document.getElementById('variantName').style.display = vName ? 'block' : 'none';
-    const msg = `Hola FMD! Quiero encargar ${currentProduct.name} 🤘\n\nNecesito confirmar talle, color y opciones de envío.`;
+    const msg = `Hola FMD! Quiero encargar ${displayName} 🤘\n\nNecesito confirmar talle, color y opciones de envío.`;
     const modalWaBtn = document.getElementById('modalWaBtn');
     if (modalWaBtn) {
         modalWaBtn.onclick = (e) => {
@@ -2894,8 +2926,9 @@ function copyProductLink() {
 function updateShareLinks() {
     if (!currentProduct) return;
     const images = getModalImages();
-    const variant = images?.[currentSlide]?.name ? `\nVariante: ${images[currentSlide].name}` : '';
-    const msg = `Mirá este diseño:\n${currentProduct.name}${variant}\n${getProductUrl()}`;
+    const activeVariantName = images?.[currentSlide]?.name?.trim() || '';
+    const displayName = activeVariantName || currentProduct.name;
+    const msg = `Mirá este diseño:\n${displayName}\n${getProductUrl()}`;
     
     // Usar onclick centralizado en lugar de href
     const btnShareWa = document.getElementById('btnShareWa');
@@ -2913,12 +2946,12 @@ function updateShareLinks() {
     const year = currentProduct.year ? ` (${currentProduct.year})` : '';
     const desc = currentProduct.desc ? currentProduct.desc.substring(0, 100) : 'Diseño exclusivo premium';
     
-    document.querySelector('meta[property="og:title"]').setAttribute('content', `${currentProduct.name} - Five Magics Designs`);
-    document.querySelector('meta[property="og:description"]').setAttribute('content', `${currentProduct.name}${year} • ${getCategoryLabel(currentProduct.category)}\n${desc}...`);
+    document.querySelector('meta[property="og:title"]').setAttribute('content', `${displayName} - Five Magics Designs`);
+    document.querySelector('meta[property="og:description"]').setAttribute('content', `${displayName}${year} • ${getCategoryLabel(currentProduct.category)}\n${desc}...`);
     document.querySelector('meta[property="og:image"]').setAttribute('content', productImage);
     document.querySelector('meta[property="og:url"]').setAttribute('content', productUrl);
     
-    document.querySelector('meta[name="twitter:title"]').setAttribute('content', currentProduct.name);
+    document.querySelector('meta[name="twitter:title"]').setAttribute('content', displayName);
     document.querySelector('meta[name="twitter:description"]').setAttribute('content', `${getCategoryLabel(currentProduct.category)}${year}`);
     document.querySelector('meta[name="twitter:image"]').setAttribute('content', productImage);
 }
@@ -3314,7 +3347,10 @@ document.addEventListener('click', (e) => {
 
 // Enlazar input personalizado
 const dorsoInputLive = document.getElementById('dorsoCustomInput');
-if(dorsoInputLive) dorsoInputLive.addEventListener('input', updateDobleWaLink);
+if(dorsoInputLive) dorsoInputLive.addEventListener('input', () => {
+    updateDobleWaLink();
+    updateModalPrices();
+});
 
 // === FUNCIONES PARA CARRITO ===
 function copyProductCode() {
@@ -3543,14 +3579,31 @@ function getProductImage(productId, variantIndex = 0) {
 }
 
 function calculateItemPrice(item) {
-    let precios;
-    if (item.category === 'Hoodies FMD') {
-        precios = PRECIOS_HOODIES;
-    } else if (item.age === 'chico') {
-        precios = PRECIOS_CHICOS;
+    const isHoodie = item.category === 'Hoodies FMD';
+    const isKids = item.age === 'chico';
+    const isOversize = item.cut === 'oversize';
+    const isCustom = Boolean(item.isCustom) && !isHoodie && !isKids;
+
+    let basePrices;
+    if (isHoodie) {
+        basePrices = PRECIOS_HOODIES;
+    } else if (isKids) {
+        basePrices = PRECIOS_CHICOS;
+    } else if (isOversize) {
+        basePrices = PRECIOS_OVERSIZE;
     } else {
-        precios = PRECIOS;
+        basePrices = PRECIOS;
     }
+
+    const precios = {
+        simple: isCustom
+            ? (basePrices.simple_personalizado ?? (basePrices.simple + PERSONALIZADO_EXTRA))
+            : basePrices.simple,
+        doble: isCustom
+            ? (basePrices.doble_personalizado ?? (basePrices.doble + PERSONALIZADO_EXTRA))
+            : basePrices.doble
+    };
+
     return item.isDouble ? precios.doble : precios.simple;
 }
 
@@ -3827,7 +3880,8 @@ function addToCartFromModal() {
     }
     
     // Determinar si es doble estampa basándose en el dorso seleccionado
-    const isDouble = selectedBackIndex >= 0 || selectedBacks.size > 0 || selectedDorsoChips.size > 0;
+    const isDouble = currentProduct.tipoPrecio === 'doble' || selectedBackIndex >= 0 || selectedBacks.size > 0 || selectedDorsoChips.size > 0;
+    const isCustom = isPersonalizedSelection(currentProduct);
     const variantIndex = getActiveVariantIndex();
     
     const options = {
@@ -3835,7 +3889,8 @@ function addToCartFromModal() {
         size: selectedSize,
         cut: selectedCut,
         color: selectedColor,
-        backIndex: selectedBackIndex // Índice del dorso seleccionado
+        backIndex: selectedBackIndex, // Índice del dorso seleccionado
+        isCustom: isCustom
     };
     
     const success = cart.addToCart(currentProduct.id, variantIndex, isDouble, options);
@@ -3923,7 +3978,7 @@ function renderRelatedProducts(category) {
     const related = db
         .filter(p => matchesCategoryOrMetadata(p, category) && p.id !== currentProduct.id)
         .sort(compareProductsByPriorityThenId)
-        .slice(0, 6);
+        .slice(0, 3);
     
     if (related.length === 0) {
         relatedContainer.style.display = 'none';

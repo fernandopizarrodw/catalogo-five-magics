@@ -1487,16 +1487,16 @@
                     </div>
 
                     <div class="modal-price" id="modalPrice">$37.000</div>
-                    <div class="modal-price-note">2+ remeras → envío gratis · 1 unidad → envío según zona</div>
+                    <div class="modal-price-note">$37.000 + envío</div>
 
                     <div class="modal-simple-note">
-                        Elegí talle y color para avanzar rápido. Si querés doble estampa, dorso o más detalles, abrí las opciones avanzadas.
+                        Elegí talle, color y encargá en un toque.
                     </div>
 
                     <div class="modal-actions">
                         <div class="modal-actions-primary">
                             <button class="btn-buy-now btn-primary" id="btnBuyNow" onclick="addToCartAndOpenWhatsapp()">
-                                💬 Encargar por WhatsApp
+                                ☢️ Encargar por WhatsApp
                             </button>
                             <button class="btn-add-cart btn-primary-alt" id="btnAddCart" onclick="addToCartFromModal()">
                                 🛒 Guardar en carrito
@@ -1505,14 +1505,16 @@
                     </div>
 
                     <details class="modal-advanced-panel" id="modalAdvancedPanel">
-                        <summary>Ver personalización y más opciones</summary>
+                        <summary>☢️ Frente + Dorso / Personalización</summary>
                         <div class="modal-advanced-content">
                             <div class="upsell-dorso" id="upsellDorso">
                                 <div class="upsell-row">
                                     <span class="upsell-pill">🔥 FRENTE + DORSO A TU GUSTO</span>
                                     <div class="upsell-prices">Solo frente: <strong id="modalPrecioSimple">-</strong> · Frente + Dorso: <strong id="modalPrecioDoble">-</strong></div>
                                     <div style="margin-top:10px;padding:10px 12px;background:rgba(232,67,46,0.08);border:1px solid rgba(232,67,46,0.22);border-radius:8px;font-size:0.88rem;line-height:1.45;color:var(--text-muted);">
-                                        Si este frente no tiene dorso oficial, igual podés pedir <strong>doble estampa</strong>: elegí <strong>cualquier diseño del catálogo</strong> para la espalda o pedilo <strong>personalizado</strong>. Todas las remeras se pueden adaptar a tu idea.
+                                        ☢️ Simple: solo frente<br>
+                                        ☢️ Doble estampa: frente + espalda<br>
+                                        Combiná cualquier diseño del catálogo para el dorso.
                                     </div>
                                     
                                     <div id="dorsoVariantsSection" style="margin-top:12px;display:none;">
@@ -1547,20 +1549,16 @@
 
                             <div class="specs-grid">
                                 <div class="spec-item">
-                                    <div class="spec-label">TÉCNICA</div>
-                                    <div class="spec-value">DTG Premium</div>
+                                    <div class="spec-value">☢️ DTG Premium</div>
                                 </div>
                                 <div class="spec-item">
-                                    <div class="spec-label">ACABADO</div>
-                                    <div class="spec-value">Sin tacto plástico</div>
+                                    <div class="spec-value">🖤 Sin tacto plástico</div>
                                 </div>
                                 <div class="spec-item">
-                                    <div class="spec-label">TELA</div>
-                                    <div class="spec-value">Algodón 24/1 peinado</div>
+                                    <div class="spec-value">⚡ Algodón peinado</div>
                                 </div>
                                 <div class="spec-item">
-                                    <div class="spec-label">TALLES</div>
-                                    <div class="spec-value">S a XXL</div>
+                                    <div class="spec-value">📏 S a XXL</div>
                                 </div>
                             </div>
 
@@ -1573,20 +1571,9 @@
                                 </button>
                             </div>
 
-                            <!-- Navegación entre productos -->
-                            <div class="modal-product-nav">
-                                <button class="btn-nav-prev" id="btnNavPrev" onclick="navigateToPrevProduct()">
-                                    ← Anterior
-                                </button>
-                                <span class="product-counter" id="productCounter">1/109</span>
-                                <button class="btn-nav-next" id="btnNavNext" onclick="navigateToNextProduct()">
-                                    Siguiente →
-                                </button>
-                            </div>
-
                             <!-- Productos relacionados -->
                             <div class="related-products" id="relatedProducts" style="display:none;">
-                                <h4>También podrías elegir:</h4>
+                                <h4>Más del archivo FMD Editions ☢️</h4>
                                 <div class="related-grid" id="relatedGrid"></div>
                             </div>
 
