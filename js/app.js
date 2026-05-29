@@ -1339,6 +1339,7 @@ async function loadProducts() {
         const response = await fetch('data/products.json?v=' + Date.now());
         if (!response.ok) throw new Error('Error cargando productos');
         db = await response.json();
+        buildDorsoAutocompletePool();
         updateCountsUI();
         renderHoodiesGrid(); // Hoodies destacados
         renderHeroOrbit(6); // Poblar órbita del hero con 6 cards 3D
@@ -1351,6 +1352,7 @@ async function loadProducts() {
         console.error('Error:', error);
         // Fallback para desarrollo local
         db = [];
+        dorsoAutocompletePool = [];
     }
 }
 
@@ -1658,6 +1660,7 @@ const DORSO_CATEGORIES = new Set(['Album','Tour','Musician','Dave Mustaine','Met
 
 let selectedDorsoChips = new Set();
 let selectedBacks = new Set();
+let dorsoAutocompletePool = [];
 
 const MGX_SHOWCASE_TABS = [
     { key: 'todo', label: 'Todo Megadeth' },
@@ -1779,6 +1782,7 @@ function renderDorsoSelector() {
         // Hay variantes de dorso disponibles
         variantsSection.style.display = 'block';
         customSection.style.display = 'none'; // Ocultar opciones de personalización
+        hideDorsoAutocomplete();
         
         variantsGrid.innerHTML = dorsoVariants.map(v => `
             <div class="dorso-variant-item" data-index="${v.index}" onclick="selectDorsoVariant(${v.index})" 
@@ -1840,6 +1844,116 @@ function selectDorsoVariant(index) {
     
     // Actualizar precio (simple si no hay dorso, doble si hay)
     updateModalPrices();
+}
+
+function hideDorsoAutocomplete() {
+    const box = document.getElementById('dorsoAutocomplete');
+    const list = document.getElementById('dorsoAutocompleteList');
+    if (list) list.innerHTML = '';
+    if (box) box.style.display = 'none';
+}
+
+function buildDorsoAutocompletePool() {
+    if (!Array.isArray(db) || !db.length) {
+        dorsoAutocompletePool = [];
+        return;
+    }
+
+    const unique = new Map();
+    const pushSuggestion = (rawValue) => {
+        const value = String(rawValue || '').trim();
+        if (!value || value.length < 3) return;
+        const key = normalizeText(value);
+        if (!key || unique.has(key)) return;
+        unique.set(key, value);
+    };
+
+    db.forEach(product => {
+        if (!product) return;
+
+        if (DORSO_CATEGORIES.has(product.category) || normalizeText(product.category) === 'dorsales') {
+            pushSuggestion(product.name);
+        }
+
+        if (Array.isArray(product.variants)) {
+            product.variants.forEach(variant => {
+                const variantName = String(variant?.name || '').trim();
+                const looksLikeBack = isBackVariant(variant) || /dorso|espalda|back|tour|tracklist|logo/i.test(variantName);
+                if (looksLikeBack) pushSuggestion(variantName);
+            });
+        }
+
+        if (Array.isArray(product.backs)) {
+            product.backs.forEach(back => {
+                if (typeof back === 'string') return;
+                pushSuggestion(back?.name);
+            });
+        }
+    });
+
+    dorsoAutocompletePool = Array.from(unique.values()).slice(0, 220);
+}
+
+function getDorsoAutocompleteSuggestions(query, limit = 7) {
+    if (!Array.isArray(dorsoAutocompletePool) || !dorsoAutocompletePool.length) return [];
+    const normalizedQuery = normalizeText(query);
+
+    if (!normalizedQuery) {
+        return dorsoAutocompletePool.slice(0, limit);
+    }
+
+    const startsWith = [];
+    const includes = [];
+    dorsoAutocompletePool.forEach(item => {
+        const normalizedItem = normalizeText(item);
+        if (normalizedItem.startsWith(normalizedQuery)) {
+            startsWith.push(item);
+        } else if (normalizedItem.includes(normalizedQuery)) {
+            includes.push(item);
+        }
+    });
+
+    return [...startsWith, ...includes].slice(0, limit);
+}
+
+function applyDorsoSuggestion(value) {
+    const input = document.getElementById('dorsoCustomInput');
+    if (!input) return;
+    input.value = value;
+    input.dispatchEvent(new Event('input', { bubbles: true }));
+    hideDorsoAutocomplete();
+}
+
+function renderDorsoAutocomplete(query = '') {
+    const customSection = document.getElementById('dorsoCustomSection');
+    const box = document.getElementById('dorsoAutocomplete');
+    const list = document.getElementById('dorsoAutocompleteList');
+    if (!customSection || !box || !list) return;
+
+    const customHidden = window.getComputedStyle(customSection).display === 'none';
+    if (customHidden) {
+        hideDorsoAutocomplete();
+        return;
+    }
+
+    const suggestions = getDorsoAutocompleteSuggestions(query, 7);
+    if (!suggestions.length) {
+        hideDorsoAutocomplete();
+        return;
+    }
+
+    list.innerHTML = suggestions.map(item =>
+        `<button type="button" class="chip" data-suggestion="${item.replace(/"/g, '&quot;')}" style="border:1px solid #333;background:#111;color:#d7d7d7;">${item}</button>`
+    ).join('');
+
+    list.querySelectorAll('[data-suggestion]').forEach(btn => {
+        btn.addEventListener('pointerdown', (event) => {
+            event.preventDefault();
+            applyDorsoSuggestion(btn.dataset.suggestion || '');
+        });
+    });
+
+    box.style.display = 'block';
 }
 
 // === ELEMENTOS DOM ===
@@ -2040,6 +2154,7 @@ function openModal(id, variantIndex = undefined, scopedVariantIndexes = undefine
     document.querySelectorAll('#chipsRow .chip').forEach(c => c.classList.remove('active'));
     const dorsoInput = document.getElementById('dorsoCustomInput');
     if(dorsoInput) dorsoInput.value = '';
+    hideDorsoAutocomplete();
     
     // Estilos para reset
     const activeStyle = 'background:#e8432e;border:1px solid #e8432e;color:#fff;padding:6px 12px;border-radius:5px;font-size:0.8rem;font-weight:500;cursor:pointer;';
@@ -3347,10 +3462,19 @@ document.addEventListener('click', (e) => {
 
 // Enlazar input personalizado
 const dorsoInputLive = document.getElementById('dorsoCustomInput');
-if(dorsoInputLive) dorsoInputLive.addEventListener('input', () => {
-    updateDobleWaLink();
-    updateModalPrices();
-});
+if(dorsoInputLive) {
+    dorsoInputLive.addEventListener('input', () => {
+        updateDobleWaLink();
+        updateModalPrices();
+        renderDorsoAutocomplete(dorsoInputLive.value);
+    });
+    dorsoInputLive.addEventListener('focus', () => {
+        renderDorsoAutocomplete(dorsoInputLive.value);
+    });
+    dorsoInputLive.addEventListener('blur', () => {
+        setTimeout(() => hideDorsoAutocomplete(), 120);
+    });
+}
 
 // === FUNCIONES PARA CARRITO ===
 function copyProductCode() {
