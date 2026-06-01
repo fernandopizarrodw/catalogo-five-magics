@@ -877,12 +877,57 @@ function resolveModalPriceConfig(product = currentProduct) {
     return { simple, doble, isHoodie, isCustom };
 }
 
+function hasDorsoSelection() {
+    const dorsoInputValue = (document.getElementById('dorsoCustomInput')?.value || '').trim();
+    const hasBackExamples = typeof selectedBacks !== 'undefined' && selectedBacks && selectedBacks.size > 0;
+    const hasChips = typeof selectedDorsoChips !== 'undefined' && selectedDorsoChips && selectedDorsoChips.size > 0;
+    return selectedBackIndex >= 0 || hasBackExamples || hasChips || dorsoInputValue.length > 0;
+}
+
+function updateDoubleSelectionStatus(isDoubleActive) {
+    const statusEl = document.getElementById('doubleSelectionStatus');
+    if (!statusEl || !currentProduct) return;
+
+    if (!isDoubleActive) {
+        statusEl.style.display = 'none';
+        statusEl.textContent = '';
+        return;
+    }
+
+    const precios = resolveModalPriceConfig(currentProduct);
+    const diff = Math.max(0, precios.doble - precios.simple);
+    const diffText = diff > 0 ? ` +$${diff.toLocaleString('es-AR')}` : '';
+
+    let detail = '';
+    if (selectedBackIndex >= 0 && currentProduct.variants?.[selectedBackIndex]) {
+        detail = currentProduct.variants[selectedBackIndex].name;
+    } else if (typeof selectedDorsoChips !== 'undefined' && selectedDorsoChips?.size) {
+        detail = Array.from(selectedDorsoChips).join(' + ');
+    } else if (typeof selectedBacks !== 'undefined' && selectedBacks?.size) {
+        detail = Array.from(selectedBacks).slice(0, 2).join(' | ');
+    } else {
+        const customInput = (document.getElementById('dorsoCustomInput')?.value || '').trim();
+        if (customInput) {
+            detail = customInput.length > 80 ? `${customInput.slice(0, 80)}...` : customInput;
+        }
+    }
+
+    const prefix = currentProduct.tipoPrecio === 'doble'
+        ? 'Doble estampa incluida'
+        : 'Doble estampa activa';
+
+    statusEl.textContent = detail
+        ? `🔥 ${prefix}: ${detail}${diffText}`
+        : `🔥 ${prefix}${diffText}`;
+    statusEl.style.display = 'block';
+}
+
 function updateModalPrices() {
     if (!currentProduct) return;
     const precios = resolveModalPriceConfig(currentProduct);
 
     // Precio depende de si el producto ya es doble o si el usuario sumó dorso
-    const tieneDoble = currentProduct.tipoPrecio === 'doble' || selectedBackIndex >= 0 || selectedBacks.size > 0 || selectedDorsoChips.size > 0;
+    const tieneDoble = currentProduct.tipoPrecio === 'doble' || hasDorsoSelection();
     const precio = tieneDoble ? precios.doble : precios.simple;
     document.getElementById('modalPrice').textContent = '$' + precio.toLocaleString('es-AR');
 
@@ -903,6 +948,8 @@ function updateModalPrices() {
             priceNote.textContent = `$${precio.toLocaleString('es-AR')} + envío${customTag}`;
         }
     }
+
+    updateDoubleSelectionStatus(tieneDoble);
 }
 
 // === SISTEMA DE CARRITO ===
@@ -1700,6 +1747,9 @@ function buildDobleMessage(){
 
     const images = currentProduct ? getModalImages() : [];
     const variant = images?.[currentSlide]?.name ? `\nVariante: ${images[currentSlide].name}` : '';
+    const selectedBackVariant = (selectedBackIndex >= 0 && currentProduct?.variants?.[selectedBackIndex])
+        ? `\nDorso elegido: ${currentProduct.variants[selectedBackIndex].name}`
+        : '';
 
     const chips = selectedDorsoChips.size
         ? `\nDorso (ideas): ${Array.from(selectedDorsoChips).join(' + ')}`
@@ -1712,7 +1762,7 @@ function buildDobleMessage(){
     const input = (document.getElementById('dorsoCustomInput')?.value || '').trim();
     const custom = input ? `\nDetalle personalizado: ${input}` : '';
 
-    return `${base}${variant}${chips}${backs}${custom}\n\nTalle: ___  Color: ___  Ciudad: ___`;
+    return `${base}${variant}${selectedBackVariant}${chips}${backs}${custom}\n\nTalle: ___  Color: ___  Ciudad: ___`;
 }
 
 function updateDobleWaLink(){
@@ -1845,6 +1895,7 @@ function selectDorsoVariant(index) {
     
     // Actualizar precio (simple si no hay dorso, doble si hay)
     updateModalPrices();
+    updateDobleWaLink();
 }
 
 function hideDorsoAutocomplete() {
@@ -2283,7 +2334,7 @@ function openModal(id, variantIndex = undefined, scopedVariantIndexes = undefine
 
     const modalAdvancedPanel = document.getElementById('modalAdvancedPanel');
     if (modalAdvancedPanel) {
-        modalAdvancedPanel.open = false;
+        modalAdvancedPanel.open = currentProduct.tipoPrecio === 'doble';
     }
 
     modal.classList.add('active');
@@ -4013,7 +4064,7 @@ function addToCartFromModal() {
     }
     
     // Determinar si es doble estampa basándose en el dorso seleccionado
-    const isDouble = currentProduct.tipoPrecio === 'doble' || selectedBackIndex >= 0 || selectedBacks.size > 0 || selectedDorsoChips.size > 0;
+    const isDouble = currentProduct.tipoPrecio === 'doble' || hasDorsoSelection();
     const isCustom = isPersonalizedSelection(currentProduct);
     const variantIndex = getActiveVariantIndex();
     

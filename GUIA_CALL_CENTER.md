@@ -309,7 +309,7 @@ R: "DTG Premium resiste muchas lavadas. Cuidados: lavado en frío, no secar a m�
 R: "Consultá métodos de pago disponibles con administración"
 
 ### P: "¿Hay promociones?"
-R: "Descuentos en packs de 2+ unidades. Seguinos en Instagram para promociones especiales"
+R: "Descuentos por cantidad desde 3 unidades. Seguinos en Instagram para promociones especiales"
 
 ---
 
