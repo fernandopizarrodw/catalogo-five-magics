@@ -1,15 +1,15 @@
 // === CONFIGURACIÓN DE PRECIOS ===
 const PRECIOS = {
     simple: 37000,
-    doble: 42000,
+    doble: 44000,
     simple_personalizado: 42000,
-    doble_personalizado: 47000
+    doble_personalizado: 49000
 };
 const PRECIOS_OVERSIZE = {
     simple: 40000,
-    doble: 45000,
+    doble: 47000,
     simple_personalizado: 45000,
-    doble_personalizado: 50000
+    doble_personalizado: 52000
 };
 const PRECIOS_CHICOS = {
     simple: 32000,
@@ -23,8 +23,9 @@ const PERSONALIZADO_EXTRA = 5000;
 const COMBO_HOODIE_REMERA = 99000; // Incluye envío gratis
 const PRECIOS_ENVIO = {
     una_unidad: 5000,
-    dos_plus: 0,
-    tres_plus: { descuento: 0.10, envio: 0 }
+    dos_plus: 5000,
+    tres_plus: { descuento: 0, envio: 0 },
+    cuatro_plus: { descuento: 0.15, envio: 0 }
 };
 const FECHA_VIGENCIA = "Marzo 2026";
 const WHATSAPP = "541169667685";
@@ -1324,7 +1325,7 @@ function renderLatestReleases(limit = 5) {
                         ${
                             isDorsoIdea
                             ? `<span class="product-envio" style="color:var(--magic-green);border:1px solid rgba(57,255,20,.25);">Solo doble estampa</span>`
-                            : `${formatPreciosDual(card)}<div style="font-size:0.62rem;color:var(--text-muted);margin-top:4px;">Envío gratis 2+ · 1 unidad consultar</div>`
+                            : `${formatPreciosDual(card)}<div style="font-size:0.62rem;color:var(--text-muted);margin-top:4px;">Promos por cantidad: 3+ envío gratis · 4+ 15% OFF</div>`
                         }
                     </div>
                 </div>
@@ -2958,7 +2959,7 @@ function renderFilteredProducts(filtered) {
                     ${
                         isDorsoIdea
                         ? `<span class="product-envio" style="color:var(--magic-green);border:1px solid rgba(57,255,20,.25);">Solo doble estampa</span>`
-                        : `${formatPreciosDual(p)}<div style="font-size:0.62rem;color:var(--text-muted);margin-top:4px;">Envío gratis 2+ · 1 unidad consultar</div>`
+                        : `${formatPreciosDual(p)}<div style="font-size:0.62rem;color:var(--text-muted);margin-top:4px;">Promos por cantidad: 3+ envío gratis · 4+ 15% OFF</div>`
                     }
                 </div>
             </div>
@@ -3641,8 +3642,12 @@ function buildShippingContextForWhatsapp(postalCode = '', customerData = null) {
 
     const quantity = cart.getCart().length;
 
-    if (quantity >= 2) {
-        return '\n\n📦 DATOS DE ENVÍO:\n• Envío gratis por pedido de 2 o más prendas.';
+    if (quantity >= 4) {
+        return '\n\n📦 DATOS DE ENVÍO:\n• Envío gratis + 15% OFF por pedido de 4 o más prendas.';
+    }
+
+    if (quantity >= 3) {
+        return '\n\n📦 DATOS DE ENVÍO:\n• Envío gratis por pedido de 3 prendas.';
     }
 
     if (postalCode) {
@@ -3739,16 +3744,16 @@ function calculateCartTotal() {
         subtotal += calculateItemPrice(item);
     });
     
-    // Calcular descuento según cantidad (10% para 3+ prendas)
+    // Calcular descuento según cantidad (15% para 4+ prendas)
     let descuento = 0;
     const cantidad = items.length;
     
-    if (cantidad >= 3) {
-        descuento = subtotal * 0.10; // 10% descuento
+    if (cantidad >= 4) {
+        descuento = subtotal * 0.15; // 15% descuento
     }
     
-    // Envío: gratis para 2+, a calcular para 1
-    const envioGratis = cantidad >= 2;
+    // Envío: gratis para 3+, a calcular para 1 o 2
+    const envioGratis = cantidad >= 3;
     
     return {
         subtotal,
@@ -3827,9 +3832,13 @@ function renderCartPreview() {
     // Renderizar footer con resumen
     let shippingNote = '';
     if (totals.cantidad === 1) {
-        shippingNote = `<div class="cart-preview-shipping-note">¡Agregá 1 prenda más y el envío es GRATIS!</div>`;
-    } else if (totals.cantidad >= 2) {
-        shippingNote = `<div class="cart-preview-shipping-note">🚚 ¡ENVÍO GRATIS! ${totals.cantidad >= 3 ? '+ 10% descuento 🎉' : ''}</div>`;
+        shippingNote = `<div class="cart-preview-shipping-note">¡Agregá 2 prendas más para envío gratis!</div>`;
+    } else if (totals.cantidad === 2) {
+        shippingNote = `<div class="cart-preview-shipping-note">¡Agregá 1 prenda más para envío gratis!</div>`;
+    } else if (totals.cantidad === 3) {
+        shippingNote = `<div class="cart-preview-shipping-note">🚚 ¡ENVÍO GRATIS! Sumá 1 más y activás 15% OFF 🎉</div>`;
+    } else if (totals.cantidad >= 4) {
+        shippingNote = `<div class="cart-preview-shipping-note">🚚 ¡ENVÍO GRATIS + 15% OFF aplicado! 🎉</div>`;
     }
 
     const shippingForm = `
@@ -3887,7 +3896,7 @@ function renderCartPreview() {
             </div>
             ${totals.descuento > 0 ? `
                 <div class="cart-preview-summary-row">
-                    <span>Descuento 10% (3+ prendas)</span>
+                    <span>Descuento 15% (4+ prendas)</span>
                     <span class="value" style="color: var(--magic-green);">-$${totals.descuento.toLocaleString('es-AR')}</span>
                 </div>
             ` : ''}
@@ -3904,7 +3913,7 @@ function renderCartPreview() {
         ${shippingForm}
         <div class="cart-preview-info" style="margin-top:12px;padding:12px;background:#0a0a0a;border:1px solid #222;border-radius:8px;font-size:0.8rem;color:#888;">
             <div style="margin-bottom:8px;">
-                <span style="color:#39ff14;">📦 ENVÍO ANDREANI:</span> A domicilio o punto de retiro Andreani · 3-7 días hábiles a todo el país. Envío gratis en pedidos de 2 o más prendas.
+                <span style="color:#39ff14;">📦 ENVÍO ANDREANI:</span> A domicilio o punto de retiro Andreani · 3-7 días hábiles a todo el país. 3 prendas: envío gratis · 4 o más: 15% OFF + envío gratis.
             </div>
             <div>
                 <span style="color:#39ff14;">💳 PAGO:</span> Transferencia o MercadoPago. Tarjeta de crédito con recargo $8.000.
