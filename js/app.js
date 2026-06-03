@@ -19,14 +19,14 @@ const PRECIOS_HOODIES = {
     simple: 52000,
     doble: 59000
 };
+const PRECIOS_BUZO_REDONDO = {
+    simple: 50000,
+    doble: 55000,
+    simple_personalizado: 55000,
+    doble_personalizado: 60000
+};
 const PERSONALIZADO_EXTRA = 5000;
 const COMBO_HOODIE_REMERA = 99000; // Incluye envío gratis
-const PRECIOS_ENVIO = {
-    una_unidad: 5000,
-    dos_plus: 5000,
-    tres_plus: { descuento: 0, envio: 0 },
-    cuatro_plus: { descuento: 0.15, envio: 0 }
-};
 const FECHA_VIGENCIA = "Marzo 2026";
 const WHATSAPP = "541169667685";
 
@@ -48,6 +48,14 @@ function scrollToSection(sectionId) {
     if (window.location.hash !== `#${sectionId}`) {
         history.replaceState(null, '', `#${sectionId}`);
     }
+}
+
+function goToMaidenCollection() {
+    scrollToSection('categoryNav');
+    setTimeout(() => {
+        const maidenBtn = document.querySelector('.cat-btn[data-cat="Iron Maiden"]');
+        if (maidenBtn) maidenBtn.click();
+    }, 180);
 }
 
 function parseOpenModalArgs(onclickValue) {
@@ -852,13 +860,16 @@ function resolveModalPriceConfig(product = currentProduct) {
     }
 
     const isHoodie = product.category === 'Hoodies FMD';
+    const isBuzoRedondo = product.category === 'Buzo Cuello Redondo';
     const isOversize = selectedCut === 'oversize';
     const isKids = selectedAge === 'chico';
-    const isCustom = isPersonalizedSelection(product) && !isHoodie && !isKids;
+    const isCustom = isPersonalizedSelection(product) && !isHoodie && !isBuzoRedondo && !isKids;
 
     let basePrices;
     if (isHoodie) {
         basePrices = PRECIOS_HOODIES;
+    } else if (isBuzoRedondo) {
+        basePrices = PRECIOS_BUZO_REDONDO;
     } else if (isKids) {
         basePrices = PRECIOS_CHICOS;
     } else if (isOversize) {
@@ -874,7 +885,7 @@ function resolveModalPriceConfig(product = currentProduct) {
         ? (basePrices.doble_personalizado ?? (basePrices.doble + PERSONALIZADO_EXTRA))
         : basePrices.doble;
 
-    return { simple, doble, isHoodie, isCustom };
+    return { simple, doble, isHoodie, isBuzoRedondo, isCustom };
 }
 
 function hasDorsoSelection() {
@@ -945,7 +956,7 @@ function updateModalPrices() {
             priceNote.innerHTML = '🎁 COMBO Hoodie + Remera: <strong style="color:var(--price);">$99.000</strong> (envío gratis)';
         } else {
             const customTag = precios.isCustom ? ' · personalizado' : '';
-            priceNote.textContent = `$${precio.toLocaleString('es-AR')} + envío${customTag}`;
+            priceNote.textContent = `$${precio.toLocaleString('es-AR')}${customTag} · envío según zona · consultá por WhatsApp`;
         }
     }
 
@@ -1112,11 +1123,14 @@ class CartSystem {
         // Detalles de cada producto (ajustes de lenguaje y talle)
         const details = sortedCart.map((item, idx) => {
             const isHoodie = item.category === 'Hoodies FMD' || item.category === 'Hoodies Otras Bandas';
+            const isBuzoRedondo = item.category === 'Buzo Cuello Redondo';
             const edad = item.age === 'chico' ? 'Niño' : 'Adulto';
             const talle = item.size ? item.size : 'A confirmar';
             const color = item.color === 'blanco' ? 'Blanca' : 'Negra';
             let tipoPrenda;
-            if (isHoodie) {
+            if (isBuzoRedondo) {
+                tipoPrenda = 'Buzo cuello redondo unisex';
+            } else if (isHoodie) {
                 tipoPrenda = 'Hoodie oversize unisex';
             } else if (item.cut === 'oversize') {
                 tipoPrenda = 'Remera oversize unisex';
@@ -1389,7 +1403,9 @@ async function loadProducts() {
         db = await response.json();
         buildDorsoAutocompletePool();
         updateCountsUI();
+        renderMaidenArchiveGrid(); // Capsula editorial Iron Maiden
         renderHoodiesGrid(); // Hoodies destacados
+        renderBuzosRedondoGrid(); // Buzos cuello redondo destacados
         renderHeroOrbit(6); // Poblar órbita del hero con 6 cards 3D
         loadMegadethDestacados(); // Destacados para el show
         loadMegadethCollections(); // Colecciones Megadeth con preview
@@ -1401,6 +1417,101 @@ async function loadProducts() {
         // Fallback para desarrollo local
         db = [];
         dorsoAutocompletePool = [];
+    }
+}
+
+function scoreMaidenArchiveProduct(product) {
+    const text = normalizeText(`${product?.name || ''} ${product?.desc || ''} ${(product?.tags || []).join(' ')}`);
+    let score = getProductPriority(product) * 100;
+
+    if (text.includes('tour')) score += 420;
+    if (text.includes('2026')) score += 220;
+    if (text.includes('argentina')) score += 260;
+    if (text.includes('eddie')) score += 230;
+    if (text.includes('powerslave')) score += 200;
+    if (text.includes('killers')) score += 210;
+    if (text.includes('fear')) score += 190;
+    if (text.includes('fmd') || text.includes('original')) score += 120;
+    if (product?.tipoPrecio === 'doble') score += 130;
+
+    return score;
+}
+
+function getMaidenArchiveMeta(product) {
+    const text = normalizeText(`${product?.name || ''} ${product?.desc || ''}`);
+    if (text.includes('tour')) return 'Tour 2026';
+    if (text.includes('argentina')) return 'Eddie Argentina';
+    if (text.includes('eddie')) return 'Eddie Iconico';
+    if (text.includes('powerslave')) return 'Powerslave FMD';
+    if (text.includes('killers')) return 'Killers';
+    if (text.includes('fear')) return 'Fear Of The Dark';
+    if (product?.tipoPrecio === 'doble') return 'Doble estampa';
+    return 'Clasico remasterizado';
+}
+
+function getMaidenArchivePrice(product) {
+    const isHoodie = product?.category === 'Hoodies FMD' || product?.category === 'Hoodies Otras Bandas';
+    const isBuzo = product?.category === 'Buzo Cuello Redondo';
+
+    if (isHoodie) return PRECIOS_HOODIES.doble;
+    if (isBuzo) return PRECIOS_BUZO_REDONDO.doble;
+    return product?.tipoPrecio === 'doble' ? PRECIOS.doble : PRECIOS.simple;
+}
+
+function renderMaidenArchiveGrid() {
+    try {
+        const grid = document.getElementById('maidenArchiveGrid');
+        const section = document.getElementById('maidenArchive');
+        if (!grid || !section || !Array.isArray(db) || !db.length) return;
+
+        const maidenPool = db.filter(product => {
+            const category = normalizeText(product?.category || '');
+            const band = normalizeText(product?.band || '');
+            const text = normalizeText(`${product?.name || ''} ${product?.desc || ''} ${(product?.tags || []).join(' ')}`);
+            return category === 'iron maiden' || band === 'iron maiden' || text.includes('iron maiden');
+        });
+
+        if (!maidenPool.length) {
+            section.style.display = 'none';
+            return;
+        }
+
+        const highlights = [...maidenPool]
+            .sort((a, b) => {
+                const scoreDiff = scoreMaidenArchiveProduct(b) - scoreMaidenArchiveProduct(a);
+                if (scoreDiff !== 0) return scoreDiff;
+                return compareProductsByPriorityThenId(a, b);
+            })
+            .slice(0, 8);
+
+        grid.innerHTML = highlights.map((product, index) => {
+            const price = getMaidenArchivePrice(product);
+            const meta = getMaidenArchiveMeta(product);
+            const priceMode = product?.tipoPrecio === 'doble' ? 'Doble estampa' : 'Simple frente';
+            const isLastCard = index === highlights.length - 1;
+            const cardAction = isLastCard ? 'goToMaidenCollection()' : `openModal(${product.id})`;
+            const ctaMarkup = isLastCard
+                ? `<button class="maiden-archive-card-cta" onclick="event.stopPropagation(); goToMaidenCollection();">VER COLECCIÓN →</button>`
+                : '';
+
+            return `<div class="product-card hoodie-card" onclick="${cardAction}">
+                <div class="product-badges">
+                    <span class="variants-badge hoodie-badge">ARCHIVO MAIDEN</span>
+                </div>
+                <img src="${product.img}" class="product-img" loading="lazy" decoding="async">
+                <div class="product-info">
+                    <div class="product-name">${product.name}</div>
+                    <div class="product-meta">${product.year || 'FMD'} · ${meta}</div>
+                    <div class="product-price-row">
+                        <span class="product-price hoodie-price">$${price.toLocaleString('es-AR')}</span>
+                    </div>
+                    <div class="maiden-archive-price-mode">${priceMode}</div>
+                    ${ctaMarkup}
+                </div>
+            </div>`;
+        }).join('');
+    } catch (e) {
+        console.warn('renderMaidenArchiveGrid error', e);
     }
 }
 
@@ -1426,8 +1537,7 @@ function renderHoodiesGrid() {
             const precio = PRECIOS_HOODIES.doble;
             // Si es la 5ta card y hay más de 5, poner el botón y el blur
             if (idx === maxVisible - 1 && hoodies.length > maxVisible) {
-                html += `<div class="product-card hoodie-card ver-mas-card" id="verMasHoodiesCard" style="position:relative;overflow:hidden;cursor:pointer;" onclick="mostrarMasHoodies(event)">
-                    <div class="ver-mas-blur"></div>
+                html += `<div class="product-card hoodie-card ver-mas-card" id="verMasHoodiesCard" onclick="filterByCategory('Hoodies FMD')">
                     <span class="variants-badge hoodie-badge">🧥 HOODIE</span>
                     <img src="${product.img}" class="product-img" loading="lazy">
                     <div class="product-info">
@@ -1436,8 +1546,9 @@ function renderHoodiesGrid() {
                         <div class="product-price-row">
                             <span class="product-price hoodie-price">$${precio.toLocaleString('es-AR')}</span>
                         </div>
+                        <div class="maiden-archive-price-mode">Colección completa</div>
+                        <button class="maiden-archive-card-cta" onclick="event.stopPropagation(); filterByCategory('Hoodies FMD')">VER COLECCIÓN →</button>
                     </div>
-                    <button class="ver-mas-btn-overlay">VER MÁS HOODIES</button>
                 </div>`;
             } else if (idx < maxVisible - 1) {
                 html += `<div class="product-card hoodie-card" onclick="openModal(${product.id})">
@@ -1451,13 +1562,62 @@ function renderHoodiesGrid() {
                         </div>
                     </div>
                 </div>`;
-            } else if (idx >= maxVisible) {
-                html += `<div class="product-card hoodie-card hoodie-hidden" style="display:none;" onclick="openModal(${product.id})">
-                    <span class="variants-badge hoodie-badge">🧥 HOODIE</span>
+            }
+        });
+        hoodiesGrid.innerHTML = html;
+    } catch(e) { console.warn('renderHoodiesGrid error', e); }
+}
+
+// Renderizar sección destacada de Buzos Cuello Redondo
+function renderBuzosRedondoGrid() {
+    try {
+        const grid = document.getElementById('buzosRedondoGrid');
+        if (!grid || !Array.isArray(db) || !db.length) return;
+
+        const buzos = db
+            .filter(p => p.category === 'Buzo Cuello Redondo')
+            .sort(compareProductsByPriorityThenId);
+
+        if (buzos.length === 0) {
+            const section = document.getElementById('buzosRedondoFeatured');
+            if (section) section.style.display = 'none';
+            return;
+        }
+
+        const maxVisible = 5;
+        let html = '';
+        buzos.forEach((product, idx) => {
+            const precio = PRECIOS_BUZO_REDONDO.doble;
+            const launchBadge = product.id === 7014
+                ? `<span class="pack-badge pack-badge-launch">LANZAMIENTO</span>`
+                : '';
+            if (idx === maxVisible - 1 && buzos.length > maxVisible) {
+                html += `<div class="product-card hoodie-card ver-mas-card" id="verMasBuzosCard" onclick="filterByCategory('Buzo Cuello Redondo')">
+                    <div class="product-badges">
+                        <span class="variants-badge hoodie-badge">🧥 BUZO</span>
+                        ${launchBadge}
+                    </div>
                     <img src="${product.img}" class="product-img" loading="lazy">
                     <div class="product-info">
                         <div class="product-name">${product.name}</div>
-                        <div class="product-meta">${product.year} · Doble estampa</div>
+                        <div class="product-meta">${product.year || ''} · Doble estampa</div>
+                        <div class="product-price-row">
+                            <span class="product-price hoodie-price">$${precio.toLocaleString('es-AR')}</span>
+                        </div>
+                        <div class="maiden-archive-price-mode">Colección completa</div>
+                        <button class="maiden-archive-card-cta" onclick="event.stopPropagation(); filterByCategory('Buzo Cuello Redondo')">VER COLECCIÓN →</button>
+                    </div>
+                </div>`;
+            } else if (idx < maxVisible - 1) {
+                html += `<div class="product-card hoodie-card" onclick="openModal(${product.id})">
+                    <div class="product-badges">
+                        <span class="variants-badge hoodie-badge">🧥 BUZO</span>
+                        ${launchBadge}
+                    </div>
+                    <img src="${product.img}" class="product-img" loading="lazy">
+                    <div class="product-info">
+                        <div class="product-name">${product.name}</div>
+                        <div class="product-meta">${product.year || ''} · Doble estampa</div>
                         <div class="product-price-row">
                             <span class="product-price hoodie-price">$${precio.toLocaleString('es-AR')}</span>
                         </div>
@@ -1465,16 +1625,8 @@ function renderHoodiesGrid() {
                 </div>`;
             }
         });
-        hoodiesGrid.innerHTML = html;
-    // Mostrar más hoodies al hacer clic en VER MÁS
-    window.mostrarMasHoodies = function(event) {
-        event.stopPropagation();
-        const cards = document.querySelectorAll('.hoodie-hidden');
-        cards.forEach(card => { card.style.display = 'block'; });
-        const verMasCard = document.getElementById('verMasHoodiesCard');
-        if (verMasCard) verMasCard.style.display = 'none';
-    }
-    } catch(e) { console.warn('renderHoodiesGrid error', e); }
+        grid.innerHTML = html;
+    } catch(e) { console.warn('renderBuzosRedondoGrid error', e); }
 }
 
 function isMegadethUniverseProduct(product) {
@@ -1597,7 +1749,8 @@ function formatPrecio(tipo) {
 
 function formatPreciosDual(product = null) {
     const isHoodie = product && (product.category === 'Hoodies FMD' || product.category === 'Hoodies Otras Bandas');
-    const tabla = isHoodie ? PRECIOS_HOODIES : PRECIOS;
+    const isBuzoRedondo = product && product.category === 'Buzo Cuello Redondo';
+    const tabla = isHoodie ? PRECIOS_HOODIES : isBuzoRedondo ? PRECIOS_BUZO_REDONDO : PRECIOS;
     const pSimple = '$' + tabla.simple.toLocaleString('es-AR');
     const pDoble = '$' + tabla.doble.toLocaleString('es-AR');
     return `<div class="dual-prices">
@@ -2262,15 +2415,18 @@ function openModal(id, variantIndex = undefined, scopedVariantIndexes = undefine
         btn.style.cssText = inactiveColorStyle;
     });
     
-    // === LÓGICA ESPECIAL PARA HOODIES ===
+    // === LÓGICA ESPECIAL PARA HOODIES Y BUZOS CUELLO REDONDO ===
     const isHoodie = currentProduct.category === 'Hoodies FMD';
+    const isBuzoRedondo = currentProduct.category === 'Buzo Cuello Redondo';
     const hoodieInfoBanner = document.getElementById('hoodieInfoBanner');
+    const buzoRedondoInfoBanner = document.getElementById('buzoRedondoInfoBanner');
     const ageGroup = document.getElementById('ageGroup');
     const cutGroup = document.getElementById('cutGroup');
     
     if (isHoodie) {
         // Mostrar banner de hoodie
         if (hoodieInfoBanner) hoodieInfoBanner.style.display = 'block';
+        if (buzoRedondoInfoBanner) buzoRedondoInfoBanner.style.display = 'none';
         
         // Ocultar selector de edad (solo adultos para hoodies)
         if (ageGroup) ageGroup.style.display = 'none';
@@ -2291,9 +2447,34 @@ function openModal(id, variantIndex = undefined, scopedVariantIndexes = undefine
                 btn.style.display = 'none'; // Ocultar XXS
             }
         });
+    } else if (isBuzoRedondo) {
+        // Mostrar banner de buzo cuello redondo
+        if (hoodieInfoBanner) hoodieInfoBanner.style.display = 'none';
+        if (buzoRedondoInfoBanner) buzoRedondoInfoBanner.style.display = 'block';
+        
+        // Ocultar selector de edad (unisex)
+        if (ageGroup) ageGroup.style.display = 'none';
+        
+        // Ocultar selector de corte (corte amplio fijo)
+        if (cutGroup) cutGroup.style.display = 'none';
+        
+        // Forzar corte amplio y adulto
+        selectedCut = 'oversize';
+        selectedAge = 'adulto';
+        
+        // Mostrar tallaje oversize para buzo cuello redondo (S a XXL)
+        document.querySelectorAll('#sizeSelector .size-oversize').forEach(btn => {
+            if (btn.dataset.size === 'XS') {
+                btn.style.display = '';
+                btn.style.cssText = inactiveStyle;
+            } else {
+                btn.style.display = 'none';
+            }
+        });
     } else {
         // Restaurar comportamiento normal para remeras
         if (hoodieInfoBanner) hoodieInfoBanner.style.display = 'none';
+        if (buzoRedondoInfoBanner) buzoRedondoInfoBanner.style.display = 'none';
         if (ageGroup) ageGroup.style.display = 'flex';
         if (cutGroup) cutGroup.style.display = 'flex';
     }
@@ -3129,6 +3310,7 @@ const CATEGORY_LABELS = {
     'Album': 'Álbumes Megadeth',
     'Hoodies FMD': 'Hoodies Megadeth',
     'Hoodies Otras Bandas': 'Hoodies de otras bandas',
+    'Buzo Cuello Redondo': 'Buzos cuello redondo',
     'Bandas Sugeridas': 'Bandas Sugeridas',
     'Dave Mustaine': 'Dave Mustaine',
     'Dorsales': 'Dorsos para combinar',
@@ -3206,6 +3388,7 @@ function updateCountsUI(){
         setNavBadge('Metallica', byCategory['Metallica']||0);
         setNavBadge('Hoodies FMD', byCategory['Hoodies FMD']||0);
         setNavBadge('Hoodies Otras Bandas', byCategory['Hoodies Otras Bandas']||0);
+        setNavBadge('Buzo Cuello Redondo', byCategory['Buzo Cuello Redondo']||0);
         setNavBadge('Bandas Sugeridas', byCategory['Bandas Sugeridas']||0);
         setNavBadge('Dave Mustaine', byCategory['Dave Mustaine']||0);
         setNavBadge('Dorsales', byCategory['Dorsales']||0);
@@ -3230,6 +3413,7 @@ function updateCountsUI(){
         setPill('Orígenes', `${getCategoryLabel('Orígenes')} (${byCategory['Orígenes']||0})`);
         setPill('Hoodies FMD', `${getCategoryLabel('Hoodies FMD')} (${byCategory['Hoodies FMD']||0})`);
         setPill('Hoodies Otras Bandas', `${getCategoryLabel('Hoodies Otras Bandas')} (${byCategory['Hoodies Otras Bandas']||0})`);
+        setPill('Buzo Cuello Redondo', `${getCategoryLabel('Buzo Cuello Redondo')} (${byCategory['Buzo Cuello Redondo']||0})`);
         setPill('Dave Mustaine', `${getCategoryLabel('Dave Mustaine')} (${byCategory['Dave Mustaine']||0})`);
         setPill('Pantera', `${getCategoryLabel('Pantera')} (${byCategory['Pantera']||0})`);
         setPill('Iron Maiden', `${getCategoryLabel('Iron Maiden')} (${byCategory['Iron Maiden']||0})`);
@@ -3760,13 +3944,16 @@ function getProductImage(productId, variantIndex = 0) {
 
 function calculateItemPrice(item) {
     const isHoodie = item.category === 'Hoodies FMD';
+    const isBuzoRedondo = item.category === 'Buzo Cuello Redondo';
     const isKids = item.age === 'chico';
     const isOversize = item.cut === 'oversize';
-    const isCustom = Boolean(item.isCustom) && !isHoodie && !isKids;
+    const isCustom = Boolean(item.isCustom) && !isHoodie && !isBuzoRedondo && !isKids;
 
     let basePrices;
     if (isHoodie) {
         basePrices = PRECIOS_HOODIES;
+    } else if (isBuzoRedondo) {
+        basePrices = PRECIOS_BUZO_REDONDO;
     } else if (isKids) {
         basePrices = PRECIOS_CHICOS;
     } else if (isOversize) {
@@ -3953,10 +4140,10 @@ function renderCartPreview() {
             ` : ''}
             <div class="cart-preview-summary-row">
                 <span>Envío</span>
-                <span class="value">${totals.envioGratis ? '<span style="color:var(--magic-green);">GRATIS ✓</span>' : 'A calcular según zona'}</span>
+                <span class="value">${totals.envioGratis ? '<span style="color:var(--magic-green);">GRATIS ✓</span>' : 'Según zona (se confirma por WhatsApp)'}</span>
             </div>
             <div class="cart-preview-summary-row total">
-                <span>Total${totals.envioGratis ? '' : ' (+ envío)'}</span>
+                <span>Total${totals.envioGratis ? '' : ' (sin envío)'}</span>
                 <span class="value">$${totals.total.toLocaleString('es-AR')}</span>
             </div>
         </div>
@@ -3964,7 +4151,7 @@ function renderCartPreview() {
         ${shippingForm}
         <div class="cart-preview-info" style="margin-top:12px;padding:12px;background:#0a0a0a;border:1px solid #222;border-radius:8px;font-size:0.8rem;color:#888;">
             <div style="margin-bottom:8px;">
-                <span style="color:#39ff14;">📦 ENVÍO ANDREANI:</span> A domicilio o punto de retiro Andreani · 3-7 días hábiles a todo el país. 3 prendas: envío gratis · 4 o más: 15% OFF + envío gratis.
+                <span style="color:#39ff14;">📦 ENVÍO ANDREANI:</span> A domicilio o punto de retiro Andreani · 3-7 días hábiles a todo el país. Costo según zona (se confirma por WhatsApp). 3 prendas: envío gratis · 4 o más: 15% OFF + envío gratis.
             </div>
             <div>
                 <span style="color:#39ff14;">💳 PAGO:</span> Transferencia o MercadoPago. Tarjeta de crédito con recargo $8.000.
@@ -4033,13 +4220,15 @@ function addToCartFromModal() {
     if (!currentProduct) return false;
 
     const isHoodie = currentProduct.category === 'Hoodies FMD';
+    const isBuzoRedondo = currentProduct.category === 'Buzo Cuello Redondo';
+    const isHoodieOrBuzo = isHoodie || isBuzoRedondo;
 
     clearSelectionError('ageGroup');
     clearSelectionError('sizeGroup');
     clearSelectionError('cutGroup');
     clearSelectionError('colorGroup');
 
-    if (!isHoodie && !selectedAge) {
+    if (!isHoodieOrBuzo && !selectedAge) {
         showNotification('Elegí edad antes de continuar.', 2200);
         markSelectionError('ageGroup');
         return false;
@@ -4051,7 +4240,7 @@ function addToCartFromModal() {
         return false;
     }
 
-    if (!isHoodie && !selectedCut) {
+    if (!isHoodieOrBuzo && !selectedCut) {
         showNotification('Elegí corte antes de continuar.', 2200);
         markSelectionError('cutGroup');
         return false;
@@ -4345,8 +4534,9 @@ function loadMegadethDestacados() {
     
     grid.innerHTML = destacados.map(p => {
         const isHoodie = p.category === 'Hoodies FMD' || p.category === 'Hoodies Otras Bandas';
-        // Hoodies: precio doble por defecto, remeras: respetar simple o doble
-        const precioBase = isHoodie ? PRECIOS_HOODIES.doble : (p.tipoPrecio === 'doble' ? PRECIOS.doble : PRECIOS.simple);
+        const isBuzoRedondo = p.category === 'Buzo Cuello Redondo';
+        // Hoodies / buzos: precio doble por defecto, remeras: respetar simple o doble
+        const precioBase = isHoodie ? PRECIOS_HOODIES.doble : isBuzoRedondo ? PRECIOS_BUZO_REDONDO.doble : (p.tipoPrecio === 'doble' ? PRECIOS.doble : PRECIOS.simple);
         
         return `
             <div class="megadeth-product-card" onclick="openModal(${p.id})">
@@ -4396,9 +4586,11 @@ function renderCollectionPreview(gridId, category, maxItems = 5, buttonText = 'V
     for (let i = 0; i < normalCards; i++) {
         const product = products[i];
         const isHoodie = category === 'Hoodies FMD';
-        // Hoodies: siempre doble estampa por defecto ($59.000)
+        const isBuzoRedondo = category === 'Buzo Cuello Redondo';
+        // Hoodies / buzos: precio doble por defecto; remeras: respetar tipoPrecio del producto
         const precio = isHoodie 
             ? PRECIOS_HOODIES.doble
+            : isBuzoRedondo ? PRECIOS_BUZO_REDONDO.doble
             : (product.tipoPrecio === 'doble' ? PRECIOS.doble : PRECIOS.simple);
         
         html += `
@@ -4417,9 +4609,11 @@ function renderCollectionPreview(gridId, category, maxItems = 5, buttonText = 'V
     // El 5to card (o último) siempre es VER MÁS
     const verMasProduct = products[normalCards] || products[products.length - 1];
     const isHoodieVerMas = category === 'Hoodies FMD';
-    // Hoodies: siempre doble estampa por defecto ($59.000)
+    const isBuzoRedondoVerMas = category === 'Buzo Cuello Redondo';
+    // Hoodies / buzos: precio doble por defecto; remeras: respetar tipoPrecio del producto
     const precioVerMas = isHoodieVerMas 
         ? PRECIOS_HOODIES.doble
+        : isBuzoRedondoVerMas ? PRECIOS_BUZO_REDONDO.doble
         : (verMasProduct.tipoPrecio === 'doble' ? PRECIOS.doble : PRECIOS.simple);
     
     html += `
@@ -4659,11 +4853,51 @@ function initMegadethShowcase() {
 
 // Inicializar
 document.addEventListener('DOMContentLoaded', () => {
+    const heroCtaBuzos = document.getElementById('heroCtaBuzos');
+    if (heroCtaBuzos) {
+        heroCtaBuzos.addEventListener('click', (e) => {
+            e.preventDefault();
+            scrollToSection('megadethCollections');
+        });
+    }
+
+    const heroCtaWhatsapp = document.getElementById('heroCtaWhatsapp');
+    if (heroCtaWhatsapp) {
+        heroCtaWhatsapp.addEventListener('click', (e) => {
+            e.preventDefault();
+            openWhatsapp('Hola FMD! Quiero hacer un pedido de sus diseños 🤘\n\nFormato: Buzo / Hoodie / Remera\nDiseño: ___\nBanda: ___\nTalle: ___\nColor: ___\nCP o ciudad: ___\n\n¿Me confirmás precio final y envío?', 'hero_general');
+        });
+    }
+
+    const maidenCtaCollection = document.getElementById('maidenCtaCollection');
+    if (maidenCtaCollection) {
+        maidenCtaCollection.addEventListener('click', (e) => {
+            e.preventDefault();
+            goToMaidenCollection();
+        });
+    }
+
+    const maidenCtaWhatsapp = document.getElementById('maidenCtaWhatsapp');
+    if (maidenCtaWhatsapp) {
+        maidenCtaWhatsapp.addEventListener('click', (e) => {
+            e.preventDefault();
+            openWhatsapp('Hola FMD! Quiero encargar un diseño de Iron Maiden.\n\nFormato: Remera / Hoodie / Buzo\nDiseño: ___\nTalle: ___\nColor: ___\nCP o ciudad: ___\n\n¿Me confirmás precio final y envío?', 'maiden_archive');
+        });
+    }
+
     const cartBtnEl = document.getElementById('cartBtn');
     if (cartBtnEl) {
         cartBtnEl.addEventListener('click', (e) => {
             e.preventDefault();
             openCartPreview();
+        });
+    }
+
+    const cartPanelCloseEl = document.getElementById('cartPanelClose');
+    if (cartPanelCloseEl) {
+        cartPanelCloseEl.addEventListener('click', (e) => {
+            e.preventDefault();
+            toggleCartPanel();
         });
     }
 

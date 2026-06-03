@@ -82,12 +82,12 @@
             <button class="search-modal-close" id="searchModalClose">✕</button>
             <h2>Buscar Diseños</h2>
             <input type="text" id="searchModalInput" placeholder="Ej: Rust, Peace, Vic, Mustaine..." autofocus>
-            <div id="searchModalResults" style="margin-top:20px;"></div>
+            <div id="searchModalResults" class="search-modal-results"></div>
         </div>
     </div>
 
     <!-- Botón flotante del carrito -->
-    <button id="cartBtn" onclick="openCartPreview()" title="Ver carrito">
+    <button id="cartBtn" title="Ver carrito">
         🛒 Ver carrito
         <span class="cart-count">0</span>
     </button>
@@ -96,7 +96,7 @@
     <div id="cartPanel">
         <div class="cart-panel-header">
             <h2>🛒 Mi Carrito</h2>
-            <button class="cart-panel-close" onclick="toggleCartPanel()">✕</button>
+            <button class="cart-panel-close" id="cartPanelClose">✕</button>
         </div>
         <div id="cartList"></div>
         <div id="cartSummary"></div>
@@ -116,21 +116,81 @@
 
         <div class="hero-content">
             <!-- <p class="hero-welcome">COLECCION CONMEMORATIVA ARGENTINA</p> -->
-            <h1 class="hero-brand">MEGADETH</h1>
-            <h2 class="hero-tagline">FMD Editions · Universo Megadeth</h2>
+            <h1 class="hero-brand">FMD ARCHIVES</h1>
+            <h2 class="hero-tagline">Megadeth · Iron Maiden · FMD Editions</h2>
             <div class="hero-divider"></div>
-            <p class="hero-description">Reinterpretaciones cinematográficas, diseños exclusivos y ediciones 3D inspiradas en el universo Megadeth.<br>Remeras, hoodies y combos de invierno. Envíos a todo el país por Andreani.</p>
+            <p class="hero-description">Diseños FMD disponibles en remera, hoodie y buzo cuello redondo. Clásicos, reimaginados, tour editions y piezas originales.</p>
             <div class="hero-actions">
-                <a href="#fmdEdition3d" class="hero-cta-btn" onclick="scrollToSection('fmdEdition3d'); return false;">EXPLORAR FMD EDITIONS</a>
-                <a href="https://wa.me/541169667685?text=Hola%20FMD%2C%20quiero%20armar%20el%20combo%20hoodie%20%2B%20remera%20de%20%2499.000" class="hero-cta-btn hero-cta-btn-secondary" target="_blank" rel="noopener" onclick="openWhatsapp('Hola FMD! Quiero armar el combo hoodie + remera de $99.000 con envío gratis 🤘\n\nHoodie: ___\nRemera: ___\nTalle hoodie: ___\nTalle remera: ___\nColor: ___\nCP o ciudad: ___', 'hero_combo'); return false;">ARMAR COMBO POR WHATSAPP</a>
+                <a href="#megadethCollections" class="hero-cta-btn" id="heroCtaBuzos">VER COLECCIONES</a>
+                <a href="https://wa.me/541169667685?text=Hola%20FMD%2C%20quiero%20pedir%20disenos%20en%20buzo%2C%20hoodie%20y%20remera" class="hero-cta-btn hero-cta-btn-secondary" id="heroCtaWhatsapp" target="_blank" rel="noopener">PEDIR POR WHATSAPP</a>
             </div>
             <div class="hero-proof">
-                <span class="hero-proof-priority">🔥 Hoodies + remeras</span>
-                <span>🚚 3 prendas: envío gratis · 4+: 15% OFF</span>
-                <span>🎸 Diseños exclusivos FMD</span>
+                <span class="hero-proof-priority">REMERAS · HOODIES · BUZOS</span>
+                <span>🧥 Nuevo: buzo cuello redondo sin capucha</span>
+                <span>🚚 Desde 2 prendas: envío gratis · 4+: 15% OFF</span>
+                <span>☢️ Diseños FMD exclusivos</span>
             </div>
         </div>
         <div class="hero-accent"></div>
+    </section>
+
+    <section class="maiden-archive-section" id="maidenArchive">
+        <div class="maiden-archive-banner">
+            <p class="maiden-archive-kicker">APERTURA DE ARCHIVO FMD</p>
+            <h2 class="maiden-archive-title">IRON MAIDEN — ARCHIVO FMD</h2>
+            <p class="maiden-archive-subtitle">Clasicos remasterizados · Tour 2026 · Versiones FMD</p>
+            <p class="maiden-archive-availability">Disponibles en remera, hoodie y buzo cuello redondo.</p>
+            <div class="maiden-archive-actions">
+                <a href="#categoryNav" class="maiden-archive-btn" id="maidenCtaCollection">VER COLECCION MAIDEN</a>
+                <a href="https://wa.me/541169667685?text=Hola%20FMD%2C%20quiero%20ver%20la%20coleccion%20Iron%20Maiden" class="maiden-archive-btn maiden-archive-btn-secondary" id="maidenCtaWhatsapp" target="_blank" rel="noopener">PEDIR POR WHATSAPP</a>
+            </div>
+        </div>
+        <div class="products-grid" id="maidenArchiveGrid"></div>
+    </section>
+
+    <!-- NUEVA LÍNEA: BUZOS CUELLO REDONDO -->
+    <section class="hoodies-featured-section" id="buzosRedondoFeatured">
+        <div class="hoodies-banner">
+            <h2 class="hoodies-title">BUZOS CUELLO REDONDO - NUEVA OPCIÓN DE INVIERNO</h2>
+            <p class="hoodies-subtitle">Cuello redondo · Corte amplio unisex · Estampa DTG · Negro</p>
+            <div class="hoodies-prices">
+                <span class="price-tag">Solo frente: <strong>$50.000</strong></span>
+                <span class="price-tag">Doble estampa: <strong>$55.000</strong></span>
+                <span class="price-tag">Personalizado: <strong>+$5.000</strong></span>
+            </div>
+            <div class="featured-note featured-note-buzo">
+                🧥 Buzo cuello redondo negro de corte amplio unisex. Una nueva opción de invierno para llevar cualquiera de los diseños del catálogo FMD. Podés pedir <strong class="featured-note-emphasis">solo frente ($50.000)</strong> o sumar estampa en la espalda por $5.000 más. <strong class="featured-note-alert">Importante:</strong> tiene calce amplio de ancho y un largo más justo que el hoodie. Recomendamos revisar la tabla de medidas antes de elegir talle.
+            </div>
+        </div>
+
+        <div class="products-grid" id="buzosRedondoGrid"></div>
+    </section>
+
+    <!-- NUEVA LÍNEA: HOODIES FMD - COLECCION CONMEMORATIVA -->
+    <section class="hoodies-featured-section" id="hoodiesFeatured">
+        <div class="hoodies-banner">
+            <h2 class="hoodies-title">HOODIES MEGADETH - EDICIÓN ARGENTINA 2026</h2>
+            <p class="hoodies-subtitle">Canguro oversize unisex · Algodón frizado · Estampa DTG · Colección Megadeth Argentina 2026</p>
+            <div class="hoodies-prices">
+                <span class="price-tag">Doble estampa: <strong>$59.000</strong></span>
+                <span class="price-tag combo">COMBO Hoodie + Remera: <strong>$99.000</strong> <small>(envío Andreani incluido)</small></span>
+            </div>
+            <div class="featured-note featured-note-hoodie">
+                🎸 Diseños exclusivos de la colección conmemorativa de Megadeth en Argentina. Envío por Andreani a todo el país.
+            </div>
+        </div>
+
+        <div class="hoodie-spotlight" onclick="openModal(5076)">
+            <span class="hoodie-spotlight-badge">NUEVO DESTACADO</span>
+            <img src="images/hoddies_fmd/guitarra_argentina.png" alt="Hoodie Guitarra Argentina" loading="lazy" decoding="async" fetchpriority="low">
+            <div class="hoodie-spotlight-content">
+                <h3>Hoodie Guitarra Argentina</h3>
+                <p>Edición 2026 · Doble estampa · Canguro oversize premium</p>
+                <strong>$59.000</strong>
+            </div>
+        </div>
+
+        <div class="products-grid" id="hoodiesGrid"></div>
     </section>
 
     <section class="fmd-spotlight" id="fmdSpotlight" aria-label="Spotlight dinámico FMD">
@@ -590,38 +650,31 @@
         <div class="logistica-show-shell">
             <div class="logistica-show-copy">
                 <strong>📦 ENVÍO A TODO EL PAÍS</strong>
-                <p>Despachamos por <strong>Andreani</strong> a domicilio o punto de retiro Andreani cercano.<br>Entrega en <strong>3 a 7 días hábiles</strong> desde que confirmás el pago. <strong>Promos por cantidad: 3 prendas envío gratis · 4 o más 15% OFF + envío gratis.</strong></p>
+                <p>Despachamos por <strong>Andreani</strong> a domicilio o punto de retiro Andreani cercano.<br>Entrega en <strong>3 a 7 días hábiles</strong> desde que confirmás el pago. <strong>Costo de envío según zona (se confirma por WhatsApp). Promos por cantidad: 3 prendas envío gratis · 4 o más 15% OFF + envío gratis.</strong></p>
             </div>
             <a href="https://wa.me/541169667685?text=Hola%20FMD%2C%20quiero%20encargar%20una%20prenda%20de%20Megadeth" class="logistica-show-btn" onclick="openWhatsapp('Hola FMD! Quiero encargar una prenda de la colección Megadeth 🤘\n\nDiseño: ___\nTalle: ___\nColor: ___\nCP o ciudad: ___\n\n¿Me confirmás precio final y tiempo de envío?', 'retiro_tecnopolis'); return false;">ENCARGAR AHORA</a>
         </div>
     </section>
 
     <!-- Diseño del ÚLTIMO DISCO - Destacado premium -->
-    <div class="ultimo-disco-banner" onclick="openModal(17,9,[9,10])" style="cursor:pointer; background: linear-gradient(135deg, rgba(232,67,46,0.2) 0%, rgba(20,20,20,0.9) 50%, #0d0d0d 100%); border: 2px solid var(--rust); border-radius: 16px; padding: 20px; margin: 0 auto 1.5rem auto; max-width: 760px; display: flex; align-items: center; gap: 20px; box-shadow: 0 8px 32px rgba(232,67,46,0.25); transition: transform 0.2s, box-shadow 0.2s;">
-        <div style="flex-shrink: 0; position: relative;">
-            <img src="images/fmd-edition-3d/megadeth_last_album/vic_llamas_3d_edition_frente.jpg" alt="Vic Llamas FMD Edition" style="width: 120px; height: 120px; object-fit: cover; border-radius: 12px; border: 2px solid var(--rust);" onerror="this.onerror=null;this.src='images/albums/Megadeth/vic_llamas_blanca.jpg';">
-            <span style="position: absolute; top: -8px; left: -8px; background: linear-gradient(135deg, #ff6b35, #ffa500); color: #0a0a0a; font-size: 0.65rem; font-weight: 800; padding: 4px 8px; border-radius: 12px; letter-spacing: 0.4px;">🔥 NUEVO</span>
+    <div class="ultimo-disco-banner" onclick="openModal(17,9,[9,10])">
+        <div class="ultimo-disco-media">
+            <img src="images/fmd-edition-3d/megadeth_last_album/vic_llamas_3d_edition_frente.jpg" alt="Vic Llamas FMD Edition" class="ultimo-disco-img" onerror="this.onerror=null;this.src='images/albums/Megadeth/vic_llamas_blanca.jpg';">
+            <span class="ultimo-disco-pill">🔥 NUEVO</span>
         </div>
-        <div style="flex: 1; text-align: left;">
-            <div style="font-size: 0.75rem; color: var(--rust); font-weight: 700; letter-spacing: 2px; margin-bottom: 4px;">NUEVO ARTE DEL ÚLTIMO DISCO</div>
-            <h3 style="font-family: 'Oswald', sans-serif; font-size: 1.4rem; color: #fff; margin: 0 0 6px 0; letter-spacing: 1px;">VIC LLAMAS FMD EDITION</h3>
-            <p style="font-size: 0.85rem; color: #aaa; margin: 0 0 8px 0; line-height: 1.4;">Diseño exclusivo con frente y dorso ardiente. Edición 2026.</p>
-            <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
-                <span style="font-family: 'Oswald', sans-serif; font-size: 1.3rem; color: var(--price); font-weight: 600;">$44.000</span>
-                <span style="font-size: 0.75rem; color: var(--rust); background: rgba(232,67,46,0.15); padding: 4px 10px; border-radius: 20px;">Doble Estampa</span>
+        <div class="ultimo-disco-content">
+            <div class="ultimo-disco-kicker">NUEVO ARTE DEL ULTIMO DISCO</div>
+            <h3 class="ultimo-disco-title">VIC LLAMAS FMD EDITION</h3>
+            <p class="ultimo-disco-desc">Diseño exclusivo con frente y dorso ardiente. Edición 2026.</p>
+            <div class="ultimo-disco-meta">
+                <span class="ultimo-disco-price">$44.000</span>
+                <span class="ultimo-disco-chip">Doble Estampa</span>
             </div>
         </div>
-        <div style="flex-shrink: 0;">
-            <span style="display: block; background: var(--rust); color: #fff; font-family: 'Oswald', sans-serif; font-size: 0.85rem; font-weight: 600; padding: 12px 16px; border-radius: 8px; letter-spacing: 1px;">VER →</span>
+        <div class="ultimo-disco-cta-wrap">
+            <span class="ultimo-disco-cta">VER →</span>
         </div>
     </div>
-    <style>
-        .ultimo-disco-banner:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(232,67,46,0.35); }
-        @media (max-width: 600px) {
-            .ultimo-disco-banner { flex-direction: column; text-align: center !important; padding: 16px; }
-            .ultimo-disco-banner > div:nth-child(2) { text-align: center !important; }
-        }
-    </style>
 
 
     <!-- SECCIÓN DESTACADOS MEGADETH -->
@@ -655,15 +708,15 @@
     </section>
 
     <!-- MINI BANNER PROMO -->
-    <section class="promo-mini-banner" style="padding: 16px 20px; background: linear-gradient(90deg, rgba(232,67,46,0.15) 0%, rgba(13,13,13,0.95) 50%, rgba(57,255,20,0.1) 100%); border-top: 1px solid #222; border-bottom: 1px solid #222;">
-        <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 20px; font-size: 0.9rem;">
-            <span style="color: #fff; display: flex; align-items: center; gap: 6px;"><span style="color: var(--rust);">🚚</span> 3+ remeras = <strong style="color: var(--magic-green);">envío gratis</strong></span>
-            <span style="color: #444;">|</span>
-            <span style="color: #fff; display: flex; align-items: center; gap: 6px;"><span style="color: var(--rust);">🔥</span> 4+ = <strong style="color: var(--magic-green);">15% OFF + envío gratis</strong></span>
-            <span style="color: #444;">|</span>
-            <span style="color: #fff; display: flex; align-items: center; gap: 6px;"><span style="color: var(--rust);">🧥</span> Hoodies <strong style="color: var(--price);">$59.000</strong></span>
-            <span style="color: #444;">|</span>
-            <span style="color: #fff; display: flex; align-items: center; gap: 6px;"><span style="color: var(--magic-green);">🧒</span> Para los más chicos <strong style="color: var(--magic-green);">$32.000</strong></span>
+    <section class="promo-mini-banner promo-mini-banner-shell">
+        <div class="promo-mini-banner-content">
+            <span class="promo-mini-item"><span class="promo-mini-icon">🚚</span> 3+ remeras = <strong class="promo-mini-accent-green">envío gratis</strong></span>
+            <span class="promo-mini-separator">|</span>
+            <span class="promo-mini-item"><span class="promo-mini-icon">🔥</span> 4+ = <strong class="promo-mini-accent-green">15% OFF + envío gratis</strong></span>
+            <span class="promo-mini-separator">|</span>
+            <span class="promo-mini-item"><span class="promo-mini-icon">🧥</span> Hoodies <strong class="promo-mini-accent-price">$59.000</strong></span>
+            <span class="promo-mini-separator">|</span>
+            <span class="promo-mini-item"><span class="promo-mini-icon promo-mini-icon-green">🧒</span> Para los más chicos <strong class="promo-mini-accent-green">$32.000</strong></span>
         </div>
     </section>
 
@@ -772,7 +825,7 @@
         <div class="featured-grid">
             <!-- PANTERA -->
             <div class="featured-card" data-trigger="Pantera">
-                <div class="featured-card-image" style="background: #000;">
+                <div class="featured-card-image featured-card-image-dark">
                     <span class="featured-badge">20 diseños</span>
                     <img src="images/logos/pantera-logo.png" alt="Pantera Logo" class="featured-logo">
                 </div>
@@ -783,7 +836,7 @@
 
             <!-- IRON MAIDEN -->
             <div class="featured-card" data-trigger="Iron Maiden">
-                <div class="featured-card-image" style="background: #000;">
+                <div class="featured-card-image featured-card-image-dark">
                     <span class="featured-badge">14 diseños</span>
                     <img src="images/logos/iron-maiden-logo.png" alt="Iron Maiden Logo" class="featured-logo">
                 </div>
@@ -794,7 +847,7 @@
 
             <!-- METALLICA -->
             <div class="featured-card" data-trigger="Metallica">
-                <div class="featured-card-image" style="background: #000;">
+                <div class="featured-card-image featured-card-image-dark">
                     <span class="featured-badge">5 diseños</span>
                     <img src="images/logos/metallica-logo.png" alt="Metallica Logo" class="featured-logo">
                 </div>
@@ -805,7 +858,7 @@
 
             <!-- AVENGED SEVENFOLD -->
             <div class="featured-card" data-trigger="Avenged Sevenfold">
-                <div class="featured-card-image" style="background: #000;">
+                <div class="featured-card-image featured-card-image-dark">
                     <span class="featured-badge">2 diseños</span>
                     <img src="images/logos/avenged-sevenfold-logo.jpg" alt="Avenged Sevenfold Logo" class="featured-logo">
                 </div>
@@ -816,7 +869,7 @@
 
             <!-- AC/DC -->
             <div class="featured-card" data-trigger="AC/DC">
-                <div class="featured-card-image" style="background: #000;">
+                <div class="featured-card-image featured-card-image-dark">
                     <span class="featured-badge">21 diseños</span>
                     <img src="images/logos/logo-ac-dc.jpg" alt="AC/DC Logo" class="featured-logo">
                 </div>
@@ -826,33 +879,6 @@
             </div>
 
         </div>
-    </section>
-
-    <!-- NUEVA LÍNEA: HOODIES FMD - COLECCION CONMEMORATIVA -->
-    <section class="hoodies-featured-section" id="hoodiesFeatured">
-        <div class="hoodies-banner">
-            <h2 class="hoodies-title">HOODIES MEGADETH - EDICIÓN ARGENTINA 2026</h2>
-            <p class="hoodies-subtitle">Canguro oversize unisex · Algodón frizado · Estampa DTG · Colección Megadeth Argentina 2026</p>
-            <div class="hoodies-prices">
-                <span class="price-tag">Doble estampa: <strong>$59.000</strong></span>
-                <span class="price-tag combo">COMBO Hoodie + Remera: <strong>$99.000</strong> <small>(envío Andreani incluido)</small></span>
-            </div>
-            <div style="margin-top: 1.2em; background: var(--rust); color: #fff; padding: 0.9em 1em; border-radius: 8px; font-weight: 700; font-size: 1.08rem; box-shadow: 0 2px 8px #0002;">
-                🎸 Diseños exclusivos de la colección conmemorativa de Megadeth en Argentina. Envío por Andreani a todo el país.
-            </div>
-        </div>
-
-        <div class="hoodie-spotlight" onclick="openModal(5076)">
-            <span class="hoodie-spotlight-badge">NUEVO DESTACADO</span>
-            <img src="images/hoddies_fmd/guitarra_argentina.png" alt="Hoodie Guitarra Argentina" loading="lazy" decoding="async" fetchpriority="low">
-            <div class="hoodie-spotlight-content">
-                <h3>Hoodie Guitarra Argentina</h3>
-                <p>Edición 2026 · Doble estampa · Canguro oversize premium</p>
-                <strong>$59.000</strong>
-            </div>
-        </div>
-
-        <div class="products-grid" id="hoodiesGrid"></div>
     </section>
 
     <!-- Navegación categorías agrupada -->
@@ -912,7 +938,7 @@
                 <div class="nav-group nav-group-featured">
                     <div class="nav-group-head">
                         <h3 class="nav-group-title">Líneas especiales</h3>
-                        <p class="nav-group-copy">Hoodies y pedidos hechos a medida.</p>
+                        <p class="nav-group-copy">Hoodies, buzos de invierno y pedidos hechos a medida.</p>
                     </div>
                     <div class="nav-group-buttons">
                         <button class="cat-btn cat-btn-hoodie" data-cat="Hoodies FMD" data-count="21">
@@ -922,6 +948,10 @@
                         <button class="cat-btn cat-btn-hoodie" data-cat="Hoodies Otras Bandas" data-count="14">
                             <span class="btn-text">Hoodies de otras bandas</span>
                             <span class="badge">14</span>
+                        </button>
+                        <button class="cat-btn cat-btn-hoodie" data-cat="Buzo Cuello Redondo" data-count="0">
+                            <span class="btn-text">Buzos cuello redondo</span>
+                            <span class="badge">0</span>
                         </button>
                         <button class="cat-btn" data-cat="Personalizados" data-count="28">
                             <span class="btn-text">Pedidos Especiales</span>
@@ -1010,6 +1040,7 @@
                     <button class="filter-pill" data-filter="Bandas Sugeridas">Bandas Sugeridas (21)</button>
                     <button class="filter-pill" data-filter="Hoodies FMD">Hoodies Megadeth (21)</button>
                     <button class="filter-pill" data-filter="Hoodies Otras Bandas">Hoodies de otras bandas (14)</button>
+                    <button class="filter-pill" data-filter="Buzo Cuello Redondo">Buzos cuello redondo (0)</button>
                     <button class="filter-pill" data-filter="Personalizados">Pedidos Especiales (28)</button>
                 </div>
             </div>
@@ -1044,7 +1075,7 @@
             <!-- Se genera con JS -->
         </div>
         <!-- EJEMPLO UNIVERSAL DE CARD PARA TODO EL CATALOGO -->
-        <div class="products-grid" style="margin-top:32px;">
+        <div class="products-grid products-grid-spaced">
             <div class="product-card doble-estampa-universal">
                 <span class="estampa-label">Disponible simple o doble estampa</span>
                 <div class="frente-dorso-mockup">
@@ -1114,6 +1145,7 @@
                 <button class="tab-btn" data-tab="oversize">Oversize</button>
                 <button class="tab-btn" data-tab="ninos">Niños</button>
                 <button class="tab-btn tab-btn-hoodie" data-tab="hoodies">🧥 Hoodies</button>
+                <button class="tab-btn tab-btn-hoodie" data-tab="buzo-redondo">🧥 Buzo C/R</button>
             </div>
 
             <div class="tab-content active" id="tab-hombre">
@@ -1176,7 +1208,7 @@
             </div>
 
             <div class="tab-content" id="tab-ninos">
-                <p style="font-size:0.8rem;color:var(--text-muted);margin-bottom:12px;text-align:center;">Disponible en remera negra y blanca. Medidas en cm.</p>
+                <p class="size-note-intro">Disponible en remera negra y blanca. Medidas en cm.</p>
                 <table class="size-table">
                     <thead>
                         <tr>
@@ -1198,9 +1230,9 @@
             </div>
 
             <div class="tab-content" id="tab-hoodies">
-                <div style="background:linear-gradient(135deg,#1a1a2e,#16213e);border:1px solid var(--rust);border-radius:8px;padding:12px;text-align:center;margin-bottom:16px;">
-                    <span style="color:var(--rust);font-weight:600;">🧥 BUZO CANGURO OVERSIZE (UNISEX)</span>
-                    <div style="font-size:0.75rem;color:#888;margin-top:4px;">Algodón frizado · Estampa DTG · Negro y Blanco</div>
+                <div class="size-info-banner">
+                    <span class="size-info-title">🧥 BUZO CANGURO OVERSIZE (UNISEX)</span>
+                    <div class="size-info-subtitle">Algodón frizado · Estampa DTG · Negro y Blanco</div>
                 </div>
                 <table class="size-table">
                     <thead>
@@ -1219,7 +1251,32 @@
                         <tr><td>XXL</td><td>74</td><td>77</td></tr>
                     </tbody>
                 </table>
-                <p style="font-size:0.75rem;color:var(--text-muted);margin-top:12px;text-align:center;">* Medidas en cm. Pueden variar ±5%</p>
+                <p class="size-note-foot">* Medidas en cm. Pueden variar ±5%</p>
+            </div>
+
+            <div class="tab-content" id="tab-buzo-redondo">
+                <div class="size-info-banner">
+                    <span class="size-info-title">🧥 BUZO CUELLO REDONDO - CORTE AMPLIO UNISEX</span>
+                    <div class="size-info-subtitle">Calce amplio · Largo más justo que el hoodie · Estampa DTG · Negro</div>
+                </div>
+                <p class="size-note-warning">⚠️ Tiene calce amplio de ancho y largo más justo que el hoodie. Revisá bien los cm antes de elegir talle.</p>
+                <table class="size-table">
+                    <thead>
+                        <tr>
+                            <th>Talle</th>
+                            <th>Pecho</th>
+                            <th>Largo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>S</td><td>62</td><td>65</td></tr>
+                        <tr><td>M</td><td>65</td><td>67</td></tr>
+                        <tr><td>L</td><td>68</td><td>69</td></tr>
+                        <tr><td>XL</td><td>71</td><td>71</td></tr>
+                        <tr><td>XXL</td><td>74</td><td>73</td></tr>
+                    </tbody>
+                </table>
+                <p class="size-note-foot">* Medidas en cm. Pueden variar ±5%. Consultar talle por WhatsApp si tenés dudas.</p>
             </div>
         </div>
     </section>
@@ -1255,7 +1312,7 @@
                 <span class="step-num">4</span>
                 <div class="step-content">
                     <h4>Pago → Producción</h4>
-                    <p>Producción 5–7 días hábiles + envío por Andreani. Promos según cantidad.</p>
+                    <p>Producción 5–7 días hábiles + envío por Andreani. Costo de envío según zona (se confirma por WhatsApp). Promos según cantidad.</p>
                 </div>
             </div>
         </div>
@@ -1306,7 +1363,7 @@
             <div class="faq-item bg-card">
                 <details>
                     <summary>Envíos (Andreani + tracking)</summary>
-                    <div class="faq-content">3 unidades: envío gratis a todo el país por Andreani. 4 o más: 15% OFF + envío gratis. 1 o 2 unidades: envío según zona. Te pasamos el tracking apenas despacha.</div>
+                    <div class="faq-content">3 unidades: envío gratis a todo el país por Andreani. 4 o más: 15% OFF + envío gratis. 1 o 2 unidades: envío según zona (se confirma por WhatsApp). Te pasamos el tracking apenas despacha.</div>
                 </details>
             </div>
             <div class="faq-item bg-card">
@@ -1340,15 +1397,15 @@
             </a>
         </div>
 
-        <div class="footer-info" style="margin: 24px auto; max-width: 500px; text-align: center; font-size: 0.85rem; line-height: 1.6; opacity: 0.85;">
-            <p style="margin-bottom: 8px;">📦 <strong>ENVÍO:</strong> Andreani a todo el país (domicilio o punto de retiro). Entrega en 4-7 días hábiles.</p>
+        <div class="footer-info footer-info-compact">
+            <p class="footer-info-line">📦 <strong>ENVÍO:</strong> Andreani a todo el país (domicilio o punto de retiro). Entrega en 4-7 días hábiles.</p>
             <p>💳 <strong>PAGO:</strong> Transferencia o MercadoPago. Tarjeta de crédito con recargo $8.000.</p>
         </div>
 
         <div class="footer-divider"></div>
 
         <p>© 2025 Five Magics Designs · Argentina</p>
-        <p style="margin-top:16px;font-size:0.7rem;opacity:0.6;">Precios vigentes. Sujetos a modificación sin previo aviso.</p>
+        <p class="footer-legal-note">Precios vigentes. Sujetos a modificación sin previo aviso.</p>
     </footer>
 
     <!-- FAB WhatsApp -->
@@ -1384,15 +1441,15 @@
     <div class="modal-overlay" id="modal">
         <div class="modal">
             <div class="modal-header">
-                <span id="modalCounter" style="color:var(--text-muted);font-size:0.85rem;">1/7</span>
+                <span id="modalCounter" class="modal-counter-muted">1/7</span>
                 <button class="modal-close" id="modalClose">&times;</button>
             </div>
             <div class="modal-body">
                 <!-- Carrusel -->
                 <div class="carousel-container">
-                    <button class="carousel-arrow left" id="carouselPrev" style="display:none;" aria-label="Anterior"></button>
+                    <button class="carousel-arrow left is-hidden" id="carouselPrev" aria-label="Anterior"></button>
                     <div class="carousel" id="carousel"></div>
-                    <button class="carousel-arrow right" id="carouselNext" style="display:none;" aria-label="Siguiente"></button>
+                    <button class="carousel-arrow right is-hidden" id="carouselNext" aria-label="Siguiente"></button>
                     <div class="modal-zoom-controls" aria-label="Controles de zoom de imagen">
                         <button type="button" class="modal-zoom-btn" id="modalZoomOut" aria-label="Alejar imagen">-</button>
                         <button type="button" class="modal-zoom-btn modal-zoom-reset" id="carouselReset" aria-label="Volver a posición normal">Normal</button>
@@ -1424,76 +1481,82 @@
                     </div>
 
                     <!-- Selectores de personalización -->
-                    <div class="product-options" style="display:flex;flex-direction:column;gap:14px;margin-bottom:16px;padding:16px;background:#111;border:1px solid #222;border-radius:10px;">
+                    <div class="product-options product-options-tight">
                         <!-- Info especial Hoodies (oculto por defecto) -->
-                        <div id="hoodieInfoBanner" style="display:none;background:linear-gradient(135deg,#1a1a2e,#16213e);border:1px solid var(--rust);border-radius:8px;padding:12px;text-align:center;">
-                            <span style="color:var(--rust);font-weight:600;">🧥 HOODIE CANGURO OVERSIZE</span>
-                            <div style="font-size:0.75rem;color:#888;margin-top:4px;">Algodón frizado · Estampa DTG · Unisex</div>
+                        <div id="hoodieInfoBanner" class="product-info-banner is-hidden">
+                            <span class="product-info-banner-title">🧥 HOODIE CANGURO OVERSIZE</span>
+                            <div class="product-info-banner-subtitle">Algodón frizado · Estampa DTG · Unisex</div>
+                        </div>
+                        <!-- Info especial Buzo Cuello Redondo (oculto por defecto) -->
+                        <div id="buzoRedondoInfoBanner" class="product-info-banner is-hidden">
+                            <span class="product-info-banner-title">🧥 BUZO CUELLO REDONDO - CORTE AMPLIO UNISEX</span>
+                            <div class="product-info-banner-subtitle">Calce amplio · Largo más justo que el hoodie · Estampa DTG · Negro</div>
+                            <div class="product-info-banner-warning">⚠️ Revisá la tabla de medidas antes de elegir talle</div>
                         </div>
                         
                         <!-- Selector Adulto/Chico -->
-                        <div class="option-group" id="ageGroup" style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
-                            <span class="option-label" style="font-size:0.8rem;color:#888;font-weight:500;min-width:50px;">Edad:</span>
-                            <div class="option-buttons" id="ageSelector" style="display:flex;gap:6px;flex-wrap:wrap;">
-                                <button type="button" class="option-btn active" data-age="adulto" onclick="selectAge('adulto')" style="background:#e8432e;border:1px solid #e8432e;color:#fff;padding:6px 12px;border-radius:5px;font-size:0.8rem;font-weight:500;cursor:pointer;">Adulto</button>
-                                <button type="button" class="option-btn" data-age="chico" onclick="selectAge('chico')" style="background:#1a1a1a;border:1px solid #333;color:#888;padding:6px 12px;border-radius:5px;font-size:0.8rem;font-weight:500;cursor:pointer;">Niño</button>
+                        <div class="option-group" id="ageGroup">
+                            <span class="option-label">Edad:</span>
+                            <div class="option-buttons" id="ageSelector">
+                                <button type="button" class="option-btn active" data-age="adulto" onclick="selectAge('adulto')">Adulto</button>
+                                <button type="button" class="option-btn" data-age="chico" onclick="selectAge('chico')">Niño</button>
                             </div>
                         </div>
                         
                         <!-- Selector de Talle -->
-                        <div class="option-group" id="sizeGroup" style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
-                            <span class="option-label" style="font-size:0.8rem;color:#888;font-weight:500;min-width:50px;">Talle:</span>
-                            <div class="option-buttons" id="sizeSelector" style="display:flex;gap:6px;flex-wrap:wrap;">
-                                <button type="button" class="option-btn size-oversize" data-size="XXS" onclick="selectSize('XXS')" style="display:none;background:#1a1a1a;border:1px solid #333;color:#888;padding:6px 12px;border-radius:5px;font-size:0.8rem;font-weight:500;cursor:pointer;">XXS</button>
-                                <button type="button" class="option-btn size-oversize" data-size="XS" onclick="selectSize('XS')" style="display:none;background:#1a1a1a;border:1px solid #333;color:#888;padding:6px 12px;border-radius:5px;font-size:0.8rem;font-weight:500;cursor:pointer;">XS</button>
-                                <button type="button" class="option-btn" data-size="S" onclick="selectSize('S')" style="background:#1a1a1a;border:1px solid #333;color:#888;padding:6px 12px;border-radius:5px;font-size:0.8rem;font-weight:500;cursor:pointer;">S</button>
-                                <button type="button" class="option-btn" data-size="M" onclick="selectSize('M')" style="background:#1a1a1a;border:1px solid #333;color:#888;padding:6px 12px;border-radius:5px;font-size:0.8rem;font-weight:500;cursor:pointer;">M</button>
-                                <button type="button" class="option-btn" data-size="L" onclick="selectSize('L')" style="background:#1a1a1a;border:1px solid #333;color:#888;padding:6px 12px;border-radius:5px;font-size:0.8rem;font-weight:500;cursor:pointer;">L</button>
-                                <button type="button" class="option-btn" data-size="XL" onclick="selectSize('XL')" style="background:#1a1a1a;border:1px solid #333;color:#888;padding:6px 12px;border-radius:5px;font-size:0.8rem;font-weight:500;cursor:pointer;">XL</button>
-                                <button type="button" class="option-btn" data-size="XXL" onclick="selectSize('XXL')" style="background:#1a1a1a;border:1px solid #333;color:#888;padding:6px 12px;border-radius:5px;font-size:0.8rem;font-weight:500;cursor:pointer;">XXL</button>
+                        <div class="option-group" id="sizeGroup">
+                            <span class="option-label">Talle:</span>
+                            <div class="option-buttons" id="sizeSelector">
+                                <button type="button" class="option-btn size-oversize is-hidden" data-size="XXS" onclick="selectSize('XXS')">XXS</button>
+                                <button type="button" class="option-btn size-oversize is-hidden" data-size="XS" onclick="selectSize('XS')">XS</button>
+                                <button type="button" class="option-btn" data-size="S" onclick="selectSize('S')">S</button>
+                                <button type="button" class="option-btn" data-size="M" onclick="selectSize('M')">M</button>
+                                <button type="button" class="option-btn" data-size="L" onclick="selectSize('L')">L</button>
+                                <button type="button" class="option-btn" data-size="XL" onclick="selectSize('XL')">XL</button>
+                                <button type="button" class="option-btn" data-size="XXL" onclick="selectSize('XXL')">XXL</button>
                             </div>
                             <!-- Talles niños (oculto por defecto) -->
-                            <div class="option-buttons" id="sizeSelectorKids" style="display:none;gap:6px;flex-wrap:wrap;">
-                                <button type="button" class="option-btn" data-size="4" onclick="selectSize('4')" style="background:#1a1a1a;border:1px solid #333;color:#888;padding:6px 12px;border-radius:5px;font-size:0.8rem;font-weight:500;cursor:pointer;">4</button>
-                                <button type="button" class="option-btn" data-size="6" onclick="selectSize('6')" style="background:#1a1a1a;border:1px solid #333;color:#888;padding:6px 12px;border-radius:5px;font-size:0.8rem;font-weight:500;cursor:pointer;">6</button>
-                                <button type="button" class="option-btn" data-size="8" onclick="selectSize('8')" style="background:#1a1a1a;border:1px solid #333;color:#888;padding:6px 12px;border-radius:5px;font-size:0.8rem;font-weight:500;cursor:pointer;">8</button>
-                                <button type="button" class="option-btn" data-size="10" onclick="selectSize('10')" style="background:#1a1a1a;border:1px solid #333;color:#888;padding:6px 12px;border-radius:5px;font-size:0.8rem;font-weight:500;cursor:pointer;">10</button>
-                                <button type="button" class="option-btn" data-size="12" onclick="selectSize('12')" style="background:#1a1a1a;border:1px solid #333;color:#888;padding:6px 12px;border-radius:5px;font-size:0.8rem;font-weight:500;cursor:pointer;">12</button>
-                                <button type="button" class="option-btn" data-size="14" onclick="selectSize('14')" style="background:#1a1a1a;border:1px solid #333;color:#888;padding:6px 12px;border-radius:5px;font-size:0.8rem;font-weight:500;cursor:pointer;">14</button>
-                                <button type="button" class="option-btn" data-size="16" onclick="selectSize('16')" style="background:#1a1a1a;border:1px solid #333;color:#888;padding:6px 12px;border-radius:5px;font-size:0.8rem;font-weight:500;cursor:pointer;">16</button>
+                            <div class="option-buttons is-hidden" id="sizeSelectorKids">
+                                <button type="button" class="option-btn" data-size="4" onclick="selectSize('4')">4</button>
+                                <button type="button" class="option-btn" data-size="6" onclick="selectSize('6')">6</button>
+                                <button type="button" class="option-btn" data-size="8" onclick="selectSize('8')">8</button>
+                                <button type="button" class="option-btn" data-size="10" onclick="selectSize('10')">10</button>
+                                <button type="button" class="option-btn" data-size="12" onclick="selectSize('12')">12</button>
+                                <button type="button" class="option-btn" data-size="14" onclick="selectSize('14')">14</button>
+                                <button type="button" class="option-btn" data-size="16" onclick="selectSize('16')">16</button>
                             </div>
                         </div>
                         
                         <!-- Selector de Corte -->
-                        <div class="option-group" id="cutGroup" style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
-                            <span class="option-label" style="font-size:0.8rem;color:#888;font-weight:500;min-width:50px;">Corte:</span>
-                            <div class="option-buttons" id="cutSelector" style="display:flex;gap:6px;flex-wrap:wrap;">
-                                <button type="button" class="option-btn active" data-cut="clasica" onclick="selectCut('clasica')" style="background:#e8432e;border:1px solid #e8432e;color:#fff;padding:6px 12px;border-radius:5px;font-size:0.8rem;font-weight:500;cursor:pointer;">Clásica</button>
-                                <button type="button" class="option-btn" id="btnOversize" data-cut="oversize" onclick="selectCut('oversize')" style="background:#1a1a1a;border:1px solid #333;color:#888;padding:6px 12px;border-radius:5px;font-size:0.8rem;font-weight:500;cursor:pointer;">Oversize</button>
+                        <div class="option-group" id="cutGroup">
+                            <span class="option-label">Corte:</span>
+                            <div class="option-buttons" id="cutSelector">
+                                <button type="button" class="option-btn active" data-cut="clasica" onclick="selectCut('clasica')">Clásica</button>
+                                <button type="button" class="option-btn" id="btnOversize" data-cut="oversize" onclick="selectCut('oversize')">Oversize</button>
                             </div>
                         </div>
                         
                         <!-- Selector de Color -->
-                        <div class="option-group" id="colorGroup" style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
-                            <span class="option-label" style="font-size:0.8rem;color:#888;font-weight:500;min-width:50px;">Color:</span>
-                            <div class="option-buttons" id="colorSelector" style="display:flex;gap:6px;flex-wrap:wrap;">
-                                <button type="button" class="option-btn color-btn active" data-color="negro" onclick="selectColor('negro')" style="background:#e8432e;border:1px solid #e8432e;color:#fff;padding:6px 12px;border-radius:5px;font-size:0.8rem;font-weight:500;cursor:pointer;display:flex;align-items:center;gap:6px;">
-                                    <span style="width:14px;height:14px;border-radius:3px;background:#111;border:1px solid #333;display:inline-block;"></span> Negro
+                        <div class="option-group" id="colorGroup">
+                            <span class="option-label">Color:</span>
+                            <div class="option-buttons" id="colorSelector">
+                                <button type="button" class="option-btn color-btn active" data-color="negro" onclick="selectColor('negro')">
+                                    <span class="color-swatch swatch-black"></span> Negro
                                 </button>
-                                <button type="button" class="option-btn color-btn" data-color="blanco" onclick="selectColor('blanco')" style="background:#1a1a1a;border:1px solid #333;color:#888;padding:6px 12px;border-radius:5px;font-size:0.8rem;font-weight:500;cursor:pointer;display:flex;align-items:center;gap:6px;">
-                                    <span style="width:14px;height:14px;border-radius:3px;background:#fff;display:inline-block;"></span> Blanco
+                                <button type="button" class="option-btn color-btn" data-color="blanco" onclick="selectColor('blanco')">
+                                    <span class="color-swatch swatch-white"></span> Blanco
                                 </button>
                             </div>
                         </div>
                     </div>
 
                     <div class="modal-price" id="modalPrice">$37.000</div>
-                    <div class="modal-price-note">$37.000 + envío</div>
+                    <div class="modal-price-note">$37.000 · envío según zona · consultá por WhatsApp</div>
 
                     <div class="modal-simple-note">
                         Elegí talle, color y encargá en un toque. Para doble estampa, abrí Frente + Dorso.
                     </div>
-                    <div class="double-selection-status" id="doubleSelectionStatus" style="display:none;"></div>
+                    <div class="double-selection-status is-hidden" id="doubleSelectionStatus"></div>
 
                     <div class="modal-actions">
                         <div class="modal-actions-primary">
@@ -1513,42 +1576,42 @@
                                 <div class="upsell-row">
                                     <span class="upsell-pill">🔥 FRENTE + DORSO A TU GUSTO</span>
                                     <div class="upsell-prices">Solo frente: <strong id="modalPrecioSimple">-</strong> · Frente + Dorso: <strong id="modalPrecioDoble">-</strong></div>
-                                    <div style="margin-top:10px;padding:10px 12px;background:rgba(232,67,46,0.08);border:1px solid rgba(232,67,46,0.22);border-radius:8px;font-size:0.88rem;line-height:1.45;color:var(--text-muted);">
+                                    <div class="dorso-help-box">
                                         ☢️ Simple: solo frente<br>
                                         ☢️ Doble estampa: frente + espalda<br>
                                         Combiná cualquier diseño del catálogo para el dorso.
                                     </div>
                                     
-                                    <div id="dorsoVariantsSection" style="margin-top:12px;display:none;">
-                                        <div style="font-size:0.88rem;color:#39ff14;font-weight:600;margin-bottom:8px;">📋 Elegí tu dorso o combiná otro del catálogo:</div>
-                                        <div id="dorsoVariantsGrid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(80px,1fr));gap:8px;"></div>
+                                    <div id="dorsoVariantsSection" class="dorso-section-hidden">
+                                        <div class="dorso-label-green">📋 Elegí tu dorso o combiná otro del catálogo:</div>
+                                        <div id="dorsoVariantsGrid" class="dorso-section-grid"></div>
                                     </div>
                                     
-                                    <div id="dorsoCustomSection" style="margin-top:12px;">
-                                        <div style="font-size:0.88rem;color:var(--text-muted);margin-bottom:6px;">Elegí un dorso rápido o escribí tu idea:</div>
+                                    <div id="dorsoCustomSection" class="dorso-section-block">
+                                        <div class="dorso-muted-label">Elegí un dorso rápido o escribí tu idea:</div>
                                         <div class="chips-row" id="chipsRow">
                                             <div class="chip" data-val="Logo blanco" onclick="toggleChip(this)">Logo blanco</div>
                                             <div class="chip" data-val="Frase personalizada" onclick="toggleChip(this)">Frase personalizada</div>
                                             <div class="chip" data-val="Tour/Fecha" onclick="toggleChip(this)">Tour/Fecha</div>
                                             <div class="chip" data-val="Símbolo o logo" onclick="toggleChip(this)">Símbolo o logo</div>
                                         </div>
-                                        <div style="margin-top:8px;">
-                                            <input id="dorsoCustomInput" type="text" placeholder="Ej: Quiero el dorso de Vic Llamas + fecha del show" style="width:100%;padding:8px;border-radius:6px;border:1px solid #2a2a2a;background:#0f0f0f;color:var(--text);">
+                                        <div class="dorso-input-wrap">
+                                            <input id="dorsoCustomInput" class="dorso-input" type="text" placeholder="Ej: Quiero el dorso de Vic Llamas + fecha del show">
                                         </div>
-                                        <div id="dorsoAutocomplete" style="display:none;margin-top:8px;background:#0b0b0b;border:1px solid #2a2a2a;border-radius:8px;padding:6px;">
-                                            <div id="dorsoAutocompleteList" style="display:flex;flex-wrap:wrap;gap:6px;"></div>
+                                        <div id="dorsoAutocomplete" class="dorso-autocomplete-box is-hidden">
+                                            <div id="dorsoAutocompleteList" class="dorso-autocomplete-list"></div>
                                         </div>
                                     </div>
-                                    <div id="backsRow" style="display:flex;gap:8px;margin-top:10px;align-items:center;"></div>
+                                    <div id="backsRow" class="dorso-backs-row"></div>
                                     
-                                    <div id="dorsoSelectionSummary" style="display:none;margin-top:12px;padding:10px;background:#0a2a0a;border:1px solid #39ff14;border-radius:8px;">
-                                        <div style="font-size:0.85rem;color:#39ff14;font-weight:600;">✓ Dorso seleccionado:</div>
-                                        <div id="dorsoSelectionText" style="font-size:0.9rem;color:#fff;margin-top:4px;"></div>
+                                    <div id="dorsoSelectionSummary" class="dorso-summary-box is-hidden">
+                                        <div class="dorso-summary-title">✓ Dorso seleccionado:</div>
+                                        <div id="dorsoSelectionText" class="dorso-summary-text"></div>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="badge-doble" id="badgeDoble" style="display:none;">
+                            <div class="badge-doble is-hidden" id="badgeDoble">
                                 🔥 DOBLE ESTAMPA (Frente + Espalda)
                             </div>
 
@@ -1568,7 +1631,7 @@
                             </div>
 
                             <div class="modal-actions-secondary">
-                                <button class="btn-share btn-view-cart" id="btnViewCart" onclick="openCartPreview()">
+                                <button class="btn-share btn-view-cart" id="btnViewCart">
                                     🛒 Ver carrito (<span id="modalCartCount">0</span>)
                                 </button>
                                 <button class="btn-share btn-share-wa" id="btnShareWa">
@@ -1577,19 +1640,19 @@
                             </div>
 
                             <!-- Productos relacionados -->
-                            <div class="related-products" id="relatedProducts" style="display:none;">
+                            <div class="related-products is-hidden" id="relatedProducts">
                                 <h4>Más del archivo FMD Editions ☢️</h4>
                                 <div class="related-grid" id="relatedGrid"></div>
                             </div>
 
-                            <div class="modal-actions" style="margin-top:16px;">
+                            <div class="modal-actions modal-actions-mt">
                                 <button class="btn-share btn-doble" id="btnDobleAction">
                                     🔥 Doble estampa
                                 </button>
                             </div>
 
                             <a href="#" class="btn-wa btn-wa-secondary" id="modalWaBtn">
-                                <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20" style="margin-right:8px;">
+                                <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20" class="wa-icon-spaced">
                                     <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
                                 </svg>
                                 Necesito ayuda con talle o entrega
@@ -1618,7 +1681,7 @@
         </div>
     </div>
 
-    <script src="js/app.js"></script>
+    <script src="js/app.js" defer></script>
 </body>
 
 </html>
