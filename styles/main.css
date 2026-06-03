@@ -2845,10 +2845,22 @@ header {
     font-size: 1rem;
 }
 
+.hoodies-prices .price-tag.price-tag-double {
+    background: linear-gradient(135deg, rgba(232, 67, 46, 0.2), rgba(255, 90, 66, 0.1));
+    border-color: rgba(232, 67, 46, 0.75);
+    box-shadow: 0 0 0 1px rgba(232, 67, 46, 0.18) inset;
+}
+
+.hoodies-prices .price-tag.price-tag-double strong {
+    color: #ffe08a;
+}
+
 .hoodies-prices .price-tag.combo {
     background: linear-gradient(135deg, rgba(232, 67, 46, 0.2), rgba(255, 90, 66, 0.1));
     border-color: var(--rust);
     flex-basis: 100%;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
 }
 
 .hoodies-prices .price-tag.combo small {
@@ -2856,6 +2868,13 @@ header {
     color: var(--magic-green);
     font-size: 0.7rem;
     margin-top: 4px;
+}
+
+.hoodies-prices .price-tag.combo strong {
+    display: block;
+    font-size: 1.32rem;
+    line-height: 1.1;
+    margin-top: 3px;
 }
 
 .featured-note {
@@ -3386,6 +3405,21 @@ header {
 .dual-prices .price-line:last-child .price-label {
     color: #39ff14;
     font-weight: 600;
+}
+
+.dual-prices-buzo .price-line-primary .price-amount,
+.dual-prices-buzo .price-line-primary .price-label {
+    color: #39ff14;
+    font-weight: 700;
+}
+
+.dual-prices-buzo .price-line:last-child .price-amount {
+    color: var(--price);
+}
+
+.dual-prices-buzo .price-line:last-child .price-label {
+    color: var(--text-muted);
+    font-weight: 500;
 }
 
 .product-envio {
@@ -8839,4 +8873,116 @@ footer p {
 /* Sección title en desktop grande */
 @media (min-width: 1200px) {
     .section-title { font-size: 1.25rem; }
+}
+
+/* Mobile scroll polish: quicker route from brand story to product cards */
+@media (max-width: 600px) {
+    html {
+        scroll-padding-top: 66px;
+    }
+
+    .megadeth-hero {
+        min-height: auto;
+        padding: 54px 14px 34px;
+    }
+
+    .megadeth-hero .hero-content {
+        max-width: 100%;
+        padding: 18px 16px;
+    }
+
+    .hero-brand {
+        font-size: clamp(2.8rem, 15vw, 3.6rem);
+        letter-spacing: 4px;
+    }
+
+    .hero-tagline {
+        font-size: 1.18rem;
+        letter-spacing: 2px;
+        margin-bottom: 14px;
+    }
+
+    .hero-divider {
+        margin-bottom: 14px;
+    }
+
+    .hero-description {
+        font-size: 0.98rem;
+    }
+
+    .hero-actions {
+        margin-top: 18px;
+        gap: 8px;
+    }
+
+    .hero-cta-btn,
+    .hero-cta-btn-secondary {
+        min-height: 44px;
+        padding: 12px 16px;
+    }
+
+    .hero-proof {
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        overflow-x: auto;
+        gap: 6px;
+        margin: 16px -4px 0;
+        padding: 0 4px 5px;
+        scrollbar-width: none;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .hero-proof::-webkit-scrollbar {
+        display: none;
+    }
+
+    .hero-proof span {
+        flex: 0 0 auto;
+        padding: 6px 10px;
+        font-size: 0.7rem;
+        white-space: nowrap;
+    }
+
+    .maiden-archive-section,
+    .hoodies-featured-section {
+        padding: 12px 14px;
+        margin-top: 14px;
+    }
+
+    .maiden-archive-banner,
+    .hoodies-banner {
+        padding: 16px;
+        margin-bottom: 12px;
+        border-radius: 14px;
+    }
+
+    .maiden-archive-title,
+    .hoodies-title {
+        font-size: 1.24rem;
+        line-height: 1.1;
+    }
+
+    .maiden-archive-subtitle,
+    .maiden-archive-availability,
+    .hoodies-subtitle {
+        font-size: 0.82rem;
+    }
+
+    .hoodies-prices {
+        gap: 8px;
+    }
+
+    .hoodies-prices .price-tag {
+        padding: 7px 10px;
+    }
+
+    .featured-note {
+        margin-top: 0.8em;
+        padding: 0.78em 0.85em;
+        line-height: 1.42;
+    }
+
+    .products-grid {
+        gap: 12px;
+    }
 }

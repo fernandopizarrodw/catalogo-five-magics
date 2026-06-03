@@ -895,6 +895,10 @@ function hasDorsoSelection() {
     return selectedBackIndex >= 0 || hasBackExamples || hasChips || dorsoInputValue.length > 0;
 }
 
+function isDoubleByDefault(product) {
+    return product?.tipoPrecio === 'doble' || product?.category === 'Buzo Cuello Redondo';
+}
+
 function updateDoubleSelectionStatus(isDoubleActive) {
     const statusEl = document.getElementById('doubleSelectionStatus');
     if (!statusEl || !currentProduct) return;
@@ -923,7 +927,7 @@ function updateDoubleSelectionStatus(isDoubleActive) {
         }
     }
 
-    const prefix = currentProduct.tipoPrecio === 'doble'
+    const prefix = isDoubleByDefault(currentProduct)
         ? 'Doble estampa incluida'
         : 'Doble estampa activa';
 
@@ -938,7 +942,7 @@ function updateModalPrices() {
     const precios = resolveModalPriceConfig(currentProduct);
 
     // Precio depende de si el producto ya es doble o si el usuario sumó dorso
-    const tieneDoble = currentProduct.tipoPrecio === 'doble' || hasDorsoSelection();
+    const tieneDoble = isDoubleByDefault(currentProduct) || hasDorsoSelection();
     const precio = tieneDoble ? precios.doble : precios.simple;
     document.getElementById('modalPrice').textContent = '$' + precio.toLocaleString('es-AR');
 
@@ -953,7 +957,7 @@ function updateModalPrices() {
     const priceNote = document.querySelector('.modal-price-note');
     if (priceNote) {
         if (precios.isHoodie) {
-            priceNote.innerHTML = '🎁 COMBO Hoodie + Remera: <strong style="color:var(--price);">$99.000</strong> (envío gratis)';
+            priceNote.innerHTML = '🎁 COMBO HOODIE + REMERA: <strong style="color:var(--price);">$99.000</strong> · Envío incluido';
         } else {
             const customTag = precios.isCustom ? ' · personalizado' : '';
             priceNote.textContent = `$${precio.toLocaleString('es-AR')}${customTag} · envío según zona · consultá por WhatsApp`;
@@ -1495,9 +1499,6 @@ function renderMaidenArchiveGrid() {
                 : '';
 
             return `<div class="product-card hoodie-card" onclick="${cardAction}">
-                <div class="product-badges">
-                    <span class="variants-badge hoodie-badge">ARCHIVO MAIDEN</span>
-                </div>
                 <img src="${product.img}" class="product-img" loading="lazy" decoding="async">
                 <div class="product-info">
                     <div class="product-name">${product.name}</div>
@@ -1594,7 +1595,6 @@ function renderBuzosRedondoGrid() {
             if (idx === maxVisible - 1 && buzos.length > maxVisible) {
                 html += `<div class="product-card hoodie-card ver-mas-card" id="verMasBuzosCard" onclick="filterByCategory('Buzo Cuello Redondo')">
                     <div class="product-badges">
-                        <span class="variants-badge hoodie-badge">🧥 BUZO</span>
                         ${launchBadge}
                     </div>
                     <img src="${product.img}" class="product-img" loading="lazy">
@@ -1611,7 +1611,6 @@ function renderBuzosRedondoGrid() {
             } else if (idx < maxVisible - 1) {
                 html += `<div class="product-card hoodie-card" onclick="openModal(${product.id})">
                     <div class="product-badges">
-                        <span class="variants-badge hoodie-badge">🧥 BUZO</span>
                         ${launchBadge}
                     </div>
                     <img src="${product.img}" class="product-img" loading="lazy">
@@ -1753,6 +1752,12 @@ function formatPreciosDual(product = null) {
     const tabla = isHoodie ? PRECIOS_HOODIES : isBuzoRedondo ? PRECIOS_BUZO_REDONDO : PRECIOS;
     const pSimple = '$' + tabla.simple.toLocaleString('es-AR');
     const pDoble = '$' + tabla.doble.toLocaleString('es-AR');
+    if (isBuzoRedondo) {
+        return `<div class="dual-prices dual-prices-buzo">
+        <div class="price-line price-line-primary"><span class="price-amount">${pDoble}</span><span class="price-label">Doble estampa mostrada</span></div>
+        <div class="price-line"><span class="price-amount">${pSimple}</span><span class="price-label">Solo frente opcional</span></div>
+    </div>`;
+    }
     return `<div class="dual-prices">
         <div class="price-line"><span class="price-amount">${pSimple}</span><span class="price-label">Estampa frontal</span></div>
         <div class="price-line"><span class="price-amount">${pDoble}</span><span class="price-label">Doble estampa</span></div>
@@ -2515,7 +2520,7 @@ function openModal(id, variantIndex = undefined, scopedVariantIndexes = undefine
 
     const modalAdvancedPanel = document.getElementById('modalAdvancedPanel');
     if (modalAdvancedPanel) {
-        modalAdvancedPanel.open = currentProduct.tipoPrecio === 'doble';
+        modalAdvancedPanel.open = isDoubleByDefault(currentProduct);
     }
 
     modal.classList.add('active');
@@ -3124,7 +3129,7 @@ function updateModalInfo() {
     updateModalPrices();
     
     document.getElementById('modalCounter').textContent = `${currentSlide + 1}/${images.length}`;
-    const shouldShowBadge = currentProduct.tipoPrecio === 'doble' || DORSO_CATEGORIES.has(currentProduct.category);
+    const shouldShowBadge = isDoubleByDefault(currentProduct) || DORSO_CATEGORIES.has(currentProduct.category);
     document.getElementById('badgeDoble').style.display = shouldShowBadge ? 'block' : 'none';
     const vName = activeVariantName;
     document.getElementById('variantName').textContent = vName;
@@ -4253,7 +4258,7 @@ function addToCartFromModal() {
     }
     
     // Determinar si es doble estampa basándose en el dorso seleccionado
-    const isDouble = currentProduct.tipoPrecio === 'doble' || hasDorsoSelection();
+    const isDouble = isDoubleByDefault(currentProduct) || hasDorsoSelection();
     const isCustom = isPersonalizedSelection(currentProduct);
     const variantIndex = getActiveVariantIndex();
     
