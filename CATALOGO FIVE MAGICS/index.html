@@ -2667,7 +2667,7 @@
                 <p class="category-subtitle scanner-text">Escribime por WhatsApp con el nombre de la promo:</p>
                 <ul style="list-style:none; padding-left:0; margin-top:10px; color:#ccc; font-size:0.95rem;">
                     <li><strong>PACK3</strong> → Elegís 3 diseños del catálogo.</li>
-                    <li><strong>PACK4PLUS</strong> → 4 o más prendas con 15% OFF + envío gratis.</li>
+                    <li><strong>PACK4PLUS</strong> → 4 prendas o más con 15% OFF + envío gratis.</li>
                     <li><strong>LEGEND</strong> → Especial Leyendas (Dave / Marty / Dimebag).</li>
                 </ul>
                 <p style="margin-top:8px; font-size:0.85rem; color:#777; font-style:italic;">
@@ -2867,7 +2867,7 @@
         // CONFIGURACIÓN - CAMBIAR ESTOS VALORES
         // ========================================
         const WHATSAPP_BASE = "https://wa.me/5491112345678"; // <-- CAMBIAR NÚMERO DE WHATSAPP
-        const CTA_MSG = "Hola FMD, vengo del catálogo RUST & BONES.\nQuiero ver las promos vigentes (3 prendas envío gratis / 4+ con 15% OFF + envío gratis).\nTe paso mi idea / modelos, talle, color y ciudad.";
+        const CTA_MSG = "Hola FMD, vengo del catálogo RUST & BONES.\nQuiero ver las promos vigentes (3 prendas o más: envío gratis / 4 prendas o más: 15% OFF + envío gratis).\nTe paso mi idea / modelos, talle, color y ciudad.";
         
         // BASE_URL robusta para GitHub Pages - detecta automáticamente la URL correcta
         const BASE_URL = window.location.origin + window.location.pathname.replace(/\/[^\/]*$/, '/').replace(/\/+$/, '') + '/';
@@ -3282,7 +3282,7 @@
 
             // helper to build the order message (reusable)
             function buildOrderMessage(productName, category, pack, size, color, city){
-                return `Hola FMD! Vi el catálogo y quiero encargar este modelo: ${productName} (${category}).\nPack: x${pack}\nMi talle: ${size} | Color: ${color} | Ciudad: ${city}.\nQuiero que me cuentes también las promos vigentes (3 prendas envío gratis / 4+ con 15% OFF + envío gratis) y el costo de envío según mi zona.`;
+                return `Hola FMD! Vi el catálogo y quiero encargar este modelo: ${productName} (${category}).\nPack: x${pack}\nMi talle: ${size} | Color: ${color} | Ciudad: ${city}.\nQuiero que me cuentes también las promos vigentes (3 prendas o más: envío gratis / 4 prendas o más: 15% OFF + envío gratis) y el costo de envío según mi zona.`;
             }
 
             btn.onclick = function(e) {

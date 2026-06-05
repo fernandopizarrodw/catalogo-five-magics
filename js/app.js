@@ -26,9 +26,10 @@ const PRECIOS_BUZO_REDONDO = {
     doble_personalizado: 60000
 };
 const PERSONALIZADO_EXTRA = 5000;
-const COMBO_HOODIE_REMERA = 99000; // Incluye envío gratis
+const COMBO_HOODIE_REMERA = 99000;
 const FECHA_VIGENCIA = "Marzo 2026";
 const WHATSAPP = "541169667685";
+const MAIDEN_ARCHIVE_HIGHLIGHT_IDS = [7015, 7027, 7023, 7025, 7026, 7029];
 
 let db = [];
 let selectedAge = 'adulto';
@@ -957,7 +958,7 @@ function updateModalPrices() {
     const priceNote = document.querySelector('.modal-price-note');
     if (priceNote) {
         if (precios.isHoodie) {
-            priceNote.innerHTML = '🎁 COMBO HOODIE + REMERA: <strong style="color:var(--price);">$99.000</strong> · Envío incluido';
+            priceNote.innerHTML = 'Combo hoodie doble + remera doble: <strong style="color:var(--price);">$99.000</strong>';
         } else {
             const customTag = precios.isCustom ? ' · personalizado' : '';
             priceNote.textContent = `$${precio.toLocaleString('es-AR')}${customTag} · envío según zona · consultá por WhatsApp`;
@@ -1166,11 +1167,11 @@ class CartSystem {
         const tipoConteo = total === 1 ? 'prenda' : 'prendas';
 
         // Detectar combos hoodie+remera (promo)
-        const tieneHoodie = sortedCart.some(i => i.category === 'Hoodies FMD');
-        const tieneRemera = sortedCart.some(i => i.category !== 'Hoodies FMD');
+        const tieneHoodie = sortedCart.some(i => isHoodieItem(i) && i.isDouble);
+        const tieneRemera = sortedCart.some(i => isAdultRemeraItem(i) && i.isDouble);
         let promoMsg = '';
         if (tieneHoodie && tieneRemera) {
-            promoMsg = '\n\n> Este pedido incluye productos combinables en promo vigente.';
+            promoMsg = '\n\n> Combo hoodie doble + remera doble: $99.000.';
         }
 
         return `CÓDIGOS DEL PEDIDO:\n${codes}\n\nDETALLE DEL PEDIDO:\n\n${details}\n\nTOTAL: ${total} ${tipoConteo}${promoMsg}`;
@@ -1390,7 +1391,7 @@ function renderLatestReleases(limit = 5) {
                         ${
                             isDorsoIdea
                             ? `<span class="product-envio" style="color:var(--magic-green);border:1px solid rgba(57,255,20,.25);">Solo doble estampa</span>`
-                            : `${formatPreciosDual(card)}<div style="font-size:0.62rem;color:var(--text-muted);margin-top:4px;">Promos por cantidad: 3+ envío gratis · 4+ 15% OFF</div>`
+                            : `${formatPreciosDual(card)}<div style="font-size:0.62rem;color:var(--text-muted);margin-top:4px;">3 prendas o más: envío gratis · 4 prendas o más: 15% OFF + envío gratis</div>`
                         }
                     </div>
                 </div>
@@ -1445,9 +1446,9 @@ function getMaidenArchiveMeta(product) {
     const text = normalizeText(`${product?.name || ''} ${product?.desc || ''}`);
     if (text.includes('tour')) return 'Tour 2026';
     if (text.includes('argentina')) return 'Eddie Argentina';
+    if (text.includes('somewhere in time') || text.includes('killers')) return 'Iron Maiden';
     if (text.includes('eddie')) return 'Eddie Iconico';
     if (text.includes('powerslave')) return 'Powerslave FMD';
-    if (text.includes('killers')) return 'Killers';
     if (text.includes('fear')) return 'Fear Of The Dark';
     if (product?.tipoPrecio === 'doble') return 'Doble estampa';
     return 'Clasico remasterizado';
@@ -1480,22 +1481,33 @@ function renderMaidenArchiveGrid() {
             return;
         }
 
-        const highlights = [...maidenPool]
+        const fixedHighlights = MAIDEN_ARCHIVE_HIGHLIGHT_IDS
+            .map(id => maidenPool.find(product => Number(product?.id) === id))
+            .filter(Boolean);
+
+        const fallbackHighlights = [...maidenPool]
+            .filter(product => !MAIDEN_ARCHIVE_HIGHLIGHT_IDS.includes(Number(product?.id)))
             .sort((a, b) => {
                 const scoreDiff = scoreMaidenArchiveProduct(b) - scoreMaidenArchiveProduct(a);
                 if (scoreDiff !== 0) return scoreDiff;
                 return compareProductsByPriorityThenId(a, b);
-            })
-            .slice(0, 8);
+            });
+
+        const highlights = [...fixedHighlights, ...fallbackHighlights].slice(0, 6);
 
         grid.innerHTML = highlights.map((product, index) => {
-            const price = getMaidenArchivePrice(product);
             const meta = getMaidenArchiveMeta(product);
-            const priceMode = product?.tipoPrecio === 'doble' ? 'Doble estampa' : 'Simple frente';
+            const isDualOptionCard = [7027, 7023].includes(Number(product?.id));
+            const priceMarkup = isDualOptionCard
+                ? `<div>$${PRECIOS.simple.toLocaleString('es-AR')}</div><div>$${PRECIOS.doble.toLocaleString('es-AR')}</div>`
+                : `<div>$${getMaidenArchivePrice(product).toLocaleString('es-AR')}</div>`;
+            const priceMode = isDualOptionCard
+                ? 'Estampa frontal<br>Doble estampa'
+                : (product?.tipoPrecio === 'doble' ? 'Doble estampa' : 'Simple frente');
             const isLastCard = index === highlights.length - 1;
             const cardAction = isLastCard ? 'goToMaidenCollection()' : `openModal(${product.id})`;
             const ctaMarkup = isLastCard
-                ? `<button class="maiden-archive-card-cta" onclick="event.stopPropagation(); goToMaidenCollection();">VER COLECCIÓN →</button>`
+                ? `<button class="maiden-archive-card-cta" onclick="event.stopPropagation(); goToMaidenCollection();">VER MÁS →</button>`
                 : '';
 
             return `<div class="product-card hoodie-card" onclick="${cardAction}">
@@ -1504,7 +1516,7 @@ function renderMaidenArchiveGrid() {
                     <div class="product-name">${product.name}</div>
                     <div class="product-meta">${product.year || 'FMD'} · ${meta}</div>
                     <div class="product-price-row">
-                        <span class="product-price hoodie-price">$${price.toLocaleString('es-AR')}</span>
+                        <span class="product-price hoodie-price">${priceMarkup}</span>
                     </div>
                     <div class="maiden-archive-price-mode">${priceMode}</div>
                     ${ctaMarkup}
@@ -3196,7 +3208,7 @@ function renderFilteredProducts(filtered) {
                     ${
                         isDorsoIdea
                         ? `<span class="product-envio" style="color:var(--magic-green);border:1px solid rgba(57,255,20,.25);">Solo doble estampa</span>`
-                        : `${formatPreciosDual(p)}<div style="font-size:0.62rem;color:var(--text-muted);margin-top:4px;">Promos por cantidad: 3+ envío gratis · 4+ 15% OFF</div>`
+                        : `${formatPreciosDual(p)}<div style="font-size:0.62rem;color:var(--text-muted);margin-top:4px;">3 prendas o más: envío gratis · 4 prendas o más: 15% OFF + envío gratis</div>`
                     }
                 </div>
             </div>
@@ -3883,18 +3895,18 @@ function buildShippingContextForWhatsapp(postalCode = '', customerData = null) {
     const quantity = cart.getCart().length;
 
     if (quantity >= 4) {
-        return '\n\n📦 DATOS DE ENVÍO:\n• Envío gratis + 15% OFF por pedido de 4 o más prendas.';
+        return '\n\n📦 DATOS DE ENVÍO:\n• 4 prendas o más: 15% OFF + envío gratis.';
     }
 
     if (quantity >= 3) {
-        return '\n\n📦 DATOS DE ENVÍO:\n• Envío gratis por pedido de 3 prendas.';
+        return '\n\n📦 DATOS DE ENVÍO:\n• 3 prendas o más: envío gratis.';
     }
 
     if (postalCode) {
-        return `\n\n📦 DATOS DE ENVÍO (1 prenda):\n• Código postal: ${postalCode}`;
+        return `\n\n📦 DATOS DE ENVÍO (1 o 2 prendas):\n• Código postal: ${postalCode}`;
     }
 
-    return '\n\n📦 DATOS DE ENVÍO (1 prenda):\n• Código postal: no informado';
+    return '\n\n📦 DATOS DE ENVÍO (1 o 2 prendas):\n• Código postal: no informado';
 }
 
 function sendViaWhatsapp(postalCode = '', customerData = null) {
@@ -3979,15 +3991,56 @@ function calculateItemPrice(item) {
     return item.isDouble ? precios.doble : precios.simple;
 }
 
-function calculateCartTotal() {
-    const items = cart.getCart();
+function isHoodieItem(item) {
+    return item.category === 'Hoodies FMD' || item.category === 'Hoodies Otras Bandas';
+}
+
+function isBuzoRedondoItem(item) {
+    return item.category === 'Buzo Cuello Redondo';
+}
+
+function isAdultRemeraItem(item) {
+    return !isHoodieItem(item) && !isBuzoRedondoItem(item) && item.age !== 'chico';
+}
+
+function calculateCartSubtotal(items) {
+    const hoodiesDobles = [];
+    const remerasDobles = [];
     let subtotal = 0;
-    
+
     items.forEach(item => {
+        if (isHoodieItem(item) && item.isDouble) {
+            hoodiesDobles.push(item);
+            return;
+        }
+
+        if (isAdultRemeraItem(item) && item.isDouble) {
+            remerasDobles.push(item);
+            return;
+        }
+
         subtotal += calculateItemPrice(item);
     });
+
+    const comboCount = Math.min(hoodiesDobles.length, remerasDobles.length);
+    subtotal += comboCount * COMBO_HOODIE_REMERA;
+
+    hoodiesDobles.slice(comboCount).forEach(item => {
+        subtotal += calculateItemPrice(item);
+    });
+
+    remerasDobles.slice(comboCount).forEach(item => {
+        subtotal += calculateItemPrice(item);
+    });
+
+    return subtotal;
+}
+
+function calculateCartTotal() {
+    const items = cart.getCart();
+    const subtotal = calculateCartSubtotal(items);
     
-    // Calcular descuento según cantidad (15% para 4+ prendas)
+    // Calcular descuento según cantidad (15% para 4 prendas o más)
     let descuento = 0;
     const cantidad = items.length;
     
@@ -3995,7 +4048,7 @@ function calculateCartTotal() {
         descuento = subtotal * 0.15; // 15% descuento
     }
     
-    // Envío: gratis para 3+, a calcular para 1 o 2
+    // Envío: gratis para 3 prendas o más, a calcular para 1 o 2
     const envioGratis = cantidad >= 3;
     
     return {
@@ -4139,7 +4192,7 @@ function renderCartPreview() {
             </div>
             ${totals.descuento > 0 ? `
                 <div class="cart-preview-summary-row">
-                    <span>Descuento 15% (4+ prendas)</span>
+                    <span>Descuento 15% (4 prendas o más)</span>
                     <span class="value" style="color: var(--magic-green);">-$${totals.descuento.toLocaleString('es-AR')}</span>
                 </div>
             ` : ''}
@@ -4156,7 +4209,7 @@ function renderCartPreview() {
         ${shippingForm}
         <div class="cart-preview-info" style="margin-top:12px;padding:12px;background:#0a0a0a;border:1px solid #222;border-radius:8px;font-size:0.8rem;color:#888;">
             <div style="margin-bottom:8px;">
-                <span style="color:#39ff14;">📦 ENVÍO ANDREANI:</span> A domicilio o punto de retiro Andreani · 3-7 días hábiles a todo el país. Costo según zona (se confirma por WhatsApp). 3 prendas: envío gratis · 4 o más: 15% OFF + envío gratis.
+                <span style="color:#39ff14;">📦 ENVÍO ANDREANI:</span> A domicilio o punto de retiro Andreani · 3-7 días hábiles a todo el país. 1 o 2 prendas: envío según zona. 3 prendas o más: envío gratis. 4 prendas o más: 15% OFF + envío gratis.
             </div>
             <div>
                 <span style="color:#39ff14;">💳 PAGO:</span> Transferencia o MercadoPago. Tarjeta de crédito con recargo $8.000.
