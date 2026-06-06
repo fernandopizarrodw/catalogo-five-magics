@@ -1664,15 +1664,6 @@
         "desc": "DiseÃ±o clÃ¡sico de Iron Maiden con variante Empire."
     },
     {
-        "id": 309,
-        "category": "Iron Maiden",
-        "year": "2026",
-        "name": "Dorso 666",
-        "tipoPrecio": "simple",
-        "img": "images/iron_maiden/dorso_666.jpg",
-        "desc": "DiseÃ±o dorso 666 de Iron Maiden."
-    },
-    {
         "id": 39,
         "band": "Megadeth",
         "category": "Tour",
@@ -4013,9 +4004,13 @@
             {
                 "img": "images/iron_maiden/iron_maiden_fear_v2.jpg",
                 "name": "Variante 2"
+            },
+            {
+                "img": "images/iron_maiden/dorso_666.jpg",
+                "name": "Dorso 666"
             }
         ],
-        "desc": "Iron Maiden Fear - DiseÃ±o de la banda clÃ¡sica con 2 variantes."
+        "desc": "Iron Maiden Fear - DiseÃ±os del mismo disco agrupados en un carrusel con 3 variantes."
     },
     {
         "id": 5050,

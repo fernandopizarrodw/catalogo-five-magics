@@ -32,7 +32,7 @@ const WHATSAPP = "541169667685";
 const MAIDEN_ARCHIVE_HIGHLIGHT_IDS = [7015, 7027, 7023, 7025, 7026, 7029];
 const MAIDEN_ARCHIVE_GROUPS = [
     { title: 'Iron Maiden clasico', meta: 'Archivo original FMD', productIds: [308, 6004, 7011] },
-    { title: 'The Number Of The Beast 666', meta: 'Eddie 666', productIds: [309, 6005] },
+    { title: 'Iron Maiden Fear / 666', meta: 'Diseno agrupado por disco', productIds: [5038, 6005] },
     { title: 'Killers', meta: 'Versiones FMD', productIds: [7023, 6006, 7024, 6007] },
     { title: 'Live After Death', meta: 'Frente + dorso', productIds: [7025, 7012] },
     { title: 'Tour 2026', meta: 'Edicion tour FMD', productIds: [7029, 7013] },
@@ -644,6 +644,9 @@ function matchesCategoryOrMetadata(product, categoryValue) {
 
     const category = normalizeText(product?.category);
     if (category === categoryQuery) return true;
+
+    // Las colecciones de prendas deben mostrar solo productos de su categoria real.
+    if (categoryQuery === 'buzo cuello redondo') return false;
 
     const tags = Array.isArray(product?.tags) ? product.tags : [];
     if (tags.some(tag => normalizeText(tag) === categoryQuery)) return true;

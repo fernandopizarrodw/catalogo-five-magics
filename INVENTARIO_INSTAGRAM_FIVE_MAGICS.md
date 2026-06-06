@@ -180,7 +180,7 @@
 | 5035 | Iron Maiden Brave | 1 | - |
 | 5036 | Iron Maiden Killers | 2 | Frente + Dorso |
 | 5037 | Iron Maiden Somewhere | 1 | - |
-| 5038 | Iron Maiden Fear | 2 | v1, v2 |
+| 5038 | Iron Maiden Fear | 3 | v1, v2, Dorso 666 |
 
 ---
 
