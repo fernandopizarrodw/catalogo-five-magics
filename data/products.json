@@ -3373,13 +3373,195 @@
         "desc": "Sepultura - Roots. Metal brasileÃ±o brutal y primitivo."
     },
     {
-        "id": 5016,
-        "category": "Bandas Sugeridas",
+        "id": 7101,
+        "category": "Slayer",
         "year": "2026",
-        "name": "Slayer",
-        "tipoPrecio": "simple",
-        "img": "images/banda_sugeridas/slayer/slayer.jpg",
-        "desc": "Slayer. Los maestros del thrash mÃ¡s puro y destructivo."
+        "name": "Slayer Reign In Blood",
+        "tipoPrecio": "doble",
+        "isNew": true,
+        "priority": 200,
+        "img": "images/slayer/hoodie_reign_in_blood.jpg",
+        "variants": [
+            {
+                "img": "images/slayer/hoodie_reign_in_blood.jpg",
+                "name": "Slayer Reign In Blood - Hoodie",
+                "garmentCategory": "Hoodies Otras Bandas"
+            }
+        ],
+        "desc": "SLAYER - REIGN IN BLOOD 40TH ANNIVERSARY 2026. Archivo Slayer FMD. Disponible en remera, hoodie y buzo cuello redondo.",
+        "band": "Slayer",
+        "collections": [
+            "Slayer Archive FMD",
+            "Reign In Blood 40th Anniversary"
+        ],
+        "tags": [
+            "Slayer",
+            "Reign In Blood",
+            "40th Anniversary",
+            "Remera",
+            "Hoodie",
+            "Buzo cuello redondo"
+        ]
+    },
+    {
+        "id": 7102,
+        "category": "Slayer",
+        "year": "2026",
+        "name": "Slayer Angel Of Death",
+        "tipoPrecio": "doble",
+        "isNew": true,
+        "priority": 199,
+        "img": "images/slayer/remera_angel_of_death.jpg",
+        "variants": [
+            {
+                "img": "images/slayer/remera_angel_of_death.jpg",
+                "name": "Slayer Angel Of Death - Remera",
+                "garmentCategory": "Slayer"
+            },
+            {
+                "img": "images/slayer/hoodie_angel_of_death.jpg",
+                "name": "Slayer Angel Of Death - Hoodie",
+                "garmentCategory": "Hoodies Otras Bandas"
+            }
+        ],
+        "desc": "Archivo Slayer FMD 2026. Diseno Angel Of Death disponible en remera, hoodie y buzo cuello redondo.",
+        "band": "Slayer",
+        "collections": [
+            "Slayer Archive FMD"
+        ],
+        "tags": [
+            "Slayer",
+            "Angel Of Death",
+            "Remera",
+            "Hoodie",
+            "Buzo cuello redondo"
+        ]
+    },
+    {
+        "id": 7103,
+        "category": "Slayer",
+        "year": "2026",
+        "name": "Slayer South Of Heaven",
+        "tipoPrecio": "doble",
+        "isNew": true,
+        "priority": 198,
+        "img": "images/slayer/remera_south_of_heaven.jpg",
+        "variants": [
+            {
+                "img": "images/slayer/remera_south_of_heaven.jpg",
+                "name": "Slayer South Of Heaven - Remera",
+                "garmentCategory": "Slayer"
+            },
+            {
+                "img": "images/slayer/hoodie_south_of_heaven.jpg",
+                "name": "Slayer South Of Heaven - Hoodie",
+                "garmentCategory": "Hoodies Otras Bandas"
+            }
+        ],
+        "desc": "Archivo Slayer FMD 2026. Diseno South Of Heaven disponible en remera, hoodie y buzo cuello redondo.",
+        "band": "Slayer",
+        "collections": [
+            "Slayer Archive FMD"
+        ],
+        "tags": [
+            "Slayer",
+            "South Of Heaven",
+            "Remera",
+            "Hoodie",
+            "Buzo cuello redondo"
+        ]
+    },
+    {
+        "id": 7104,
+        "category": "Slayer",
+        "year": "2026",
+        "name": "Slayer Seasons In The Abyss",
+        "tipoPrecio": "doble",
+        "isNew": true,
+        "priority": 197,
+        "img": "images/slayer/remera_seasons_in_the_abbys.jpg",
+        "variants": [
+            {
+                "img": "images/slayer/remera_seasons_in_the_abbys.jpg",
+                "name": "Slayer Seasons In The Abyss - Remera",
+                "garmentCategory": "Slayer"
+            }
+        ],
+        "desc": "Archivo Slayer FMD 2026. Diseno Seasons In The Abyss disponible en remera, hoodie y buzo cuello redondo.",
+        "band": "Slayer",
+        "collections": [
+            "Slayer Archive FMD"
+        ],
+        "tags": [
+            "Slayer",
+            "Seasons In The Abyss",
+            "Remera",
+            "Hoodie",
+            "Buzo cuello redondo"
+        ]
+    },
+    {
+        "id": 7105,
+        "category": "Slayer",
+        "year": "2026",
+        "name": "Slayer Hell Awaits",
+        "tipoPrecio": "doble",
+        "isNew": true,
+        "priority": 196,
+        "img": "images/slayer/remera_hell_awaits.jpg",
+        "variants": [
+            {
+                "img": "images/slayer/remera_hell_awaits.jpg",
+                "name": "Slayer Hell Awaits - Remera",
+                "garmentCategory": "Slayer"
+            },
+            {
+                "img": "images/slayer/buzo_hell_awaits.jpg",
+                "name": "Slayer Hell Awaits - Buzo cuello redondo",
+                "garmentCategory": "Buzo Cuello Redondo"
+            }
+        ],
+        "desc": "Archivo Slayer FMD 2026. Diseno Hell Awaits disponible en remera, hoodie y buzo cuello redondo.",
+        "band": "Slayer",
+        "collections": [
+            "Slayer Archive FMD"
+        ],
+        "tags": [
+            "Slayer",
+            "Hell Awaits",
+            "Remera",
+            "Hoodie",
+            "Buzo cuello redondo"
+        ]
+    },
+    {
+        "id": 7106,
+        "category": "Slayer",
+        "year": "2026",
+        "name": "Slayer Aguila",
+        "tipoPrecio": "doble",
+        "isNew": true,
+        "priority": 180,
+        "img": "images/slayer/buzo_slayer_aguila.jpg",
+        "variants": [
+            {
+                "img": "images/slayer/buzo_slayer_aguila.jpg",
+                "name": "Slayer Aguila - Buzo cuello redondo",
+                "garmentCategory": "Buzo Cuello Redondo"
+            }
+        ],
+        "desc": "Archivo Slayer FMD 2026. Diseno Slayer Aguila disponible en remera, hoodie y buzo cuello redondo.",
+        "band": "Slayer",
+        "collections": [
+            "Slayer Archive FMD"
+        ],
+        "tags": [
+            "Slayer",
+            "Aguila",
+            "Remera",
+            "Hoodie",
+            "Buzo cuello redondo"
+        ]
     },
     {
         "id": 5017,

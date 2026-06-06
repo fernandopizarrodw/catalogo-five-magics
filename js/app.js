@@ -27,9 +27,18 @@ const PRECIOS_BUZO_REDONDO = {
 };
 const PERSONALIZADO_EXTRA = 5000;
 const COMBO_HOODIE_REMERA = 99000;
-const FECHA_VIGENCIA = "Marzo 2026";
+const FECHA_VIGENCIA = "Junio 2026";
 const WHATSAPP = "541169667685";
 const MAIDEN_ARCHIVE_HIGHLIGHT_IDS = [7015, 7027, 7023, 7025, 7026, 7029];
+const MAIDEN_ARCHIVE_GROUPS = [
+    { title: 'Iron Maiden clasico', meta: 'Archivo original FMD', productIds: [308, 6004, 7011] },
+    { title: 'The Number Of The Beast 666', meta: 'Eddie 666', productIds: [309, 6005] },
+    { title: 'Killers', meta: 'Versiones FMD', productIds: [7023, 6006, 7024, 6007] },
+    { title: 'Live After Death', meta: 'Frente + dorso', productIds: [7025, 7012] },
+    { title: 'Tour 2026', meta: 'Edicion tour FMD', productIds: [7029, 7013] },
+    { title: 'Powerslave', meta: 'Archivo FMD', productIds: [7026, 7030] }
+];
+const SLAYER_ARCHIVE_HIGHLIGHT_IDS = [7101, 7102, 7103, 7104, 7105, 7106];
 
 let db = [];
 let selectedAge = 'adulto';
@@ -57,6 +66,24 @@ function goToMaidenCollection() {
         const maidenBtn = document.querySelector('.cat-btn[data-cat="Iron Maiden"]');
         if (maidenBtn) maidenBtn.click();
     }, 180);
+}
+
+function goToSlayerCollection() {
+    scrollToSection('categoryNav');
+    setTimeout(() => {
+        const slayerBtn = document.querySelector('.cat-btn[data-cat="Slayer"]');
+        if (slayerBtn) slayerBtn.click();
+    }, 180);
+}
+
+function maidenArchiveMove(button, direction) {
+    const carousel = button?.closest('.maiden-design-carousel');
+    const track = carousel?.querySelector('.maiden-design-track');
+    if (!track) return;
+
+    const slide = track.querySelector('.maiden-design-slide');
+    const step = (slide?.getBoundingClientRect().width || track.clientWidth) + 8;
+    track.scrollBy({ left: direction * step, behavior: 'smooth' });
 }
 
 function parseOpenModalArgs(onclickValue) {
@@ -860,8 +887,9 @@ function resolveModalPriceConfig(product = currentProduct) {
         };
     }
 
-    const isHoodie = product.category === 'Hoodies FMD';
-    const isBuzoRedondo = product.category === 'Buzo Cuello Redondo';
+    const garmentCategory = getActiveGarmentCategory(product);
+    const isHoodie = garmentCategory === 'Hoodies FMD' || garmentCategory === 'Hoodies Otras Bandas';
+    const isBuzoRedondo = garmentCategory === 'Buzo Cuello Redondo';
     const isOversize = selectedCut === 'oversize';
     const isKids = selectedAge === 'chico';
     const isCustom = isPersonalizedSelection(product) && !isHoodie && !isBuzoRedondo && !isKids;
@@ -887,6 +915,16 @@ function resolveModalPriceConfig(product = currentProduct) {
         : basePrices.doble;
 
     return { simple, doble, isHoodie, isBuzoRedondo, isCustom };
+}
+
+function getVariantGarmentCategory(product, variantIndex = getActiveVariantIndex()) {
+    const variant = product?.variants?.[variantIndex];
+    return variant?.garmentCategory || product?.category || '';
+}
+
+function getActiveGarmentCategory(product = currentProduct) {
+    if (!product) return '';
+    return getVariantGarmentCategory(product);
 }
 
 function hasDorsoSelection() {
@@ -958,7 +996,7 @@ function updateModalPrices() {
     const priceNote = document.querySelector('.modal-price-note');
     if (priceNote) {
         if (precios.isHoodie) {
-            priceNote.innerHTML = 'Combo hoodie doble + remera doble: <strong style="color:var(--price);">$99.000</strong>';
+            priceNote.innerHTML = 'Combo hoodie doble + remera doble: <strong style="color:var(--price);">$99.000</strong> · envío según cantidad';
         } else {
             const customTag = precios.isCustom ? ' · personalizado' : '';
             priceNote.textContent = `$${precio.toLocaleString('es-AR')}${customTag} · envío según zona · consultá por WhatsApp`;
@@ -1017,11 +1055,8 @@ class CartSystem {
         const product = db.find(p => p.id === productId);
         if (!product) return false;
 
-        // Forzar doble estampa en todos los hoodies
         let forceDouble = isDouble;
-        if (product.category === 'Hoodies FMD') {
-            forceDouble = true;
-        }
+        const garmentCategory = options.category || getVariantGarmentCategory(product, variantIndex);
 
         // Código del frente
         const frontCode = this.generateCode(productId, variantIndex);
@@ -1043,7 +1078,7 @@ class CartSystem {
             id: productId,
             code: frontCode, // Código principal (frente)
             productName: product.name,
-            category: product.category,
+            category: garmentCategory,
             variantIndex: variantIndex,
             variantName: frontName,
             isDouble: forceDouble,
@@ -1171,7 +1206,7 @@ class CartSystem {
         const tieneRemera = sortedCart.some(i => isAdultRemeraItem(i) && i.isDouble);
         let promoMsg = '';
         if (tieneHoodie && tieneRemera) {
-            promoMsg = '\n\n> Combo hoodie doble + remera doble: $99.000.';
+            promoMsg = '\n\n> Combo hoodie doble + remera doble: $99.000. El envío no está incluido; se bonifica únicamente desde 3 prendas.';
         }
 
         return `CÓDIGOS DEL PEDIDO:\n${codes}\n\nDETALLE DEL PEDIDO:\n\n${details}\n\nTOTAL: ${total} ${tipoConteo}${promoMsg}`;
@@ -1409,6 +1444,7 @@ async function loadProducts() {
         buildDorsoAutocompletePool();
         updateCountsUI();
         renderMaidenArchiveGrid(); // Capsula editorial Iron Maiden
+        renderSlayerArchiveGrid(); // Archivo Slayer agrupado por diseno
         renderHoodiesGrid(); // Hoodies destacados
         renderBuzosRedondoGrid(); // Buzos cuello redondo destacados
         renderHeroOrbit(6); // Poblar órbita del hero con 6 cards 3D
@@ -1422,6 +1458,51 @@ async function loadProducts() {
         // Fallback para desarrollo local
         db = [];
         dorsoAutocompletePool = [];
+    }
+}
+
+function renderSlayerArchiveGrid() {
+    try {
+        const grid = document.getElementById('slayerArchiveGrid');
+        const section = document.getElementById('slayerArchive');
+        if (!grid || !section || !Array.isArray(db) || !db.length) return;
+
+        const products = SLAYER_ARCHIVE_HIGHLIGHT_IDS
+            .map(id => db.find(product => Number(product?.id) === id))
+            .filter(Boolean);
+
+        if (!products.length) {
+            section.style.display = 'none';
+            return;
+        }
+
+        grid.innerHTML = products.map((product, index) => {
+            const isMoreCard = index === products.length - 1;
+            const variants = Array.isArray(product.variants) ? product.variants : [];
+            const garmentLabels = variants.map(variant => {
+                const name = normalizeText(variant?.name || '');
+                if (name.includes('hoodie')) return 'Hoodie';
+                if (name.includes('buzo')) return 'Buzo cuello redondo';
+                return 'Remera';
+            });
+            const uniqueLabels = [...new Set(garmentLabels)];
+            const garmentPills = uniqueLabels.map(label => `<span>${label}</span>`).join('');
+            const action = isMoreCard ? 'goToSlayerCollection()' : `openModal(${product.id})`;
+
+            return `<article class="product-card slayer-archive-card${isMoreCard ? ' slayer-more-card' : ''}" onclick="${action}">
+                ${isMoreCard ? '<div class="product-badges"><span class="slayer-card-badge">VER MÁS SLAYER</span></div>' : ''}
+                <img src="${product.img}" class="product-img" alt="${product.name}" loading="lazy" decoding="async">
+                <div class="product-info">
+                    <div class="product-name">${product.name}</div>
+                    <div class="product-meta">Slayer FMD · ${variants.length} ${variants.length === 1 ? 'prenda visible' : 'prendas visibles'}</div>
+                    <div class="slayer-garment-pills">${garmentPills}</div>
+                    <p class="slayer-card-note">Disponible para pedir en remera, hoodie y buzo.</p>
+                    ${isMoreCard ? '<button class="slayer-card-cta" onclick="event.stopPropagation(); goToSlayerCollection();">VER MÁS SLAYER →</button>' : ''}
+                </div>
+            </article>`;
+        }).join('');
+    } catch (error) {
+        console.warn('renderSlayerArchiveGrid error', error);
     }
 }
 
@@ -1463,7 +1544,7 @@ function getMaidenArchivePrice(product) {
     return product?.tipoPrecio === 'doble' ? PRECIOS.doble : PRECIOS.simple;
 }
 
-function renderMaidenArchiveGrid() {
+function renderMaidenArchiveGridLegacy() {
     try {
         const grid = document.getElementById('maidenArchiveGrid');
         const section = document.getElementById('maidenArchive');
@@ -1529,6 +1610,73 @@ function renderMaidenArchiveGrid() {
 }
 
 // Renderizar sección destacada de Hoodies FMD
+function getMaidenGarmentLabel(product) {
+    if (product?.category === 'Hoodies FMD' || product?.category === 'Hoodies Otras Bandas') return 'Hoodie';
+    if (product?.category === 'Buzo Cuello Redondo') return 'Buzo cuello redondo';
+    return 'Remera';
+}
+
+function renderMaidenArchiveGrid() {
+    try {
+        const grid = document.getElementById('maidenArchiveGrid');
+        const section = document.getElementById('maidenArchive');
+        if (!grid || !section || !Array.isArray(db) || !db.length) return;
+
+        const groups = MAIDEN_ARCHIVE_GROUPS.map(group => ({
+            ...group,
+            products: group.productIds
+                .map(id => db.find(product => Number(product?.id) === id))
+                .filter(Boolean)
+        })).filter(group => group.products.length);
+
+        if (!groups.length) {
+            section.style.display = 'none';
+            return;
+        }
+
+        grid.innerHTML = groups.map(group => {
+            const garmentLabels = [...new Set(group.products.map(getMaidenGarmentLabel))];
+            const garmentPills = garmentLabels.map(label => `<span>${label}</span>`).join('');
+            const availabilityNote = `Prendas disponibles: ${garmentLabels.join(' / ')}`;
+            const controls = group.products.length > 1
+                ? `<button type="button" class="maiden-design-nav maiden-design-prev" aria-label="Prenda anterior" onclick="event.stopPropagation(); maidenArchiveMove(this, -1)">&#8249;</button>
+                   <button type="button" class="maiden-design-nav maiden-design-next" aria-label="Prenda siguiente" onclick="event.stopPropagation(); maidenArchiveMove(this, 1)">&#8250;</button>`
+                : '';
+
+            const slides = group.products.map(product => {
+                const garmentLabel = getMaidenGarmentLabel(product);
+                const price = getMaidenArchivePrice(product).toLocaleString('es-AR');
+                return `<button type="button" class="maiden-design-slide" onclick="openModal(${product.id})">
+                    <span class="maiden-design-garment">${garmentLabel}</span>
+                    <img src="${product.img}" alt="${group.title} - ${garmentLabel}" loading="lazy" decoding="async">
+                    <span class="maiden-design-slide-footer">
+                        <strong>$${price}</strong>
+                        <small>${product.tipoPrecio === 'doble' ? 'Doble estampa' : 'Estampa simple'}</small>
+                    </span>
+                </button>`;
+            }).join('');
+
+            return `<article class="product-card maiden-design-card">
+                <div class="maiden-design-head">
+                    <div>
+                        <div class="product-name">${group.title}</div>
+                        <div class="product-meta">${group.meta} · ${group.products.length} ${group.products.length === 1 ? 'prenda' : 'prendas'}</div>
+                    </div>
+                    <span class="maiden-design-count">${group.products.length}</span>
+                </div>
+                <div class="maiden-design-carousel">
+                    <div class="maiden-design-track">${slides}</div>
+                    ${controls}
+                </div>
+                <div class="maiden-design-pills">${garmentPills}</div>
+                <p class="maiden-design-note">${availabilityNote}</p>
+            </article>`;
+        }).join('');
+    } catch (error) {
+        console.warn('renderMaidenArchiveGrid grouped error', error);
+    }
+}
+
 function renderHoodiesGrid() {
     try {
         const hoodiesGrid = document.getElementById('hoodiesGrid');
@@ -1546,7 +1694,7 @@ function renderHoodiesGrid() {
         const maxVisible = 5;
         let html = '';
         hoodies.forEach((product, idx) => {
-            // Hoodies: siempre doble estampa por defecto ($59.000)
+            // Hoodies: siempre doble estampa por defecto
             const precio = PRECIOS_HOODIES.doble;
             // Si es la 5ta card y hay más de 5, poner el botón y el blur
             if (idx === maxVisible - 1 && hoodies.length > maxVisible) {
@@ -1759,6 +1907,13 @@ function formatPrecio(tipo) {
 }
 
 function formatPreciosDual(product = null) {
+    if (product?.category === 'Slayer') {
+        return `<div class="dual-prices">
+        <div class="price-line"><span class="price-amount">$44.000</span><span class="price-label">Remera doble estampa</span></div>
+        <div class="price-line"><span class="price-amount">$59.000</span><span class="price-label">Hoodie doble estampa</span></div>
+        <div class="price-line"><span class="price-amount">$55.000</span><span class="price-label">Buzo doble estampa</span></div>
+    </div>`;
+    }
     const isHoodie = product && (product.category === 'Hoodies FMD' || product.category === 'Hoodies Otras Bandas');
     const isBuzoRedondo = product && product.category === 'Buzo Cuello Redondo';
     const tabla = isHoodie ? PRECIOS_HOODIES : isBuzoRedondo ? PRECIOS_BUZO_REDONDO : PRECIOS;
@@ -2433,8 +2588,9 @@ function openModal(id, variantIndex = undefined, scopedVariantIndexes = undefine
     });
     
     // === LÓGICA ESPECIAL PARA HOODIES Y BUZOS CUELLO REDONDO ===
-    const isHoodie = currentProduct.category === 'Hoodies FMD';
-    const isBuzoRedondo = currentProduct.category === 'Buzo Cuello Redondo';
+    const garmentCategory = getActiveGarmentCategory(currentProduct);
+    const isHoodie = garmentCategory === 'Hoodies FMD' || garmentCategory === 'Hoodies Otras Bandas';
+    const isBuzoRedondo = garmentCategory === 'Buzo Cuello Redondo';
     const hoodieInfoBanner = document.getElementById('hoodieInfoBanner');
     const buzoRedondoInfoBanner = document.getElementById('buzoRedondoInfoBanner');
     const ageGroup = document.getElementById('ageGroup');
@@ -3183,7 +3339,8 @@ function renderFilteredProducts(filtered) {
         const hasVariants = p.variants && p.variants.length > 1;
         const isDoble = p.tipoPrecio === 'doble';
         const isDorsoIdea = p.category === 'Dorsales';
-        const badgeText = hasVariants ? `${p.variants.length} diseños <span style='font-size:1.2em;margin-left:6px;'>➔</span>` : (isDoble ? '🔥 Doble estampa' : '');
+        const variantUnit = p.category === 'Slayer' ? 'prendas' : 'diseños';
+        const badgeText = hasVariants ? `${p.variants.length} ${variantUnit} <span style='font-size:1.2em;margin-left:6px;'>➔</span>` : (isDoble ? '🔥 Doble estampa' : '');
         // NUEVO badge
         const isNew = p.isNew;
         const newBadge = isNew ? `<span class="pack-badge" style="background:var(--magic-green);color:#000;">🆕 NUEVO</span>` : '';
@@ -3339,6 +3496,7 @@ const CATEGORY_LABELS = {
     'AC/DC': 'AC/DC',
     'Pantera': 'Pantera',
     'Iron Maiden': 'Iron Maiden',
+    'Slayer': 'Slayer',
     'Metallica': 'Metallica',
     'Avenged Sevenfold': 'Avenged Sevenfold'
 };
@@ -3402,6 +3560,7 @@ function updateCountsUI(){
         setNavBadge('AC/DC', byCategory['AC/DC']||0);
         setNavBadge('Pantera', byCategory['Pantera']||0);
         setNavBadge('Iron Maiden', byCategory['Iron Maiden']||0);
+        setNavBadge('Slayer', byCategory['Slayer']||0);
         setNavBadge('Metallica', byCategory['Metallica']||0);
         setNavBadge('Hoodies FMD', byCategory['Hoodies FMD']||0);
         setNavBadge('Hoodies Otras Bandas', byCategory['Hoodies Otras Bandas']||0);
@@ -3434,6 +3593,7 @@ function updateCountsUI(){
         setPill('Dave Mustaine', `${getCategoryLabel('Dave Mustaine')} (${byCategory['Dave Mustaine']||0})`);
         setPill('Pantera', `${getCategoryLabel('Pantera')} (${byCategory['Pantera']||0})`);
         setPill('Iron Maiden', `${getCategoryLabel('Iron Maiden')} (${byCategory['Iron Maiden']||0})`);
+        setPill('Slayer', `${getCategoryLabel('Slayer')} (${byCategory['Slayer']||0})`);
         setPill('Metallica', `${getCategoryLabel('Metallica')} (${byCategory['Metallica']||0})`);
         setPill('Avenged Sevenfold', `${getCategoryLabel('Avenged Sevenfold')} (${byCategory['Avenged Sevenfold']||0})`);
         setPill('AC/DC', `${getCategoryLabel('AC/DC')} (${byCategory['AC/DC']||0})`);
@@ -3960,7 +4120,7 @@ function getProductImage(productId, variantIndex = 0) {
 }
 
 function calculateItemPrice(item) {
-    const isHoodie = item.category === 'Hoodies FMD';
+    const isHoodie = item.category === 'Hoodies FMD' || item.category === 'Hoodies Otras Bandas';
     const isBuzoRedondo = item.category === 'Buzo Cuello Redondo';
     const isKids = item.age === 'chico';
     const isOversize = item.cut === 'oversize';
@@ -4277,8 +4437,9 @@ function toggleCartPanel() {
 function addToCartFromModal() {
     if (!currentProduct) return false;
 
-    const isHoodie = currentProduct.category === 'Hoodies FMD';
-    const isBuzoRedondo = currentProduct.category === 'Buzo Cuello Redondo';
+    const garmentCategory = getActiveGarmentCategory(currentProduct);
+    const isHoodie = garmentCategory === 'Hoodies FMD' || garmentCategory === 'Hoodies Otras Bandas';
+    const isBuzoRedondo = garmentCategory === 'Buzo Cuello Redondo';
     const isHoodieOrBuzo = isHoodie || isBuzoRedondo;
 
     clearSelectionError('ageGroup');
@@ -4320,6 +4481,7 @@ function addToCartFromModal() {
         size: selectedSize,
         cut: selectedCut,
         color: selectedColor,
+        category: garmentCategory,
         backIndex: selectedBackIndex, // Índice del dorso seleccionado
         isCustom: isCustom
     };
@@ -4940,6 +5102,22 @@ document.addEventListener('DOMContentLoaded', () => {
         maidenCtaWhatsapp.addEventListener('click', (e) => {
             e.preventDefault();
             openWhatsapp('Hola FMD! Quiero encargar un diseño de Iron Maiden.\n\nFormato: Remera / Hoodie / Buzo\nDiseño: ___\nTalle: ___\nColor: ___\nCP o ciudad: ___\n\n¿Me confirmás precio final y envío?', 'maiden_archive');
+        });
+    }
+
+    const slayerCtaCollection = document.getElementById('slayerCtaCollection');
+    if (slayerCtaCollection) {
+        slayerCtaCollection.addEventListener('click', (e) => {
+            e.preventDefault();
+            goToSlayerCollection();
+        });
+    }
+
+    const slayerCtaWhatsapp = document.getElementById('slayerCtaWhatsapp');
+    if (slayerCtaWhatsapp) {
+        slayerCtaWhatsapp.addEventListener('click', (e) => {
+            e.preventDefault();
+            openWhatsapp('Hola FMD! Quiero encargar un diseño de Slayer.\n\nFormato: Remera / Hoodie / Buzo cuello redondo\nDiseño: ___\nTalle: ___\nColor: ___\nCP o ciudad: ___\n\n¿Me confirmás precio final y envío?', 'slayer_archive');
         });
     }
 

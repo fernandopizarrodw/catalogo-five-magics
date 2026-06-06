@@ -74,23 +74,29 @@
 
 ---
 
-## 💰 ESTRUCTURA DE PRECIOS
+## 💰 PRECIOS FMD — JUNIO 2026
 
 ### **Categoría Base:**
 | Tipo | Precio |
 |------|--------|
 | Remera clásica simple | $37.000 + envío |
-| Remera clásica doble | $42.000 + envío |
+| Remera clásica doble | $44.000 + envío |
 | Remera oversize simple | $40.000 + envío |
-| Remera oversize doble | $45.000 + envío |
+| Remera oversize doble | $47.000 + envío |
 | Personalizado simple | base + $5.000 + envío |
 | Personalizado doble | base + $5.000 + envío |
-| Pack x2 (sin doble) | $74 ARS |
-| Pack x3 (sin doble) | $111 ARS |
-| Pack x4 (con doble) | $140 ARS |
+| Hoodie simple | $52.000 + envío |
+| Hoodie doble | $59.000 + envío |
+| Buzo cuello redondo simple | $50.000 + envío (pendiente de activación) |
+| Buzo cuello redondo doble | $55.000 + envío (pendiente de activación) |
+| Combo hoodie doble + remera doble | $99.000 + envío |
 
 ### **Nota Importante:**
 - Los precios mostrados son **precios de venta al cliente**
+- El combo no incluye envío gratis
+- 1 o 2 prendas: envío según zona
+- 3 prendas o más: envío gratis
+- 4 prendas o más: 15% OFF + envío gratis
 - Costo de producción (Dreamful): $15-22 ARS por unidad
 - Margen de ganancia: $4-24 ARS por remera
 
