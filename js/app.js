@@ -38,7 +38,7 @@ const MAIDEN_ARCHIVE_GROUPS = [
     { title: 'Tour 2026', meta: 'Edicion tour FMD', productIds: [7029, 7013] },
     { title: 'Powerslave', meta: 'Archivo FMD', productIds: [7026, 7030] }
 ];
-const SLAYER_ARCHIVE_HIGHLIGHT_IDS = [7101, 7102, 7103, 7104, 7105, 7106];
+const SLAYER_ARCHIVE_HIGHLIGHT_IDS = [7107, 7108, 7109, 7101, 7102, 7103, 7104, 7105, 7106];
 
 let db = [];
 let selectedAge = 'adulto';
@@ -1499,7 +1499,7 @@ function renderSlayerArchiveGrid() {
                     <div class="product-name">${product.name}</div>
                     <div class="product-meta">Slayer FMD · ${variants.length} ${variants.length === 1 ? 'prenda visible' : 'prendas visibles'}</div>
                     <div class="slayer-garment-pills">${garmentPills}</div>
-                    <p class="slayer-card-note">Disponible para pedir en remera, hoodie y buzo.</p>
+                    <p class="slayer-card-note">Prendas cargadas: ${uniqueLabels.join(' · ')}</p>
                     ${isMoreCard ? '<button class="slayer-card-cta" onclick="event.stopPropagation(); goToSlayerCollection();">VER MÁS SLAYER →</button>' : ''}
                 </div>
             </article>`;

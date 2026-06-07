@@ -5645,5 +5645,118 @@
             "FMD",
             "Doble Estampa"
         ]
+    },
+    {
+        "id": 7107,
+        "category": "Slayer",
+        "year": "2026",
+        "name": "Slayer Show No Mercy",
+        "tipoPrecio": "doble",
+        "isNew": true,
+        "priority": 205,
+        "img": "images/slayer/remera_show_no_mercy.jpg",
+        "variants": [
+            {
+                "img": "images/slayer/remera_show_no_mercy.jpg",
+                "name": "Slayer Show No Mercy - Remera",
+                "garmentCategory": "Slayer"
+            },
+            {
+                "img": "images/slayer/hoodie_show_no_mercy.jpg",
+                "name": "Slayer Show No Mercy - Hoodie",
+                "garmentCategory": "Hoodies Otras Bandas"
+            },
+            {
+                "img": "images/slayer/buzo_slayer_show_no_mercy.jpg",
+                "name": "Slayer Show No Mercy - Buzo cuello redondo",
+                "garmentCategory": "Buzo Cuello Redondo"
+            }
+        ],
+        "desc": "Slayer Show No Mercy frente y dorso. Disponible en remera, hoodie y buzo cuello redondo.",
+        "band": "Slayer",
+        "collections": [
+            "Slayer Archive FMD",
+            "Show No Mercy"
+        ],
+        "tags": [
+            "Slayer",
+            "Show No Mercy",
+            "Remera",
+            "Hoodie",
+            "Buzo cuello redondo",
+            "Doble Estampa"
+        ]
+    },
+    {
+        "id": 7108,
+        "category": "Slayer",
+        "year": "2026",
+        "name": "Slayer Show No Mercy V2",
+        "tipoPrecio": "doble",
+        "isNew": true,
+        "priority": 204,
+        "img": "images/slayer/remera_show_no_mercy_v2.jpg",
+        "variants": [
+            {
+                "img": "images/slayer/remera_show_no_mercy_v2.jpg",
+                "name": "Slayer Show No Mercy V2 - Remera",
+                "garmentCategory": "Slayer"
+            },
+            {
+                "img": "images/slayer/hoodie_show_no_mercy_v2.jpg",
+                "name": "Slayer Show No Mercy V2 - Hoodie",
+                "garmentCategory": "Hoodies Otras Bandas"
+            },
+            {
+                "img": "images/slayer/buzo_show_no_mercy_v2.jpg",
+                "name": "Slayer Show No Mercy V2 - Buzo cuello redondo",
+                "garmentCategory": "Buzo Cuello Redondo"
+            }
+        ],
+        "desc": "Slayer Show No Mercy V2 frente y dorso. Disponible en remera, hoodie y buzo cuello redondo.",
+        "band": "Slayer",
+        "collections": [
+            "Slayer Archive FMD",
+            "Show No Mercy"
+        ],
+        "tags": [
+            "Slayer",
+            "Show No Mercy",
+            "Remera",
+            "Hoodie",
+            "Buzo cuello redondo",
+            "Doble Estampa"
+        ]
+    },
+    {
+        "id": 7109,
+        "category": "Slayer",
+        "year": "2026",
+        "name": "Slayer Show No Mercy FMD",
+        "tipoPrecio": "doble",
+        "isNew": true,
+        "priority": 203,
+        "img": "images/slayer/hoodie_show_no_mercy_fmd.jpg",
+        "variants": [
+            {
+                "img": "images/slayer/hoodie_show_no_mercy_fmd.jpg",
+                "name": "Slayer Show No Mercy FMD - Hoodie",
+                "garmentCategory": "Hoodies Otras Bandas"
+            }
+        ],
+        "desc": "Slayer Show No Mercy edicion FMD disponible en hoodie doble estampa.",
+        "band": "Slayer",
+        "collections": [
+            "Slayer Archive FMD",
+            "Show No Mercy",
+            "Originales FMD"
+        ],
+        "tags": [
+            "Slayer",
+            "Show No Mercy",
+            "Hoodie",
+            "Original FMD",
+            "Doble Estampa"
+        ]
     }
 ]
