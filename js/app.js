@@ -38,7 +38,7 @@ const MAIDEN_ARCHIVE_GROUPS = [
     { title: 'Tour 2026', meta: 'Edicion tour FMD', productIds: [7029, 7013] },
     { title: 'Powerslave', meta: 'Archivo FMD', productIds: [7026, 7030] }
 ];
-const SLAYER_ARCHIVE_HIGHLIGHT_IDS = [7107, 7108, 7109, 7101, 7102, 7103, 7104, 7105, 7106];
+const SLAYER_ARCHIVE_HIGHLIGHT_IDS = [7114, 7115, 7116, 7113, 7112, 7106, 7111, 7110, 7107, 7108, 7109, 7101, 7102, 7103, 7104, 7105];
 
 let db = [];
 let selectedAge = 'adulto';
@@ -787,8 +787,15 @@ function selectAge(age) {
     document.querySelectorAll('#sizeSelector .size-oversize').forEach(btn => {
         btn.style.display = 'none';
     });
+    if (age === 'adulto' && selectedCut === 'oversize') {
+        document.querySelectorAll('#sizeSelector .size-oversize').forEach(btn => {
+            btn.style.display = '';
+            btn.style.cssText = inactiveStyle;
+        });
+    }
     
     updateModalPrices();
+    updateModalSizeRange();
 }
 
 // Función para seleccionar talle
@@ -834,7 +841,7 @@ function selectCut(cut) {
     });
     
     // Mostrar/ocultar talles XXS y XS según el corte (solo para adultos)
-    if (selectedAge === 'adulto') {
+    if (selectedAge !== 'chico') {
         document.querySelectorAll('#sizeSelector .size-oversize').forEach(btn => {
             if (cut === 'oversize') {
                 btn.style.display = '';
@@ -855,9 +862,33 @@ function selectCut(cut) {
     
     // Actualizar precios al cambiar corte
     updateModalPrices();
+    updateModalSizeRange();
 }
 
 // Función para seleccionar color
+function updateModalSizeRange() {
+    const sizeRangeEl = document.getElementById('modalSizeRange');
+    if (!sizeRangeEl) return;
+
+    const garmentCategory = getActiveGarmentCategory(currentProduct);
+    if (garmentCategory === 'Hoodies FMD' || garmentCategory === 'Hoodies Otras Bandas') {
+        sizeRangeEl.textContent = '📏 XS a XXL';
+        return;
+    }
+
+    if (garmentCategory === 'Buzo Cuello Redondo') {
+        sizeRangeEl.textContent = '📏 S a XXL';
+        return;
+    }
+
+    if (selectedAge === 'chico') {
+        sizeRangeEl.textContent = '📏 4 a 16';
+        return;
+    }
+
+    sizeRangeEl.textContent = selectedCut === 'oversize' ? '📏 XS a 3XL' : '📏 S a XXL';
+}
+
 function selectColor(color) {
     selectedColor = color;
     clearSelectionError('colorGroup');
@@ -1472,7 +1503,8 @@ function renderSlayerArchiveGrid() {
 
         const products = SLAYER_ARCHIVE_HIGHLIGHT_IDS
             .map(id => db.find(product => Number(product?.id) === id))
-            .filter(Boolean);
+            .filter(Boolean)
+            .sort(compareProductsByPriorityThenId);
 
         if (!products.length) {
             section.style.display = 'none';
@@ -3295,6 +3327,7 @@ function updateModalInfo() {
     
     document.getElementById('modalMeta').textContent = formatCategoryMeta(currentProduct.year, getCategoryLabel(currentProduct.category));
     document.getElementById('modalDesc').textContent = currentProduct.desc || '';
+    updateModalSizeRange();
     
     // Actualizar precios según selector adulto/chico
     updateModalPrices();

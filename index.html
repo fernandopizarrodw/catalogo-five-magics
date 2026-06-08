@@ -152,7 +152,7 @@
         <div class="slayer-archive-banner">
             <p class="slayer-archive-kicker">ARCHIVO SLAYER FMD</p>
             <h2 class="slayer-archive-title">SLAYER — ARCHIVO FMD 2026</h2>
-            <p class="slayer-archive-subtitle">Show No Mercy · Reign In Blood · Angel Of Death · South Of Heaven · Seasons In The Abyss · Hell Awaits</p>
+            <p class="slayer-archive-subtitle">Nuevos: Seasons V1 · God Hates Us All V2 · Slayer Skull · Reign In Blood 40th</p>
             <p class="slayer-archive-availability">Diseños disponibles en remera, hoodie y buzo cuello redondo.</p>
             <div class="slayer-archive-actions">
                 <a href="#categoryNav" class="slayer-archive-btn" id="slayerCtaCollection">VER MÁS SLAYER</a>
@@ -985,9 +985,9 @@
                         <p class="nav-group-copy">Colección propia Slayer 2026, agrupada por diseño y disponible en tres prendas.</p>
                     </div>
                     <div class="nav-group-buttons">
-                        <button class="cat-btn cat-btn-slayer" data-cat="Slayer" data-count="9">
+                        <button class="cat-btn cat-btn-slayer" data-cat="Slayer" data-count="16">
                             <span class="btn-text">Ver más Slayer</span>
-                            <span class="badge">6</span>
+                            <span class="badge">16</span>
                         </button>
                     </div>
                 </div>
@@ -1069,7 +1069,7 @@
                     <button class="filter-pill" data-filter="Metallica">Metallica (5)</button>
                     <button class="filter-pill" data-filter="Avenged Sevenfold">Avenged Sevenfold (2)</button>
                     <button class="filter-pill" data-filter="AC/DC">AC/DC (21)</button>
-                    <button class="filter-pill" data-filter="Slayer">Slayer (9)</button>
+                    <button class="filter-pill" data-filter="Slayer">Slayer (16)</button>
                     <button class="filter-pill" data-filter="Bandas Sugeridas">Bandas Sugeridas (21)</button>
                     <button class="filter-pill" data-filter="Hoodies FMD">Hoodies Megadeth (21)</button>
                     <button class="filter-pill" data-filter="Hoodies Otras Bandas">Hoodies de otras bandas (14)</button>
@@ -1540,13 +1540,14 @@
                         <div class="option-group" id="sizeGroup">
                             <span class="option-label">Talle:</span>
                             <div class="option-buttons" id="sizeSelector">
-                                <button type="button" class="option-btn size-oversize is-hidden" data-size="XXS" onclick="selectSize('XXS')">XXS</button>
-                                <button type="button" class="option-btn size-oversize is-hidden" data-size="XS" onclick="selectSize('XS')">XS</button>
+                                <button type="button" class="option-btn size-oversize" data-size="XXS" style="display:none;" onclick="selectSize('XXS')">XXS</button>
+                                <button type="button" class="option-btn size-oversize" data-size="XS" style="display:none;" onclick="selectSize('XS')">XS</button>
                                 <button type="button" class="option-btn" data-size="S" onclick="selectSize('S')">S</button>
                                 <button type="button" class="option-btn" data-size="M" onclick="selectSize('M')">M</button>
                                 <button type="button" class="option-btn" data-size="L" onclick="selectSize('L')">L</button>
                                 <button type="button" class="option-btn" data-size="XL" onclick="selectSize('XL')">XL</button>
                                 <button type="button" class="option-btn" data-size="XXL" onclick="selectSize('XXL')">XXL</button>
+                                <button type="button" class="option-btn size-oversize" data-size="3XL" style="display:none;" onclick="selectSize('3XL')">3XL</button>
                             </div>
                             <!-- Talles niños (oculto por defecto) -->
                             <div class="option-buttons is-hidden" id="sizeSelectorKids">
@@ -1659,7 +1660,7 @@
                                     <div class="spec-value">⚡ Algodón peinado</div>
                                 </div>
                                 <div class="spec-item">
-                                    <div class="spec-value">📏 S a XXL</div>
+                                    <div class="spec-value" id="modalSizeRange">📏 S a XXL</div>
                                 </div>
                             </div>
 

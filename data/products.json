@@ -3371,8 +3371,13 @@
         "tipoPrecio": "doble",
         "isNew": true,
         "priority": 200,
-        "img": "images/slayer/hoodie_reign_in_blood.jpg",
+        "img": "images/slayer/remera_reign_in_blood.jpg",
         "variants": [
+            {
+                "img": "images/slayer/remera_reign_in_blood.jpg",
+                "name": "Slayer Reign In Blood - Remera",
+                "garmentCategory": "Slayer"
+            },
             {
                 "img": "images/slayer/hoodie_reign_in_blood.jpg",
                 "name": "Slayer Reign In Blood - Hoodie",
@@ -3476,6 +3481,11 @@
                 "img": "images/slayer/remera_seasons_in_the_abbys.jpg",
                 "name": "Slayer Seasons In The Abyss - Remera",
                 "garmentCategory": "Slayer"
+            },
+            {
+                "img": "images/slayer/hoodie_seasons_in_the_abbys.jpg",
+                "name": "Slayer Seasons In The Abyss - Hoodie",
+                "garmentCategory": "Hoodies Otras Bandas"
             }
         ],
         "desc": "Archivo Slayer FMD 2026. Diseno Seasons In The Abyss disponible en remera, hoodie y buzo cuello redondo.",
@@ -3507,6 +3517,11 @@
                 "garmentCategory": "Slayer"
             },
             {
+                "img": "images/slayer/hoodie_hell_awaits.jpg",
+                "name": "Slayer Hell Awaits - Hoodie",
+                "garmentCategory": "Hoodies Otras Bandas"
+            },
+            {
                 "img": "images/slayer/buzo_hell_awaits.jpg",
                 "name": "Slayer Hell Awaits - Buzo cuello redondo",
                 "garmentCategory": "Buzo Cuello Redondo"
@@ -3532,13 +3547,23 @@
         "name": "Slayer Aguila",
         "tipoPrecio": "doble",
         "isNew": true,
-        "priority": 180,
-        "img": "images/slayer/buzo_slayer_aguila.jpg",
+        "priority": 208,
+        "img": "images/slayer/remera_slayer_aguila.jpg",
         "variants": [
+            {
+                "img": "images/slayer/remera_slayer_aguila.jpg",
+                "name": "Slayer Aguila - Remera",
+                "garmentCategory": "Slayer"
+            },
             {
                 "img": "images/slayer/buzo_slayer_aguila.jpg",
                 "name": "Slayer Aguila - Buzo cuello redondo",
                 "garmentCategory": "Buzo Cuello Redondo"
+            },
+            {
+                "img": "images/slayer/hoodie_slayer_aguila_logo.jpg",
+                "name": "Slayer Aguila Logo - Hoodie",
+                "garmentCategory": "Hoodies Otras Bandas"
             }
         ],
         "desc": "Archivo Slayer FMD 2026. Diseno Slayer Aguila disponible en remera, hoodie y buzo cuello redondo.",
@@ -5757,6 +5782,206 @@
             "Hoodie",
             "Original FMD",
             "Doble Estampa"
+        ]
+    },
+    {
+        "id": 7110,
+        "category": "Slayer",
+        "year": "2026",
+        "name": "Slayer Nation",
+        "tipoPrecio": "doble",
+        "isNew": true,
+        "priority": 206,
+        "img": "images/slayer/remera_slayer_nation.jpg",
+        "variants": [
+            {
+                "img": "images/slayer/remera_slayer_nation.jpg",
+                "name": "Slayer Nation - Remera",
+                "garmentCategory": "Slayer"
+            }
+        ],
+        "desc": "Slayer Nation doble estampa frente y dorso. Archivo Slayer FMD 2026.",
+        "band": "Slayer",
+        "collections": [
+            "Slayer Archive FMD"
+        ],
+        "tags": [
+            "Slayer",
+            "Slayer Nation",
+            "Remera",
+            "Doble Estampa"
+        ]
+    },
+    {
+        "id": 7111,
+        "category": "Slayer",
+        "year": "2026",
+        "name": "Slayer Demonic Admat",
+        "tipoPrecio": "doble",
+        "isNew": true,
+        "priority": 207,
+        "img": "images/slayer/remera_Demonic Admat.jpg",
+        "variants": [
+            {
+                "img": "images/slayer/remera_Demonic Admat.jpg",
+                "name": "Slayer Demonic Admat - Remera",
+                "garmentCategory": "Slayer"
+            }
+        ],
+        "desc": "Slayer Demonic Admat doble estampa frente y dorso. Archivo Slayer FMD 2026.",
+        "band": "Slayer",
+        "collections": [
+            "Slayer Archive FMD"
+        ],
+        "tags": [
+            "Slayer",
+            "Demonic Admat",
+            "Remera",
+            "Doble Estampa"
+        ]
+    },
+    {
+        "id": 7112,
+        "category": "Slayer",
+        "year": "2026",
+        "name": "Slayer God Hates Us All",
+        "tipoPrecio": "simple",
+        "isNew": true,
+        "priority": 209,
+        "img": "images/slayer/remera_god_hates_all.jpg",
+        "variants": [
+            {
+                "img": "images/slayer/remera_god_hates_all.jpg",
+                "name": "Slayer God Hates Us All - Remera",
+                "garmentCategory": "Slayer"
+            }
+        ],
+        "desc": "Slayer God Hates Us All estampa frontal. Archivo Slayer FMD 2026.",
+        "band": "Slayer",
+        "collections": [
+            "Slayer Archive FMD"
+        ],
+        "tags": [
+            "Slayer",
+            "God Hates Us All",
+            "Remera"
+        ]
+    },
+    {
+        "id": 7113,
+        "category": "Slayer",
+        "year": "2026",
+        "name": "Slayer Reign In Blood 40th Anniversary",
+        "tipoPrecio": "doble",
+        "isNew": true,
+        "priority": 210,
+        "img": "images/slayer/remera_40anniversary.jpg",
+        "variants": [
+            {
+                "img": "images/slayer/remera_40anniversary.jpg",
+                "name": "Slayer Reign In Blood 40th Anniversary - Remera",
+                "garmentCategory": "Slayer"
+            },
+            {
+                "img": "images/slayer/hoodie_40_anniversary.jpg",
+                "name": "Slayer Reign In Blood 40th Anniversary - Hoodie",
+                "garmentCategory": "Hoodies Otras Bandas"
+            }
+        ],
+        "desc": "Slayer Reign In Blood 40th Anniversary 1986-2026 doble estampa frente y dorso.",
+        "band": "Slayer",
+        "collections": [
+            "Slayer Archive FMD",
+            "Reign In Blood 40th Anniversary"
+        ],
+        "tags": [
+            "Slayer",
+            "Reign In Blood",
+            "40th Anniversary",
+            "Remera",
+            "Hoodie",
+            "Doble Estampa"
+        ]
+    },
+    {
+        "id": 7114,
+        "category": "Slayer",
+        "year": "2026",
+        "name": "Slayer Seasons V1",
+        "tipoPrecio": "simple",
+        "isNew": true,
+        "priority": 213,
+        "img": "images/slayer/remera_seasons_v1.jpg",
+        "variants": [
+            {
+                "img": "images/slayer/remera_seasons_v1.jpg",
+                "name": "Slayer Seasons V1 - Remera",
+                "garmentCategory": "Slayer"
+            }
+        ],
+        "desc": "Slayer Seasons V1 estampa frontal. Archivo Slayer FMD 2026.",
+        "band": "Slayer",
+        "collections": [
+            "Slayer Archive FMD"
+        ],
+        "tags": [
+            "Slayer",
+            "Seasons",
+            "Remera"
+        ]
+    },
+    {
+        "id": 7115,
+        "category": "Slayer",
+        "year": "2026",
+        "name": "Slayer God Hates Us All V2",
+        "tipoPrecio": "simple",
+        "isNew": true,
+        "priority": 212,
+        "img": "images/slayer/remera_god_hates_us_all.jpg",
+        "variants": [
+            {
+                "img": "images/slayer/remera_god_hates_us_all.jpg",
+                "name": "Slayer God Hates Us All V2 - Remera",
+                "garmentCategory": "Slayer"
+            }
+        ],
+        "desc": "Slayer God Hates Us All V2 estampa frontal. Archivo Slayer FMD 2026.",
+        "band": "Slayer",
+        "collections": [
+            "Slayer Archive FMD"
+        ],
+        "tags": [
+            "Slayer",
+            "God Hates Us All",
+            "Remera"
+        ]
+    },
+    {
+        "id": 7116,
+        "category": "Slayer",
+        "year": "2026",
+        "name": "Slayer Skull",
+        "tipoPrecio": "simple",
+        "isNew": true,
+        "priority": 211,
+        "img": "images/slayer/remera_skull.jpg",
+        "variants": [
+            {
+                "img": "images/slayer/remera_skull.jpg",
+                "name": "Slayer Skull - Remera",
+                "garmentCategory": "Slayer"
+            }
+        ],
+        "desc": "Slayer Skull estampa frontal. Archivo Slayer FMD 2026.",
+        "band": "Slayer",
+        "collections": [
+            "Slayer Archive FMD"
+        ],
+        "tags": [
+            "Slayer",
+            "Skull",
+            "Remera"
         ]
     }
 ]
