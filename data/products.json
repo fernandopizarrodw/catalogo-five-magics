@@ -5983,5 +5983,33 @@
             "Skull",
             "Remera"
         ]
+    },
+    {
+        "id": 7117,
+        "category": "Slayer",
+        "year": "2026",
+        "name": "Slayer Live Undead",
+        "tipoPrecio": "doble",
+        "isNew": true,
+        "priority": 214,
+        "img": "images/slayer/remera_live_undead.jpg",
+        "variants": [
+            {
+                "img": "images/slayer/remera_live_undead.jpg",
+                "name": "Slayer Live Undead - Remera",
+                "garmentCategory": "Slayer"
+            }
+        ],
+        "desc": "Slayer Live Undead doble estampa frente y dorso. Archivo Slayer FMD 2026.",
+        "band": "Slayer",
+        "collections": [
+            "Slayer Archive FMD"
+        ],
+        "tags": [
+            "Slayer",
+            "Live Undead",
+            "Remera",
+            "Doble Estampa"
+        ]
     }
 ]

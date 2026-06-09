@@ -38,7 +38,7 @@ const MAIDEN_ARCHIVE_GROUPS = [
     { title: 'Tour 2026', meta: 'Edicion tour FMD', productIds: [7029, 7013] },
     { title: 'Powerslave', meta: 'Archivo FMD', productIds: [7026, 7030] }
 ];
-const SLAYER_ARCHIVE_HIGHLIGHT_IDS = [7114, 7115, 7116, 7113, 7112, 7106, 7111, 7110, 7107, 7108, 7109, 7101, 7102, 7103, 7104, 7105];
+const SLAYER_ARCHIVE_HIGHLIGHT_IDS = [7117, 7114, 7115, 7116, 7113, 7112, 7106, 7111, 7110, 7107, 7108, 7109, 7101, 7102, 7103, 7104, 7105];
 
 let db = [];
 let selectedAge = 'adulto';
@@ -1246,6 +1246,44 @@ class CartSystem {
         return `CÓDIGOS DEL PEDIDO:\n${codes}\n\nDETALLE DEL PEDIDO:\n\n${details}\n\nTOTAL: ${total} ${tipoConteo}${promoMsg}`;
     }
 
+    generateConsultationSummary() {
+        if (this.cart.length === 0) return 'Carrito vacio';
+
+        return this.cart.map((item, idx) => {
+            const isHoodie = isHoodieItem(item);
+            const isBuzoRedondo = isBuzoRedondoItem(item);
+            const garment = isBuzoRedondo
+                ? 'Buzo cuello redondo unisex'
+                : isHoodie
+                    ? 'Hoodie oversize unisex'
+                    : item.cut === 'oversize'
+                        ? 'Remera oversize unisex'
+                        : 'Remera clasica';
+            const color = item.color === 'blanco' ? 'Blanca' : 'Negra';
+            const product = db.find(p => Number(p?.id) === Number(item.id));
+            const frontVariant = product?.variants?.[item.variantIndex];
+            const backVariant = product?.variants?.[item.backIndex];
+            const bothAreBacks = item.isDouble && item.backCode && isBackVariant(frontVariant) && isBackVariant(backVariant);
+            const warning = bothAreBacks
+                ? '\n* Importante: los dos diseños elegidos están identificados como dorso. Necesito confirmar cuál usar al frente.'
+                : '';
+            const designLines = item.isDouble && item.backCode
+                ? `* Diseño 1: ${item.frontName || item.frontCode} (${item.frontCode})\n* Diseño 2: ${item.backName || item.backCode} (${item.backCode})`
+                : item.isDouble
+                    ? `* Diseño: ${item.frontName || item.frontCode}\n* Dorso: a definir`
+                    : `* Diseño: ${item.frontName || item.code}`;
+            const price = calculateItemPrice(item).toLocaleString('es-AR');
+
+            return `${idx + 1}) ${item.productName}
+* Prenda: ${garment}
+* Talle: ${item.size || 'A confirmar'}
+* Color: ${color}
+* Estampa: ${item.isDouble ? 'Doble estampa' : 'Estampa simple'}
+${designLines}
+* Precio estimado: $${price}${warning}`;
+        }).join('\n\n');
+    }
+
     // Actualizar UI del carrito
     updateCartUI() {
         const cartBtn = document.getElementById('cartBtn');
@@ -1511,8 +1549,8 @@ function renderSlayerArchiveGrid() {
             return;
         }
 
-        grid.innerHTML = products.map((product, index) => {
-            const isMoreCard = index === products.length - 1;
+        const featuredProducts = products.slice(0, 5);
+        const productCards = featuredProducts.map(product => {
             const variants = Array.isArray(product.variants) ? product.variants : [];
             const garmentLabels = variants.map(variant => {
                 const name = normalizeText(variant?.name || '');
@@ -1522,20 +1560,28 @@ function renderSlayerArchiveGrid() {
             });
             const uniqueLabels = [...new Set(garmentLabels)];
             const garmentPills = uniqueLabels.map(label => `<span>${label}</span>`).join('');
-            const action = isMoreCard ? 'goToSlayerCollection()' : `openModal(${product.id})`;
 
-            return `<article class="product-card slayer-archive-card${isMoreCard ? ' slayer-more-card' : ''}" onclick="${action}">
-                ${isMoreCard ? '<div class="product-badges"><span class="slayer-card-badge">VER MÁS SLAYER</span></div>' : ''}
+            return `<article class="product-card slayer-archive-card" onclick="openModal(${product.id})">
                 <img src="${product.img}" class="product-img" alt="${product.name}" loading="lazy" decoding="async">
                 <div class="product-info">
                     <div class="product-name">${product.name}</div>
                     <div class="product-meta">Slayer FMD · ${variants.length} ${variants.length === 1 ? 'prenda visible' : 'prendas visibles'}</div>
                     <div class="slayer-garment-pills">${garmentPills}</div>
                     <p class="slayer-card-note">Prendas cargadas: ${uniqueLabels.join(' · ')}</p>
-                    ${isMoreCard ? '<button class="slayer-card-cta" onclick="event.stopPropagation(); goToSlayerCollection();">VER MÁS SLAYER →</button>' : ''}
                 </div>
             </article>`;
         }).join('');
+
+        const moreCard = `<article class="product-card slayer-archive-card slayer-more-card" onclick="goToSlayerCollection()">
+            <div class="slayer-more-card-content">
+                <span class="slayer-card-badge">VER MÁS</span>
+                <strong>Todos los diseños de Slayer</strong>
+                <span>${products.length} diseños disponibles</span>
+                <button class="slayer-card-cta" onclick="event.stopPropagation(); goToSlayerCollection();">VER COLECCIÓN COMPLETA →</button>
+            </div>
+        </article>`;
+
+        grid.innerHTML = productCards + moreCard;
     } catch (error) {
         console.warn('renderSlayerArchiveGrid error', error);
     }
@@ -4457,10 +4503,11 @@ function confirmAndSendWhatsapp() {
 }
 
 function consultFirstViaWhatsapp() {
-    const summary = cart.generateSummary();
+    const summary = cart.generateConsultationSummary();
     const customerData = getShippingCustomerData();
-    const partialShippingContext = buildCustomerDataForWhatsapp(customerData);
-    const message = `Hola FMD!\n\nQuiero consultar antes de confirmar este pedido:\n\n${summary}${partialShippingContext}\n\nEstoy evaluando compra. ¿Me orientan con stock, tiempos y costo de envio por Andreani?`;
+    const hasCustomerData = Object.values(customerData).some(Boolean);
+    const partialShippingContext = hasCustomerData ? buildCustomerDataForWhatsapp(customerData) : '';
+    const message = `Hola FMD! Quiero consultar antes de confirmar este pedido:\n\n${summary}${partialShippingContext}\n\n¿Se puede retirar personalmente cuando esté listo o trabajan solo con envío?\n¿Me confirman la combinación elegida y el tiempo de producción?`;
     saveShippingCustomerDataToStorage(customerData);
     closeCartPreview();
     openWhatsapp(message, 'cart_consulta');

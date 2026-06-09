@@ -2778,10 +2778,52 @@ header {
     box-shadow: 0 18px 34px rgba(90, 0, 0, 0.3);
 }
 
+.slayer-more-card {
+    min-height: 100%;
+    border-color: rgba(235, 48, 48, 0.68);
+    background:
+        radial-gradient(circle at 50% 20%, rgba(220, 25, 25, 0.3), transparent 45%),
+        linear-gradient(145deg, #210808 0%, #090909 75%);
+}
+
+.slayer-more-card-content {
+    min-height: 100%;
+    padding: 28px 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    text-align: center;
+}
+
+.slayer-more-card-content strong {
+    color: #fff;
+    font-size: 1.25rem;
+    line-height: 1.15;
+    text-transform: uppercase;
+}
+
+.slayer-more-card-content > span:not(.slayer-card-badge) {
+    color: #d8bcbc;
+    font-size: 0.78rem;
+}
+
 .slayer-card-badge {
     margin: 9px;
     padding: 4px 7px;
     border-radius: 5px;
+}
+
+.slayer-more-card .slayer-card-badge {
+    margin: 0;
+    padding: 8px 14px;
+    border: 1px solid rgba(255, 105, 105, 0.75);
+    border-radius: 999px;
+    background: #b90000;
+    color: #fff;
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
 }
 
 .slayer-garment-pills {
