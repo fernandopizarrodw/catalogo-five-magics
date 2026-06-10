@@ -6011,5 +6011,156 @@
             "Remera",
             "Doble Estampa"
         ]
+    },
+    {
+        "id": 7118,
+        "category": "Slayer",
+        "year": "2026",
+        "name": "Slayer Divine Intervention",
+        "tipoPrecio": "simple",
+        "isNew": true,
+        "priority": 215,
+        "img": "images/slayer/remera_divine_intervention.jpg",
+        "variants": [
+            {
+                "img": "images/slayer/remera_divine_intervention.jpg",
+                "name": "Slayer Divine Intervention - Remera",
+                "garmentCategory": "Slayer"
+            }
+        ],
+        "desc": "Slayer Divine Intervention estampa frontal. Archivo Slayer FMD 2026.",
+        "band": "Slayer",
+        "collections": [
+            "Slayer Archive FMD"
+        ],
+        "tags": [
+            "Slayer",
+            "Divine Intervention",
+            "Remera"
+        ]
+    },
+    {
+        "id": 7119,
+        "category": "Slayer",
+        "year": "2026",
+        "name": "Slayer Band",
+        "tipoPrecio": "doble",
+        "isNew": true,
+        "priority": 216,
+        "img": "images/slayer/remera_slayer_band.jpg",
+        "variants": [
+            {
+                "img": "images/slayer/remera_slayer_band.jpg",
+                "name": "Slayer Band - Remera",
+                "garmentCategory": "Slayer"
+            }
+        ],
+        "desc": "Slayer Band doble estampa frente y dorso. Archivo Slayer FMD 2026.",
+        "band": "Slayer",
+        "collections": [
+            "Slayer Archive FMD"
+        ],
+        "tags": [
+            "Slayer",
+            "Band",
+            "Remera",
+            "Doble Estampa"
+        ]
+    },
+    {
+        "id": 7120,
+        "category": "Slayer",
+        "year": "2026",
+        "name": "Slayer Diabolus",
+        "tipoPrecio": "simple",
+        "isNew": true,
+        "priority": 217,
+        "img": "images/slayer/remera_diabolus.jpg",
+        "variants": [
+            {
+                "img": "images/slayer/remera_diabolus.jpg",
+                "name": "Slayer Diabolus - Remera",
+                "garmentCategory": "Slayer"
+            }
+        ],
+        "desc": "Slayer Diabolus estampa frontal. Archivo Slayer FMD 2026.",
+        "band": "Slayer",
+        "collections": [
+            "Slayer Archive FMD"
+        ],
+        "tags": [
+            "Slayer",
+            "Diabolus In Musica",
+            "Remera"
+        ]
+    },
+    {
+        "id": 7121,
+        "category": "Slayer",
+        "year": "2026",
+        "name": "Slayer Diabolus FMD",
+        "tipoPrecio": "simple",
+        "isNew": true,
+        "priority": 218,
+        "img": "images/slayer/remera_diabolus_fmd.jpg",
+        "variants": [
+            {
+                "img": "images/slayer/remera_diabolus_fmd.jpg",
+                "name": "Slayer Diabolus FMD - Remera",
+                "garmentCategory": "Slayer"
+            }
+        ],
+        "desc": "Slayer Diabolus edicion FMD estampa frontal. Archivo Slayer FMD 2026.",
+        "band": "Slayer",
+        "collections": [
+            "Slayer Archive FMD"
+        ],
+        "tags": [
+            "Slayer",
+            "Diabolus In Musica",
+            "FMD",
+            "Remera"
+        ]
+    },
+    {
+        "id": 7122,
+        "category": "Slayer",
+        "year": "2026",
+        "name": "Slayer Goat Tour",
+        "tipoPrecio": "doble",
+        "isNew": true,
+        "priority": 219,
+        "img": "images/slayer/remera_slayer_goat_tour.jpg",
+        "variants": [
+            {
+                "img": "images/slayer/remera_slayer_goat_tour.jpg",
+                "name": "Slayer Goat Tour - Remera",
+                "garmentCategory": "Slayer"
+            },
+            {
+                "img": "images/slayer/hoodie_slayer_goat.jpg",
+                "name": "Slayer Goat Tour - Hoodie",
+                "garmentType": "hoodie"
+            },
+            {
+                "img": "images/slayer/buzo_slayer_goat_tour.jpg",
+                "name": "Slayer Goat Tour - Buzo cuello redondo",
+                "garmentType": "buzo_redondo"
+            }
+        ],
+        "desc": "Slayer Goat Tour Argentina 2026 doble estampa. Disponible en remera, hoodie y buzo cuello redondo.",
+        "band": "Slayer",
+        "collections": [
+            "Slayer Archive FMD"
+        ],
+        "tags": [
+            "Slayer",
+            "Goat Tour",
+            "Argentina",
+            "Remera",
+            "Hoodie",
+            "Buzo cuello redondo",
+            "Doble Estampa"
+        ]
     }
 ]

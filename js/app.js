@@ -38,7 +38,8 @@ const MAIDEN_ARCHIVE_GROUPS = [
     { title: 'Tour 2026', meta: 'Edicion tour FMD', productIds: [7029, 7013] },
     { title: 'Powerslave', meta: 'Archivo FMD', productIds: [7026, 7030] }
 ];
-const SLAYER_ARCHIVE_HIGHLIGHT_IDS = [7117, 7114, 7115, 7116, 7113, 7112, 7106, 7111, 7110, 7107, 7108, 7109, 7101, 7102, 7103, 7104, 7105];
+const SLAYER_ARCHIVE_HIGHLIGHT_IDS = [7122, 7121, 7120, 7119, 7118, 7117, 7114, 7115, 7116, 7113, 7112, 7106, 7111, 7110, 7107, 7108, 7109, 7101, 7102, 7103, 7104, 7105];
+let slayerGarmentPreference = null;
 
 let db = [];
 let selectedAge = 'adulto';
@@ -69,12 +70,35 @@ function goToMaidenCollection() {
 }
 
 function goToSlayerCollection() {
+    slayerGarmentPreference = null;
     scrollToSection('categoryNav');
     setTimeout(() => {
         const slayerBtn = document.querySelector('.cat-btn[data-cat="Slayer"]');
         if (slayerBtn) slayerBtn.click();
     }, 180);
 }
+
+function showSlayerGarment(garment) {
+    slayerGarmentPreference = ['remera', 'hoodie', 'buzo'].includes(garment) ? garment : 'remera';
+    filterByCategory('Slayer');
+}
+
+function getSlayerPreferredGarmentLabel() {
+    if (slayerGarmentPreference === 'hoodie') return 'Hoodie';
+    if (slayerGarmentPreference === 'buzo') return 'Buzo cuello redondo';
+    if (slayerGarmentPreference === 'remera') return 'Remera';
+    return '';
+}
+
+function getSlayerPreferredVariantIndex(product) {
+    if (product?.category !== 'Slayer' || !slayerGarmentPreference) return -1;
+    const garmentTerm = slayerGarmentPreference === 'buzo' ? 'buzo' : slayerGarmentPreference;
+    return (product.variants || []).findIndex(variant =>
+        normalizeText(variant?.name || '').includes(garmentTerm)
+    );
+}
+
+window.showSlayerGarment = showSlayerGarment;
 
 function maidenArchiveMove(button, direction) {
     const carousel = button?.closest('.maiden-design-carousel');
@@ -958,6 +982,11 @@ function getVariantGarmentCategory(product, variantIndex = getActiveVariantIndex
 
 function getActiveGarmentCategory(product = currentProduct) {
     if (!product) return '';
+    if (product.category === 'Slayer') {
+        if (slayerGarmentPreference === 'hoodie') return 'Hoodies Otras Bandas';
+        if (slayerGarmentPreference === 'buzo') return 'Buzo Cuello Redondo';
+        if (slayerGarmentPreference === 'remera') return 'Slayer';
+    }
     return getVariantGarmentCategory(product);
 }
 
@@ -1094,9 +1123,11 @@ class CartSystem {
 
         // Código del frente
         const frontCode = this.generateCode(productId, variantIndex);
-        const frontName = product.variants && product.variants[variantIndex] 
-            ? product.variants[variantIndex].name 
+        let frontName = product.variants && product.variants[variantIndex]
+            ? product.variants[variantIndex].name
             : product.name;
+        const slayerGarmentLabel = product.category === 'Slayer' ? getSlayerPreferredGarmentLabel() : '';
+        if (slayerGarmentLabel) frontName = `${product.name} - ${slayerGarmentLabel}`;
 
         // Información del dorso (si es doble estampa)
         let backCode = null;
@@ -1516,7 +1547,7 @@ async function loadProducts() {
         buildDorsoAutocompletePool();
         updateCountsUI();
         renderMaidenArchiveGrid(); // Capsula editorial Iron Maiden
-        renderSlayerArchiveGrid(); // Archivo Slayer agrupado por diseno
+        renderSlayerArchiveGrid(); // Selector de prendas Slayer
         renderHoodiesGrid(); // Hoodies destacados
         renderBuzosRedondoGrid(); // Buzos cuello redondo destacados
         renderHeroOrbit(6); // Poblar órbita del hero con 6 cards 3D
@@ -1549,39 +1580,52 @@ function renderSlayerArchiveGrid() {
             return;
         }
 
-        const featuredProducts = products.slice(0, 5);
-        const productCards = featuredProducts.map(product => {
-            const variants = Array.isArray(product.variants) ? product.variants : [];
-            const garmentLabels = variants.map(variant => {
-                const name = normalizeText(variant?.name || '');
-                if (name.includes('hoodie')) return 'Hoodie';
-                if (name.includes('buzo')) return 'Buzo cuello redondo';
-                return 'Remera';
-            });
-            const uniqueLabels = [...new Set(garmentLabels)];
-            const garmentPills = uniqueLabels.map(label => `<span>${label}</span>`).join('');
+        const findGarmentImage = garment => {
+            for (const product of products) {
+                const variant = (product.variants || []).find(item => normalizeText(item?.name || '').includes(garment));
+                if (variant?.img) return variant.img;
+            }
+            return products[0].img;
+        };
 
-            return `<article class="product-card slayer-archive-card" onclick="openModal(${product.id})">
-                <img src="${product.img}" class="product-img" alt="${product.name}" loading="lazy" decoding="async">
-                <div class="product-info">
-                    <div class="product-name">${product.name}</div>
-                    <div class="product-meta">Slayer FMD · ${variants.length} ${variants.length === 1 ? 'prenda visible' : 'prendas visibles'}</div>
-                    <div class="slayer-garment-pills">${garmentPills}</div>
-                    <p class="slayer-card-note">Prendas cargadas: ${uniqueLabels.join(' · ')}</p>
+        const garmentCards = [
+            {
+                id: 'remera',
+                label: 'Remeras Slayer',
+                meta: 'Clásicas y oversize',
+                price: 'Desde $37.000',
+                image: findGarmentImage('remera')
+            },
+            {
+                id: 'hoodie',
+                label: 'Hoodies Slayer',
+                meta: 'Canguro oversize unisex',
+                price: 'Desde $52.000',
+                image: findGarmentImage('hoodie')
+            },
+            {
+                id: 'buzo',
+                label: 'Buzos Slayer',
+                meta: 'Cuello redondo unisex',
+                price: 'Desde $50.000',
+                image: findGarmentImage('buzo')
+            }
+        ];
+
+        grid.innerHTML = garmentCards.map(card => `
+            <article class="slayer-garment-card" onclick="showSlayerGarment('${card.id}')">
+                <div class="slayer-garment-card-image">
+                    <img src="${card.image}" alt="${card.label}" loading="lazy" decoding="async">
+                    <span>${products.length} diseños</span>
                 </div>
-            </article>`;
-        }).join('');
-
-        const moreCard = `<article class="product-card slayer-archive-card slayer-more-card" onclick="goToSlayerCollection()">
-            <div class="slayer-more-card-content">
-                <span class="slayer-card-badge">VER MÁS</span>
-                <strong>Todos los diseños de Slayer</strong>
-                <span>${products.length} diseños disponibles</span>
-                <button class="slayer-card-cta" onclick="event.stopPropagation(); goToSlayerCollection();">VER COLECCIÓN COMPLETA →</button>
-            </div>
-        </article>`;
-
-        grid.innerHTML = productCards + moreCard;
+                <div class="slayer-garment-card-info">
+                    <strong>${card.label}</strong>
+                    <p>${card.meta}</p>
+                    <span>${card.price}</span>
+                    <button onclick="event.stopPropagation(); showSlayerGarment('${card.id}')">ELEGIR Y VER DISEÑOS →</button>
+                </div>
+            </article>
+        `).join('');
     } catch (error) {
         console.warn('renderSlayerArchiveGrid error', error);
     }
@@ -1989,6 +2033,24 @@ function formatPrecio(tipo) {
 
 function formatPreciosDual(product = null) {
     if (product?.category === 'Slayer') {
+        if (slayerGarmentPreference === 'hoodie') {
+            return `<div class="dual-prices">
+        <div class="price-line"><span class="price-amount">$52.000</span><span class="price-label">Hoodie estampa frontal</span></div>
+        <div class="price-line"><span class="price-amount">$59.000</span><span class="price-label">Hoodie doble estampa</span></div>
+    </div>`;
+        }
+        if (slayerGarmentPreference === 'buzo') {
+            return `<div class="dual-prices">
+        <div class="price-line"><span class="price-amount">$50.000</span><span class="price-label">Buzo estampa frontal</span></div>
+        <div class="price-line"><span class="price-amount">$55.000</span><span class="price-label">Buzo doble estampa</span></div>
+    </div>`;
+        }
+        if (slayerGarmentPreference === 'remera') {
+            return `<div class="dual-prices">
+        <div class="price-line"><span class="price-amount">$37.000</span><span class="price-label">Remera estampa frontal</span></div>
+        <div class="price-line"><span class="price-amount">$44.000</span><span class="price-label">Remera doble estampa</span></div>
+    </div>`;
+        }
         return `<div class="dual-prices">
         <div class="price-line"><span class="price-amount">$44.000</span><span class="price-label">Remera doble estampa</span></div>
         <div class="price-line"><span class="price-amount">$59.000</span><span class="price-label">Hoodie doble estampa</span></div>
@@ -3352,7 +3414,9 @@ function updateModalInfo() {
     const images = getModalImages();
     const activeVariantIndex = getActiveVariantIndex();
     const activeVariantName = images?.[currentSlide]?.name?.trim() || '';
-    const displayName = activeVariantName || currentProduct.name;
+    let displayName = activeVariantName || currentProduct.name;
+    const slayerGarmentLabel = currentProduct.category === 'Slayer' ? getSlayerPreferredGarmentLabel() : '';
+    if (slayerGarmentLabel) displayName = `${currentProduct.name} - ${slayerGarmentLabel}`;
     document.getElementById('modalName').textContent = displayName;
     
     // Actualizar código del producto
@@ -3410,19 +3474,42 @@ function filterProducts() {
     if (normalizedCategory === 'album') {
         filtered = filtered.filter(p => !HIDDEN_FROM_ALBUM_CATEGORY.has(Number(p?.id)));
     }
+    if (normalizedCategory === 'slayer' && slayerGarmentPreference) {
+        filtered = filtered
+            .map(product => {
+                const matchedVariantIndex = getSlayerPreferredVariantIndex(product);
+                if (matchedVariantIndex < 0) return null;
+                const matchedVariant = product.variants[matchedVariantIndex];
+                return {
+                    ...product,
+                    matchedVariantIndex,
+                    matchedVariantName: matchedVariant.name,
+                    matchedVariantImage: matchedVariant.img
+                };
+            })
+            .filter(Boolean);
+    }
     const shouldSortAlbumsByYear = normalizedCategory === 'album' && filtered.every(p => normalizeText(p?.category) === 'album');
     filtered.sort(shouldSortAlbumsByYear ? compareAlbumProductsByYearAscThenId : compareProductsByPriorityThenId);
     renderFilteredProducts(filtered);
 }
 
 function renderFilteredProducts(filtered) {
-    document.getElementById('productsCount').textContent = `${filtered.length} diseños`;
+    const slayerGarmentLabel = normalizeText(currentCategory) === 'slayer' ? getSlayerPreferredGarmentLabel() : '';
+    document.getElementById('productsCount').textContent = slayerGarmentLabel
+        ? `${filtered.length} diseños · ${slayerGarmentLabel}`
+        : `${filtered.length} diseños`;
     productsGrid.innerHTML = filtered.map(p => {
-        const hasVariants = p.variants && p.variants.length > 1;
+        const isSlayerGarmentResult = p.category === 'Slayer' && typeof p.matchedVariantIndex === 'number';
+        const hasVariants = !isSlayerGarmentResult && p.variants && p.variants.length > 1;
         const isDoble = p.tipoPrecio === 'doble';
         const isDorsoIdea = p.category === 'Dorsales';
         const variantUnit = p.category === 'Slayer' ? 'prendas' : 'diseños';
-        const badgeText = hasVariants ? `${p.variants.length} ${variantUnit} <span style='font-size:1.2em;margin-left:6px;'>➔</span>` : (isDoble ? '🔥 Doble estampa' : '');
+        const badgeText = isSlayerGarmentResult
+            ? getSlayerPreferredGarmentLabel()
+            : hasVariants
+                ? `${p.variants.length} ${variantUnit} <span style='font-size:1.2em;margin-left:6px;'>➔</span>`
+                : (isDoble ? '🔥 Doble estampa' : '');
         // NUEVO badge
         const isNew = p.isNew;
         const newBadge = isNew ? `<span class="pack-badge" style="background:var(--magic-green);color:#000;">🆕 NUEVO</span>` : '';
@@ -3438,9 +3525,9 @@ function renderFilteredProducts(filtered) {
 
         return `<div class="product-card" onclick="openModal(${p.id}${typeof p.matchedVariantIndex === 'number' ? ', ' + p.matchedVariantIndex : ''})">
             <div class="product-badges">${badges}</div>
-            <img src="${p.img}" class="product-img" loading="lazy" decoding="async" fetchpriority="low">
+            <img src="${p.matchedVariantImage || p.img}" class="product-img" loading="lazy" decoding="async" fetchpriority="low">
             <div class="product-info">
-                <div class="product-name">${p.name}</div>
+                <div class="product-name">${p.matchedVariantName || p.name}</div>
                 ${code ? `<div class="product-code" style="font-size:0.85em;color:var(--magic-orange);font-weight:600;letter-spacing:1px;">${code}</div>` : ''}
                 <div class="product-meta">${formatCategoryMeta(p.year, getCategoryLabel(p.category))}</div>
                 <div class="product-price-row">
