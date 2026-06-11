@@ -4310,6 +4310,72 @@ header {
     margin-bottom: 14px;
 }
 
+.print-mode-selector {
+    margin: 14px 0 12px;
+    padding: 12px;
+    border: 1px solid rgba(232, 67, 46, 0.28);
+    border-radius: 12px;
+    background: rgba(232, 67, 46, 0.055);
+}
+
+.print-mode-title {
+    margin-bottom: 9px;
+    color: #fff;
+    font-size: 0.86rem;
+    font-weight: 800;
+}
+
+.print-mode-options {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+}
+
+.print-mode-btn {
+    padding: 11px 9px;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 9px;
+    background: #151515;
+    color: #ddd;
+    cursor: pointer;
+    text-align: left;
+}
+
+.print-mode-btn strong,
+.print-mode-btn span {
+    display: block;
+}
+
+.print-mode-btn strong {
+    margin-bottom: 3px;
+    color: #fff;
+    font-size: 0.82rem;
+}
+
+.print-mode-btn span {
+    color: #aaa;
+    font-size: 0.7rem;
+}
+
+.print-mode-btn.active {
+    border-color: var(--magic-green);
+    background: rgba(57, 255, 20, 0.1);
+    box-shadow: 0 0 0 1px rgba(57, 255, 20, 0.12);
+}
+
+.print-mode-btn-double.active {
+    border-color: #ff6c55;
+    background: rgba(232, 67, 46, 0.15);
+    box-shadow: 0 0 0 1px rgba(232, 67, 46, 0.16);
+}
+
+.print-mode-help {
+    margin-top: 8px;
+    color: #c8c8c8;
+    font-size: 0.72rem;
+    line-height: 1.35;
+}
+
 .double-selection-status {
     margin-bottom: 12px;
     padding: 9px 11px;

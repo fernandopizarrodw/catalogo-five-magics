@@ -986,7 +986,7 @@
                         <p class="nav-group-copy">Colección propia Slayer 2026, agrupada por diseño y disponible en tres prendas.</p>
                     </div>
                     <div class="nav-group-buttons">
-                        <button class="cat-btn cat-btn-slayer" data-cat="Slayer" data-count="22">
+                        <button class="cat-btn cat-btn-slayer" data-cat="Slayer" data-count="21">
                             <span class="btn-text">Ver más Slayer</span>
                             <span class="badge">16</span>
                         </button>
@@ -1070,7 +1070,7 @@
                     <button class="filter-pill" data-filter="Metallica">Metallica (5)</button>
                     <button class="filter-pill" data-filter="Avenged Sevenfold">Avenged Sevenfold (2)</button>
                     <button class="filter-pill" data-filter="AC/DC">AC/DC (21)</button>
-                    <button class="filter-pill" data-filter="Slayer">Slayer (22)</button>
+                    <button class="filter-pill" data-filter="Slayer">Slayer (21)</button>
                     <button class="filter-pill" data-filter="Bandas Sugeridas">Bandas Sugeridas (21)</button>
                     <button class="filter-pill" data-filter="Hoodies FMD">Hoodies Megadeth (21)</button>
                     <button class="filter-pill" data-filter="Hoodies Otras Bandas">Hoodies de otras bandas (14)</button>
@@ -1585,11 +1585,26 @@
                         </div>
                     </div>
 
+                    <div class="print-mode-selector" id="printModeSelector">
+                        <div class="print-mode-title">Elegí el tipo de estampa:</div>
+                        <div class="print-mode-options">
+                            <button type="button" class="print-mode-btn" data-print-mode="simple" onclick="selectPrintMode('simple')">
+                                <strong>Solo frente</strong>
+                                <span id="printModeSimplePrice">Estampa simple</span>
+                            </button>
+                            <button type="button" class="print-mode-btn print-mode-btn-double" data-print-mode="double" onclick="selectPrintMode('double')">
+                                <strong>Frente + dorso</strong>
+                                <span id="printModeDoublePrice">Doble estampa</span>
+                            </button>
+                        </div>
+                        <div class="print-mode-help" id="printModeHelp">Elegí una opción para confirmar el precio.</div>
+                    </div>
+
                     <div class="modal-price" id="modalPrice">$37.000</div>
                     <div class="modal-price-note">$37.000 · envío según zona · consultá por WhatsApp</div>
 
                     <div class="modal-simple-note">
-                        Elegí talle, color y encargá en un toque. Para doble estampa, abrí Frente + Dorso.
+                        Elegí talle, color y tipo de estampa. Si elegís doble, podés seleccionar el dorso o dejarlo a definir.
                     </div>
                     <div class="double-selection-status is-hidden" id="doubleSelectionStatus"></div>
 

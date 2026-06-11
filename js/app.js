@@ -38,7 +38,7 @@ const MAIDEN_ARCHIVE_GROUPS = [
     { title: 'Tour 2026', meta: 'Edicion tour FMD', productIds: [7029, 7013] },
     { title: 'Powerslave', meta: 'Archivo FMD', productIds: [7026, 7030] }
 ];
-const SLAYER_ARCHIVE_HIGHLIGHT_IDS = [7122, 7121, 7120, 7119, 7118, 7117, 7114, 7115, 7116, 7113, 7112, 7106, 7111, 7110, 7107, 7108, 7109, 7101, 7102, 7103, 7104, 7105];
+const SLAYER_ARCHIVE_HIGHLIGHT_IDS = [7122, 7121, 7119, 7118, 7117, 7114, 7115, 7116, 7113, 7112, 7106, 7111, 7110, 7107, 7108, 7109, 7101, 7102, 7103, 7104, 7105];
 let slayerGarmentPreference = null;
 
 let db = [];
@@ -47,6 +47,7 @@ let selectedSize = '';
 let selectedCut = 'clasica';
 let selectedColor = 'negro';
 let selectedBackIndex = -1; // Índice del dorso seleccionado para doble estampa (-1 = ninguno)
+let selectedPrintMode = 'simple';
 let fmdSpotlightTimer = null;
 let fmdSpotlightPaused = false;
 let fmdSpotlightTouchResume = null;
@@ -91,11 +92,16 @@ function getSlayerPreferredGarmentLabel() {
 }
 
 function getSlayerPreferredVariantIndex(product) {
-    if (product?.category !== 'Slayer' || !slayerGarmentPreference) return -1;
+    return getSlayerPreferredVariantIndexes(product)[0] ?? -1;
+}
+
+function getSlayerPreferredVariantIndexes(product) {
+    if (product?.category !== 'Slayer' || !slayerGarmentPreference) return [];
     const garmentTerm = slayerGarmentPreference === 'buzo' ? 'buzo' : slayerGarmentPreference;
-    return (product.variants || []).findIndex(variant =>
-        normalizeText(variant?.name || '').includes(garmentTerm)
-    );
+    return (product.variants || []).reduce((indexes, variant, index) => {
+        if (normalizeText(variant?.name || '').includes(garmentTerm)) indexes.push(index);
+        return indexes;
+    }, []);
 }
 
 window.showSlayerGarment = showSlayerGarment;
@@ -997,6 +1003,54 @@ function hasDorsoSelection() {
     return selectedBackIndex >= 0 || hasBackExamples || hasChips || dorsoInputValue.length > 0;
 }
 
+function isDoubleSelectionActive(product = currentProduct) {
+    if (selectedPrintMode === 'double') return true;
+    if (selectedPrintMode === 'simple') return false;
+    return isDoubleByDefault(product) || hasDorsoSelection();
+}
+
+function updatePrintModeUI() {
+    if (!currentProduct) return;
+    const prices = resolveModalPriceConfig(currentProduct);
+    const simplePrice = document.getElementById('printModeSimplePrice');
+    const doublePrice = document.getElementById('printModeDoublePrice');
+    const help = document.getElementById('printModeHelp');
+
+    if (simplePrice) simplePrice.textContent = `$${prices.simple.toLocaleString('es-AR')} · Solo frente`;
+    if (doublePrice) doublePrice.textContent = `$${prices.doble.toLocaleString('es-AR')} · Frente + espalda`;
+    document.querySelectorAll('[data-print-mode]').forEach(button => {
+        button.classList.toggle('active', button.dataset.printMode === selectedPrintMode);
+    });
+    if (help) {
+        help.textContent = selectedPrintMode === 'double'
+            ? 'Doble activa. Elegí el dorso abajo o dejalo a definir.'
+            : 'Estampa simple seleccionada: se imprime únicamente el frente.';
+    }
+}
+
+function selectPrintMode(mode) {
+    selectedPrintMode = mode === 'double' ? 'double' : 'simple';
+
+    if (selectedPrintMode === 'simple') {
+        selectedBackIndex = -1;
+        selectedDorsoChips.clear();
+        selectedBacks.clear();
+        document.querySelectorAll('#chipsRow .chip, .thumb-dorso').forEach(item => item.classList.remove('active', 'selected'));
+        const dorsoInput = document.getElementById('dorsoCustomInput');
+        if (dorsoInput) dorsoInput.value = '';
+        const summary = document.getElementById('dorsoSelectionSummary');
+        if (summary) summary.style.display = 'none';
+    } else {
+        const panel = document.getElementById('modalAdvancedPanel');
+        if (panel) panel.open = true;
+    }
+
+    updatePrintModeUI();
+    updateDobleWaLink();
+}
+
+window.selectPrintMode = selectPrintMode;
+
 function isDoubleByDefault(product) {
     return product?.tipoPrecio === 'doble' || product?.category === 'Buzo Cuello Redondo';
 }
@@ -1044,7 +1098,7 @@ function updateModalPrices() {
     const precios = resolveModalPriceConfig(currentProduct);
 
     // Precio depende de si el producto ya es doble o si el usuario sumó dorso
-    const tieneDoble = isDoubleByDefault(currentProduct) || hasDorsoSelection();
+    const tieneDoble = isDoubleSelectionActive(currentProduct);
     const precio = tieneDoble ? precios.doble : precios.simple;
     document.getElementById('modalPrice').textContent = '$' + precio.toLocaleString('es-AR');
 
@@ -1054,6 +1108,7 @@ function updateModalPrices() {
     const elDoble = document.getElementById('modalPrecioDoble');
     if(elSimple) elSimple.textContent = pSimple;
     if(elDoble) elDoble.textContent = pDoble;
+    updatePrintModeUI();
 
     // Actualizar nota de precio para hoodies
     const priceNote = document.querySelector('.modal-price-note');
@@ -2204,6 +2259,7 @@ function toggleChip(el){
             selectedDorsoChips.add(val);
             el.classList.add('active');
         }
+        selectedPrintMode = 'double';
         updateDobleWaLink();
     }catch(e){console.warn(e)}
 }
@@ -2271,6 +2327,7 @@ function renderBackExamples(){
                 selectedBacks.add(name);
                 this.classList.add('selected');
             }
+            selectedPrintMode = 'double';
             updateDobleWaLink();
         };
     });
@@ -2336,6 +2393,7 @@ function selectDorsoVariant(index) {
         selectedBackIndex = -1;
     } else {
         selectedBackIndex = index;
+        selectedPrintMode = 'double';
     }
     
     // Actualizar UI - marcar el seleccionado
@@ -2688,6 +2746,7 @@ function openModal(id, variantIndex = undefined, scopedVariantIndexes = undefine
     selectedCut = '';
     selectedColor = '';
     selectedBackIndex = -1; // Reset dorso seleccionado
+    selectedPrintMode = isDoubleByDefault(currentProduct) ? 'double' : 'simple';
     
     // Reset botones de edad (sin preselección)
     document.querySelectorAll('#ageSelector button').forEach(btn => {
@@ -3477,12 +3536,14 @@ function filterProducts() {
     if (normalizedCategory === 'slayer' && slayerGarmentPreference) {
         filtered = filtered
             .map(product => {
-                const matchedVariantIndex = getSlayerPreferredVariantIndex(product);
-                if (matchedVariantIndex < 0) return null;
+                const matchedVariantIndexes = getSlayerPreferredVariantIndexes(product);
+                if (!matchedVariantIndexes.length) return null;
+                const matchedVariantIndex = matchedVariantIndexes[0];
                 const matchedVariant = product.variants[matchedVariantIndex];
                 return {
                     ...product,
                     matchedVariantIndex,
+                    matchedVariantIndexes,
                     matchedVariantName: matchedVariant.name,
                     matchedVariantImage: matchedVariant.img
                 };
@@ -3506,7 +3567,7 @@ function renderFilteredProducts(filtered) {
         const isDorsoIdea = p.category === 'Dorsales';
         const variantUnit = p.category === 'Slayer' ? 'prendas' : 'diseños';
         const badgeText = isSlayerGarmentResult
-            ? getSlayerPreferredGarmentLabel()
+            ? `${p.matchedVariantIndexes?.length > 1 ? `${p.matchedVariantIndexes.length} versiones · ` : ''}${getSlayerPreferredGarmentLabel()}`
             : hasVariants
                 ? `${p.variants.length} ${variantUnit} <span style='font-size:1.2em;margin-left:6px;'>➔</span>`
                 : (isDoble ? '🔥 Doble estampa' : '');
@@ -3523,7 +3584,11 @@ function renderFilteredProducts(filtered) {
         if (newBadge) badges += newBadge;
         if (comboBadge) badges += comboBadge;
 
-        return `<div class="product-card" onclick="openModal(${p.id}${typeof p.matchedVariantIndex === 'number' ? ', ' + p.matchedVariantIndex : ''})">
+        const modalArgs = typeof p.matchedVariantIndex === 'number'
+            ? `, ${p.matchedVariantIndex}${p.matchedVariantIndexes?.length > 1 ? `, [${p.matchedVariantIndexes.join(',')}]` : ''}`
+            : '';
+
+        return `<div class="product-card" onclick="openModal(${p.id}${modalArgs})">
             <div class="product-badges">${badges}</div>
             <img src="${p.matchedVariantImage || p.img}" class="product-img" loading="lazy" decoding="async" fetchpriority="low">
             <div class="product-info">
@@ -4046,6 +4111,7 @@ document.addEventListener('click', (e) => {
 const dorsoInputLive = document.getElementById('dorsoCustomInput');
 if(dorsoInputLive) {
     dorsoInputLive.addEventListener('input', () => {
+        if (dorsoInputLive.value.trim()) selectedPrintMode = 'double';
         updateDobleWaLink();
         updateModalPrices();
         renderDorsoAutocomplete(dorsoInputLive.value);
@@ -4642,7 +4708,7 @@ function addToCartFromModal() {
     }
     
     // Determinar si es doble estampa basándose en el dorso seleccionado
-    const isDouble = isDoubleByDefault(currentProduct) || hasDorsoSelection();
+    const isDouble = isDoubleSelectionActive(currentProduct);
     const isCustom = isPersonalizedSelection(currentProduct);
     const variantIndex = getActiveVariantIndex();
     

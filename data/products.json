@@ -6068,49 +6068,27 @@
         ]
     },
     {
-        "id": 7120,
+        "id": 7121,
         "category": "Slayer",
         "year": "2026",
-        "name": "Slayer Diabolus",
+        "name": "Slayer Diabolus In Musica",
         "tipoPrecio": "simple",
         "isNew": true,
-        "priority": 217,
+        "priority": 218,
         "img": "images/slayer/remera_diabolus.jpg",
         "variants": [
             {
                 "img": "images/slayer/remera_diabolus.jpg",
-                "name": "Slayer Diabolus - Remera",
+                "name": "Slayer Diabolus In Musica Original - Remera",
                 "garmentCategory": "Slayer"
-            }
-        ],
-        "desc": "Slayer Diabolus estampa frontal. Archivo Slayer FMD 2026.",
-        "band": "Slayer",
-        "collections": [
-            "Slayer Archive FMD"
-        ],
-        "tags": [
-            "Slayer",
-            "Diabolus In Musica",
-            "Remera"
-        ]
-    },
-    {
-        "id": 7121,
-        "category": "Slayer",
-        "year": "2026",
-        "name": "Slayer Diabolus FMD",
-        "tipoPrecio": "simple",
-        "isNew": true,
-        "priority": 218,
-        "img": "images/slayer/remera_diabolus_fmd.jpg",
-        "variants": [
+            },
             {
                 "img": "images/slayer/remera_diabolus_fmd.jpg",
-                "name": "Slayer Diabolus FMD - Remera",
+                "name": "Slayer Diabolus In Musica Remaster FMD - Remera",
                 "garmentCategory": "Slayer"
             }
         ],
-        "desc": "Slayer Diabolus edicion FMD estampa frontal. Archivo Slayer FMD 2026.",
+        "desc": "Slayer Diabolus In Musica. Version original y remaster FMD disponibles en el mismo carrusel.",
         "band": "Slayer",
         "collections": [
             "Slayer Archive FMD"
@@ -6118,6 +6096,8 @@
         "tags": [
             "Slayer",
             "Diabolus In Musica",
+            "Original",
+            "Remaster",
             "FMD",
             "Remera"
         ]
