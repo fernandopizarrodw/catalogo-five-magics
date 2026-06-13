@@ -1,5 +1,71 @@
 [
     {
+        "id": 6032,
+        "category": "Singles",
+        "year": "2026",
+        "name": "Rust in Peace / Hangar 18 Reimagined",
+        "tipoPrecio": "doble",
+        "isNew": true,
+        "priority": 100,
+        "img": "images/albums/Rust_in_peace/rust in peace - re-imaginado/rip_fmd_frente.jpg",
+        "variants": [
+            {
+                "img": "images/albums/Rust_in_peace/rust in peace - re-imaginado/rip_fmd_frente.jpg",
+                "name": "RIP Reimagined Frente",
+                "role": "front"
+            },
+            {
+                "img": "images/albums/Rust_in_peace/rust in peace - re-imaginado/rip_fmd_dorso.jpg",
+                "name": "RIP Reimagined Dorso",
+                "role": "back"
+            },
+            {
+                "img": "images/albums/Rust_in_peace/rust in peace - re-imaginado/rip_fmd_dorso_v2.jpg",
+                "name": "RIP Reimagined Dorso V2",
+                "role": "back"
+            },
+            {
+                "img": "images/albums/Rust_in_peace/rust in peace - re-imaginado/rip_fmd_frente_y_dorso.jpg",
+                "name": "RIP Reimagined Frente y Dorso"
+            },
+            {
+                "img": "images/albums/Rust_in_peace/rust in peace - re-imaginado/rip_fmd_combo.jpg",
+                "name": "RIP Reimagined Combo"
+            },
+            {
+                "img": "images/albums/Rust_in_peace/rust in peace - re-imaginado/full_art.jpg",
+                "name": "RIP Reimagined Full Art"
+            },
+            {
+                "img": "images/albums/Rust_in_peace/rust in peace - re-imaginado/full_art.png",
+                "name": "RIP Reimagined Full Art PNG"
+            },
+            {
+                "img": "images/albums/Rust_in_peace/rust in peace - re-imaginado/rip_fmd_hoodies.jpg",
+                "name": "RIP Reimagined Hoodie",
+                "garmentCategory": "Hoodies FMD"
+            },
+            {
+                "img": "images/albums/Rust_in_peace/rust in peace - re-imaginado/rip_fmd_hoodies_models.jpg",
+                "name": "RIP Reimagined Hoodies Models",
+                "garmentCategory": "Hoodies FMD"
+            }
+        ],
+        "desc": "Reinterpretación cinematográfica FMD inspirada en Rust in Peace y Hangar 18. Disponible en remera y hoodie.",
+        "band": "Megadeth",
+        "collections": [
+            "Original FMD",
+            "Rust in Peace Reimagined"
+        ],
+        "tags": [
+            "Megadeth",
+            "Rust in Peace",
+            "Hangar 18",
+            "Original FMD",
+            "Reimagined"
+        ]
+    },
+    {
         "id": 6030,
         "category": "VicRattlehead",
         "year": "2026",
@@ -61,7 +127,7 @@
         "id": 6028,
         "category": "VicRattlehead",
         "year": "2026",
-        "name": "Vic Silent FMD",
+        "name": "Megadeth FMD Original",
         "tipoPrecio": "simple",
         "isNew": true,
         "priority": 96,
@@ -117,7 +183,7 @@
                 "isNew": true
             }
         ],
-        "desc": "Vic Silent FMD - Nuevo diseño exclusivo 2026 de Vic Rattlehead.",
+        "desc": "Megadeth FMD Original - Colección de diseños originales FMD 2026.",
         "band": "Megadeth",
         "collections": [
             "Vic Legacy",
@@ -362,9 +428,45 @@
                 "name": "KIMB FMD Edition Dorso",
                 "role": "back",
                 "isNew": true
+            },
+            {
+                "img": "images/albums/Killing_Is_my_bussines/remera_killing_original.jpg",
+                "name": "Killing Original - Remera",
+                "garmentCategory": "Album",
+                "isNew": true
+            },
+            {
+                "img": "images/albums/Killing_Is_my_bussines/buzo_killing_original.jpg",
+                "name": "Killing Original - Buzo cuello redondo",
+                "garmentCategory": "Buzo Cuello Redondo",
+                "isNew": true
+            },
+            {
+                "img": "images/albums/Killing_Is_my_bussines/remera_killing_v1.jpg",
+                "name": "Killing V1 - Remera",
+                "garmentCategory": "Album",
+                "isNew": true
+            },
+            {
+                "img": "images/albums/Killing_Is_my_bussines/remera_killing_fmd.jpg",
+                "name": "Killing FMD - Remera",
+                "garmentCategory": "Album",
+                "isNew": true
+            },
+            {
+                "img": "images/albums/Killing_Is_my_bussines/buzo_killing_fmd.jpg",
+                "name": "Killing FMD - Buzo cuello redondo",
+                "garmentCategory": "Buzo Cuello Redondo",
+                "isNew": true
+            },
+            {
+                "img": "images/albums/Killing_Is_my_bussines/remera_killing_retro_fmd.jpg",
+                "name": "Killing Retro FMD - Remera",
+                "garmentCategory": "Album",
+                "isNew": true
             }
         ],
-        "desc": "Es el debut crudo y frenÃ©tico de 1985 que definiÃ³ el thrash metal tÃ©cnico mediante la velocidad extrema y la sed de venganza de Dave Mustaine en 7 diseÃ±os."
+        "desc": "Killing Is My Business: archivo completo con diseños históricos y nuevas prendas en remera, hoodie y buzo cuello redondo."
     },
     {
         "id": 2,
@@ -4474,16 +4576,37 @@
         "name": "Hoodie Killing Original",
         "tipoPrecio": "doble",
         "img": "images/hoddies_fmd/killing_original.jpg",
+        "variants": [
+            {
+                "img": "images/hoddies_fmd/killing_original.jpg",
+                "name": "Hoodie Killing Original"
+            },
+            {
+                "img": "images/hoddies_fmd/killing_remaster.jpg",
+                "name": "Hoodie Killing Remaster"
+            },
+            {
+                "img": "images/albums/Killing_Is_my_bussines/hoodie_killing_original.jpg",
+                "name": "Killing Original - Hoodie",
+                "isNew": true
+            },
+            {
+                "img": "images/albums/Killing_Is_my_bussines/hoodie_killing_v1.jpg",
+                "name": "Killing V1 - Hoodie",
+                "isNew": true
+            },
+            {
+                "img": "images/albums/Killing_Is_my_bussines/hoodie_killing_fmd.jpg",
+                "name": "Killing FMD - Hoodie",
+                "isNew": true
+            },
+            {
+                "img": "images/albums/Killing_Is_my_bussines/hoodie_killing_retro_fmd.jpg",
+                "name": "Killing Retro FMD - Hoodie",
+                "isNew": true
+            }
+        ],
         "desc": "Hoodie canguro oversize unisex. AlgodÃ³n frizado, estampa DTG. Killing Is My Business original frente y dorso. ProducciÃ³n a pedido 4-7 dÃ­as."
-    },
-    {
-        "id": 5058,
-        "category": "Hoodies FMD",
-        "year": "1985",
-        "name": "Hoodie Killing Remaster",
-        "tipoPrecio": "doble",
-        "img": "images/hoddies_fmd/killing_remaster.jpg",
-        "desc": "Hoodie canguro oversize unisex. AlgodÃ³n frizado, estampa DTG. Killing Is My Business remaster frente y dorso. ProducciÃ³n a pedido 4-7 dÃ­as."
     },
     {
         "id": 5061,

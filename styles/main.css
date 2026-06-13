@@ -2668,6 +2668,187 @@ header {
     margin: 20px auto 0;
 }
 
+.megadeth-archive-section {
+    max-width: 980px;
+    margin: 20px auto 0;
+    padding: 16px;
+}
+
+.megadeth-archive-banner {
+    padding: 22px;
+    border: 1px solid rgba(232, 67, 46, 0.58);
+    border-radius: 16px;
+    background:
+        radial-gradient(circle at 85% 10%, rgba(232, 67, 46, 0.2), transparent 38%),
+        linear-gradient(145deg, #080808, #17100e 60%, #090909);
+    box-shadow: 0 14px 38px rgba(0, 0, 0, 0.45);
+}
+
+.megadeth-archive-kicker {
+    display: inline-block;
+    margin: 0 0 9px;
+    padding: 5px 10px;
+    border: 1px solid rgba(232, 67, 46, 0.5);
+    border-radius: 999px;
+    background: rgba(232, 67, 46, 0.12);
+    color: #ffb8aa;
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.megadeth-archive-title {
+    margin: 0;
+    color: #fff;
+    font-family: var(--font-title);
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    letter-spacing: 0.05em;
+}
+
+.megadeth-archive-subtitle,
+.megadeth-archive-note {
+    margin: 9px 0 0;
+    color: #d5c2bd;
+    font-size: 0.86rem;
+    line-height: 1.4;
+}
+
+.megadeth-archive-note {
+    color: #ffb8aa;
+    font-weight: 700;
+}
+
+.megadeth-segment-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin-top: 15px;
+}
+
+.megadeth-segment-filters button,
+.megadeth-archive-tools button {
+    padding: 8px 11px;
+    border: 1px solid rgba(232, 67, 46, 0.38);
+    border-radius: 999px;
+    background: rgba(232, 67, 46, 0.08);
+    color: #ddd;
+    font-size: 0.7rem;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.megadeth-segment-filters button.active {
+    border-color: #ff765e;
+    background: rgba(232, 67, 46, 0.25);
+    color: #fff;
+}
+
+.megadeth-garment-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+    margin-top: 16px;
+}
+
+.megadeth-garment-card {
+    overflow: hidden;
+    border: 1px solid rgba(232, 67, 46, 0.4);
+    border-radius: 14px;
+    background: linear-gradient(155deg, #170d0b, #080808 78%);
+    cursor: pointer;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.megadeth-garment-card:hover {
+    transform: translateY(-3px);
+    border-color: #ff765e;
+}
+
+.megadeth-garment-card img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+}
+
+.megadeth-garment-card-copy {
+    padding: 14px;
+}
+
+.megadeth-garment-card-copy strong,
+.megadeth-garment-card-copy span {
+    display: block;
+}
+
+.megadeth-garment-card-copy strong {
+    color: #fff;
+    font-family: var(--font-title);
+    font-size: 1.2rem;
+    text-transform: uppercase;
+}
+
+.megadeth-garment-card-copy span {
+    margin-top: 5px;
+    color: #ffb8aa;
+    font-size: 0.74rem;
+    font-weight: 700;
+}
+
+.megadeth-garment-card-copy button {
+    width: 100%;
+    margin-top: 11px;
+    padding: 9px;
+    border: 1px solid rgba(232, 67, 46, 0.5);
+    border-radius: 8px;
+    background: rgba(232, 67, 46, 0.15);
+    color: #fff;
+    font-size: 0.68rem;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.megadeth-archive-tools {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+/* El nuevo archivo Megadeth reemplaza estas vitrinas repetidas en el recorrido principal. */
+#buzosRedondoFeatured,
+#hoodiesFeatured,
+#fmdSpotlight,
+#fmdEdition3d,
+#fmdOriginals,
+#reimaginedRip,
+#comboShowcase,
+.campaign-summary-bar,
+.decision-boost-bar,
+#logisticaShowEspecial,
+#megadeth-destacados,
+.cart-info-banner,
+.promo-mini-banner-shell,
+#megadethCollections,
+#mgxShowcase {
+    display: none !important;
+}
+
+@media (max-width: 700px) {
+    .megadeth-garment-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .megadeth-garment-card {
+        display: grid;
+        grid-template-columns: minmax(115px, 38%) 1fr;
+    }
+
+    .megadeth-garment-card img {
+        height: 100%;
+        min-height: 175px;
+    }
+}
+
 .slayer-archive-banner {
     position: relative;
     overflow: hidden;
@@ -3250,7 +3431,41 @@ header {
     font-size: 0.66rem;
 }
 
+.maiden-archive-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.maiden-garment-card {
+    border-color: rgba(132, 168, 255, 0.42);
+    background: linear-gradient(160deg, #182033 0%, #090c12 100%);
+}
+
+.maiden-garment-card .product-img {
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+}
+
+.maiden-garment-price {
+    margin-top: 8px;
+    color: #c8d9ff;
+    font-weight: 800;
+}
+
+.maiden-back-btn {
+    border-color: #84a8ff;
+    background: rgba(132, 168, 255, 0.16);
+    box-shadow: 0 0 16px rgba(132, 168, 255, 0.2);
+}
+
+.maiden-back-btn:hover {
+    background: #84a8ff;
+    color: #090909;
+}
+
 @media (max-width: 768px) {
+    .maiden-archive-grid {
+        grid-template-columns: 1fr;
+    }
     .maiden-archive-actions,
     .slayer-archive-actions {
         flex-direction: column;
@@ -3718,6 +3933,63 @@ header {
     gap: 14px;
     align-items: stretch;
     animation: fadeIn 0.3s ease;
+}
+
+.catalog-load-more {
+    width: min(100%, 560px);
+    margin: 30px auto 8px;
+    padding: 20px;
+    text-align: center;
+    border: 2px solid var(--magic-orange);
+    border-radius: var(--radius-card);
+    background: linear-gradient(135deg, rgba(255, 111, 0, 0.22), rgba(120, 12, 0, 0.42));
+    box-shadow: 0 0 24px rgba(255, 111, 0, 0.28);
+}
+
+.catalog-load-more[hidden] {
+    display: none;
+}
+
+.catalog-load-more p {
+    margin: 0 0 12px;
+    color: #fff;
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
+.catalog-load-more button {
+    width: 100%;
+    padding: 13px 18px;
+    border: 2px solid #fff;
+    border-radius: 8px;
+    background: linear-gradient(135deg, var(--magic-orange), #ff3d00);
+    color: #fff;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.75);
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(255, 61, 0, 0.38);
+    transition: transform 0.2s ease, filter 0.2s ease, box-shadow 0.2s ease;
+}
+
+.catalog-load-more button:hover {
+    filter: brightness(1.12);
+    transform: translateY(-2px);
+    box-shadow: 0 9px 26px rgba(255, 61, 0, 0.52);
+}
+
+.megadeth-catalog-group-title {
+    grid-column: 1 / -1;
+    margin: 22px 0 2px;
+    padding: 12px 14px;
+    border-left: 4px solid var(--magic-orange);
+    border-bottom: 1px solid rgba(255, 111, 0, 0.36);
+    background: linear-gradient(90deg, rgba(255, 111, 0, 0.18), transparent);
+    color: #fff;
+    font-family: var(--font-title);
+    font-size: clamp(1rem, 2.4vw, 1.35rem);
+    font-weight: 900;
+    letter-spacing: 0.08em;
 }
 
 @keyframes fadeInUp {
@@ -4246,6 +4518,61 @@ header {
     color: var(--rust);
     font-weight: 600;
     background: rgba(0, 0, 0, 0.5);
+}
+
+.album-garment-filter {
+    margin: 10px 0 4px;
+    padding: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.025);
+}
+
+.album-garment-filter-title {
+    margin-bottom: 7px;
+    color: #ddd;
+    font-size: 0.76rem;
+    font-weight: 700;
+}
+
+.album-garment-filter-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.album-garment-filter-actions button {
+    padding: 7px 10px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 999px;
+    background: #151515;
+    color: #ccc;
+    font-size: 0.7rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.album-garment-filter-actions button.active {
+    border-color: var(--magic-green);
+    background: rgba(57, 255, 20, 0.1);
+    color: #e8ffe4;
+}
+
+.album-garment-filter-actions button:disabled {
+    opacity: 0.32;
+    cursor: not-allowed;
+}
+
+.album-garment-filter-actions .album-size-guide-btn {
+    margin-left: auto;
+    border-color: rgba(232, 67, 46, 0.5);
+    color: #ffd5ce;
+}
+
+.album-garment-filter-status {
+    margin-top: 7px;
+    color: #aaa;
+    font-size: 0.68rem;
 }
 
 /* Info del producto */
@@ -5212,6 +5539,40 @@ footer p {
     display: flex;
     flex-direction: column;
     gap: 10px;
+}
+
+.megadeth-back-btn {
+    width: 100%;
+    margin: 0 0 14px;
+    padding: 12px 16px;
+    border: 1px solid var(--magic-orange);
+    border-radius: 8px;
+    background: rgba(255, 111, 0, 0.14);
+    color: #fff;
+    font-weight: 900;
+    letter-spacing: 0.06em;
+    cursor: pointer;
+    box-shadow: 0 0 16px rgba(255, 111, 0, 0.16);
+}
+
+.megadeth-back-btn[hidden] {
+    display: none;
+}
+
+.megadeth-back-btn:hover {
+    background: var(--magic-orange);
+    color: #090909;
+}
+
+.slayer-back-btn {
+    border-color: #d71920;
+    background: rgba(215, 25, 32, 0.16);
+    box-shadow: 0 0 16px rgba(215, 25, 32, 0.2);
+}
+
+.slayer-back-btn:hover {
+    background: #d71920;
+    color: #fff;
 }
 
 .toolbar-row {

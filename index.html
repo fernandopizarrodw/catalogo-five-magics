@@ -121,7 +121,7 @@
             <div class="hero-divider"></div>
             <p class="hero-description">Remeras, hoodies y buzos.<br>Clásicos, reimaginados y ediciones FMD.</p>
             <div class="hero-actions">
-                <a href="#megadethCollections" class="hero-cta-btn" id="heroCtaBuzos">VER COLECCIONES</a>
+                <a href="#megadethArchive" class="hero-cta-btn" id="heroCtaBuzos">EXPLORAR UNIVERSO MEGADETH</a>
                 <a href="https://wa.me/541169667685?text=Hola%20FMD%2C%20quiero%20pedir%20disenos%20en%20buzo%2C%20hoodie%20y%20remera" class="hero-cta-btn hero-cta-btn-secondary" id="heroCtaWhatsapp" target="_blank" rel="noopener">PEDIR POR WHATSAPP</a>
             </div>
             <div class="hero-proof">
@@ -132,6 +132,29 @@
             </div>
         </div>
         <div class="hero-accent"></div>
+    </section>
+
+    <section class="megadeth-archive-section" id="megadethArchive">
+        <div class="megadeth-archive-banner">
+            <p class="megadeth-archive-kicker">ARCHIVO MEGADETH FMD</p>
+            <h2 class="megadeth-archive-title">UNIVERSO MEGADETH</h2>
+            <p class="megadeth-archive-subtitle">Explorá el archivo completo por prenda y después filtrá por álbumes, Vic, Dave, tours o ediciones FMD.</p>
+            <p class="megadeth-archive-note">Todos los diseños se producen a pedido. Podés elegir estampa simple o combinar frente y dorso.</p>
+            <div class="megadeth-segment-filters" id="megadethSegmentFilters">
+                <button type="button" class="active" data-megadeth-segment="all" onclick="showMegadethSegment('all')">Todo</button>
+                <button type="button" data-megadeth-segment="albums" onclick="showMegadethSegment('albums')">Álbumes</button>
+                <button type="button" data-megadeth-segment="fmd" onclick="showMegadethSegment('fmd')">Original FMD</button>
+                <button type="button" data-megadeth-segment="vic" onclick="showMegadethSegment('vic')">Vic Rattlehead</button>
+                <button type="button" data-megadeth-segment="dave" onclick="showMegadethSegment('dave')">Dave Mustaine</button>
+                <button type="button" data-megadeth-segment="tours" onclick="showMegadethSegment('tours')">Tours</button>
+                <button type="button" data-megadeth-segment="members" onclick="showMegadethSegment('members')">Miembros</button>
+            </div>
+        </div>
+        <div class="megadeth-garment-grid" id="megadethGarmentGrid"></div>
+        <div class="megadeth-archive-tools">
+            <button type="button" onclick="showAllMegadeth()">VER TODO MEGADETH</button>
+            <button type="button" onclick="openMegadethSizeGuide()">📏 TABLA DE MEDIDAS</button>
+        </div>
     </section>
 
     <section class="slayer-archive-section" id="slayerArchive">
@@ -151,10 +174,10 @@
 
     <section class="maiden-archive-section" id="maidenArchive">
         <div class="maiden-archive-banner">
-            <p class="maiden-archive-kicker">APERTURA DE ARCHIVO FMD</p>
-            <h2 class="maiden-archive-title">IRON MAIDEN — ARCHIVO FMD</h2>
-            <p class="maiden-archive-subtitle">Diseños agrupados · Deslizá para ver cada prenda</p>
-            <p class="maiden-archive-availability">Remeras, hoodies y buzos cuello redondo organizados por diseño.</p>
+            <p class="maiden-archive-kicker">ARCHIVO MAIDEN FMD</p>
+            <h2 class="maiden-archive-title">MAIDEN EN ARGENTINA 2026</h2>
+            <p class="maiden-archive-subtitle">Elegí la prenda y explorá todos los diseños disponibles.</p>
+            <p class="maiden-archive-availability">Frentes y dorsos del mismo diseño permanecen agrupados en un solo carrusel.</p>
             <div class="maiden-archive-actions">
                 <a href="#categoryNav" class="maiden-archive-btn" id="maidenCtaCollection">VER COLECCION MAIDEN</a>
                 <a href="https://wa.me/541169667685?text=Hola%20FMD%2C%20quiero%20ver%20la%20coleccion%20Iron%20Maiden" class="maiden-archive-btn maiden-archive-btn-secondary" id="maidenCtaWhatsapp" target="_blank" rel="noopener">PEDIR POR WHATSAPP</a>
@@ -430,7 +453,7 @@
         <div class="fmd-originals-grid" id="fmdOriginalsGrid">
             <article class="fmd-originals-group is-open">
                 <div class="fmd-originals-group-head">
-                    <strong>2026 · Vic Silent</strong>
+                    <strong>2026 · Megadeth FMD Original</strong>
                     <span>Original FMD</span>
                 </div>
                 <div class="fmd-originals-group-body">
@@ -912,45 +935,13 @@
             <div class="nav-groups-grid">
                 <div class="nav-group">
                     <div class="nav-group-head">
-                        <h3 class="nav-group-title">Universo Megadeth</h3>
-                        <p class="nav-group-copy">Discos, Vic, Dave, tours, músicos y dorsos.</p>
+                        <h3 class="nav-group-title">Archivo Megadeth FMD</h3>
+                        <p class="nav-group-copy">Elegí primero la prenda y explorá el archivo completo.</p>
                     </div>
                     <div class="nav-group-buttons">
-                        <button class="cat-btn active" data-cat="Album" data-count="17">
-                            <span class="btn-text">Álbumes Megadeth</span>
-                            <span class="badge">17</span>
-                        </button>
-                        <button class="cat-btn" data-cat="FMD3D" data-count="17" data-scroll-target="fmdEdition3d">
-                            <span class="btn-text">FMD Editions</span>
-                            <span class="badge">17</span>
-                        </button>
-                        <button class="cat-btn" data-cat="Orígenes" data-count="1">
-                            <span class="btn-text">Orígenes Megadeth</span>
-                            <span class="badge">1</span>
-                        </button>
-                        <button class="cat-btn" data-cat="Dave Mustaine" data-count="16">
-                            <span class="btn-text">Dave Mustaine</span>
-                            <span class="badge">16</span>
-                        </button>
-                        <button class="cat-btn" data-cat="Musician" data-count="4">
-                            <span class="btn-text">Miembros Megadeth</span>
-                            <span class="badge">4</span>
-                        </button>
-                        <button class="cat-btn" data-cat="VicRattlehead" data-count="23">
-                            <span class="btn-text">Vic Rattlehead</span>
-                            <span class="badge">23</span>
-                        </button>
-                        <button class="cat-btn" data-cat="Singles" data-count="12">
-                            <span class="btn-text">Singles Especiales</span>
-                            <span class="badge">12</span>
-                        </button>
-                        <button class="cat-btn" data-cat="Tour" data-count="7">
-                            <span class="btn-text">Tours</span>
-                            <span class="badge">7</span>
-                        </button>
-                        <button class="cat-btn" data-cat="Dorsales" data-count="8">
-                            <span class="btn-text">Dorsos especiales</span>
-                            <span class="badge">8</span>
+                        <button class="cat-btn active" data-cat="Megadeth" data-count="0">
+                            <span class="btn-text">Ver todo Megadeth</span>
+                            <span class="badge">0</span>
                         </button>
                     </div>
                 </div>
@@ -961,17 +952,9 @@
                         <p class="nav-group-copy">Hoodies, buzos de invierno y pedidos hechos a medida.</p>
                     </div>
                     <div class="nav-group-buttons">
-                        <button class="cat-btn cat-btn-hoodie" data-cat="Hoodies FMD" data-count="21">
-                            <span class="btn-text">Hoodies Megadeth</span>
-                            <span class="badge">21</span>
-                        </button>
                         <button class="cat-btn cat-btn-hoodie" data-cat="Hoodies Otras Bandas" data-count="14">
                             <span class="btn-text">Hoodies de otras bandas</span>
                             <span class="badge">14</span>
-                        </button>
-                        <button class="cat-btn cat-btn-hoodie" data-cat="Buzo Cuello Redondo" data-count="0">
-                            <span class="btn-text">Buzos cuello redondo</span>
-                            <span class="badge">0</span>
                         </button>
                         <button class="cat-btn" data-cat="Personalizados" data-count="28">
                             <span class="btn-text">Pedidos Especiales</span>
@@ -1032,6 +1015,15 @@
     <!-- CATALOGO PRINCIPAL -->
     <!-- Toolbar: Buscador + Contador + Vista -->
     <div class="catalog-toolbar" id="catalogoPrincipal">
+        <button type="button" class="megadeth-back-btn" id="megadethBackBtn" onclick="backToMegadethUniverse()" hidden>
+            ↑ VOLVER A UNIVERSO MEGADETH
+        </button>
+        <button type="button" class="megadeth-back-btn slayer-back-btn" id="slayerBackBtn" onclick="backToSlayerArchive()" hidden>
+            ↑ VOLVER A SLAYER EN ARGENTINA 2026
+        </button>
+        <button type="button" class="megadeth-back-btn maiden-back-btn" id="maidenBackBtn" onclick="backToMaidenArchive()" hidden>
+            ↑ VOLVER A MAIDEN EN ARGENTINA 2026
+        </button>
         <div class="search-box">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <circle cx="11" cy="11" r="8" />
@@ -1057,14 +1049,7 @@
                 <h3>Buscar por banda</h3>
                 <div class="filter-pills">
                     <button class="filter-pill" data-filter="all">Todo (233)</button>
-                    <button class="filter-pill" data-filter="Album">Álbumes Megadeth (17)</button>
-                    <button class="filter-pill" data-filter="Orígenes">Orígenes Megadeth (1)</button>
-                    <button class="filter-pill" data-filter="Dave Mustaine">Dave Mustaine (16)</button>
-                    <button class="filter-pill" data-filter="Musician">Miembros Megadeth (4)</button>
-                    <button class="filter-pill" data-filter="VicRattlehead">Vic Rattlehead (23)</button>
-                    <button class="filter-pill" data-filter="Singles">Singles Especiales (12)</button>
-                    <button class="filter-pill" data-filter="Tour">Tours (7)</button>
-                    <button class="filter-pill" data-filter="Dorsales">Dorsos especiales (8)</button>
+                    <button class="filter-pill" data-filter="Megadeth">Megadeth</button>
                     <button class="filter-pill" data-filter="Pantera">Pantera (20)</button>
                     <button class="filter-pill" data-filter="Iron Maiden">Iron Maiden (14)</button>
                     <button class="filter-pill" data-filter="Metallica">Metallica (5)</button>
@@ -1072,9 +1057,7 @@
                     <button class="filter-pill" data-filter="AC/DC">AC/DC (21)</button>
                     <button class="filter-pill" data-filter="Slayer">Slayer (21)</button>
                     <button class="filter-pill" data-filter="Bandas Sugeridas">Bandas Sugeridas (21)</button>
-                    <button class="filter-pill" data-filter="Hoodies FMD">Hoodies Megadeth (21)</button>
                     <button class="filter-pill" data-filter="Hoodies Otras Bandas">Hoodies de otras bandas (14)</button>
-                    <button class="filter-pill" data-filter="Buzo Cuello Redondo">Buzos cuello redondo (0)</button>
                     <button class="filter-pill" data-filter="Personalizados">Pedidos Especiales (28)</button>
                 </div>
             </div>
@@ -1107,6 +1090,10 @@
     <section class="products-section">
         <div class="products-grid" id="productsGrid">
             <!-- Se genera con JS -->
+        </div>
+        <div class="catalog-load-more" id="catalogLoadMore" hidden>
+            <p id="catalogLoadMoreStatus"></p>
+            <button type="button" onclick="loadMoreMegadethDesigns()">VER MÁS DISEÑOS</button>
         </div>
         <!-- EJEMPLO UNIVERSAL DE CARD PARA TODO EL CATALOGO -->
         <div class="products-grid products-grid-spaced">
@@ -1492,6 +1479,17 @@
                     <div class="carousel-indicators" id="carouselDots"></div>
                 </div>
                 <div class="variant-name" id="variantName">Original Art</div>
+                <div class="album-garment-filter is-hidden" id="albumGarmentFilter">
+                    <div class="album-garment-filter-title">Filtrar este álbum por prenda:</div>
+                    <div class="album-garment-filter-actions">
+                        <button type="button" data-album-garment="all" onclick="filterCurrentAlbumByGarment('all')">Todo</button>
+                        <button type="button" data-album-garment="remera" onclick="filterCurrentAlbumByGarment('remera')">Remeras</button>
+                        <button type="button" data-album-garment="hoodie" onclick="filterCurrentAlbumByGarment('hoodie')">Hoodies</button>
+                        <button type="button" data-album-garment="buzo" onclick="filterCurrentAlbumByGarment('buzo')">Buzos</button>
+                        <button type="button" class="album-size-guide-btn" onclick="openSizeGuideForCurrentGarment()">📏 Tabla de medidas</button>
+                    </div>
+                    <div class="album-garment-filter-status" id="albumGarmentFilterStatus"></div>
+                </div>
 
                 <!-- Info -->
                 <div class="modal-product-info">
