@@ -70,7 +70,7 @@
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
                     </svg>
-                    WhatsApp
+                    <span>WhatsApp</span>
                 </a>
             </div>
         </div>
@@ -102,6 +102,39 @@
         <div id="cartSummary"></div>
     </div>
 
+    <!-- PROMO TEMPORAL DÍA DEL PADRE · retirar después del 14/06/2026 -->
+    <section class="father-day-promo" id="fatherDayPromo" data-expires="2026-06-15T00:00:00-03:00" aria-labelledby="fatherDayPromoTitle">
+        <div class="father-day-promo-inner">
+            <div class="father-day-promo-copy">
+                <p class="father-day-promo-kicker">SOLO POR 24 HS</p>
+                <h2 id="fatherDayPromoTitle">ESPECIAL DÍA DEL PADRE</h2>
+                <p class="father-day-promo-highlight">ENVÍO GRATIS DESDE 1 PRENDA</p>
+                <p class="father-day-promo-restriction">PROMOCIÓN VÁLIDA ÚNICAMENTE EN DISEÑOS SELECCIONADOS · NO APLICA A TODO EL CATÁLOGO</p>
+                <div class="father-day-promo-bands" aria-label="Diseños seleccionados">
+                    <span>MEGADETH</span>
+                    <span>SLAYER</span>
+                    <span>IRON MAIDEN</span>
+                </div>
+                <ul class="father-day-promo-details">
+                    <li>Consultanos cuáles diseños participan</li>
+                    <li>Disponible en hoodie, remera y buzo cuello redondo</li>
+                    <li>Envío gratis a punto de retiro Andreani</li>
+                    <li>A domicilio se abona la diferencia</li>
+                </ul>
+            </div>
+            <div class="father-day-promo-action">
+                <a href="https://wa.me/541169667685?text=Hola%20FMD%21%20Quiero%20consultar%20por%20el%20Especial%20D%C3%ADa%20del%20Padre%20con%20env%C3%ADo%20gratis." target="_blank" rel="noopener">PEDILO POR WHATSAPP</a>
+                <small>Consultanos por los diseños seleccionados</small>
+            </div>
+        </div>
+    </section>
+    <script>
+        (() => {
+            const promo = document.getElementById('fatherDayPromo');
+            if (promo && Date.now() >= new Date(promo.dataset.expires).getTime()) promo.hidden = true;
+        })();
+    </script>
+    <!-- FIN PROMO TEMPORAL DÍA DEL PADRE -->
 
     <!-- Hero Premium - MEGADETH COLECCION ARGENTINA -->
     <section class="hero megadeth-hero" id="heroSection">
