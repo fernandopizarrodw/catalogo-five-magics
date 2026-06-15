@@ -46,6 +46,21 @@ let megadethGarmentPreference = null;
 let megadethSegmentPreference = 'all';
 const MEGADETH_PAGE_SIZE = 24;
 let megadethVisibleLimit = MEGADETH_PAGE_SIZE;
+const CATALOG_PAGE_SIZE = 24;
+let catalogVisibleLimit = CATALOG_PAGE_SIZE;
+const PUBLIC_VISIBILITY_TIERS = new Set(['hero', 'featured', 'catalog', 'archive']);
+const SHOWCASE_VISIBILITY_TIERS = new Set(['hero', 'featured', 'catalog']);
+const VISIBILITY_TIER_ORDER = { hero: 0, featured: 1, catalog: 2, archive: 3, hidden: 4 };
+const ENABLE_UNIVERSE_SHOWCASES = false;
+const UNIVERSE_SHOWCASE_DEFINITIONS = [
+    { universe: 'Megadeth Vault', limit: 8, primary: true },
+    { universe: 'FMD Editions', limit: 6, primary: true },
+    { universe: 'Thrash Metal', limit: 4 },
+    { universe: 'Heavy Metal Classics', limit: 4 },
+    { universe: 'Groove Metal', limit: 4 },
+    { universe: 'Rock Legends', limit: 4 },
+    { universe: 'Modern Metal', limit: 4 }
+];
 
 let db = [];
 let selectedAge = 'adulto';
@@ -94,12 +109,16 @@ function getMaidenProductGarment(product) {
 function getMaidenArchiveProducts(garment = maidenGarmentPreference) {
     return db
         .filter(isMaidenArchiveProduct)
+        .filter(isPublicProduct)
         .filter(product => !garment || getMaidenProductGarment(product) === garment)
-        .sort(compareProductsByPriorityThenId);
+        .sort(compareProductsByVisibilityThenPriority);
 }
 
 function showMaidenGarment(garment) {
     maidenGarmentPreference = ['remera', 'hoodie', 'buzo'].includes(garment) ? garment : 'remera';
+    resetCatalogPagination();
+    currentUniverse = null;
+    currentGarmentFilter = null;
     currentCategory = 'Iron Maiden';
     document.querySelectorAll('.cat-btn').forEach(button => button.classList.toggle('active', button.dataset.cat === 'Iron Maiden'));
     filterProducts();
@@ -162,31 +181,61 @@ function getMegadethVariantGarment(product, variant) {
 }
 
 function getMegadethProductSegment(product, variant = null) {
+    const curatedSectionMap = {
+        albums: 'albums',
+        vic_rattlehead: 'vic',
+        dave_mustaine: 'dave',
+        tours: 'tours',
+        members: 'members',
+        logos: 'albums',
+        other: 'albums'
+    };
+    if (curatedSectionMap[product?.megadethSection]) {
+        return curatedSectionMap[product.megadethSection];
+    }
+    if (product?.megadethSection === 'original_fmd' || product?.megadethSection === 'reimagined_fmd') {
+        if (product?.megadethDesignType === 'dave') return 'dave';
+        if (product?.megadethDesignType === 'vic') return 'vic';
+        if (product?.megadethDesignType === 'tour' || product?.megadethDesignType === 'front_back_set') return 'tours';
+        if (product?.megadethAlbum) return 'albums';
+        return 'albums';
+    }
+
     const category = normalizeText(product?.category || '');
     const name = normalizeText(product?.name || '');
-    if (category === 'album') return name.includes('fmd edition') ? 'fmd' : 'albums';
+    const searchableText = normalizeText([product?.name, product?.img, variant?.name, variant?.img].filter(Boolean).join(' '));
+    const collectionText = normalizeText((product?.collections || []).join(' '));
+    const isVicDesign = category === 'vicrattlehead'
+        || searchableText.includes('vic rattlehead')
+        || searchableText.includes('vicrattlehead')
+        || /\bvic\b/.test(searchableText);
+    const isFmdOriginal = collectionText.includes('original fmd')
+        || searchableText.includes('original fmd')
+        || searchableText.includes('fmd edition');
+
     if (category === 'vicrattlehead') return 'vic';
     if (category === 'dave mustaine') return 'dave';
     if (category === 'tour' || category === 'dorsales') return 'tours';
     if (category === 'musician') return 'members';
-    return 'fmd';
+    if (isVicDesign) return 'vic';
+    if (category === 'album') return 'albums';
+    if (isFmdOriginal) return 'albums';
+    return 'albums';
 }
 
 const MEGADETH_SEGMENT_ORDER = {
     albums: 1,
-    fmd: 2,
-    vic: 3,
-    dave: 4,
-    tours: 5,
-    members: 6
+    vic: 2,
+    dave: 3,
+    tours: 4,
+    members: 5
 };
 const MEGADETH_SEGMENT_LABELS = {
     albums: '1. ÁLBUMES',
-    fmd: '2. ORIGINAL FMD',
-    vic: '3. VIC RATTLEHEAD',
-    dave: '4. DAVE MUSTAINE',
-    tours: '5. TOURS',
-    members: '6. MIEMBROS'
+    vic: '2. VIC RATTLEHEAD',
+    dave: '3. DAVE MUSTAINE',
+    tours: '4. TOURS',
+    members: '5. MIEMBROS'
 };
 
 function getMegadethYearValue(product) {
@@ -210,7 +259,7 @@ function getMegadethArchiveEntries(garment = megadethGarmentPreference, segment 
     const seenImages = new Set();
     const entries = [];
 
-    db.filter(isMegadethArchiveProduct).forEach(product => {
+    db.filter(isMegadethArchiveProduct).filter(isPublicProduct).forEach(product => {
         const variants = product.variants?.length
             ? product.variants
             : [{ img: product.img, name: product.name, garmentCategory: product.category }];
@@ -274,7 +323,9 @@ function renderMegadethArchiveGrid() {
 
 function showMegadethGarment(garment) {
     megadethGarmentPreference = ['remera', 'hoodie', 'buzo'].includes(garment) ? garment : 'remera';
-    megadethVisibleLimit = MEGADETH_PAGE_SIZE;
+    resetCatalogPagination();
+    currentUniverse = null;
+    currentGarmentFilter = null;
     currentCategory = 'Megadeth';
     document.querySelectorAll('.cat-btn').forEach(button => button.classList.toggle('active', button.dataset.cat === 'Megadeth'));
     filterProducts();
@@ -282,16 +333,24 @@ function showMegadethGarment(garment) {
 }
 
 function showMegadethSegment(segment) {
-    megadethSegmentPreference = ['all', 'albums', 'fmd', 'vic', 'dave', 'tours', 'members'].includes(segment) ? segment : 'all';
-    megadethVisibleLimit = MEGADETH_PAGE_SIZE;
+    megadethSegmentPreference = ['all', 'albums', 'vic', 'dave', 'tours', 'members'].includes(segment) ? segment : 'all';
+    resetCatalogPagination();
     renderMegadethArchiveGrid();
     if (normalizeText(currentCategory) === 'megadeth') filterProducts();
 }
 
+function getActiveMegadethGarmentPreference() {
+    if (['remera', 'hoodie', 'buzo'].includes(megadethGarmentPreference)) return megadethGarmentPreference;
+    if (['remera', 'hoodie', 'buzo'].includes(mgxState?.prenda)) return mgxState.prenda;
+    return null;
+}
+
 function showAllMegadeth() {
-    megadethGarmentPreference = null;
+    megadethGarmentPreference = getActiveMegadethGarmentPreference();
     megadethSegmentPreference = 'all';
-    megadethVisibleLimit = MEGADETH_PAGE_SIZE;
+    resetCatalogPagination();
+    currentUniverse = null;
+    currentGarmentFilter = null;
     currentCategory = 'Megadeth';
     document.querySelectorAll('.cat-btn').forEach(button => button.classList.toggle('active', button.dataset.cat === 'Megadeth'));
     renderMegadethArchiveGrid();
@@ -314,12 +373,17 @@ window.showMegadethSegment = showMegadethSegment;
 window.showAllMegadeth = showAllMegadeth;
 window.openMegadethSizeGuide = openMegadethSizeGuide;
 
-function loadMoreMegadethDesigns() {
-    megadethVisibleLimit += MEGADETH_PAGE_SIZE;
+function loadMoreCatalogDesigns() {
+    if (normalizeText(currentCategory) === 'megadeth') {
+        megadethVisibleLimit += MEGADETH_PAGE_SIZE;
+    } else {
+        catalogVisibleLimit += CATALOG_PAGE_SIZE;
+    }
     filterProducts();
 }
 
-window.loadMoreMegadethDesigns = loadMoreMegadethDesigns;
+window.loadMoreCatalogDesigns = loadMoreCatalogDesigns;
+window.loadMoreMegadethDesigns = loadMoreCatalogDesigns;
 
 function backToMegadethUniverse() {
     scrollToSection('megadethArchive');
@@ -788,7 +852,7 @@ function buscar(query) {
         const [, prefix, idStr, variantStr] = codeMatch;
         const id = parseInt(idStr);
         const product = db.find(p => p.id === id);
-        if (product) {
+        if (product && isPublicProduct(product)) {
             results.push(product);
         }
     }
@@ -864,8 +928,26 @@ function normalizeText(value) {
 }
 
 function getProductPriority(product) {
+    const commercialPriority = Number(product?.commercialPriority);
+    if (Number.isFinite(commercialPriority)) return commercialPriority;
     const priority = Number(product?.priority);
     return Number.isFinite(priority) ? priority : 0;
+}
+
+function getFmdBadgeData(product, variantIndex = undefined) {
+    const numericVariantIndex = Number(variantIndex);
+    const variant = Number.isFinite(numericVariantIndex) ? product?.variants?.[numericVariantIndex] : null;
+    const badge = variant?.fmdBadge || product?.fmdBadge;
+    if (!badge) return null;
+    return {
+        label: badge,
+        description: variant?.fmdBadgeDescription || product?.fmdBadgeDescription || 'Creación exclusiva FMD con identidad propia y presencia fuerte en prenda.'
+    };
+}
+
+function renderFmdBadge(product, variantIndex = undefined, extraClass = '') {
+    const badge = getFmdBadgeData(product, variantIndex);
+    return badge ? `<span class="fmd-original-badge ${extraClass}" title="${badge.description}">${badge.label}</span>` : '';
 }
 
 function getMetadataText(product) {
@@ -881,6 +963,20 @@ function compareProductsByPriorityThenId(a, b) {
     const priorityDiff = getProductPriority(b) - getProductPriority(a);
     if (priorityDiff !== 0) return priorityDiff;
     return (b?.id || 0) - (a?.id || 0);
+}
+
+function compareProductsByVisibilityThenPriority(a, b) {
+    const tierDiff = (VISIBILITY_TIER_ORDER[a?.visibilityTier] ?? 99) - (VISIBILITY_TIER_ORDER[b?.visibilityTier] ?? 99);
+    if (tierDiff !== 0) return tierDiff;
+    return compareProductsByPriorityThenId(a, b);
+}
+
+function productBelongsToUniverse(product, universe) {
+    return Array.isArray(product?.universe) && product.universe.includes(universe);
+}
+
+function isPublicProduct(product) {
+    return PUBLIC_VISIBILITY_TIERS.has(product?.visibilityTier);
 }
 
 function compareAlbumProductsByYearAscThenId(a, b) {
@@ -941,10 +1037,11 @@ function matchesTextQuery(product, query) {
 function getSearchResults(query, sourceProducts = db, useGlobalCodeLookup = false) {
     const normalized = String(query || '').trim().toLowerCase();
     if (!normalized) return [];
+    const publicSourceProducts = sourceProducts.filter(isPublicProduct);
 
     const codeData = parseProductCode(normalized);
     if (codeData) {
-        const searchPool = useGlobalCodeLookup ? db : sourceProducts;
+        const searchPool = (useGlobalCodeLookup ? db : publicSourceProducts).filter(isPublicProduct);
         const codeMatches = searchPool
             .filter(product => product.id === codeData.id)
             .map(product => ({
@@ -960,7 +1057,7 @@ function getSearchResults(query, sourceProducts = db, useGlobalCodeLookup = fals
         }
     }
 
-    return sourceProducts.filter(product => matchesTextQuery(product, normalized));
+    return publicSourceProducts.filter(product => matchesTextQuery(product, normalized));
 }
 
 function openExactCodeMatch(query, afterOpen) {
@@ -1842,6 +1939,7 @@ async function loadProducts() {
         renderHeroOrbit(6); // Poblar órbita del hero con 6 cards 3D
         loadMegadethDestacados(); // Destacados para el show
         loadMegadethCollections(); // Colecciones Megadeth con preview
+        if (ENABLE_UNIVERSE_SHOWCASES) renderUniverseShowcases();
         filterProducts(); // Renderizar después de cargar
         loadProductFromHash(); // Abrir producto desde URL hash si existe
         loadCategoryFromURL();  // Ir a categoría desde ?cat= si existe
@@ -2827,6 +2925,8 @@ let isScrolling = false;
 let scrollTimeout;
 let currentView = 'grid';
 let currentCategory = 'Megadeth';
+let currentUniverse = null;
+let currentGarmentFilter = null;
 let currentSearch = '';
 const MODAL_ZOOM_MIN = 1;
 const MODAL_ZOOM_MAX = 3;
@@ -2926,8 +3026,11 @@ function getVariantGarmentType(variant) {
 
 function renderCurrentModalCarousel() {
     const modalImages = getModalImages();
-    carousel.innerHTML = modalImages.map(v => `
-        <div class="carousel-slide"><img src="${v.img}" alt="${currentProduct?.name || ''}"></div>
+    carousel.innerHTML = modalImages.map((v, index) => `
+        <div class="carousel-slide">
+            ${renderFmdBadge(currentProduct, currentModalSourceIndexes[index], 'carousel-fmd-original-badge')}
+            <img src="${v.img}" alt="${currentProduct?.name || ''}">
+        </div>
     `).join('');
     carouselDots.innerHTML = modalImages.length > 1
         ? modalImages.map((_, i) => `<div class="carousel-dot${i === 0 ? ' active' : ''}" data-index="${i}"></div>`).join('')
@@ -3026,8 +3129,9 @@ function getAutoHighlightSlideIndex(product, images) {
 }
 
 function openModal(id, variantIndex = undefined, scopedVariantIndexes = undefined) {
-    currentProduct = db.find(p => p.id === id);
-    if (!currentProduct) return;
+    const product = db.find(p => p.id === id);
+    if (!product || !isPublicProduct(product)) return;
+    currentProduct = product;
     currentAlbumGarmentFilter = 'all';
 
     scrollPosition = window.pageYOffset;
@@ -3072,8 +3176,11 @@ function openModal(id, variantIndex = undefined, scopedVariantIndexes = undefine
 
     const modalImages = getModalImages();
 
-    carousel.innerHTML = modalImages.map(v => `
-        <div class="carousel-slide"><img src="${v.img}" alt="${currentProduct.name}"></div>
+    carousel.innerHTML = modalImages.map((v, index) => `
+        <div class="carousel-slide">
+            ${renderFmdBadge(currentProduct, currentModalSourceIndexes[index], 'carousel-fmd-original-badge')}
+            <img src="${v.img}" alt="${currentProduct.name}">
+        </div>
     `).join('');
     resetModalImageZoom();
 
@@ -3864,7 +3971,8 @@ function updateModalInfo() {
     updateProductCounter();
     
     document.getElementById('modalMeta').textContent = formatCategoryMeta(currentProduct.year, getCategoryLabel(currentProduct.category));
-    document.getElementById('modalDesc').textContent = currentProduct.desc || '';
+    const fmdBadge = getFmdBadgeData(currentProduct, activeVariantIndex);
+    document.getElementById('modalDesc').innerHTML = `${fmdBadge ? `<span class="fmd-original-badge modal-fmd-original-badge">${fmdBadge.label}</span><span class="modal-fmd-original-copy">${fmdBadge.description}</span>` : ''}${currentProduct.desc || ''}`;
     updateModalSizeRange();
     
     // Actualizar precios según selector adulto/chico
@@ -3894,14 +4002,94 @@ function updateModalInfo() {
     renderRelatedProducts(currentProduct.category);
 }
 
+function getUniverseProducts(universe, includeArchive = true) {
+    const allowedTiers = includeArchive ? PUBLIC_VISIBILITY_TIERS : SHOWCASE_VISIBILITY_TIERS;
+    return db
+        .filter(product => productBelongsToUniverse(product, universe))
+        .filter(product => allowedTiers.has(product.visibilityTier))
+        .sort(compareProductsByVisibilityThenPriority);
+}
+
+function renderUniverseShowcases() {
+    const host = document.getElementById('universeShowcaseList');
+    if (!host || !Array.isArray(db) || !db.length) return;
+
+    host.innerHTML = UNIVERSE_SHOWCASE_DEFINITIONS.map(definition => {
+        const previewProducts = getUniverseProducts(definition.universe, false);
+        const totalProducts = getUniverseProducts(definition.universe, true).length;
+        const visibleProducts = previewProducts.slice(0, definition.limit);
+        const cards = visibleProducts.map(product => `
+            <article class="universe-showcase-card" onclick="openModal(${product.id})">
+                <img src="${product.img}" alt="${product.name}" loading="lazy" decoding="async">
+                <div class="universe-showcase-card-copy">
+                    <strong>${product.name}</strong>
+                    <span>${product.band || 'FMD'} · ${product.visibilityTier}</span>
+                </div>
+            </article>
+        `).join('');
+
+        return `
+            <article class="universe-showcase ${definition.primary ? 'is-primary' : ''}">
+                <div class="universe-showcase-header">
+                    <div>
+                        <h3 class="universe-showcase-title">${definition.universe}</h3>
+                        <p class="universe-showcase-meta">${totalProducts} productos disponibles</p>
+                    </div>
+                    <button type="button" class="universe-showcase-all" onclick="showUniverse('${definition.universe}')">VER TODO</button>
+                </div>
+                <div class="universe-showcase-grid ${definition.limit > 4 ? 'is-wide' : ''}">
+                    ${cards}
+                </div>
+            </article>
+        `;
+    }).join('');
+}
+
+function resetCatalogPagination() {
+    catalogVisibleLimit = CATALOG_PAGE_SIZE;
+    megadethVisibleLimit = MEGADETH_PAGE_SIZE;
+}
+
+function showUniverse(universe) {
+    currentUniverse = universe;
+    currentCategory = null;
+    currentSearch = '';
+    if (searchInput) searchInput.value = '';
+    if (searchClear) searchClear.classList.remove('visible');
+    resetCatalogPagination();
+    document.querySelectorAll('.cat-btn, .filter-pill').forEach(button => button.classList.remove('active'));
+    filterProducts();
+    scrollToSection('catalogoPrincipal');
+}
+
+function showCompleteCatalog() {
+    currentUniverse = null;
+    currentCategory = null;
+    currentSearch = '';
+    if (searchInput) searchInput.value = '';
+    if (searchClear) searchClear.classList.remove('visible');
+    resetCatalogPagination();
+    document.querySelectorAll('.cat-btn, .filter-pill').forEach(button => button.classList.remove('active'));
+    filterProducts();
+    scrollToSection('catalogoPrincipal');
+}
+
+window.showUniverse = showUniverse;
+window.showCompleteCatalog = showCompleteCatalog;
+
 function filterProducts() {
-    let filtered = normalizeText(currentCategory) === 'megadeth'
+    const garmentMetadataValue = currentGarmentFilter === 'buzo' ? 'buzo_cuello_redondo' : currentGarmentFilter;
+    let filtered = currentGarmentFilter
+        ? db.filter(product => isPublicProduct(product) && Array.isArray(product.garments) && product.garments.includes(garmentMetadataValue))
+        : currentUniverse
+        ? getUniverseProducts(currentUniverse, true)
+        : normalizeText(currentCategory) === 'megadeth'
         ? getMegadethArchiveEntries(megadethGarmentPreference, megadethSegmentPreference)
         : normalizeText(currentCategory) === 'iron maiden'
             ? getMaidenArchiveProducts(maidenGarmentPreference)
-        : currentCategory ? db.filter(p => matchesCategoryOrMetadata(p, currentCategory)) : db.slice();
+        : currentCategory ? db.filter(p => matchesCategoryOrMetadata(p, currentCategory) && isPublicProduct(p)) : db.filter(isPublicProduct);
     if (currentSearch) {
-        filtered = getSearchResults(currentSearch, filtered, true);
+        filtered = getSearchResults(currentSearch, db.filter(isPublicProduct), true);
     }
     const normalizedCategory = normalizeText(currentCategory);
     if (normalizedCategory === 'album') {
@@ -3926,16 +4114,16 @@ function filterProducts() {
     }
     const shouldSortAlbumsByYear = normalizedCategory === 'album' && filtered.every(p => normalizeText(p?.category) === 'album');
     if (normalizedCategory !== 'megadeth') {
-        filtered.sort(shouldSortAlbumsByYear ? compareAlbumProductsByYearAscThenId : compareProductsByPriorityThenId);
+        filtered.sort(shouldSortAlbumsByYear ? compareAlbumProductsByYearAscThenId : compareProductsByVisibilityThenPriority);
     }
     renderFilteredProducts(filtered);
 }
 
 function renderFilteredProducts(filtered) {
     const isMegadethView = normalizeText(currentCategory) === 'megadeth';
-    const shouldPaginateMegadeth = isMegadethView && !currentSearch;
     const totalFiltered = filtered.length;
-    const visibleProducts = shouldPaginateMegadeth ? filtered.slice(0, megadethVisibleLimit) : filtered;
+    const visibleLimit = isMegadethView ? megadethVisibleLimit : catalogVisibleLimit;
+    const visibleProducts = filtered.slice(0, visibleLimit);
     const megadethBackBtn = document.getElementById('megadethBackBtn');
     if (megadethBackBtn) megadethBackBtn.hidden = !(isMegadethView && megadethGarmentPreference);
     const slayerBackBtn = document.getElementById('slayerBackBtn');
@@ -3949,7 +4137,13 @@ function renderFilteredProducts(filtered) {
     const maidenGarmentLabel = normalizeText(currentCategory) === 'iron maiden' && maidenGarmentPreference
         ? (maidenGarmentPreference === 'remera' ? 'Remeras Iron Maiden' : maidenGarmentPreference === 'hoodie' ? 'Hoodies Iron Maiden' : 'Buzos Iron Maiden')
         : '';
-    document.getElementById('productsCount').textContent = maidenGarmentLabel
+    document.getElementById('productsCount').textContent = currentSearch
+        ? `${filtered.length} resultados globales`
+        : currentGarmentFilter
+        ? `${filtered.length} diseños · ${currentGarmentFilter === 'remera' ? 'Remeras' : currentGarmentFilter === 'hoodie' ? 'Hoodies' : 'Buzos cuello redondo'}`
+        : currentUniverse
+        ? `${filtered.length} productos · ${currentUniverse}`
+        : maidenGarmentLabel
         ? `${filtered.length} diseños · ${maidenGarmentLabel}`
         : slayerGarmentLabel
         ? `${filtered.length} diseños · ${slayerGarmentLabel}`
@@ -3982,6 +4176,7 @@ function renderFilteredProducts(filtered) {
         if (badgeText) badges += `<span class="variants-badge">${badgeText}</span>`;
         if (newBadge) badges += newBadge;
         if (comboBadge) badges += comboBadge;
+        badges += renderFmdBadge(p, typeof p.matchedVariantIndex === 'number' ? p.matchedVariantIndex : undefined);
 
         const modalArgs = typeof p.matchedVariantIndex === 'number'
             ? `, ${p.matchedVariantIndex}${p.matchedVariantIndexes?.length > 1 ? `, [${p.matchedVariantIndexes.join(',')}]` : ''}`
@@ -4012,7 +4207,7 @@ function renderFilteredProducts(filtered) {
     const loadMore = document.getElementById('catalogLoadMore');
     const loadMoreStatus = document.getElementById('catalogLoadMoreStatus');
     if (loadMore && loadMoreStatus) {
-        const hasMore = shouldPaginateMegadeth && visibleProducts.length < totalFiltered;
+        const hasMore = visibleProducts.length < totalFiltered;
         loadMore.hidden = !hasMore;
         loadMoreStatus.textContent = hasMore ? `Mostrando ${visibleProducts.length} de ${totalFiltered} diseños` : '';
     }
@@ -4021,7 +4216,7 @@ function renderFilteredProducts(filtered) {
 
 searchInput.addEventListener('input', (e) => {
     currentSearch = e.target.value.toLowerCase().trim();
-    megadethVisibleLimit = MEGADETH_PAGE_SIZE;
+    resetCatalogPagination();
     searchClear.classList.toggle('visible', currentSearch.length > 0);
     filterProducts();
 });
@@ -4036,7 +4231,7 @@ searchInput.addEventListener('keydown', (e) => {
     }
 });
 
-searchClear.onclick = () => { searchInput.value = ''; currentSearch = ''; megadethVisibleLimit = MEGADETH_PAGE_SIZE; searchClear.classList.remove('visible'); filterProducts(); };
+searchClear.onclick = () => { searchInput.value = ''; currentSearch = ''; resetCatalogPagination(); searchClear.classList.remove('visible'); filterProducts(); };
 
 categoryNav.addEventListener('click', (e) => {
     const btn = e.target.closest('.cat-btn');
@@ -4050,9 +4245,12 @@ categoryNav.addEventListener('click', (e) => {
             return;
         }
 
+        currentUniverse = null;
+        currentGarmentFilter = null;
         currentCategory = btn.dataset.cat;
+        resetCatalogPagination();
         if (normalizeText(currentCategory) === 'megadeth') {
-            megadethGarmentPreference = null;
+            megadethGarmentPreference = getActiveMegadethGarmentPreference();
             megadethSegmentPreference = 'all';
             megadethVisibleLimit = MEGADETH_PAGE_SIZE;
             renderMegadethArchiveGrid();
@@ -4086,7 +4284,10 @@ document.addEventListener('click', (e) => {
             if (navBtn) {
                 navBtn.click();
             } else {
-                currentCategory = filterValue;
+                currentUniverse = null;
+                currentCategory = categoryToTrigger;
+                resetCatalogPagination();
+                filterProducts();
             }
         }
     }
@@ -4514,7 +4715,10 @@ document.querySelectorAll('.filter-pill').forEach(pill => {
         
         // Actualizar filtro según qué se seleccione
         if (filterValue === 'all') {
+            currentUniverse = null;
+            currentGarmentFilter = null;
             currentCategory = null; // Mostrar todo
+            resetCatalogPagination();
         } else {
             // Simular click en el botón de categoría correspondiente
             const navBtn = document.querySelector(`[data-cat="${filterValue}"]`);
@@ -5529,9 +5733,12 @@ function filterByCategory(category) {
     });
     
     // Actualizar categoría actual y filtrar
+    currentUniverse = null;
+    currentGarmentFilter = null;
     currentCategory = category;
+    resetCatalogPagination();
     if (normalizeText(category) === 'megadeth') {
-        megadethGarmentPreference = null;
+        megadethGarmentPreference = getActiveMegadethGarmentPreference();
         megadethSegmentPreference = 'all';
         megadethVisibleLimit = MEGADETH_PAGE_SIZE;
         renderMegadethArchiveGrid();
@@ -5550,6 +5757,21 @@ function filterByCategory(category) {
 }
 // Exponer globalmente para onclick
 window.filterByCategory = filterByCategory;
+
+function filterByGarment(garment) {
+    currentGarmentFilter = ['remera', 'hoodie', 'buzo'].includes(garment) ? garment : null;
+    currentUniverse = null;
+    currentCategory = null;
+    currentSearch = '';
+    if (searchInput) searchInput.value = '';
+    if (searchClear) searchClear.classList.remove('visible');
+    resetCatalogPagination();
+    document.querySelectorAll('.cat-btn, .filter-pill').forEach(button => button.classList.remove('active'));
+    filterProducts();
+    scrollToSection('catalogoPrincipal');
+}
+
+window.filterByGarment = filterByGarment;
 
 // Cargar todas las colecciones Megadeth
 function loadMegadethCollections() {

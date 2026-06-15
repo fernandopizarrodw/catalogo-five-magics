@@ -77,14 +77,7 @@
         "campaigns": [],
         "commercialPriority": 96,
         "visibilityTier": "hero",
-        "legacyCategory": "Singles",
-        "designFamilyId": "megadeth-card-6032",
-        "megadethSection": "reimagined_fmd",
-        "megadethAlbum": "Rust in Peace",
-        "megadethEra": "1990",
-        "megadethDesignType": "reimagined_fmd",
-        "isDesignDuplicateCandidate": false,
-        "curationNotes": "Revisar sección propuesta: reimagined_fmd"
+        "legacyCategory": "Singles"
     },
     {
         "id": 6030,
@@ -129,14 +122,7 @@
         "commercialPriority": 45,
         "visibilityTier": "archive",
         "legacyCategory": "VicRattlehead",
-        "reviewStatus": "classified",
-        "designFamilyId": "megadeth-card-6030",
-        "megadethSection": "vic_rattlehead",
-        "megadethAlbum": null,
-        "megadethEra": null,
-        "megadethDesignType": "vic",
-        "isDesignDuplicateCandidate": false,
-        "curationNotes": "Clasificación basada en metadata y revisión existente"
+        "reviewStatus": "classified"
     },
     {
         "id": 6029,
@@ -181,14 +167,7 @@
         "commercialPriority": 45,
         "visibilityTier": "archive",
         "legacyCategory": "VicRattlehead",
-        "reviewStatus": "classified",
-        "designFamilyId": "megadeth-card-6029",
-        "megadethSection": "vic_rattlehead",
-        "megadethAlbum": null,
-        "megadethEra": null,
-        "megadethDesignType": "vic",
-        "isDesignDuplicateCandidate": false,
-        "curationNotes": "Clasificación basada en metadata y revisión existente"
+        "reviewStatus": "classified"
     },
     {
         "id": 6028,
@@ -202,9 +181,7 @@
         "variants": [
             {
                 "img": "images/fmd-edition-3d/vic_tour_2026/vic_silent_fmd_edition.jpg",
-                "name": "Vic Silent FMD",
-                "fmdBadge": "ORIGINAL FMD",
-                "fmdBadgeDescription": "Creación exclusiva FMD con Vic como protagonista, pensada para una presencia fuerte y de colección."
+                "name": "Vic Silent FMD"
             },
             {
                 "img": "images/fmd-edition-3d/vic_tour_2026/vic_alien_fmd_edition.jpg",
@@ -229,9 +206,7 @@
             {
                 "img": "images/fmd-edition-3d/vic_tour_2026/vic_punk_fmd_edition.jpg",
                 "name": "Vic Punk FMD",
-                "isNew": true,
-                "fmdBadge": "ORIGINAL FMD",
-                "fmdBadgeDescription": "Creación exclusiva FMD con Vic como protagonista, pensada para una presencia fuerte y de colección."
+                "isNew": true
             },
             {
                 "img": "images/fmd-edition-3d/vic_tour_2026/vic_political.jpg",
@@ -246,9 +221,7 @@
             {
                 "img": "images/fmd-edition-3d/vic_tour_2026/vic_symphony_fmd_edition.jpg",
                 "name": "Vic Symphony FMD",
-                "isNew": true,
-                "fmdBadge": "ORIGINAL FMD",
-                "fmdBadgeDescription": "Creación exclusiva FMD con Vic como protagonista, pensada para una presencia fuerte y de colección."
+                "isNew": true
             },
             {
                 "img": "images/fmd-edition-3d/vic_tour_2026/vic_warheads.jpg",
@@ -281,16 +254,7 @@
         "campaigns": [],
         "commercialPriority": 94,
         "visibilityTier": "hero",
-        "legacyCategory": "VicRattlehead",
-        "designFamilyId": "megadeth-megadeth",
-        "megadethSection": "vic_rattlehead",
-        "megadethAlbum": null,
-        "megadethEra": null,
-        "megadethDesignType": "original_fmd",
-        "isDesignDuplicateCandidate": true,
-        "curationNotes": "Corrección curatorial confirmada por Fernando en Sprint 3.3",
-        "fmdBadge": "ORIGINAL FMD",
-        "fmdBadgeDescription": "Arte FMD de autor con estética oscura, filosa y centrada en el universo visual de Vic Rattlehead."
+        "legacyCategory": "VicRattlehead"
     },
     {
         "id": 5077,
@@ -330,14 +294,7 @@
             "hoodie",
             "Original FMD",
             "Invierno 2026"
-        ],
-        "designFamilyId": "megadeth-rusted-pieces",
-        "megadethSection": "vic_rattlehead",
-        "megadethAlbum": null,
-        "megadethEra": null,
-        "megadethDesignType": "vic",
-        "isDesignDuplicateCandidate": true,
-        "curationNotes": "Corrección curatorial confirmada por Fernando en Sprint 3.3"
+        ]
     },
     {
         "id": 6027,
@@ -394,16 +351,7 @@
         "commercialPriority": 66,
         "visibilityTier": "catalog",
         "legacyCategory": "Album",
-        "reviewStatus": "classified",
-        "designFamilyId": "megadeth-peace-sells",
-        "megadethSection": "albums",
-        "megadethAlbum": "Peace Sells... but Who's Buying?",
-        "megadethEra": "1986",
-        "megadethDesignType": "original_fmd",
-        "isDesignDuplicateCandidate": true,
-        "curationNotes": "Corrección curatorial confirmada por Fernando en Sprint 3.3",
-        "fmdBadge": "ORIGINAL FMD",
-        "fmdBadgeDescription": "Arte exclusivo FMD con impronta de colección, pensado para llevar la era del disco a una prenda con presencia."
+        "reviewStatus": "classified"
     },
     {
         "id": 6026,
@@ -459,16 +407,7 @@
         "commercialPriority": 66,
         "visibilityTier": "catalog",
         "legacyCategory": "Album",
-        "reviewStatus": "classified",
-        "designFamilyId": "megadeth-killing-is-my-bussines",
-        "megadethSection": "albums",
-        "megadethAlbum": "Killing Is My Business... and Business Is Good!",
-        "megadethEra": "1985",
-        "megadethDesignType": "original_fmd",
-        "isDesignDuplicateCandidate": true,
-        "curationNotes": "Corrección curatorial confirmada por Fernando en Sprint 3.3",
-        "fmdBadge": "ORIGINAL FMD",
-        "fmdBadgeDescription": "Diseño exclusivo FMD desarrollado para destacar el concepto visual de esta etapa de Megadeth."
+        "reviewStatus": "classified"
     },
     {
         "id": 6025,
@@ -521,16 +460,7 @@
         ],
         "commercialPriority": 92,
         "visibilityTier": "hero",
-        "legacyCategory": "Album",
-        "designFamilyId": "megadeth-card-6025",
-        "megadethSection": "albums",
-        "megadethAlbum": "Megadeth (2026)",
-        "megadethEra": "2026",
-        "megadethDesignType": "original_fmd",
-        "isDesignDuplicateCandidate": false,
-        "curationNotes": "Corrección curatorial confirmada por Fernando en Sprint 3.3",
-        "fmdBadge": "ORIGINAL FMD",
-        "fmdBadgeDescription": "Creación FMD de autor con foco en impacto visual, espíritu thrash y lectura premium en prenda."
+        "legacyCategory": "Album"
     },
     {
         "id": 302,
@@ -713,17 +643,13 @@
                 "img": "images/fmd-edition-3d/killing/killing_final_3d_edition.jpg",
                 "name": "KIMB FMD Edition Frente",
                 "role": "front",
-                "isNew": true,
-                "fmdBadge": "ORIGINAL FMD",
-                "fmdBadgeDescription": "Creación FMD de autor con foco en impacto visual, espíritu thrash y lectura premium en prenda."
+                "isNew": true
             },
             {
                 "img": "images/fmd-edition-3d/killing/killing_retro_3d_edition.jpg",
                 "name": "KIMB FMD Edition Dorso",
                 "role": "back",
-                "isNew": true,
-                "fmdBadge": "ORIGINAL FMD",
-                "fmdBadgeDescription": "Creación FMD de autor con foco en impacto visual, espíritu thrash y lectura premium en prenda."
+                "isNew": true
             },
             {
                 "img": "images/albums/Killing_Is_my_bussines/remera_killing_original.jpg",
@@ -791,14 +717,7 @@
             "remera",
             "buzo_cuello_redondo",
             "Megadeth Albums"
-        ],
-        "designFamilyId": "megadeth-killing-is-my-bussines",
-        "megadethSection": "albums",
-        "megadethAlbum": "Killing Is My Business... and Business Is Good!",
-        "megadethEra": "1985",
-        "megadethDesignType": "album_cover",
-        "isDesignDuplicateCandidate": true,
-        "curationNotes": "Familia relacionada detectada: megadeth-killing-is-my-bussines; no fusionar automáticamente"
+        ]
     },
     {
         "id": 2,
@@ -835,16 +754,12 @@
             {
                 "img": "images/fmd-edition-3d/peace/peace_3d_edition_v1.jpg",
                 "name": "Peace 3D",
-                "isNew": true,
-                "fmdBadge": "ORIGINAL FMD",
-                "fmdBadgeDescription": "Diseño exclusivo FMD desarrollado para destacar el concepto visual de esta etapa de Megadeth."
+                "isNew": true
             },
             {
                 "img": "images/fmd-edition-3d/peace/peace_3d_edition_v2.jpg",
                 "name": "Peace 3D V2",
-                "isNew": true,
-                "fmdBadge": "ORIGINAL FMD",
-                "fmdBadgeDescription": "Diseño exclusivo FMD desarrollado para destacar el concepto visual de esta etapa de Megadeth."
+                "isNew": true
             }
         ],
         "desc": "IcÃ³nica crÃ­tica sociopolÃ­tica plasmada en el sarcasmo de Vic Rattlehead frente a la ONU, envuelta en puro virtuosismo thrash.",
@@ -874,14 +789,7 @@
             "Peace Sells... but Who's Buying?",
             "remera",
             "Megadeth Albums"
-        ],
-        "designFamilyId": "megadeth-peace-sells",
-        "megadethSection": "albums",
-        "megadethAlbum": "Peace Sells... but Who's Buying?",
-        "megadethEra": "1986",
-        "megadethDesignType": "album_cover",
-        "isDesignDuplicateCandidate": true,
-        "curationNotes": "Familia relacionada detectada: megadeth-peace-sells; no fusionar automáticamente"
+        ]
     },
     {
         "id": 3,
@@ -910,9 +818,7 @@
             {
                 "img": "images/fmd-edition-3d/so_far/so_far_3d_edition.jpg",
                 "name": "So Far 3D",
-                "isNew": true,
-                "fmdBadge": "ORIGINAL FMD",
-                "fmdBadgeDescription": "Arte exclusivo FMD con impronta de colección, pensado para llevar la era del disco a una prenda con presencia."
+                "isNew": true
             }
         ],
         "desc": "Thrash Ã¡spero, oscuro y visceral con variantes del arte clÃ¡sico de So Far, So Good... So What!",
@@ -943,14 +849,7 @@
             "Megadeth Archive",
             "Megadeth Albums"
         ],
-        "reviewStatus": "classified",
-        "designFamilyId": "megadeth-so-far-so-good",
-        "megadethSection": "albums",
-        "megadethAlbum": "So Far, So Good... So What!",
-        "megadethEra": "1988",
-        "megadethDesignType": "album_cover",
-        "isDesignDuplicateCandidate": true,
-        "curationNotes": "Familia relacionada detectada: megadeth-so-far-so-good; no fusionar automáticamente"
+        "reviewStatus": "classified"
     },
     {
         "id": 4,
@@ -996,16 +895,12 @@
             {
                 "img": "images/fmd-edition-3d/rust/rust_in_peace_3d_edition_frente.jpg",
                 "name": "Rust in Peace 3D Frente",
-                "isNew": true,
-                "fmdBadge": "ORIGINAL FMD",
-                "fmdBadgeDescription": "Creación FMD de autor con foco en impacto visual, espíritu thrash y lectura premium en prenda."
+                "isNew": true
             },
             {
                 "img": "images/fmd-edition-3d/rust/rust_in_peace_3d_edition_dorso.jpg",
                 "name": "Rust in Peace 3D Dorso",
-                "isNew": true,
-                "fmdBadge": "ORIGINAL FMD",
-                "fmdBadgeDescription": "Creación FMD de autor con foco en impacto visual, espíritu thrash y lectura premium en prenda."
+                "isNew": true
             },
             {
                 "img": "images/albums/Rust_in_peace/rust_in_peace_lineup-dorso.png",
@@ -1040,14 +935,7 @@
             "Rust in Peace",
             "remera",
             "Megadeth Albums"
-        ],
-        "designFamilyId": "megadeth-rust-in-peace",
-        "megadethSection": "albums",
-        "megadethAlbum": "Rust in Peace",
-        "megadethEra": "1990",
-        "megadethDesignType": "album_cover",
-        "isDesignDuplicateCandidate": true,
-        "curationNotes": "Familia relacionada detectada: megadeth-rust-in-peace; no fusionar automáticamente"
+        ]
     },
     {
         "id": 5,
@@ -1084,9 +972,7 @@
             {
                 "img": "images/fmd-edition-3d/countdown/countdown_3d_edition.jpg",
                 "name": "FMD V2",
-                "isNew": true,
-                "fmdBadge": "ORIGINAL FMD",
-                "fmdBadgeDescription": "Diseño exclusivo FMD desarrollado para destacar el concepto visual de esta etapa de Megadeth."
+                "isNew": true
             },
             {
                 "img": "images/albums/Countdown_to_extinction/vic_time_frente.jpg",
@@ -1103,9 +989,7 @@
             {
                 "img": "images/fmd-edition-3d/countdown/vic_cte_fmd_edition.jpg",
                 "name": "Vic CTE FMD Edition",
-                "isNew": true,
-                "fmdBadge": "ORIGINAL FMD",
-                "fmdBadgeDescription": "Diseño exclusivo FMD desarrollado para destacar el concepto visual de esta etapa de Megadeth."
+                "isNew": true
             }
         ],
         "desc": "Countdown to Extinction con variantes clÃ¡sicas, circulares y versiones FMD frente y dorso.",
@@ -1136,14 +1020,7 @@
             "Megadeth Archive",
             "Megadeth Albums"
         ],
-        "reviewStatus": "classified",
-        "designFamilyId": "megadeth-countdown-to-extinction",
-        "megadethSection": "albums",
-        "megadethAlbum": "Countdown to Extinction",
-        "megadethEra": "1992",
-        "megadethDesignType": "album_cover",
-        "isDesignDuplicateCandidate": true,
-        "curationNotes": "Familia relacionada detectada: megadeth-countdown-to-extinction; no fusionar automáticamente"
+        "reviewStatus": "classified"
     },
     {
         "id": 6,
@@ -1218,14 +1095,7 @@
             "Megadeth Archive",
             "Megadeth Albums"
         ],
-        "reviewStatus": "classified",
-        "designFamilyId": "megadeth-youthanasia",
-        "megadethSection": "albums",
-        "megadethAlbum": "Youthanasia",
-        "megadethEra": "1994",
-        "megadethDesignType": "album_cover",
-        "isDesignDuplicateCandidate": true,
-        "curationNotes": "Familia relacionada detectada: megadeth-youthanasia; no fusionar automáticamente"
+        "reviewStatus": "classified"
     },
     {
         "id": 18,
@@ -1273,16 +1143,7 @@
             "Megadeth Archive",
             "Megadeth Albums"
         ],
-        "reviewStatus": "classified",
-        "designFamilyId": "megadeth-card-18",
-        "megadethSection": "albums",
-        "megadethAlbum": "Hidden Treasures",
-        "megadethEra": "1995",
-        "megadethDesignType": "album_cover",
-        "isDesignDuplicateCandidate": false,
-        "curationNotes": "Clasificación basada en metadata y revisión existente",
-        "fmdBadge": "ORIGINAL FMD",
-        "fmdBadgeDescription": "Arte exclusivo FMD con impronta de coleccion, pensado para llevar la era Hidden Treasures a una prenda con presencia."
+        "reviewStatus": "classified"
     },
     {
         "id": 8,
@@ -1336,9 +1197,7 @@
             {
                 "img": "images/fmd-edition-3d/cryptic/cryptic_3d_edition.jpg",
                 "name": "Cryptic 3D",
-                "isNew": true,
-                "fmdBadge": "ORIGINAL FMD",
-                "fmdBadgeDescription": "Diseño exclusivo FMD desarrollado para destacar el concepto visual de esta etapa de Megadeth."
+                "isNew": true
             }
         ],
         "desc": "MelodÃ­a accesible y experimentaciÃ³n radial envueltas en un arte mÃ­stico de simbologÃ­a crÃ­ptica y diseÃ±o minimalista.",
@@ -1369,14 +1228,7 @@
             "Megadeth Archive",
             "Megadeth Albums"
         ],
-        "reviewStatus": "classified",
-        "designFamilyId": "megadeth-cryptic-writings",
-        "megadethSection": "albums",
-        "megadethAlbum": "Cryptic Writings",
-        "megadethEra": "1997",
-        "megadethDesignType": "album_cover",
-        "isDesignDuplicateCandidate": true,
-        "curationNotes": "Familia relacionada detectada: megadeth-cryptic-writings; no fusionar automáticamente"
+        "reviewStatus": "classified"
     },
     {
         "id": 9,
@@ -1397,16 +1249,12 @@
             {
                 "img": "images/fmd-edition-3d/risk/risk_fmd_edition.jpg",
                 "name": "Risk FMD Edition",
-                "isNew": true,
-                "fmdBadge": "ORIGINAL FMD",
-                "fmdBadgeDescription": "Arte exclusivo FMD con impronta de colección, pensado para llevar la era del disco a una prenda con presencia."
+                "isNew": true
             },
             {
                 "img": "images/fmd-edition-3d/risk/risk_fmd_edition_v2.jpg",
                 "name": "Risk FMD Edition V2",
-                "isNew": true,
-                "fmdBadge": "ORIGINAL FMD",
-                "fmdBadgeDescription": "Arte exclusivo FMD con impronta de colección, pensado para llevar la era del disco a una prenda con presencia."
+                "isNew": true
             }
         ],
         "desc": "ExploraciÃ³n de hard rock melÃ³dico y comercial bajo el simbolismo de una ratonera que representa el riesgo artÃ­stico asumido.",
@@ -1437,14 +1285,7 @@
             "Megadeth Archive",
             "Megadeth Albums"
         ],
-        "reviewStatus": "classified",
-        "designFamilyId": "megadeth-card-9",
-        "megadethSection": "albums",
-        "megadethAlbum": "Risk",
-        "megadethEra": "1999",
-        "megadethDesignType": "album_cover",
-        "isDesignDuplicateCandidate": false,
-        "curationNotes": "Clasificación basada en metadata y revisión existente"
+        "reviewStatus": "classified"
     },
     {
         "id": 10,
@@ -1466,9 +1307,7 @@
             {
                 "img": "images/fmd-edition-3d/world_needs/the_world_needs_a_hero_3d_edition.jpg",
                 "name": "TWNAH FMD Edition V2",
-                "isNew": true,
-                "fmdBadge": "ORIGINAL FMD",
-                "fmdBadgeDescription": "Creación FMD de autor con foco en impacto visual, espíritu thrash y lectura premium en prenda."
+                "isNew": true
             }
         ],
         "desc": "Vic saliendo del pecho del alien. Gore y sci-fi. Un retorno al sonido pesado y las estructuras tradicionales del thrash metal, buscando recuperar la agresividad perdida en sus discos anteriores.",
@@ -1499,14 +1338,7 @@
             "Megadeth Archive",
             "Megadeth Albums"
         ],
-        "reviewStatus": "classified",
-        "designFamilyId": "megadeth-card-10",
-        "megadethSection": "albums",
-        "megadethAlbum": "The World Needs a Hero",
-        "megadethEra": "2001",
-        "megadethDesignType": "album_cover",
-        "isDesignDuplicateCandidate": false,
-        "curationNotes": "Clasificación basada en metadata y revisión existente"
+        "reviewStatus": "classified"
     },
     {
         "id": 11,
@@ -1523,9 +1355,7 @@
             {
                 "img": "images/fmd-edition-3d/system/the_system_fmd_edition.jpg",
                 "name": "The System FMD Edition",
-                "isNew": true,
-                "fmdBadge": "ORIGINAL FMD",
-                "fmdBadgeDescription": "Diseño exclusivo FMD desarrollado para destacar el concepto visual de esta etapa de Megadeth."
+                "isNew": true
             }
         ],
         "desc": "Vic vendiendo sentencias. Arte polÃ­tico. Un regreso triunfal al thrash tÃ©cnico con una portada que denuncia la corrupciÃ³n polÃ­tica en la Casa Blanca.",
@@ -1556,14 +1386,7 @@
             "Megadeth Archive",
             "Megadeth Albums"
         ],
-        "reviewStatus": "classified",
-        "designFamilyId": "megadeth-card-11",
-        "megadethSection": "albums",
-        "megadethAlbum": "The System Has Failed",
-        "megadethEra": "2004",
-        "megadethDesignType": "album_cover",
-        "isDesignDuplicateCandidate": false,
-        "curationNotes": "Clasificación basada en metadata y revisión existente"
+        "reviewStatus": "classified"
     },
     {
         "id": 12,
@@ -1588,16 +1411,12 @@
             {
                 "img": "images/fmd-edition-3d/united/united_3d_edition.jpg",
                 "name": "United 3D",
-                "isNew": true,
-                "fmdBadge": "ORIGINAL FMD",
-                "fmdBadgeDescription": "Arte exclusivo FMD con impronta de colección, pensado para llevar la era del disco a una prenda con presencia."
+                "isNew": true
             },
             {
                 "img": "images/fmd-edition-3d/united/united_3d_edition_v2.jpg",
                 "name": "United 3D V2",
-                "isNew": true,
-                "fmdBadge": "ORIGINAL FMD",
-                "fmdBadgeDescription": "Arte exclusivo FMD con impronta de colección, pensado para llevar la era del disco a una prenda con presencia."
+                "isNew": true
             }
         ],
         "desc": "CrÃ­tica feroz a la ONU y agresividad moderna con un rediseÃ±o cinematogrÃ¡fico de Vic Rattlehead.",
@@ -1628,14 +1447,7 @@
             "Megadeth Archive",
             "Megadeth Albums"
         ],
-        "reviewStatus": "classified",
-        "designFamilyId": "megadeth-card-12",
-        "megadethSection": "albums",
-        "megadethAlbum": "United Abominations",
-        "megadethEra": "2007",
-        "megadethDesignType": "album_cover",
-        "isDesignDuplicateCandidate": false,
-        "curationNotes": "Clasificación basada en metadata y revisión existente"
+        "reviewStatus": "classified"
     },
     {
         "id": 13,
@@ -1672,14 +1484,7 @@
             "Megadeth Archive",
             "Megadeth Albums"
         ],
-        "reviewStatus": "classified",
-        "designFamilyId": "megadeth-card-13",
-        "megadethSection": "albums",
-        "megadethAlbum": "Endgame",
-        "megadethEra": "2009",
-        "megadethDesignType": "album_cover",
-        "isDesignDuplicateCandidate": false,
-        "curationNotes": "Clasificación basada en metadata y revisión existente"
+        "reviewStatus": "classified"
     },
     {
         "id": 14,
@@ -1696,23 +1501,17 @@
             {
                 "img": "images/fmd-edition-3d/thirteen/13_3d_fmd_edition_v1.jpg",
                 "name": "13 3D V1",
-                "isNew": true,
-                "fmdBadge": "ORIGINAL FMD",
-                "fmdBadgeDescription": "Diseño exclusivo FMD desarrollado para destacar el concepto visual de esta etapa de Megadeth."
+                "isNew": true
             },
             {
                 "img": "images/fmd-edition-3d/thirteen/13_3d_fmd_edition_v2.jpg",
                 "name": "13 3D V2",
-                "isNew": true,
-                "fmdBadge": "ORIGINAL FMD",
-                "fmdBadgeDescription": "Diseño exclusivo FMD desarrollado para destacar el concepto visual de esta etapa de Megadeth."
+                "isNew": true
             },
             {
                 "img": "images/fmd-edition-3d/thirteen/13_fmd_edition.jpg",
                 "name": "13 FMD Edition",
-                "isNew": true,
-                "fmdBadge": "ORIGINAL FMD",
-                "fmdBadgeDescription": "Diseño exclusivo FMD desarrollado para destacar el concepto visual de esta etapa de Megadeth."
+                "isNew": true
             }
         ],
         "desc": "Un repaso oscuro por la herencia sonora de la banda bajo la mÃ­stica numÃ©rica y la presencia fantasmal de su mascota.",
@@ -1743,14 +1542,7 @@
             "Megadeth Archive",
             "Megadeth Albums"
         ],
-        "reviewStatus": "classified",
-        "designFamilyId": "megadeth-card-14",
-        "megadethSection": "albums",
-        "megadethAlbum": "TH1RT3EN",
-        "megadethEra": "2011",
-        "megadethDesignType": "album_cover",
-        "isDesignDuplicateCandidate": false,
-        "curationNotes": "Clasificación basada en metadata y revisión existente"
+        "reviewStatus": "classified"
     },
     {
         "id": 15,
@@ -1767,9 +1559,7 @@
             {
                 "img": "images/fmd-edition-3d/supercollider/supercollider_3d_edition.jpg",
                 "name": "FMD 3D",
-                "isNew": true,
-                "fmdBadge": "ORIGINAL FMD",
-                "fmdBadgeDescription": "Arte exclusivo FMD con impronta de colección, pensado para llevar la era del disco a una prenda con presencia."
+                "isNew": true
             }
         ],
         "desc": "Hard rock pesado y riffs directos inspirados en la ciencia del Gran Colisionador de Hadrones.",
@@ -1800,14 +1590,7 @@
             "Megadeth Archive",
             "Megadeth Albums"
         ],
-        "reviewStatus": "classified",
-        "designFamilyId": "megadeth-card-15",
-        "megadethSection": "albums",
-        "megadethAlbum": "Super Collider",
-        "megadethEra": "2013",
-        "megadethDesignType": "album_cover",
-        "isDesignDuplicateCandidate": false,
-        "curationNotes": "Clasificación basada en metadata y revisión existente"
+        "reviewStatus": "classified"
     },
     {
         "id": 7,
@@ -1828,23 +1611,17 @@
             {
                 "img": "images/fmd-edition-3d/dystopia/dystopia_3d_edition_v1.jpg",
                 "name": "Dystopia v1 3D",
-                "isNew": true,
-                "fmdBadge": "ORIGINAL FMD",
-                "fmdBadgeDescription": "Creación FMD de autor con foco en impacto visual, espíritu thrash y lectura premium en prenda."
+                "isNew": true
             },
             {
                 "img": "images/fmd-edition-3d/dystopia/dystopia_3d_edition_v2.jpg",
                 "name": "Dystopia v2 FMD 3D",
-                "isNew": true,
-                "fmdBadge": "ORIGINAL FMD",
-                "fmdBadgeDescription": "Creación FMD de autor con foco en impacto visual, espíritu thrash y lectura premium en prenda."
+                "isNew": true
             },
             {
                 "img": "images/fmd-edition-3d/dystopia/dystopia_fmd_edition.jpg",
                 "name": "Dystopia FMD Edition",
-                "isNew": true,
-                "fmdBadge": "ORIGINAL FMD",
-                "fmdBadgeDescription": "Creación FMD de autor con foco en impacto visual, espíritu thrash y lectura premium en prenda."
+                "isNew": true
             },
             {
                 "img": "images/albums/Dystopia/dystopia_v3.jpg",
@@ -1887,14 +1664,7 @@
             "Megadeth Archive",
             "Megadeth Albums"
         ],
-        "reviewStatus": "classified",
-        "designFamilyId": "megadeth-dystopia",
-        "megadethSection": "albums",
-        "megadethAlbum": "Dystopia",
-        "megadethEra": "2016",
-        "megadethDesignType": "album_cover",
-        "isDesignDuplicateCandidate": true,
-        "curationNotes": "Familia relacionada detectada: megadeth-dystopia; no fusionar automáticamente"
+        "reviewStatus": "classified"
     },
     {
         "id": 16,
@@ -1911,16 +1681,12 @@
             {
                 "img": "images/fmd-edition-3d/sick/the_sick_fmd_3d.jpg",
                 "name": "The Sick 3D",
-                "isNew": true,
-                "fmdBadge": "ORIGINAL FMD",
-                "fmdBadgeDescription": "Creación FMD de autor con foco en impacto visual, espíritu thrash y lectura premium en prenda."
+                "isNew": true
             },
             {
                 "img": "images/fmd-edition-3d/sick/vic_the_sick_fmd_3d.jpg",
                 "name": "Vic The Sick 3D",
-                "isNew": true,
-                "fmdBadge": "ORIGINAL FMD",
-                "fmdBadgeDescription": "Creación FMD de autor con foco en impacto visual, espíritu thrash y lectura premium en prenda."
+                "isNew": true
             }
         ],
         "desc": "Virtuosismo Ã©pico y relatos de pestilencia histÃ³rica con un Vic Rattlehead convertido en un guerrero medieval implacable.",
@@ -1951,14 +1717,7 @@
             "Megadeth Archive",
             "Megadeth Albums"
         ],
-        "reviewStatus": "classified",
-        "designFamilyId": "megadeth-the-sick-the-dying-and-the-dead",
-        "megadethSection": "albums",
-        "megadethAlbum": "The Sick, the Dying... and the Dead!",
-        "megadethEra": "2022",
-        "megadethDesignType": "original_fmd",
-        "isDesignDuplicateCandidate": true,
-        "curationNotes": "Corrección curatorial confirmada por Fernando en Sprint 3.3"
+        "reviewStatus": "classified"
     },
     {
         "id": 17,
@@ -2008,17 +1767,13 @@
                 "img": "images/fmd-edition-3d/megadeth_last_album/vic_llamas_3d_edition_frente.jpg",
                 "name": "VIC LLAMAS FMD EDITION Frente",
                 "role": "front",
-                "isNew": true,
-                "fmdBadge": "ORIGINAL FMD",
-                "fmdBadgeDescription": "Diseño exclusivo FMD desarrollado para destacar el concepto visual de esta etapa de Megadeth."
+                "isNew": true
             },
             {
                 "img": "images/fmd-edition-3d/megadeth_last_album/vic_llamas_3d_edition_dorso.jpg",
                 "name": "VIC LLAMAS FMD EDITION Dorso",
                 "role": "back",
-                "isNew": true,
-                "fmdBadge": "ORIGINAL FMD",
-                "fmdBadgeDescription": "Diseño exclusivo FMD desarrollado para destacar el concepto visual de esta etapa de Megadeth."
+                "isNew": true
             }
         ],
         "desc": "Un diseÃ±o limpio e impactante que captura a Vic Rattlehead consumiÃ©ndose en llamas. Incluye variantes clásicas 2026.",
@@ -2049,14 +1804,7 @@
             "Megadeth Archive",
             "Megadeth Albums"
         ],
-        "reviewStatus": "classified",
-        "designFamilyId": "megadeth-megadeth",
-        "megadethSection": "albums",
-        "megadethAlbum": "Megadeth (2026)",
-        "megadethEra": "2026",
-        "megadethDesignType": "album_cover",
-        "isDesignDuplicateCandidate": true,
-        "curationNotes": "Familia relacionada detectada: megadeth-megadeth; no fusionar automáticamente"
+        "reviewStatus": "classified"
     },
     {
         "id": 235,
@@ -2091,16 +1839,7 @@
             "Megadeth Archive",
             "Megadeth Singles"
         ],
-        "reviewStatus": "classified",
-        "designFamilyId": "megadeth-card-235",
-        "megadethSection": "vic_rattlehead",
-        "megadethAlbum": null,
-        "megadethEra": null,
-        "megadethDesignType": "vic",
-        "isDesignDuplicateCandidate": false,
-        "curationNotes": "Revisar sección propuesta: vic_rattlehead",
-        "fmdBadge": "ORIGINAL FMD",
-        "fmdBadgeDescription": "Creación exclusiva FMD con Vic como protagonista, pensada para una presencia fuerte y de colección."
+        "reviewStatus": "classified"
     },
     {
         "id": 236,
@@ -2166,16 +1905,7 @@
             "Megadeth Archive",
             "Megadeth Singles"
         ],
-        "reviewStatus": "classified",
-        "designFamilyId": "megadeth-rusted-pieces",
-        "megadethSection": "vic_rattlehead",
-        "megadethAlbum": null,
-        "megadethEra": null,
-        "megadethDesignType": "album_cover",
-        "isDesignDuplicateCandidate": true,
-        "curationNotes": "Corrección curatorial confirmada por Fernando en Sprint 3.3",
-        "fmdBadge": "ORIGINAL FMD",
-        "fmdBadgeDescription": "Creación exclusiva FMD con Vic como protagonista, pensada para una presencia fuerte y de colección."
+        "reviewStatus": "classified"
     },
     {
         "id": 246,
@@ -2272,16 +2002,7 @@
             "Megadeth Archive",
             "Megadeth Singles"
         ],
-        "reviewStatus": "classified",
-        "designFamilyId": "megadeth-card-246",
-        "megadethSection": "albums",
-        "megadethAlbum": "Megadeth (2026)",
-        "megadethEra": "2026",
-        "megadethDesignType": "single",
-        "isDesignDuplicateCandidate": false,
-        "curationNotes": "Clasificación basada en metadata y revisión existente",
-        "fmdBadge": "ORIGINAL FMD",
-        "fmdBadgeDescription": "Arte exclusivo FMD con impronta de colección, pensado para llevar esta era a una prenda con presencia."
+        "reviewStatus": "classified"
     },
     {
         "id": 6015,
@@ -2304,9 +2025,7 @@
             },
             {
                 "img": "images/singles/mary_jane.jpg",
-                "name": "Mary Jane Original",
-                "fmdBadge": "ORIGINAL FMD",
-                "fmdBadgeDescription": "Arte exclusivo FMD con impronta de colección, pensado para llevar esta era a una prenda con presencia."
+                "name": "Mary Jane Original"
             }
         ],
         "desc": "Mary Jane â€” single exclusivo con versiones remastered. EdiciÃ³n especial Five Magics Designs.",
@@ -2337,14 +2056,7 @@
             "Megadeth Archive",
             "Megadeth Singles"
         ],
-        "reviewStatus": "classified",
-        "designFamilyId": "megadeth-card-6015",
-        "megadethSection": "albums",
-        "megadethAlbum": "So Far, So Good... So What!",
-        "megadethEra": "1988",
-        "megadethDesignType": "original_fmd",
-        "isDesignDuplicateCandidate": false,
-        "curationNotes": "Corrección curatorial confirmada por Fernando en Sprint 3.3"
+        "reviewStatus": "classified"
     },
     {
         "id": 1065,
@@ -2397,16 +2109,7 @@
             "Megadeth Archive",
             "Megadeth Singles"
         ],
-        "reviewStatus": "classified",
-        "designFamilyId": "megadeth-card-1065",
-        "megadethSection": "vic_rattlehead",
-        "megadethAlbum": null,
-        "megadethEra": null,
-        "megadethDesignType": "vic",
-        "isDesignDuplicateCandidate": false,
-        "curationNotes": "Clasificación basada en metadata y revisión existente",
-        "fmdBadge": "ORIGINAL FMD",
-        "fmdBadgeDescription": "Creación exclusiva FMD con Vic como protagonista, pensada para una presencia fuerte y de colección."
+        "reviewStatus": "classified"
     },
     {
         "id": 245,
@@ -2443,16 +2146,7 @@
             "Megadeth Archive",
             "Megadeth Singles"
         ],
-        "reviewStatus": "classified",
-        "designFamilyId": "megadeth-card-245",
-        "megadethSection": "vic_rattlehead",
-        "megadethAlbum": "The Sick, the Dying... and the Dead!",
-        "megadethEra": "2022",
-        "megadethDesignType": "original_fmd",
-        "isDesignDuplicateCandidate": false,
-        "curationNotes": "Corrección curatorial confirmada por Fernando en Sprint 3.3",
-        "fmdBadge": "ORIGINAL FMD",
-        "fmdBadgeDescription": "Creación exclusiva FMD con Vic como protagonista, pensada para una presencia fuerte y de colección."
+        "reviewStatus": "classified"
     },
     {
         "id": 2801,
@@ -2512,16 +2206,7 @@
         "commercialPriority": 60,
         "visibilityTier": "catalog",
         "legacyCategory": "Dave Mustaine",
-        "reviewStatus": "classified",
-        "designFamilyId": "megadeth-card-2801",
-        "megadethSection": "dave_mustaine",
-        "megadethAlbum": "Countdown to Extinction",
-        "megadethEra": "1992",
-        "megadethDesignType": "dave",
-        "isDesignDuplicateCandidate": false,
-        "curationNotes": "Clasificación basada en metadata y revisión existente",
-        "fmdBadge": "ORIGINAL FMD",
-        "fmdBadgeDescription": "Creacion exclusiva FMD centrada en la era Countdown, con estetica filosa y presencia de escenario."
+        "reviewStatus": "classified"
     },
     {
         "id": 2802,
@@ -2578,16 +2263,7 @@
         "commercialPriority": 60,
         "visibilityTier": "catalog",
         "legacyCategory": "Dave Mustaine",
-        "reviewStatus": "classified",
-        "designFamilyId": "megadeth-card-2802",
-        "megadethSection": "dave_mustaine",
-        "megadethAlbum": "Rust in Peace",
-        "megadethEra": "1990",
-        "megadethDesignType": "dave",
-        "isDesignDuplicateCandidate": false,
-        "curationNotes": "Clasificación basada en metadata y revisión existente",
-        "fmdBadge": "ORIGINAL FMD",
-        "fmdBadgeDescription": "Diseno exclusivo FMD inspirado en el Dave de los 90, crudo, directo y con energia de vivo."
+        "reviewStatus": "classified"
     },
     {
         "id": 2806,
@@ -2635,16 +2311,7 @@
         "commercialPriority": 60,
         "visibilityTier": "catalog",
         "legacyCategory": "Dave Mustaine",
-        "reviewStatus": "classified",
-        "designFamilyId": "megadeth-card-2806",
-        "megadethSection": "dave_mustaine",
-        "megadethAlbum": null,
-        "megadethEra": null,
-        "megadethDesignType": "dave",
-        "isDesignDuplicateCandidate": false,
-        "curationNotes": "Clasificación basada en metadata y revisión existente",
-        "fmdBadge": "ORIGINAL FMD",
-        "fmdBadgeDescription": "Pieza exclusiva FMD con actitud Mustaine al frente: frontal fuerte, dorso con caracter y lectura bien metalera."
+        "reviewStatus": "classified"
     },
     {
         "id": 2811,
@@ -2680,16 +2347,7 @@
         "commercialPriority": 60,
         "visibilityTier": "catalog",
         "legacyCategory": "Dave Mustaine",
-        "reviewStatus": "classified",
-        "designFamilyId": "megadeth-card-2811",
-        "megadethSection": "dave_mustaine",
-        "megadethAlbum": null,
-        "megadethEra": null,
-        "megadethDesignType": "dave",
-        "isDesignDuplicateCandidate": false,
-        "curationNotes": "Clasificación basada en metadata y revisión existente",
-        "fmdBadge": "ORIGINAL FMD",
-        "fmdBadgeDescription": "Arte exclusivo FMD con Dave como figura central, pensado para una prenda oscura, potente y coleccionable."
+        "reviewStatus": "classified"
     },
     {
         "id": 2814,
@@ -2747,16 +2405,7 @@
         "commercialPriority": 60,
         "visibilityTier": "catalog",
         "legacyCategory": "Dave Mustaine",
-        "reviewStatus": "classified",
-        "designFamilyId": "megadeth-card-2814",
-        "megadethSection": "dave_mustaine",
-        "megadethAlbum": "So Far, So Good... So What!",
-        "megadethEra": "1988",
-        "megadethDesignType": "dave",
-        "isDesignDuplicateCandidate": false,
-        "curationNotes": "Clasificación basada en metadata y revisión existente",
-        "fmdBadge": "ORIGINAL FMD",
-        "fmdBadgeDescription": "Creacion FMD sobre la era So Far, So Good... So What!, con lectura vintage y golpe visual de thrash clasico."
+        "reviewStatus": "classified"
     },
     {
         "id": 2815,
@@ -2784,9 +2433,7 @@
             {
                 "img": "images/musicians/Dave_Mustaine/dave_and_vic_live.jpg",
                 "name": "Dave and Vic Live",
-                "role": "front",
-                "fmdBadge": "ORIGINAL FMD",
-                "fmdBadgeDescription": "Diseño exclusivo FMD con foco en actitud, escenario y energía Mustaine."
+                "role": "front"
             }
         ],
         "desc": "ColecciÃ³n Dave Mustaine 90s/Leyenda con 4 variantes icÃ³nicas en una sola card.",
@@ -2818,16 +2465,7 @@
         "commercialPriority": 60,
         "visibilityTier": "catalog",
         "legacyCategory": "Dave Mustaine",
-        "reviewStatus": "classified",
-        "designFamilyId": "megadeth-card-2815",
-        "megadethSection": "dave_mustaine",
-        "megadethAlbum": "Rust in Peace",
-        "megadethEra": "1990",
-        "megadethDesignType": "dave",
-        "isDesignDuplicateCandidate": false,
-        "curationNotes": "Clasificación basada en metadata y revisión existente",
-        "fmdBadge": "ORIGINAL FMD",
-        "fmdBadgeDescription": "Diseno exclusivo FMD que cruza a Dave y Vic en clave Rust in Peace, con variantes de alto impacto visual."
+        "reviewStatus": "classified"
     },
     {
         "id": 6014,
@@ -2880,16 +2518,7 @@
         ],
         "commercialPriority": 90,
         "visibilityTier": "hero",
-        "legacyCategory": "Dave Mustaine",
-        "designFamilyId": "megadeth-card-6014",
-        "megadethSection": "dave_mustaine",
-        "megadethAlbum": null,
-        "megadethEra": null,
-        "megadethDesignType": "dave",
-        "isDesignDuplicateCandidate": false,
-        "curationNotes": "Clasificación basada en metadata y revisión existente",
-        "fmdBadge": "ORIGINAL FMD",
-        "fmdBadgeDescription": "Edicion especial FMD Dave Mustaine Argentina, creada para llevar el espiritu del show final a una prenda protagonista."
+        "legacyCategory": "Dave Mustaine"
     },
     {
         "id": 6020,
@@ -2941,16 +2570,7 @@
         "commercialPriority": 60,
         "visibilityTier": "catalog",
         "legacyCategory": "Dave Mustaine",
-        "reviewStatus": "classified",
-        "designFamilyId": "megadeth-card-6020",
-        "megadethSection": "dave_mustaine",
-        "megadethAlbum": null,
-        "megadethEra": null,
-        "megadethDesignType": "dave",
-        "isDesignDuplicateCandidate": false,
-        "curationNotes": "Clasificación basada en metadata y revisión existente",
-        "fmdBadge": "ORIGINAL FMD",
-        "fmdBadgeDescription": "Creacion exclusiva FMD con identidad argentina y espiritu Megadeth, pensada para fans que quieren una pieza distinta."
+        "reviewStatus": "classified"
     },
     {
         "id": 29,
@@ -3003,14 +2623,7 @@
             "Megadeth Archive",
             "Megadeth Members"
         ],
-        "reviewStatus": "classified",
-        "designFamilyId": "megadeth-card-29",
-        "megadethSection": "members",
-        "megadethAlbum": null,
-        "megadethEra": null,
-        "megadethDesignType": "member",
-        "isDesignDuplicateCandidate": false,
-        "curationNotes": "Clasificación basada en metadata y revisión existente"
+        "reviewStatus": "classified"
     },
     {
         "id": 30,
@@ -3075,14 +2688,7 @@
             "Megadeth Archive",
             "Megadeth Members"
         ],
-        "reviewStatus": "classified",
-        "designFamilyId": "megadeth-card-30",
-        "megadethSection": "members",
-        "megadethAlbum": null,
-        "megadethEra": null,
-        "megadethDesignType": "member",
-        "isDesignDuplicateCandidate": false,
-        "curationNotes": "Clasificación basada en metadata y revisión existente"
+        "reviewStatus": "classified"
     },
     {
         "id": 31,
@@ -3132,14 +2738,7 @@
             "Megadeth Archive",
             "Megadeth Members"
         ],
-        "reviewStatus": "classified",
-        "designFamilyId": "megadeth-card-31",
-        "megadethSection": "members",
-        "megadethAlbum": null,
-        "megadethEra": null,
-        "megadethDesignType": "member",
-        "isDesignDuplicateCandidate": false,
-        "curationNotes": "Clasificación basada en metadata y revisión existente"
+        "reviewStatus": "classified"
     },
     {
         "id": 46,
@@ -3578,30 +3177,22 @@
             {
                 "img": "images/tours/Vic_Gaucho_Argentino/vic_gaucho_realista.jpg",
                 "name": "Realista",
-                "role": "front",
-                "fmdBadge": "ORIGINAL FMD",
-                "fmdBadgeDescription": "Edición exclusiva FMD con espíritu conmemorativo y presencia fuerte de tour."
+                "role": "front"
             },
             {
                 "img": "images/tours/Vic_Gaucho_Argentino/vic_gaucho_caballo.jpg",
                 "name": "Caballo",
-                "role": "front",
-                "fmdBadge": "ORIGINAL FMD",
-                "fmdBadgeDescription": "Edición exclusiva FMD con espíritu conmemorativo y presencia fuerte de tour."
+                "role": "front"
             },
             {
                 "img": "images/vic_rattlehead/vic_gaucho_fmd.jpg",
                 "name": "FMD Frente",
-                "role": "front",
-                "fmdBadge": "ORIGINAL FMD",
-                "fmdBadgeDescription": "Edición exclusiva FMD con espíritu conmemorativo y presencia fuerte de tour."
+                "role": "front"
             },
             {
                 "img": "images/vic_rattlehead/dorso_vic_gaucho_fmd.jpg",
                 "name": "FMD Dorso",
-                "role": "back",
-                "fmdBadge": "ORIGINAL FMD",
-                "fmdBadgeDescription": "Edición exclusiva FMD con espíritu conmemorativo y presencia fuerte de tour."
+                "role": "back"
             }
         ],
         "desc": "Serie especial VIC GAUCHO. 4 diseÃ±os Ãºnicos + dorso FMD.",
@@ -3619,14 +3210,7 @@
         "commercialPriority": 62,
         "visibilityTier": "catalog",
         "legacyCategory": "Tour",
-        "reviewStatus": "classified",
-        "designFamilyId": "megadeth-card-39",
-        "megadethSection": "tours",
-        "megadethAlbum": null,
-        "megadethEra": null,
-        "megadethDesignType": "tour",
-        "isDesignDuplicateCandidate": false,
-        "curationNotes": "Clasificación basada en metadata y revisión existente"
+        "reviewStatus": "classified"
     },
     {
         "id": 40,
@@ -3662,9 +3246,7 @@
             {
                 "img": "images/tours/Tour_argentina/vic_bandera_logo_blanco.jpg",
                 "name": "Vic Bandera Blanco",
-                "role": "front",
-                "fmdBadge": "ORIGINAL FMD",
-                "fmdBadgeDescription": "Edición exclusiva FMD con espíritu conmemorativo y presencia fuerte de tour."
+                "role": "front"
             },
             {
                 "img": "images/tours/Tour_argentina/vic_bandera_logo_dorado.jpg",
@@ -3680,17 +3262,13 @@
                 "img": "images/tours/Tour_argentina/dave_final_show_frente.jpg",
                 "name": "Dave Final Show Frente",
                 "role": "front",
-                "isNew": true,
-                "fmdBadge": "ORIGINAL FMD",
-                "fmdBadgeDescription": "Edición exclusiva FMD con espíritu conmemorativo y presencia fuerte de tour."
+                "isNew": true
             },
             {
                 "img": "images/tours/Tour_argentina/set_list_show_dorso.jpg",
                 "name": "Set List Show Dorso",
                 "role": "back",
-                "isNew": true,
-                "fmdBadge": "ORIGINAL FMD",
-                "fmdBadgeDescription": "Edición exclusiva FMD con espíritu conmemorativo y presencia fuerte de tour."
+                "isNew": true
             },
             {
                 "img": "images/tours/Tour_argentina/tour_merch_2026-v1_frente.jpg",
@@ -3736,9 +3314,7 @@
                 "img": "images/vic_rattlehead/vic_celeste_y_blanco.jpg",
                 "name": "Vic Celeste y Blanco",
                 "role": "front",
-                "isNew": true,
-                "fmdBadge": "ORIGINAL FMD",
-                "fmdBadgeDescription": "Edición exclusiva FMD con espíritu conmemorativo y presencia fuerte de tour."
+                "isNew": true
             },
             {
                 "img": "images/tours/Tour_argentina/tour_merch_2026-v1_dorso.jpg",
@@ -3781,14 +3357,7 @@
         "commercialPriority": 62,
         "visibilityTier": "catalog",
         "legacyCategory": "Tour",
-        "reviewStatus": "classified",
-        "designFamilyId": "megadeth-card-40",
-        "megadethSection": "tours",
-        "megadethAlbum": null,
-        "megadethEra": null,
-        "megadethDesignType": "tour",
-        "isDesignDuplicateCandidate": false,
-        "curationNotes": "Clasificación basada en metadata y revisión existente"
+        "reviewStatus": "classified"
     },
     {
         "id": 300,
@@ -3832,16 +3401,7 @@
         "commercialPriority": 62,
         "visibilityTier": "catalog",
         "legacyCategory": "Tour",
-        "reviewStatus": "classified",
-        "designFamilyId": "megadeth-card-300",
-        "megadethSection": "tours",
-        "megadethAlbum": null,
-        "megadethEra": null,
-        "megadethDesignType": "tour",
-        "isDesignDuplicateCandidate": false,
-        "curationNotes": "Clasificación basada en metadata y revisión existente",
-        "fmdBadge": "ORIGINAL FMD",
-        "fmdBadgeDescription": "Edición exclusiva FMD con espíritu conmemorativo y presencia fuerte de tour."
+        "reviewStatus": "classified"
     },
     {
         "id": 301,
@@ -3888,16 +3448,7 @@
         "commercialPriority": 62,
         "visibilityTier": "catalog",
         "legacyCategory": "Tour",
-        "reviewStatus": "classified",
-        "designFamilyId": "megadeth-card-301",
-        "megadethSection": "tours",
-        "megadethAlbum": "Peace Sells... but Who's Buying?",
-        "megadethEra": "1986",
-        "megadethDesignType": "tour",
-        "isDesignDuplicateCandidate": false,
-        "curationNotes": "Clasificación basada en metadata y revisión existente",
-        "fmdBadge": "ORIGINAL FMD",
-        "fmdBadgeDescription": "Edición exclusiva FMD con espíritu conmemorativo y presencia fuerte de tour."
+        "reviewStatus": "classified"
     },
     {
         "id": 320,
@@ -3964,16 +3515,7 @@
         "commercialPriority": 62,
         "visibilityTier": "catalog",
         "legacyCategory": "Tour",
-        "reviewStatus": "classified",
-        "designFamilyId": "megadeth-vic-tour",
-        "megadethSection": "vic_rattlehead",
-        "megadethAlbum": null,
-        "megadethEra": null,
-        "megadethDesignType": "tour",
-        "isDesignDuplicateCandidate": true,
-        "curationNotes": "Corrección curatorial confirmada por Fernando en Sprint 3.3",
-        "fmdBadge": "ORIGINAL FMD",
-        "fmdBadgeDescription": "Creación exclusiva FMD con Vic como protagonista, pensada para una presencia fuerte y de colección."
+        "reviewStatus": "classified"
     },
     {
         "id": 304,
@@ -4008,9 +3550,7 @@
             {
                 "img": "images/vic_rattlehead/vic_my_last_blanco.jpg",
                 "name": "Blanco",
-                "role": "front",
-                "fmdBadge": "ORIGINAL FMD",
-                "fmdBadgeDescription": "Creación exclusiva FMD con Vic como protagonista, pensada para una presencia fuerte y de colección."
+                "role": "front"
             },
             {
                 "img": "images/vic_rattlehead/vic_my_last_logo_rojo.jpg",
@@ -4041,14 +3581,7 @@
         "commercialPriority": 45,
         "visibilityTier": "catalog",
         "legacyCategory": "VicRattlehead",
-        "reviewStatus": "classified",
-        "designFamilyId": "megadeth-card-304",
-        "megadethSection": "vic_rattlehead",
-        "megadethAlbum": "Peace Sells... but Who's Buying?",
-        "megadethEra": "1986",
-        "megadethDesignType": "vic",
-        "isDesignDuplicateCandidate": false,
-        "curationNotes": "Clasificación basada en metadata y revisión existente"
+        "reviewStatus": "classified"
     },
     {
         "id": 314,
@@ -4109,14 +3642,7 @@
         "commercialPriority": 45,
         "visibilityTier": "catalog",
         "legacyCategory": "VicRattlehead",
-        "reviewStatus": "classified",
-        "designFamilyId": "megadeth-card-314",
-        "megadethSection": "vic_rattlehead",
-        "megadethAlbum": "Killing Is My Business... and Business Is Good!",
-        "megadethEra": "1985",
-        "megadethDesignType": "vic",
-        "isDesignDuplicateCandidate": false,
-        "curationNotes": "Clasificación basada en metadata y revisión existente"
+        "reviewStatus": "classified"
     },
     {
         "id": 419,
@@ -4170,14 +3696,7 @@
         "commercialPriority": 45,
         "visibilityTier": "archive",
         "legacyCategory": "VicRattlehead",
-        "reviewStatus": "classified",
-        "designFamilyId": "megadeth-card-419",
-        "megadethSection": "vic_rattlehead",
-        "megadethAlbum": null,
-        "megadethEra": null,
-        "megadethDesignType": "vic",
-        "isDesignDuplicateCandidate": false,
-        "curationNotes": "Clasificación basada en metadata y revisión existente"
+        "reviewStatus": "classified"
     },
     {
         "id": 420,
@@ -4214,14 +3733,7 @@
         "commercialPriority": 45,
         "visibilityTier": "archive",
         "legacyCategory": "VicRattlehead",
-        "reviewStatus": "classified",
-        "designFamilyId": "megadeth-card-420",
-        "megadethSection": "vic_rattlehead",
-        "megadethAlbum": null,
-        "megadethEra": null,
-        "megadethDesignType": "vic",
-        "isDesignDuplicateCandidate": false,
-        "curationNotes": "Clasificación basada en metadata y revisión existente"
+        "reviewStatus": "classified"
     },
     {
         "id": 423,
@@ -4258,14 +3770,7 @@
         "commercialPriority": 45,
         "visibilityTier": "archive",
         "legacyCategory": "VicRattlehead",
-        "reviewStatus": "classified",
-        "designFamilyId": "megadeth-card-423",
-        "megadethSection": "vic_rattlehead",
-        "megadethAlbum": null,
-        "megadethEra": null,
-        "megadethDesignType": "vic",
-        "isDesignDuplicateCandidate": false,
-        "curationNotes": "Clasificación basada en metadata y revisión existente"
+        "reviewStatus": "classified"
     },
     {
         "id": 424,
@@ -4302,16 +3807,7 @@
         "commercialPriority": 45,
         "visibilityTier": "archive",
         "legacyCategory": "VicRattlehead",
-        "reviewStatus": "classified",
-        "designFamilyId": "megadeth-card-424",
-        "megadethSection": "vic_rattlehead",
-        "megadethAlbum": null,
-        "megadethEra": null,
-        "megadethDesignType": "vic",
-        "isDesignDuplicateCandidate": false,
-        "curationNotes": "Clasificación basada en metadata y revisión existente",
-        "fmdBadge": "ORIGINAL FMD",
-        "fmdBadgeDescription": "Creación exclusiva FMD con Vic como protagonista, pensada para una presencia fuerte y de colección."
+        "reviewStatus": "classified"
     },
     {
         "id": 425,
@@ -4348,14 +3844,7 @@
         "commercialPriority": 45,
         "visibilityTier": "archive",
         "legacyCategory": "VicRattlehead",
-        "reviewStatus": "classified",
-        "designFamilyId": "megadeth-card-425",
-        "megadethSection": "vic_rattlehead",
-        "megadethAlbum": null,
-        "megadethEra": null,
-        "megadethDesignType": "vic",
-        "isDesignDuplicateCandidate": false,
-        "curationNotes": "Clasificación basada en metadata y revisión existente"
+        "reviewStatus": "classified"
     },
     {
         "id": 426,
@@ -4392,14 +3881,7 @@
         "commercialPriority": 45,
         "visibilityTier": "archive",
         "legacyCategory": "VicRattlehead",
-        "reviewStatus": "classified",
-        "designFamilyId": "megadeth-card-426",
-        "megadethSection": "vic_rattlehead",
-        "megadethAlbum": null,
-        "megadethEra": null,
-        "megadethDesignType": "vic",
-        "isDesignDuplicateCandidate": false,
-        "curationNotes": "Clasificación basada en metadata y revisión existente"
+        "reviewStatus": "classified"
     },
     {
         "id": 427,
@@ -4436,16 +3918,7 @@
         "commercialPriority": 45,
         "visibilityTier": "archive",
         "legacyCategory": "VicRattlehead",
-        "reviewStatus": "classified",
-        "designFamilyId": "megadeth-card-427",
-        "megadethSection": "vic_rattlehead",
-        "megadethAlbum": null,
-        "megadethEra": null,
-        "megadethDesignType": "vic",
-        "isDesignDuplicateCandidate": false,
-        "curationNotes": "Clasificación basada en metadata y revisión existente",
-        "fmdBadge": "ORIGINAL FMD",
-        "fmdBadgeDescription": "Creación exclusiva FMD con Vic como protagonista, pensada para una presencia fuerte y de colección."
+        "reviewStatus": "classified"
     },
     {
         "id": 428,
@@ -4482,14 +3955,7 @@
         "commercialPriority": 45,
         "visibilityTier": "archive",
         "legacyCategory": "VicRattlehead",
-        "reviewStatus": "classified",
-        "designFamilyId": "megadeth-card-428",
-        "megadethSection": "vic_rattlehead",
-        "megadethAlbum": null,
-        "megadethEra": null,
-        "megadethDesignType": "vic",
-        "isDesignDuplicateCandidate": false,
-        "curationNotes": "Clasificación basada en metadata y revisión existente"
+        "reviewStatus": "classified"
     },
     {
         "id": 429,
@@ -4526,16 +3992,7 @@
         "commercialPriority": 45,
         "visibilityTier": "archive",
         "legacyCategory": "VicRattlehead",
-        "reviewStatus": "classified",
-        "designFamilyId": "megadeth-card-429",
-        "megadethSection": "vic_rattlehead",
-        "megadethAlbum": null,
-        "megadethEra": null,
-        "megadethDesignType": "vic",
-        "isDesignDuplicateCandidate": false,
-        "curationNotes": "Clasificación basada en metadata y revisión existente",
-        "fmdBadge": "ORIGINAL FMD",
-        "fmdBadgeDescription": "Creación exclusiva FMD con Vic como protagonista, pensada para una presencia fuerte y de colección."
+        "reviewStatus": "classified"
     },
     {
         "id": 430,
@@ -4572,16 +4029,7 @@
         "commercialPriority": 45,
         "visibilityTier": "archive",
         "legacyCategory": "VicRattlehead",
-        "reviewStatus": "classified",
-        "designFamilyId": "megadeth-vic-militar",
-        "megadethSection": "vic_rattlehead",
-        "megadethAlbum": null,
-        "megadethEra": null,
-        "megadethDesignType": "original_fmd",
-        "isDesignDuplicateCandidate": true,
-        "curationNotes": "Corrección curatorial confirmada por Fernando en Sprint 3.3",
-        "fmdBadge": "ORIGINAL FMD",
-        "fmdBadgeDescription": "Creación exclusiva FMD con Vic como protagonista, pensada para una presencia fuerte y de colección."
+        "reviewStatus": "classified"
     },
     {
         "id": 400,
@@ -4618,14 +4066,7 @@
             "Megadeth Archive",
             "Tour Archive"
         ],
-        "reviewStatus": "classified",
-        "designFamilyId": "megadeth-card-400",
-        "megadethSection": "tours",
-        "megadethAlbum": null,
-        "megadethEra": null,
-        "megadethDesignType": "front_back_set",
-        "isDesignDuplicateCandidate": false,
-        "curationNotes": "Clasificación basada en metadata y revisión existente"
+        "reviewStatus": "classified"
     },
     {
         "id": 401,
@@ -4662,14 +4103,7 @@
             "Megadeth Archive",
             "Tour Archive"
         ],
-        "reviewStatus": "classified",
-        "designFamilyId": "megadeth-card-401",
-        "megadethSection": "tours",
-        "megadethAlbum": null,
-        "megadethEra": null,
-        "megadethDesignType": "front_back_set",
-        "isDesignDuplicateCandidate": false,
-        "curationNotes": "Clasificación basada en metadata y revisión existente"
+        "reviewStatus": "classified"
     },
     {
         "id": 402,
@@ -4706,14 +4140,7 @@
             "Megadeth Archive",
             "Tour Archive"
         ],
-        "reviewStatus": "classified",
-        "designFamilyId": "megadeth-tour",
-        "megadethSection": "tours",
-        "megadethAlbum": null,
-        "megadethEra": null,
-        "megadethDesignType": "original_fmd",
-        "isDesignDuplicateCandidate": true,
-        "curationNotes": "Corrección curatorial confirmada por Fernando en Sprint 3.3"
+        "reviewStatus": "classified"
     },
     {
         "id": 403,
@@ -4750,14 +4177,7 @@
             "Megadeth Archive",
             "Tour Archive"
         ],
-        "reviewStatus": "classified",
-        "designFamilyId": "megadeth-tour",
-        "megadethSection": "tours",
-        "megadethAlbum": null,
-        "megadethEra": null,
-        "megadethDesignType": "original_fmd",
-        "isDesignDuplicateCandidate": true,
-        "curationNotes": "Corrección curatorial confirmada por Fernando en Sprint 3.3"
+        "reviewStatus": "classified"
     },
     {
         "id": 404,
@@ -4794,14 +4214,7 @@
             "Megadeth Archive",
             "Tour Archive"
         ],
-        "reviewStatus": "classified",
-        "designFamilyId": "megadeth-card-404",
-        "megadethSection": "tours",
-        "megadethAlbum": null,
-        "megadethEra": null,
-        "megadethDesignType": "front_back_set",
-        "isDesignDuplicateCandidate": false,
-        "curationNotes": "Clasificación basada en metadata y revisión existente"
+        "reviewStatus": "classified"
     },
     {
         "id": 405,
@@ -4838,16 +4251,7 @@
             "Megadeth Archive",
             "Tour Archive"
         ],
-        "reviewStatus": "classified",
-        "designFamilyId": "megadeth-vic-tour",
-        "megadethSection": "vic_rattlehead",
-        "megadethAlbum": null,
-        "megadethEra": null,
-        "megadethDesignType": "tour",
-        "isDesignDuplicateCandidate": true,
-        "curationNotes": "Corrección curatorial confirmada por Fernando en Sprint 3.3",
-        "fmdBadge": "ORIGINAL FMD",
-        "fmdBadgeDescription": "Creación exclusiva FMD con Vic como protagonista, pensada para una presencia fuerte y de colección."
+        "reviewStatus": "classified"
     },
     {
         "id": 406,
@@ -4884,14 +4288,7 @@
             "Megadeth Archive",
             "Tour Archive"
         ],
-        "reviewStatus": "classified",
-        "designFamilyId": "megadeth-vic-tour",
-        "megadethSection": "tours",
-        "megadethAlbum": null,
-        "megadethEra": null,
-        "megadethDesignType": "original_fmd",
-        "isDesignDuplicateCandidate": true,
-        "curationNotes": "Corrección curatorial confirmada por Fernando en Sprint 3.3"
+        "reviewStatus": "classified"
     },
     {
         "id": 407,
@@ -4928,14 +4325,7 @@
             "Megadeth Archive",
             "Tour Archive"
         ],
-        "reviewStatus": "classified",
-        "designFamilyId": "megadeth-card-407",
-        "megadethSection": "tours",
-        "megadethAlbum": null,
-        "megadethEra": null,
-        "megadethDesignType": "front_back_set",
-        "isDesignDuplicateCandidate": false,
-        "curationNotes": "Clasificación basada en metadata y revisión existente"
+        "reviewStatus": "classified"
     },
     {
         "id": 5019,
@@ -4974,14 +4364,7 @@
             "Tour Archive",
             "Argentina 2026"
         ],
-        "reviewStatus": "classified",
-        "designFamilyId": "megadeth-card-5019",
-        "megadethSection": "tours",
-        "megadethAlbum": null,
-        "megadethEra": null,
-        "megadethDesignType": "front_back_set",
-        "isDesignDuplicateCandidate": false,
-        "curationNotes": "Clasificación basada en metadata y revisión existente"
+        "reviewStatus": "classified"
     },
     {
         "id": 5020,
@@ -5018,14 +4401,7 @@
             "Megadeth Archive",
             "Tour Archive"
         ],
-        "reviewStatus": "classified",
-        "designFamilyId": "megadeth-tour",
-        "megadethSection": "tours",
-        "megadethAlbum": null,
-        "megadethEra": null,
-        "megadethDesignType": "original_fmd",
-        "isDesignDuplicateCandidate": true,
-        "curationNotes": "Corrección curatorial confirmada por Fernando en Sprint 3.3"
+        "reviewStatus": "classified"
     },
     {
         "id": 5021,
@@ -5062,14 +4438,7 @@
             "Megadeth Archive",
             "Tour Archive"
         ],
-        "reviewStatus": "classified",
-        "designFamilyId": "megadeth-card-5021",
-        "megadethSection": "tours",
-        "megadethAlbum": null,
-        "megadethEra": null,
-        "megadethDesignType": "front_back_set",
-        "isDesignDuplicateCandidate": false,
-        "curationNotes": "Clasificación basada en metadata y revisión existente"
+        "reviewStatus": "classified"
     },
     {
         "id": 7034,
@@ -6840,14 +6209,7 @@
         "commercialPriority": 45,
         "visibilityTier": "archive",
         "legacyCategory": "VicRattlehead",
-        "reviewStatus": "classified",
-        "designFamilyId": "megadeth-card-1064",
-        "megadethSection": "vic_rattlehead",
-        "megadethAlbum": null,
-        "megadethEra": null,
-        "megadethDesignType": "vic",
-        "isDesignDuplicateCandidate": false,
-        "curationNotes": "Clasificación basada en metadata y revisión existente"
+        "reviewStatus": "classified"
     },
     {
         "id": 5124,
@@ -6900,14 +6262,7 @@
         "commercialPriority": 45,
         "visibilityTier": "catalog",
         "legacyCategory": "VicRattlehead",
-        "reviewStatus": "classified",
-        "designFamilyId": "megadeth-card-5124",
-        "megadethSection": "vic_rattlehead",
-        "megadethAlbum": "Countdown to Extinction",
-        "megadethEra": "1992",
-        "megadethDesignType": "vic",
-        "isDesignDuplicateCandidate": false,
-        "curationNotes": "Clasificación basada en metadata y revisión existente"
+        "reviewStatus": "classified"
     },
     {
         "id": 1066,
@@ -6947,14 +6302,7 @@
         "commercialPriority": 45,
         "visibilityTier": "archive",
         "legacyCategory": "VicRattlehead",
-        "reviewStatus": "classified",
-        "designFamilyId": "megadeth-card-1066",
-        "megadethSection": "vic_rattlehead",
-        "megadethAlbum": "Killing Is My Business... and Business Is Good!",
-        "megadethEra": "1985",
-        "megadethDesignType": "vic",
-        "isDesignDuplicateCandidate": false,
-        "curationNotes": "Clasificación basada en metadata y revisión existente"
+        "reviewStatus": "classified"
     },
     {
         "id": 5023,
@@ -7004,14 +6352,7 @@
         "commercialPriority": 45,
         "visibilityTier": "archive",
         "legacyCategory": "VicRattlehead",
-        "reviewStatus": "classified",
-        "designFamilyId": "megadeth-card-5023",
-        "megadethSection": "vic_rattlehead",
-        "megadethAlbum": null,
-        "megadethEra": null,
-        "megadethDesignType": "vic",
-        "isDesignDuplicateCandidate": false,
-        "curationNotes": "Clasificación basada en metadata y revisión existente"
+        "reviewStatus": "classified"
     },
     {
         "id": 2001,
@@ -8263,16 +7604,7 @@
             "Megadeth Archive",
             "Megadeth Singles"
         ],
-        "reviewStatus": "classified",
-        "designFamilyId": "megadeth-the-sick-the-dying-and-the-dead",
-        "megadethSection": "albums",
-        "megadethAlbum": "The Sick, the Dying... and the Dead!",
-        "megadethEra": "2022",
-        "megadethDesignType": "single",
-        "isDesignDuplicateCandidate": true,
-        "curationNotes": "Revisar sección propuesta: albums. Familia relacionada detectada: megadeth-the-sick-the-dying-and-the-dead; no fusionar automáticamente",
-        "fmdBadge": "ORIGINAL FMD",
-        "fmdBadgeDescription": "Arte exclusivo FMD con impronta de colección, pensado para llevar esta era a una prenda con presencia."
+        "reviewStatus": "classified"
     },
     {
         "id": 5024,
@@ -8324,16 +7656,7 @@
         "commercialPriority": 45,
         "visibilityTier": "catalog",
         "legacyCategory": "VicRattlehead",
-        "reviewStatus": "classified",
-        "designFamilyId": "megadeth-card-5024",
-        "megadethSection": "vic_rattlehead",
-        "megadethAlbum": "The Sick, the Dying... and the Dead!",
-        "megadethEra": "2022",
-        "megadethDesignType": "vic",
-        "isDesignDuplicateCandidate": false,
-        "curationNotes": "Clasificación basada en metadata y revisión existente",
-        "fmdBadge": "ORIGINAL FMD",
-        "fmdBadgeDescription": "Creación exclusiva FMD con Vic como protagonista, pensada para una presencia fuerte y de colección."
+        "reviewStatus": "classified"
     },
     {
         "id": 5025,
@@ -8385,14 +7708,7 @@
         "commercialPriority": 45,
         "visibilityTier": "catalog",
         "legacyCategory": "VicRattlehead",
-        "reviewStatus": "classified",
-        "designFamilyId": "megadeth-card-5025",
-        "megadethSection": "vic_rattlehead",
-        "megadethAlbum": "Rust in Peace",
-        "megadethEra": "1990",
-        "megadethDesignType": "vic",
-        "isDesignDuplicateCandidate": false,
-        "curationNotes": "Clasificación basada en metadata y revisión existente"
+        "reviewStatus": "classified"
     },
     {
         "id": 5026,
@@ -8431,14 +7747,7 @@
         "commercialPriority": 45,
         "visibilityTier": "archive",
         "legacyCategory": "VicRattlehead",
-        "reviewStatus": "classified",
-        "designFamilyId": "megadeth-card-5026",
-        "megadethSection": "vic_rattlehead",
-        "megadethAlbum": null,
-        "megadethEra": null,
-        "megadethDesignType": "vic",
-        "isDesignDuplicateCandidate": false,
-        "curationNotes": "Clasificación basada en metadata y revisión existente"
+        "reviewStatus": "classified"
     },
     {
         "id": 5027,
@@ -8479,16 +7788,7 @@
         "commercialPriority": 45,
         "visibilityTier": "archive",
         "legacyCategory": "VicRattlehead",
-        "reviewStatus": "classified",
-        "designFamilyId": "megadeth-card-5027",
-        "megadethSection": "vic_rattlehead",
-        "megadethAlbum": "Peace Sells... but Who's Buying?",
-        "megadethEra": "1986",
-        "megadethDesignType": "vic",
-        "isDesignDuplicateCandidate": false,
-        "curationNotes": "Clasificación basada en metadata y revisión existente",
-        "fmdBadge": "ORIGINAL FMD",
-        "fmdBadgeDescription": "Creación exclusiva FMD con Vic como protagonista, pensada para una presencia fuerte y de colección."
+        "reviewStatus": "classified"
     },
     {
         "id": 5028,
@@ -8529,16 +7829,7 @@
         "commercialPriority": 45,
         "visibilityTier": "catalog",
         "legacyCategory": "VicRattlehead",
-        "reviewStatus": "classified",
-        "designFamilyId": "megadeth-card-5028",
-        "megadethSection": "vic_rattlehead",
-        "megadethAlbum": "So Far, So Good... So What!",
-        "megadethEra": "1988",
-        "megadethDesignType": "vic",
-        "isDesignDuplicateCandidate": false,
-        "curationNotes": "Clasificación basada en metadata y revisión existente",
-        "fmdBadge": "ORIGINAL FMD",
-        "fmdBadgeDescription": "Creación exclusiva FMD con Vic como protagonista, pensada para una presencia fuerte y de colección."
+        "reviewStatus": "classified"
     },
     {
         "id": 5029,
@@ -8590,16 +7881,7 @@
         "commercialPriority": 45,
         "visibilityTier": "catalog",
         "legacyCategory": "VicRattlehead",
-        "reviewStatus": "classified",
-        "designFamilyId": "megadeth-card-5029",
-        "megadethSection": "vic_rattlehead",
-        "megadethAlbum": "Peace Sells... but Who's Buying?",
-        "megadethEra": "1986",
-        "megadethDesignType": "vic",
-        "isDesignDuplicateCandidate": false,
-        "curationNotes": "Clasificación basada en metadata y revisión existente",
-        "fmdBadge": "ORIGINAL FMD",
-        "fmdBadgeDescription": "Creación exclusiva FMD con Vic como protagonista, pensada para una presencia fuerte y de colección."
+        "reviewStatus": "classified"
     },
     {
         "id": 5030,
@@ -8649,16 +7931,7 @@
         "commercialPriority": 45,
         "visibilityTier": "archive",
         "legacyCategory": "VicRattlehead",
-        "reviewStatus": "classified",
-        "designFamilyId": "megadeth-card-5030",
-        "megadethSection": "vic_rattlehead",
-        "megadethAlbum": null,
-        "megadethEra": null,
-        "megadethDesignType": "vic",
-        "isDesignDuplicateCandidate": false,
-        "curationNotes": "Clasificación basada en metadata y revisión existente",
-        "fmdBadge": "ORIGINAL FMD",
-        "fmdBadgeDescription": "Creación exclusiva FMD con Vic como protagonista, pensada para una presencia fuerte y de colección."
+        "reviewStatus": "classified"
     },
     {
         "id": 5031,
@@ -9017,16 +8290,7 @@
         "commercialPriority": 45,
         "visibilityTier": "archive",
         "legacyCategory": "VicRattlehead",
-        "reviewStatus": "classified",
-        "designFamilyId": "megadeth-card-5050",
-        "megadethSection": "vic_rattlehead",
-        "megadethAlbum": null,
-        "megadethEra": null,
-        "megadethDesignType": "vic",
-        "isDesignDuplicateCandidate": false,
-        "curationNotes": "Clasificación basada en metadata y revisión existente",
-        "fmdBadge": "ORIGINAL FMD",
-        "fmdBadgeDescription": "Creación exclusiva FMD con Vic como protagonista, pensada para una presencia fuerte y de colección."
+        "reviewStatus": "classified"
     },
     {
         "id": 5051,
@@ -9040,9 +8304,7 @@
             {
                 "img": "images/vic_rattlehead/vic_peace_25_black.jpg",
                 "name": "Black",
-                "role": "front",
-                "fmdBadge": "ORIGINAL FMD",
-                "fmdBadgeDescription": "Creación exclusiva FMD con Vic como protagonista, pensada para una presencia fuerte y de colección."
+                "role": "front"
             },
             {
                 "img": "images/vic_rattlehead/vic_peace_25_white.jpg",
@@ -9081,14 +8343,7 @@
         "commercialPriority": 45,
         "visibilityTier": "catalog",
         "legacyCategory": "VicRattlehead",
-        "reviewStatus": "classified",
-        "designFamilyId": "megadeth-card-5051",
-        "megadethSection": "vic_rattlehead",
-        "megadethAlbum": "Peace Sells... but Who's Buying?",
-        "megadethEra": "1986",
-        "megadethDesignType": "vic",
-        "isDesignDuplicateCandidate": false,
-        "curationNotes": "Clasificación basada en metadata y revisión existente"
+        "reviewStatus": "classified"
     },
     {
         "id": 5040,
@@ -9783,16 +9038,7 @@
             "Megadeth Archive",
             "Megadeth Singles"
         ],
-        "reviewStatus": "classified",
-        "designFamilyId": "megadeth-card-5053",
-        "megadethSection": "albums",
-        "megadethAlbum": "Rust in Peace",
-        "megadethEra": "1990",
-        "megadethDesignType": "album_cover",
-        "isDesignDuplicateCandidate": false,
-        "curationNotes": "Corrección curatorial confirmada por Fernando en Sprint 3.3",
-        "fmdBadge": "ORIGINAL FMD",
-        "fmdBadgeDescription": "Arte exclusivo FMD con impronta de colección, pensado para llevar esta era a una prenda con presencia."
+        "reviewStatus": "classified"
     },
     {
         "id": 6031,
@@ -9836,16 +9082,7 @@
             "Megadeth Archive",
             "Megadeth Singles"
         ],
-        "reviewStatus": "classified",
-        "designFamilyId": "megadeth-card-6031",
-        "megadethSection": "original_fmd",
-        "megadethAlbum": "Rust in Peace",
-        "megadethEra": "1990",
-        "megadethDesignType": "single",
-        "isDesignDuplicateCandidate": false,
-        "curationNotes": "Corrección curatorial confirmada por Fernando en Sprint 3.3",
-        "fmdBadge": "ORIGINAL FMD",
-        "fmdBadgeDescription": "Creación exclusiva FMD con identidad propia y presencia fuerte en prenda."
+        "reviewStatus": "classified"
     },
     {
         "id": 5054,
@@ -9885,14 +9122,7 @@
         "commercialPriority": 45,
         "visibilityTier": "archive",
         "legacyCategory": "VicRattlehead",
-        "reviewStatus": "classified",
-        "designFamilyId": "megadeth-card-5054",
-        "megadethSection": "vic_rattlehead",
-        "megadethAlbum": "Peace Sells... but Who's Buying?",
-        "megadethEra": "1986",
-        "megadethDesignType": "vic",
-        "isDesignDuplicateCandidate": false,
-        "curationNotes": "Clasificación basada en metadata y revisión existente"
+        "reviewStatus": "classified"
     },
     {
         "id": 6023,
@@ -9906,9 +9136,7 @@
             {
                 "img": "images/vic_rattlehead/vic_and_friends_fmd_edition.jpg",
                 "name": "FMD Edition",
-                "role": "front",
-                "fmdBadge": "ORIGINAL FMD",
-                "fmdBadgeDescription": "Creación exclusiva FMD con Vic como protagonista, pensada para una presencia fuerte y de colección."
+                "role": "front"
             },
             {
                 "img": "images/vic_rattlehead/vic_and_friends_original.jpg",
@@ -9948,14 +9176,7 @@
         "commercialPriority": 45,
         "visibilityTier": "catalog",
         "legacyCategory": "VicRattlehead",
-        "reviewStatus": "classified",
-        "designFamilyId": "megadeth-card-6023",
-        "megadethSection": "vic_rattlehead",
-        "megadethAlbum": null,
-        "megadethEra": null,
-        "megadethDesignType": "vic",
-        "isDesignDuplicateCandidate": false,
-        "curationNotes": "Clasificación basada en metadata y revisión existente"
+        "reviewStatus": "classified"
     },
     {
         "id": 6024,
@@ -10000,14 +9221,7 @@
         "commercialPriority": 45,
         "visibilityTier": "archive",
         "legacyCategory": "VicRattlehead",
-        "reviewStatus": "classified",
-        "designFamilyId": "megadeth-card-6024",
-        "megadethSection": "vic_rattlehead",
-        "megadethAlbum": null,
-        "megadethEra": null,
-        "megadethDesignType": "vic",
-        "isDesignDuplicateCandidate": false,
-        "curationNotes": "Clasificación basada en metadata y revisión existente"
+        "reviewStatus": "classified"
     },
     {
         "id": 6022,
@@ -10075,14 +9289,7 @@
             "remera",
             "Megadeth Archive"
         ],
-        "reviewStatus": "classified",
-        "designFamilyId": "megadeth-card-6022",
-        "megadethSection": "dave_mustaine",
-        "megadethAlbum": null,
-        "megadethEra": null,
-        "megadethDesignType": "dave",
-        "isDesignDuplicateCandidate": false,
-        "curationNotes": "Clasificación basada en metadata y revisión existente"
+        "reviewStatus": "classified"
     },
     {
         "id": 5057,
@@ -10146,14 +9353,7 @@
             "Killing Is My Business... and Business Is Good!",
             "hoodie",
             "Megadeth Archive"
-        ],
-        "designFamilyId": "megadeth-card-5057",
-        "megadethSection": "albums",
-        "megadethAlbum": "Killing Is My Business... and Business Is Good!",
-        "megadethEra": "1985",
-        "megadethDesignType": "album_cover",
-        "isDesignDuplicateCandidate": false,
-        "curationNotes": "Corrección curatorial confirmada por Fernando en Sprint 3.3"
+        ]
     },
     {
         "id": 5061,
@@ -10187,14 +9387,7 @@
             "Peace Sells... but Who's Buying?",
             "hoodie",
             "Megadeth Archive"
-        ],
-        "designFamilyId": "megadeth-peace-sells",
-        "megadethSection": "albums",
-        "megadethAlbum": "Peace Sells... but Who's Buying?",
-        "megadethEra": "1986",
-        "megadethDesignType": "album_cover",
-        "isDesignDuplicateCandidate": true,
-        "curationNotes": "Corrección curatorial confirmada por Fernando en Sprint 3.3"
+        ]
     },
     {
         "id": 5056,
@@ -10228,14 +9421,7 @@
             "So Far, So Good... So What!",
             "hoodie",
             "Megadeth Archive"
-        ],
-        "designFamilyId": "megadeth-card-5056",
-        "megadethSection": "dave_mustaine",
-        "megadethAlbum": "So Far, So Good... So What!",
-        "megadethEra": "1988",
-        "megadethDesignType": "original_fmd",
-        "isDesignDuplicateCandidate": false,
-        "curationNotes": "Corrección curatorial confirmada por Fernando en Sprint 3.3"
+        ]
     },
     {
         "id": 5062,
@@ -10269,14 +9455,7 @@
             "Rust in Peace",
             "hoodie",
             "Megadeth Archive"
-        ],
-        "designFamilyId": "megadeth-rust-in-peace",
-        "megadethSection": "albums",
-        "megadethAlbum": "Rust in Peace",
-        "megadethEra": "1990",
-        "megadethDesignType": "album_cover",
-        "isDesignDuplicateCandidate": true,
-        "curationNotes": "Corrección curatorial confirmada por Fernando en Sprint 3.3"
+        ]
     },
     {
         "id": 5071,
@@ -10311,14 +9490,7 @@
             "Rust in Peace",
             "hoodie",
             "Megadeth Archive"
-        ],
-        "designFamilyId": "megadeth-rust-in-peace",
-        "megadethSection": "albums",
-        "megadethAlbum": "Rust in Peace",
-        "megadethEra": "1990",
-        "megadethDesignType": "album_cover",
-        "isDesignDuplicateCandidate": true,
-        "curationNotes": "Corrección curatorial confirmada por Fernando en Sprint 3.3"
+        ]
     },
     {
         "id": 5055,
@@ -10362,14 +9534,7 @@
             "Countdown to Extinction",
             "hoodie",
             "Megadeth Archive"
-        ],
-        "designFamilyId": "megadeth-card-5055",
-        "megadethSection": "albums",
-        "megadethAlbum": "Countdown to Extinction",
-        "megadethEra": "1992",
-        "megadethDesignType": "album_cover",
-        "isDesignDuplicateCandidate": false,
-        "curationNotes": "Corrección curatorial confirmada por Fernando en Sprint 3.3"
+        ]
     },
     {
         "id": 5064,
@@ -10403,14 +9568,7 @@
             "Youthanasia",
             "hoodie",
             "Megadeth Archive"
-        ],
-        "designFamilyId": "megadeth-youthanasia",
-        "megadethSection": "albums",
-        "megadethAlbum": "Youthanasia",
-        "megadethEra": "1994",
-        "megadethDesignType": "album_cover",
-        "isDesignDuplicateCandidate": true,
-        "curationNotes": "Corrección curatorial confirmada por Fernando en Sprint 3.3"
+        ]
     },
     {
         "id": 5065,
@@ -10444,14 +9602,7 @@
             "Cryptic Writings",
             "hoodie",
             "Megadeth Archive"
-        ],
-        "designFamilyId": "megadeth-cryptic-writings",
-        "megadethSection": "albums",
-        "megadethAlbum": "Cryptic Writings",
-        "megadethEra": "1997",
-        "megadethDesignType": "album_cover",
-        "isDesignDuplicateCandidate": true,
-        "curationNotes": "Corrección curatorial confirmada por Fernando en Sprint 3.3"
+        ]
     },
     {
         "id": 5066,
@@ -10485,14 +9636,7 @@
             "Dystopia",
             "hoodie",
             "Megadeth Archive"
-        ],
-        "designFamilyId": "megadeth-dystopia",
-        "megadethSection": "albums",
-        "megadethAlbum": "Dystopia",
-        "megadethEra": "2016",
-        "megadethDesignType": "album_cover",
-        "isDesignDuplicateCandidate": true,
-        "curationNotes": "Corrección curatorial confirmada por Fernando en Sprint 3.3"
+        ]
     },
     {
         "id": 5059,
@@ -10524,14 +9668,7 @@
             "Thrash Metal",
             "hoodie",
             "Megadeth Archive"
-        ],
-        "designFamilyId": "megadeth-card-5059",
-        "megadethSection": "albums",
-        "megadethAlbum": "Megadeth (2026)",
-        "megadethEra": "2026",
-        "megadethDesignType": "other",
-        "isDesignDuplicateCandidate": false,
-        "curationNotes": "Clasificación basada en metadata y revisión existente"
+        ]
     },
     {
         "id": 5060,
@@ -10563,14 +9700,7 @@
             "Thrash Metal",
             "hoodie",
             "Megadeth Archive"
-        ],
-        "designFamilyId": "megadeth-megadeth-blanco",
-        "megadethSection": "albums",
-        "megadethAlbum": "Megadeth (2026)",
-        "megadethEra": "2026",
-        "megadethDesignType": "album_cover",
-        "isDesignDuplicateCandidate": true,
-        "curationNotes": "Corrección curatorial confirmada por Fernando en Sprint 3.3"
+        ]
     },
     {
         "id": 5063,
@@ -10602,14 +9732,7 @@
             "Thrash Metal",
             "hoodie",
             "Megadeth Archive"
-        ],
-        "designFamilyId": "megadeth-card-5063",
-        "megadethSection": "albums",
-        "megadethAlbum": null,
-        "megadethEra": null,
-        "megadethDesignType": "album_cover",
-        "isDesignDuplicateCandidate": false,
-        "curationNotes": "Corrección curatorial confirmada por Fernando en Sprint 3.3"
+        ]
     },
     {
         "id": 5067,
@@ -10642,14 +9765,7 @@
             "Thrash Metal",
             "hoodie",
             "Megadeth Archive"
-        ],
-        "designFamilyId": "megadeth-card-5067",
-        "megadethSection": "albums",
-        "megadethAlbum": "Megadeth (2026)",
-        "megadethEra": "2026",
-        "megadethDesignType": "other",
-        "isDesignDuplicateCandidate": false,
-        "curationNotes": "Clasificación basada en metadata y revisión existente"
+        ]
     },
     {
         "id": 5068,
@@ -10682,14 +9798,7 @@
             "Thrash Metal",
             "hoodie",
             "Megadeth Archive"
-        ],
-        "designFamilyId": "megadeth-card-5068",
-        "megadethSection": "albums",
-        "megadethAlbum": null,
-        "megadethEra": null,
-        "megadethDesignType": "single",
-        "isDesignDuplicateCandidate": false,
-        "curationNotes": "Corrección curatorial confirmada por Fernando en Sprint 3.3"
+        ]
     },
     {
         "id": 5069,
@@ -10722,14 +9831,7 @@
             "Thrash Metal",
             "hoodie",
             "Megadeth Archive"
-        ],
-        "designFamilyId": "megadeth-card-5069",
-        "megadethSection": "albums",
-        "megadethAlbum": "Megadeth (2026)",
-        "megadethEra": "2026",
-        "megadethDesignType": "other",
-        "isDesignDuplicateCandidate": false,
-        "curationNotes": "Clasificación basada en metadata y revisión existente"
+        ]
     },
     {
         "id": 5070,
@@ -10762,14 +9864,7 @@
             "Thrash Metal",
             "hoodie",
             "Megadeth Archive"
-        ],
-        "designFamilyId": "megadeth-card-5070",
-        "megadethSection": "albums",
-        "megadethAlbum": "Megadeth (2026)",
-        "megadethEra": "2026",
-        "megadethDesignType": "other",
-        "isDesignDuplicateCandidate": false,
-        "curationNotes": "Clasificación basada en metadata y revisión existente"
+        ]
     },
     {
         "id": 5072,
@@ -10806,14 +9901,7 @@
             "hoodie",
             "Megadeth Archive",
             "Tour Archive"
-        ],
-        "designFamilyId": "megadeth-card-5072",
-        "megadethSection": "vic_rattlehead",
-        "megadethAlbum": null,
-        "megadethEra": null,
-        "megadethDesignType": "tour",
-        "isDesignDuplicateCandidate": false,
-        "curationNotes": "Corrección curatorial confirmada por Fernando en Sprint 3.3"
+        ]
     },
     {
         "id": 5073,
@@ -10846,14 +9934,7 @@
             "Thrash Metal",
             "hoodie",
             "Megadeth Archive"
-        ],
-        "designFamilyId": "megadeth-card-5073",
-        "megadethSection": "albums",
-        "megadethAlbum": null,
-        "megadethEra": null,
-        "megadethDesignType": "album_cover",
-        "isDesignDuplicateCandidate": false,
-        "curationNotes": "Corrección curatorial confirmada por Fernando en Sprint 3.3"
+        ]
     },
     {
         "id": 5074,
@@ -10890,14 +9971,7 @@
             "hoodie",
             "Megadeth Archive",
             "Tour Archive"
-        ],
-        "designFamilyId": "megadeth-card-5074",
-        "megadethSection": "vic_rattlehead",
-        "megadethAlbum": null,
-        "megadethEra": null,
-        "megadethDesignType": "tour",
-        "isDesignDuplicateCandidate": false,
-        "curationNotes": "Corrección curatorial confirmada por Fernando en Sprint 3.3"
+        ]
     },
     {
         "id": 5075,
@@ -10930,16 +10004,7 @@
             "Thrash Metal",
             "hoodie",
             "Megadeth Archive"
-        ],
-        "designFamilyId": "megadeth-vic-militar",
-        "megadethSection": "vic_rattlehead",
-        "megadethAlbum": null,
-        "megadethEra": null,
-        "megadethDesignType": "original_fmd",
-        "isDesignDuplicateCandidate": true,
-        "curationNotes": "Corrección curatorial confirmada por Fernando en Sprint 3.3",
-        "fmdBadge": "ORIGINAL FMD",
-        "fmdBadgeDescription": "Creación exclusiva FMD con Vic como protagonista, pensada para una presencia fuerte y de colección."
+        ]
     },
     {
         "id": 5076,
@@ -10978,14 +10043,7 @@
             "Megadeth Archive",
             "Tour Archive",
             "Argentina 2026"
-        ],
-        "designFamilyId": "megadeth-guitarra-argentina",
-        "megadethSection": "original_fmd",
-        "megadethAlbum": null,
-        "megadethEra": null,
-        "megadethDesignType": "dave",
-        "isDesignDuplicateCandidate": true,
-        "curationNotes": "Corrección curatorial confirmada por Fernando en Sprint 3.3"
+        ]
     },
     {
         "id": 6001,
@@ -11510,14 +10568,7 @@
         "campaigns": [],
         "commercialPriority": 78,
         "visibilityTier": "featured",
-        "legacyCategory": "Buzo Cuello Redondo",
-        "designFamilyId": "megadeth-rust-in-peace",
-        "megadethSection": "albums",
-        "megadethAlbum": "Rust in Peace",
-        "megadethEra": "1990",
-        "megadethDesignType": "reimagined_fmd",
-        "isDesignDuplicateCandidate": true,
-        "curationNotes": "Corrección curatorial confirmada por Fernando en Sprint 3.3"
+        "legacyCategory": "Buzo Cuello Redondo"
     },
     {
         "id": 7002,
@@ -11555,14 +10606,7 @@
         "campaigns": [],
         "commercialPriority": 78,
         "visibilityTier": "featured",
-        "legacyCategory": "Buzo Cuello Redondo",
-        "designFamilyId": "megadeth-rust-in-peace",
-        "megadethSection": "albums",
-        "megadethAlbum": "Rust in Peace",
-        "megadethEra": "1990",
-        "megadethDesignType": "album_cover",
-        "isDesignDuplicateCandidate": true,
-        "curationNotes": "Corrección curatorial confirmada por Fernando en Sprint 3.3"
+        "legacyCategory": "Buzo Cuello Redondo"
     },
     {
         "id": 7003,
@@ -11603,14 +10647,7 @@
         "campaigns": [],
         "commercialPriority": 78,
         "visibilityTier": "featured",
-        "legacyCategory": "Buzo Cuello Redondo",
-        "designFamilyId": "megadeth-card-7003",
-        "megadethSection": "albums",
-        "megadethAlbum": "Rust in Peace",
-        "megadethEra": "1990",
-        "megadethDesignType": "album_cover",
-        "isDesignDuplicateCandidate": false,
-        "curationNotes": "Corrección curatorial confirmada por Fernando en Sprint 3.3"
+        "legacyCategory": "Buzo Cuello Redondo"
     },
     {
         "id": 7004,
@@ -11651,14 +10688,7 @@
         "campaigns": [],
         "commercialPriority": 78,
         "visibilityTier": "featured",
-        "legacyCategory": "Buzo Cuello Redondo",
-        "designFamilyId": "megadeth-countdown-to-extinction",
-        "megadethSection": "albums",
-        "megadethAlbum": "Countdown to Extinction",
-        "megadethEra": "1992",
-        "megadethDesignType": "album_cover",
-        "isDesignDuplicateCandidate": true,
-        "curationNotes": "Corrección curatorial confirmada por Fernando en Sprint 3.3"
+        "legacyCategory": "Buzo Cuello Redondo"
     },
     {
         "id": 7005,
@@ -11699,14 +10729,7 @@
         "campaigns": [],
         "commercialPriority": 78,
         "visibilityTier": "featured",
-        "legacyCategory": "Buzo Cuello Redondo",
-        "designFamilyId": "megadeth-card-7005",
-        "megadethSection": "albums",
-        "megadethAlbum": "Killing Is My Business... and Business Is Good!",
-        "megadethEra": "1985",
-        "megadethDesignType": "album_cover",
-        "isDesignDuplicateCandidate": false,
-        "curationNotes": "Corrección curatorial confirmada por Fernando en Sprint 3.3"
+        "legacyCategory": "Buzo Cuello Redondo"
     },
     {
         "id": 7006,
@@ -11747,14 +10770,7 @@
         "campaigns": [],
         "commercialPriority": 78,
         "visibilityTier": "featured",
-        "legacyCategory": "Buzo Cuello Redondo",
-        "designFamilyId": "megadeth-so-far-so-good",
-        "megadethSection": "albums",
-        "megadethAlbum": "So Far, So Good... So What!",
-        "megadethEra": "1988",
-        "megadethDesignType": "album_cover",
-        "isDesignDuplicateCandidate": true,
-        "curationNotes": "Corrección curatorial confirmada por Fernando en Sprint 3.3"
+        "legacyCategory": "Buzo Cuello Redondo"
     },
     {
         "id": 7007,
@@ -11795,14 +10811,7 @@
         "campaigns": [],
         "commercialPriority": 78,
         "visibilityTier": "featured",
-        "legacyCategory": "Buzo Cuello Redondo",
-        "designFamilyId": "megadeth-youthanasia",
-        "megadethSection": "albums",
-        "megadethAlbum": "Youthanasia",
-        "megadethEra": "1994",
-        "megadethDesignType": "album_cover",
-        "isDesignDuplicateCandidate": true,
-        "curationNotes": "Corrección curatorial confirmada por Fernando en Sprint 3.3"
+        "legacyCategory": "Buzo Cuello Redondo"
     },
     {
         "id": 7008,
@@ -11841,14 +10850,7 @@
         "campaigns": [],
         "commercialPriority": 64,
         "visibilityTier": "catalog",
-        "legacyCategory": "Buzo Cuello Redondo",
-        "designFamilyId": "megadeth-card-7008",
-        "megadethSection": "dave_mustaine",
-        "megadethAlbum": null,
-        "megadethEra": null,
-        "megadethDesignType": "dave",
-        "isDesignDuplicateCandidate": false,
-        "curationNotes": "Revisar sección propuesta: dave_mustaine"
+        "legacyCategory": "Buzo Cuello Redondo"
     },
     {
         "id": 7009,
@@ -11892,14 +10894,7 @@
         ],
         "commercialPriority": 64,
         "visibilityTier": "catalog",
-        "legacyCategory": "Buzo Cuello Redondo",
-        "designFamilyId": "megadeth-guitarra-argentina",
-        "megadethSection": "dave_mustaine",
-        "megadethAlbum": null,
-        "megadethEra": null,
-        "megadethDesignType": "tour",
-        "isDesignDuplicateCandidate": true,
-        "curationNotes": "Corrección curatorial confirmada por Fernando en Sprint 3.3"
+        "legacyCategory": "Buzo Cuello Redondo"
     },
     {
         "id": 7010,
@@ -11942,14 +10937,7 @@
         ],
         "commercialPriority": 78,
         "visibilityTier": "featured",
-        "legacyCategory": "Buzo Cuello Redondo",
-        "designFamilyId": "megadeth-tour",
-        "megadethSection": "tours",
-        "megadethAlbum": null,
-        "megadethEra": null,
-        "megadethDesignType": "tour",
-        "isDesignDuplicateCandidate": true,
-        "curationNotes": "Revisar sección propuesta: tours. Familia relacionada detectada: megadeth-tour; no fusionar automáticamente"
+        "legacyCategory": "Buzo Cuello Redondo"
     },
     {
         "id": 7011,
@@ -12102,14 +11090,7 @@
         "campaigns": [],
         "commercialPriority": 64,
         "visibilityTier": "catalog",
-        "legacyCategory": "Buzo Cuello Redondo",
-        "designFamilyId": "megadeth-megadeth-blanco",
-        "megadethSection": "albums",
-        "megadethAlbum": null,
-        "megadethEra": null,
-        "megadethDesignType": "album_cover",
-        "isDesignDuplicateCandidate": true,
-        "curationNotes": "Corrección curatorial confirmada por Fernando en Sprint 3.3"
+        "legacyCategory": "Buzo Cuello Redondo"
     },
     {
         "id": 7015,

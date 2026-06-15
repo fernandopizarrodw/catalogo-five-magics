@@ -1,0 +1,354 @@
+{
+  "summary": {
+    "productsReviewed": 20,
+    "fullCardBadges": 5,
+    "variantOnlyBadges": 15,
+    "variantBadges": 27
+  },
+  "report": [
+    {
+      "id": 6028,
+      "name": "Megadeth FMD Original",
+      "mode": "card",
+      "cardBadge": "ORIGINAL FMD",
+      "variantBadges": []
+    },
+    {
+      "id": 6027,
+      "name": "Peace Sells FMD Edition",
+      "mode": "card",
+      "cardBadge": "ORIGINAL FMD",
+      "variantBadges": []
+    },
+    {
+      "id": 6026,
+      "name": "Killing Is my Bussines FMD Edition",
+      "mode": "card",
+      "cardBadge": "ORIGINAL FMD",
+      "variantBadges": []
+    },
+    {
+      "id": 6025,
+      "name": "Vic Llamas FMD Edition",
+      "mode": "card",
+      "cardBadge": "ORIGINAL FMD",
+      "variantBadges": []
+    },
+    {
+      "id": 1,
+      "name": "Killing Is my bussines",
+      "mode": "variants",
+      "cardBadge": null,
+      "variantBadges": [
+        {
+          "index": 9,
+          "name": "KIMB FMD Edition Frente",
+          "image": "images/fmd-edition-3d/killing/killing_final_3d_edition.jpg",
+          "badge": "ORIGINAL FMD",
+          "description": "Creación FMD de autor con foco en impacto visual, espíritu thrash y lectura premium en prenda."
+        },
+        {
+          "index": 10,
+          "name": "KIMB FMD Edition Dorso",
+          "image": "images/fmd-edition-3d/killing/killing_retro_3d_edition.jpg",
+          "badge": "ORIGINAL FMD",
+          "description": "Creación FMD de autor con foco en impacto visual, espíritu thrash y lectura premium en prenda."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Peace Sells",
+      "mode": "variants",
+      "cardBadge": null,
+      "variantBadges": [
+        {
+          "index": 6,
+          "name": "Peace 3D",
+          "image": "images/fmd-edition-3d/peace/peace_3d_edition_v1.jpg",
+          "badge": "ORIGINAL FMD",
+          "description": "Diseño exclusivo FMD desarrollado para destacar el concepto visual de esta etapa de Megadeth."
+        },
+        {
+          "index": 7,
+          "name": "Peace 3D V2",
+          "image": "images/fmd-edition-3d/peace/peace_3d_edition_v2.jpg",
+          "badge": "ORIGINAL FMD",
+          "description": "Diseño exclusivo FMD desarrollado para destacar el concepto visual de esta etapa de Megadeth."
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "So Far, So Good",
+      "mode": "variants",
+      "cardBadge": null,
+      "variantBadges": [
+        {
+          "index": 4,
+          "name": "So Far 3D",
+          "image": "images/fmd-edition-3d/so_far/so_far_3d_edition.jpg",
+          "badge": "ORIGINAL FMD",
+          "description": "Arte exclusivo FMD con impronta de colección, pensado para llevar la era del disco a una prenda con presencia."
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Rust in Peace",
+      "mode": "variants",
+      "cardBadge": null,
+      "variantBadges": [
+        {
+          "index": 8,
+          "name": "Rust in Peace 3D Frente",
+          "image": "images/fmd-edition-3d/rust/rust_in_peace_3d_edition_frente.jpg",
+          "badge": "ORIGINAL FMD",
+          "description": "Creación FMD de autor con foco en impacto visual, espíritu thrash y lectura premium en prenda."
+        },
+        {
+          "index": 9,
+          "name": "Rust in Peace 3D Dorso",
+          "image": "images/fmd-edition-3d/rust/rust_in_peace_3d_edition_dorso.jpg",
+          "badge": "ORIGINAL FMD",
+          "description": "Creación FMD de autor con foco en impacto visual, espíritu thrash y lectura premium en prenda."
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Countdown to Extinction",
+      "mode": "variants",
+      "cardBadge": null,
+      "variantBadges": [
+        {
+          "index": 6,
+          "name": "FMD V2",
+          "image": "images/fmd-edition-3d/countdown/countdown_3d_edition.jpg",
+          "badge": "ORIGINAL FMD",
+          "description": "Diseño exclusivo FMD desarrollado para destacar el concepto visual de esta etapa de Megadeth."
+        },
+        {
+          "index": 10,
+          "name": "Vic CTE FMD Edition",
+          "image": "images/fmd-edition-3d/countdown/vic_cte_fmd_edition.jpg",
+          "badge": "ORIGINAL FMD",
+          "description": "Diseño exclusivo FMD desarrollado para destacar el concepto visual de esta etapa de Megadeth."
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "name": "Hidden Treasures",
+      "mode": "card",
+      "cardBadge": "ORIGINAL FMD",
+      "variantBadges": []
+    },
+    {
+      "id": 8,
+      "name": "Cryptic Writings",
+      "mode": "variants",
+      "cardBadge": null,
+      "variantBadges": [
+        {
+          "index": 10,
+          "name": "Cryptic 3D",
+          "image": "images/fmd-edition-3d/cryptic/cryptic_3d_edition.jpg",
+          "badge": "ORIGINAL FMD",
+          "description": "Diseño exclusivo FMD desarrollado para destacar el concepto visual de esta etapa de Megadeth."
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "name": "Risk",
+      "mode": "variants",
+      "cardBadge": null,
+      "variantBadges": [
+        {
+          "index": 2,
+          "name": "Risk FMD Edition",
+          "image": "images/fmd-edition-3d/risk/risk_fmd_edition.jpg",
+          "badge": "ORIGINAL FMD",
+          "description": "Arte exclusivo FMD con impronta de colección, pensado para llevar la era del disco a una prenda con presencia."
+        },
+        {
+          "index": 3,
+          "name": "Risk FMD Edition V2",
+          "image": "images/fmd-edition-3d/risk/risk_fmd_edition_v2.jpg",
+          "badge": "ORIGINAL FMD",
+          "description": "Arte exclusivo FMD con impronta de colección, pensado para llevar la era del disco a una prenda con presencia."
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "name": "The World Needs a Hero",
+      "mode": "variants",
+      "cardBadge": null,
+      "variantBadges": [
+        {
+          "index": 2,
+          "name": "TWNAH FMD Edition V2",
+          "image": "images/fmd-edition-3d/world_needs/the_world_needs_a_hero_3d_edition.jpg",
+          "badge": "ORIGINAL FMD",
+          "description": "Creación FMD de autor con foco en impacto visual, espíritu thrash y lectura premium en prenda."
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "name": "The System Has Failed",
+      "mode": "variants",
+      "cardBadge": null,
+      "variantBadges": [
+        {
+          "index": 1,
+          "name": "The System FMD Edition",
+          "image": "images/fmd-edition-3d/system/the_system_fmd_edition.jpg",
+          "badge": "ORIGINAL FMD",
+          "description": "Diseño exclusivo FMD desarrollado para destacar el concepto visual de esta etapa de Megadeth."
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "name": "United Abominations",
+      "mode": "variants",
+      "cardBadge": null,
+      "variantBadges": [
+        {
+          "index": 3,
+          "name": "United 3D",
+          "image": "images/fmd-edition-3d/united/united_3d_edition.jpg",
+          "badge": "ORIGINAL FMD",
+          "description": "Arte exclusivo FMD con impronta de colección, pensado para llevar la era del disco a una prenda con presencia."
+        },
+        {
+          "index": 4,
+          "name": "United 3D V2",
+          "image": "images/fmd-edition-3d/united/united_3d_edition_v2.jpg",
+          "badge": "ORIGINAL FMD",
+          "description": "Arte exclusivo FMD con impronta de colección, pensado para llevar la era del disco a una prenda con presencia."
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "name": "TH1RT3EN",
+      "mode": "variants",
+      "cardBadge": null,
+      "variantBadges": [
+        {
+          "index": 1,
+          "name": "13 3D V1",
+          "image": "images/fmd-edition-3d/thirteen/13_3d_fmd_edition_v1.jpg",
+          "badge": "ORIGINAL FMD",
+          "description": "Diseño exclusivo FMD desarrollado para destacar el concepto visual de esta etapa de Megadeth."
+        },
+        {
+          "index": 2,
+          "name": "13 3D V2",
+          "image": "images/fmd-edition-3d/thirteen/13_3d_fmd_edition_v2.jpg",
+          "badge": "ORIGINAL FMD",
+          "description": "Diseño exclusivo FMD desarrollado para destacar el concepto visual de esta etapa de Megadeth."
+        },
+        {
+          "index": 3,
+          "name": "13 FMD Edition",
+          "image": "images/fmd-edition-3d/thirteen/13_fmd_edition.jpg",
+          "badge": "ORIGINAL FMD",
+          "description": "Diseño exclusivo FMD desarrollado para destacar el concepto visual de esta etapa de Megadeth."
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "name": "Super Collider",
+      "mode": "variants",
+      "cardBadge": null,
+      "variantBadges": [
+        {
+          "index": 1,
+          "name": "FMD 3D",
+          "image": "images/fmd-edition-3d/supercollider/supercollider_3d_edition.jpg",
+          "badge": "ORIGINAL FMD",
+          "description": "Arte exclusivo FMD con impronta de colección, pensado para llevar la era del disco a una prenda con presencia."
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Dystopia",
+      "mode": "variants",
+      "cardBadge": null,
+      "variantBadges": [
+        {
+          "index": 2,
+          "name": "Dystopia v1 3D",
+          "image": "images/fmd-edition-3d/dystopia/dystopia_3d_edition_v1.jpg",
+          "badge": "ORIGINAL FMD",
+          "description": "Creación FMD de autor con foco en impacto visual, espíritu thrash y lectura premium en prenda."
+        },
+        {
+          "index": 3,
+          "name": "Dystopia v2 FMD 3D",
+          "image": "images/fmd-edition-3d/dystopia/dystopia_3d_edition_v2.jpg",
+          "badge": "ORIGINAL FMD",
+          "description": "Creación FMD de autor con foco en impacto visual, espíritu thrash y lectura premium en prenda."
+        },
+        {
+          "index": 4,
+          "name": "Dystopia FMD Edition",
+          "image": "images/fmd-edition-3d/dystopia/dystopia_fmd_edition.jpg",
+          "badge": "ORIGINAL FMD",
+          "description": "Creación FMD de autor con foco en impacto visual, espíritu thrash y lectura premium en prenda."
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "name": "The Sick, the Dying...And the Dead!",
+      "mode": "variants",
+      "cardBadge": null,
+      "variantBadges": [
+        {
+          "index": 1,
+          "name": "The Sick 3D",
+          "image": "images/fmd-edition-3d/sick/the_sick_fmd_3d.jpg",
+          "badge": "ORIGINAL FMD",
+          "description": "Creación FMD de autor con foco en impacto visual, espíritu thrash y lectura premium en prenda."
+        },
+        {
+          "index": 2,
+          "name": "Vic The Sick 3D",
+          "image": "images/fmd-edition-3d/sick/vic_the_sick_fmd_3d.jpg",
+          "badge": "ORIGINAL FMD",
+          "description": "Creación FMD de autor con foco en impacto visual, espíritu thrash y lectura premium en prenda."
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "name": "Megadeth 2026",
+      "mode": "variants",
+      "cardBadge": null,
+      "variantBadges": [
+        {
+          "index": 9,
+          "name": "VIC LLAMAS FMD EDITION Frente",
+          "image": "images/fmd-edition-3d/megadeth_last_album/vic_llamas_3d_edition_frente.jpg",
+          "badge": "ORIGINAL FMD",
+          "description": "Diseño exclusivo FMD desarrollado para destacar el concepto visual de esta etapa de Megadeth."
+        },
+        {
+          "index": 10,
+          "name": "VIC LLAMAS FMD EDITION Dorso",
+          "image": "images/fmd-edition-3d/megadeth_last_album/vic_llamas_3d_edition_dorso.jpg",
+          "badge": "ORIGINAL FMD",
+          "description": "Diseño exclusivo FMD desarrollado para destacar el concepto visual de esta etapa de Megadeth."
+        }
+      ]
+    }
+  ]
+}

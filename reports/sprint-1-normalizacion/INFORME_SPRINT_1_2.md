@@ -1,0 +1,156 @@
+# Informe Sprint 1.2 - Segundo lote de metadatos
+
+Fecha: 2026-06-15
+
+## Resultado auditado
+
+- Estado: **VALIDADO**
+- Productos totales: **290**
+- Productos modificados: **60**
+- Cambios fuera del lote: **0**
+- IDs duplicados: **0**
+- Categorias modificadas: **0**
+- Referencias principales de imagen modificadas: **0**
+- Referencias de imagen verificadas: **750**
+- Imagenes inexistentes: **0**
+
+## Distribucion por banda
+
+- Slayer: **16**
+- Iron Maiden: **34**
+- Metallica: **2**
+- Pantera: **8**
+
+## Distribucion por universe
+
+- Thrash Metal: **18**
+- FMD Editions: **18**
+- Heavy Metal Classics: **44**
+- Groove Metal: **8**
+
+## Distribucion por visibilityTier
+
+- featured: **31**
+- catalog: **29**
+
+## Distribucion por commercialPriority
+
+- 75-89: **31**
+- 50-74: **29**
+
+## Compatibilidad con app.js
+
+- No se modificaron `index.html`, CSS, `js/app.js`, filtros ni home.
+- `category`, IDs, imagenes y variantes se conservaron.
+- `app.js` puede leer opcionalmente `band` y `collections`, pero conserva compatibilidad con productos no migrados mediante `category`.
+- `universe`, `garments`, `campaigns`, `commercialPriority`, `visibilityTier` y `legacyCategory` no controlan actualmente el comportamiento visual.
+
+## Productos modificados y metadata
+
+| ID | Producto | Band | Universe | Album | Garments | Collections | Campaigns | Priority | Tier | Legacy category |
+|---:|---|---|---|---|---|---|---|---:|---|---|
+| 7102 | Slayer Angel Of Death | Slayer | Thrash Metal | Reign in Blood | remera; hoodie | Slayer Archive FMD; Reign in Blood | - | 86 | featured | Slayer |
+| 7103 | Slayer South Of Heaven | Slayer | Thrash Metal | South of Heaven | remera; hoodie | Slayer Archive FMD; South of Heaven | - | 85 | featured | Slayer |
+| 7105 | Slayer Hell Awaits | Slayer | Thrash Metal | Hell Awaits | remera; hoodie; buzo_cuello_redondo | Slayer Archive FMD; Hell Awaits | - | 82 | featured | Slayer |
+| 7106 | Slayer Aguila | Slayer | Thrash Metal | - | remera; hoodie; buzo_cuello_redondo | Slayer Archive FMD | - | 68 | catalog | Slayer |
+| 7108 | Slayer Show No Mercy V2 | Slayer | Thrash Metal | Show No Mercy | remera; hoodie; buzo_cuello_redondo | Slayer Archive FMD; Show No Mercy | - | 84 | featured | Slayer |
+| 7109 | Slayer Show No Mercy FMD | Slayer | Thrash Metal; FMD Editions | Show No Mercy | remera; hoodie | Slayer Archive FMD; Show No Mercy; Originales FMD; FMD Editions | - | 81 | featured | Slayer |
+| 7110 | Slayer Nation | Slayer | Thrash Metal | - | remera | Slayer Archive FMD | - | 68 | catalog | Slayer |
+| 7111 | Slayer Demonic Admat | Slayer | Thrash Metal | - | remera | Slayer Archive FMD | - | 68 | catalog | Slayer |
+| 7112 | Slayer God Hates Us All | Slayer | Thrash Metal | God Hates Us All | remera | Slayer Archive FMD; God Hates Us All | - | 80 | featured | Slayer |
+| 7114 | Slayer Seasons V1 | Slayer | Thrash Metal | Seasons in the Abyss | remera | Slayer Archive FMD; Seasons in the Abyss | - | 82 | featured | Slayer |
+| 7115 | Slayer God Hates Us All V2 | Slayer | Thrash Metal | God Hates Us All | remera | Slayer Archive FMD; God Hates Us All | - | 68 | catalog | Slayer |
+| 7116 | Slayer Skull | Slayer | Thrash Metal | - | remera | Slayer Archive FMD | - | 68 | catalog | Slayer |
+| 7117 | Slayer Live Undead | Slayer | Thrash Metal | Live Undead | remera | Slayer Archive FMD; Live Undead | - | 78 | featured | Slayer |
+| 7118 | Slayer Divine Intervention | Slayer | Thrash Metal | Divine Intervention | remera | Slayer Archive FMD; Divine Intervention | - | 79 | featured | Slayer |
+| 7119 | Slayer Band | Slayer | Thrash Metal | - | remera | Slayer Archive FMD | - | 68 | catalog | Slayer |
+| 7121 | Slayer Diabolus In Musica | Slayer | Thrash Metal | Diabolus in Musica | remera | Slayer Archive FMD; Diabolus in Musica | - | 83 | featured | Slayer |
+| 307 | Iron Maiden - Live After Death | Iron Maiden | Heavy Metal Classics | Live After Death | remera | Archivo Maiden; Live After Death | - | 82 | featured | Iron Maiden |
+| 308 | Iron Maiden | Iron Maiden | Heavy Metal Classics | - | remera | Archivo Maiden | - | 68 | catalog | Iron Maiden |
+| 7034 | Iron Maiden - Eddie v1 | Iron Maiden | Heavy Metal Classics | - | remera | Archivo Maiden; Eddie | - | 68 | catalog | Iron Maiden |
+| 408 | Iron Maiden - Eddie v2 | Iron Maiden | Heavy Metal Classics | - | remera | Archivo Maiden; Eddie | - | 68 | catalog | Iron Maiden |
+| 409 | Iron Maiden - Eddie v3 | Iron Maiden | Heavy Metal Classics | - | remera | Archivo Maiden; Eddie | - | 68 | catalog | Iron Maiden |
+| 5125 | Iron Maiden - Eddie v4 | Iron Maiden | Heavy Metal Classics | - | remera | Archivo Maiden; Eddie | - | 68 | catalog | Iron Maiden |
+| 5032 | Iron Maiden Book | Iron Maiden | Heavy Metal Classics | The Book of Souls | remera | Archivo Maiden; The Book of Souls | - | 68 | catalog | Iron Maiden |
+| 5033 | Iron Maiden Can I | Iron Maiden | Heavy Metal Classics | Seventh Son of a Seventh Son | remera | Archivo Maiden; Seventh Son of a Seventh Son | - | 68 | catalog | Iron Maiden |
+| 5034 | Iron Maiden The Book | Iron Maiden | Heavy Metal Classics | The Book of Souls | remera | Archivo Maiden; The Book of Souls | - | 68 | catalog | Iron Maiden |
+| 5035 | Iron Maiden Brave | Iron Maiden | Heavy Metal Classics | Brave New World | remera | Archivo Maiden; Brave New World | - | 68 | catalog | Iron Maiden |
+| 5036 | Iron Maiden Killers | Iron Maiden | Heavy Metal Classics | Killers | remera | Archivo Maiden; Killers | - | 79 | featured | Iron Maiden |
+| 5037 | Iron Maiden Somewhere | Iron Maiden | Heavy Metal Classics | Somewhere in Time | remera | Archivo Maiden; Somewhere in Time | - | 68 | catalog | Iron Maiden |
+| 5038 | Iron Maiden Fear | Iron Maiden | Heavy Metal Classics | Fear of the Dark | remera | Archivo Maiden; Fear of the Dark | - | 84 | featured | Iron Maiden |
+| 6004 | Hoodie Iron Maiden | Iron Maiden | Heavy Metal Classics | - | hoodie | Archivo Maiden | - | 68 | catalog | Hoodies Otras Bandas |
+| 6005 | Hoodie Iron Maiden 666 | Iron Maiden | Heavy Metal Classics | The Number of the Beast | hoodie | Archivo Maiden; The Number of the Beast | - | 78 | featured | Hoodies Otras Bandas |
+| 6006 | Hoodie Iron Maiden Killers v1 | Iron Maiden | Heavy Metal Classics | Killers | hoodie | Archivo Maiden; Killers | - | 77 | featured | Hoodies Otras Bandas |
+| 6007 | Hoodie Iron Maiden Killers v2 | Iron Maiden | Heavy Metal Classics | Killers | hoodie | Archivo Maiden; Killers | - | 77 | featured | Hoodies Otras Bandas |
+| 7011 | Buzo Iron Maiden FMD | Iron Maiden | Heavy Metal Classics; FMD Editions | - | buzo_cuello_redondo | Buzos Cuello Redondo; Invierno 2026; Archivo Maiden; FMD Editions | - | 68 | catalog | Buzo Cuello Redondo |
+| 7012 | Buzo Iron Maiden After Death FMD | Iron Maiden | Heavy Metal Classics; FMD Editions | Live After Death | buzo_cuello_redondo | Buzos Cuello Redondo; Invierno 2026; Archivo Maiden; Live After Death; FMD Editions | - | 80 | featured | Buzo Cuello Redondo |
+| 7013 | Buzo Iron Maiden Tour FMD | Iron Maiden | Heavy Metal Classics; FMD Editions | - | buzo_cuello_redondo | Buzos Cuello Redondo; Invierno 2026; Archivo Maiden; FMD Editions; Tour Archive | Tour 2026 | 83 | featured | Buzo Cuello Redondo |
+| 7016 | Iron Maiden Eddie Argentina V2 FMD | Iron Maiden | Heavy Metal Classics; FMD Editions | - | remera | Eddie Argentina; Archivo Maiden; FMD Editions; Eddie | Argentina 2026 | 81 | featured | Iron Maiden |
+| 7017 | Iron Maiden Fmd Eddie FMD | Iron Maiden | Heavy Metal Classics; FMD Editions | - | remera | Originales FMD; Archivo Maiden; FMD Editions; Eddie | - | 68 | catalog | Iron Maiden |
+| 7018 | Iron Maiden Fmd Eddie Bass FMD | Iron Maiden | Heavy Metal Classics; FMD Editions | - | remera | Originales FMD; Archivo Maiden; FMD Editions; Eddie | - | 68 | catalog | Iron Maiden |
+| 7019 | Iron Maiden Fmd Eddie Circular FMD | Iron Maiden | Heavy Metal Classics; FMD Editions | - | remera | Originales FMD; Archivo Maiden; FMD Editions; Eddie | - | 68 | catalog | Iron Maiden |
+| 7020 | Iron Maiden Fmd Eddie La Momia FMD | Iron Maiden | Heavy Metal Classics; FMD Editions | - | remera | Originales FMD; Archivo Maiden; FMD Editions; Eddie | - | 68 | catalog | Iron Maiden |
+| 7021 | Iron Maiden Fmd Eddie Run For FMD | Iron Maiden | Heavy Metal Classics; FMD Editions | The Number of the Beast | remera | Originales FMD; Archivo Maiden; The Number of the Beast; FMD Editions; Eddie | - | 82 | featured | Iron Maiden |
+| 7022 | Iron Maiden Fmd Fear Of The Dark FMD | Iron Maiden | Heavy Metal Classics; FMD Editions | Fear of the Dark | remera | Originales FMD; Archivo Maiden; Fear of the Dark; FMD Editions | - | 80 | featured | Iron Maiden |
+| 7024 | Iron Maiden Fmd Killers V2 FMD | Iron Maiden | Heavy Metal Classics; FMD Editions | Killers | remera | Originales FMD; Archivo Maiden; Killers; FMD Editions | - | 78 | featured | Iron Maiden |
+| 7026 | Iron Maiden Fmd Powerslave FMD | Iron Maiden | Heavy Metal Classics; FMD Editions | Powerslave | remera | Originales FMD; Archivo Maiden; Powerslave; FMD Editions | - | 83 | featured | Iron Maiden |
+| 7027 | Iron Maiden Fmd Somewhere In Time FMD | Iron Maiden | Heavy Metal Classics; FMD Editions | Somewhere in Time | remera | Originales FMD; Archivo Maiden; Somewhere in Time; FMD Editions | - | 80 | featured | Iron Maiden |
+| 7028 | Iron Maiden Fmd The Book FMD | Iron Maiden | Heavy Metal Classics; FMD Editions | The Book of Souls | remera | Originales FMD; Archivo Maiden; The Book of Souls; FMD Editions | - | 78 | featured | Iron Maiden |
+| 7031 | Iron Maiden Tour Merch V1 FMD | Iron Maiden | Heavy Metal Classics; FMD Editions | - | remera | World Tour 2026; Archivo Maiden; FMD Editions; Tour Archive | Tour 2026 | 85 | featured | Iron Maiden |
+| 7032 | Iron Maiden Tour Merch V2 FMD | Iron Maiden | Heavy Metal Classics; FMD Editions | - | remera | World Tour 2026; Archivo Maiden; FMD Editions; Tour Archive | Tour 2026 | 85 | featured | Iron Maiden |
+| 7033 | Iron Maiden Tour Merch V3 FMD | Iron Maiden | Heavy Metal Classics; FMD Editions | - | remera | World Tour 2026; Archivo Maiden; FMD Editions; Tour Archive | Tour 2026 | 85 | featured | Iron Maiden |
+| 1062 | ...And Justice for All | Metallica | Thrash Metal; Heavy Metal Classics | ...And Justice for All | remera | Metallica Archive; ...And Justice for All | - | 82 | featured | Metallica |
+| 1063 | Metallica Early Years | Metallica | Thrash Metal; Heavy Metal Classics | - | remera | Metallica Archive | - | 68 | catalog | Metallica |
+| 46 | Dimebag Darrell BN | Pantera | Groove Metal; Heavy Metal Classics | - | remera | Pantera Archive; Dimebag Darrell | - | 62 | catalog | Pantera |
+| 48 | Dimebag Darrell Guitar Gold | Pantera | Groove Metal; Heavy Metal Classics | - | remera | Pantera Archive; Dimebag Darrell | - | 62 | catalog | Pantera |
+| 323 | Dimebag Tribute Edition v1 | Pantera | Groove Metal; Heavy Metal Classics | - | remera | Pantera Archive; Dimebag Darrell | - | 62 | catalog | Pantera |
+| 324 | Dime CFH Fuego Edition | Pantera | Groove Metal; Heavy Metal Classics | Cowboys from Hell | remera | Pantera Archive; Cowboys from Hell; Dimebag Darrell | - | 76 | featured | Pantera |
+| 326 | Dimebag Darrell Abbott White | Pantera | Groove Metal; Heavy Metal Classics | - | remera | Pantera Archive; Dimebag Darrell | - | 62 | catalog | Pantera |
+| 327 | Dimebag Darrell Homenaje | Pantera | Groove Metal; Heavy Metal Classics | - | remera | Pantera Archive; Dimebag Darrell | - | 62 | catalog | Pantera |
+| 328 | Pantera 101 Live | Pantera | Groove Metal; Heavy Metal Classics | Official Live: 101 Proof | remera | Pantera Archive; Official Live: 101 Proof | - | 75 | featured | Pantera |
+| 329 | Pantera Darrell v2 | Pantera | Groove Metal; Heavy Metal Classics | - | remera | Pantera Archive; Dimebag Darrell | - | 62 | catalog | Pantera |
+
+## Dudas semanticas
+
+Se mantuvo `album: null` en 28 productos genericos, de personaje, tour o sin evidencia suficiente:
+
+- `7106` Slayer Aguila: album no definido por falta de evidencia suficiente.
+- `7110` Slayer Nation: album no definido por falta de evidencia suficiente.
+- `7111` Slayer Demonic Admat: album no definido por falta de evidencia suficiente.
+- `7116` Slayer Skull: album no definido por falta de evidencia suficiente.
+- `7119` Slayer Band: album no definido por falta de evidencia suficiente.
+- `308` Iron Maiden: album no definido por falta de evidencia suficiente.
+- `7034` Iron Maiden - Eddie v1: album no definido por falta de evidencia suficiente.
+- `408` Iron Maiden - Eddie v2: album no definido por falta de evidencia suficiente.
+- `409` Iron Maiden - Eddie v3: album no definido por falta de evidencia suficiente.
+- `5125` Iron Maiden - Eddie v4: album no definido por falta de evidencia suficiente.
+- `6004` Hoodie Iron Maiden: album no definido por falta de evidencia suficiente.
+- `7011` Buzo Iron Maiden FMD: album no definido por falta de evidencia suficiente.
+- `7013` Buzo Iron Maiden Tour FMD: album no definido por falta de evidencia suficiente.
+- `7016` Iron Maiden Eddie Argentina V2 FMD: album no definido por falta de evidencia suficiente.
+- `7017` Iron Maiden Fmd Eddie FMD: album no definido por falta de evidencia suficiente.
+- `7018` Iron Maiden Fmd Eddie Bass FMD: album no definido por falta de evidencia suficiente.
+- `7019` Iron Maiden Fmd Eddie Circular FMD: album no definido por falta de evidencia suficiente.
+- `7020` Iron Maiden Fmd Eddie La Momia FMD: album no definido por falta de evidencia suficiente.
+- `7031` Iron Maiden Tour Merch V1 FMD: album no definido por falta de evidencia suficiente.
+- `7032` Iron Maiden Tour Merch V2 FMD: album no definido por falta de evidencia suficiente.
+- `7033` Iron Maiden Tour Merch V3 FMD: album no definido por falta de evidencia suficiente.
+- `1063` Metallica Early Years: album no definido por falta de evidencia suficiente.
+- `46` Dimebag Darrell BN: album no definido por falta de evidencia suficiente.
+- `48` Dimebag Darrell Guitar Gold: album no definido por falta de evidencia suficiente.
+- `323` Dimebag Tribute Edition v1: album no definido por falta de evidencia suficiente.
+- `326` Dimebag Darrell Abbott White: album no definido por falta de evidencia suficiente.
+- `327` Dimebag Darrell Homenaje: album no definido por falta de evidencia suficiente.
+- `329` Pantera Darrell v2: album no definido por falta de evidencia suficiente.
+
+## Alcance pendiente segun prioridad
+
+- Slayer: completado.
+- Iron Maiden: completado.
+- Metallica: completado.
+- Pantera: avanzaron 8 productos; quedan productos pendientes para el siguiente lote.
+- AC/DC, Avenged Sevenfold, Black Sabbath, Sodom, Testament, Gojira y personalizados clasificables: pendientes para Sprint 1.3.
+
+## Errores
+
+- Ninguno.

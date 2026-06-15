@@ -1,0 +1,9 @@
+{
+  "totalMegadethCards": 123,
+  "consistentCards": 123,
+  "cardsRequiringGarmentReview": 0,
+  "cardsWithVariants": 62,
+  "cardsWithMultipleProposedGarments": 2,
+  "potentialDuplicateGroups": 16,
+  "productsJsonModified": false
+}

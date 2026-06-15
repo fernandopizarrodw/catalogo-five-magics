@@ -1,0 +1,1157 @@
+[
+  {
+    "id": 6028,
+    "name": "Megadeth FMD Original",
+    "mode": "variants",
+    "fmdBadge": "ORIGINAL FMD",
+    "fmdBadgeDescription": "Creación exclusiva FMD con Vic como protagonista, pensada para una presencia fuerte y de colección.",
+    "variantIndexes": [
+      0,
+      5,
+      8
+    ],
+    "refs": [
+      {
+        "type": "main",
+        "variantIndex": null,
+        "image": "images/fmd-edition-3d/vic_tour_2026/vic_silent_fmd_edition.jpg",
+        "name": "Megadeth FMD Original",
+        "hits": [
+          "vic_silent_fmd"
+        ]
+      },
+      {
+        "type": "variant",
+        "variantIndex": 0,
+        "image": "images/fmd-edition-3d/vic_tour_2026/vic_silent_fmd_edition.jpg",
+        "name": "Vic Silent FMD",
+        "hits": [
+          "vic_silent_fmd"
+        ]
+      },
+      {
+        "type": "variant",
+        "variantIndex": 5,
+        "image": "images/fmd-edition-3d/vic_tour_2026/vic_punk_fmd_edition.jpg",
+        "name": "Vic Punk FMD",
+        "hits": [
+          "vic_punk"
+        ]
+      },
+      {
+        "type": "variant",
+        "variantIndex": 8,
+        "image": "images/fmd-edition-3d/vic_tour_2026/vic_symphony_fmd_edition.jpg",
+        "name": "Vic Symphony FMD",
+        "hits": [
+          "vic_symphony"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 235,
+    "name": "Vic Nuclear",
+    "mode": "card",
+    "fmdBadge": "ORIGINAL FMD",
+    "fmdBadgeDescription": "Creación exclusiva FMD con Vic como protagonista, pensada para una presencia fuerte y de colección.",
+    "variantIndexes": [],
+    "refs": [
+      {
+        "type": "main",
+        "variantIndex": null,
+        "image": "images/singles/vic_nuclear.jpg",
+        "name": "Vic Nuclear",
+        "hits": [
+          "images/singles/"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 236,
+    "name": "Rusted Pieces",
+    "mode": "card",
+    "fmdBadge": "ORIGINAL FMD",
+    "fmdBadgeDescription": "Creación exclusiva FMD con Vic como protagonista, pensada para una presencia fuerte y de colección.",
+    "variantIndexes": [],
+    "refs": [
+      {
+        "type": "main",
+        "variantIndex": null,
+        "image": "images/singles/rusted_pieces.jpg",
+        "name": "Rusted Pieces",
+        "hits": [
+          "images/singles/"
+        ]
+      },
+      {
+        "type": "variant",
+        "variantIndex": 0,
+        "image": "images/singles/rusted_pieces.jpg",
+        "name": "Original",
+        "hits": [
+          "images/singles/"
+        ]
+      },
+      {
+        "type": "variant",
+        "variantIndex": 1,
+        "image": "images/singles/rusted_pieces_artv1.jpg",
+        "name": "Art v1",
+        "hits": [
+          "images/singles/"
+        ]
+      },
+      {
+        "type": "variant",
+        "variantIndex": 2,
+        "image": "images/singles/rusted_pieces_artv2.jpg",
+        "name": "Art v2",
+        "hits": [
+          "images/singles/"
+        ]
+      },
+      {
+        "type": "variant",
+        "variantIndex": 3,
+        "image": "images/singles/rusted_pieces_darker.jpg",
+        "name": "Darker",
+        "hits": [
+          "images/singles/"
+        ]
+      },
+      {
+        "type": "variant",
+        "variantIndex": 4,
+        "image": "images/singles/rusted_pieces_realistic.jpg",
+        "name": "Realistic",
+        "hits": [
+          "images/singles/"
+        ]
+      },
+      {
+        "type": "variant",
+        "variantIndex": 5,
+        "image": "images/singles/rusted_pieces_fmd.png",
+        "name": "FMD",
+        "hits": [
+          "images/singles/"
+        ]
+      },
+      {
+        "type": "variant",
+        "variantIndex": 6,
+        "image": "images/singles/rusted_pieces_fmd_edition.png",
+        "name": "FMD Edition",
+        "hits": [
+          "images/singles/"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 246,
+    "name": "Singles Ultimo Disco",
+    "mode": "card",
+    "fmdBadge": "ORIGINAL FMD",
+    "fmdBadgeDescription": "Arte exclusivo FMD con impronta de colección, pensado para llevar esta era a una prenda con presencia.",
+    "variantIndexes": [],
+    "refs": [
+      {
+        "type": "main",
+        "variantIndex": null,
+        "image": "images/singles/let_there_be_shred.jpg",
+        "name": "Singles Ultimo Disco",
+        "hits": [
+          "images/singles/"
+        ]
+      },
+      {
+        "type": "variant",
+        "variantIndex": 0,
+        "image": "images/singles/let_there_be_shred.jpg",
+        "name": "Let There Be Shred",
+        "hits": [
+          "images/singles/"
+        ]
+      },
+      {
+        "type": "variant",
+        "variantIndex": 1,
+        "image": "images/singles/let_there_be_shred-realista.jpg",
+        "name": "Let There Be Shred Realista",
+        "hits": [
+          "images/singles/"
+        ]
+      },
+      {
+        "type": "variant",
+        "variantIndex": 2,
+        "image": "images/singles/let_there_v2.jpg",
+        "name": "Let There v2",
+        "hits": [
+          "images/singles/"
+        ]
+      },
+      {
+        "type": "variant",
+        "variantIndex": 3,
+        "image": "images/singles/fmd_edition_shred.jpg",
+        "name": "FMD Edition Shred",
+        "hits": [
+          "images/singles/"
+        ]
+      },
+      {
+        "type": "variant",
+        "variantIndex": 4,
+        "image": "images/singles/vic_pelea_v1.jpg",
+        "name": "Vic Pelea V1",
+        "hits": [
+          "images/singles/"
+        ]
+      },
+      {
+        "type": "variant",
+        "variantIndex": 5,
+        "image": "images/singles/vic_pelea_v2.jpg",
+        "name": "Vic Pelea V2",
+        "hits": [
+          "images/singles/"
+        ]
+      },
+      {
+        "type": "variant",
+        "variantIndex": 6,
+        "image": "images/singles/tipping_point.jpg",
+        "name": "Tipping Point",
+        "hits": [
+          "images/singles/"
+        ]
+      },
+      {
+        "type": "variant",
+        "variantIndex": 7,
+        "image": "images/singles/i_dont_care.jpg",
+        "name": "I Don't Care Original",
+        "hits": [
+          "images/singles/"
+        ]
+      },
+      {
+        "type": "variant",
+        "variantIndex": 8,
+        "image": "images/singles/i_dont_care_v1.jpg",
+        "name": "I Don't Care v1",
+        "hits": [
+          "images/singles/"
+        ]
+      },
+      {
+        "type": "variant",
+        "variantIndex": 9,
+        "image": "images/singles/i_dont_care_v2.jpg",
+        "name": "I Don't Care v2",
+        "hits": [
+          "images/singles/"
+        ]
+      },
+      {
+        "type": "variant",
+        "variantIndex": 10,
+        "image": "images/singles/i_dont_care_v3.jpg",
+        "name": "I Don't Care v3",
+        "hits": [
+          "images/singles/"
+        ]
+      },
+      {
+        "type": "variant",
+        "variantIndex": 11,
+        "image": "images/singles/frente-circular-idont-care-blanca.jpg",
+        "name": "I Don't Care Circular Blanca",
+        "hits": [
+          "images/singles/"
+        ]
+      },
+      {
+        "type": "variant",
+        "variantIndex": 12,
+        "image": "images/singles/frente-circular-idont-care-negro.jpg",
+        "name": "I Don't Care Circular Negro",
+        "hits": [
+          "images/singles/"
+        ]
+      },
+      {
+        "type": "variant",
+        "variantIndex": 13,
+        "image": "images/singles/made_to_kill.jpg",
+        "name": "Made to Kill",
+        "hits": [
+          "images/singles/"
+        ]
+      },
+      {
+        "type": "variant",
+        "variantIndex": 14,
+        "image": "images/singles/i_am_war.jpg",
+        "name": "I Am War",
+        "hits": [
+          "images/singles/"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 6015,
+    "name": "Mary Jane",
+    "mode": "variants",
+    "fmdBadge": "ORIGINAL FMD",
+    "fmdBadgeDescription": "Arte exclusivo FMD con impronta de colección, pensado para llevar esta era a una prenda con presencia.",
+    "variantIndexes": [
+      2
+    ],
+    "refs": [
+      {
+        "type": "main",
+        "variantIndex": null,
+        "image": "images/singles/mary_jane.jpg",
+        "name": "Mary Jane",
+        "hits": [
+          "images/singles/"
+        ]
+      },
+      {
+        "type": "variant",
+        "variantIndex": 2,
+        "image": "images/singles/mary_jane.jpg",
+        "name": "Mary Jane Original",
+        "hits": [
+          "images/singles/"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 1065,
+    "name": "RIDE THE LIGHTNING BY MEGADETH",
+    "mode": "card",
+    "fmdBadge": "ORIGINAL FMD",
+    "fmdBadgeDescription": "Creación exclusiva FMD con Vic como protagonista, pensada para una presencia fuerte y de colección.",
+    "variantIndexes": [],
+    "refs": [
+      {
+        "type": "main",
+        "variantIndex": null,
+        "image": "images/singles/02 - the_condemned-toxic_green.jpg",
+        "name": "RIDE THE LIGHTNING BY MEGADETH",
+        "hits": [
+          "images/singles/"
+        ]
+      },
+      {
+        "type": "variant",
+        "variantIndex": 0,
+        "image": "images/singles/02 - the_condemned-toxic_green.jpg",
+        "name": "02 - The Condemned Toxic Green",
+        "hits": [
+          "images/singles/"
+        ]
+      },
+      {
+        "type": "variant",
+        "variantIndex": 1,
+        "image": "images/singles/03 - vic_the_executor_white.jpg",
+        "name": "03 - Vic The Executor White",
+        "hits": [
+          "images/singles/"
+        ]
+      },
+      {
+        "type": "variant",
+        "variantIndex": 2,
+        "image": "images/singles/04 - vic_the_executor_red.jpg",
+        "name": "04 - Vic The Executor Red",
+        "hits": [
+          "images/singles/"
+        ]
+      },
+      {
+        "type": "variant",
+        "variantIndex": 3,
+        "image": "images/singles/05 - the_switch.jpg",
+        "name": "05 - The Switch",
+        "hits": [
+          "images/singles/"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 245,
+    "name": "Dogs of Chernobyl",
+    "mode": "card",
+    "fmdBadge": "ORIGINAL FMD",
+    "fmdBadgeDescription": "Creación exclusiva FMD con Vic como protagonista, pensada para una presencia fuerte y de colección.",
+    "variantIndexes": [],
+    "refs": [
+      {
+        "type": "main",
+        "variantIndex": null,
+        "image": "images/singles/dogs_of_chernobyl.jpg",
+        "name": "Dogs of Chernobyl",
+        "hits": [
+          "images/singles/"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 2815,
+    "name": "Dave Vic RIP",
+    "mode": "variants",
+    "fmdBadge": "ORIGINAL FMD",
+    "fmdBadgeDescription": "Diseño exclusivo FMD con foco en actitud, escenario y energía Mustaine.",
+    "variantIndexes": [
+      3
+    ],
+    "refs": [
+      {
+        "type": "variant",
+        "variantIndex": 3,
+        "image": "images/musicians/Dave_Mustaine/dave_and_vic_live.jpg",
+        "name": "Dave and Vic Live",
+        "hits": [
+          "dave_and_vic_live"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 39,
+    "name": "VIC GAUCHO ARGENTINO",
+    "mode": "variants",
+    "fmdBadge": "ORIGINAL FMD",
+    "fmdBadgeDescription": "Edición exclusiva FMD con espíritu conmemorativo y presencia fuerte de tour.",
+    "variantIndexes": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "refs": [
+      {
+        "type": "variant",
+        "variantIndex": 1,
+        "image": "images/tours/Vic_Gaucho_Argentino/vic_gaucho_realista.jpg",
+        "name": "Realista",
+        "hits": [
+          "vic_gaucho_realista"
+        ]
+      },
+      {
+        "type": "variant",
+        "variantIndex": 2,
+        "image": "images/tours/Vic_Gaucho_Argentino/vic_gaucho_caballo.jpg",
+        "name": "Caballo",
+        "hits": [
+          "vic_gaucho_caballo"
+        ]
+      },
+      {
+        "type": "variant",
+        "variantIndex": 3,
+        "image": "images/vic_rattlehead/vic_gaucho_fmd.jpg",
+        "name": "FMD Frente",
+        "hits": [
+          "vic_gaucho_fmd"
+        ]
+      },
+      {
+        "type": "variant",
+        "variantIndex": 4,
+        "image": "images/vic_rattlehead/dorso_vic_gaucho_fmd.jpg",
+        "name": "FMD Dorso",
+        "hits": [
+          "vic_gaucho_fmd"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 40,
+    "name": "Tour Argentina",
+    "mode": "variants",
+    "fmdBadge": "ORIGINAL FMD",
+    "fmdBadgeDescription": "Edición exclusiva FMD con espíritu conmemorativo y presencia fuerte de tour.",
+    "variantIndexes": [
+      1,
+      4,
+      5,
+      13
+    ],
+    "refs": [
+      {
+        "type": "variant",
+        "variantIndex": 1,
+        "image": "images/tours/Tour_argentina/vic_bandera_logo_blanco.jpg",
+        "name": "Vic Bandera Blanco",
+        "hits": [
+          "vic_bandera_logo_blanco"
+        ]
+      },
+      {
+        "type": "variant",
+        "variantIndex": 4,
+        "image": "images/tours/Tour_argentina/dave_final_show_frente.jpg",
+        "name": "Dave Final Show Frente",
+        "hits": [
+          "dave_final_show_frente"
+        ]
+      },
+      {
+        "type": "variant",
+        "variantIndex": 5,
+        "image": "images/tours/Tour_argentina/set_list_show_dorso.jpg",
+        "name": "Set List Show Dorso",
+        "hits": [
+          "set_list_show_dorso"
+        ]
+      },
+      {
+        "type": "variant",
+        "variantIndex": 13,
+        "image": "images/vic_rattlehead/vic_celeste_y_blanco.jpg",
+        "name": "Vic Celeste y Blanco",
+        "hits": [
+          "vic_celeste_y_blanco"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 300,
+    "name": "Marty & Dave",
+    "mode": "card",
+    "fmdBadge": "ORIGINAL FMD",
+    "fmdBadgeDescription": "Edición exclusiva FMD con espíritu conmemorativo y presencia fuerte de tour.",
+    "variantIndexes": [],
+    "refs": [
+      {
+        "type": "main",
+        "variantIndex": null,
+        "image": "images/tours/Live/marty_dave.jpg",
+        "name": "Marty & Dave",
+        "hits": [
+          "marty_dave"
+        ]
+      },
+      {
+        "type": "variant",
+        "variantIndex": 0,
+        "image": "images/tours/Live/marty_dave.jpg",
+        "name": "marty_dave",
+        "hits": [
+          "marty_dave"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 301,
+    "name": "Peace Sells Live",
+    "mode": "card",
+    "fmdBadge": "ORIGINAL FMD",
+    "fmdBadgeDescription": "Edición exclusiva FMD con espíritu conmemorativo y presencia fuerte de tour.",
+    "variantIndexes": [],
+    "refs": [
+      {
+        "type": "main",
+        "variantIndex": null,
+        "image": "images/tours/Live/peace_sells_live.jpg",
+        "name": "Peace Sells Live",
+        "hits": [
+          "peace_sells_live"
+        ]
+      },
+      {
+        "type": "variant",
+        "variantIndex": 0,
+        "image": "images/tours/Live/peace_sells_live.jpg",
+        "name": "peace_sells_live",
+        "hits": [
+          "peace_sells_live"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 320,
+    "name": "Vic Tour 2026",
+    "mode": "card",
+    "fmdBadge": "ORIGINAL FMD",
+    "fmdBadgeDescription": "Creación exclusiva FMD con Vic como protagonista, pensada para una presencia fuerte y de colección.",
+    "variantIndexes": [],
+    "refs": [
+      {
+        "type": "main",
+        "variantIndex": null,
+        "image": "images/tours/Tour_2026/vic_tour_2026_v1.jpg",
+        "name": "Vic Tour 2026",
+        "hits": [
+          "images/tours/Tour_2026/"
+        ]
+      },
+      {
+        "type": "variant",
+        "variantIndex": 0,
+        "image": "images/tours/Tour_2026/vic_tour_2026_v1.jpg",
+        "name": "v1",
+        "hits": [
+          "images/tours/Tour_2026/"
+        ]
+      },
+      {
+        "type": "variant",
+        "variantIndex": 1,
+        "image": "images/tours/Tour_2026/vic_tour_2026_v2.jpg",
+        "name": "v2",
+        "hits": [
+          "images/tours/Tour_2026/"
+        ]
+      },
+      {
+        "type": "variant",
+        "variantIndex": 2,
+        "image": "images/tours/Tour_2026/vic_tour_2026_v3.jpg",
+        "name": "v3",
+        "hits": [
+          "images/tours/Tour_2026/"
+        ]
+      },
+      {
+        "type": "variant",
+        "variantIndex": 3,
+        "image": "images/tours/Tour_2026/vic_tour_2026_v4.png",
+        "name": "v4",
+        "hits": [
+          "images/tours/Tour_2026/"
+        ]
+      },
+      {
+        "type": "variant",
+        "variantIndex": 4,
+        "image": "images/tours/Tour_2026/vic_tour_2026_blancoFMD.jpg",
+        "name": "Blanco FMD",
+        "hits": [
+          "images/tours/Tour_2026/"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 304,
+    "name": "Vic Rattlehead - My Last Words",
+    "mode": "variants",
+    "fmdBadge": "ORIGINAL FMD",
+    "fmdBadgeDescription": "Creación exclusiva FMD con Vic como protagonista, pensada para una presencia fuerte y de colección.",
+    "variantIndexes": [
+      1
+    ],
+    "refs": [
+      {
+        "type": "variant",
+        "variantIndex": 1,
+        "image": "images/vic_rattlehead/vic_my_last_blanco.jpg",
+        "name": "Blanco",
+        "hits": [
+          "vic_my_last_blanco"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 424,
+    "name": "Vic The Arsenal of Megadeth",
+    "mode": "card",
+    "fmdBadge": "ORIGINAL FMD",
+    "fmdBadgeDescription": "Creación exclusiva FMD con Vic como protagonista, pensada para una presencia fuerte y de colección.",
+    "variantIndexes": [],
+    "refs": [
+      {
+        "type": "main",
+        "variantIndex": null,
+        "image": "images/vic_rattlehead/vic_the_arsenal_of_megadeth.png",
+        "name": "Vic The Arsenal of Megadeth",
+        "hits": [
+          "vic_the_arsenal_of_megadeth"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 427,
+    "name": "Vic Punk",
+    "mode": "card",
+    "fmdBadge": "ORIGINAL FMD",
+    "fmdBadgeDescription": "Creación exclusiva FMD con Vic como protagonista, pensada para una presencia fuerte y de colección.",
+    "variantIndexes": [],
+    "refs": [
+      {
+        "type": "main",
+        "variantIndex": null,
+        "image": "images/vic_rattlehead/vic_punk.png",
+        "name": "Vic Punk",
+        "hits": [
+          "vic_punk"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 429,
+    "name": "Vic Symphony Music",
+    "mode": "card",
+    "fmdBadge": "ORIGINAL FMD",
+    "fmdBadgeDescription": "Creación exclusiva FMD con Vic como protagonista, pensada para una presencia fuerte y de colección.",
+    "variantIndexes": [],
+    "refs": [
+      {
+        "type": "main",
+        "variantIndex": null,
+        "image": "images/vic_rattlehead/vic_symphony_music.png",
+        "name": "Vic Symphony Music",
+        "hits": [
+          "vic_symphony",
+          "vic_symphony_music"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 430,
+    "name": "Vic Militar",
+    "mode": "card",
+    "fmdBadge": "ORIGINAL FMD",
+    "fmdBadgeDescription": "Creación exclusiva FMD con Vic como protagonista, pensada para una presencia fuerte y de colección.",
+    "variantIndexes": [],
+    "refs": [
+      {
+        "type": "main",
+        "variantIndex": null,
+        "image": "images/vic_rattlehead/vic_militar.png",
+        "name": "Vic Militar",
+        "hits": [
+          "vic_militar"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 405,
+    "name": "Vic Tour 2026",
+    "mode": "card",
+    "fmdBadge": "ORIGINAL FMD",
+    "fmdBadgeDescription": "Creación exclusiva FMD con Vic como protagonista, pensada para una presencia fuerte y de colección.",
+    "variantIndexes": [],
+    "refs": [
+      {
+        "type": "main",
+        "variantIndex": null,
+        "image": "images/tours/Tour_2026/vic_tour_2026_v4.png",
+        "name": "Vic Tour 2026",
+        "hits": [
+          "images/tours/Tour_2026/"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 5022,
+    "name": "The Sick, The Dying... and The Dead",
+    "mode": "card",
+    "fmdBadge": "ORIGINAL FMD",
+    "fmdBadgeDescription": "Arte exclusivo FMD con impronta de colección, pensado para llevar esta era a una prenda con presencia.",
+    "variantIndexes": [],
+    "refs": [
+      {
+        "type": "main",
+        "variantIndex": null,
+        "image": "images/singles/killing_time.jpg",
+        "name": "The Sick, The Dying... and The Dead",
+        "hits": [
+          "images/singles/"
+        ]
+      },
+      {
+        "type": "variant",
+        "variantIndex": 0,
+        "image": "images/singles/killing_time.jpg",
+        "name": "Killing Time",
+        "hits": [
+          "images/singles/"
+        ]
+      },
+      {
+        "type": "variant",
+        "variantIndex": 1,
+        "image": "images/singles/life_in_hell.jpg",
+        "name": "Life in Hell",
+        "hits": [
+          "images/singles/"
+        ]
+      },
+      {
+        "type": "variant",
+        "variantIndex": 2,
+        "image": "images/singles/night_stalkers.jpg",
+        "name": "Night Stalkers",
+        "hits": [
+          "images/singles/"
+        ]
+      },
+      {
+        "type": "variant",
+        "variantIndex": 3,
+        "image": "images/singles/the_sick_the_dying_and_the_dead.jpg",
+        "name": "The Sick, The Dying and The Dead",
+        "hits": [
+          "images/singles/"
+        ]
+      },
+      {
+        "type": "variant",
+        "variantIndex": 4,
+        "image": "images/singles/well_be_back.jpg",
+        "name": "We'll Be Back",
+        "hits": [
+          "images/singles/"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 5024,
+    "name": "Vic The Sick Trono",
+    "mode": "card",
+    "fmdBadge": "ORIGINAL FMD",
+    "fmdBadgeDescription": "Creación exclusiva FMD con Vic como protagonista, pensada para una presencia fuerte y de colección.",
+    "variantIndexes": [],
+    "refs": [
+      {
+        "type": "main",
+        "variantIndex": null,
+        "image": "images/vic_rattlehead/ts_v1.jpg",
+        "name": "Vic The Sick Trono",
+        "hits": [
+          "ts_v1"
+        ]
+      },
+      {
+        "type": "variant",
+        "variantIndex": 0,
+        "image": "images/vic_rattlehead/ts_v1.jpg",
+        "name": "v1",
+        "hits": [
+          "ts_v1"
+        ]
+      },
+      {
+        "type": "variant",
+        "variantIndex": 1,
+        "image": "images/vic_rattlehead/ts_v2.jpg",
+        "name": "v2",
+        "hits": [
+          "ts_v2"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 5027,
+    "name": "Vic Bad Omen",
+    "mode": "card",
+    "fmdBadge": "ORIGINAL FMD",
+    "fmdBadgeDescription": "Creación exclusiva FMD con Vic como protagonista, pensada para una presencia fuerte y de colección.",
+    "variantIndexes": [],
+    "refs": [
+      {
+        "type": "main",
+        "variantIndex": null,
+        "image": "images/vic_rattlehead/vic_bad_omen.jpg",
+        "name": "Vic Bad Omen",
+        "hits": [
+          "vic_bad_omen"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 5028,
+    "name": "Vic Set the World Afire",
+    "mode": "card",
+    "fmdBadge": "ORIGINAL FMD",
+    "fmdBadgeDescription": "Creación exclusiva FMD con Vic como protagonista, pensada para una presencia fuerte y de colección.",
+    "variantIndexes": [],
+    "refs": [
+      {
+        "type": "main",
+        "variantIndex": null,
+        "image": "images/vic_rattlehead/vic_set_the_world_afire.jpg",
+        "name": "Vic Set the World Afire",
+        "hits": [
+          "vic_set_the_world_afire"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 5029,
+    "name": "Vic Sells",
+    "mode": "card",
+    "fmdBadge": "ORIGINAL FMD",
+    "fmdBadgeDescription": "Creación exclusiva FMD con Vic como protagonista, pensada para una presencia fuerte y de colección.",
+    "variantIndexes": [],
+    "refs": [
+      {
+        "type": "main",
+        "variantIndex": null,
+        "image": "images/vic_rattlehead/vic_sells.jpg",
+        "name": "Vic Sells",
+        "hits": [
+          "vic_sells"
+        ]
+      },
+      {
+        "type": "variant",
+        "variantIndex": 0,
+        "image": "images/vic_rattlehead/vic_sells.jpg",
+        "name": "v1",
+        "hits": [
+          "vic_sells"
+        ]
+      },
+      {
+        "type": "variant",
+        "variantIndex": 1,
+        "image": "images/vic_rattlehead/vic_sells_v2.jpg",
+        "name": "v2",
+        "hits": [
+          "vic_sells",
+          "vic_sells_v2"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 5030,
+    "name": "Vic Symphony",
+    "mode": "card",
+    "fmdBadge": "ORIGINAL FMD",
+    "fmdBadgeDescription": "Creación exclusiva FMD con Vic como protagonista, pensada para una presencia fuerte y de colección.",
+    "variantIndexes": [],
+    "refs": [
+      {
+        "type": "main",
+        "variantIndex": null,
+        "image": "images/vic_rattlehead/vic_symphony.jpg",
+        "name": "Vic Symphony",
+        "hits": [
+          "vic_symphony"
+        ]
+      },
+      {
+        "type": "variant",
+        "variantIndex": 0,
+        "image": "images/vic_rattlehead/vic_symphony.jpg",
+        "name": "Frente",
+        "hits": [
+          "vic_symphony"
+        ]
+      },
+      {
+        "type": "variant",
+        "variantIndex": 1,
+        "image": "images/vic_rattlehead/vic_symphony_dorso.jpg",
+        "name": "Dorso",
+        "hits": [
+          "vic_symphony"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 5050,
+    "name": "Dave and Vic Live",
+    "mode": "card",
+    "fmdBadge": "ORIGINAL FMD",
+    "fmdBadgeDescription": "Creación exclusiva FMD con Vic como protagonista, pensada para una presencia fuerte y de colección.",
+    "variantIndexes": [],
+    "refs": [
+      {
+        "type": "main",
+        "variantIndex": null,
+        "image": "images/vic_rattlehead/dave_and_vic_live.jpg",
+        "name": "Dave and Vic Live",
+        "hits": [
+          "dave_and_vic_live"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 5051,
+    "name": "Vic Peace 25",
+    "mode": "variants",
+    "fmdBadge": "ORIGINAL FMD",
+    "fmdBadgeDescription": "Creación exclusiva FMD con Vic como protagonista, pensada para una presencia fuerte y de colección.",
+    "variantIndexes": [
+      0
+    ],
+    "refs": [
+      {
+        "type": "main",
+        "variantIndex": null,
+        "image": "images/vic_rattlehead/vic_peace_25_black.jpg",
+        "name": "Vic Peace 25",
+        "hits": [
+          "vic_peace_25_black"
+        ]
+      },
+      {
+        "type": "variant",
+        "variantIndex": 0,
+        "image": "images/vic_rattlehead/vic_peace_25_black.jpg",
+        "name": "Black",
+        "hits": [
+          "vic_peace_25_black"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 5053,
+    "name": "Hangar 18",
+    "mode": "card",
+    "fmdBadge": "ORIGINAL FMD",
+    "fmdBadgeDescription": "Arte exclusivo FMD con impronta de colección, pensado para llevar esta era a una prenda con presencia.",
+    "variantIndexes": [],
+    "refs": [
+      {
+        "type": "main",
+        "variantIndex": null,
+        "image": "images/singles/hangar_18_single_frente.jpg",
+        "name": "Hangar 18",
+        "hits": [
+          "images/singles/"
+        ]
+      },
+      {
+        "type": "variant",
+        "variantIndex": 0,
+        "image": "images/singles/hangar_18_single_frente.jpg",
+        "name": "Frente",
+        "hits": [
+          "images/singles/"
+        ]
+      },
+      {
+        "type": "variant",
+        "variantIndex": 1,
+        "image": "images/singles/hangar_18_single_dorso.jpg",
+        "name": "Dorso",
+        "hits": [
+          "images/singles/"
+        ]
+      },
+      {
+        "type": "variant",
+        "variantIndex": 2,
+        "image": "images/singles/hangar_18.png",
+        "name": "FMD",
+        "hits": [
+          "images/singles/"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 6031,
+    "name": "Lucretia",
+    "mode": "card",
+    "fmdBadge": "ORIGINAL FMD",
+    "fmdBadgeDescription": "Creación exclusiva FMD con identidad propia y presencia fuerte en prenda.",
+    "variantIndexes": [],
+    "refs": [
+      {
+        "type": "main",
+        "variantIndex": null,
+        "image": "images/singles/lucretia.jpg",
+        "name": "Lucretia",
+        "hits": [
+          "images/singles/"
+        ]
+      },
+      {
+        "type": "variant",
+        "variantIndex": 0,
+        "image": "images/singles/lucretia.jpg",
+        "name": "Lucretia",
+        "hits": [
+          "images/singles/"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 6023,
+    "name": "Vic & Friends â€” FMD Edition",
+    "mode": "variants",
+    "fmdBadge": "ORIGINAL FMD",
+    "fmdBadgeDescription": "Creación exclusiva FMD con Vic como protagonista, pensada para una presencia fuerte y de colección.",
+    "variantIndexes": [
+      0
+    ],
+    "refs": [
+      {
+        "type": "main",
+        "variantIndex": null,
+        "image": "images/vic_rattlehead/vic_and_friends_fmd_edition.jpg",
+        "name": "Vic & Friends â€” FMD Edition",
+        "hits": [
+          "vic_and_friends_fmd_edition"
+        ]
+      },
+      {
+        "type": "variant",
+        "variantIndex": 0,
+        "image": "images/vic_rattlehead/vic_and_friends_fmd_edition.jpg",
+        "name": "FMD Edition",
+        "hits": [
+          "vic_and_friends_fmd_edition"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 5075,
+    "name": "Hoodie Vic Militar",
+    "mode": "card",
+    "fmdBadge": "ORIGINAL FMD",
+    "fmdBadgeDescription": "Creación exclusiva FMD con Vic como protagonista, pensada para una presencia fuerte y de colección.",
+    "variantIndexes": [],
+    "refs": [
+      {
+        "type": "main",
+        "variantIndex": null,
+        "image": "images/hoddies_fmd/vic_militar_hoodie.png",
+        "name": "Hoodie Vic Militar",
+        "hits": [
+          "vic_militar"
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,2703 @@
+[
+  {
+    "id": 6030,
+    "group": "megadeth-deep-archive",
+    "band": "Megadeth",
+    "universe": [
+      "Megadeth Vault",
+      "Thrash Metal"
+    ],
+    "album": null,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Megadeth Archive",
+      "Vic Rattlehead"
+    ],
+    "campaigns": [],
+    "commercialPriority": 45,
+    "visibilityTier": "archive",
+    "reviewStatus": "classified",
+    "tags": [
+      "Megadeth",
+      "Megadeth Vault",
+      "Thrash Metal",
+      "remera",
+      "Megadeth Archive",
+      "Vic Rattlehead"
+    ]
+  },
+  {
+    "id": 6029,
+    "group": "megadeth-deep-archive",
+    "band": "Megadeth",
+    "universe": [
+      "Megadeth Vault",
+      "Thrash Metal"
+    ],
+    "album": null,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Megadeth Archive",
+      "Vic Rattlehead"
+    ],
+    "campaigns": [],
+    "commercialPriority": 45,
+    "visibilityTier": "archive",
+    "reviewStatus": "classified",
+    "tags": [
+      "Megadeth",
+      "Megadeth Vault",
+      "Thrash Metal",
+      "remera",
+      "Megadeth Archive",
+      "Vic Rattlehead"
+    ]
+  },
+  {
+    "id": 6027,
+    "group": "megadeth-deep-archive",
+    "band": "Megadeth",
+    "universe": [
+      "Megadeth Vault",
+      "Thrash Metal",
+      "FMD Editions"
+    ],
+    "album": "Peace Sells... but Who's Buying?",
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Megadeth Archive",
+      "Megadeth Albums",
+      "Peace Sells... but Who's Buying?",
+      "FMD Editions"
+    ],
+    "campaigns": [],
+    "commercialPriority": 66,
+    "visibilityTier": "catalog",
+    "reviewStatus": "classified",
+    "tags": [
+      "Megadeth",
+      "Megadeth Vault",
+      "Thrash Metal",
+      "FMD Editions",
+      "Peace Sells... but Who's Buying?",
+      "remera",
+      "Megadeth Archive",
+      "Megadeth Albums"
+    ]
+  },
+  {
+    "id": 6026,
+    "group": "megadeth-deep-archive",
+    "band": "Megadeth",
+    "universe": [
+      "Megadeth Vault",
+      "Thrash Metal",
+      "FMD Editions"
+    ],
+    "album": "Killing Is My Business... and Business Is Good!",
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Megadeth Archive",
+      "Megadeth Albums",
+      "Killing Is My Business... and Business Is Good!",
+      "FMD Editions"
+    ],
+    "campaigns": [],
+    "commercialPriority": 66,
+    "visibilityTier": "catalog",
+    "reviewStatus": "classified",
+    "tags": [
+      "Megadeth",
+      "Megadeth Vault",
+      "Thrash Metal",
+      "FMD Editions",
+      "Killing Is My Business... and Business Is Good!",
+      "remera",
+      "Megadeth Archive",
+      "Megadeth Albums"
+    ]
+  },
+  {
+    "id": 3,
+    "group": "megadeth-deep-archive",
+    "band": "Megadeth",
+    "universe": [
+      "Megadeth Vault",
+      "Thrash Metal"
+    ],
+    "album": "So Far, So Good... So What!",
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Megadeth Archive",
+      "Megadeth Albums",
+      "So Far, So Good... So What!"
+    ],
+    "campaigns": [],
+    "commercialPriority": 66,
+    "visibilityTier": "catalog",
+    "reviewStatus": "classified",
+    "tags": [
+      "Megadeth",
+      "Megadeth Vault",
+      "Thrash Metal",
+      "So Far, So Good... So What!",
+      "remera",
+      "Megadeth Archive",
+      "Megadeth Albums"
+    ]
+  },
+  {
+    "id": 5,
+    "group": "megadeth-deep-archive",
+    "band": "Megadeth",
+    "universe": [
+      "Megadeth Vault",
+      "Thrash Metal"
+    ],
+    "album": "Countdown to Extinction",
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Megadeth Archive",
+      "Megadeth Albums",
+      "Countdown to Extinction"
+    ],
+    "campaigns": [],
+    "commercialPriority": 66,
+    "visibilityTier": "catalog",
+    "reviewStatus": "classified",
+    "tags": [
+      "Megadeth",
+      "Megadeth Vault",
+      "Thrash Metal",
+      "Countdown to Extinction",
+      "remera",
+      "Megadeth Archive",
+      "Megadeth Albums"
+    ]
+  },
+  {
+    "id": 6,
+    "group": "megadeth-deep-archive",
+    "band": "Megadeth",
+    "universe": [
+      "Megadeth Vault",
+      "Thrash Metal"
+    ],
+    "album": "Youthanasia",
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Megadeth Archive",
+      "Megadeth Albums",
+      "Youthanasia"
+    ],
+    "campaigns": [],
+    "commercialPriority": 66,
+    "visibilityTier": "catalog",
+    "reviewStatus": "classified",
+    "tags": [
+      "Megadeth",
+      "Megadeth Vault",
+      "Thrash Metal",
+      "Youthanasia",
+      "remera",
+      "Megadeth Archive",
+      "Megadeth Albums"
+    ]
+  },
+  {
+    "id": 18,
+    "group": "megadeth-deep-archive",
+    "band": "Megadeth",
+    "universe": [
+      "Megadeth Vault",
+      "Thrash Metal",
+      "FMD Editions"
+    ],
+    "album": "Hidden Treasures",
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Megadeth Archive",
+      "Megadeth Albums",
+      "Hidden Treasures",
+      "FMD Editions"
+    ],
+    "campaigns": [],
+    "commercialPriority": 66,
+    "visibilityTier": "catalog",
+    "reviewStatus": "classified",
+    "tags": [
+      "Megadeth",
+      "Megadeth Vault",
+      "Thrash Metal",
+      "FMD Editions",
+      "Hidden Treasures",
+      "remera",
+      "Megadeth Archive",
+      "Megadeth Albums"
+    ]
+  },
+  {
+    "id": 8,
+    "group": "megadeth-deep-archive",
+    "band": "Megadeth",
+    "universe": [
+      "Megadeth Vault",
+      "Thrash Metal"
+    ],
+    "album": "Cryptic Writings",
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Megadeth Archive",
+      "Megadeth Albums",
+      "Cryptic Writings"
+    ],
+    "campaigns": [],
+    "commercialPriority": 66,
+    "visibilityTier": "catalog",
+    "reviewStatus": "classified",
+    "tags": [
+      "Megadeth",
+      "Megadeth Vault",
+      "Thrash Metal",
+      "Cryptic Writings",
+      "remera",
+      "Megadeth Archive",
+      "Megadeth Albums"
+    ]
+  },
+  {
+    "id": 9,
+    "group": "megadeth-deep-archive",
+    "band": "Megadeth",
+    "universe": [
+      "Megadeth Vault",
+      "Thrash Metal"
+    ],
+    "album": "Risk",
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Megadeth Archive",
+      "Megadeth Albums",
+      "Risk"
+    ],
+    "campaigns": [],
+    "commercialPriority": 66,
+    "visibilityTier": "catalog",
+    "reviewStatus": "classified",
+    "tags": [
+      "Megadeth",
+      "Megadeth Vault",
+      "Thrash Metal",
+      "Risk",
+      "remera",
+      "Megadeth Archive",
+      "Megadeth Albums"
+    ]
+  },
+  {
+    "id": 10,
+    "group": "megadeth-deep-archive",
+    "band": "Megadeth",
+    "universe": [
+      "Megadeth Vault",
+      "Thrash Metal"
+    ],
+    "album": "The World Needs a Hero",
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Megadeth Archive",
+      "Megadeth Albums",
+      "The World Needs a Hero"
+    ],
+    "campaigns": [],
+    "commercialPriority": 66,
+    "visibilityTier": "catalog",
+    "reviewStatus": "classified",
+    "tags": [
+      "Megadeth",
+      "Megadeth Vault",
+      "Thrash Metal",
+      "The World Needs a Hero",
+      "remera",
+      "Megadeth Archive",
+      "Megadeth Albums"
+    ]
+  },
+  {
+    "id": 11,
+    "group": "megadeth-deep-archive",
+    "band": "Megadeth",
+    "universe": [
+      "Megadeth Vault",
+      "Thrash Metal"
+    ],
+    "album": "The System Has Failed",
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Megadeth Archive",
+      "Megadeth Albums",
+      "The System Has Failed"
+    ],
+    "campaigns": [],
+    "commercialPriority": 66,
+    "visibilityTier": "catalog",
+    "reviewStatus": "classified",
+    "tags": [
+      "Megadeth",
+      "Megadeth Vault",
+      "Thrash Metal",
+      "The System Has Failed",
+      "remera",
+      "Megadeth Archive",
+      "Megadeth Albums"
+    ]
+  },
+  {
+    "id": 12,
+    "group": "megadeth-deep-archive",
+    "band": "Megadeth",
+    "universe": [
+      "Megadeth Vault",
+      "Thrash Metal"
+    ],
+    "album": "United Abominations",
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Megadeth Archive",
+      "Megadeth Albums",
+      "United Abominations"
+    ],
+    "campaigns": [],
+    "commercialPriority": 66,
+    "visibilityTier": "catalog",
+    "reviewStatus": "classified",
+    "tags": [
+      "Megadeth",
+      "Megadeth Vault",
+      "Thrash Metal",
+      "United Abominations",
+      "remera",
+      "Megadeth Archive",
+      "Megadeth Albums"
+    ]
+  },
+  {
+    "id": 13,
+    "group": "megadeth-deep-archive",
+    "band": "Megadeth",
+    "universe": [
+      "Megadeth Vault",
+      "Thrash Metal"
+    ],
+    "album": "Endgame",
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Megadeth Archive",
+      "Megadeth Albums",
+      "Endgame"
+    ],
+    "campaigns": [],
+    "commercialPriority": 66,
+    "visibilityTier": "catalog",
+    "reviewStatus": "classified",
+    "tags": [
+      "Megadeth",
+      "Megadeth Vault",
+      "Thrash Metal",
+      "Endgame",
+      "remera",
+      "Megadeth Archive",
+      "Megadeth Albums"
+    ]
+  },
+  {
+    "id": 14,
+    "group": "megadeth-deep-archive",
+    "band": "Megadeth",
+    "universe": [
+      "Megadeth Vault",
+      "Thrash Metal"
+    ],
+    "album": "TH1RT3EN",
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Megadeth Archive",
+      "Megadeth Albums",
+      "TH1RT3EN"
+    ],
+    "campaigns": [],
+    "commercialPriority": 66,
+    "visibilityTier": "catalog",
+    "reviewStatus": "classified",
+    "tags": [
+      "Megadeth",
+      "Megadeth Vault",
+      "Thrash Metal",
+      "TH1RT3EN",
+      "remera",
+      "Megadeth Archive",
+      "Megadeth Albums"
+    ]
+  },
+  {
+    "id": 15,
+    "group": "megadeth-deep-archive",
+    "band": "Megadeth",
+    "universe": [
+      "Megadeth Vault",
+      "Thrash Metal"
+    ],
+    "album": "Super Collider",
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Megadeth Archive",
+      "Megadeth Albums",
+      "Super Collider"
+    ],
+    "campaigns": [],
+    "commercialPriority": 66,
+    "visibilityTier": "catalog",
+    "reviewStatus": "classified",
+    "tags": [
+      "Megadeth",
+      "Megadeth Vault",
+      "Thrash Metal",
+      "Super Collider",
+      "remera",
+      "Megadeth Archive",
+      "Megadeth Albums"
+    ]
+  },
+  {
+    "id": 7,
+    "group": "megadeth-deep-archive",
+    "band": "Megadeth",
+    "universe": [
+      "Megadeth Vault",
+      "Thrash Metal"
+    ],
+    "album": "Dystopia",
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Megadeth Archive",
+      "Megadeth Albums",
+      "Dystopia"
+    ],
+    "campaigns": [],
+    "commercialPriority": 66,
+    "visibilityTier": "catalog",
+    "reviewStatus": "classified",
+    "tags": [
+      "Megadeth",
+      "Megadeth Vault",
+      "Thrash Metal",
+      "Dystopia",
+      "remera",
+      "Megadeth Archive",
+      "Megadeth Albums"
+    ]
+  },
+  {
+    "id": 16,
+    "group": "megadeth-deep-archive",
+    "band": "Megadeth",
+    "universe": [
+      "Megadeth Vault",
+      "Thrash Metal"
+    ],
+    "album": "The Sick, the Dying... and the Dead!",
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Megadeth Archive",
+      "Megadeth Albums",
+      "The Sick, the Dying... and the Dead!"
+    ],
+    "campaigns": [],
+    "commercialPriority": 66,
+    "visibilityTier": "catalog",
+    "reviewStatus": "classified",
+    "tags": [
+      "Megadeth",
+      "Megadeth Vault",
+      "Thrash Metal",
+      "The Sick, the Dying... and the Dead!",
+      "remera",
+      "Megadeth Archive",
+      "Megadeth Albums"
+    ]
+  },
+  {
+    "id": 17,
+    "group": "megadeth-deep-archive",
+    "band": "Megadeth",
+    "universe": [
+      "Megadeth Vault",
+      "Thrash Metal"
+    ],
+    "album": "Megadeth (2026)",
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Megadeth Archive",
+      "Megadeth Albums",
+      "Megadeth (2026)"
+    ],
+    "campaigns": [],
+    "commercialPriority": 66,
+    "visibilityTier": "catalog",
+    "reviewStatus": "classified",
+    "tags": [
+      "Megadeth",
+      "Megadeth Vault",
+      "Thrash Metal",
+      "Megadeth (2026)",
+      "remera",
+      "Megadeth Archive",
+      "Megadeth Albums"
+    ]
+  },
+  {
+    "id": 235,
+    "group": "megadeth-deep-archive",
+    "band": "Megadeth",
+    "universe": [
+      "Megadeth Vault",
+      "Thrash Metal"
+    ],
+    "album": null,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Megadeth Archive",
+      "Megadeth Singles"
+    ],
+    "campaigns": [],
+    "commercialPriority": 58,
+    "visibilityTier": "archive",
+    "reviewStatus": "classified",
+    "tags": [
+      "Megadeth",
+      "Megadeth Vault",
+      "Thrash Metal",
+      "remera",
+      "Megadeth Archive",
+      "Megadeth Singles"
+    ]
+  },
+  {
+    "id": 236,
+    "group": "megadeth-deep-archive",
+    "band": "Megadeth",
+    "universe": [
+      "Megadeth Vault",
+      "Thrash Metal"
+    ],
+    "album": null,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Megadeth Archive",
+      "Megadeth Singles"
+    ],
+    "campaigns": [],
+    "commercialPriority": 58,
+    "visibilityTier": "catalog",
+    "reviewStatus": "classified",
+    "tags": [
+      "Megadeth",
+      "Megadeth Vault",
+      "Thrash Metal",
+      "remera",
+      "Megadeth Archive",
+      "Megadeth Singles"
+    ]
+  },
+  {
+    "id": 246,
+    "group": "megadeth-deep-archive",
+    "band": "Megadeth",
+    "universe": [
+      "Megadeth Vault",
+      "Thrash Metal"
+    ],
+    "album": null,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Megadeth Archive",
+      "Megadeth Singles"
+    ],
+    "campaigns": [],
+    "commercialPriority": 58,
+    "visibilityTier": "catalog",
+    "reviewStatus": "classified",
+    "tags": [
+      "Megadeth",
+      "Megadeth Vault",
+      "Thrash Metal",
+      "remera",
+      "Megadeth Archive",
+      "Megadeth Singles"
+    ]
+  },
+  {
+    "id": 6015,
+    "group": "megadeth-deep-archive",
+    "band": "Megadeth",
+    "universe": [
+      "Megadeth Vault",
+      "Thrash Metal"
+    ],
+    "album": "So Far, So Good... So What!",
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Megadeth Archive",
+      "Megadeth Singles",
+      "So Far, So Good... So What!"
+    ],
+    "campaigns": [],
+    "commercialPriority": 58,
+    "visibilityTier": "catalog",
+    "reviewStatus": "classified",
+    "tags": [
+      "Megadeth",
+      "Megadeth Vault",
+      "Thrash Metal",
+      "So Far, So Good... So What!",
+      "remera",
+      "Megadeth Archive",
+      "Megadeth Singles"
+    ]
+  },
+  {
+    "id": 1065,
+    "group": "megadeth-deep-archive",
+    "band": "Megadeth",
+    "universe": [
+      "Megadeth Vault",
+      "Thrash Metal"
+    ],
+    "album": null,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Megadeth Archive",
+      "Megadeth Singles"
+    ],
+    "campaigns": [],
+    "commercialPriority": 58,
+    "visibilityTier": "archive",
+    "reviewStatus": "classified",
+    "tags": [
+      "Megadeth",
+      "Megadeth Vault",
+      "Thrash Metal",
+      "remera",
+      "Megadeth Archive",
+      "Megadeth Singles"
+    ]
+  },
+  {
+    "id": 245,
+    "group": "megadeth-deep-archive",
+    "band": "Megadeth",
+    "universe": [
+      "Megadeth Vault",
+      "Thrash Metal"
+    ],
+    "album": "The Sick, the Dying... and the Dead!",
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Megadeth Archive",
+      "Megadeth Singles",
+      "The Sick, the Dying... and the Dead!"
+    ],
+    "campaigns": [],
+    "commercialPriority": 58,
+    "visibilityTier": "catalog",
+    "reviewStatus": "classified",
+    "tags": [
+      "Megadeth",
+      "Megadeth Vault",
+      "Thrash Metal",
+      "The Sick, the Dying... and the Dead!",
+      "remera",
+      "Megadeth Archive",
+      "Megadeth Singles"
+    ]
+  },
+  {
+    "id": 2801,
+    "group": "megadeth-deep-archive",
+    "band": "Megadeth",
+    "universe": [
+      "Megadeth Vault",
+      "Thrash Metal"
+    ],
+    "album": "Countdown to Extinction",
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Megadeth Archive",
+      "Dave Mustaine Spotlight",
+      "Countdown to Extinction"
+    ],
+    "campaigns": [],
+    "commercialPriority": 60,
+    "visibilityTier": "catalog",
+    "reviewStatus": "classified",
+    "tags": [
+      "Megadeth",
+      "Megadeth Vault",
+      "Thrash Metal",
+      "Countdown to Extinction",
+      "remera",
+      "Megadeth Archive",
+      "Dave Mustaine Spotlight"
+    ]
+  },
+  {
+    "id": 2802,
+    "group": "megadeth-deep-archive",
+    "band": "Megadeth",
+    "universe": [
+      "Megadeth Vault",
+      "Thrash Metal"
+    ],
+    "album": "Rust in Peace",
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Megadeth Archive",
+      "Dave Mustaine Spotlight",
+      "Rust in Peace"
+    ],
+    "campaigns": [],
+    "commercialPriority": 60,
+    "visibilityTier": "catalog",
+    "reviewStatus": "classified",
+    "tags": [
+      "Megadeth",
+      "Megadeth Vault",
+      "Thrash Metal",
+      "Rust in Peace",
+      "remera",
+      "Megadeth Archive",
+      "Dave Mustaine Spotlight"
+    ]
+  },
+  {
+    "id": 2806,
+    "group": "megadeth-deep-archive",
+    "band": "Megadeth",
+    "universe": [
+      "Megadeth Vault",
+      "Thrash Metal"
+    ],
+    "album": null,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Megadeth Archive",
+      "Dave Mustaine Spotlight"
+    ],
+    "campaigns": [],
+    "commercialPriority": 60,
+    "visibilityTier": "catalog",
+    "reviewStatus": "classified",
+    "tags": [
+      "Megadeth",
+      "Megadeth Vault",
+      "Thrash Metal",
+      "remera",
+      "Megadeth Archive",
+      "Dave Mustaine Spotlight"
+    ]
+  },
+  {
+    "id": 2811,
+    "group": "megadeth-deep-archive",
+    "band": "Megadeth",
+    "universe": [
+      "Megadeth Vault",
+      "Thrash Metal"
+    ],
+    "album": null,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Megadeth Archive",
+      "Dave Mustaine Spotlight"
+    ],
+    "campaigns": [],
+    "commercialPriority": 60,
+    "visibilityTier": "catalog",
+    "reviewStatus": "classified",
+    "tags": [
+      "Megadeth",
+      "Megadeth Vault",
+      "Thrash Metal",
+      "remera",
+      "Megadeth Archive",
+      "Dave Mustaine Spotlight"
+    ]
+  },
+  {
+    "id": 2814,
+    "group": "megadeth-deep-archive",
+    "band": "Megadeth",
+    "universe": [
+      "Megadeth Vault",
+      "Thrash Metal"
+    ],
+    "album": "So Far, So Good... So What!",
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Megadeth Archive",
+      "Dave Mustaine Spotlight",
+      "So Far, So Good... So What!"
+    ],
+    "campaigns": [],
+    "commercialPriority": 60,
+    "visibilityTier": "catalog",
+    "reviewStatus": "classified",
+    "tags": [
+      "Megadeth",
+      "Megadeth Vault",
+      "Thrash Metal",
+      "So Far, So Good... So What!",
+      "remera",
+      "Megadeth Archive",
+      "Dave Mustaine Spotlight"
+    ]
+  },
+  {
+    "id": 2815,
+    "group": "megadeth-deep-archive",
+    "band": "Megadeth",
+    "universe": [
+      "Megadeth Vault",
+      "Thrash Metal"
+    ],
+    "album": "Rust in Peace",
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Megadeth Archive",
+      "Dave Mustaine Spotlight",
+      "Rust in Peace"
+    ],
+    "campaigns": [],
+    "commercialPriority": 60,
+    "visibilityTier": "catalog",
+    "reviewStatus": "classified",
+    "tags": [
+      "Megadeth",
+      "Megadeth Vault",
+      "Thrash Metal",
+      "Rust in Peace",
+      "remera",
+      "Megadeth Archive",
+      "Dave Mustaine Spotlight"
+    ]
+  },
+  {
+    "id": 6020,
+    "group": "megadeth-deep-archive",
+    "band": "Megadeth",
+    "universe": [
+      "Megadeth Vault",
+      "Thrash Metal"
+    ],
+    "album": null,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Megadeth Archive",
+      "Dave Mustaine Spotlight"
+    ],
+    "campaigns": [],
+    "commercialPriority": 60,
+    "visibilityTier": "catalog",
+    "reviewStatus": "classified",
+    "tags": [
+      "Megadeth",
+      "Megadeth Vault",
+      "Thrash Metal",
+      "remera",
+      "Megadeth Archive",
+      "Dave Mustaine Spotlight"
+    ]
+  },
+  {
+    "id": 29,
+    "group": "megadeth-deep-archive",
+    "band": "Megadeth",
+    "universe": [
+      "Megadeth Vault",
+      "Thrash Metal"
+    ],
+    "album": null,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Megadeth Archive",
+      "Megadeth Members"
+    ],
+    "campaigns": [],
+    "commercialPriority": 56,
+    "visibilityTier": "catalog",
+    "reviewStatus": "classified",
+    "tags": [
+      "Megadeth",
+      "Megadeth Vault",
+      "Thrash Metal",
+      "remera",
+      "Megadeth Archive",
+      "Megadeth Members"
+    ]
+  },
+  {
+    "id": 30,
+    "group": "megadeth-deep-archive",
+    "band": "Megadeth",
+    "universe": [
+      "Megadeth Vault",
+      "Thrash Metal"
+    ],
+    "album": null,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Megadeth Archive",
+      "Megadeth Members"
+    ],
+    "campaigns": [],
+    "commercialPriority": 56,
+    "visibilityTier": "catalog",
+    "reviewStatus": "classified",
+    "tags": [
+      "Megadeth",
+      "Megadeth Vault",
+      "Thrash Metal",
+      "remera",
+      "Megadeth Archive",
+      "Megadeth Members"
+    ]
+  },
+  {
+    "id": 31,
+    "group": "megadeth-deep-archive",
+    "band": "Megadeth",
+    "universe": [
+      "Megadeth Vault",
+      "Thrash Metal"
+    ],
+    "album": null,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Megadeth Archive",
+      "Megadeth Members"
+    ],
+    "campaigns": [],
+    "commercialPriority": 56,
+    "visibilityTier": "catalog",
+    "reviewStatus": "classified",
+    "tags": [
+      "Megadeth",
+      "Megadeth Vault",
+      "Thrash Metal",
+      "remera",
+      "Megadeth Archive",
+      "Megadeth Members"
+    ]
+  },
+  {
+    "id": 39,
+    "group": "megadeth-deep-archive",
+    "band": "Megadeth",
+    "universe": [
+      "Megadeth Vault",
+      "Thrash Metal"
+    ],
+    "album": null,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Megadeth Archive",
+      "Tour Archive"
+    ],
+    "campaigns": [
+      "Argentina 2026"
+    ],
+    "commercialPriority": 62,
+    "visibilityTier": "catalog",
+    "reviewStatus": "classified",
+    "tags": [
+      "Megadeth",
+      "Megadeth Vault",
+      "Thrash Metal",
+      "remera",
+      "Megadeth Archive",
+      "Tour Archive",
+      "Argentina 2026"
+    ]
+  },
+  {
+    "id": 40,
+    "group": "megadeth-deep-archive",
+    "band": "Megadeth",
+    "universe": [
+      "Megadeth Vault",
+      "Thrash Metal"
+    ],
+    "album": null,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Megadeth Archive",
+      "Tour Archive"
+    ],
+    "campaigns": [
+      "Argentina 2026",
+      "Tour Archive"
+    ],
+    "commercialPriority": 62,
+    "visibilityTier": "catalog",
+    "reviewStatus": "classified",
+    "tags": [
+      "Megadeth",
+      "Megadeth Vault",
+      "Thrash Metal",
+      "remera",
+      "Megadeth Archive",
+      "Tour Archive",
+      "Argentina 2026"
+    ]
+  },
+  {
+    "id": 300,
+    "group": "megadeth-deep-archive",
+    "band": "Megadeth",
+    "universe": [
+      "Megadeth Vault",
+      "Thrash Metal"
+    ],
+    "album": null,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Megadeth Archive",
+      "Tour Archive"
+    ],
+    "campaigns": [],
+    "commercialPriority": 62,
+    "visibilityTier": "catalog",
+    "reviewStatus": "classified",
+    "tags": [
+      "Megadeth",
+      "Megadeth Vault",
+      "Thrash Metal",
+      "remera",
+      "Megadeth Archive",
+      "Tour Archive"
+    ]
+  },
+  {
+    "id": 301,
+    "group": "megadeth-deep-archive",
+    "band": "Megadeth",
+    "universe": [
+      "Megadeth Vault",
+      "Thrash Metal"
+    ],
+    "album": "Peace Sells... but Who's Buying?",
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Megadeth Archive",
+      "Tour Archive",
+      "Peace Sells... but Who's Buying?"
+    ],
+    "campaigns": [],
+    "commercialPriority": 62,
+    "visibilityTier": "catalog",
+    "reviewStatus": "classified",
+    "tags": [
+      "Megadeth",
+      "Megadeth Vault",
+      "Thrash Metal",
+      "Peace Sells... but Who's Buying?",
+      "remera",
+      "Megadeth Archive",
+      "Tour Archive"
+    ]
+  },
+  {
+    "id": 320,
+    "group": "megadeth-deep-archive",
+    "band": "Megadeth",
+    "universe": [
+      "Megadeth Vault",
+      "Thrash Metal"
+    ],
+    "album": null,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Megadeth Archive",
+      "Tour Archive"
+    ],
+    "campaigns": [
+      "Tour Archive"
+    ],
+    "commercialPriority": 62,
+    "visibilityTier": "catalog",
+    "reviewStatus": "classified",
+    "tags": [
+      "Megadeth",
+      "Megadeth Vault",
+      "Thrash Metal",
+      "remera",
+      "Megadeth Archive",
+      "Tour Archive"
+    ]
+  },
+  {
+    "id": 304,
+    "group": "megadeth-deep-archive",
+    "band": "Megadeth",
+    "universe": [
+      "Megadeth Vault",
+      "Thrash Metal"
+    ],
+    "album": "Peace Sells... but Who's Buying?",
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Megadeth Archive",
+      "Vic Rattlehead",
+      "Peace Sells... but Who's Buying?"
+    ],
+    "campaigns": [],
+    "commercialPriority": 45,
+    "visibilityTier": "catalog",
+    "reviewStatus": "classified",
+    "tags": [
+      "Megadeth",
+      "Megadeth Vault",
+      "Thrash Metal",
+      "Peace Sells... but Who's Buying?",
+      "remera",
+      "Megadeth Archive",
+      "Vic Rattlehead"
+    ]
+  },
+  {
+    "id": 314,
+    "group": "megadeth-deep-archive",
+    "band": "Megadeth",
+    "universe": [
+      "Megadeth Vault",
+      "Thrash Metal"
+    ],
+    "album": "Killing Is My Business... and Business Is Good!",
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Megadeth Archive",
+      "Vic Rattlehead",
+      "Killing Is My Business... and Business Is Good!"
+    ],
+    "campaigns": [],
+    "commercialPriority": 45,
+    "visibilityTier": "catalog",
+    "reviewStatus": "classified",
+    "tags": [
+      "Megadeth",
+      "Megadeth Vault",
+      "Thrash Metal",
+      "Killing Is My Business... and Business Is Good!",
+      "remera",
+      "Megadeth Archive",
+      "Vic Rattlehead"
+    ]
+  },
+  {
+    "id": 419,
+    "group": "megadeth-deep-archive",
+    "band": "Megadeth",
+    "universe": [
+      "Megadeth Vault",
+      "Thrash Metal"
+    ],
+    "album": null,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Megadeth Archive",
+      "Vic Rattlehead"
+    ],
+    "campaigns": [],
+    "commercialPriority": 45,
+    "visibilityTier": "archive",
+    "reviewStatus": "classified",
+    "tags": [
+      "Megadeth",
+      "Megadeth Vault",
+      "Thrash Metal",
+      "remera",
+      "Megadeth Archive",
+      "Vic Rattlehead"
+    ]
+  },
+  {
+    "id": 420,
+    "group": "megadeth-deep-archive",
+    "band": "Megadeth",
+    "universe": [
+      "Megadeth Vault",
+      "Thrash Metal"
+    ],
+    "album": null,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Megadeth Archive",
+      "Vic Rattlehead"
+    ],
+    "campaigns": [],
+    "commercialPriority": 45,
+    "visibilityTier": "archive",
+    "reviewStatus": "classified",
+    "tags": [
+      "Megadeth",
+      "Megadeth Vault",
+      "Thrash Metal",
+      "remera",
+      "Megadeth Archive",
+      "Vic Rattlehead"
+    ]
+  },
+  {
+    "id": 423,
+    "group": "megadeth-deep-archive",
+    "band": "Megadeth",
+    "universe": [
+      "Megadeth Vault",
+      "Thrash Metal"
+    ],
+    "album": null,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Megadeth Archive",
+      "Vic Rattlehead"
+    ],
+    "campaigns": [],
+    "commercialPriority": 45,
+    "visibilityTier": "archive",
+    "reviewStatus": "classified",
+    "tags": [
+      "Megadeth",
+      "Megadeth Vault",
+      "Thrash Metal",
+      "remera",
+      "Megadeth Archive",
+      "Vic Rattlehead"
+    ]
+  },
+  {
+    "id": 424,
+    "group": "megadeth-deep-archive",
+    "band": "Megadeth",
+    "universe": [
+      "Megadeth Vault",
+      "Thrash Metal"
+    ],
+    "album": null,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Megadeth Archive",
+      "Vic Rattlehead"
+    ],
+    "campaigns": [],
+    "commercialPriority": 45,
+    "visibilityTier": "archive",
+    "reviewStatus": "classified",
+    "tags": [
+      "Megadeth",
+      "Megadeth Vault",
+      "Thrash Metal",
+      "remera",
+      "Megadeth Archive",
+      "Vic Rattlehead"
+    ]
+  },
+  {
+    "id": 425,
+    "group": "megadeth-deep-archive",
+    "band": "Megadeth",
+    "universe": [
+      "Megadeth Vault",
+      "Thrash Metal"
+    ],
+    "album": null,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Megadeth Archive",
+      "Vic Rattlehead"
+    ],
+    "campaigns": [],
+    "commercialPriority": 45,
+    "visibilityTier": "archive",
+    "reviewStatus": "classified",
+    "tags": [
+      "Megadeth",
+      "Megadeth Vault",
+      "Thrash Metal",
+      "remera",
+      "Megadeth Archive",
+      "Vic Rattlehead"
+    ]
+  },
+  {
+    "id": 426,
+    "group": "megadeth-deep-archive",
+    "band": "Megadeth",
+    "universe": [
+      "Megadeth Vault",
+      "Thrash Metal"
+    ],
+    "album": null,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Megadeth Archive",
+      "Vic Rattlehead"
+    ],
+    "campaigns": [],
+    "commercialPriority": 45,
+    "visibilityTier": "archive",
+    "reviewStatus": "classified",
+    "tags": [
+      "Megadeth",
+      "Megadeth Vault",
+      "Thrash Metal",
+      "remera",
+      "Megadeth Archive",
+      "Vic Rattlehead"
+    ]
+  },
+  {
+    "id": 427,
+    "group": "megadeth-deep-archive",
+    "band": "Megadeth",
+    "universe": [
+      "Megadeth Vault",
+      "Thrash Metal"
+    ],
+    "album": null,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Megadeth Archive",
+      "Vic Rattlehead"
+    ],
+    "campaigns": [],
+    "commercialPriority": 45,
+    "visibilityTier": "archive",
+    "reviewStatus": "classified",
+    "tags": [
+      "Megadeth",
+      "Megadeth Vault",
+      "Thrash Metal",
+      "remera",
+      "Megadeth Archive",
+      "Vic Rattlehead"
+    ]
+  },
+  {
+    "id": 428,
+    "group": "megadeth-deep-archive",
+    "band": "Megadeth",
+    "universe": [
+      "Megadeth Vault",
+      "Thrash Metal"
+    ],
+    "album": null,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Megadeth Archive",
+      "Vic Rattlehead"
+    ],
+    "campaigns": [],
+    "commercialPriority": 45,
+    "visibilityTier": "archive",
+    "reviewStatus": "classified",
+    "tags": [
+      "Megadeth",
+      "Megadeth Vault",
+      "Thrash Metal",
+      "remera",
+      "Megadeth Archive",
+      "Vic Rattlehead"
+    ]
+  },
+  {
+    "id": 429,
+    "group": "megadeth-deep-archive",
+    "band": "Megadeth",
+    "universe": [
+      "Megadeth Vault",
+      "Thrash Metal"
+    ],
+    "album": null,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Megadeth Archive",
+      "Vic Rattlehead"
+    ],
+    "campaigns": [],
+    "commercialPriority": 45,
+    "visibilityTier": "archive",
+    "reviewStatus": "classified",
+    "tags": [
+      "Megadeth",
+      "Megadeth Vault",
+      "Thrash Metal",
+      "remera",
+      "Megadeth Archive",
+      "Vic Rattlehead"
+    ]
+  },
+  {
+    "id": 430,
+    "group": "megadeth-deep-archive",
+    "band": "Megadeth",
+    "universe": [
+      "Megadeth Vault",
+      "Thrash Metal"
+    ],
+    "album": null,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Megadeth Archive",
+      "Vic Rattlehead"
+    ],
+    "campaigns": [],
+    "commercialPriority": 45,
+    "visibilityTier": "archive",
+    "reviewStatus": "classified",
+    "tags": [
+      "Megadeth",
+      "Megadeth Vault",
+      "Thrash Metal",
+      "remera",
+      "Megadeth Archive",
+      "Vic Rattlehead"
+    ]
+  },
+  {
+    "id": 400,
+    "group": "megadeth-deep-archive",
+    "band": "Megadeth",
+    "universe": [
+      "Megadeth Vault",
+      "Thrash Metal"
+    ],
+    "album": null,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Megadeth Archive",
+      "Tour Archive"
+    ],
+    "campaigns": [
+      "Tour Archive"
+    ],
+    "commercialPriority": 34,
+    "visibilityTier": "archive",
+    "reviewStatus": "classified",
+    "tags": [
+      "Megadeth",
+      "Megadeth Vault",
+      "Thrash Metal",
+      "remera",
+      "Megadeth Archive",
+      "Tour Archive"
+    ]
+  },
+  {
+    "id": 401,
+    "group": "megadeth-deep-archive",
+    "band": "Megadeth",
+    "universe": [
+      "Megadeth Vault",
+      "Thrash Metal"
+    ],
+    "album": null,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Megadeth Archive",
+      "Tour Archive"
+    ],
+    "campaigns": [
+      "Tour Archive"
+    ],
+    "commercialPriority": 34,
+    "visibilityTier": "archive",
+    "reviewStatus": "classified",
+    "tags": [
+      "Megadeth",
+      "Megadeth Vault",
+      "Thrash Metal",
+      "remera",
+      "Megadeth Archive",
+      "Tour Archive"
+    ]
+  },
+  {
+    "id": 402,
+    "group": "megadeth-deep-archive",
+    "band": "Megadeth",
+    "universe": [
+      "Megadeth Vault",
+      "Thrash Metal"
+    ],
+    "album": null,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Megadeth Archive",
+      "Tour Archive"
+    ],
+    "campaigns": [
+      "Tour Archive"
+    ],
+    "commercialPriority": 34,
+    "visibilityTier": "archive",
+    "reviewStatus": "classified",
+    "tags": [
+      "Megadeth",
+      "Megadeth Vault",
+      "Thrash Metal",
+      "remera",
+      "Megadeth Archive",
+      "Tour Archive"
+    ]
+  },
+  {
+    "id": 403,
+    "group": "megadeth-deep-archive",
+    "band": "Megadeth",
+    "universe": [
+      "Megadeth Vault",
+      "Thrash Metal"
+    ],
+    "album": null,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Megadeth Archive",
+      "Tour Archive"
+    ],
+    "campaigns": [
+      "Tour Archive"
+    ],
+    "commercialPriority": 34,
+    "visibilityTier": "archive",
+    "reviewStatus": "classified",
+    "tags": [
+      "Megadeth",
+      "Megadeth Vault",
+      "Thrash Metal",
+      "remera",
+      "Megadeth Archive",
+      "Tour Archive"
+    ]
+  },
+  {
+    "id": 404,
+    "group": "megadeth-deep-archive",
+    "band": "Megadeth",
+    "universe": [
+      "Megadeth Vault",
+      "Thrash Metal"
+    ],
+    "album": null,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Megadeth Archive",
+      "Tour Archive"
+    ],
+    "campaigns": [
+      "Tour Archive"
+    ],
+    "commercialPriority": 34,
+    "visibilityTier": "archive",
+    "reviewStatus": "classified",
+    "tags": [
+      "Megadeth",
+      "Megadeth Vault",
+      "Thrash Metal",
+      "remera",
+      "Megadeth Archive",
+      "Tour Archive"
+    ]
+  },
+  {
+    "id": 405,
+    "group": "megadeth-deep-archive",
+    "band": "Megadeth",
+    "universe": [
+      "Megadeth Vault",
+      "Thrash Metal"
+    ],
+    "album": null,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Megadeth Archive",
+      "Tour Archive"
+    ],
+    "campaigns": [
+      "Tour Archive"
+    ],
+    "commercialPriority": 62,
+    "visibilityTier": "catalog",
+    "reviewStatus": "classified",
+    "tags": [
+      "Megadeth",
+      "Megadeth Vault",
+      "Thrash Metal",
+      "remera",
+      "Megadeth Archive",
+      "Tour Archive"
+    ]
+  },
+  {
+    "id": 406,
+    "group": "megadeth-deep-archive",
+    "band": "Megadeth",
+    "universe": [
+      "Megadeth Vault",
+      "Thrash Metal"
+    ],
+    "album": null,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Megadeth Archive",
+      "Tour Archive"
+    ],
+    "campaigns": [
+      "Tour Archive"
+    ],
+    "commercialPriority": 34,
+    "visibilityTier": "archive",
+    "reviewStatus": "classified",
+    "tags": [
+      "Megadeth",
+      "Megadeth Vault",
+      "Thrash Metal",
+      "remera",
+      "Megadeth Archive",
+      "Tour Archive"
+    ]
+  },
+  {
+    "id": 407,
+    "group": "megadeth-deep-archive",
+    "band": "Megadeth",
+    "universe": [
+      "Megadeth Vault",
+      "Thrash Metal"
+    ],
+    "album": null,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Megadeth Archive",
+      "Tour Archive"
+    ],
+    "campaigns": [
+      "Tour Archive"
+    ],
+    "commercialPriority": 34,
+    "visibilityTier": "archive",
+    "reviewStatus": "classified",
+    "tags": [
+      "Megadeth",
+      "Megadeth Vault",
+      "Thrash Metal",
+      "remera",
+      "Megadeth Archive",
+      "Tour Archive"
+    ]
+  },
+  {
+    "id": 5019,
+    "group": "megadeth-deep-archive",
+    "band": "Megadeth",
+    "universe": [
+      "Megadeth Vault",
+      "Thrash Metal"
+    ],
+    "album": null,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Megadeth Archive",
+      "Tour Archive"
+    ],
+    "campaigns": [
+      "Argentina 2026",
+      "Tour Archive"
+    ],
+    "commercialPriority": 34,
+    "visibilityTier": "archive",
+    "reviewStatus": "classified",
+    "tags": [
+      "Megadeth",
+      "Megadeth Vault",
+      "Thrash Metal",
+      "remera",
+      "Megadeth Archive",
+      "Tour Archive",
+      "Argentina 2026"
+    ]
+  },
+  {
+    "id": 5020,
+    "group": "megadeth-deep-archive",
+    "band": "Megadeth",
+    "universe": [
+      "Megadeth Vault",
+      "Thrash Metal"
+    ],
+    "album": null,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Megadeth Archive",
+      "Tour Archive"
+    ],
+    "campaigns": [
+      "Tour Archive"
+    ],
+    "commercialPriority": 34,
+    "visibilityTier": "archive",
+    "reviewStatus": "classified",
+    "tags": [
+      "Megadeth",
+      "Megadeth Vault",
+      "Thrash Metal",
+      "remera",
+      "Megadeth Archive",
+      "Tour Archive"
+    ]
+  },
+  {
+    "id": 5021,
+    "group": "megadeth-deep-archive",
+    "band": "Megadeth",
+    "universe": [
+      "Megadeth Vault",
+      "Thrash Metal"
+    ],
+    "album": null,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Megadeth Archive",
+      "Tour Archive"
+    ],
+    "campaigns": [
+      "Tour Archive"
+    ],
+    "commercialPriority": 34,
+    "visibilityTier": "archive",
+    "reviewStatus": "classified",
+    "tags": [
+      "Megadeth",
+      "Megadeth Vault",
+      "Thrash Metal",
+      "remera",
+      "Megadeth Archive",
+      "Tour Archive"
+    ]
+  },
+  {
+    "id": 49,
+    "group": "ambiguous-custom",
+    "band": null,
+    "universe": [
+      "Custom Archive"
+    ],
+    "album": null,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Custom Archive",
+      "Revision Manual"
+    ],
+    "campaigns": [],
+    "commercialPriority": 30,
+    "visibilityTier": "archive",
+    "reviewStatus": "manual-review",
+    "tags": [
+      "Custom Archive",
+      "remera",
+      "Revision Manual"
+    ]
+  },
+  {
+    "id": 56,
+    "group": "ambiguous-custom",
+    "band": null,
+    "universe": [
+      "Custom Archive"
+    ],
+    "album": null,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Custom Archive",
+      "Revision Manual"
+    ],
+    "campaigns": [],
+    "commercialPriority": 30,
+    "visibilityTier": "archive",
+    "reviewStatus": "manual-review",
+    "tags": [
+      "Custom Archive",
+      "remera",
+      "Revision Manual"
+    ]
+  },
+  {
+    "id": 5121,
+    "group": "ambiguous-custom",
+    "band": null,
+    "universe": [
+      "Custom Archive"
+    ],
+    "album": null,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Custom Archive",
+      "Revision Manual"
+    ],
+    "campaigns": [],
+    "commercialPriority": 30,
+    "visibilityTier": "archive",
+    "reviewStatus": "manual-review",
+    "tags": [
+      "Custom Archive",
+      "remera",
+      "Revision Manual"
+    ]
+  },
+  {
+    "id": 311,
+    "group": "ambiguous-custom",
+    "band": null,
+    "universe": [
+      "Custom Archive"
+    ],
+    "album": null,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Custom Archive",
+      "Revision Manual"
+    ],
+    "campaigns": [],
+    "commercialPriority": 30,
+    "visibilityTier": "archive",
+    "reviewStatus": "manual-review",
+    "tags": [
+      "Custom Archive",
+      "remera",
+      "Revision Manual"
+    ]
+  },
+  {
+    "id": 422,
+    "group": "ambiguous-custom",
+    "band": null,
+    "universe": [
+      "Custom Archive"
+    ],
+    "album": null,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Custom Archive",
+      "Revision Manual"
+    ],
+    "campaigns": [],
+    "commercialPriority": 30,
+    "visibilityTier": "archive",
+    "reviewStatus": "manual-review",
+    "tags": [
+      "Custom Archive",
+      "remera",
+      "Revision Manual"
+    ]
+  },
+  {
+    "id": 50,
+    "group": "ambiguous-custom",
+    "band": null,
+    "universe": [
+      "Custom Archive"
+    ],
+    "album": null,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Custom Archive",
+      "Revision Manual"
+    ],
+    "campaigns": [],
+    "commercialPriority": 30,
+    "visibilityTier": "archive",
+    "reviewStatus": "manual-review",
+    "tags": [
+      "Custom Archive",
+      "remera",
+      "Revision Manual"
+    ]
+  },
+  {
+    "id": 421,
+    "group": "ambiguous-custom",
+    "band": null,
+    "universe": [
+      "Custom Archive"
+    ],
+    "album": null,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Custom Archive",
+      "Revision Manual"
+    ],
+    "campaigns": [],
+    "commercialPriority": 30,
+    "visibilityTier": "archive",
+    "reviewStatus": "manual-review",
+    "tags": [
+      "Custom Archive",
+      "remera",
+      "Revision Manual"
+    ]
+  },
+  {
+    "id": 1064,
+    "group": "megadeth-deep-archive",
+    "band": "Megadeth",
+    "universe": [
+      "Megadeth Vault",
+      "Thrash Metal"
+    ],
+    "album": null,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Megadeth Archive",
+      "Vic Rattlehead"
+    ],
+    "campaigns": [],
+    "commercialPriority": 45,
+    "visibilityTier": "archive",
+    "reviewStatus": "classified",
+    "tags": [
+      "Megadeth",
+      "Megadeth Vault",
+      "Thrash Metal",
+      "remera",
+      "Megadeth Archive",
+      "Vic Rattlehead"
+    ]
+  },
+  {
+    "id": 5124,
+    "group": "megadeth-deep-archive",
+    "band": "Megadeth",
+    "universe": [
+      "Megadeth Vault",
+      "Thrash Metal"
+    ],
+    "album": "Countdown to Extinction",
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Megadeth Archive",
+      "Vic Rattlehead",
+      "Countdown to Extinction"
+    ],
+    "campaigns": [],
+    "commercialPriority": 45,
+    "visibilityTier": "catalog",
+    "reviewStatus": "classified",
+    "tags": [
+      "Megadeth",
+      "Megadeth Vault",
+      "Thrash Metal",
+      "Countdown to Extinction",
+      "remera",
+      "Megadeth Archive",
+      "Vic Rattlehead"
+    ]
+  },
+  {
+    "id": 1066,
+    "group": "megadeth-deep-archive",
+    "band": "Megadeth",
+    "universe": [
+      "Megadeth Vault",
+      "Thrash Metal"
+    ],
+    "album": "Killing Is My Business... and Business Is Good!",
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Megadeth Archive",
+      "Vic Rattlehead",
+      "Killing Is My Business... and Business Is Good!"
+    ],
+    "campaigns": [],
+    "commercialPriority": 45,
+    "visibilityTier": "archive",
+    "reviewStatus": "classified",
+    "tags": [
+      "Megadeth",
+      "Megadeth Vault",
+      "Thrash Metal",
+      "Killing Is My Business... and Business Is Good!",
+      "remera",
+      "Megadeth Archive",
+      "Vic Rattlehead"
+    ]
+  },
+  {
+    "id": 5023,
+    "group": "megadeth-deep-archive",
+    "band": "Megadeth",
+    "universe": [
+      "Megadeth Vault",
+      "Thrash Metal"
+    ],
+    "album": null,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Megadeth Archive",
+      "Vic Rattlehead"
+    ],
+    "campaigns": [],
+    "commercialPriority": 45,
+    "visibilityTier": "archive",
+    "reviewStatus": "classified",
+    "tags": [
+      "Megadeth",
+      "Megadeth Vault",
+      "Thrash Metal",
+      "remera",
+      "Megadeth Archive",
+      "Vic Rattlehead"
+    ]
+  },
+  {
+    "id": 5022,
+    "group": "megadeth-deep-archive",
+    "band": "Megadeth",
+    "universe": [
+      "Megadeth Vault",
+      "Thrash Metal"
+    ],
+    "album": "The Sick, the Dying... and the Dead!",
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Megadeth Archive",
+      "Megadeth Singles",
+      "The Sick, the Dying... and the Dead!"
+    ],
+    "campaigns": [],
+    "commercialPriority": 58,
+    "visibilityTier": "catalog",
+    "reviewStatus": "classified",
+    "tags": [
+      "Megadeth",
+      "Megadeth Vault",
+      "Thrash Metal",
+      "The Sick, the Dying... and the Dead!",
+      "remera",
+      "Megadeth Archive",
+      "Megadeth Singles"
+    ]
+  },
+  {
+    "id": 5024,
+    "group": "megadeth-deep-archive",
+    "band": "Megadeth",
+    "universe": [
+      "Megadeth Vault",
+      "Thrash Metal"
+    ],
+    "album": "The Sick, the Dying... and the Dead!",
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Megadeth Archive",
+      "Vic Rattlehead",
+      "The Sick, the Dying... and the Dead!"
+    ],
+    "campaigns": [],
+    "commercialPriority": 45,
+    "visibilityTier": "catalog",
+    "reviewStatus": "classified",
+    "tags": [
+      "Megadeth",
+      "Megadeth Vault",
+      "Thrash Metal",
+      "The Sick, the Dying... and the Dead!",
+      "remera",
+      "Megadeth Archive",
+      "Vic Rattlehead"
+    ]
+  },
+  {
+    "id": 5025,
+    "group": "megadeth-deep-archive",
+    "band": "Megadeth",
+    "universe": [
+      "Megadeth Vault",
+      "Thrash Metal"
+    ],
+    "album": "Rust in Peace",
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Megadeth Archive",
+      "Vic Rattlehead",
+      "Rust in Peace"
+    ],
+    "campaigns": [],
+    "commercialPriority": 45,
+    "visibilityTier": "catalog",
+    "reviewStatus": "classified",
+    "tags": [
+      "Megadeth",
+      "Megadeth Vault",
+      "Thrash Metal",
+      "Rust in Peace",
+      "remera",
+      "Megadeth Archive",
+      "Vic Rattlehead"
+    ]
+  },
+  {
+    "id": 5026,
+    "group": "megadeth-deep-archive",
+    "band": "Megadeth",
+    "universe": [
+      "Megadeth Vault",
+      "Thrash Metal"
+    ],
+    "album": null,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Megadeth Archive",
+      "Vic Rattlehead"
+    ],
+    "campaigns": [],
+    "commercialPriority": 45,
+    "visibilityTier": "archive",
+    "reviewStatus": "classified",
+    "tags": [
+      "Megadeth",
+      "Megadeth Vault",
+      "Thrash Metal",
+      "remera",
+      "Megadeth Archive",
+      "Vic Rattlehead"
+    ]
+  },
+  {
+    "id": 5027,
+    "group": "megadeth-deep-archive",
+    "band": "Megadeth",
+    "universe": [
+      "Megadeth Vault",
+      "Thrash Metal"
+    ],
+    "album": "Peace Sells... but Who's Buying?",
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Megadeth Archive",
+      "Vic Rattlehead",
+      "Peace Sells... but Who's Buying?"
+    ],
+    "campaigns": [],
+    "commercialPriority": 45,
+    "visibilityTier": "archive",
+    "reviewStatus": "classified",
+    "tags": [
+      "Megadeth",
+      "Megadeth Vault",
+      "Thrash Metal",
+      "Peace Sells... but Who's Buying?",
+      "remera",
+      "Megadeth Archive",
+      "Vic Rattlehead"
+    ]
+  },
+  {
+    "id": 5028,
+    "group": "megadeth-deep-archive",
+    "band": "Megadeth",
+    "universe": [
+      "Megadeth Vault",
+      "Thrash Metal"
+    ],
+    "album": "So Far, So Good... So What!",
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Megadeth Archive",
+      "Vic Rattlehead",
+      "So Far, So Good... So What!"
+    ],
+    "campaigns": [],
+    "commercialPriority": 45,
+    "visibilityTier": "catalog",
+    "reviewStatus": "classified",
+    "tags": [
+      "Megadeth",
+      "Megadeth Vault",
+      "Thrash Metal",
+      "So Far, So Good... So What!",
+      "remera",
+      "Megadeth Archive",
+      "Vic Rattlehead"
+    ]
+  },
+  {
+    "id": 5029,
+    "group": "megadeth-deep-archive",
+    "band": "Megadeth",
+    "universe": [
+      "Megadeth Vault",
+      "Thrash Metal"
+    ],
+    "album": "Peace Sells... but Who's Buying?",
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Megadeth Archive",
+      "Vic Rattlehead",
+      "Peace Sells... but Who's Buying?"
+    ],
+    "campaigns": [],
+    "commercialPriority": 45,
+    "visibilityTier": "catalog",
+    "reviewStatus": "classified",
+    "tags": [
+      "Megadeth",
+      "Megadeth Vault",
+      "Thrash Metal",
+      "Peace Sells... but Who's Buying?",
+      "remera",
+      "Megadeth Archive",
+      "Vic Rattlehead"
+    ]
+  },
+  {
+    "id": 5030,
+    "group": "megadeth-deep-archive",
+    "band": "Megadeth",
+    "universe": [
+      "Megadeth Vault",
+      "Thrash Metal"
+    ],
+    "album": null,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Megadeth Archive",
+      "Vic Rattlehead"
+    ],
+    "campaigns": [],
+    "commercialPriority": 45,
+    "visibilityTier": "archive",
+    "reviewStatus": "classified",
+    "tags": [
+      "Megadeth",
+      "Megadeth Vault",
+      "Thrash Metal",
+      "remera",
+      "Megadeth Archive",
+      "Vic Rattlehead"
+    ]
+  },
+  {
+    "id": 5050,
+    "group": "megadeth-deep-archive",
+    "band": "Megadeth",
+    "universe": [
+      "Megadeth Vault",
+      "Thrash Metal"
+    ],
+    "album": null,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Megadeth Archive",
+      "Vic Rattlehead"
+    ],
+    "campaigns": [],
+    "commercialPriority": 45,
+    "visibilityTier": "archive",
+    "reviewStatus": "classified",
+    "tags": [
+      "Megadeth",
+      "Megadeth Vault",
+      "Thrash Metal",
+      "remera",
+      "Megadeth Archive",
+      "Vic Rattlehead"
+    ]
+  },
+  {
+    "id": 5051,
+    "group": "megadeth-deep-archive",
+    "band": "Megadeth",
+    "universe": [
+      "Megadeth Vault",
+      "Thrash Metal"
+    ],
+    "album": "Peace Sells... but Who's Buying?",
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Megadeth Archive",
+      "Vic Rattlehead",
+      "Peace Sells... but Who's Buying?"
+    ],
+    "campaigns": [],
+    "commercialPriority": 45,
+    "visibilityTier": "catalog",
+    "reviewStatus": "classified",
+    "tags": [
+      "Megadeth",
+      "Megadeth Vault",
+      "Thrash Metal",
+      "Peace Sells... but Who's Buying?",
+      "remera",
+      "Megadeth Archive",
+      "Vic Rattlehead"
+    ]
+  },
+  {
+    "id": 5053,
+    "group": "megadeth-deep-archive",
+    "band": "Megadeth",
+    "universe": [
+      "Megadeth Vault",
+      "Thrash Metal"
+    ],
+    "album": "Rust in Peace",
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Megadeth Archive",
+      "Megadeth Singles",
+      "Rust in Peace"
+    ],
+    "campaigns": [],
+    "commercialPriority": 58,
+    "visibilityTier": "catalog",
+    "reviewStatus": "classified",
+    "tags": [
+      "Megadeth",
+      "Megadeth Vault",
+      "Thrash Metal",
+      "Rust in Peace",
+      "remera",
+      "Megadeth Archive",
+      "Megadeth Singles"
+    ]
+  },
+  {
+    "id": 6031,
+    "group": "megadeth-deep-archive",
+    "band": "Megadeth",
+    "universe": [
+      "Megadeth Vault",
+      "Thrash Metal"
+    ],
+    "album": "Rust in Peace",
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Megadeth Archive",
+      "Megadeth Singles",
+      "Rust in Peace"
+    ],
+    "campaigns": [],
+    "commercialPriority": 58,
+    "visibilityTier": "catalog",
+    "reviewStatus": "classified",
+    "tags": [
+      "Megadeth",
+      "Megadeth Vault",
+      "Thrash Metal",
+      "Rust in Peace",
+      "remera",
+      "Megadeth Archive",
+      "Megadeth Singles"
+    ]
+  },
+  {
+    "id": 5054,
+    "group": "megadeth-deep-archive",
+    "band": "Megadeth",
+    "universe": [
+      "Megadeth Vault",
+      "Thrash Metal"
+    ],
+    "album": "Peace Sells... but Who's Buying?",
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Megadeth Archive",
+      "Vic Rattlehead",
+      "Peace Sells... but Who's Buying?"
+    ],
+    "campaigns": [],
+    "commercialPriority": 45,
+    "visibilityTier": "archive",
+    "reviewStatus": "classified",
+    "tags": [
+      "Megadeth",
+      "Megadeth Vault",
+      "Thrash Metal",
+      "Peace Sells... but Who's Buying?",
+      "remera",
+      "Megadeth Archive",
+      "Vic Rattlehead"
+    ]
+  },
+  {
+    "id": 6023,
+    "group": "megadeth-deep-archive",
+    "band": "Megadeth",
+    "universe": [
+      "Megadeth Vault",
+      "Thrash Metal",
+      "FMD Editions"
+    ],
+    "album": null,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Megadeth Archive",
+      "Vic Rattlehead",
+      "FMD Editions"
+    ],
+    "campaigns": [],
+    "commercialPriority": 45,
+    "visibilityTier": "catalog",
+    "reviewStatus": "classified",
+    "tags": [
+      "Megadeth",
+      "Megadeth Vault",
+      "Thrash Metal",
+      "FMD Editions",
+      "remera",
+      "Megadeth Archive",
+      "Vic Rattlehead"
+    ]
+  },
+  {
+    "id": 6024,
+    "group": "megadeth-deep-archive",
+    "band": "Megadeth",
+    "universe": [
+      "Megadeth Vault",
+      "Thrash Metal"
+    ],
+    "album": null,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Megadeth Archive",
+      "Vic Rattlehead"
+    ],
+    "campaigns": [],
+    "commercialPriority": 45,
+    "visibilityTier": "archive",
+    "reviewStatus": "classified",
+    "tags": [
+      "Megadeth",
+      "Megadeth Vault",
+      "Thrash Metal",
+      "remera",
+      "Megadeth Archive",
+      "Vic Rattlehead"
+    ]
+  },
+  {
+    "id": 6022,
+    "group": "megadeth-deep-archive",
+    "band": "Megadeth",
+    "universe": [
+      "Megadeth Vault",
+      "Thrash Metal"
+    ],
+    "album": null,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Megadeth Archive"
+    ],
+    "campaigns": [],
+    "commercialPriority": 55,
+    "visibilityTier": "catalog",
+    "reviewStatus": "classified",
+    "tags": [
+      "Megadeth",
+      "Megadeth Vault",
+      "Thrash Metal",
+      "remera",
+      "Megadeth Archive"
+    ]
+  }
+]

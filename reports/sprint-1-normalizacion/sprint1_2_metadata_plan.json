@@ -1,0 +1,1140 @@
+[
+  {
+    "id": 7102,
+    "band": "Slayer",
+    "universe": [
+      "Thrash Metal"
+    ],
+    "album": "Reign in Blood",
+    "garments": [
+      "remera",
+      "hoodie"
+    ],
+    "collections": [
+      "Slayer Archive FMD",
+      "Reign in Blood"
+    ],
+    "campaigns": [],
+    "commercialPriority": 86,
+    "visibilityTier": "featured"
+  },
+  {
+    "id": 7103,
+    "band": "Slayer",
+    "universe": [
+      "Thrash Metal"
+    ],
+    "album": "South of Heaven",
+    "garments": [
+      "remera",
+      "hoodie"
+    ],
+    "collections": [
+      "Slayer Archive FMD",
+      "South of Heaven"
+    ],
+    "campaigns": [],
+    "commercialPriority": 85,
+    "visibilityTier": "featured"
+  },
+  {
+    "id": 7105,
+    "band": "Slayer",
+    "universe": [
+      "Thrash Metal"
+    ],
+    "album": "Hell Awaits",
+    "garments": [
+      "remera",
+      "hoodie",
+      "buzo_cuello_redondo"
+    ],
+    "collections": [
+      "Slayer Archive FMD",
+      "Hell Awaits"
+    ],
+    "campaigns": [],
+    "commercialPriority": 82,
+    "visibilityTier": "featured"
+  },
+  {
+    "id": 7106,
+    "band": "Slayer",
+    "universe": [
+      "Thrash Metal"
+    ],
+    "album": null,
+    "garments": [
+      "remera",
+      "hoodie",
+      "buzo_cuello_redondo"
+    ],
+    "collections": [
+      "Slayer Archive FMD"
+    ],
+    "campaigns": [],
+    "commercialPriority": 68,
+    "visibilityTier": "catalog"
+  },
+  {
+    "id": 7108,
+    "band": "Slayer",
+    "universe": [
+      "Thrash Metal"
+    ],
+    "album": "Show No Mercy",
+    "garments": [
+      "remera",
+      "hoodie",
+      "buzo_cuello_redondo"
+    ],
+    "collections": [
+      "Slayer Archive FMD",
+      "Show No Mercy"
+    ],
+    "campaigns": [],
+    "commercialPriority": 84,
+    "visibilityTier": "featured"
+  },
+  {
+    "id": 7109,
+    "band": "Slayer",
+    "universe": [
+      "Thrash Metal",
+      "FMD Editions"
+    ],
+    "album": "Show No Mercy",
+    "garments": [
+      "remera",
+      "hoodie"
+    ],
+    "collections": [
+      "Slayer Archive FMD",
+      "Show No Mercy",
+      "FMD Editions"
+    ],
+    "campaigns": [],
+    "commercialPriority": 81,
+    "visibilityTier": "featured"
+  },
+  {
+    "id": 7110,
+    "band": "Slayer",
+    "universe": [
+      "Thrash Metal"
+    ],
+    "album": null,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Slayer Archive FMD"
+    ],
+    "campaigns": [],
+    "commercialPriority": 68,
+    "visibilityTier": "catalog"
+  },
+  {
+    "id": 7111,
+    "band": "Slayer",
+    "universe": [
+      "Thrash Metal"
+    ],
+    "album": null,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Slayer Archive FMD"
+    ],
+    "campaigns": [],
+    "commercialPriority": 68,
+    "visibilityTier": "catalog"
+  },
+  {
+    "id": 7112,
+    "band": "Slayer",
+    "universe": [
+      "Thrash Metal"
+    ],
+    "album": "God Hates Us All",
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Slayer Archive FMD",
+      "God Hates Us All"
+    ],
+    "campaigns": [],
+    "commercialPriority": 80,
+    "visibilityTier": "featured"
+  },
+  {
+    "id": 7114,
+    "band": "Slayer",
+    "universe": [
+      "Thrash Metal"
+    ],
+    "album": "Seasons in the Abyss",
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Slayer Archive FMD",
+      "Seasons in the Abyss"
+    ],
+    "campaigns": [],
+    "commercialPriority": 82,
+    "visibilityTier": "featured"
+  },
+  {
+    "id": 7115,
+    "band": "Slayer",
+    "universe": [
+      "Thrash Metal"
+    ],
+    "album": "God Hates Us All",
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Slayer Archive FMD",
+      "God Hates Us All"
+    ],
+    "campaigns": [],
+    "commercialPriority": 68,
+    "visibilityTier": "catalog"
+  },
+  {
+    "id": 7116,
+    "band": "Slayer",
+    "universe": [
+      "Thrash Metal"
+    ],
+    "album": null,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Slayer Archive FMD"
+    ],
+    "campaigns": [],
+    "commercialPriority": 68,
+    "visibilityTier": "catalog"
+  },
+  {
+    "id": 7117,
+    "band": "Slayer",
+    "universe": [
+      "Thrash Metal"
+    ],
+    "album": "Live Undead",
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Slayer Archive FMD",
+      "Live Undead"
+    ],
+    "campaigns": [],
+    "commercialPriority": 78,
+    "visibilityTier": "featured"
+  },
+  {
+    "id": 7118,
+    "band": "Slayer",
+    "universe": [
+      "Thrash Metal"
+    ],
+    "album": "Divine Intervention",
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Slayer Archive FMD",
+      "Divine Intervention"
+    ],
+    "campaigns": [],
+    "commercialPriority": 79,
+    "visibilityTier": "featured"
+  },
+  {
+    "id": 7119,
+    "band": "Slayer",
+    "universe": [
+      "Thrash Metal"
+    ],
+    "album": null,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Slayer Archive FMD"
+    ],
+    "campaigns": [],
+    "commercialPriority": 68,
+    "visibilityTier": "catalog"
+  },
+  {
+    "id": 7121,
+    "band": "Slayer",
+    "universe": [
+      "Thrash Metal"
+    ],
+    "album": "Diabolus in Musica",
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Slayer Archive FMD",
+      "Diabolus in Musica"
+    ],
+    "campaigns": [],
+    "commercialPriority": 83,
+    "visibilityTier": "featured"
+  },
+  {
+    "id": 307,
+    "band": "Iron Maiden",
+    "universe": [
+      "Heavy Metal Classics"
+    ],
+    "album": "Live After Death",
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Archivo Maiden",
+      "Live After Death"
+    ],
+    "campaigns": [],
+    "commercialPriority": 82,
+    "visibilityTier": "featured"
+  },
+  {
+    "id": 308,
+    "band": "Iron Maiden",
+    "universe": [
+      "Heavy Metal Classics"
+    ],
+    "album": null,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Archivo Maiden"
+    ],
+    "campaigns": [],
+    "commercialPriority": 68,
+    "visibilityTier": "catalog"
+  },
+  {
+    "id": 7034,
+    "band": "Iron Maiden",
+    "universe": [
+      "Heavy Metal Classics"
+    ],
+    "album": null,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Archivo Maiden",
+      "Eddie"
+    ],
+    "campaigns": [],
+    "commercialPriority": 68,
+    "visibilityTier": "catalog"
+  },
+  {
+    "id": 408,
+    "band": "Iron Maiden",
+    "universe": [
+      "Heavy Metal Classics"
+    ],
+    "album": null,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Archivo Maiden",
+      "Eddie"
+    ],
+    "campaigns": [],
+    "commercialPriority": 68,
+    "visibilityTier": "catalog"
+  },
+  {
+    "id": 409,
+    "band": "Iron Maiden",
+    "universe": [
+      "Heavy Metal Classics"
+    ],
+    "album": null,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Archivo Maiden",
+      "Eddie"
+    ],
+    "campaigns": [],
+    "commercialPriority": 68,
+    "visibilityTier": "catalog"
+  },
+  {
+    "id": 5125,
+    "band": "Iron Maiden",
+    "universe": [
+      "Heavy Metal Classics"
+    ],
+    "album": null,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Archivo Maiden",
+      "Eddie"
+    ],
+    "campaigns": [],
+    "commercialPriority": 68,
+    "visibilityTier": "catalog"
+  },
+  {
+    "id": 5032,
+    "band": "Iron Maiden",
+    "universe": [
+      "Heavy Metal Classics"
+    ],
+    "album": "The Book of Souls",
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Archivo Maiden",
+      "The Book of Souls"
+    ],
+    "campaigns": [],
+    "commercialPriority": 68,
+    "visibilityTier": "catalog"
+  },
+  {
+    "id": 5033,
+    "band": "Iron Maiden",
+    "universe": [
+      "Heavy Metal Classics"
+    ],
+    "album": "Seventh Son of a Seventh Son",
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Archivo Maiden",
+      "Seventh Son of a Seventh Son"
+    ],
+    "campaigns": [],
+    "commercialPriority": 68,
+    "visibilityTier": "catalog"
+  },
+  {
+    "id": 5034,
+    "band": "Iron Maiden",
+    "universe": [
+      "Heavy Metal Classics"
+    ],
+    "album": "The Book of Souls",
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Archivo Maiden",
+      "The Book of Souls"
+    ],
+    "campaigns": [],
+    "commercialPriority": 68,
+    "visibilityTier": "catalog"
+  },
+  {
+    "id": 5035,
+    "band": "Iron Maiden",
+    "universe": [
+      "Heavy Metal Classics"
+    ],
+    "album": "Brave New World",
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Archivo Maiden",
+      "Brave New World"
+    ],
+    "campaigns": [],
+    "commercialPriority": 68,
+    "visibilityTier": "catalog"
+  },
+  {
+    "id": 5036,
+    "band": "Iron Maiden",
+    "universe": [
+      "Heavy Metal Classics"
+    ],
+    "album": "Killers",
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Archivo Maiden",
+      "Killers"
+    ],
+    "campaigns": [],
+    "commercialPriority": 79,
+    "visibilityTier": "featured"
+  },
+  {
+    "id": 5037,
+    "band": "Iron Maiden",
+    "universe": [
+      "Heavy Metal Classics"
+    ],
+    "album": "Somewhere in Time",
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Archivo Maiden",
+      "Somewhere in Time"
+    ],
+    "campaigns": [],
+    "commercialPriority": 68,
+    "visibilityTier": "catalog"
+  },
+  {
+    "id": 5038,
+    "band": "Iron Maiden",
+    "universe": [
+      "Heavy Metal Classics"
+    ],
+    "album": "Fear of the Dark",
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Archivo Maiden",
+      "Fear of the Dark"
+    ],
+    "campaigns": [],
+    "commercialPriority": 84,
+    "visibilityTier": "featured"
+  },
+  {
+    "id": 6004,
+    "band": "Iron Maiden",
+    "universe": [
+      "Heavy Metal Classics"
+    ],
+    "album": null,
+    "garments": [
+      "hoodie"
+    ],
+    "collections": [
+      "Archivo Maiden"
+    ],
+    "campaigns": [],
+    "commercialPriority": 68,
+    "visibilityTier": "catalog"
+  },
+  {
+    "id": 6005,
+    "band": "Iron Maiden",
+    "universe": [
+      "Heavy Metal Classics"
+    ],
+    "album": "The Number of the Beast",
+    "garments": [
+      "hoodie"
+    ],
+    "collections": [
+      "Archivo Maiden",
+      "The Number of the Beast"
+    ],
+    "campaigns": [],
+    "commercialPriority": 78,
+    "visibilityTier": "featured"
+  },
+  {
+    "id": 6006,
+    "band": "Iron Maiden",
+    "universe": [
+      "Heavy Metal Classics"
+    ],
+    "album": "Killers",
+    "garments": [
+      "hoodie"
+    ],
+    "collections": [
+      "Archivo Maiden",
+      "Killers"
+    ],
+    "campaigns": [],
+    "commercialPriority": 77,
+    "visibilityTier": "featured"
+  },
+  {
+    "id": 6007,
+    "band": "Iron Maiden",
+    "universe": [
+      "Heavy Metal Classics"
+    ],
+    "album": "Killers",
+    "garments": [
+      "hoodie"
+    ],
+    "collections": [
+      "Archivo Maiden",
+      "Killers"
+    ],
+    "campaigns": [],
+    "commercialPriority": 77,
+    "visibilityTier": "featured"
+  },
+  {
+    "id": 7011,
+    "band": "Iron Maiden",
+    "universe": [
+      "Heavy Metal Classics",
+      "FMD Editions"
+    ],
+    "album": null,
+    "garments": [
+      "buzo_cuello_redondo"
+    ],
+    "collections": [
+      "Archivo Maiden",
+      "FMD Editions"
+    ],
+    "campaigns": [],
+    "commercialPriority": 68,
+    "visibilityTier": "catalog"
+  },
+  {
+    "id": 7012,
+    "band": "Iron Maiden",
+    "universe": [
+      "Heavy Metal Classics",
+      "FMD Editions"
+    ],
+    "album": "Live After Death",
+    "garments": [
+      "buzo_cuello_redondo"
+    ],
+    "collections": [
+      "Archivo Maiden",
+      "Live After Death",
+      "FMD Editions"
+    ],
+    "campaigns": [],
+    "commercialPriority": 80,
+    "visibilityTier": "featured"
+  },
+  {
+    "id": 7013,
+    "band": "Iron Maiden",
+    "universe": [
+      "Heavy Metal Classics",
+      "FMD Editions"
+    ],
+    "album": null,
+    "garments": [
+      "buzo_cuello_redondo"
+    ],
+    "collections": [
+      "Archivo Maiden",
+      "FMD Editions",
+      "Tour Archive"
+    ],
+    "campaigns": [
+      "Tour 2026"
+    ],
+    "commercialPriority": 83,
+    "visibilityTier": "featured"
+  },
+  {
+    "id": 7016,
+    "band": "Iron Maiden",
+    "universe": [
+      "Heavy Metal Classics",
+      "FMD Editions"
+    ],
+    "album": null,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Archivo Maiden",
+      "FMD Editions",
+      "Eddie"
+    ],
+    "campaigns": [
+      "Argentina 2026"
+    ],
+    "commercialPriority": 81,
+    "visibilityTier": "featured"
+  },
+  {
+    "id": 7017,
+    "band": "Iron Maiden",
+    "universe": [
+      "Heavy Metal Classics",
+      "FMD Editions"
+    ],
+    "album": null,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Archivo Maiden",
+      "FMD Editions",
+      "Eddie"
+    ],
+    "campaigns": [],
+    "commercialPriority": 68,
+    "visibilityTier": "catalog"
+  },
+  {
+    "id": 7018,
+    "band": "Iron Maiden",
+    "universe": [
+      "Heavy Metal Classics",
+      "FMD Editions"
+    ],
+    "album": null,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Archivo Maiden",
+      "FMD Editions",
+      "Eddie"
+    ],
+    "campaigns": [],
+    "commercialPriority": 68,
+    "visibilityTier": "catalog"
+  },
+  {
+    "id": 7019,
+    "band": "Iron Maiden",
+    "universe": [
+      "Heavy Metal Classics",
+      "FMD Editions"
+    ],
+    "album": null,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Archivo Maiden",
+      "FMD Editions",
+      "Eddie"
+    ],
+    "campaigns": [],
+    "commercialPriority": 68,
+    "visibilityTier": "catalog"
+  },
+  {
+    "id": 7020,
+    "band": "Iron Maiden",
+    "universe": [
+      "Heavy Metal Classics",
+      "FMD Editions"
+    ],
+    "album": null,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Archivo Maiden",
+      "FMD Editions",
+      "Eddie"
+    ],
+    "campaigns": [],
+    "commercialPriority": 68,
+    "visibilityTier": "catalog"
+  },
+  {
+    "id": 7021,
+    "band": "Iron Maiden",
+    "universe": [
+      "Heavy Metal Classics",
+      "FMD Editions"
+    ],
+    "album": "The Number of the Beast",
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Archivo Maiden",
+      "The Number of the Beast",
+      "FMD Editions",
+      "Eddie"
+    ],
+    "campaigns": [],
+    "commercialPriority": 82,
+    "visibilityTier": "featured"
+  },
+  {
+    "id": 7022,
+    "band": "Iron Maiden",
+    "universe": [
+      "Heavy Metal Classics",
+      "FMD Editions"
+    ],
+    "album": "Fear of the Dark",
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Archivo Maiden",
+      "Fear of the Dark",
+      "FMD Editions"
+    ],
+    "campaigns": [],
+    "commercialPriority": 80,
+    "visibilityTier": "featured"
+  },
+  {
+    "id": 7024,
+    "band": "Iron Maiden",
+    "universe": [
+      "Heavy Metal Classics",
+      "FMD Editions"
+    ],
+    "album": "Killers",
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Archivo Maiden",
+      "Killers",
+      "FMD Editions"
+    ],
+    "campaigns": [],
+    "commercialPriority": 78,
+    "visibilityTier": "featured"
+  },
+  {
+    "id": 7026,
+    "band": "Iron Maiden",
+    "universe": [
+      "Heavy Metal Classics",
+      "FMD Editions"
+    ],
+    "album": "Powerslave",
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Archivo Maiden",
+      "Powerslave",
+      "FMD Editions"
+    ],
+    "campaigns": [],
+    "commercialPriority": 83,
+    "visibilityTier": "featured"
+  },
+  {
+    "id": 7027,
+    "band": "Iron Maiden",
+    "universe": [
+      "Heavy Metal Classics",
+      "FMD Editions"
+    ],
+    "album": "Somewhere in Time",
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Archivo Maiden",
+      "Somewhere in Time",
+      "FMD Editions"
+    ],
+    "campaigns": [],
+    "commercialPriority": 80,
+    "visibilityTier": "featured"
+  },
+  {
+    "id": 7028,
+    "band": "Iron Maiden",
+    "universe": [
+      "Heavy Metal Classics",
+      "FMD Editions"
+    ],
+    "album": "The Book of Souls",
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Archivo Maiden",
+      "The Book of Souls",
+      "FMD Editions"
+    ],
+    "campaigns": [],
+    "commercialPriority": 78,
+    "visibilityTier": "featured"
+  },
+  {
+    "id": 7031,
+    "band": "Iron Maiden",
+    "universe": [
+      "Heavy Metal Classics",
+      "FMD Editions"
+    ],
+    "album": null,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Archivo Maiden",
+      "FMD Editions",
+      "Tour Archive"
+    ],
+    "campaigns": [
+      "Tour 2026"
+    ],
+    "commercialPriority": 85,
+    "visibilityTier": "featured"
+  },
+  {
+    "id": 7032,
+    "band": "Iron Maiden",
+    "universe": [
+      "Heavy Metal Classics",
+      "FMD Editions"
+    ],
+    "album": null,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Archivo Maiden",
+      "FMD Editions",
+      "Tour Archive"
+    ],
+    "campaigns": [
+      "Tour 2026"
+    ],
+    "commercialPriority": 85,
+    "visibilityTier": "featured"
+  },
+  {
+    "id": 7033,
+    "band": "Iron Maiden",
+    "universe": [
+      "Heavy Metal Classics",
+      "FMD Editions"
+    ],
+    "album": null,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Archivo Maiden",
+      "FMD Editions",
+      "Tour Archive"
+    ],
+    "campaigns": [
+      "Tour 2026"
+    ],
+    "commercialPriority": 85,
+    "visibilityTier": "featured"
+  },
+  {
+    "id": 1062,
+    "band": "Metallica",
+    "universe": [
+      "Thrash Metal",
+      "Heavy Metal Classics"
+    ],
+    "album": "...And Justice for All",
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Metallica Archive",
+      "...And Justice for All"
+    ],
+    "campaigns": [],
+    "commercialPriority": 82,
+    "visibilityTier": "featured"
+  },
+  {
+    "id": 1063,
+    "band": "Metallica",
+    "universe": [
+      "Thrash Metal",
+      "Heavy Metal Classics"
+    ],
+    "album": null,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Metallica Archive"
+    ],
+    "campaigns": [],
+    "commercialPriority": 68,
+    "visibilityTier": "catalog"
+  },
+  {
+    "id": 46,
+    "band": "Pantera",
+    "universe": [
+      "Groove Metal",
+      "Heavy Metal Classics"
+    ],
+    "album": null,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Pantera Archive",
+      "Dimebag Darrell"
+    ],
+    "campaigns": [],
+    "commercialPriority": 62,
+    "visibilityTier": "catalog"
+  },
+  {
+    "id": 48,
+    "band": "Pantera",
+    "universe": [
+      "Groove Metal",
+      "Heavy Metal Classics"
+    ],
+    "album": null,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Pantera Archive",
+      "Dimebag Darrell"
+    ],
+    "campaigns": [],
+    "commercialPriority": 62,
+    "visibilityTier": "catalog"
+  },
+  {
+    "id": 323,
+    "band": "Pantera",
+    "universe": [
+      "Groove Metal",
+      "Heavy Metal Classics"
+    ],
+    "album": null,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Pantera Archive",
+      "Dimebag Darrell"
+    ],
+    "campaigns": [],
+    "commercialPriority": 62,
+    "visibilityTier": "catalog"
+  },
+  {
+    "id": 324,
+    "band": "Pantera",
+    "universe": [
+      "Groove Metal",
+      "Heavy Metal Classics"
+    ],
+    "album": "Cowboys from Hell",
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Pantera Archive",
+      "Cowboys from Hell",
+      "Dimebag Darrell"
+    ],
+    "campaigns": [],
+    "commercialPriority": 76,
+    "visibilityTier": "featured"
+  },
+  {
+    "id": 326,
+    "band": "Pantera",
+    "universe": [
+      "Groove Metal",
+      "Heavy Metal Classics"
+    ],
+    "album": null,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Pantera Archive",
+      "Dimebag Darrell"
+    ],
+    "campaigns": [],
+    "commercialPriority": 62,
+    "visibilityTier": "catalog"
+  },
+  {
+    "id": 327,
+    "band": "Pantera",
+    "universe": [
+      "Groove Metal",
+      "Heavy Metal Classics"
+    ],
+    "album": null,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Pantera Archive",
+      "Dimebag Darrell"
+    ],
+    "campaigns": [],
+    "commercialPriority": 62,
+    "visibilityTier": "catalog"
+  },
+  {
+    "id": 328,
+    "band": "Pantera",
+    "universe": [
+      "Groove Metal",
+      "Heavy Metal Classics"
+    ],
+    "album": "Official Live: 101 Proof",
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Pantera Archive",
+      "Official Live: 101 Proof"
+    ],
+    "campaigns": [],
+    "commercialPriority": 75,
+    "visibilityTier": "featured"
+  },
+  {
+    "id": 329,
+    "band": "Pantera",
+    "universe": [
+      "Groove Metal",
+      "Heavy Metal Classics"
+    ],
+    "album": null,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Pantera Archive",
+      "Dimebag Darrell"
+    ],
+    "campaigns": [],
+    "commercialPriority": 62,
+    "visibilityTier": "catalog"
+  }
+]

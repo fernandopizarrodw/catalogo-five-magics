@@ -1,0 +1,1007 @@
+[
+  {
+    "id": 5126,
+    "band": "Pantera",
+    "universe": [
+      "Groove Metal",
+      "Heavy Metal Classics"
+    ],
+    "album": null,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Pantera Archive",
+      "Dimebag Darrell"
+    ],
+    "campaigns": [],
+    "commercialPriority": 64,
+    "visibilityTier": "catalog"
+  },
+  {
+    "id": 410,
+    "band": "Pantera",
+    "universe": [
+      "Groove Metal",
+      "Heavy Metal Classics"
+    ],
+    "album": null,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Pantera Archive",
+      "Dimebag Darrell"
+    ],
+    "campaigns": [],
+    "commercialPriority": 64,
+    "visibilityTier": "catalog"
+  },
+  {
+    "id": 411,
+    "band": "Pantera",
+    "universe": [
+      "Groove Metal",
+      "Heavy Metal Classics"
+    ],
+    "album": null,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Pantera Archive",
+      "Dimebag Darrell"
+    ],
+    "campaigns": [],
+    "commercialPriority": 64,
+    "visibilityTier": "catalog"
+  },
+  {
+    "id": 412,
+    "band": "Pantera",
+    "universe": [
+      "Groove Metal",
+      "Heavy Metal Classics"
+    ],
+    "album": null,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Pantera Archive"
+    ],
+    "campaigns": [],
+    "commercialPriority": 64,
+    "visibilityTier": "catalog"
+  },
+  {
+    "id": 413,
+    "band": "Pantera",
+    "universe": [
+      "Groove Metal",
+      "Heavy Metal Classics"
+    ],
+    "album": null,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Pantera Archive"
+    ],
+    "campaigns": [],
+    "commercialPriority": 64,
+    "visibilityTier": "catalog"
+  },
+  {
+    "id": 414,
+    "band": "Pantera",
+    "universe": [
+      "Groove Metal",
+      "Heavy Metal Classics"
+    ],
+    "album": null,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Pantera Archive"
+    ],
+    "campaigns": [],
+    "commercialPriority": 64,
+    "visibilityTier": "catalog"
+  },
+  {
+    "id": 415,
+    "band": "Pantera",
+    "universe": [
+      "Groove Metal",
+      "Heavy Metal Classics"
+    ],
+    "album": null,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Pantera Archive"
+    ],
+    "campaigns": [],
+    "commercialPriority": 64,
+    "visibilityTier": "catalog"
+  },
+  {
+    "id": 4190,
+    "band": "Pantera",
+    "universe": [
+      "Groove Metal",
+      "Heavy Metal Classics"
+    ],
+    "album": null,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Pantera Archive"
+    ],
+    "campaigns": [],
+    "commercialPriority": 64,
+    "visibilityTier": "catalog"
+  },
+  {
+    "id": 4191,
+    "band": "Pantera",
+    "universe": [
+      "Groove Metal",
+      "Heavy Metal Classics",
+      "FMD Editions"
+    ],
+    "album": "Vulgar Display of Power",
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Pantera Archive",
+      "Vulgar Display of Power",
+      "FMD Editions"
+    ],
+    "campaigns": [],
+    "commercialPriority": 78,
+    "visibilityTier": "featured"
+  },
+  {
+    "id": 6008,
+    "band": "Pantera",
+    "universe": [
+      "Groove Metal",
+      "Heavy Metal Classics"
+    ],
+    "album": null,
+    "garments": [
+      "hoodie"
+    ],
+    "collections": [
+      "Pantera Archive"
+    ],
+    "campaigns": [],
+    "commercialPriority": 76,
+    "visibilityTier": "featured"
+  },
+  {
+    "id": 302,
+    "band": "AC/DC",
+    "universe": [
+      "Rock Legends",
+      "Heavy Metal Classics"
+    ],
+    "album": "The Razors Edge",
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "AC/DC Archive",
+      "The Razors Edge"
+    ],
+    "campaigns": [],
+    "commercialPriority": 78,
+    "visibilityTier": "featured"
+  },
+  {
+    "id": 303,
+    "band": "AC/DC",
+    "universe": [
+      "Rock Legends",
+      "Heavy Metal Classics"
+    ],
+    "album": "Power Up",
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "AC/DC Archive",
+      "Power Up",
+      "Angus Young"
+    ],
+    "campaigns": [],
+    "commercialPriority": 80,
+    "visibilityTier": "featured"
+  },
+  {
+    "id": 60,
+    "band": "AC/DC",
+    "universe": [
+      "Rock Legends",
+      "Heavy Metal Classics"
+    ],
+    "album": null,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "AC/DC Archive",
+      "Tour Archive"
+    ],
+    "campaigns": [
+      "Tour Archive"
+    ],
+    "commercialPriority": 64,
+    "visibilityTier": "catalog"
+  },
+  {
+    "id": 5040,
+    "band": "AC/DC",
+    "universe": [
+      "Rock Legends",
+      "Heavy Metal Classics"
+    ],
+    "album": null,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "AC/DC Archive",
+      "Angus Young"
+    ],
+    "campaigns": [],
+    "commercialPriority": 64,
+    "visibilityTier": "catalog"
+  },
+  {
+    "id": 5041,
+    "band": "AC/DC",
+    "universe": [
+      "Rock Legends",
+      "Heavy Metal Classics"
+    ],
+    "album": "Black Ice",
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "AC/DC Archive",
+      "Black Ice"
+    ],
+    "campaigns": [],
+    "commercialPriority": 76,
+    "visibilityTier": "featured"
+  },
+  {
+    "id": 5042,
+    "band": "AC/DC",
+    "universe": [
+      "Rock Legends",
+      "Heavy Metal Classics"
+    ],
+    "album": "Fly on the Wall",
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "AC/DC Archive",
+      "Fly on the Wall"
+    ],
+    "campaigns": [],
+    "commercialPriority": 64,
+    "visibilityTier": "catalog"
+  },
+  {
+    "id": 5043,
+    "band": "AC/DC",
+    "universe": [
+      "Rock Legends",
+      "Heavy Metal Classics"
+    ],
+    "album": "For Those About to Rock We Salute You",
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "AC/DC Archive",
+      "For Those About to Rock We Salute You"
+    ],
+    "campaigns": [],
+    "commercialPriority": 64,
+    "visibilityTier": "catalog"
+  },
+  {
+    "id": 5044,
+    "band": "AC/DC",
+    "universe": [
+      "Rock Legends",
+      "Heavy Metal Classics"
+    ],
+    "album": "Let There Be Rock",
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "AC/DC Archive",
+      "Let There Be Rock"
+    ],
+    "campaigns": [],
+    "commercialPriority": 77,
+    "visibilityTier": "featured"
+  },
+  {
+    "id": 5045,
+    "band": "AC/DC",
+    "universe": [
+      "Rock Legends",
+      "Heavy Metal Classics"
+    ],
+    "album": "Let There Be Rock",
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "AC/DC Archive",
+      "Let There Be Rock"
+    ],
+    "campaigns": [],
+    "commercialPriority": 77,
+    "visibilityTier": "featured"
+  },
+  {
+    "id": 5046,
+    "band": "AC/DC",
+    "universe": [
+      "Rock Legends",
+      "Heavy Metal Classics"
+    ],
+    "album": "Highway to Hell",
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "AC/DC Archive",
+      "Highway to Hell"
+    ],
+    "campaigns": [],
+    "commercialPriority": 82,
+    "visibilityTier": "featured"
+  },
+  {
+    "id": 5048,
+    "band": "AC/DC",
+    "universe": [
+      "Rock Legends",
+      "Heavy Metal Classics"
+    ],
+    "album": "For Those About to Rock We Salute You",
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "AC/DC Archive",
+      "For Those About to Rock We Salute You",
+      "Angus Young"
+    ],
+    "campaigns": [],
+    "commercialPriority": 64,
+    "visibilityTier": "catalog"
+  },
+  {
+    "id": 5049,
+    "band": "AC/DC",
+    "universe": [
+      "Rock Legends",
+      "Heavy Metal Classics"
+    ],
+    "album": "High Voltage",
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "AC/DC Archive",
+      "High Voltage"
+    ],
+    "campaigns": [],
+    "commercialPriority": 76,
+    "visibilityTier": "featured"
+  },
+  {
+    "id": 5127,
+    "band": "AC/DC",
+    "universe": [
+      "Rock Legends",
+      "Heavy Metal Classics"
+    ],
+    "album": "Power Up",
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "AC/DC Archive",
+      "Power Up"
+    ],
+    "campaigns": [],
+    "commercialPriority": 80,
+    "visibilityTier": "featured"
+  },
+  {
+    "id": 5128,
+    "band": "AC/DC",
+    "universe": [
+      "Rock Legends",
+      "Heavy Metal Classics"
+    ],
+    "album": null,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "AC/DC Archive",
+      "Angus Young"
+    ],
+    "campaigns": [],
+    "commercialPriority": 64,
+    "visibilityTier": "catalog"
+  },
+  {
+    "id": 5052,
+    "band": "AC/DC",
+    "universe": [
+      "Rock Legends",
+      "Heavy Metal Classics"
+    ],
+    "album": "Highway to Hell",
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "AC/DC Archive",
+      "Highway to Hell"
+    ],
+    "campaigns": [],
+    "commercialPriority": 64,
+    "visibilityTier": "catalog"
+  },
+  {
+    "id": 5102,
+    "band": "AC/DC",
+    "universe": [
+      "Rock Legends",
+      "Heavy Metal Classics"
+    ],
+    "album": "The Razors Edge",
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "AC/DC Archive",
+      "The Razors Edge"
+    ],
+    "campaigns": [],
+    "commercialPriority": 79,
+    "visibilityTier": "featured"
+  },
+  {
+    "id": 5103,
+    "band": "AC/DC",
+    "universe": [
+      "Rock Legends",
+      "Heavy Metal Classics"
+    ],
+    "album": "Power Up",
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "AC/DC Archive",
+      "Power Up"
+    ],
+    "campaigns": [],
+    "commercialPriority": 81,
+    "visibilityTier": "featured"
+  },
+  {
+    "id": 6010,
+    "band": "AC/DC",
+    "universe": [
+      "Rock Legends",
+      "Heavy Metal Classics"
+    ],
+    "album": null,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "AC/DC Archive"
+    ],
+    "campaigns": [
+      "Argentina 2026"
+    ],
+    "commercialPriority": 64,
+    "visibilityTier": "catalog"
+  },
+  {
+    "id": 6011,
+    "band": "AC/DC",
+    "universe": [
+      "Rock Legends",
+      "Heavy Metal Classics"
+    ],
+    "album": null,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "AC/DC Archive",
+      "Angus Young"
+    ],
+    "campaigns": [],
+    "commercialPriority": 64,
+    "visibilityTier": "catalog"
+  },
+  {
+    "id": 6021,
+    "band": "AC/DC",
+    "universe": [
+      "Rock Legends",
+      "Heavy Metal Classics"
+    ],
+    "album": "The Razors Edge",
+    "garments": [
+      "hoodie"
+    ],
+    "collections": [
+      "AC/DC Archive",
+      "The Razors Edge"
+    ],
+    "campaigns": [],
+    "commercialPriority": 77,
+    "visibilityTier": "featured"
+  },
+  {
+    "id": 2001,
+    "band": "Avenged Sevenfold",
+    "universe": [
+      "Modern Metal"
+    ],
+    "album": null,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Avenged Sevenfold Archive"
+    ],
+    "campaigns": [],
+    "commercialPriority": 82,
+    "visibilityTier": "featured"
+  },
+  {
+    "id": 2002,
+    "band": "Avenged Sevenfold",
+    "universe": [
+      "Modern Metal"
+    ],
+    "album": null,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Avenged Sevenfold Archive"
+    ],
+    "campaigns": [],
+    "commercialPriority": 78,
+    "visibilityTier": "featured"
+  },
+  {
+    "id": 5003,
+    "band": "Black Sabbath",
+    "universe": [
+      "Heavy Metal Classics",
+      "Rock Legends"
+    ],
+    "album": null,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Black Sabbath Archive"
+    ],
+    "campaigns": [],
+    "commercialPriority": 82,
+    "visibilityTier": "featured"
+  },
+  {
+    "id": 6018,
+    "band": "Black Sabbath",
+    "universe": [
+      "Heavy Metal Classics",
+      "Rock Legends"
+    ],
+    "album": null,
+    "garments": [
+      "hoodie"
+    ],
+    "collections": [
+      "Black Sabbath Archive"
+    ],
+    "campaigns": [],
+    "commercialPriority": 78,
+    "visibilityTier": "featured"
+  },
+  {
+    "id": 6019,
+    "band": "Black Sabbath",
+    "universe": [
+      "Heavy Metal Classics",
+      "Rock Legends"
+    ],
+    "album": null,
+    "garments": [
+      "hoodie"
+    ],
+    "collections": [
+      "Black Sabbath Archive",
+      "Tour Archive"
+    ],
+    "campaigns": [
+      "Tour Archive"
+    ],
+    "commercialPriority": 77,
+    "visibilityTier": "featured"
+  },
+  {
+    "id": 5017,
+    "band": "Sodom",
+    "universe": [
+      "Thrash Metal"
+    ],
+    "album": "Agent Orange",
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Sodom Archive",
+      "Agent Orange"
+    ],
+    "campaigns": [],
+    "commercialPriority": 76,
+    "visibilityTier": "featured"
+  },
+  {
+    "id": 5117,
+    "band": "Sodom",
+    "universe": [
+      "Thrash Metal"
+    ],
+    "album": null,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Sodom Archive"
+    ],
+    "campaigns": [],
+    "commercialPriority": 64,
+    "visibilityTier": "catalog"
+  },
+  {
+    "id": 5123,
+    "band": "Testament",
+    "universe": [
+      "Thrash Metal"
+    ],
+    "album": null,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Testament Archive"
+    ],
+    "campaigns": [],
+    "commercialPriority": 76,
+    "visibilityTier": "featured"
+  },
+  {
+    "id": 5006,
+    "band": "Gojira",
+    "universe": [
+      "Modern Metal"
+    ],
+    "album": null,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Gojira Archive"
+    ],
+    "campaigns": [],
+    "commercialPriority": 78,
+    "visibilityTier": "featured"
+  },
+  {
+    "id": 432,
+    "band": "Down",
+    "universe": [
+      "Groove Metal",
+      "Custom Archive"
+    ],
+    "album": null,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Personalizados FMD"
+    ],
+    "campaigns": [],
+    "commercialPriority": 56,
+    "visibilityTier": "catalog"
+  },
+  {
+    "id": 51,
+    "band": "Flema",
+    "universe": [
+      "Custom Archive"
+    ],
+    "album": null,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Personalizados FMD"
+    ],
+    "campaigns": [],
+    "commercialPriority": 56,
+    "visibilityTier": "catalog"
+  },
+  {
+    "id": 5119,
+    "band": "Hermetica",
+    "universe": [
+      "Argentina Heavy",
+      "Custom Archive"
+    ],
+    "album": null,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Personalizados FMD"
+    ],
+    "campaigns": [],
+    "commercialPriority": 56,
+    "visibilityTier": "catalog"
+  },
+  {
+    "id": 305,
+    "band": "Dream Theater",
+    "universe": [
+      "Modern Metal",
+      "Custom Archive"
+    ],
+    "album": null,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Personalizados FMD"
+    ],
+    "campaigns": [],
+    "commercialPriority": 56,
+    "visibilityTier": "catalog"
+  },
+  {
+    "id": 41,
+    "band": "Nirvana",
+    "universe": [
+      "Rock Legends",
+      "Custom Archive"
+    ],
+    "album": null,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Personalizados FMD"
+    ],
+    "campaigns": [],
+    "commercialPriority": 56,
+    "visibilityTier": "catalog"
+  },
+  {
+    "id": 62,
+    "band": "Motorhead",
+    "universe": [
+      "Heavy Metal Classics",
+      "Rock Legends",
+      "Custom Archive"
+    ],
+    "album": null,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Personalizados FMD"
+    ],
+    "campaigns": [],
+    "commercialPriority": 56,
+    "visibilityTier": "catalog"
+  },
+  {
+    "id": 63,
+    "band": "Motorhead",
+    "universe": [
+      "Heavy Metal Classics",
+      "Rock Legends",
+      "Custom Archive"
+    ],
+    "album": null,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Personalizados FMD"
+    ],
+    "campaigns": [],
+    "commercialPriority": 56,
+    "visibilityTier": "catalog"
+  },
+  {
+    "id": 59,
+    "band": "Primal Fear",
+    "universe": [
+      "Heavy Metal Classics",
+      "Custom Archive"
+    ],
+    "album": null,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Personalizados FMD"
+    ],
+    "campaigns": [],
+    "commercialPriority": 56,
+    "visibilityTier": "catalog"
+  },
+  {
+    "id": 54,
+    "band": "Saltatio Mortis",
+    "universe": [
+      "Modern Metal",
+      "Custom Archive"
+    ],
+    "album": null,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Personalizados FMD"
+    ],
+    "campaigns": [],
+    "commercialPriority": 56,
+    "visibilityTier": "catalog"
+  },
+  {
+    "id": 43,
+    "band": "Symphony X",
+    "universe": [
+      "Modern Metal",
+      "Custom Archive"
+    ],
+    "album": null,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Personalizados FMD"
+    ],
+    "campaigns": [],
+    "commercialPriority": 56,
+    "visibilityTier": "catalog"
+  },
+  {
+    "id": 57,
+    "band": "Ramones",
+    "universe": [
+      "Rock Legends",
+      "Custom Archive"
+    ],
+    "album": null,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Personalizados FMD"
+    ],
+    "campaigns": [],
+    "commercialPriority": 56,
+    "visibilityTier": "catalog"
+  },
+  {
+    "id": 322,
+    "band": "WASP",
+    "universe": [
+      "Heavy Metal Classics",
+      "Custom Archive"
+    ],
+    "album": null,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Personalizados FMD"
+    ],
+    "campaigns": [],
+    "commercialPriority": 56,
+    "visibilityTier": "catalog"
+  },
+  {
+    "id": 53,
+    "band": "Wintersun",
+    "universe": [
+      "Modern Metal",
+      "Custom Archive"
+    ],
+    "album": null,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Personalizados FMD"
+    ],
+    "campaigns": [],
+    "commercialPriority": 56,
+    "visibilityTier": "catalog"
+  },
+  {
+    "id": 5130,
+    "band": "Kanonenfieber",
+    "universe": [
+      "Modern Metal",
+      "Custom Archive"
+    ],
+    "album": null,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Personalizados FMD"
+    ],
+    "campaigns": [
+      "Argentina 2026"
+    ],
+    "commercialPriority": 56,
+    "visibilityTier": "catalog"
+  },
+  {
+    "id": 5031,
+    "band": "Black Label Society",
+    "universe": [
+      "Groove Metal",
+      "Heavy Metal Classics",
+      "Custom Archive"
+    ],
+    "album": null,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Personalizados FMD"
+    ],
+    "campaigns": [],
+    "commercialPriority": 56,
+    "visibilityTier": "catalog"
+  }
+]

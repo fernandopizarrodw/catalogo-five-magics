@@ -1,0 +1,3827 @@
+[
+  {
+    "id": 6032,
+    "code": null,
+    "name": "Rust in Peace / Hangar 18 Reimagined",
+    "legacyCategory": "Singles",
+    "designKey": "rust-in-peace-hangar-18-reimagined",
+    "declaredGarments": [
+      "remera",
+      "hoodie"
+    ],
+    "inferredGarments": [
+      "remera",
+      "hoodie"
+    ],
+    "proposedGarments": [
+      "remera",
+      "hoodie"
+    ],
+    "variantGarments": [
+      "hoodie"
+    ],
+    "variantsCount": 9,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "remera",
+        "source": "metadata:garments"
+      },
+      {
+        "garment": "hoodie",
+        "source": "metadata:garments"
+      },
+      {
+        "garment": "hoodie",
+        "source": "variant:7:garmentCategory"
+      },
+      {
+        "garment": "hoodie",
+        "source": "variant:7:name+image"
+      },
+      {
+        "garment": "hoodie",
+        "source": "variant:8:garmentCategory"
+      },
+      {
+        "garment": "hoodie",
+        "source": "variant:8:name+image"
+      }
+    ],
+    "image": "images/albums/Rust_in_peace/rust in peace - re-imaginado/rip_fmd_frente.jpg"
+  },
+  {
+    "id": 6030,
+    "code": null,
+    "name": "Vic Arrested",
+    "legacyCategory": "VicRattlehead",
+    "designKey": "vic-arrested",
+    "declaredGarments": [
+      "remera"
+    ],
+    "inferredGarments": [
+      "remera"
+    ],
+    "proposedGarments": [
+      "remera"
+    ],
+    "variantGarments": [],
+    "variantsCount": 1,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "remera",
+        "source": "metadata:garments"
+      }
+    ],
+    "image": "images/vic_rattlehead/vic_arrested.png"
+  },
+  {
+    "id": 6029,
+    "code": null,
+    "name": "Vic Doctor",
+    "legacyCategory": "VicRattlehead",
+    "designKey": "vic-doctor",
+    "declaredGarments": [
+      "remera"
+    ],
+    "inferredGarments": [
+      "remera"
+    ],
+    "proposedGarments": [
+      "remera"
+    ],
+    "variantGarments": [],
+    "variantsCount": 1,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "remera",
+        "source": "metadata:garments"
+      }
+    ],
+    "image": "images/vic_rattlehead/vic_doctor.png"
+  },
+  {
+    "id": 6028,
+    "code": null,
+    "name": "Megadeth FMD Original",
+    "legacyCategory": "VicRattlehead",
+    "designKey": "megadeth",
+    "declaredGarments": [
+      "remera"
+    ],
+    "inferredGarments": [
+      "remera"
+    ],
+    "proposedGarments": [
+      "remera"
+    ],
+    "variantGarments": [],
+    "variantsCount": 10,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "remera",
+        "source": "metadata:garments"
+      }
+    ],
+    "image": "images/fmd-edition-3d/vic_tour_2026/vic_silent_fmd_edition.jpg"
+  },
+  {
+    "id": 5077,
+    "code": null,
+    "name": "Hoodie Rusted Pieces",
+    "legacyCategory": "Hoodies FMD",
+    "designKey": "rusted-pieces",
+    "declaredGarments": [
+      "hoodie"
+    ],
+    "inferredGarments": [
+      "hoodie"
+    ],
+    "proposedGarments": [
+      "hoodie"
+    ],
+    "variantGarments": [],
+    "variantsCount": 0,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "hoodie",
+        "source": "category:Hoodies FMD"
+      },
+      {
+        "garment": "hoodie",
+        "source": "card:name+image"
+      },
+      {
+        "garment": "hoodie",
+        "source": "metadata:garments"
+      }
+    ],
+    "image": "images/hoddies_fmd/hoodie_rusted.png"
+  },
+  {
+    "id": 6027,
+    "code": null,
+    "name": "Peace Sells FMD Edition",
+    "legacyCategory": "Album",
+    "designKey": "peace-sells",
+    "declaredGarments": [
+      "remera"
+    ],
+    "inferredGarments": [
+      "remera"
+    ],
+    "proposedGarments": [
+      "remera"
+    ],
+    "variantGarments": [],
+    "variantsCount": 2,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "remera",
+        "source": "metadata:garments"
+      }
+    ],
+    "image": "images/fmd-edition-3d/peace/peace_3d_edition_v1.jpg"
+  },
+  {
+    "id": 6026,
+    "code": null,
+    "name": "Killing Is my Bussines FMD Edition",
+    "legacyCategory": "Album",
+    "designKey": "killing-is-my-bussines",
+    "declaredGarments": [
+      "remera"
+    ],
+    "inferredGarments": [
+      "remera"
+    ],
+    "proposedGarments": [
+      "remera"
+    ],
+    "variantGarments": [],
+    "variantsCount": 2,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "remera",
+        "source": "metadata:garments"
+      }
+    ],
+    "image": "images/fmd-edition-3d/killing/killing_final_3d_edition.jpg"
+  },
+  {
+    "id": 6025,
+    "code": null,
+    "name": "Vic Llamas FMD Edition",
+    "legacyCategory": "Album",
+    "designKey": "vic-llamas",
+    "declaredGarments": [
+      "remera"
+    ],
+    "inferredGarments": [
+      "remera"
+    ],
+    "proposedGarments": [
+      "remera"
+    ],
+    "variantGarments": [],
+    "variantsCount": 2,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "remera",
+        "source": "metadata:garments"
+      }
+    ],
+    "image": "images/fmd-edition-3d/megadeth_last_album/vic_llamas_3d_edition_frente.jpg"
+  },
+  {
+    "id": 1,
+    "code": null,
+    "name": "Killing Is my bussines",
+    "legacyCategory": "Album",
+    "designKey": "killing-is-my-bussines",
+    "declaredGarments": [
+      "remera",
+      "buzo_cuello_redondo"
+    ],
+    "inferredGarments": [
+      "remera",
+      "buzo_cuello_redondo"
+    ],
+    "proposedGarments": [
+      "remera",
+      "buzo_cuello_redondo"
+    ],
+    "variantGarments": [
+      "remera",
+      "buzo_cuello_redondo"
+    ],
+    "variantsCount": 17,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "remera",
+        "source": "metadata:garments"
+      },
+      {
+        "garment": "buzo_cuello_redondo",
+        "source": "metadata:garments"
+      },
+      {
+        "garment": "remera",
+        "source": "variant:11:name+image"
+      },
+      {
+        "garment": "buzo_cuello_redondo",
+        "source": "variant:12:garmentCategory"
+      },
+      {
+        "garment": "buzo_cuello_redondo",
+        "source": "variant:12:name+image"
+      },
+      {
+        "garment": "remera",
+        "source": "variant:13:name+image"
+      },
+      {
+        "garment": "remera",
+        "source": "variant:14:name+image"
+      },
+      {
+        "garment": "buzo_cuello_redondo",
+        "source": "variant:15:garmentCategory"
+      },
+      {
+        "garment": "buzo_cuello_redondo",
+        "source": "variant:15:name+image"
+      },
+      {
+        "garment": "remera",
+        "source": "variant:16:name+image"
+      }
+    ],
+    "image": "images/albums/Killing_Is_my_bussines/kimb_1985_original_.jpg"
+  },
+  {
+    "id": 2,
+    "code": null,
+    "name": "Peace Sells",
+    "legacyCategory": "Album",
+    "designKey": "peace-sells",
+    "declaredGarments": [
+      "remera"
+    ],
+    "inferredGarments": [
+      "remera"
+    ],
+    "proposedGarments": [
+      "remera"
+    ],
+    "variantGarments": [],
+    "variantsCount": 8,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "remera",
+        "source": "metadata:garments"
+      }
+    ],
+    "image": "images/albums/Peace_sells/peace_sells_tapa.jpg"
+  },
+  {
+    "id": 3,
+    "code": null,
+    "name": "So Far, So Good",
+    "legacyCategory": "Album",
+    "designKey": "so-far-so-good",
+    "declaredGarments": [
+      "remera"
+    ],
+    "inferredGarments": [
+      "remera"
+    ],
+    "proposedGarments": [
+      "remera"
+    ],
+    "variantGarments": [],
+    "variantsCount": 5,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "remera",
+        "source": "metadata:garments"
+      }
+    ],
+    "image": "images/albums/SFSGSW/1-sfsgsw_tapa.jpg"
+  },
+  {
+    "id": 4,
+    "code": null,
+    "name": "Rust in Peace",
+    "legacyCategory": "Album",
+    "designKey": "rust-in-peace",
+    "declaredGarments": [
+      "remera"
+    ],
+    "inferredGarments": [
+      "remera"
+    ],
+    "proposedGarments": [
+      "remera"
+    ],
+    "variantGarments": [],
+    "variantsCount": 11,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "remera",
+        "source": "metadata:garments"
+      }
+    ],
+    "image": "images/albums/Rust_in_peace/rust_in_peace.jpg"
+  },
+  {
+    "id": 5,
+    "code": null,
+    "name": "Countdown to Extinction",
+    "legacyCategory": "Album",
+    "designKey": "countdown-to-extinction",
+    "declaredGarments": [
+      "remera"
+    ],
+    "inferredGarments": [
+      "remera"
+    ],
+    "proposedGarments": [
+      "remera"
+    ],
+    "variantGarments": [],
+    "variantsCount": 11,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "remera",
+        "source": "metadata:garments"
+      }
+    ],
+    "image": "images/albums/Countdown_to_extinction/countdown_to_extinction_frente.jpg"
+  },
+  {
+    "id": 6,
+    "code": null,
+    "name": "Youthanasia",
+    "legacyCategory": "Album",
+    "designKey": "youthanasia",
+    "declaredGarments": [
+      "remera"
+    ],
+    "inferredGarments": [
+      "remera"
+    ],
+    "proposedGarments": [
+      "remera"
+    ],
+    "variantGarments": [],
+    "variantsCount": 9,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "remera",
+        "source": "metadata:garments"
+      }
+    ],
+    "image": "images/albums/Youthanasia/youthanasia.jpg"
+  },
+  {
+    "id": 18,
+    "code": null,
+    "name": "Hidden Treasures",
+    "legacyCategory": "Album",
+    "designKey": "hidden-treasures",
+    "declaredGarments": [
+      "remera"
+    ],
+    "inferredGarments": [
+      "remera"
+    ],
+    "proposedGarments": [
+      "remera"
+    ],
+    "variantGarments": [],
+    "variantsCount": 1,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "remera",
+        "source": "metadata:garments"
+      }
+    ],
+    "image": "images/fmd-edition-3d/hidden_treasures/hidden_treasures_fmd_edition.jpg"
+  },
+  {
+    "id": 8,
+    "code": null,
+    "name": "Cryptic Writings",
+    "legacyCategory": "Album",
+    "designKey": "cryptic-writings",
+    "declaredGarments": [
+      "remera"
+    ],
+    "inferredGarments": [
+      "remera"
+    ],
+    "proposedGarments": [
+      "remera"
+    ],
+    "variantGarments": [],
+    "variantsCount": 11,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "remera",
+        "source": "metadata:garments"
+      }
+    ],
+    "image": "images/albums/Cryptic_Writings/cryptic_writings_original.jpg"
+  },
+  {
+    "id": 9,
+    "code": null,
+    "name": "Risk",
+    "legacyCategory": "Album",
+    "designKey": "risk",
+    "declaredGarments": [
+      "remera"
+    ],
+    "inferredGarments": [
+      "remera"
+    ],
+    "proposedGarments": [
+      "remera"
+    ],
+    "variantGarments": [],
+    "variantsCount": 4,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "remera",
+        "source": "metadata:garments"
+      }
+    ],
+    "image": "images/albums/Risk/risk_tapa_remastered.jpg"
+  },
+  {
+    "id": 10,
+    "code": null,
+    "name": "The World Needs a Hero",
+    "legacyCategory": "Album",
+    "designKey": "the-world-needs-a-hero",
+    "declaredGarments": [
+      "remera"
+    ],
+    "inferredGarments": [
+      "remera"
+    ],
+    "proposedGarments": [
+      "remera"
+    ],
+    "variantGarments": [],
+    "variantsCount": 3,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "remera",
+        "source": "metadata:garments"
+      }
+    ],
+    "image": "images/albums/TWNAH/the_worlds_needs_a_hero.jpg"
+  },
+  {
+    "id": 11,
+    "code": null,
+    "name": "The System Has Failed",
+    "legacyCategory": "Album",
+    "designKey": "the-system-has-failed",
+    "declaredGarments": [
+      "remera"
+    ],
+    "inferredGarments": [
+      "remera"
+    ],
+    "proposedGarments": [
+      "remera"
+    ],
+    "variantGarments": [],
+    "variantsCount": 2,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "remera",
+        "source": "metadata:garments"
+      }
+    ],
+    "image": "images/albums/TSHF/the_system_has_failed.jpg"
+  },
+  {
+    "id": 12,
+    "code": null,
+    "name": "United Abominations",
+    "legacyCategory": "Album",
+    "designKey": "united-abominations",
+    "declaredGarments": [
+      "remera"
+    ],
+    "inferredGarments": [
+      "remera"
+    ],
+    "proposedGarments": [
+      "remera"
+    ],
+    "variantGarments": [],
+    "variantsCount": 5,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "remera",
+        "source": "metadata:garments"
+      }
+    ],
+    "image": "images/albums/United_Abominations/united_abominations.jpg"
+  },
+  {
+    "id": 13,
+    "code": null,
+    "name": "Endgame",
+    "legacyCategory": "Album",
+    "designKey": "endgame",
+    "declaredGarments": [
+      "remera"
+    ],
+    "inferredGarments": [
+      "remera"
+    ],
+    "proposedGarments": [
+      "remera"
+    ],
+    "variantGarments": [],
+    "variantsCount": 0,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "remera",
+        "source": "metadata:garments"
+      }
+    ],
+    "image": "images/albums/Endgame/endgame.jpg"
+  },
+  {
+    "id": 14,
+    "code": null,
+    "name": "TH1RT3EN",
+    "legacyCategory": "Album",
+    "designKey": "th1rt3en",
+    "declaredGarments": [
+      "remera"
+    ],
+    "inferredGarments": [
+      "remera"
+    ],
+    "proposedGarments": [
+      "remera"
+    ],
+    "variantGarments": [
+      "remera"
+    ],
+    "variantsCount": 4,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "remera",
+        "source": "metadata:garments"
+      },
+      {
+        "garment": "remera",
+        "source": "variant:1:name+image"
+      },
+      {
+        "garment": "remera",
+        "source": "variant:2:name+image"
+      },
+      {
+        "garment": "remera",
+        "source": "variant:3:name+image"
+      }
+    ],
+    "image": "images/albums/13/13.jpg"
+  },
+  {
+    "id": 15,
+    "code": null,
+    "name": "Super Collider",
+    "legacyCategory": "Album",
+    "designKey": "super-collider",
+    "declaredGarments": [
+      "remera"
+    ],
+    "inferredGarments": [
+      "remera"
+    ],
+    "proposedGarments": [
+      "remera"
+    ],
+    "variantGarments": [],
+    "variantsCount": 2,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "remera",
+        "source": "metadata:garments"
+      }
+    ],
+    "image": "images/albums/Super_Collider/super_collider.jpg"
+  },
+  {
+    "id": 7,
+    "code": null,
+    "name": "Dystopia",
+    "legacyCategory": "Album",
+    "designKey": "dystopia",
+    "declaredGarments": [
+      "remera"
+    ],
+    "inferredGarments": [
+      "remera"
+    ],
+    "proposedGarments": [
+      "remera"
+    ],
+    "variantGarments": [],
+    "variantsCount": 8,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "remera",
+        "source": "metadata:garments"
+      }
+    ],
+    "image": "images/albums/Dystopia/dystopia.jpg"
+  },
+  {
+    "id": 16,
+    "code": null,
+    "name": "The Sick, the Dying...And the Dead!",
+    "legacyCategory": "Album",
+    "designKey": "the-sick-the-dying-and-the-dead",
+    "declaredGarments": [
+      "remera"
+    ],
+    "inferredGarments": [
+      "remera"
+    ],
+    "proposedGarments": [
+      "remera"
+    ],
+    "variantGarments": [],
+    "variantsCount": 3,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "remera",
+        "source": "metadata:garments"
+      }
+    ],
+    "image": "images/albums/The_sick/the_sick_the_dying_and_the_dead.jpg"
+  },
+  {
+    "id": 17,
+    "code": null,
+    "name": "Megadeth 2026",
+    "legacyCategory": "Album",
+    "designKey": "megadeth",
+    "declaredGarments": [
+      "remera"
+    ],
+    "inferredGarments": [
+      "remera"
+    ],
+    "proposedGarments": [
+      "remera"
+    ],
+    "variantGarments": [],
+    "variantsCount": 11,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "remera",
+        "source": "metadata:garments"
+      }
+    ],
+    "image": "images/albums/Megadeth/vic_llamas_blanca.jpg"
+  },
+  {
+    "id": 235,
+    "code": null,
+    "name": "Vic Nuclear",
+    "legacyCategory": "Singles",
+    "designKey": "vic-nuclear",
+    "declaredGarments": [
+      "remera"
+    ],
+    "inferredGarments": [
+      "remera"
+    ],
+    "proposedGarments": [
+      "remera"
+    ],
+    "variantGarments": [],
+    "variantsCount": 0,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "remera",
+        "source": "metadata:garments"
+      }
+    ],
+    "image": "images/singles/vic_nuclear.jpg"
+  },
+  {
+    "id": 236,
+    "code": null,
+    "name": "Rusted Pieces",
+    "legacyCategory": "Singles",
+    "designKey": "rusted-pieces",
+    "declaredGarments": [
+      "remera"
+    ],
+    "inferredGarments": [
+      "remera"
+    ],
+    "proposedGarments": [
+      "remera"
+    ],
+    "variantGarments": [],
+    "variantsCount": 7,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "remera",
+        "source": "metadata:garments"
+      }
+    ],
+    "image": "images/singles/rusted_pieces.jpg"
+  },
+  {
+    "id": 246,
+    "code": null,
+    "name": "Singles Ultimo Disco",
+    "legacyCategory": "Singles",
+    "designKey": "singles-ultimo-disco",
+    "declaredGarments": [
+      "remera"
+    ],
+    "inferredGarments": [
+      "remera"
+    ],
+    "proposedGarments": [
+      "remera"
+    ],
+    "variantGarments": [],
+    "variantsCount": 15,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "remera",
+        "source": "metadata:garments"
+      }
+    ],
+    "image": "images/singles/let_there_be_shred.jpg"
+  },
+  {
+    "id": 6015,
+    "code": null,
+    "name": "Mary Jane",
+    "legacyCategory": "Singles",
+    "designKey": "mary-jane",
+    "declaredGarments": [
+      "remera"
+    ],
+    "inferredGarments": [
+      "remera"
+    ],
+    "proposedGarments": [
+      "remera"
+    ],
+    "variantGarments": [],
+    "variantsCount": 3,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "remera",
+        "source": "metadata:garments"
+      }
+    ],
+    "image": "images/singles/mary_jane.jpg"
+  },
+  {
+    "id": 1065,
+    "code": null,
+    "name": "RIDE THE LIGHTNING BY MEGADETH",
+    "legacyCategory": "Singles",
+    "designKey": "ride-the-lightning-by-megadeth",
+    "declaredGarments": [
+      "remera"
+    ],
+    "inferredGarments": [
+      "remera"
+    ],
+    "proposedGarments": [
+      "remera"
+    ],
+    "variantGarments": [],
+    "variantsCount": 4,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "remera",
+        "source": "metadata:garments"
+      }
+    ],
+    "image": "images/singles/02 - the_condemned-toxic_green.jpg"
+  },
+  {
+    "id": 245,
+    "code": null,
+    "name": "Dogs of Chernobyl",
+    "legacyCategory": "Singles",
+    "designKey": "dogs-of-chernobyl",
+    "declaredGarments": [
+      "remera"
+    ],
+    "inferredGarments": [
+      "remera"
+    ],
+    "proposedGarments": [
+      "remera"
+    ],
+    "variantGarments": [],
+    "variantsCount": 0,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "remera",
+        "source": "metadata:garments"
+      }
+    ],
+    "image": "images/singles/dogs_of_chernobyl.jpg"
+  },
+  {
+    "id": 2801,
+    "code": null,
+    "name": "Dave 1992 V1",
+    "legacyCategory": "Dave Mustaine",
+    "designKey": "dave",
+    "declaredGarments": [
+      "remera"
+    ],
+    "inferredGarments": [
+      "remera"
+    ],
+    "proposedGarments": [
+      "remera"
+    ],
+    "variantGarments": [],
+    "variantsCount": 4,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "remera",
+        "source": "metadata:garments"
+      }
+    ],
+    "image": "images/musicians/Dave_Mustaine/dave_1992_v1.jpg"
+  },
+  {
+    "id": 2802,
+    "code": null,
+    "name": "Dave 90s RIP Live",
+    "legacyCategory": "Dave Mustaine",
+    "designKey": "dave-90s-rip-live",
+    "declaredGarments": [
+      "remera"
+    ],
+    "inferredGarments": [
+      "remera"
+    ],
+    "proposedGarments": [
+      "remera"
+    ],
+    "variantGarments": [],
+    "variantsCount": 3,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "remera",
+        "source": "metadata:garments"
+      }
+    ],
+    "image": "images/musicians/Dave_Mustaine/dave_90s_rip_live.jpg"
+  },
+  {
+    "id": 2806,
+    "code": null,
+    "name": "Dave Fuck You",
+    "legacyCategory": "Dave Mustaine",
+    "designKey": "dave-fuck-you",
+    "declaredGarments": [
+      "remera"
+    ],
+    "inferredGarments": [
+      "remera"
+    ],
+    "proposedGarments": [
+      "remera"
+    ],
+    "variantGarments": [],
+    "variantsCount": 2,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "remera",
+        "source": "metadata:garments"
+      }
+    ],
+    "image": "images/musicians/Dave_Mustaine/frente_dave_fuck_you.jpg"
+  },
+  {
+    "id": 2811,
+    "code": null,
+    "name": "Dave Angel of Deth",
+    "legacyCategory": "Dave Mustaine",
+    "designKey": "dave-angel-of-deth",
+    "declaredGarments": [
+      "remera"
+    ],
+    "inferredGarments": [
+      "remera"
+    ],
+    "proposedGarments": [
+      "remera"
+    ],
+    "variantGarments": [],
+    "variantsCount": 0,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "remera",
+        "source": "metadata:garments"
+      }
+    ],
+    "image": "images/musicians/Dave_Mustaine/dave_mustaine_angel_of_deth.jpg"
+  },
+  {
+    "id": 2814,
+    "code": null,
+    "name": "Dave So Far Era",
+    "legacyCategory": "Dave Mustaine",
+    "designKey": "dave-so-far-era",
+    "declaredGarments": [
+      "remera"
+    ],
+    "inferredGarments": [
+      "remera"
+    ],
+    "proposedGarments": [
+      "remera"
+    ],
+    "variantGarments": [],
+    "variantsCount": 3,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "remera",
+        "source": "metadata:garments"
+      }
+    ],
+    "image": "images/musicians/Dave_Mustaine/dave_so_far_era.jpg"
+  },
+  {
+    "id": 2815,
+    "code": null,
+    "name": "Dave Vic RIP",
+    "legacyCategory": "Dave Mustaine",
+    "designKey": "dave-vic-rip",
+    "declaredGarments": [
+      "remera"
+    ],
+    "inferredGarments": [
+      "remera"
+    ],
+    "proposedGarments": [
+      "remera"
+    ],
+    "variantGarments": [],
+    "variantsCount": 4,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "remera",
+        "source": "metadata:garments"
+      }
+    ],
+    "image": "images/musicians/Dave_Mustaine/dave_vic_rip.jpg"
+  },
+  {
+    "id": 6014,
+    "code": null,
+    "name": "Dave Mustaine Argentina V1",
+    "legacyCategory": "Dave Mustaine",
+    "designKey": "dave-mustaine-argentina",
+    "declaredGarments": [
+      "remera"
+    ],
+    "inferredGarments": [
+      "remera"
+    ],
+    "proposedGarments": [
+      "remera"
+    ],
+    "variantGarments": [],
+    "variantsCount": 2,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "remera",
+        "source": "metadata:garments"
+      }
+    ],
+    "image": "images/musicians/Dave_Mustaine/dave_mustaine_argv1.jpg"
+  },
+  {
+    "id": 6020,
+    "code": null,
+    "name": "Aguante Megadeth",
+    "legacyCategory": "Dave Mustaine",
+    "designKey": "aguante-megadeth",
+    "declaredGarments": [
+      "remera"
+    ],
+    "inferredGarments": [
+      "remera"
+    ],
+    "proposedGarments": [
+      "remera"
+    ],
+    "variantGarments": [],
+    "variantsCount": 2,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "remera",
+        "source": "metadata:garments"
+      }
+    ],
+    "image": "images/musicians/Dave_Mustaine/aguante_megadeth_frente.jpg"
+  },
+  {
+    "id": 29,
+    "code": null,
+    "name": "Marty Friedman",
+    "legacyCategory": "Musician",
+    "designKey": "marty-friedman",
+    "declaredGarments": [
+      "remera"
+    ],
+    "inferredGarments": [
+      "remera"
+    ],
+    "proposedGarments": [
+      "remera"
+    ],
+    "variantGarments": [],
+    "variantsCount": 4,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "remera",
+        "source": "metadata:garments"
+      }
+    ],
+    "image": "images/musicians/Marty_Friedman/Marty_1990_cte.jpg"
+  },
+  {
+    "id": 30,
+    "code": null,
+    "name": "Nick Menza",
+    "legacyCategory": "Musician",
+    "designKey": "nick-menza",
+    "declaredGarments": [
+      "remera"
+    ],
+    "inferredGarments": [
+      "remera"
+    ],
+    "proposedGarments": [
+      "remera"
+    ],
+    "variantGarments": [],
+    "variantsCount": 7,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "remera",
+        "source": "metadata:garments"
+      }
+    ],
+    "image": "images/musicians/Nick_Menza/nick_menza_rip_tour.jpg"
+  },
+  {
+    "id": 31,
+    "code": null,
+    "name": "Formaciones",
+    "legacyCategory": "Musician",
+    "designKey": "formaciones",
+    "declaredGarments": [
+      "remera"
+    ],
+    "inferredGarments": [
+      "remera"
+    ],
+    "proposedGarments": [
+      "remera"
+    ],
+    "variantGarments": [],
+    "variantsCount": 3,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "remera",
+        "source": "metadata:garments"
+      }
+    ],
+    "image": "images/musicians/formaciones/peace_sells_era.jpg"
+  },
+  {
+    "id": 39,
+    "code": null,
+    "name": "VIC GAUCHO ARGENTINO",
+    "legacyCategory": "Tour",
+    "designKey": "vic-gaucho-argentino",
+    "declaredGarments": [
+      "remera"
+    ],
+    "inferredGarments": [
+      "remera"
+    ],
+    "proposedGarments": [
+      "remera"
+    ],
+    "variantGarments": [],
+    "variantsCount": 5,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "remera",
+        "source": "metadata:garments"
+      }
+    ],
+    "image": "images/tours/Vic_Gaucho_Argentino/vic_gaucho_original.jpg"
+  },
+  {
+    "id": 40,
+    "code": null,
+    "name": "Tour Argentina",
+    "legacyCategory": "Tour",
+    "designKey": "tour-argentina",
+    "declaredGarments": [
+      "remera"
+    ],
+    "inferredGarments": [
+      "remera"
+    ],
+    "proposedGarments": [
+      "remera"
+    ],
+    "variantGarments": [],
+    "variantsCount": 18,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "remera",
+        "source": "metadata:garments"
+      }
+    ],
+    "image": "images/tours/Tour_argentina/poster_tour_argentina.jpg"
+  },
+  {
+    "id": 300,
+    "code": null,
+    "name": "Marty & Dave",
+    "legacyCategory": "Tour",
+    "designKey": "marty-dave",
+    "declaredGarments": [
+      "remera"
+    ],
+    "inferredGarments": [
+      "remera"
+    ],
+    "proposedGarments": [
+      "remera"
+    ],
+    "variantGarments": [],
+    "variantsCount": 1,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "remera",
+        "source": "metadata:garments"
+      }
+    ],
+    "image": "images/tours/Live/marty_dave.jpg"
+  },
+  {
+    "id": 301,
+    "code": null,
+    "name": "Peace Sells Live",
+    "legacyCategory": "Tour",
+    "designKey": "peace-sells-live",
+    "declaredGarments": [
+      "remera"
+    ],
+    "inferredGarments": [
+      "remera"
+    ],
+    "proposedGarments": [
+      "remera"
+    ],
+    "variantGarments": [],
+    "variantsCount": 1,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "remera",
+        "source": "metadata:garments"
+      }
+    ],
+    "image": "images/tours/Live/peace_sells_live.jpg"
+  },
+  {
+    "id": 320,
+    "code": null,
+    "name": "Vic Tour 2026",
+    "legacyCategory": "Tour",
+    "designKey": "vic-tour",
+    "declaredGarments": [
+      "remera"
+    ],
+    "inferredGarments": [
+      "remera"
+    ],
+    "proposedGarments": [
+      "remera"
+    ],
+    "variantGarments": [],
+    "variantsCount": 5,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "remera",
+        "source": "metadata:garments"
+      }
+    ],
+    "image": "images/tours/Tour_2026/vic_tour_2026_v1.jpg"
+  },
+  {
+    "id": 304,
+    "code": null,
+    "name": "Vic Rattlehead - My Last Words",
+    "legacyCategory": "VicRattlehead",
+    "designKey": "vic-rattlehead-my-last-words",
+    "declaredGarments": [
+      "remera"
+    ],
+    "inferredGarments": [
+      "remera"
+    ],
+    "proposedGarments": [
+      "remera"
+    ],
+    "variantGarments": [],
+    "variantsCount": 5,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "remera",
+        "source": "metadata:garments"
+      }
+    ],
+    "image": "images/vic_rattlehead/vic_rattlehead_my_last_words.jpg"
+  },
+  {
+    "id": 314,
+    "code": null,
+    "name": "KIMB 40 Edition",
+    "legacyCategory": "VicRattlehead",
+    "designKey": "kimb-40",
+    "declaredGarments": [
+      "remera"
+    ],
+    "inferredGarments": [
+      "remera"
+    ],
+    "proposedGarments": [
+      "remera"
+    ],
+    "variantGarments": [],
+    "variantsCount": 4,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "remera",
+        "source": "metadata:garments"
+      }
+    ],
+    "image": "images/vic_rattlehead/kimb_40_edition_v1.jpg"
+  },
+  {
+    "id": 419,
+    "code": null,
+    "name": "Vic Editions",
+    "legacyCategory": "VicRattlehead",
+    "designKey": "vic-editions",
+    "declaredGarments": [
+      "remera"
+    ],
+    "inferredGarments": [
+      "remera"
+    ],
+    "proposedGarments": [
+      "remera"
+    ],
+    "variantGarments": [],
+    "variantsCount": 3,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "remera",
+        "source": "metadata:garments"
+      }
+    ],
+    "image": "images/vic_rattlehead/vic_darker_edition.jpg"
+  },
+  {
+    "id": 420,
+    "code": null,
+    "name": "Militar Rattlehead",
+    "legacyCategory": "VicRattlehead",
+    "designKey": "militar-rattlehead",
+    "declaredGarments": [
+      "remera"
+    ],
+    "inferredGarments": [
+      "remera"
+    ],
+    "proposedGarments": [
+      "remera"
+    ],
+    "variantGarments": [],
+    "variantsCount": 0,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "remera",
+        "source": "metadata:garments"
+      }
+    ],
+    "image": "images/vic_rattlehead/militar_rattlehead.jpg"
+  },
+  {
+    "id": 423,
+    "code": null,
+    "name": "Nuclear Vic Bomb",
+    "legacyCategory": "VicRattlehead",
+    "designKey": "nuclear-vic-bomb",
+    "declaredGarments": [
+      "remera"
+    ],
+    "inferredGarments": [
+      "remera"
+    ],
+    "proposedGarments": [
+      "remera"
+    ],
+    "variantGarments": [],
+    "variantsCount": 0,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "remera",
+        "source": "metadata:garments"
+      }
+    ],
+    "image": "images/vic_rattlehead/nuclear_vic_bomb.jpg"
+  },
+  {
+    "id": 424,
+    "code": null,
+    "name": "Vic The Arsenal of Megadeth",
+    "legacyCategory": "VicRattlehead",
+    "designKey": "vic-the-arsenal-of-megadeth",
+    "declaredGarments": [
+      "remera"
+    ],
+    "inferredGarments": [
+      "remera"
+    ],
+    "proposedGarments": [
+      "remera"
+    ],
+    "variantGarments": [],
+    "variantsCount": 0,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "remera",
+        "source": "metadata:garments"
+      }
+    ],
+    "image": "images/vic_rattlehead/vic_the_arsenal_of_megadeth.png"
+  },
+  {
+    "id": 425,
+    "code": null,
+    "name": "Vic Explosion",
+    "legacyCategory": "VicRattlehead",
+    "designKey": "vic-explosion",
+    "declaredGarments": [
+      "remera"
+    ],
+    "inferredGarments": [
+      "remera"
+    ],
+    "proposedGarments": [
+      "remera"
+    ],
+    "variantGarments": [],
+    "variantsCount": 0,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "remera",
+        "source": "metadata:garments"
+      }
+    ],
+    "image": "images/vic_rattlehead/vic_explosion.png"
+  },
+  {
+    "id": 426,
+    "code": null,
+    "name": "Vic Face Black",
+    "legacyCategory": "VicRattlehead",
+    "designKey": "vic-face-black",
+    "declaredGarments": [
+      "remera"
+    ],
+    "inferredGarments": [
+      "remera"
+    ],
+    "proposedGarments": [
+      "remera"
+    ],
+    "variantGarments": [],
+    "variantsCount": 0,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "remera",
+        "source": "metadata:garments"
+      }
+    ],
+    "image": "images/vic_rattlehead/vic_face_black.png"
+  },
+  {
+    "id": 427,
+    "code": null,
+    "name": "Vic Punk",
+    "legacyCategory": "VicRattlehead",
+    "designKey": "vic-punk",
+    "declaredGarments": [
+      "remera"
+    ],
+    "inferredGarments": [
+      "remera"
+    ],
+    "proposedGarments": [
+      "remera"
+    ],
+    "variantGarments": [],
+    "variantsCount": 0,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "remera",
+        "source": "metadata:garments"
+      }
+    ],
+    "image": "images/vic_rattlehead/vic_punk.png"
+  },
+  {
+    "id": 428,
+    "code": null,
+    "name": "Vic Radioactivo",
+    "legacyCategory": "VicRattlehead",
+    "designKey": "vic-radioactivo",
+    "declaredGarments": [
+      "remera"
+    ],
+    "inferredGarments": [
+      "remera"
+    ],
+    "proposedGarments": [
+      "remera"
+    ],
+    "variantGarments": [],
+    "variantsCount": 0,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "remera",
+        "source": "metadata:garments"
+      }
+    ],
+    "image": "images/vic_rattlehead/vic_radioactivo.jpg"
+  },
+  {
+    "id": 429,
+    "code": null,
+    "name": "Vic Symphony Music",
+    "legacyCategory": "VicRattlehead",
+    "designKey": "vic-symphony-music",
+    "declaredGarments": [
+      "remera"
+    ],
+    "inferredGarments": [
+      "remera"
+    ],
+    "proposedGarments": [
+      "remera"
+    ],
+    "variantGarments": [],
+    "variantsCount": 0,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "remera",
+        "source": "metadata:garments"
+      }
+    ],
+    "image": "images/vic_rattlehead/vic_symphony_music.png"
+  },
+  {
+    "id": 430,
+    "code": null,
+    "name": "Vic Militar",
+    "legacyCategory": "VicRattlehead",
+    "designKey": "vic-militar",
+    "declaredGarments": [
+      "remera"
+    ],
+    "inferredGarments": [
+      "remera"
+    ],
+    "proposedGarments": [
+      "remera"
+    ],
+    "variantGarments": [],
+    "variantsCount": 0,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "remera",
+        "source": "metadata:garments"
+      }
+    ],
+    "image": "images/vic_rattlehead/vic_militar.png"
+  },
+  {
+    "id": 400,
+    "code": null,
+    "name": "Dorso Tour BN",
+    "legacyCategory": "Dorsales",
+    "designKey": "tour-bn",
+    "declaredGarments": [
+      "remera"
+    ],
+    "inferredGarments": [
+      "remera"
+    ],
+    "proposedGarments": [
+      "remera"
+    ],
+    "variantGarments": [],
+    "variantsCount": 0,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "remera",
+        "source": "metadata:garments"
+      }
+    ],
+    "image": "images/dorsos/dorso_tour_BN.jpg"
+  },
+  {
+    "id": 401,
+    "code": null,
+    "name": "Dorso Tour Oficial",
+    "legacyCategory": "Dorsales",
+    "designKey": "tour-oficial",
+    "declaredGarments": [
+      "remera"
+    ],
+    "inferredGarments": [
+      "remera"
+    ],
+    "proposedGarments": [
+      "remera"
+    ],
+    "variantGarments": [],
+    "variantsCount": 0,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "remera",
+        "source": "metadata:garments"
+      }
+    ],
+    "image": "images/dorsos/dorso_tour_oficial.jpg"
+  },
+  {
+    "id": 402,
+    "code": null,
+    "name": "Dorso Tour v1",
+    "legacyCategory": "Dorsales",
+    "designKey": "tour",
+    "declaredGarments": [
+      "remera"
+    ],
+    "inferredGarments": [
+      "remera"
+    ],
+    "proposedGarments": [
+      "remera"
+    ],
+    "variantGarments": [],
+    "variantsCount": 0,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "remera",
+        "source": "metadata:garments"
+      }
+    ],
+    "image": "images/dorsos/dorso_tour_v1.jpg"
+  },
+  {
+    "id": 403,
+    "code": null,
+    "name": "Dorso Tour v2",
+    "legacyCategory": "Dorsales",
+    "designKey": "tour",
+    "declaredGarments": [
+      "remera"
+    ],
+    "inferredGarments": [
+      "remera"
+    ],
+    "proposedGarments": [
+      "remera"
+    ],
+    "variantGarments": [],
+    "variantsCount": 0,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "remera",
+        "source": "metadata:garments"
+      }
+    ],
+    "image": "images/dorsos/dorso_tour_v2.jpg"
+  },
+  {
+    "id": 404,
+    "code": null,
+    "name": "Guitarra Arg Dorso Blanca",
+    "legacyCategory": "Dorsales",
+    "designKey": "guitarra-arg-blanca",
+    "declaredGarments": [
+      "remera"
+    ],
+    "inferredGarments": [
+      "remera"
+    ],
+    "proposedGarments": [
+      "remera"
+    ],
+    "variantGarments": [],
+    "variantsCount": 0,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "remera",
+        "source": "metadata:garments"
+      }
+    ],
+    "image": "images/dorsos/guitarra_arg_dorso_blanca (1).png"
+  },
+  {
+    "id": 405,
+    "code": null,
+    "name": "Vic Tour 2026",
+    "legacyCategory": "Tour",
+    "designKey": "vic-tour",
+    "declaredGarments": [
+      "remera"
+    ],
+    "inferredGarments": [
+      "remera"
+    ],
+    "proposedGarments": [
+      "remera"
+    ],
+    "variantGarments": [],
+    "variantsCount": 0,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "remera",
+        "source": "metadata:garments"
+      }
+    ],
+    "image": "images/tours/Tour_2026/vic_tour_2026_v4.png"
+  },
+  {
+    "id": 406,
+    "code": null,
+    "name": "Dorso Vic Tour",
+    "legacyCategory": "Dorsales",
+    "designKey": "vic-tour",
+    "declaredGarments": [
+      "remera"
+    ],
+    "inferredGarments": [
+      "remera"
+    ],
+    "proposedGarments": [
+      "remera"
+    ],
+    "variantGarments": [],
+    "variantsCount": 0,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "remera",
+        "source": "metadata:garments"
+      }
+    ],
+    "image": "images/dorsos/dorso_vic_tour.jpg"
+  },
+  {
+    "id": 407,
+    "code": null,
+    "name": "Dorso Vic Tour BLK",
+    "legacyCategory": "Dorsales",
+    "designKey": "vic-tour-blk",
+    "declaredGarments": [
+      "remera"
+    ],
+    "inferredGarments": [
+      "remera"
+    ],
+    "proposedGarments": [
+      "remera"
+    ],
+    "variantGarments": [],
+    "variantsCount": 0,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "remera",
+        "source": "metadata:garments"
+      }
+    ],
+    "image": "images/dorsos/dorso_vic_tour_blk.jpg"
+  },
+  {
+    "id": 5019,
+    "code": null,
+    "name": "Dorso Dave Argentina",
+    "legacyCategory": "Dorsales",
+    "designKey": "dave-argentina",
+    "declaredGarments": [
+      "remera"
+    ],
+    "inferredGarments": [
+      "remera"
+    ],
+    "proposedGarments": [
+      "remera"
+    ],
+    "variantGarments": [],
+    "variantsCount": 0,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "remera",
+        "source": "metadata:garments"
+      }
+    ],
+    "image": "images/dorsos/dorso_dave_argentina.jpg"
+  },
+  {
+    "id": 5020,
+    "code": null,
+    "name": "Dorso Tour",
+    "legacyCategory": "Dorsales",
+    "designKey": "tour",
+    "declaredGarments": [
+      "remera"
+    ],
+    "inferredGarments": [
+      "remera"
+    ],
+    "proposedGarments": [
+      "remera"
+    ],
+    "variantGarments": [],
+    "variantsCount": 0,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "remera",
+        "source": "metadata:garments"
+      }
+    ],
+    "image": "images/dorsos/dorso_tour.jpg"
+  },
+  {
+    "id": 5021,
+    "code": null,
+    "name": "Dorso Arg Tour",
+    "legacyCategory": "Dorsales",
+    "designKey": "arg-tour",
+    "declaredGarments": [
+      "remera"
+    ],
+    "inferredGarments": [
+      "remera"
+    ],
+    "proposedGarments": [
+      "remera"
+    ],
+    "variantGarments": [],
+    "variantsCount": 0,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "remera",
+        "source": "metadata:garments"
+      }
+    ],
+    "image": "images/dorsos/dorso_arg_tour.png"
+  },
+  {
+    "id": 1064,
+    "code": null,
+    "name": "Anatomy of Vic",
+    "legacyCategory": "VicRattlehead",
+    "designKey": "anatomy-of-vic",
+    "declaredGarments": [
+      "remera"
+    ],
+    "inferredGarments": [
+      "remera"
+    ],
+    "proposedGarments": [
+      "remera"
+    ],
+    "variantGarments": [],
+    "variantsCount": 3,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "remera",
+        "source": "metadata:garments"
+      }
+    ],
+    "image": "images/vic_rattlehead/anatomy_of_vic_v1.jpg"
+  },
+  {
+    "id": 5124,
+    "code": null,
+    "name": "Countdown Vic",
+    "legacyCategory": "VicRattlehead",
+    "designKey": "countdown-vic",
+    "declaredGarments": [
+      "remera"
+    ],
+    "inferredGarments": [
+      "remera"
+    ],
+    "proposedGarments": [
+      "remera"
+    ],
+    "variantGarments": [],
+    "variantsCount": 2,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "remera",
+        "source": "metadata:garments"
+      }
+    ],
+    "image": "images/vic_rattlehead/countdown_vic_v1.jpg"
+  },
+  {
+    "id": 1066,
+    "code": null,
+    "name": "Vic Kimb Vintage Real",
+    "legacyCategory": "VicRattlehead",
+    "designKey": "vic-kimb-vintage-real",
+    "declaredGarments": [
+      "remera"
+    ],
+    "inferredGarments": [
+      "remera"
+    ],
+    "proposedGarments": [
+      "remera"
+    ],
+    "variantGarments": [],
+    "variantsCount": 0,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "remera",
+        "source": "metadata:garments"
+      }
+    ],
+    "image": "images/vic_rattlehead/vic_kimb_vintage_real.jpg"
+  },
+  {
+    "id": 5023,
+    "code": null,
+    "name": "Vic Terminator",
+    "legacyCategory": "VicRattlehead",
+    "designKey": "vic-terminator",
+    "declaredGarments": [
+      "remera"
+    ],
+    "inferredGarments": [
+      "remera"
+    ],
+    "proposedGarments": [
+      "remera"
+    ],
+    "variantGarments": [],
+    "variantsCount": 2,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "remera",
+        "source": "metadata:garments"
+      }
+    ],
+    "image": "images/vic_rattlehead/vic_terminator_frente.jpg"
+  },
+  {
+    "id": 5022,
+    "code": null,
+    "name": "The Sick, The Dying... and The Dead",
+    "legacyCategory": "Singles",
+    "designKey": "the-sick-the-dying-and-the-dead",
+    "declaredGarments": [
+      "remera"
+    ],
+    "inferredGarments": [
+      "remera"
+    ],
+    "proposedGarments": [
+      "remera"
+    ],
+    "variantGarments": [],
+    "variantsCount": 5,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "remera",
+        "source": "metadata:garments"
+      }
+    ],
+    "image": "images/singles/killing_time.jpg"
+  },
+  {
+    "id": 5024,
+    "code": null,
+    "name": "Vic The Sick Trono",
+    "legacyCategory": "VicRattlehead",
+    "designKey": "vic-the-sick-trono",
+    "declaredGarments": [
+      "remera"
+    ],
+    "inferredGarments": [
+      "remera"
+    ],
+    "proposedGarments": [
+      "remera"
+    ],
+    "variantGarments": [],
+    "variantsCount": 2,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "remera",
+        "source": "metadata:garments"
+      }
+    ],
+    "image": "images/vic_rattlehead/ts_v1.jpg"
+  },
+  {
+    "id": 5025,
+    "code": null,
+    "name": "Vic Rust Muro",
+    "legacyCategory": "VicRattlehead",
+    "designKey": "vic-rust-muro",
+    "declaredGarments": [
+      "remera"
+    ],
+    "inferredGarments": [
+      "remera"
+    ],
+    "proposedGarments": [
+      "remera"
+    ],
+    "variantGarments": [],
+    "variantsCount": 2,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "remera",
+        "source": "metadata:garments"
+      }
+    ],
+    "image": "images/vic_rattlehead/vic_rust_muro.jpg"
+  },
+  {
+    "id": 5026,
+    "code": null,
+    "name": "Vic Helicopter",
+    "legacyCategory": "VicRattlehead",
+    "designKey": "vic-helicopter",
+    "declaredGarments": [
+      "remera"
+    ],
+    "inferredGarments": [
+      "remera"
+    ],
+    "proposedGarments": [
+      "remera"
+    ],
+    "variantGarments": [],
+    "variantsCount": 0,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "remera",
+        "source": "metadata:garments"
+      }
+    ],
+    "image": "images/vic_rattlehead/vic_helicopter.jpg"
+  },
+  {
+    "id": 5027,
+    "code": null,
+    "name": "Vic Bad Omen",
+    "legacyCategory": "VicRattlehead",
+    "designKey": "vic-bad-omen",
+    "declaredGarments": [
+      "remera"
+    ],
+    "inferredGarments": [
+      "remera"
+    ],
+    "proposedGarments": [
+      "remera"
+    ],
+    "variantGarments": [],
+    "variantsCount": 0,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "remera",
+        "source": "metadata:garments"
+      }
+    ],
+    "image": "images/vic_rattlehead/vic_bad_omen.jpg"
+  },
+  {
+    "id": 5028,
+    "code": null,
+    "name": "Vic Set the World Afire",
+    "legacyCategory": "VicRattlehead",
+    "designKey": "vic-set-the-world-afire",
+    "declaredGarments": [
+      "remera"
+    ],
+    "inferredGarments": [
+      "remera"
+    ],
+    "proposedGarments": [
+      "remera"
+    ],
+    "variantGarments": [],
+    "variantsCount": 0,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "remera",
+        "source": "metadata:garments"
+      }
+    ],
+    "image": "images/vic_rattlehead/vic_set_the_world_afire.jpg"
+  },
+  {
+    "id": 5029,
+    "code": null,
+    "name": "Vic Sells",
+    "legacyCategory": "VicRattlehead",
+    "designKey": "vic-sells",
+    "declaredGarments": [
+      "remera"
+    ],
+    "inferredGarments": [
+      "remera"
+    ],
+    "proposedGarments": [
+      "remera"
+    ],
+    "variantGarments": [],
+    "variantsCount": 2,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "remera",
+        "source": "metadata:garments"
+      }
+    ],
+    "image": "images/vic_rattlehead/vic_sells.jpg"
+  },
+  {
+    "id": 5030,
+    "code": null,
+    "name": "Vic Symphony",
+    "legacyCategory": "VicRattlehead",
+    "designKey": "vic-symphony",
+    "declaredGarments": [
+      "remera"
+    ],
+    "inferredGarments": [
+      "remera"
+    ],
+    "proposedGarments": [
+      "remera"
+    ],
+    "variantGarments": [],
+    "variantsCount": 2,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "remera",
+        "source": "metadata:garments"
+      }
+    ],
+    "image": "images/vic_rattlehead/vic_symphony.jpg"
+  },
+  {
+    "id": 5050,
+    "code": null,
+    "name": "Dave and Vic Live",
+    "legacyCategory": "VicRattlehead",
+    "designKey": "dave-and-vic-live",
+    "declaredGarments": [
+      "remera"
+    ],
+    "inferredGarments": [
+      "remera"
+    ],
+    "proposedGarments": [
+      "remera"
+    ],
+    "variantGarments": [],
+    "variantsCount": 0,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "remera",
+        "source": "metadata:garments"
+      }
+    ],
+    "image": "images/vic_rattlehead/dave_and_vic_live.jpg"
+  },
+  {
+    "id": 5051,
+    "code": null,
+    "name": "Vic Peace 25",
+    "legacyCategory": "VicRattlehead",
+    "designKey": "vic-peace-25",
+    "declaredGarments": [
+      "remera"
+    ],
+    "inferredGarments": [
+      "remera"
+    ],
+    "proposedGarments": [
+      "remera"
+    ],
+    "variantGarments": [],
+    "variantsCount": 2,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "remera",
+        "source": "metadata:garments"
+      }
+    ],
+    "image": "images/vic_rattlehead/vic_peace_25_black.jpg"
+  },
+  {
+    "id": 5053,
+    "code": null,
+    "name": "Hangar 18",
+    "legacyCategory": "Singles",
+    "designKey": "hangar-18",
+    "declaredGarments": [
+      "remera"
+    ],
+    "inferredGarments": [
+      "remera"
+    ],
+    "proposedGarments": [
+      "remera"
+    ],
+    "variantGarments": [],
+    "variantsCount": 3,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "remera",
+        "source": "metadata:garments"
+      }
+    ],
+    "image": "images/singles/hangar_18_single_frente.jpg"
+  },
+  {
+    "id": 6031,
+    "code": null,
+    "name": "Lucretia",
+    "legacyCategory": "Singles",
+    "designKey": "lucretia",
+    "declaredGarments": [
+      "remera"
+    ],
+    "inferredGarments": [
+      "remera"
+    ],
+    "proposedGarments": [
+      "remera"
+    ],
+    "variantGarments": [],
+    "variantsCount": 1,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "remera",
+        "source": "metadata:garments"
+      }
+    ],
+    "image": "images/singles/lucretia.jpg"
+  },
+  {
+    "id": 5054,
+    "code": null,
+    "name": "Vic Black Friday",
+    "legacyCategory": "VicRattlehead",
+    "designKey": "vic-black-friday",
+    "declaredGarments": [
+      "remera"
+    ],
+    "inferredGarments": [
+      "remera"
+    ],
+    "proposedGarments": [
+      "remera"
+    ],
+    "variantGarments": [],
+    "variantsCount": 0,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "remera",
+        "source": "metadata:garments"
+      }
+    ],
+    "image": "images/vic_rattlehead/vic_black_friday.jpg"
+  },
+  {
+    "id": 6023,
+    "code": null,
+    "name": "Vic & Friends â€” FMD Edition",
+    "legacyCategory": "VicRattlehead",
+    "designKey": "vic-friends-a",
+    "declaredGarments": [
+      "remera"
+    ],
+    "inferredGarments": [
+      "remera"
+    ],
+    "proposedGarments": [
+      "remera"
+    ],
+    "variantGarments": [],
+    "variantsCount": 2,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "remera",
+        "source": "metadata:garments"
+      }
+    ],
+    "image": "images/vic_rattlehead/vic_and_friends_fmd_edition.jpg"
+  },
+  {
+    "id": 6024,
+    "code": null,
+    "name": "Vic Demons",
+    "legacyCategory": "VicRattlehead",
+    "designKey": "vic-demons",
+    "declaredGarments": [
+      "remera"
+    ],
+    "inferredGarments": [
+      "remera"
+    ],
+    "proposedGarments": [
+      "remera"
+    ],
+    "variantGarments": [],
+    "variantsCount": 1,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "remera",
+        "source": "metadata:garments"
+      }
+    ],
+    "image": "images/vic_rattlehead/vic_demons.jpg"
+  },
+  {
+    "id": 6022,
+    "code": null,
+    "name": "Fast... Loud... and Rude! â€” Skull Splitting Metal",
+    "legacyCategory": "Orígenes",
+    "designKey": "fast-loud-and-rude-a-skull-splitting-metal",
+    "declaredGarments": [
+      "remera"
+    ],
+    "inferredGarments": [
+      "remera"
+    ],
+    "proposedGarments": [
+      "remera"
+    ],
+    "variantGarments": [],
+    "variantsCount": 8,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "remera",
+        "source": "metadata:garments"
+      }
+    ],
+    "image": "images/orígenes/frente_blanca_v1.png"
+  },
+  {
+    "id": 5057,
+    "code": null,
+    "name": "Hoodie Killing Original",
+    "legacyCategory": "Hoodies FMD",
+    "designKey": "killing",
+    "declaredGarments": [
+      "hoodie"
+    ],
+    "inferredGarments": [
+      "hoodie"
+    ],
+    "proposedGarments": [
+      "hoodie"
+    ],
+    "variantGarments": [
+      "hoodie"
+    ],
+    "variantsCount": 6,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "hoodie",
+        "source": "category:Hoodies FMD"
+      },
+      {
+        "garment": "hoodie",
+        "source": "card:name+image"
+      },
+      {
+        "garment": "hoodie",
+        "source": "metadata:garments"
+      },
+      {
+        "garment": "hoodie",
+        "source": "variant:0:name+image"
+      },
+      {
+        "garment": "hoodie",
+        "source": "variant:1:name+image"
+      },
+      {
+        "garment": "hoodie",
+        "source": "variant:2:name+image"
+      },
+      {
+        "garment": "hoodie",
+        "source": "variant:3:name+image"
+      },
+      {
+        "garment": "hoodie",
+        "source": "variant:4:name+image"
+      },
+      {
+        "garment": "hoodie",
+        "source": "variant:5:name+image"
+      }
+    ],
+    "image": "images/hoddies_fmd/killing_original.jpg"
+  },
+  {
+    "id": 5061,
+    "code": null,
+    "name": "Hoodie Peace Sells",
+    "legacyCategory": "Hoodies FMD",
+    "designKey": "peace-sells",
+    "declaredGarments": [
+      "hoodie"
+    ],
+    "inferredGarments": [
+      "hoodie"
+    ],
+    "proposedGarments": [
+      "hoodie"
+    ],
+    "variantGarments": [],
+    "variantsCount": 0,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "hoodie",
+        "source": "category:Hoodies FMD"
+      },
+      {
+        "garment": "hoodie",
+        "source": "card:name+image"
+      },
+      {
+        "garment": "hoodie",
+        "source": "metadata:garments"
+      }
+    ],
+    "image": "images/hoddies_fmd/peace_sells.jpg"
+  },
+  {
+    "id": 5056,
+    "code": null,
+    "name": "Hoodie Dave SFSGSW Era",
+    "legacyCategory": "Hoodies FMD",
+    "designKey": "dave-sfsgsw-era",
+    "declaredGarments": [
+      "hoodie"
+    ],
+    "inferredGarments": [
+      "hoodie"
+    ],
+    "proposedGarments": [
+      "hoodie"
+    ],
+    "variantGarments": [],
+    "variantsCount": 0,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "hoodie",
+        "source": "category:Hoodies FMD"
+      },
+      {
+        "garment": "hoodie",
+        "source": "card:name+image"
+      },
+      {
+        "garment": "hoodie",
+        "source": "metadata:garments"
+      }
+    ],
+    "image": "images/hoddies_fmd/dave_sfsgsw_era.jpg"
+  },
+  {
+    "id": 5062,
+    "code": null,
+    "name": "Hoodie Rust in Peace",
+    "legacyCategory": "Hoodies FMD",
+    "designKey": "rust-in-peace",
+    "declaredGarments": [
+      "hoodie"
+    ],
+    "inferredGarments": [
+      "hoodie"
+    ],
+    "proposedGarments": [
+      "hoodie"
+    ],
+    "variantGarments": [],
+    "variantsCount": 0,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "hoodie",
+        "source": "category:Hoodies FMD"
+      },
+      {
+        "garment": "hoodie",
+        "source": "card:name+image"
+      },
+      {
+        "garment": "hoodie",
+        "source": "metadata:garments"
+      }
+    ],
+    "image": "images/hoddies_fmd/rust_in_peace.jpg"
+  },
+  {
+    "id": 5071,
+    "code": null,
+    "name": "Hoodie Rust in Peace 1990",
+    "legacyCategory": "Hoodies FMD",
+    "designKey": "rust-in-peace",
+    "declaredGarments": [
+      "hoodie"
+    ],
+    "inferredGarments": [
+      "hoodie"
+    ],
+    "proposedGarments": [
+      "hoodie"
+    ],
+    "variantGarments": [],
+    "variantsCount": 0,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "hoodie",
+        "source": "category:Hoodies FMD"
+      },
+      {
+        "garment": "hoodie",
+        "source": "card:name+image"
+      },
+      {
+        "garment": "hoodie",
+        "source": "metadata:garments"
+      }
+    ],
+    "image": "images/hoddies_fmd/rust_in_peace_1990.jpg"
+  },
+  {
+    "id": 5055,
+    "code": null,
+    "name": "Hoodie Countdown",
+    "legacyCategory": "Hoodies FMD",
+    "designKey": "countdown",
+    "declaredGarments": [
+      "hoodie"
+    ],
+    "inferredGarments": [
+      "hoodie"
+    ],
+    "proposedGarments": [
+      "hoodie"
+    ],
+    "variantGarments": [
+      "hoodie"
+    ],
+    "variantsCount": 2,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "hoodie",
+        "source": "category:Hoodies FMD"
+      },
+      {
+        "garment": "hoodie",
+        "source": "card:name+image"
+      },
+      {
+        "garment": "hoodie",
+        "source": "metadata:garments"
+      },
+      {
+        "garment": "hoodie",
+        "source": "variant:0:name+image"
+      },
+      {
+        "garment": "hoodie",
+        "source": "variant:1:name+image"
+      }
+    ],
+    "image": "images/hoddies_fmd/countdown.jpg"
+  },
+  {
+    "id": 5064,
+    "code": null,
+    "name": "Hoodie Youthanasia",
+    "legacyCategory": "Hoodies FMD",
+    "designKey": "youthanasia",
+    "declaredGarments": [
+      "hoodie"
+    ],
+    "inferredGarments": [
+      "hoodie"
+    ],
+    "proposedGarments": [
+      "hoodie"
+    ],
+    "variantGarments": [],
+    "variantsCount": 0,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "hoodie",
+        "source": "category:Hoodies FMD"
+      },
+      {
+        "garment": "hoodie",
+        "source": "card:name+image"
+      },
+      {
+        "garment": "hoodie",
+        "source": "metadata:garments"
+      }
+    ],
+    "image": "images/hoddies_fmd/youthanasia.jpg"
+  },
+  {
+    "id": 5065,
+    "code": null,
+    "name": "Hoodie Cryptic Writings",
+    "legacyCategory": "Hoodies FMD",
+    "designKey": "cryptic-writings",
+    "declaredGarments": [
+      "hoodie"
+    ],
+    "inferredGarments": [
+      "hoodie"
+    ],
+    "proposedGarments": [
+      "hoodie"
+    ],
+    "variantGarments": [],
+    "variantsCount": 0,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "hoodie",
+        "source": "category:Hoodies FMD"
+      },
+      {
+        "garment": "hoodie",
+        "source": "card:name+image"
+      },
+      {
+        "garment": "hoodie",
+        "source": "metadata:garments"
+      }
+    ],
+    "image": "images/hoddies_fmd/cryptic.jpg"
+  },
+  {
+    "id": 5066,
+    "code": null,
+    "name": "Hoodie Dystopia",
+    "legacyCategory": "Hoodies FMD",
+    "designKey": "dystopia",
+    "declaredGarments": [
+      "hoodie"
+    ],
+    "inferredGarments": [
+      "hoodie"
+    ],
+    "proposedGarments": [
+      "hoodie"
+    ],
+    "variantGarments": [],
+    "variantsCount": 0,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "hoodie",
+        "source": "category:Hoodies FMD"
+      },
+      {
+        "garment": "hoodie",
+        "source": "card:name+image"
+      },
+      {
+        "garment": "hoodie",
+        "source": "metadata:garments"
+      }
+    ],
+    "image": "images/hoddies_fmd/dystopia.jpg"
+  },
+  {
+    "id": 5059,
+    "code": null,
+    "name": "Hoodie Megadeth Final",
+    "legacyCategory": "Hoodies FMD",
+    "designKey": "megadeth-final",
+    "declaredGarments": [
+      "hoodie"
+    ],
+    "inferredGarments": [
+      "hoodie"
+    ],
+    "proposedGarments": [
+      "hoodie"
+    ],
+    "variantGarments": [],
+    "variantsCount": 0,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "hoodie",
+        "source": "category:Hoodies FMD"
+      },
+      {
+        "garment": "hoodie",
+        "source": "card:name+image"
+      },
+      {
+        "garment": "hoodie",
+        "source": "metadata:garments"
+      }
+    ],
+    "image": "images/hoddies_fmd/megadeth_final_black.jpg"
+  },
+  {
+    "id": 5060,
+    "code": null,
+    "name": "Hoodie Megadeth Blanco",
+    "legacyCategory": "Hoodies FMD",
+    "designKey": "megadeth-blanco",
+    "declaredGarments": [
+      "hoodie"
+    ],
+    "inferredGarments": [
+      "hoodie"
+    ],
+    "proposedGarments": [
+      "hoodie"
+    ],
+    "variantGarments": [],
+    "variantsCount": 0,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "hoodie",
+        "source": "category:Hoodies FMD"
+      },
+      {
+        "garment": "hoodie",
+        "source": "card:name+image"
+      },
+      {
+        "garment": "hoodie",
+        "source": "metadata:garments"
+      }
+    ],
+    "image": "images/hoddies_fmd/megadeth_final_white.jpg"
+  },
+  {
+    "id": 5063,
+    "code": null,
+    "name": "Hoodie Vic Father",
+    "legacyCategory": "Hoodies FMD",
+    "designKey": "vic-father",
+    "declaredGarments": [
+      "hoodie"
+    ],
+    "inferredGarments": [
+      "hoodie"
+    ],
+    "proposedGarments": [
+      "hoodie"
+    ],
+    "variantGarments": [],
+    "variantsCount": 0,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "hoodie",
+        "source": "category:Hoodies FMD"
+      },
+      {
+        "garment": "hoodie",
+        "source": "card:name+image"
+      },
+      {
+        "garment": "hoodie",
+        "source": "metadata:garments"
+      }
+    ],
+    "image": "images/hoddies_fmd/vic_father_original.jpg"
+  },
+  {
+    "id": 5067,
+    "code": null,
+    "name": "Hoodie Made to Kill",
+    "legacyCategory": "Hoodies FMD",
+    "designKey": "made-to-kill",
+    "declaredGarments": [
+      "hoodie"
+    ],
+    "inferredGarments": [
+      "hoodie"
+    ],
+    "proposedGarments": [
+      "hoodie"
+    ],
+    "variantGarments": [],
+    "variantsCount": 0,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "hoodie",
+        "source": "category:Hoodies FMD"
+      },
+      {
+        "garment": "hoodie",
+        "source": "card:name+image"
+      },
+      {
+        "garment": "hoodie",
+        "source": "metadata:garments"
+      }
+    ],
+    "image": "images/hoddies_fmd/made_to_kill.jpg"
+  },
+  {
+    "id": 5068,
+    "code": null,
+    "name": "Hoodie I Don't Care",
+    "legacyCategory": "Hoodies FMD",
+    "designKey": "i-don-t-care",
+    "declaredGarments": [
+      "hoodie"
+    ],
+    "inferredGarments": [
+      "hoodie"
+    ],
+    "proposedGarments": [
+      "hoodie"
+    ],
+    "variantGarments": [],
+    "variantsCount": 0,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "hoodie",
+        "source": "category:Hoodies FMD"
+      },
+      {
+        "garment": "hoodie",
+        "source": "card:name+image"
+      },
+      {
+        "garment": "hoodie",
+        "source": "metadata:garments"
+      }
+    ],
+    "image": "images/hoddies_fmd/i_dont_care.jpg"
+  },
+  {
+    "id": 5069,
+    "code": null,
+    "name": "Hoodie Let There Be Shred",
+    "legacyCategory": "Hoodies FMD",
+    "designKey": "let-there-be-shred",
+    "declaredGarments": [
+      "hoodie"
+    ],
+    "inferredGarments": [
+      "hoodie"
+    ],
+    "proposedGarments": [
+      "hoodie"
+    ],
+    "variantGarments": [],
+    "variantsCount": 0,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "hoodie",
+        "source": "category:Hoodies FMD"
+      },
+      {
+        "garment": "hoodie",
+        "source": "card:name+image"
+      },
+      {
+        "garment": "hoodie",
+        "source": "metadata:garments"
+      }
+    ],
+    "image": "images/hoddies_fmd/let_there_be_shred.jpg"
+  },
+  {
+    "id": 5070,
+    "code": null,
+    "name": "Hoodie Tipping Point",
+    "legacyCategory": "Hoodies FMD",
+    "designKey": "tipping-point",
+    "declaredGarments": [
+      "hoodie"
+    ],
+    "inferredGarments": [
+      "hoodie"
+    ],
+    "proposedGarments": [
+      "hoodie"
+    ],
+    "variantGarments": [],
+    "variantsCount": 0,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "hoodie",
+        "source": "category:Hoodies FMD"
+      },
+      {
+        "garment": "hoodie",
+        "source": "card:name+image"
+      },
+      {
+        "garment": "hoodie",
+        "source": "metadata:garments"
+      }
+    ],
+    "image": "images/hoddies_fmd/tipping_point.jpg"
+  },
+  {
+    "id": 5072,
+    "code": null,
+    "name": "Hoodie Vic Promo Tour 2026",
+    "legacyCategory": "Hoodies FMD",
+    "designKey": "vic-promo-tour",
+    "declaredGarments": [
+      "hoodie"
+    ],
+    "inferredGarments": [
+      "hoodie"
+    ],
+    "proposedGarments": [
+      "hoodie"
+    ],
+    "variantGarments": [],
+    "variantsCount": 0,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "hoodie",
+        "source": "category:Hoodies FMD"
+      },
+      {
+        "garment": "hoodie",
+        "source": "card:name+image"
+      },
+      {
+        "garment": "hoodie",
+        "source": "metadata:garments"
+      }
+    ],
+    "image": "images/hoddies_fmd/vic_promo_tour_2026.jpg"
+  },
+  {
+    "id": 5073,
+    "code": null,
+    "name": "Hoodie Vic Digital DLB",
+    "legacyCategory": "Hoodies FMD",
+    "designKey": "vic-digital-dlb",
+    "declaredGarments": [
+      "hoodie"
+    ],
+    "inferredGarments": [
+      "hoodie"
+    ],
+    "proposedGarments": [
+      "hoodie"
+    ],
+    "variantGarments": [],
+    "variantsCount": 0,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "hoodie",
+        "source": "category:Hoodies FMD"
+      },
+      {
+        "garment": "hoodie",
+        "source": "card:name+image"
+      },
+      {
+        "garment": "hoodie",
+        "source": "metadata:garments"
+      }
+    ],
+    "image": "images/hoddies_fmd/vic_digital_dlb.jpg"
+  },
+  {
+    "id": 5074,
+    "code": null,
+    "name": "Hoodie Merch Tour V1",
+    "legacyCategory": "Hoodies FMD",
+    "designKey": "merch-tour",
+    "declaredGarments": [
+      "hoodie"
+    ],
+    "inferredGarments": [
+      "hoodie"
+    ],
+    "proposedGarments": [
+      "hoodie"
+    ],
+    "variantGarments": [],
+    "variantsCount": 0,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "hoodie",
+        "source": "category:Hoodies FMD"
+      },
+      {
+        "garment": "hoodie",
+        "source": "card:name+image"
+      },
+      {
+        "garment": "hoodie",
+        "source": "metadata:garments"
+      }
+    ],
+    "image": "images/tours/merch tour this was our life 2026/hoodies/merch_tour_v1.jpg"
+  },
+  {
+    "id": 5075,
+    "code": null,
+    "name": "Hoodie Vic Militar",
+    "legacyCategory": "Hoodies FMD",
+    "designKey": "vic-militar",
+    "declaredGarments": [
+      "hoodie"
+    ],
+    "inferredGarments": [
+      "hoodie"
+    ],
+    "proposedGarments": [
+      "hoodie"
+    ],
+    "variantGarments": [],
+    "variantsCount": 0,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "hoodie",
+        "source": "category:Hoodies FMD"
+      },
+      {
+        "garment": "hoodie",
+        "source": "card:name+image"
+      },
+      {
+        "garment": "hoodie",
+        "source": "metadata:garments"
+      }
+    ],
+    "image": "images/hoddies_fmd/vic_militar_hoodie.png"
+  },
+  {
+    "id": 5076,
+    "code": null,
+    "name": "Hoodie Guitarra Argentina",
+    "legacyCategory": "Hoodies FMD",
+    "designKey": "guitarra-argentina",
+    "declaredGarments": [
+      "hoodie"
+    ],
+    "inferredGarments": [
+      "hoodie"
+    ],
+    "proposedGarments": [
+      "hoodie"
+    ],
+    "variantGarments": [],
+    "variantsCount": 0,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "hoodie",
+        "source": "category:Hoodies FMD"
+      },
+      {
+        "garment": "hoodie",
+        "source": "card:name+image"
+      },
+      {
+        "garment": "hoodie",
+        "source": "metadata:garments"
+      }
+    ],
+    "image": "images/hoddies_fmd/guitarra_argentina.png"
+  },
+  {
+    "id": 7001,
+    "code": null,
+    "name": "Buzo Rust in Peace FMD",
+    "legacyCategory": "Buzo Cuello Redondo",
+    "designKey": "rust-in-peace",
+    "declaredGarments": [
+      "buzo_cuello_redondo"
+    ],
+    "inferredGarments": [
+      "buzo_cuello_redondo"
+    ],
+    "proposedGarments": [
+      "buzo_cuello_redondo"
+    ],
+    "variantGarments": [],
+    "variantsCount": 0,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "buzo_cuello_redondo",
+        "source": "category:Buzo Cuello Redondo"
+      },
+      {
+        "garment": "buzo_cuello_redondo",
+        "source": "card:name+image"
+      },
+      {
+        "garment": "buzo_cuello_redondo",
+        "source": "metadata:garments"
+      }
+    ],
+    "image": "images/buzos cuello redondo/megadeth_rust_in_peace_original_fmd.jpg"
+  },
+  {
+    "id": 7002,
+    "code": null,
+    "name": "Buzo Rust in Peace",
+    "legacyCategory": "Buzo Cuello Redondo",
+    "designKey": "rust-in-peace",
+    "declaredGarments": [
+      "buzo_cuello_redondo"
+    ],
+    "inferredGarments": [
+      "buzo_cuello_redondo"
+    ],
+    "proposedGarments": [
+      "buzo_cuello_redondo"
+    ],
+    "variantGarments": [],
+    "variantsCount": 0,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "buzo_cuello_redondo",
+        "source": "category:Buzo Cuello Redondo"
+      },
+      {
+        "garment": "buzo_cuello_redondo",
+        "source": "card:name+image"
+      },
+      {
+        "garment": "buzo_cuello_redondo",
+        "source": "metadata:garments"
+      }
+    ],
+    "image": "images/buzos cuello redondo/megadeth_rust_in_peace.jpg"
+  },
+  {
+    "id": 7003,
+    "code": null,
+    "name": "Buzo Rust Formation FMD",
+    "legacyCategory": "Buzo Cuello Redondo",
+    "designKey": "rust-formation",
+    "declaredGarments": [
+      "buzo_cuello_redondo"
+    ],
+    "inferredGarments": [
+      "buzo_cuello_redondo"
+    ],
+    "proposedGarments": [
+      "buzo_cuello_redondo"
+    ],
+    "variantGarments": [],
+    "variantsCount": 0,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "buzo_cuello_redondo",
+        "source": "category:Buzo Cuello Redondo"
+      },
+      {
+        "garment": "buzo_cuello_redondo",
+        "source": "card:name+image"
+      },
+      {
+        "garment": "buzo_cuello_redondo",
+        "source": "metadata:garments"
+      }
+    ],
+    "image": "images/buzos cuello redondo/megadeth_rust_formation_original_fmd.jpg"
+  },
+  {
+    "id": 7004,
+    "code": null,
+    "name": "Buzo Countdown to Extinction FMD",
+    "legacyCategory": "Buzo Cuello Redondo",
+    "designKey": "countdown-to-extinction",
+    "declaredGarments": [
+      "buzo_cuello_redondo"
+    ],
+    "inferredGarments": [
+      "buzo_cuello_redondo"
+    ],
+    "proposedGarments": [
+      "buzo_cuello_redondo"
+    ],
+    "variantGarments": [],
+    "variantsCount": 0,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "buzo_cuello_redondo",
+        "source": "category:Buzo Cuello Redondo"
+      },
+      {
+        "garment": "buzo_cuello_redondo",
+        "source": "card:name+image"
+      },
+      {
+        "garment": "buzo_cuello_redondo",
+        "source": "metadata:garments"
+      }
+    ],
+    "image": "images/buzos cuello redondo/megadeth_countdown_original_fmd.jpg"
+  },
+  {
+    "id": 7005,
+    "code": null,
+    "name": "Buzo Killing is My Business FMD",
+    "legacyCategory": "Buzo Cuello Redondo",
+    "designKey": "killing-is-my-business",
+    "declaredGarments": [
+      "buzo_cuello_redondo"
+    ],
+    "inferredGarments": [
+      "buzo_cuello_redondo"
+    ],
+    "proposedGarments": [
+      "buzo_cuello_redondo"
+    ],
+    "variantGarments": [],
+    "variantsCount": 0,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "buzo_cuello_redondo",
+        "source": "category:Buzo Cuello Redondo"
+      },
+      {
+        "garment": "buzo_cuello_redondo",
+        "source": "card:name+image"
+      },
+      {
+        "garment": "buzo_cuello_redondo",
+        "source": "metadata:garments"
+      }
+    ],
+    "image": "images/buzos cuello redondo/megadeth_killing_original_fmd.jpg"
+  },
+  {
+    "id": 7006,
+    "code": null,
+    "name": "Buzo So Far So Good FMD",
+    "legacyCategory": "Buzo Cuello Redondo",
+    "designKey": "so-far-so-good",
+    "declaredGarments": [
+      "buzo_cuello_redondo"
+    ],
+    "inferredGarments": [
+      "buzo_cuello_redondo"
+    ],
+    "proposedGarments": [
+      "buzo_cuello_redondo"
+    ],
+    "variantGarments": [],
+    "variantsCount": 0,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "buzo_cuello_redondo",
+        "source": "category:Buzo Cuello Redondo"
+      },
+      {
+        "garment": "buzo_cuello_redondo",
+        "source": "card:name+image"
+      },
+      {
+        "garment": "buzo_cuello_redondo",
+        "source": "metadata:garments"
+      }
+    ],
+    "image": "images/buzos cuello redondo/megadeth_sfsgsw_fmd.jpg"
+  },
+  {
+    "id": 7007,
+    "code": null,
+    "name": "Buzo Youthanasia FMD",
+    "legacyCategory": "Buzo Cuello Redondo",
+    "designKey": "youthanasia",
+    "declaredGarments": [
+      "buzo_cuello_redondo"
+    ],
+    "inferredGarments": [
+      "buzo_cuello_redondo"
+    ],
+    "proposedGarments": [
+      "buzo_cuello_redondo"
+    ],
+    "variantGarments": [],
+    "variantsCount": 0,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "buzo_cuello_redondo",
+        "source": "category:Buzo Cuello Redondo"
+      },
+      {
+        "garment": "buzo_cuello_redondo",
+        "source": "card:name+image"
+      },
+      {
+        "garment": "buzo_cuello_redondo",
+        "source": "metadata:garments"
+      }
+    ],
+    "image": "images/buzos cuello redondo/megadeth_youthanasia_original_fmd.jpg"
+  },
+  {
+    "id": 7008,
+    "code": null,
+    "name": "Buzo Dave Mustaine FMD",
+    "legacyCategory": "Buzo Cuello Redondo",
+    "designKey": "dave-mustaine",
+    "declaredGarments": [
+      "buzo_cuello_redondo"
+    ],
+    "inferredGarments": [
+      "buzo_cuello_redondo"
+    ],
+    "proposedGarments": [
+      "buzo_cuello_redondo"
+    ],
+    "variantGarments": [],
+    "variantsCount": 0,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "buzo_cuello_redondo",
+        "source": "category:Buzo Cuello Redondo"
+      },
+      {
+        "garment": "buzo_cuello_redondo",
+        "source": "card:name+image"
+      },
+      {
+        "garment": "buzo_cuello_redondo",
+        "source": "metadata:garments"
+      }
+    ],
+    "image": "images/buzos cuello redondo/megadeth_dave_mustainejpg.jpg"
+  },
+  {
+    "id": 7009,
+    "code": null,
+    "name": "Buzo Guitarra Argentina FMD",
+    "legacyCategory": "Buzo Cuello Redondo",
+    "designKey": "guitarra-argentina",
+    "declaredGarments": [
+      "buzo_cuello_redondo"
+    ],
+    "inferredGarments": [
+      "buzo_cuello_redondo"
+    ],
+    "proposedGarments": [
+      "buzo_cuello_redondo"
+    ],
+    "variantGarments": [],
+    "variantsCount": 0,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "buzo_cuello_redondo",
+        "source": "category:Buzo Cuello Redondo"
+      },
+      {
+        "garment": "buzo_cuello_redondo",
+        "source": "card:name+image"
+      },
+      {
+        "garment": "buzo_cuello_redondo",
+        "source": "metadata:garments"
+      }
+    ],
+    "image": "images/buzos cuello redondo/megadeth_guitar_arg_fmd.jpg"
+  },
+  {
+    "id": 7010,
+    "code": null,
+    "name": "Buzo Tour FMD",
+    "legacyCategory": "Buzo Cuello Redondo",
+    "designKey": "tour",
+    "declaredGarments": [
+      "buzo_cuello_redondo"
+    ],
+    "inferredGarments": [
+      "buzo_cuello_redondo"
+    ],
+    "proposedGarments": [
+      "buzo_cuello_redondo"
+    ],
+    "variantGarments": [],
+    "variantsCount": 0,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "buzo_cuello_redondo",
+        "source": "category:Buzo Cuello Redondo"
+      },
+      {
+        "garment": "buzo_cuello_redondo",
+        "source": "card:name+image"
+      },
+      {
+        "garment": "buzo_cuello_redondo",
+        "source": "metadata:garments"
+      }
+    ],
+    "image": "images/buzos cuello redondo/megadeth_tour_fmd.jpg"
+  },
+  {
+    "id": 7014,
+    "code": null,
+    "name": "Buzo Megadeth Blanco FMD",
+    "legacyCategory": "Buzo Cuello Redondo",
+    "designKey": "megadeth-blanco",
+    "declaredGarments": [
+      "buzo_cuello_redondo"
+    ],
+    "inferredGarments": [
+      "buzo_cuello_redondo"
+    ],
+    "proposedGarments": [
+      "buzo_cuello_redondo"
+    ],
+    "variantGarments": [],
+    "variantsCount": 0,
+    "missingFromDeclared": [],
+    "unsupportedDeclared": [],
+    "status": "consistent",
+    "evidence": [
+      {
+        "garment": "buzo_cuello_redondo",
+        "source": "category:Buzo Cuello Redondo"
+      },
+      {
+        "garment": "buzo_cuello_redondo",
+        "source": "card:name+image"
+      },
+      {
+        "garment": "buzo_cuello_redondo",
+        "source": "metadata:garments"
+      }
+    ],
+    "image": "images/buzos cuello redondo/megadeth_blanco.jpg"
+  }
+]

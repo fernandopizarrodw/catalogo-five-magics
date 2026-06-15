@@ -1,0 +1,403 @@
+[
+  {
+    "designFamilyId": "megadeth-megadeth",
+    "cards": [
+      {
+        "id": 6028,
+        "name": "Megadeth FMD Original",
+        "garments": [
+          "remera"
+        ],
+        "category": "VicRattlehead"
+      },
+      {
+        "id": 17,
+        "name": "Megadeth 2026",
+        "garments": [
+          "remera"
+        ],
+        "category": "Album"
+      }
+    ]
+  },
+  {
+    "designFamilyId": "megadeth-rusted-pieces",
+    "cards": [
+      {
+        "id": 5077,
+        "name": "Hoodie Rusted Pieces",
+        "garments": [
+          "hoodie"
+        ],
+        "category": "Hoodies FMD"
+      },
+      {
+        "id": 236,
+        "name": "Rusted Pieces",
+        "garments": [
+          "remera"
+        ],
+        "category": "Singles"
+      }
+    ]
+  },
+  {
+    "designFamilyId": "megadeth-peace-sells",
+    "cards": [
+      {
+        "id": 6027,
+        "name": "Peace Sells FMD Edition",
+        "garments": [
+          "remera"
+        ],
+        "category": "Album"
+      },
+      {
+        "id": 2,
+        "name": "Peace Sells",
+        "garments": [
+          "remera"
+        ],
+        "category": "Album"
+      },
+      {
+        "id": 5061,
+        "name": "Hoodie Peace Sells",
+        "garments": [
+          "hoodie"
+        ],
+        "category": "Hoodies FMD"
+      }
+    ]
+  },
+  {
+    "designFamilyId": "megadeth-killing-is-my-bussines",
+    "cards": [
+      {
+        "id": 6026,
+        "name": "Killing Is my Bussines FMD Edition",
+        "garments": [
+          "remera"
+        ],
+        "category": "Album"
+      },
+      {
+        "id": 1,
+        "name": "Killing Is my bussines",
+        "garments": [
+          "remera",
+          "buzo_cuello_redondo"
+        ],
+        "category": "Album"
+      }
+    ]
+  },
+  {
+    "designFamilyId": "megadeth-so-far-so-good",
+    "cards": [
+      {
+        "id": 3,
+        "name": "So Far, So Good",
+        "garments": [
+          "remera"
+        ],
+        "category": "Album"
+      },
+      {
+        "id": 7006,
+        "name": "Buzo So Far So Good FMD",
+        "garments": [
+          "buzo_cuello_redondo"
+        ],
+        "category": "Buzo Cuello Redondo"
+      }
+    ]
+  },
+  {
+    "designFamilyId": "megadeth-rust-in-peace",
+    "cards": [
+      {
+        "id": 4,
+        "name": "Rust in Peace",
+        "garments": [
+          "remera"
+        ],
+        "category": "Album"
+      },
+      {
+        "id": 5062,
+        "name": "Hoodie Rust in Peace",
+        "garments": [
+          "hoodie"
+        ],
+        "category": "Hoodies FMD"
+      },
+      {
+        "id": 5071,
+        "name": "Hoodie Rust in Peace 1990",
+        "garments": [
+          "hoodie"
+        ],
+        "category": "Hoodies FMD"
+      },
+      {
+        "id": 7001,
+        "name": "Buzo Rust in Peace FMD",
+        "garments": [
+          "buzo_cuello_redondo"
+        ],
+        "category": "Buzo Cuello Redondo"
+      },
+      {
+        "id": 7002,
+        "name": "Buzo Rust in Peace",
+        "garments": [
+          "buzo_cuello_redondo"
+        ],
+        "category": "Buzo Cuello Redondo"
+      }
+    ]
+  },
+  {
+    "designFamilyId": "megadeth-countdown-to-extinction",
+    "cards": [
+      {
+        "id": 5,
+        "name": "Countdown to Extinction",
+        "garments": [
+          "remera"
+        ],
+        "category": "Album"
+      },
+      {
+        "id": 7004,
+        "name": "Buzo Countdown to Extinction FMD",
+        "garments": [
+          "buzo_cuello_redondo"
+        ],
+        "category": "Buzo Cuello Redondo"
+      }
+    ]
+  },
+  {
+    "designFamilyId": "megadeth-youthanasia",
+    "cards": [
+      {
+        "id": 6,
+        "name": "Youthanasia",
+        "garments": [
+          "remera"
+        ],
+        "category": "Album"
+      },
+      {
+        "id": 5064,
+        "name": "Hoodie Youthanasia",
+        "garments": [
+          "hoodie"
+        ],
+        "category": "Hoodies FMD"
+      },
+      {
+        "id": 7007,
+        "name": "Buzo Youthanasia FMD",
+        "garments": [
+          "buzo_cuello_redondo"
+        ],
+        "category": "Buzo Cuello Redondo"
+      }
+    ]
+  },
+  {
+    "designFamilyId": "megadeth-cryptic-writings",
+    "cards": [
+      {
+        "id": 8,
+        "name": "Cryptic Writings",
+        "garments": [
+          "remera"
+        ],
+        "category": "Album"
+      },
+      {
+        "id": 5065,
+        "name": "Hoodie Cryptic Writings",
+        "garments": [
+          "hoodie"
+        ],
+        "category": "Hoodies FMD"
+      }
+    ]
+  },
+  {
+    "designFamilyId": "megadeth-dystopia",
+    "cards": [
+      {
+        "id": 7,
+        "name": "Dystopia",
+        "garments": [
+          "remera"
+        ],
+        "category": "Album"
+      },
+      {
+        "id": 5066,
+        "name": "Hoodie Dystopia",
+        "garments": [
+          "hoodie"
+        ],
+        "category": "Hoodies FMD"
+      }
+    ]
+  },
+  {
+    "designFamilyId": "megadeth-the-sick-the-dying-and-the-dead",
+    "cards": [
+      {
+        "id": 16,
+        "name": "The Sick, the Dying...And the Dead!",
+        "garments": [
+          "remera"
+        ],
+        "category": "Album"
+      },
+      {
+        "id": 5022,
+        "name": "The Sick, The Dying... and The Dead",
+        "garments": [
+          "remera"
+        ],
+        "category": "Singles"
+      }
+    ]
+  },
+  {
+    "designFamilyId": "megadeth-vic-tour",
+    "cards": [
+      {
+        "id": 320,
+        "name": "Vic Tour 2026",
+        "garments": [
+          "remera"
+        ],
+        "category": "Tour"
+      },
+      {
+        "id": 405,
+        "name": "Vic Tour 2026",
+        "garments": [
+          "remera"
+        ],
+        "category": "Tour"
+      },
+      {
+        "id": 406,
+        "name": "Dorso Vic Tour",
+        "garments": [
+          "remera"
+        ],
+        "category": "Dorsales"
+      }
+    ]
+  },
+  {
+    "designFamilyId": "megadeth-vic-militar",
+    "cards": [
+      {
+        "id": 430,
+        "name": "Vic Militar",
+        "garments": [
+          "remera"
+        ],
+        "category": "VicRattlehead"
+      },
+      {
+        "id": 5075,
+        "name": "Hoodie Vic Militar",
+        "garments": [
+          "hoodie"
+        ],
+        "category": "Hoodies FMD"
+      }
+    ]
+  },
+  {
+    "designFamilyId": "megadeth-tour",
+    "cards": [
+      {
+        "id": 402,
+        "name": "Dorso Tour v1",
+        "garments": [
+          "remera"
+        ],
+        "category": "Dorsales"
+      },
+      {
+        "id": 403,
+        "name": "Dorso Tour v2",
+        "garments": [
+          "remera"
+        ],
+        "category": "Dorsales"
+      },
+      {
+        "id": 5020,
+        "name": "Dorso Tour",
+        "garments": [
+          "remera"
+        ],
+        "category": "Dorsales"
+      },
+      {
+        "id": 7010,
+        "name": "Buzo Tour FMD",
+        "garments": [
+          "buzo_cuello_redondo"
+        ],
+        "category": "Buzo Cuello Redondo"
+      }
+    ]
+  },
+  {
+    "designFamilyId": "megadeth-megadeth-blanco",
+    "cards": [
+      {
+        "id": 5060,
+        "name": "Hoodie Megadeth Blanco",
+        "garments": [
+          "hoodie"
+        ],
+        "category": "Hoodies FMD"
+      },
+      {
+        "id": 7014,
+        "name": "Buzo Megadeth Blanco FMD",
+        "garments": [
+          "buzo_cuello_redondo"
+        ],
+        "category": "Buzo Cuello Redondo"
+      }
+    ]
+  },
+  {
+    "designFamilyId": "megadeth-guitarra-argentina",
+    "cards": [
+      {
+        "id": 5076,
+        "name": "Hoodie Guitarra Argentina",
+        "garments": [
+          "hoodie"
+        ],
+        "category": "Hoodies FMD"
+      },
+      {
+        "id": 7009,
+        "name": "Buzo Guitarra Argentina FMD",
+        "garments": [
+          "buzo_cuello_redondo"
+        ],
+        "category": "Buzo Cuello Redondo"
+      }
+    ]
+  }
+]

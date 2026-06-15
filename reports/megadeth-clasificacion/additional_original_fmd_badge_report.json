@@ -1,0 +1,331 @@
+{
+  "summary": {
+    "products": 31,
+    "fullCardBadges": 23,
+    "variantOnlyBadges": 8,
+    "variantBadges": 16
+  },
+  "report": [
+    {
+      "id": 6028,
+      "name": "Megadeth FMD Original",
+      "mode": "variants",
+      "cardBadge": "ORIGINAL FMD",
+      "variantBadges": [
+        {
+          "index": 0,
+          "name": "Vic Silent FMD",
+          "image": "images/fmd-edition-3d/vic_tour_2026/vic_silent_fmd_edition.jpg",
+          "badge": "ORIGINAL FMD"
+        },
+        {
+          "index": 5,
+          "name": "Vic Punk FMD",
+          "image": "images/fmd-edition-3d/vic_tour_2026/vic_punk_fmd_edition.jpg",
+          "badge": "ORIGINAL FMD"
+        },
+        {
+          "index": 8,
+          "name": "Vic Symphony FMD",
+          "image": "images/fmd-edition-3d/vic_tour_2026/vic_symphony_fmd_edition.jpg",
+          "badge": "ORIGINAL FMD"
+        }
+      ]
+    },
+    {
+      "id": 235,
+      "name": "Vic Nuclear",
+      "mode": "card",
+      "cardBadge": "ORIGINAL FMD",
+      "variantBadges": []
+    },
+    {
+      "id": 236,
+      "name": "Rusted Pieces",
+      "mode": "card",
+      "cardBadge": "ORIGINAL FMD",
+      "variantBadges": []
+    },
+    {
+      "id": 246,
+      "name": "Singles Ultimo Disco",
+      "mode": "card",
+      "cardBadge": "ORIGINAL FMD",
+      "variantBadges": []
+    },
+    {
+      "id": 6015,
+      "name": "Mary Jane",
+      "mode": "variants",
+      "cardBadge": null,
+      "variantBadges": [
+        {
+          "index": 2,
+          "name": "Mary Jane Original",
+          "image": "images/singles/mary_jane.jpg",
+          "badge": "ORIGINAL FMD"
+        }
+      ]
+    },
+    {
+      "id": 1065,
+      "name": "RIDE THE LIGHTNING BY MEGADETH",
+      "mode": "card",
+      "cardBadge": "ORIGINAL FMD",
+      "variantBadges": []
+    },
+    {
+      "id": 245,
+      "name": "Dogs of Chernobyl",
+      "mode": "card",
+      "cardBadge": "ORIGINAL FMD",
+      "variantBadges": []
+    },
+    {
+      "id": 2815,
+      "name": "Dave Vic RIP",
+      "mode": "variants",
+      "cardBadge": null,
+      "variantBadges": [
+        {
+          "index": 3,
+          "name": "Dave and Vic Live",
+          "image": "images/musicians/Dave_Mustaine/dave_and_vic_live.jpg",
+          "badge": "ORIGINAL FMD"
+        }
+      ]
+    },
+    {
+      "id": 39,
+      "name": "VIC GAUCHO ARGENTINO",
+      "mode": "variants",
+      "cardBadge": null,
+      "variantBadges": [
+        {
+          "index": 1,
+          "name": "Realista",
+          "image": "images/tours/Vic_Gaucho_Argentino/vic_gaucho_realista.jpg",
+          "badge": "ORIGINAL FMD"
+        },
+        {
+          "index": 2,
+          "name": "Caballo",
+          "image": "images/tours/Vic_Gaucho_Argentino/vic_gaucho_caballo.jpg",
+          "badge": "ORIGINAL FMD"
+        },
+        {
+          "index": 3,
+          "name": "FMD Frente",
+          "image": "images/vic_rattlehead/vic_gaucho_fmd.jpg",
+          "badge": "ORIGINAL FMD"
+        },
+        {
+          "index": 4,
+          "name": "FMD Dorso",
+          "image": "images/vic_rattlehead/dorso_vic_gaucho_fmd.jpg",
+          "badge": "ORIGINAL FMD"
+        }
+      ]
+    },
+    {
+      "id": 40,
+      "name": "Tour Argentina",
+      "mode": "variants",
+      "cardBadge": null,
+      "variantBadges": [
+        {
+          "index": 1,
+          "name": "Vic Bandera Blanco",
+          "image": "images/tours/Tour_argentina/vic_bandera_logo_blanco.jpg",
+          "badge": "ORIGINAL FMD"
+        },
+        {
+          "index": 4,
+          "name": "Dave Final Show Frente",
+          "image": "images/tours/Tour_argentina/dave_final_show_frente.jpg",
+          "badge": "ORIGINAL FMD"
+        },
+        {
+          "index": 5,
+          "name": "Set List Show Dorso",
+          "image": "images/tours/Tour_argentina/set_list_show_dorso.jpg",
+          "badge": "ORIGINAL FMD"
+        },
+        {
+          "index": 13,
+          "name": "Vic Celeste y Blanco",
+          "image": "images/vic_rattlehead/vic_celeste_y_blanco.jpg",
+          "badge": "ORIGINAL FMD"
+        }
+      ]
+    },
+    {
+      "id": 300,
+      "name": "Marty & Dave",
+      "mode": "card",
+      "cardBadge": "ORIGINAL FMD",
+      "variantBadges": []
+    },
+    {
+      "id": 301,
+      "name": "Peace Sells Live",
+      "mode": "card",
+      "cardBadge": "ORIGINAL FMD",
+      "variantBadges": []
+    },
+    {
+      "id": 320,
+      "name": "Vic Tour 2026",
+      "mode": "card",
+      "cardBadge": "ORIGINAL FMD",
+      "variantBadges": []
+    },
+    {
+      "id": 304,
+      "name": "Vic Rattlehead - My Last Words",
+      "mode": "variants",
+      "cardBadge": null,
+      "variantBadges": [
+        {
+          "index": 1,
+          "name": "Blanco",
+          "image": "images/vic_rattlehead/vic_my_last_blanco.jpg",
+          "badge": "ORIGINAL FMD"
+        }
+      ]
+    },
+    {
+      "id": 424,
+      "name": "Vic The Arsenal of Megadeth",
+      "mode": "card",
+      "cardBadge": "ORIGINAL FMD",
+      "variantBadges": []
+    },
+    {
+      "id": 427,
+      "name": "Vic Punk",
+      "mode": "card",
+      "cardBadge": "ORIGINAL FMD",
+      "variantBadges": []
+    },
+    {
+      "id": 429,
+      "name": "Vic Symphony Music",
+      "mode": "card",
+      "cardBadge": "ORIGINAL FMD",
+      "variantBadges": []
+    },
+    {
+      "id": 430,
+      "name": "Vic Militar",
+      "mode": "card",
+      "cardBadge": "ORIGINAL FMD",
+      "variantBadges": []
+    },
+    {
+      "id": 405,
+      "name": "Vic Tour 2026",
+      "mode": "card",
+      "cardBadge": "ORIGINAL FMD",
+      "variantBadges": []
+    },
+    {
+      "id": 5022,
+      "name": "The Sick, The Dying... and The Dead",
+      "mode": "card",
+      "cardBadge": "ORIGINAL FMD",
+      "variantBadges": []
+    },
+    {
+      "id": 5024,
+      "name": "Vic The Sick Trono",
+      "mode": "card",
+      "cardBadge": "ORIGINAL FMD",
+      "variantBadges": []
+    },
+    {
+      "id": 5027,
+      "name": "Vic Bad Omen",
+      "mode": "card",
+      "cardBadge": "ORIGINAL FMD",
+      "variantBadges": []
+    },
+    {
+      "id": 5028,
+      "name": "Vic Set the World Afire",
+      "mode": "card",
+      "cardBadge": "ORIGINAL FMD",
+      "variantBadges": []
+    },
+    {
+      "id": 5029,
+      "name": "Vic Sells",
+      "mode": "card",
+      "cardBadge": "ORIGINAL FMD",
+      "variantBadges": []
+    },
+    {
+      "id": 5030,
+      "name": "Vic Symphony",
+      "mode": "card",
+      "cardBadge": "ORIGINAL FMD",
+      "variantBadges": []
+    },
+    {
+      "id": 5050,
+      "name": "Dave and Vic Live",
+      "mode": "card",
+      "cardBadge": "ORIGINAL FMD",
+      "variantBadges": []
+    },
+    {
+      "id": 5051,
+      "name": "Vic Peace 25",
+      "mode": "variants",
+      "cardBadge": null,
+      "variantBadges": [
+        {
+          "index": 0,
+          "name": "Black",
+          "image": "images/vic_rattlehead/vic_peace_25_black.jpg",
+          "badge": "ORIGINAL FMD"
+        }
+      ]
+    },
+    {
+      "id": 5053,
+      "name": "Hangar 18",
+      "mode": "card",
+      "cardBadge": "ORIGINAL FMD",
+      "variantBadges": []
+    },
+    {
+      "id": 6031,
+      "name": "Lucretia",
+      "mode": "card",
+      "cardBadge": "ORIGINAL FMD",
+      "variantBadges": []
+    },
+    {
+      "id": 6023,
+      "name": "Vic & Friends â€” FMD Edition",
+      "mode": "variants",
+      "cardBadge": null,
+      "variantBadges": [
+        {
+          "index": 0,
+          "name": "FMD Edition",
+          "image": "images/vic_rattlehead/vic_and_friends_fmd_edition.jpg",
+          "badge": "ORIGINAL FMD"
+        }
+      ]
+    },
+    {
+      "id": 5075,
+      "name": "Hoodie Vic Militar",
+      "mode": "card",
+      "cardBadge": "ORIGINAL FMD",
+      "variantBadges": []
+    }
+  ]
+}

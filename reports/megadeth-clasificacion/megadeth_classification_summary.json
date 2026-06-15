@@ -1,0 +1,16 @@
+{
+  "generatedAt": "2026-06-15T17:02:11.755Z",
+  "totalMegadethCards": 123,
+  "proposedSections": {
+    "albums": 32,
+    "dave-mustaine": 10,
+    "members": 3,
+    "original-fmd": 12,
+    "tours": 18,
+    "unclassified": 11,
+    "vic-rattlehead": 37
+  },
+  "highConfidence": 78,
+  "reviewRequired": 45,
+  "productsJsonModified": false
+}
