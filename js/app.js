@@ -77,11 +77,25 @@ function scrollToSection(sectionId) {
     const target = document.getElementById(sectionId);
     if (!target) return;
 
-    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    const header = document.querySelector('header');
+    const headerHeight = header ? header.offsetHeight : 0;
+    const offset = headerHeight + 18;
+    const targetTop = target.getBoundingClientRect().top + window.pageYOffset - offset;
+    window.scrollTo({ top: Math.max(0, targetTop), behavior: 'smooth' });
     if (window.location.hash !== `#${sectionId}`) {
         history.replaceState(null, '', `#${sectionId}`);
     }
 }
+
+function updateFloatingWhatsappVisibility() {
+    if (!document.body) return;
+    const shouldShow = window.innerWidth > 768 || window.scrollY > 360;
+    document.body.classList.toggle('fab-wa-visible', shouldShow);
+}
+
+window.addEventListener('scroll', updateFloatingWhatsappVisibility, { passive: true });
+window.addEventListener('resize', updateFloatingWhatsappVisibility);
+updateFloatingWhatsappVisibility();
 
 function goToMaidenCollection() {
     maidenGarmentPreference = null;
@@ -4189,7 +4203,7 @@ function renderFilteredProducts(filtered) {
 
         return `${segmentHeader}<div class="product-card" onclick="openModal(${p.id}${modalArgs})">
             <div class="product-badges">${badges}</div>
-            <img src="${p.matchedVariantImage || p.img}" class="product-img" loading="lazy" decoding="async" fetchpriority="low">
+            <img src="${p.matchedVariantImage || p.img}" class="product-img" loading="lazy" decoding="async" fetchpriority="low" onerror="this.onerror=null;this.src='images/logo/MARCA DE AGUA.png';this.classList.add('is-fallback');">
             <div class="product-info">
                 <div class="product-name">${p.matchedVariantName || p.name}</div>
                 ${code ? `<div class="product-code" style="font-size:0.85em;color:var(--magic-orange);font-weight:600;letter-spacing:1px;">${code}</div>` : ''}
@@ -4344,9 +4358,9 @@ const CATEGORY_LABELS = {
     'Orígenes': 'Orígenes Megadeth',
     'Album': 'Álbumes Megadeth',
     'Hoodies FMD': 'Hoodies Megadeth',
-    'Hoodies Otras Bandas': 'Hoodies de otras bandas',
+    'Hoodies Otras Bandas': 'Hoodies destacados',
     'Buzo Cuello Redondo': 'Buzos cuello redondo',
-    'Bandas Sugeridas': 'Bandas Sugeridas',
+    'Bandas Sugeridas': 'Más bandas',
     'Dave Mustaine': 'Dave Mustaine',
     'Dorsales': 'Dorsos para combinar',
     'Musician': 'Miembros Megadeth',

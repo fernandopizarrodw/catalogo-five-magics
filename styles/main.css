@@ -2588,7 +2588,15 @@ header {
 }
 
 #categoryNav {
-    scroll-margin-top: 96px;
+    scroll-margin-top: 118px;
+}
+
+#megadethArchive,
+#slayerArchive,
+#maidenArchive,
+#catalogoPrincipal,
+#talles {
+    scroll-margin-top: 118px;
 }
 
 .category-nav-shell {
@@ -4377,8 +4385,16 @@ header {
     aspect-ratio: 4/5;
     object-fit: cover;
     display: block;
-    background: #0e0e0e;
+    background:
+        radial-gradient(circle at 50% 38%, rgba(57, 255, 20, 0.08), transparent 32%),
+        linear-gradient(135deg, #161616, #080808);
     transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.product-img.is-fallback {
+    object-fit: contain;
+    padding: 18%;
+    background: linear-gradient(135deg, #141414, #080808);
 }
 
 .product-card:hover .product-img {
@@ -5722,16 +5738,47 @@ footer p {
 }
 
 @media (max-width: 768px) {
+    .product-card {
+        content-visibility: visible;
+        contain-intrinsic-size: auto;
+    }
+
     .fab-wa {
-        left: 12px;
+        left: auto;
         right: 12px;
-        bottom: 10px;
+        bottom: 12px;
+        width: auto;
+        max-width: calc(100vw - 24px);
         justify-content: center;
-        padding: 14px 16px;
+        gap: 7px;
+        padding: 9px 12px;
+        min-height: 42px;
+        border-radius: 999px;
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(10px);
+    }
+
+    .fab-wa svg {
+        width: 19px;
+        height: 19px;
+    }
+
+    .fab-wa span {
+        font-size: 0.78rem;
+        max-width: 132px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    body.fab-wa-visible .fab-wa {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
     }
 
     body {
-        padding-bottom: 78px;
+        padding-bottom: 66px;
     }
 }
 
@@ -10296,6 +10343,7 @@ footer p {
 
     .maiden-archive-section,
     .slayer-archive-section,
+    .megadeth-archive-section,
     .hoodies-featured-section {
         padding: 12px 14px;
         margin-top: 14px;
@@ -10303,12 +10351,22 @@ footer p {
 
     .maiden-archive-banner,
     .slayer-archive-banner,
+    .megadeth-archive-banner,
     .hoodies-banner {
-        padding: 16px;
+        padding: 14px;
         margin-bottom: 12px;
         border-radius: 14px;
     }
 
+    .megadeth-archive-kicker,
+    .slayer-archive-kicker,
+    .maiden-archive-kicker {
+        margin-bottom: 6px;
+        padding: 4px 8px;
+        font-size: 0.62rem;
+    }
+
+    .megadeth-archive-title,
     .maiden-archive-title,
     .slayer-archive-title,
     .hoodies-title {
@@ -10316,12 +10374,17 @@ footer p {
         line-height: 1.1;
     }
 
+    .megadeth-archive-subtitle,
+    .megadeth-archive-note,
     .maiden-archive-subtitle,
     .maiden-archive-availability,
     .slayer-archive-subtitle,
     .slayer-archive-availability,
+    .slayer-archive-custom-note,
     .hoodies-subtitle {
-        font-size: 0.82rem;
+        font-size: 0.78rem;
+        line-height: 1.32;
+        margin-top: 7px;
     }
 
     .hoodies-prices {
