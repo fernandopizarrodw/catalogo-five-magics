@@ -4961,6 +4961,60 @@ header {
     font-size: 0.68rem;
 }
 
+.modal-size-guide-panel {
+    margin: 12px 0 14px;
+    padding: 12px;
+    border: 1px solid rgba(57, 255, 20, 0.22);
+    border-radius: 12px;
+    background: linear-gradient(145deg, rgba(12, 16, 12, 0.98), rgba(8, 8, 8, 0.98));
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.04);
+}
+
+.modal-size-guide-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 8px;
+}
+
+.modal-size-guide-head strong {
+    color: var(--magic-green);
+    font-family: var(--font-title);
+    font-size: 0.82rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.modal-size-guide-head button {
+    width: 28px;
+    height: 28px;
+    border: 1px solid rgba(255,255,255,0.14);
+    border-radius: 50%;
+    background: rgba(255,255,255,0.04);
+    color: #fff;
+    cursor: pointer;
+    font-size: 1.1rem;
+    line-height: 1;
+}
+
+.modal-size-guide-copy {
+    margin-bottom: 10px;
+    color: var(--text-muted);
+    font-size: 0.78rem;
+    line-height: 1.35;
+}
+
+.modal-size-guide-table {
+    overflow-x: auto;
+}
+
+.modal-size-table th,
+.modal-size-table td {
+    padding: 8px 10px;
+    font-size: 0.78rem;
+}
+
 /* Info del producto */
 .modal-product-info {
     padding: 20px 16px 24px;
@@ -6696,12 +6750,13 @@ footer p {
 
 .tabs-nav {
     display: flex;
+    flex-wrap: wrap;
     gap: 8px;
     margin-bottom: 16px;
 }
 
 .tab-btn {
-    flex: 1;
+    flex: 1 1 90px;
     padding: 10px;
     border: 1px solid #2a2a2a;
     background: transparent;
@@ -6811,6 +6866,73 @@ footer p {
     padding: 8px 10px;
     margin-bottom: 12px;
     text-align: center;
+}
+
+@media (max-width: 600px) {
+    #talles {
+        padding-left: 12px;
+        padding-right: 12px;
+        overflow: hidden;
+    }
+
+    #talles .tabs-container {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    #talles .tabs-nav {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+        width: 100%;
+        margin-bottom: 14px;
+    }
+
+    #talles .tab-btn {
+        width: 100%;
+        min-width: 0;
+        min-height: 44px;
+        padding: 9px 8px;
+        font-size: 0.78rem;
+        border-radius: 8px;
+        line-height: 1.15;
+    }
+
+    #talles .tab-content {
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    #talles .size-table {
+        min-width: 0;
+        table-layout: fixed;
+    }
+
+    #talles .size-table th,
+    #talles .size-table td {
+        padding: 11px 8px;
+        font-size: 0.8rem;
+    }
+
+    #talles .size-info-banner {
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+
+    #talles .size-info-title {
+        display: block;
+        font-size: 0.78rem;
+        line-height: 1.25;
+    }
+
+    #talles .size-info-subtitle,
+    #talles .size-note-warning,
+    #talles .size-note-foot,
+    #talles .size-note-intro {
+        font-size: 0.74rem;
+        line-height: 1.35;
+    }
 }
 
 .steps-container {

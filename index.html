@@ -1187,8 +1187,8 @@
                 <button class="tab-btn" data-tab="mujer">Mujer</button>
                 <button class="tab-btn" data-tab="oversize">Oversize</button>
                 <button class="tab-btn" data-tab="ninos">Niños</button>
-                <button class="tab-btn tab-btn-hoodie" data-tab="hoodies">🧥 Hoodies</button>
-                <button class="tab-btn tab-btn-hoodie" data-tab="buzo-redondo">🧥 Buzo C/R</button>
+                <button class="tab-btn tab-btn-hoodie" data-tab="hoodies">Hoodies</button>
+                <button class="tab-btn tab-btn-hoodie" data-tab="buzo-redondo">Buzo C/R</button>
             </div>
 
             <div class="tab-content active" id="tab-hombre">
@@ -1466,11 +1466,6 @@
                 <path d="M18 6L6 18M6 6l12 12" />
             </svg>
         </button>
-        <div class="zoom-controls" aria-label="Controles de zoom de pantalla completa">
-            <button type="button" class="modal-zoom-btn" id="zoomOut" aria-label="Alejar imagen">-</button>
-            <button type="button" class="modal-zoom-btn modal-zoom-reset" id="zoomReset" aria-label="Volver a posición normal">Normal</button>
-            <button type="button" class="modal-zoom-btn" id="zoomIn" aria-label="Acercar imagen">+</button>
-        </div>
         <div class="zoom-container" id="zoomContainer">
             <img class="zoom-img" id="zoomImg" src="" alt="Zoom">
         </div>
@@ -1493,11 +1488,6 @@
                     <button class="carousel-arrow left is-hidden" id="carouselPrev" aria-label="Anterior"></button>
                     <div class="carousel" id="carousel"></div>
                     <button class="carousel-arrow right is-hidden" id="carouselNext" aria-label="Siguiente"></button>
-                    <div class="modal-zoom-controls" aria-label="Controles de zoom de imagen">
-                        <button type="button" class="modal-zoom-btn" id="modalZoomOut" aria-label="Alejar imagen">-</button>
-                        <button type="button" class="modal-zoom-btn modal-zoom-reset" id="carouselReset" aria-label="Volver a posición normal">Normal</button>
-                        <button type="button" class="modal-zoom-btn" id="modalZoomIn" aria-label="Acercar imagen">+</button>
-                    </div>
                     <div class="carousel-indicators" id="carouselDots"></div>
                 </div>
                 <div class="variant-name" id="variantName">Original Art</div>
@@ -1532,6 +1522,14 @@
                         <span>2. Elegí color</span>
                         <span>3. Si querés doble, abrí Frente + Dorso</span>
                         <span>4. Reservá por WhatsApp</span>
+                    </div>
+                    <div class="modal-size-guide-panel is-hidden" id="modalSizeGuidePanel">
+                        <div class="modal-size-guide-head">
+                            <strong id="modalSizeGuideTitle">Tabla de medidas</strong>
+                            <button type="button" onclick="closeModalSizeGuide()" aria-label="Cerrar tabla de medidas">×</button>
+                        </div>
+                        <div class="modal-size-guide-copy" id="modalSizeGuideCopy"></div>
+                        <div class="modal-size-guide-table" id="modalSizeGuideTable"></div>
                     </div>
 
                     <!-- Selectores de personalización -->

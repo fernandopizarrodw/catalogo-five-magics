@@ -3118,6 +3118,56 @@ function filterCurrentAlbumByGarment(garment) {
     updateModalInfo();
 }
 
+const MODAL_SIZE_GUIDES = {
+    hombre: {
+        title: 'Remera clasica hombre',
+        copy: 'Medidas en centimetros. Pueden variar +/-5%.',
+        rows: [['S', '52', '75'], ['M', '54', '77'], ['L', '56', '79'], ['XL', '58', '81'], ['2XL', '60', '83']]
+    },
+    oversize: {
+        title: 'Remera oversize unisex',
+        copy: 'Medidas en centimetros. En remera oversize llegamos hasta 3XL.',
+        rows: [['XS', '57', '71'], ['S', '59', '73'], ['M', '61', '75'], ['L', '63', '77'], ['XL', '66', '79'], ['2XL', '69', '81'], ['3XL', '72', '83']]
+    },
+    hoodies: {
+        title: 'Hoodie canguro oversize',
+        copy: 'Algodon frizado. Medidas en centimetros. Pueden variar +/-5%.',
+        rows: [['XS', '64', '67'], ['S', '66', '69'], ['M', '68', '71'], ['L', '70', '73'], ['XL', '72', '75'], ['XXL', '74', '77']]
+    },
+    'buzo-redondo': {
+        title: 'Buzo cuello redondo',
+        copy: 'Corte amplio unisex. Largo mas justo que el hoodie. Medidas en centimetros.',
+        rows: [['S', '65', '66'], ['M', '67', '68'], ['L', '71', '72'], ['XL', '73', '74'], ['XXL', '75', '76']]
+    },
+    ninos: {
+        title: 'Remera chicos',
+        copy: 'Medidas en centimetros. Disponible en negro o blanco segun modelo.',
+        rows: [['4', '38', '53'], ['6', '40', '55'], ['8', '42', '57'], ['10', '44', '59'], ['12', '46', '61'], ['14', '48', '63'], ['16', '50', '66']]
+    }
+};
+
+function renderModalSizeGuide(tabName) {
+    const panel = document.getElementById('modalSizeGuidePanel');
+    const title = document.getElementById('modalSizeGuideTitle');
+    const copy = document.getElementById('modalSizeGuideCopy');
+    const table = document.getElementById('modalSizeGuideTable');
+    const guide = MODAL_SIZE_GUIDES[tabName] || MODAL_SIZE_GUIDES.hombre;
+    if (!panel || !title || !copy || !table) return;
+
+    title.textContent = guide.title;
+    copy.textContent = guide.copy;
+    table.innerHTML = `<table class="size-table modal-size-table">
+        <thead><tr><th>Talle</th><th>Pecho</th><th>Largo</th></tr></thead>
+        <tbody>${guide.rows.map(row => `<tr><td>${row[0]}</td><td>${row[1]}</td><td>${row[2]}</td></tr>`).join('')}</tbody>
+    </table>`;
+    panel.classList.remove('is-hidden');
+    panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+function closeModalSizeGuide() {
+    document.getElementById('modalSizeGuidePanel')?.classList.add('is-hidden');
+}
+
 function openSizeGuideForCurrentGarment() {
     const activeVariant = getModalImages()[currentSlide];
     const garment = currentAlbumGarmentFilter === 'all' ? getVariantGarmentType(activeVariant) : currentAlbumGarmentFilter;
@@ -3125,16 +3175,17 @@ function openSizeGuideForCurrentGarment() {
         ? 'hoodies'
         : garment === 'buzo'
             ? 'buzo-redondo'
-            : selectedCut === 'clasica'
-                ? 'hombre'
-                : 'oversize';
-    closeModal();
-    document.querySelector(`.tab-btn[data-tab="${tabName}"]`)?.click();
-    setTimeout(() => scrollToSection('talles'), 80);
+            : selectedAge === 'chico'
+                ? 'ninos'
+                : selectedCut === 'clasica'
+                    ? 'hombre'
+                    : 'oversize';
+    renderModalSizeGuide(tabName);
 }
 
 window.filterCurrentAlbumByGarment = filterCurrentAlbumByGarment;
 window.openSizeGuideForCurrentGarment = openSizeGuideForCurrentGarment;
+window.closeModalSizeGuide = closeModalSizeGuide;
 
 function getAutoHighlightSlideIndex(product, images) {
     if (!product || !Array.isArray(images) || !images.length) return -1;
