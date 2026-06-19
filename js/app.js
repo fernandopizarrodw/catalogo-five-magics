@@ -38,7 +38,7 @@ const MAIDEN_ARCHIVE_GROUPS = [
     { title: 'Tour 2026', meta: 'Edicion tour FMD', productIds: [7029, 7013] },
     { title: 'Powerslave', meta: 'Archivo FMD', productIds: [7026, 7030] }
 ];
-const SLAYER_ARCHIVE_HIGHLIGHT_IDS = [7122, 7121, 7119, 7118, 7117, 7114, 7115, 7116, 7113, 7112, 7106, 7111, 7110, 7107, 7108, 7109, 7101, 7102, 7103, 7104, 7105];
+const SLAYER_ARCHIVE_HIGHLIGHT_IDS = [7123, 7122, 7121, 7119, 7118, 7117, 7114, 7115, 7116, 7113, 7112, 7106, 7111, 7110, 7107, 7108, 7109, 7101, 7102, 7103, 7104, 7105];
 let slayerGarmentPreference = null;
 let maidenGarmentPreference = null;
 const MEGADETH_ARCHIVE_CATEGORIES = new Set(['Orígenes', 'Album', 'Musician', 'Tour', 'VicRattlehead', 'Singles', 'Dorsales', 'Dave Mustaine', 'Hoodies FMD', 'Buzo Cuello Redondo']);
@@ -4242,6 +4242,9 @@ function renderFilteredProducts(filtered) {
         if (newBadge) badges += newBadge;
         if (comboBadge) badges += comboBadge;
         badges += renderFmdBadge(p, typeof p.matchedVariantIndex === 'number' ? p.matchedVariantIndex : undefined);
+        const isSlayerFmdOriginalsCard = Number(p.id) === 7123 || p.designFamilyId === 'slayer-fmd-originals';
+        const cardClasses = ['product-card'];
+        if (isSlayerFmdOriginalsCard) cardClasses.push('slayer-fmd-originals-card');
 
         const modalArgs = typeof p.matchedVariantIndex === 'number'
             ? `, ${p.matchedVariantIndex}${p.matchedVariantIndexes?.length > 1 ? `, [${p.matchedVariantIndexes.join(',')}]` : ''}`
@@ -4252,7 +4255,7 @@ function renderFilteredProducts(filtered) {
             ? `<div class="megadeth-catalog-group-title">${MEGADETH_SEGMENT_LABELS[p.matchedSegment] || 'MEGADETH'}</div>`
             : '';
 
-        return `${segmentHeader}<div class="product-card" onclick="openModal(${p.id}${modalArgs})">
+        return `${segmentHeader}<div class="${cardClasses.join(' ')}" onclick="openModal(${p.id}${modalArgs})">
             <div class="product-badges">${badges}</div>
             <img src="${p.matchedVariantImage || p.img}" class="product-img" loading="lazy" decoding="async" fetchpriority="low" onerror="this.onerror=null;this.src='images/logo/MARCA DE AGUA.png';this.classList.add('is-fallback');">
             <div class="product-info">

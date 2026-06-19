@@ -7714,30 +7714,9 @@
         "name": "Slayer FMD Originals",
         "tipoPrecio": "doble",
         "isNew": true,
-        "priority": 240,
-        "img": "images/slayer/fmd_originals/remeras/remera_slayer_fmd_angel_of_death.jpg",
+        "priority": 230,
+        "img": "images/slayer/fmd_originals/remeras/remera_slayer_fmd_reign_in_blood_3D.jpg",
         "variants": [
-            {
-                "img": "images/slayer/fmd_originals/remeras/remera_slayer_fmd_angel_of_death.jpg",
-                "name": "Slayer FMD Originals Angel Of Death - Remera",
-                "garmentCategory": "Slayer",
-                "fmdBadge": "ORIGINAL FMD",
-                "fmdBadgeDescription": "Arte original FMD Angel Of Death del universo Slayer, adaptado a remera."
-            },
-            {
-                "img": "images/slayer/fmd_originals/remeras/remera_slayer_fmd_hell_awaits.jpg",
-                "name": "Slayer FMD Originals Hell Awaits - Remera",
-                "garmentCategory": "Slayer",
-                "fmdBadge": "ORIGINAL FMD",
-                "fmdBadgeDescription": "Arte original FMD Hell Awaits del universo Slayer, adaptado a remera."
-            },
-            {
-                "img": "images/slayer/fmd_originals/remeras/remera_slayer_fmd_live_undead.jpg",
-                "name": "Slayer FMD Originals Live Undead - Remera",
-                "garmentCategory": "Slayer",
-                "fmdBadge": "ORIGINAL FMD",
-                "fmdBadgeDescription": "Arte original FMD Live Undead del universo Slayer, adaptado a remera."
-            },
             {
                 "img": "images/slayer/fmd_originals/remeras/remera_slayer_fmd_reign_in_blood_3D.jpg",
                 "name": "Slayer FMD Originals Reign In Blood 3D - Remera",
@@ -7751,55 +7730,6 @@
                 "garmentCategory": "Slayer",
                 "fmdBadge": "ORIGINAL FMD",
                 "fmdBadgeDescription": "Arte grafico exclusivo FMD inspirado en Reign In Blood, con lectura fuerte para estampa frontal y doble."
-            },
-            {
-                "img": "images/slayer/fmd_originals/remeras/remera_slayer_fmd_seasons_in_the_abyss.jpg",
-                "name": "Slayer FMD Originals Seasons In The Abyss - Remera",
-                "garmentCategory": "Slayer",
-                "fmdBadge": "ORIGINAL FMD",
-                "fmdBadgeDescription": "Arte original FMD Seasons In The Abyss del universo Slayer, adaptado a remera."
-            },
-            {
-                "img": "images/slayer/fmd_originals/remeras/remera_slayer_fmd_show_no_mercy.jpg",
-                "name": "Slayer FMD Originals Show No Mercy - Remera",
-                "garmentCategory": "Slayer",
-                "fmdBadge": "ORIGINAL FMD",
-                "fmdBadgeDescription": "Arte original FMD Show No Mercy del universo Slayer, adaptado a remera."
-            },
-            {
-                "img": "images/slayer/fmd_originals/remeras/remera_slayer_fmd_skull.jpg",
-                "name": "Slayer FMD Originals Skull - Remera",
-                "garmentCategory": "Slayer",
-                "fmdBadge": "ORIGINAL FMD",
-                "fmdBadgeDescription": "Arte original FMD Skull del universo Slayer, adaptado a remera."
-            },
-            {
-                "img": "images/slayer/fmd_originals/remeras/remera_slayer_fmd_soldiers.jpg",
-                "name": "Slayer FMD Originals Soldiers - Remera",
-                "garmentCategory": "Slayer",
-                "fmdBadge": "ORIGINAL FMD",
-                "fmdBadgeDescription": "Arte original FMD Soldiers del universo Slayer, adaptado a remera."
-            },
-            {
-                "img": "images/slayer/fmd_originals/remeras/remera_slayer_fmd_south_of_heaven.jpg",
-                "name": "Slayer FMD Originals South Of Heaven - Remera",
-                "garmentCategory": "Slayer",
-                "fmdBadge": "ORIGINAL FMD",
-                "fmdBadgeDescription": "Arte original FMD South Of Heaven del universo Slayer, adaptado a remera."
-            },
-            {
-                "img": "images/slayer/fmd_originals/hoodies/hoodie_slayer_fmd_angel_of_death.jpg",
-                "name": "Slayer FMD Originals Angel Of Death - Hoodie",
-                "garmentCategory": "Hoodies Otras Bandas",
-                "fmdBadge": "ORIGINAL FMD",
-                "fmdBadgeDescription": "Arte original FMD Angel Of Death del universo Slayer, adaptado a hoodie."
-            },
-            {
-                "img": "images/slayer/fmd_originals/hoodies/hoodie_slayer_fmd_hell_awaits.jpg",
-                "name": "Slayer FMD Originals Hell Awaits - Hoodie",
-                "garmentCategory": "Hoodies Otras Bandas",
-                "fmdBadge": "ORIGINAL FMD",
-                "fmdBadgeDescription": "Arte original FMD Hell Awaits del universo Slayer, adaptado a hoodie."
             },
             {
                 "img": "images/slayer/fmd_originals/hoodies/hoodie_slayer_fmd_reign_in_blood_3D.jpg",
@@ -7816,62 +7746,6 @@
                 "fmdBadgeDescription": "Arte grafico exclusivo FMD de Reign In Blood adaptado a hoodie."
             },
             {
-                "img": "images/slayer/fmd_originals/hoodies/hoodie_slayer_fmd_seasons_in_the_abyss.jpg",
-                "name": "Slayer FMD Originals Seasons In The Abyss - Hoodie",
-                "garmentCategory": "Hoodies Otras Bandas",
-                "fmdBadge": "ORIGINAL FMD",
-                "fmdBadgeDescription": "Arte original FMD Seasons In The Abyss del universo Slayer, adaptado a hoodie."
-            },
-            {
-                "img": "images/slayer/fmd_originals/hoodies/hoodie_slayer_fmd_seasons_in_the_abyss_v2.jpg",
-                "name": "Slayer FMD Originals Seasons In The Abyss V2 - Hoodie",
-                "garmentCategory": "Hoodies Otras Bandas",
-                "fmdBadge": "ORIGINAL FMD",
-                "fmdBadgeDescription": "Arte original FMD Seasons In The Abyss V2 del universo Slayer, adaptado a hoodie."
-            },
-            {
-                "img": "images/slayer/fmd_originals/hoodies/hoodie_slayer_fmd_show_no_mercy.jpg",
-                "name": "Slayer FMD Originals Show No Mercy - Hoodie",
-                "garmentCategory": "Hoodies Otras Bandas",
-                "fmdBadge": "ORIGINAL FMD",
-                "fmdBadgeDescription": "Arte original FMD Show No Mercy del universo Slayer, adaptado a hoodie."
-            },
-            {
-                "img": "images/slayer/fmd_originals/hoodies/hoodie_slayer_fmd_south_of_heaven.jpg",
-                "name": "Slayer FMD Originals South Of Heaven - Hoodie",
-                "garmentCategory": "Hoodies Otras Bandas",
-                "fmdBadge": "ORIGINAL FMD",
-                "fmdBadgeDescription": "Arte original FMD South Of Heaven del universo Slayer, adaptado a hoodie."
-            },
-            {
-                "img": "images/slayer/fmd_originals/hoodies/hoodie_slayer_fmd_throne.jpg",
-                "name": "Slayer FMD Originals Throne - Hoodie",
-                "garmentCategory": "Hoodies Otras Bandas",
-                "fmdBadge": "ORIGINAL FMD",
-                "fmdBadgeDescription": "Arte original FMD Throne del universo Slayer, adaptado a hoodie."
-            },
-            {
-                "img": "images/slayer/fmd_originals/buzos/buzo_slayer_fmd_angel_of_death.jpg",
-                "name": "Slayer FMD Originals Angel Of Death - Buzo cuello redondo",
-                "garmentCategory": "Buzo Cuello Redondo",
-                "fmdBadge": "ORIGINAL FMD",
-                "fmdBadgeDescription": "Arte original FMD Angel Of Death del universo Slayer, adaptado a buzo cuello redondo."
-            },
-            {
-                "img": "images/slayer/fmd_originals/buzos/buzo_slayer_fmd_hell_awaits.jpg",
-                "name": "Slayer FMD Originals Hell Awaits - Buzo cuello redondo",
-                "garmentCategory": "Buzo Cuello Redondo",
-                "fmdBadge": "ORIGINAL FMD",
-                "fmdBadgeDescription": "Arte original FMD Hell Awaits del universo Slayer, adaptado a buzo cuello redondo."
-            },
-            {
-                "img": "images/slayer/fmd_originals/buzos/buzo_slayer_fmd_logo.jpg",
-                "name": "Slayer FMD Originals Logo - Buzo cuello redondo",
-                "garmentCategory": "Buzo Cuello Redondo",
-                "fmdBadge": "ORIGINAL FMD",
-                "fmdBadgeDescription": "Arte original FMD Logo del universo Slayer, adaptado a buzo cuello redondo."
-            },
-            {
                 "img": "images/slayer/fmd_originals/buzos/buzo_slayer_fmd_reign_in_blood_3D.jpg",
                 "name": "Slayer FMD Originals Reign In Blood 3D - Buzo cuello redondo",
                 "garmentCategory": "Buzo Cuello Redondo",
@@ -7884,41 +7758,6 @@
                 "garmentCategory": "Buzo Cuello Redondo",
                 "fmdBadge": "ORIGINAL FMD",
                 "fmdBadgeDescription": "Arte grafico exclusivo FMD de Reign In Blood adaptado a buzo cuello redondo."
-            },
-            {
-                "img": "images/slayer/fmd_originals/buzos/buzo_slayer_fmd_seasons_in_the_abyss.jpg",
-                "name": "Slayer FMD Originals Seasons In The Abyss - Buzo cuello redondo",
-                "garmentCategory": "Buzo Cuello Redondo",
-                "fmdBadge": "ORIGINAL FMD",
-                "fmdBadgeDescription": "Arte original FMD Seasons In The Abyss del universo Slayer, adaptado a buzo cuello redondo."
-            },
-            {
-                "img": "images/slayer/fmd_originals/buzos/buzo_slayer_fmd_show_no_mercy.jpg",
-                "name": "Slayer FMD Originals Show No Mercy - Buzo cuello redondo",
-                "garmentCategory": "Buzo Cuello Redondo",
-                "fmdBadge": "ORIGINAL FMD",
-                "fmdBadgeDescription": "Arte original FMD Show No Mercy del universo Slayer, adaptado a buzo cuello redondo."
-            },
-            {
-                "img": "images/slayer/fmd_originals/buzos/buzo_slayer_fmd_skull.jpg",
-                "name": "Slayer FMD Originals Skull - Buzo cuello redondo",
-                "garmentCategory": "Buzo Cuello Redondo",
-                "fmdBadge": "ORIGINAL FMD",
-                "fmdBadgeDescription": "Arte original FMD Skull del universo Slayer, adaptado a buzo cuello redondo."
-            },
-            {
-                "img": "images/slayer/fmd_originals/buzos/buzo_slayer_fmd_soldier_v2_graphic.jpg",
-                "name": "Slayer FMD Originals Soldier V2 Graphic - Buzo cuello redondo",
-                "garmentCategory": "Buzo Cuello Redondo",
-                "fmdBadge": "ORIGINAL FMD",
-                "fmdBadgeDescription": "Arte original FMD Soldier V2 Graphic del universo Slayer, adaptado a buzo cuello redondo."
-            },
-            {
-                "img": "images/slayer/fmd_originals/buzos/buzo_slayer_fmd_south_of_heaven_graphic.jpg",
-                "name": "Slayer FMD Originals South Of Heaven Graphic - Buzo cuello redondo",
-                "garmentCategory": "Buzo Cuello Redondo",
-                "fmdBadge": "ORIGINAL FMD",
-                "fmdBadgeDescription": "Arte original FMD South Of Heaven Graphic del universo Slayer, adaptado a buzo cuello redondo."
             }
         ],
         "desc": "Card especial con artes originales y reinterpretaciones exclusivas FMD del universo Slayer. Carrusel por prenda: remeras, hoodies y buzos cuello redondo.",
@@ -7947,11 +7786,9 @@
             "hoodie",
             "buzo_cuello_redondo"
         ],
-        "campaigns": [
-            "Slayer FMD Originals"
-        ],
-        "commercialPriority": 100,
-        "visibilityTier": "hero",
+        "campaigns": [],
+        "commercialPriority": 92,
+        "visibilityTier": "featured",
         "legacyCategory": "Slayer",
         "designFamilyId": "slayer-fmd-originals",
         "slayerCollection": "fmd_originals",
