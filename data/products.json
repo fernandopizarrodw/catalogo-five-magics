@@ -7581,24 +7581,59 @@
         "id": 5012,
         "category": "Bandas Sugeridas",
         "year": "2026",
-        "name": "Nightwish",
+        "name": "Nightwish - disenos sugeridos",
         "tipoPrecio": "simple",
-        "img": "images/banda_sugeridas/nightwish/nightwish_once.jpg",
-        "desc": "Nightwish - Once. Metal sinfÃ³nico desde los confines de Finlandia.",
+        "img": "images/banda_sugeridas/nightwish/remera_nightwish_once.jpg",
+        "variants": [
+            {
+                "img": "images/banda_sugeridas/nightwish/remera_nightwish_once.jpg",
+                "name": "Nightwish Once - Remera",
+                "garmentCategory": "Bandas Sugeridas"
+            },
+            {
+                "img": "images/banda_sugeridas/nightwish/remera_nightwish_century_child.jpg",
+                "name": "Nightwish Century Child - Remera",
+                "garmentCategory": "Bandas Sugeridas"
+            },
+            {
+                "img": "images/banda_sugeridas/nightwish/remera_nightwish_human_nature.jpg",
+                "name": "Nightwish Human Nature - Remera",
+                "garmentCategory": "Bandas Sugeridas"
+            },
+            {
+                "img": "images/banda_sugeridas/nightwish/remera_nightwish_oceanborn_v1.jpg",
+                "name": "Nightwish Oceanborn V1 - Remera",
+                "garmentCategory": "Bandas Sugeridas"
+            },
+            {
+                "img": "images/banda_sugeridas/nightwish/remera_nightwish_oceanborn_v2.jpg",
+                "name": "Nightwish Oceanborn V2 - Remera",
+                "garmentCategory": "Bandas Sugeridas"
+            },
+            {
+                "img": "images/banda_sugeridas/nightwish/remera_nightwish_wishmaster.jpg",
+                "name": "Nightwish Wishmaster - Remera",
+                "garmentCategory": "Bandas Sugeridas"
+            }
+        ],
+        "desc": "Seleccion inicial de disenos Nightwish sugeridos por la comunidad. Formato rapido en remera con estampa frontal para validar demanda.",
         "band": "Nightwish",
         "universe": [
             "Modern Metal",
             "Heavy Metal Classics"
         ],
-        "album": "Once",
+        "album": null,
         "garments": [
             "remera"
         ],
         "collections": [
             "Nightwish Archive",
-            "Once"
+            "Encuesta Instagram",
+            "Mas bandas"
         ],
-        "campaigns": [],
+        "campaigns": [
+            "Encuesta Instagram 2026"
+        ],
         "commercialPriority": 78,
         "visibilityTier": "featured",
         "legacyCategory": "Bandas Sugeridas",
@@ -7606,9 +7641,381 @@
             "Nightwish",
             "Modern Metal",
             "Heavy Metal Classics",
-            "Once",
+            "Encuesta Instagram",
+            "Mas bandas",
             "remera",
             "Nightwish Archive"
+        ]
+    },
+    {
+        "id": 5039,
+        "category": "Bandas Sugeridas",
+        "year": "2026",
+        "name": "Tarja Turunen - disenos sugeridos",
+        "tipoPrecio": "simple",
+        "img": "images/banda_sugeridas/tarja/remera_tarja_logo_2026.jpg",
+        "variants": [
+            {
+                "img": "images/banda_sugeridas/tarja/remera_tarja_logo_2026.jpg",
+                "name": "Tarja Logo 2026 - Remera",
+                "garmentCategory": "Bandas Sugeridas"
+            },
+            {
+                "img": "images/banda_sugeridas/tarja/remera_tarja_filth_idc.jpg",
+                "name": "Tarja Filth IDC - Remera",
+                "garmentCategory": "Bandas Sugeridas"
+            },
+            {
+                "img": "images/banda_sugeridas/tarja/remera_tarja_frission_noir.jpg",
+                "name": "Tarja Frission Noir - Remera",
+                "garmentCategory": "Bandas Sugeridas"
+            },
+            {
+                "img": "images/banda_sugeridas/tarja/remera_tarja_spirits.jpg",
+                "name": "Tarja Spirits - Remera",
+                "garmentCategory": "Bandas Sugeridas"
+            }
+        ],
+        "desc": "Seleccion inicial de disenos Tarja Turunen para sumar al archivo de mas bandas. Formato rapido en remera con estampa frontal.",
+        "band": "Tarja Turunen",
+        "universe": [
+            "Symphonic Metal",
+            "Heavy Metal Classics"
+        ],
+        "album": null,
+        "garments": [
+            "remera"
+        ],
+        "collections": [
+            "Tarja Turunen Archive",
+            "Mas bandas"
+        ],
+        "campaigns": [],
+        "commercialPriority": 72,
+        "visibilityTier": "catalog",
+        "legacyCategory": "Bandas Sugeridas",
+        "tags": [
+            "Tarja",
+            "Tarja Turunen",
+            "Symphonic Metal",
+            "Heavy Metal Classics",
+            "Mas bandas",
+            "remera",
+            "Tarja Turunen Archive"
+        ]
+    },
+    {
+        "id": 5016,
+        "category": "Bandas Sugeridas",
+        "year": "2027",
+        "name": "EPICA Argentina 2027",
+        "tipoPrecio": "simple",
+        "isNew": true,
+        "priority": 210,
+        "img": "images/banda_sugeridas/epica/remera_epica_aspiral.jpg",
+        "variants": [
+            {
+                "img": "images/banda_sugeridas/epica/remera_epica_aspiral.jpg",
+                "name": "Epica Aspiral - Remera",
+                "garmentCategory": "Bandas Sugeridas"
+            },
+            {
+                "img": "images/banda_sugeridas/epica/remera_epica_20th_anniversary.jpg",
+                "name": "Epica 20th Anniversary - Remera",
+                "garmentCategory": "Bandas Sugeridas"
+            },
+            {
+                "img": "images/banda_sugeridas/epica/remera_epica_design_your_universe.jpg",
+                "name": "Epica Design Your Universe - Remera",
+                "garmentCategory": "Bandas Sugeridas"
+            },
+            {
+                "img": "images/banda_sugeridas/epica/remera_epica_logo.jpg",
+                "name": "Epica Logo - Remera",
+                "garmentCategory": "Bandas Sugeridas"
+            },
+            {
+                "img": "images/banda_sugeridas/epica/remera_epica_omega.jpg",
+                "name": "Epica Omega - Remera",
+                "garmentCategory": "Bandas Sugeridas"
+            },
+            {
+                "img": "images/banda_sugeridas/epica/remera_epica_omega_alive_dvd.jpg",
+                "name": "Epica Omega Alive DVD - Remera",
+                "garmentCategory": "Bandas Sugeridas"
+            },
+            {
+                "img": "images/banda_sugeridas/epica/remera_epica_quantum.jpg",
+                "name": "Epica The Quantum Enigma - Remera",
+                "garmentCategory": "Bandas Sugeridas"
+            },
+            {
+                "img": "images/banda_sugeridas/epica/remera_epica_the_holographic_principle.jpg",
+                "name": "Epica The Holographic Principle - Remera",
+                "garmentCategory": "Bandas Sugeridas"
+            },
+            {
+                "img": "images/banda_sugeridas/epica/remera_epica_the_phantom_agony.jpg",
+                "name": "Epica The Phantom Agony - Remera",
+                "garmentCategory": "Bandas Sugeridas"
+            },
+            {
+                "img": "images/banda_sugeridas/epica/hoodie_epica_omega.jpg",
+                "name": "Epica Omega - Hoodie",
+                "garmentCategory": "Hoodies Otras Bandas"
+            },
+            {
+                "img": "images/banda_sugeridas/epica/hoodie_epica_the_holographic_principle.jpg",
+                "name": "Epica The Holographic Principle - Hoodie",
+                "garmentCategory": "Hoodies Otras Bandas"
+            },
+            {
+                "img": "images/banda_sugeridas/epica/hoodie_epica_the_phantom_agony.jpg",
+                "name": "Epica The Phantom Agony - Hoodie",
+                "garmentCategory": "Hoodies Otras Bandas"
+            },
+            {
+                "img": "images/banda_sugeridas/epica/buzo_epica_20th_anniversary.jpg",
+                "name": "Epica 20th Anniversary - Buzo cuello redondo",
+                "garmentCategory": "Buzo Cuello Redondo"
+            },
+            {
+                "img": "images/banda_sugeridas/epica/buzo_epica_quantum_enigma.jpg",
+                "name": "Epica The Quantum Enigma - Buzo cuello redondo",
+                "garmentCategory": "Buzo Cuello Redondo"
+            }
+        ],
+        "desc": "Archivo EPICA Argentina 2027 con disenos disponibles en remera, hoodie y buzo cuello redondo segun variante. Tambien hacemos personalizados si no encontras el arte que buscas.",
+        "band": "Epica",
+        "universe": [
+            "Modern Metal",
+            "Heavy Metal Classics",
+            "Symphonic Metal"
+        ],
+        "album": null,
+        "garments": [
+            "remera",
+            "hoodie",
+            "buzo_cuello_redondo"
+        ],
+        "collections": [
+            "EPICA Argentina 2027",
+            "Archivo EPICA FMD",
+            "Encuesta Instagram",
+            "Mas bandas"
+        ],
+        "campaigns": [
+            "Epica Argentina 2027",
+            "Encuesta Instagram 2026"
+        ],
+        "commercialPriority": 88,
+        "visibilityTier": "featured",
+        "legacyCategory": "Bandas Sugeridas",
+        "tags": [
+            "Epica",
+            "Argentina 2027",
+            "Show Argentina 2027",
+            "Symphonic Metal",
+            "Modern Metal",
+            "Heavy Metal Classics",
+            "Encuesta Instagram",
+            "Mas bandas",
+            "remera",
+            "hoodie",
+            "buzo_cuello_redondo"
+        ]
+    },
+    {
+        "id": 5083,
+        "category": "Bandas Sugeridas",
+        "year": "2027",
+        "name": "Rhapsody Argentina 2027",
+        "tipoPrecio": "simple",
+        "isNew": true,
+        "priority": 205,
+        "img": "images/banda_sugeridas/rhapsody/remera_rhapsody_dawn_of_victory.jpg",
+        "variants": [
+            {
+                "img": "images/banda_sugeridas/rhapsody/remera_rhapsody_dawn_of_victory.jpg",
+                "name": "Rhapsody Dawn Of Victory - Remera",
+                "garmentCategory": "Bandas Sugeridas"
+            },
+            {
+                "img": "images/banda_sugeridas/rhapsody/remera_rhapsody_legendary_tales.jpg",
+                "name": "Rhapsody Legendary Tales - Remera",
+                "garmentCategory": "Bandas Sugeridas"
+            },
+            {
+                "img": "images/banda_sugeridas/rhapsody/remera_rhapsody_legendary_years.jpg",
+                "name": "Rhapsody Legendary Years - Remera",
+                "garmentCategory": "Bandas Sugeridas"
+            },
+            {
+                "img": "images/banda_sugeridas/rhapsody/remera_rhapsody_power_of_the_dragon_flame.jpg",
+                "name": "Rhapsody Power Of The Dragon Flame - Remera",
+                "garmentCategory": "Bandas Sugeridas"
+            },
+            {
+                "img": "images/banda_sugeridas/rhapsody/remera_rhapsody_raind_of_a_thounsand_flames.jpg",
+                "name": "Rhapsody Rain Of A Thousand Flames - Remera",
+                "garmentCategory": "Bandas Sugeridas"
+            },
+            {
+                "img": "images/banda_sugeridas/rhapsody/remera_rhapsody_symphony_of_enchanted_lands.jpg",
+                "name": "Rhapsody Symphony Of Enchanted Lands - Remera",
+                "garmentCategory": "Bandas Sugeridas"
+            },
+            {
+                "img": "images/banda_sugeridas/rhapsody/remera_rhapsody_symphony_of_enchanted_lands_II.jpg",
+                "name": "Rhapsody Symphony Of Enchanted Lands II - Remera",
+                "garmentCategory": "Bandas Sugeridas"
+            },
+            {
+                "img": "images/banda_sugeridas/rhapsody/remera_rhapsody_tales_from_the_emerald_sword_saga.jpg",
+                "name": "Rhapsody Tales From The Emerald Sword Saga - Remera",
+                "garmentCategory": "Bandas Sugeridas"
+            },
+            {
+                "img": "images/banda_sugeridas/rhapsody/remera_rhapsody_triumph_or_agony.jpg",
+                "name": "Rhapsody Triumph Or Agony - Remera",
+                "garmentCategory": "Bandas Sugeridas"
+            },
+            {
+                "img": "images/banda_sugeridas/rhapsody/remera_rhapsody_holy_thunderforce.jpg",
+                "name": "Rhapsody Holy Thunderforce - Remera",
+                "garmentCategory": "Bandas Sugeridas"
+            },
+            {
+                "img": "images/banda_sugeridas/rhapsody/hoodie_rhapsody_dawn_of_victory.jpg",
+                "name": "Rhapsody Dawn Of Victory - Hoodie",
+                "garmentCategory": "Hoodies Otras Bandas"
+            },
+            {
+                "img": "images/banda_sugeridas/rhapsody/hoodie_rhapsody_power_of_the_dragon_flame.jpg",
+                "name": "Rhapsody Power Of The Dragon Flame - Hoodie",
+                "garmentCategory": "Hoodies Otras Bandas"
+            },
+            {
+                "img": "images/banda_sugeridas/rhapsody/hoodie_rhapsody_raind_of_a_thounsand_flames.jpg",
+                "name": "Rhapsody Rain Of A Thousand Flames - Hoodie",
+                "garmentCategory": "Hoodies Otras Bandas"
+            },
+            {
+                "img": "images/banda_sugeridas/rhapsody/buzo_rhapsody_legendary_years.jpg",
+                "name": "Rhapsody Legendary Years - Buzo cuello redondo",
+                "garmentCategory": "Buzo Cuello Redondo"
+            },
+            {
+                "img": "images/banda_sugeridas/rhapsody/buzo_rhapsody_symphony_of_enchanted_lands_II.jpg",
+                "name": "Rhapsody Symphony Of Enchanted Lands II - Buzo cuello redondo",
+                "garmentCategory": "Buzo Cuello Redondo"
+            },
+            {
+                "img": "images/banda_sugeridas/rhapsody/buzo_rhapsody_triumph_or_agony.jpg",
+                "name": "Rhapsody Triumph Or Agony - Buzo cuello redondo",
+                "garmentCategory": "Buzo Cuello Redondo"
+            }
+        ],
+        "desc": "Archivo Rhapsody Argentina 2027 con disenos disponibles en remera, hoodie y buzo cuello redondo segun variante. Tambien se puede pedir personalizado o adaptar a otras prendas.",
+        "band": "Rhapsody",
+        "universe": [
+            "Power Metal",
+            "Symphonic Metal",
+            "Heavy Metal Classics"
+        ],
+        "album": null,
+        "garments": [
+            "remera",
+            "hoodie",
+            "buzo_cuello_redondo"
+        ],
+        "collections": [
+            "Rhapsody Argentina 2027",
+            "Rhapsody Archive",
+            "Mas bandas"
+        ],
+        "campaigns": [
+            "Rhapsody Argentina 2027"
+        ],
+        "commercialPriority": 88,
+        "visibilityTier": "featured",
+        "legacyCategory": "Bandas Sugeridas",
+        "tags": [
+            "Rhapsody",
+            "Argentina 2027",
+            "Power Metal",
+            "Symphonic Metal",
+            "Heavy Metal Classics",
+            "Mas bandas",
+            "remera",
+            "Rhapsody Archive",
+            "hoodie",
+            "buzo_cuello_redondo"
+        ]
+    },
+    {
+        "id": 5000,
+        "category": "Bandas Sugeridas",
+        "year": "2026",
+        "name": "Devin Townsend - disenos sugeridos",
+        "tipoPrecio": "simple",
+        "img": "images/banda_sugeridas/devin_townsend/remera_devin_townsend_empath.jpg",
+        "variants": [
+            {
+                "img": "images/banda_sugeridas/devin_townsend/remera_devin_townsend_empath.jpg",
+                "name": "Devin Townsend Empath - Remera",
+                "garmentCategory": "Bandas Sugeridas"
+            },
+            {
+                "img": "images/banda_sugeridas/devin_townsend/remera_devin_townsend_deconstruction.jpg",
+                "name": "Devin Townsend Deconstruction - Remera",
+                "garmentCategory": "Bandas Sugeridas"
+            },
+            {
+                "img": "images/banda_sugeridas/devin_townsend/remera_devin_townsend_epicloud.jpg",
+                "name": "Devin Townsend Epicloud - Remera",
+                "garmentCategory": "Bandas Sugeridas"
+            },
+            {
+                "img": "images/banda_sugeridas/devin_townsend/remera_devin_townsend_transcendence.jpg",
+                "name": "Devin Townsend Transcendence - Remera",
+                "garmentCategory": "Bandas Sugeridas"
+            },
+            {
+                "img": "images/banda_sugeridas/devin_townsend/remera_devin_townsend_ziltoid.jpg",
+                "name": "Devin Townsend Ziltoid - Remera",
+                "garmentCategory": "Bandas Sugeridas"
+            }
+        ],
+        "desc": "Seleccion inicial de disenos Devin Townsend sugeridos por la comunidad. Formato rapido en remera con estampa frontal para validar demanda.",
+        "band": "Devin Townsend",
+        "universe": [
+            "Modern Metal",
+            "Progressive Metal"
+        ],
+        "album": null,
+        "garments": [
+            "remera"
+        ],
+        "collections": [
+            "Devin Townsend Archive",
+            "Encuesta Instagram",
+            "Mas bandas"
+        ],
+        "campaigns": [
+            "Encuesta Instagram 2026"
+        ],
+        "commercialPriority": 77,
+        "visibilityTier": "featured",
+        "legacyCategory": "Bandas Sugeridas",
+        "tags": [
+            "Devin Townsend",
+            "Modern Metal",
+            "Progressive Metal",
+            "Encuesta Instagram",
+            "Mas bandas",
+            "remera",
+            "Devin Townsend Archive"
         ]
     },
     {
@@ -13820,5 +14227,323 @@
         "commercialPriority": 92,
         "visibilityTier": "hero",
         "legacyCategory": "Slayer"
+    },
+    {
+        "id": 5058,
+        "category": "Bandas Sugeridas",
+        "year": "2026",
+        "name": "King Diamond - disenos sugeridos",
+        "tipoPrecio": "simple",
+        "img": "images/banda_sugeridas/king_diamond/remera_king_diamond_abigail.jpg",
+        "variants": [
+            {
+                "img": "images/banda_sugeridas/king_diamond/remera_king_diamond_abigail.jpg",
+                "name": "King Diamond Abigail - Remera",
+                "garmentCategory": "Bandas Sugeridas"
+            }
+        ],
+        "desc": "Seleccion inicial de King Diamond para sumar al archivo de mas bandas. Formato rapido en remera con estampa frontal.",
+        "band": "King Diamond",
+        "universe": [
+            "Heavy Metal Classics"
+        ],
+        "album": null,
+        "garments": [
+            "remera"
+        ],
+        "collections": [
+            "King Diamond Archive",
+            "Mas bandas"
+        ],
+        "campaigns": [],
+        "commercialPriority": 70,
+        "visibilityTier": "catalog",
+        "legacyCategory": "Bandas Sugeridas",
+        "tags": [
+            "King Diamond",
+            "Heavy Metal Classics",
+            "Mas bandas",
+            "remera",
+            "King Diamond Archive"
+        ]
+    },
+    {
+        "id": 5078,
+        "category": "Bandas Sugeridas",
+        "year": "2026",
+        "name": "Judas Priest - disenos sugeridos",
+        "tipoPrecio": "simple",
+        "img": "images/banda_sugeridas/judas_priest/remera_judas_priest.jpg",
+        "variants": [
+            {
+                "img": "images/banda_sugeridas/judas_priest/remera_judas_priest.jpg",
+                "name": "Judas Priest - Remera",
+                "garmentCategory": "Bandas Sugeridas"
+            }
+        ],
+        "desc": "Seleccion inicial de Judas Priest para sumar al archivo de mas bandas. Formato rapido en remera con estampa frontal.",
+        "band": "Judas Priest",
+        "universe": [
+            "Heavy Metal Classics",
+            "Rock Legends"
+        ],
+        "album": null,
+        "garments": [
+            "remera"
+        ],
+        "collections": [
+            "Judas Priest Archive",
+            "Mas bandas"
+        ],
+        "campaigns": [],
+        "commercialPriority": 73,
+        "visibilityTier": "catalog",
+        "legacyCategory": "Bandas Sugeridas",
+        "tags": [
+            "Judas Priest",
+            "Heavy Metal Classics",
+            "Rock Legends",
+            "Mas bandas",
+            "remera",
+            "Judas Priest Archive"
+        ]
+    },
+    {
+        "id": 5079,
+        "category": "Bandas Sugeridas",
+        "year": "2026",
+        "name": "Death - disenos sugeridos",
+        "tipoPrecio": "simple",
+        "img": "images/banda_sugeridas/death/remera_death.jpg",
+        "variants": [
+            {
+                "img": "images/banda_sugeridas/death/remera_death.jpg",
+                "name": "Death - Remera",
+                "garmentCategory": "Bandas Sugeridas"
+            },
+            {
+                "img": "images/banda_sugeridas/death/hoodie_death.jpg",
+                "name": "Death - Hoodie",
+                "garmentCategory": "Hoodies Otras Bandas"
+            }
+        ],
+        "desc": "Seleccion inicial de Death para sumar al archivo de mas bandas. Disponible en remera y hoodie segun variante.",
+        "band": "Death",
+        "universe": [
+            "Death Metal",
+            "Heavy Metal Classics"
+        ],
+        "album": null,
+        "garments": [
+            "remera",
+            "hoodie"
+        ],
+        "collections": [
+            "Death Archive",
+            "Mas bandas"
+        ],
+        "campaigns": [],
+        "commercialPriority": 75,
+        "visibilityTier": "catalog",
+        "legacyCategory": "Bandas Sugeridas",
+        "tags": [
+            "Death",
+            "Death Metal",
+            "Heavy Metal Classics",
+            "Mas bandas",
+            "remera",
+            "hoodie",
+            "Death Archive"
+        ]
+    },
+    {
+        "id": 5080,
+        "category": "Bandas Sugeridas",
+        "year": "2026",
+        "name": "Tourniquet - disenos sugeridos",
+        "tipoPrecio": "simple",
+        "img": "images/banda_sugeridas/tourniquet/remera_tourniquet_pathogenic.jpg",
+        "variants": [
+            {
+                "img": "images/banda_sugeridas/tourniquet/remera_tourniquet_pathogenic.jpg",
+                "name": "Tourniquet Pathogenic - Remera",
+                "garmentCategory": "Bandas Sugeridas"
+            },
+            {
+                "img": "images/banda_sugeridas/tourniquet/remera_tourniquet_psycho_surgery.jpg",
+                "name": "Tourniquet Psycho Surgery - Remera",
+                "garmentCategory": "Bandas Sugeridas"
+            },
+            {
+                "img": "images/banda_sugeridas/tourniquet/remera_tourniquet_stop_the_bleeding.jpg",
+                "name": "Tourniquet Stop The Bleeding - Remera",
+                "garmentCategory": "Bandas Sugeridas"
+            },
+            {
+                "img": "images/banda_sugeridas/tourniquet/hoodie_tourniquet_pathogenic.jpg",
+                "name": "Tourniquet Pathogenic - Hoodie",
+                "garmentCategory": "Hoodies Otras Bandas"
+            },
+            {
+                "img": "images/banda_sugeridas/tourniquet/hoodie_tourniquet_psycho_surgery.jpg",
+                "name": "Tourniquet Psycho Surgery - Hoodie",
+                "garmentCategory": "Hoodies Otras Bandas"
+            },
+            {
+                "img": "images/banda_sugeridas/tourniquet/hoodie_tourniquet_stop_the_bleeding.jpg",
+                "name": "Tourniquet Stop The Bleeding - Hoodie",
+                "garmentCategory": "Hoodies Otras Bandas"
+            }
+        ],
+        "desc": "Seleccion inicial de Tourniquet para sumar al archivo de mas bandas. Disponible en remera y hoodie segun variante.",
+        "band": "Tourniquet",
+        "universe": [
+            "Thrash Metal",
+            "Progressive Metal"
+        ],
+        "album": null,
+        "garments": [
+            "remera",
+            "hoodie"
+        ],
+        "collections": [
+            "Tourniquet Archive",
+            "Mas bandas"
+        ],
+        "campaigns": [],
+        "commercialPriority": 73,
+        "visibilityTier": "catalog",
+        "legacyCategory": "Bandas Sugeridas",
+        "tags": [
+            "Tourniquet",
+            "Thrash Metal",
+            "Progressive Metal",
+            "Mas bandas",
+            "remera",
+            "hoodie",
+            "Tourniquet Archive"
+        ]
+    },
+    {
+        "id": 5081,
+        "category": "Bandas Sugeridas",
+        "year": "2026",
+        "name": "Stratovarius - disenos sugeridos",
+        "tipoPrecio": "simple",
+        "img": "images/banda_sugeridas/stratovarius/remera_stratovarius_destiny.jpg",
+        "variants": [
+            {
+                "img": "images/banda_sugeridas/stratovarius/remera_stratovarius_destiny.jpg",
+                "name": "Stratovarius Destiny - Remera",
+                "garmentCategory": "Bandas Sugeridas"
+            },
+            {
+                "img": "images/banda_sugeridas/stratovarius/remera_stratovarius_episode_fmd.jpg",
+                "name": "Stratovarius Episode FMD - Remera",
+                "garmentCategory": "Bandas Sugeridas"
+            },
+            {
+                "img": "images/banda_sugeridas/stratovarius/remera_stratovarius_infinite.jpg",
+                "name": "Stratovarius Infinite - Remera",
+                "garmentCategory": "Bandas Sugeridas"
+            },
+            {
+                "img": "images/banda_sugeridas/stratovarius/remera_stratovarius_infinite_fmd.jpg",
+                "name": "Stratovarius Infinite FMD - Remera",
+                "garmentCategory": "Bandas Sugeridas"
+            },
+            {
+                "img": "images/banda_sugeridas/stratovarius/remera_stratovarius_visions_fmd.jpg",
+                "name": "Stratovarius Visions FMD - Remera",
+                "garmentCategory": "Bandas Sugeridas"
+            }
+        ],
+        "desc": "Seleccion inicial de Stratovarius para sumar al archivo de mas bandas. Formato rapido en remera con estampa frontal.",
+        "band": "Stratovarius",
+        "universe": [
+            "Power Metal",
+            "Heavy Metal Classics"
+        ],
+        "album": null,
+        "garments": [
+            "remera"
+        ],
+        "collections": [
+            "Stratovarius Archive",
+            "Mas bandas"
+        ],
+        "campaigns": [],
+        "commercialPriority": 74,
+        "visibilityTier": "catalog",
+        "legacyCategory": "Bandas Sugeridas",
+        "tags": [
+            "Stratovarius",
+            "Power Metal",
+            "Heavy Metal Classics",
+            "Mas bandas",
+            "remera",
+            "Stratovarius Archive"
+        ]
+    },
+    {
+        "id": 5082,
+        "category": "Bandas Sugeridas",
+        "year": "2026",
+        "name": "Deep Purple - disenos sugeridos",
+        "tipoPrecio": "simple",
+        "img": "images/banda_sugeridas/deep_purple/remera_deep_purple_burn.jpg",
+        "variants": [
+            {
+                "img": "images/banda_sugeridas/deep_purple/remera_deep_purple_burn.jpg",
+                "name": "Deep Purple Burn - Remera",
+                "garmentCategory": "Bandas Sugeridas"
+            },
+            {
+                "img": "images/banda_sugeridas/deep_purple/remera_deep_purple_highway.jpg",
+                "name": "Deep Purple Highway Star - Remera",
+                "garmentCategory": "Bandas Sugeridas"
+            },
+            {
+                "img": "images/banda_sugeridas/deep_purple/remera_deep_purple_logo.jpg",
+                "name": "Deep Purple Logo - Remera",
+                "garmentCategory": "Bandas Sugeridas"
+            },
+            {
+                "img": "images/banda_sugeridas/deep_purple/remera_deep_purple_logo_v2.jpg",
+                "name": "Deep Purple Logo V2 - Remera",
+                "garmentCategory": "Bandas Sugeridas"
+            },
+            {
+                "img": "images/banda_sugeridas/deep_purple/remera_deep_purple_smoke.jpg",
+                "name": "Deep Purple Smoke - Remera",
+                "garmentCategory": "Bandas Sugeridas"
+            }
+        ],
+        "desc": "Seleccion inicial de Deep Purple para sumar al archivo de mas bandas. Formato rapido en remera con estampa frontal.",
+        "band": "Deep Purple",
+        "universe": [
+            "Rock Legends",
+            "Heavy Metal Classics"
+        ],
+        "album": null,
+        "garments": [
+            "remera"
+        ],
+        "collections": [
+            "Deep Purple Archive",
+            "Mas bandas"
+        ],
+        "campaigns": [],
+        "commercialPriority": 73,
+        "visibilityTier": "catalog",
+        "legacyCategory": "Bandas Sugeridas",
+        "tags": [
+            "Deep Purple",
+            "Rock Legends",
+            "Heavy Metal Classics",
+            "Mas bandas",
+            "remera",
+            "Deep Purple Archive"
+        ]
     }
 ]

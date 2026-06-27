@@ -41,6 +41,7 @@ const MAIDEN_ARCHIVE_GROUPS = [
 const SLAYER_ARCHIVE_HIGHLIGHT_IDS = [7123, 7122, 7121, 7119, 7118, 7117, 7114, 7115, 7116, 7113, 7112, 7106, 7111, 7110, 7107, 7108, 7109, 7101, 7102, 7103, 7104, 7105];
 let slayerGarmentPreference = null;
 let maidenGarmentPreference = null;
+let epicaGarmentPreference = null;
 const MEGADETH_ARCHIVE_CATEGORIES = new Set(['Orígenes', 'Album', 'Musician', 'Tour', 'VicRattlehead', 'Singles', 'Dorsales', 'Dave Mustaine', 'Hoodies FMD', 'Buzo Cuello Redondo']);
 let megadethGarmentPreference = null;
 let megadethSegmentPreference = 'all';
@@ -60,6 +61,21 @@ const UNIVERSE_SHOWCASE_DEFINITIONS = [
     { universe: 'Groove Metal', limit: 4 },
     { universe: 'Rock Legends', limit: 4 },
     { universe: 'Modern Metal', limit: 4 }
+];
+
+const PRIMARY_HERO_ACCESS = [
+    { label: 'MEGADETH', filter: 'Megadeth', primary: true },
+    { label: 'SLAYER', filter: 'Slayer' },
+    { label: 'IRON MAIDEN', filter: 'Iron Maiden' },
+    { label: 'MAS BANDAS', filter: 'Bandas Sugeridas' }
+];
+
+const SYMPHONIC_FEATURED_BANDS = [
+    { label: 'EPICA', filter: 'Epica' },
+    { label: 'RHAPSODY', filter: 'Rhapsody' },
+    { label: 'NIGHTWISH', filter: 'Nightwish' },
+    { label: 'STRATOVARIUS', filter: 'Stratovarius' },
+    { label: 'TARJA', filter: 'Tarja Turunen' }
 ];
 
 let db = [];
@@ -176,6 +192,86 @@ function getSlayerPreferredVariantIndexes(product) {
 }
 
 window.showSlayerGarment = showSlayerGarment;
+
+function getEpicaProduct() {
+    return db.find(product => Number(product?.id) === 5016 || normalizeText(product?.band) === 'epica');
+}
+
+function getEpicaPreferredGarmentLabel() {
+    if (epicaGarmentPreference === 'hoodie') return 'Hoodie';
+    if (epicaGarmentPreference === 'buzo') return 'Buzo cuello redondo';
+    if (epicaGarmentPreference === 'remera') return 'Remera';
+    return '';
+}
+
+function getEpicaPreferredGarmentPluralLabel() {
+    if (epicaGarmentPreference === 'hoodie') return 'Hoodies EPICA';
+    if (epicaGarmentPreference === 'buzo') return 'Buzos EPICA';
+    if (epicaGarmentPreference === 'remera') return 'Remeras EPICA';
+    return 'EPICA';
+}
+
+function getEpicaVariantGarment(variant) {
+    const category = normalizeText(variant?.garmentCategory || '');
+    const text = normalizeText(`${variant?.name || ''} ${variant?.img || ''} ${category}`);
+    if (category.includes('hoodie') || text.includes('hoodie')) return 'hoodie';
+    if (category.includes('buzo cuello redondo') || text.includes('buzo cuello redondo') || text.includes('buzo_')) return 'buzo';
+    return 'remera';
+}
+
+function getEpicaPreferredVariantIndexes(product) {
+    if (normalizeText(product?.band) !== 'epica' || !epicaGarmentPreference) return [];
+    return (product.variants || []).reduce((indexes, variant, index) => {
+        if (getEpicaVariantGarment(variant) === epicaGarmentPreference) indexes.push(index);
+        return indexes;
+    }, []);
+}
+
+function expandEpicaVariants(product, garment = epicaGarmentPreference) {
+    if (normalizeText(product?.band) !== 'epica') return [product];
+    const variants = product.variants || [];
+    return variants
+        .map((variant, index) => {
+            const matchedGarment = getEpicaVariantGarment(variant);
+            if (garment && matchedGarment !== garment) return null;
+            return {
+                ...product,
+                variants: [variant],
+                matchedVariantIndex: index,
+                matchedVariantIndexes: [index],
+                matchedVariantName: variant.name,
+                matchedVariantImage: variant.img,
+                matchedGarment,
+                epicaExpandedVariant: true
+            };
+        })
+        .filter(Boolean);
+}
+
+function showEpicaGarment(garment) {
+    epicaGarmentPreference = ['remera', 'hoodie', 'buzo'].includes(garment) ? garment : 'remera';
+    resetCatalogPagination();
+    currentUniverse = null;
+    currentGarmentFilter = null;
+    currentCategory = 'Epica';
+    document.querySelectorAll('.cat-btn').forEach(button => button.classList.toggle('active', button.dataset.cat === 'Epica'));
+    filterProducts();
+    scrollToSection('catalogoPrincipal');
+}
+
+function showAllEpica() {
+    epicaGarmentPreference = null;
+    resetCatalogPagination();
+    currentUniverse = null;
+    currentGarmentFilter = null;
+    currentCategory = 'Epica';
+    document.querySelectorAll('.cat-btn').forEach(button => button.classList.toggle('active', button.dataset.cat === 'Epica'));
+    filterProducts();
+    scrollToSection('catalogoPrincipal');
+}
+
+window.showEpicaGarment = showEpicaGarment;
+window.showAllEpica = showAllEpica;
 
 function isMegadethArchiveProduct(product) {
     if (!product) return false;
@@ -940,6 +1036,56 @@ function normalizeText(value) {
         .replace(/[\u0300-\u036f]/g, '')
         .trim();
 }
+
+function getBandDesignCount(filter) {
+    if (!Array.isArray(db) || !db.length) return 0;
+    return db
+        .filter(product => isPublicProduct(product) && matchesCategoryOrMetadata(product, filter))
+        .reduce((total, product) => total + Math.max(1, Array.isArray(product.variants) ? product.variants.length : 0), 0);
+}
+
+function openBandAccess(filter) {
+    currentUniverse = null;
+    currentGarmentFilter = null;
+    currentSearch = '';
+    epicaGarmentPreference = null;
+    currentCategory = filter;
+    resetCatalogPagination();
+    if (searchInput) searchInput.value = '';
+    if (searchClear) searchClear.classList.remove('visible');
+    document.querySelectorAll('.cat-btn, .filter-pill, .hero-band-access-btn, .hero-symphonic-btn').forEach(button => {
+        const buttonFilter = button.dataset.cat || button.dataset.filter || button.dataset.bandFilter;
+        button.classList.toggle('active', normalizeText(buttonFilter) === normalizeText(filter));
+    });
+    filterProducts();
+    scrollToSection('catalogoPrincipal');
+}
+
+function renderHeroBandAccess() {
+    const primaryContainer = document.getElementById('heroPrimaryBandAccess');
+    if (primaryContainer) {
+        primaryContainer.innerHTML = PRIMARY_HERO_ACCESS.map(item => `
+            <button type="button" class="hero-band-access-btn${item.primary ? ' hero-band-access-btn-primary' : ''}" data-band-filter="${item.filter}" onclick="openBandAccess('${item.filter}')">
+                <span>${item.label}</span>
+            </button>
+        `).join('');
+    }
+
+    const symphonicContainer = document.getElementById('heroSymphonicBandAccess');
+    if (symphonicContainer) {
+        symphonicContainer.innerHTML = SYMPHONIC_FEATURED_BANDS.map(item => {
+            const count = getBandDesignCount(item.filter);
+            return `
+                <button type="button" class="hero-symphonic-btn${item.featured ? ' hero-symphonic-btn-featured' : ''}" data-band-filter="${item.filter}" onclick="openBandAccess('${item.filter}')">
+                    <strong>${item.label}</strong>
+                    <span>${count || ''}${count ? ' diseños' : ''}</span>
+                </button>
+            `;
+        }).join('');
+    }
+}
+
+window.openBandAccess = openBandAccess;
 
 function getProductPriority(product) {
     const commercialPriority = Number(product?.commercialPriority);
@@ -1945,8 +2091,10 @@ async function loadProducts() {
         db = await response.json();
         buildDorsoAutocompletePool();
         updateCountsUI();
+        renderHeroBandAccess();
         renderMaidenArchiveGrid(); // Capsula editorial Iron Maiden
         renderSlayerArchiveGrid(); // Selector de prendas Slayer
+        renderEpicaArchiveGrid(); // Archivo Epica por prenda
         renderMegadethArchiveGrid(); // Archivo Megadeth por prenda
         renderHoodiesGrid(); // Hoodies destacados
         renderBuzosRedondoGrid(); // Buzos cuello redondo destacados
@@ -2029,6 +2177,66 @@ function renderSlayerArchiveGrid() {
         `).join('');
     } catch (error) {
         console.warn('renderSlayerArchiveGrid error', error);
+    }
+}
+
+function renderEpicaArchiveGrid() {
+    try {
+        const grid = document.getElementById('epicaArchiveGrid');
+        const section = document.getElementById('epicaArchive');
+        const product = getEpicaProduct();
+        if (!grid || !section || !product) {
+            if (section) section.style.display = 'none';
+            return;
+        }
+
+        const variants = product.variants || [];
+        const getVariantsByGarment = garment => variants.filter(variant => getEpicaVariantGarment(variant) === garment);
+        const findGarmentImage = garment => getVariantsByGarment(garment)[0]?.img || product.img;
+
+        const garmentCards = [
+            {
+                id: 'remera',
+                label: 'Remeras EPICA',
+                meta: 'Estampa frontal',
+                price: 'Desde $37.000',
+                image: findGarmentImage('remera'),
+                count: getVariantsByGarment('remera').length
+            },
+            {
+                id: 'hoodie',
+                label: 'Hoodies EPICA',
+                meta: 'Canguro oversize unisex',
+                price: 'Desde $52.000',
+                image: findGarmentImage('hoodie'),
+                count: getVariantsByGarment('hoodie').length
+            },
+            {
+                id: 'buzo',
+                label: 'Buzos EPICA',
+                meta: 'Cuello redondo unisex',
+                price: 'Desde $50.000',
+                image: findGarmentImage('buzo'),
+                count: getVariantsByGarment('buzo').length
+            }
+        ];
+
+        grid.innerHTML = garmentCards.map(card => `
+            <article class="epica-garment-card" onclick="showEpicaGarment('${card.id}')">
+                <div class="epica-garment-card-image">
+                    <img src="${card.image}" alt="${card.label}" loading="lazy" decoding="async">
+                    <span>${card.count} diseños</span>
+                </div>
+                <div class="epica-garment-card-info">
+                    <strong>${card.label}</strong>
+                    <p>${card.meta}</p>
+                    <span>${card.price}</span>
+                    <button onclick="event.stopPropagation(); showEpicaGarment('${card.id}')">ELEGIR Y VER DISEÑOS →</button>
+                </div>
+            </article>
+        `).join('');
+    } catch (error) {
+        console.warn('renderEpicaArchiveGrid error', error);
     }
 }
 
@@ -4177,6 +4385,9 @@ function filterProducts() {
             })
             .filter(Boolean);
     }
+    if (normalizedCategory === 'epica') {
+        filtered = filtered.flatMap(product => expandEpicaVariants(product, epicaGarmentPreference));
+    }
     const shouldSortAlbumsByYear = normalizedCategory === 'album' && filtered.every(p => normalizeText(p?.category) === 'album');
     if (normalizedCategory !== 'megadeth') {
         filtered.sort(shouldSortAlbumsByYear ? compareAlbumProductsByYearAscThenId : compareProductsByVisibilityThenPriority);
@@ -4187,6 +4398,13 @@ function filterProducts() {
 function renderFilteredProducts(filtered) {
     const isMegadethView = normalizeText(currentCategory) === 'megadeth';
     const totalFiltered = filtered.length;
+    const filteredDesignCount = filtered.reduce((total, product) => {
+        if (product.epicaExpandedVariant) return total + 1;
+        if (Array.isArray(product.matchedVariantIndexes) && product.matchedVariantIndexes.length) {
+            return total + product.matchedVariantIndexes.length;
+        }
+        return total + Math.max(1, Array.isArray(product.variants) ? product.variants.length : 0);
+    }, 0);
     const visibleLimit = isMegadethView ? megadethVisibleLimit : catalogVisibleLimit;
     const visibleProducts = filtered.slice(0, visibleLimit);
     const megadethBackBtn = document.getElementById('megadethBackBtn');
@@ -4204,6 +4422,8 @@ function renderFilteredProducts(filtered) {
         : '';
     document.getElementById('productsCount').textContent = currentSearch
         ? `${filtered.length} resultados globales`
+        : normalizeText(currentCategory) === 'epica'
+        ? `${filteredDesignCount} diseÃ±os Â· ${getEpicaPreferredGarmentPluralLabel()}`
         : currentGarmentFilter
         ? `${filtered.length} diseños · ${currentGarmentFilter === 'remera' ? 'Remeras' : currentGarmentFilter === 'hoodie' ? 'Hoodies' : 'Buzos cuello redondo'}`
         : currentUniverse
@@ -4218,7 +4438,8 @@ function renderFilteredProducts(filtered) {
     productsGrid.innerHTML = visibleProducts.map((p, index) => {
         const isSlayerGarmentResult = p.category === 'Slayer' && typeof p.matchedVariantIndex === 'number';
         const isMegadethGarmentResult = normalizeText(currentCategory) === 'megadeth' && Boolean(megadethGarmentPreference) && typeof p.matchedVariantIndex === 'number';
-        const hasVariants = !isSlayerGarmentResult && !isMegadethGarmentResult && p.variants && p.variants.length > 1;
+        const isEpicaGarmentResult = normalizeText(currentCategory) === 'epica' && Boolean(epicaGarmentPreference) && typeof p.matchedVariantIndex === 'number';
+        const hasVariants = !isSlayerGarmentResult && !isMegadethGarmentResult && !isEpicaGarmentResult && p.variants && p.variants.length > 1;
         const isDoble = p.tipoPrecio === 'doble';
         const isDorsoIdea = p.category === 'Dorsales';
         const variantUnit = p.category === 'Slayer' ? 'prendas' : 'diseños';
@@ -4226,6 +4447,10 @@ function renderFilteredProducts(filtered) {
             ? `${p.matchedVariantIndexes?.length > 1 ? `${p.matchedVariantIndexes.length} versiones · ` : ''}${getSlayerPreferredGarmentLabel()}`
             : isMegadethGarmentResult
                 ? `${p.matchedVariantIndexes?.length > 1 ? `${p.matchedVariantIndexes.length} diseños · ` : ''}${p.matchedGarment === 'remera' ? 'Remera' : p.matchedGarment === 'hoodie' ? 'Hoodie' : 'Buzo cuello redondo'}`
+            : isEpicaGarmentResult
+                ? (p.epicaExpandedVariant
+                    ? `${p.matchedGarment === 'remera' ? 'Remera' : p.matchedGarment === 'hoodie' ? 'Hoodie' : 'Buzo cuello redondo'}`
+                    : `${p.matchedVariantIndexes?.length > 1 ? `${p.matchedVariantIndexes.length} dise?os - ` : ''}${getEpicaPreferredGarmentLabel()}`)
             : hasVariants
                 ? `${p.variants.length} ${variantUnit} <span style='font-size:1.2em;margin-left:6px;'>➔</span>`
                 : (isDoble ? '🔥 Doble estampa' : '');
@@ -4316,6 +4541,7 @@ categoryNav.addEventListener('click', (e) => {
         currentUniverse = null;
         currentGarmentFilter = null;
         currentCategory = btn.dataset.cat;
+        if (normalizeText(currentCategory) !== 'epica') epicaGarmentPreference = null;
         resetCatalogPagination();
         if (normalizeText(currentCategory) === 'megadeth') {
             megadethGarmentPreference = getActiveMegadethGarmentPreference();
@@ -4452,12 +4678,20 @@ function computeCounts(){
     return { byCategory, megadethTotal, totalAll };
 }
 
+function countDesignsByFilter(filter) {
+    return db
+        .filter(p => isPublicProduct(p) && matchesCategoryOrMetadata(p, filter))
+        .reduce((total, product) => total + Math.max(1, Array.isArray(product.variants) ? product.variants.length : 0), 0);
+}
+
 function updateCountsUI(){
     try{
         if(!Array.isArray(db) || !db.length) return;
         const { byCategory, megadethTotal, totalAll } = computeCounts();
         const origenesCount = byCategory['Orígenes'] || 0;
         const albumVisibleCount = Math.max(0, (byCategory['Album'] || 0) - Array.from(HIDDEN_FROM_ALBUM_CATEGORY).filter(id => db.some(p => Number(p?.id) === id)).length);
+        const epicaDesignCount = countDesignsByFilter('Epica');
+        const rhapsodyDesignCount = countDesignsByFilter('Rhapsody');
 
         // Destacados: badges
         const ftMegadethCard = document.querySelector('.featured-card[data-trigger="Album"]');
@@ -4491,6 +4725,8 @@ function updateCountsUI(){
         setNavBadge('Pantera', byCategory['Pantera']||0);
         setNavBadge('Iron Maiden', byCategory['Iron Maiden']||0);
         setNavBadge('Slayer', byCategory['Slayer']||0);
+        setNavBadge('Epica', epicaDesignCount);
+        setNavBadge('Rhapsody', rhapsodyDesignCount);
         setNavBadge('Metallica', byCategory['Metallica']||0);
         setNavBadge('Hoodies FMD', byCategory['Hoodies FMD']||0);
         setNavBadge('Hoodies Otras Bandas', byCategory['Hoodies Otras Bandas']||0);
@@ -4525,6 +4761,8 @@ function updateCountsUI(){
         setPill('Pantera', `${getCategoryLabel('Pantera')} (${byCategory['Pantera']||0})`);
         setPill('Iron Maiden', `${getCategoryLabel('Iron Maiden')} (${byCategory['Iron Maiden']||0})`);
         setPill('Slayer', `${getCategoryLabel('Slayer')} (${byCategory['Slayer']||0})`);
+        setPill('Epica', `EPICA (${epicaDesignCount})`);
+        setPill('Rhapsody', `RHAPSODY (${rhapsodyDesignCount})`);
         setPill('Metallica', `${getCategoryLabel('Metallica')} (${byCategory['Metallica']||0})`);
         setPill('Avenged Sevenfold', `${getCategoryLabel('Avenged Sevenfold')} (${byCategory['Avenged Sevenfold']||0})`);
         setPill('AC/DC', `${getCategoryLabel('AC/DC')} (${byCategory['AC/DC']||0})`);
@@ -4785,8 +5023,11 @@ document.querySelectorAll('.filter-pill').forEach(pill => {
         if (filterValue === 'all') {
             currentUniverse = null;
             currentGarmentFilter = null;
+            epicaGarmentPreference = null;
             currentCategory = null; // Mostrar todo
             resetCatalogPagination();
+        } else if (normalizeText(filterValue) === 'epica') {
+            showAllEpica();
         } else {
             // Simular click en el botón de categoría correspondiente
             const navBtn = document.querySelector(`[data-cat="${filterValue}"]`);
@@ -5804,6 +6045,7 @@ function filterByCategory(category) {
     currentUniverse = null;
     currentGarmentFilter = null;
     currentCategory = category;
+    if (normalizeText(currentCategory) !== 'epica') epicaGarmentPreference = null;
     resetCatalogPagination();
     if (normalizeText(category) === 'megadeth') {
         megadethGarmentPreference = getActiveMegadethGarmentPreference();

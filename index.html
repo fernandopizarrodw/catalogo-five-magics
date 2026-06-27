@@ -150,18 +150,26 @@
         <div class="hero-content">
             <!-- <p class="hero-welcome">COLECCION CONMEMORATIVA ARGENTINA</p> -->
             <h1 class="hero-brand">FIVE MAGICS DESIGNS</h1>
-            <h2 class="hero-tagline">DISEÑOS DE METAL · EDICIONES FMD · PERSONALIZADOS</h2>
+            <h2 class="hero-tagline">REMERAS, HOODIES Y BUZOS DE METAL HECHOS A PEDIDO</h2>
             <div class="hero-divider"></div>
-            <p class="hero-description">Remeras, hoodies y buzos con diseños clásicos, reinterpretaciones FMD y pedidos personalizados.<br>Elegí una pieza del catálogo o pedinos un diseño con tu banda, tapa, foto o arte favorito.</p>
+            <p class="hero-description">Dise&ntilde;os cl&aacute;sicos, ediciones FMD y personalizados.<br>Eleg&iacute; un dise&ntilde;o del cat&aacute;logo o pedinos uno personalizado con tu banda, tapa, foto o idea.</p>
             <div class="hero-actions">
-                <a href="#categoryNav" class="hero-cta-btn" id="heroCtaBuzos">EXPLORAR CATÁLOGO</a>
+                <a href="#categoryNav" class="hero-cta-btn" id="heroCtaBuzos">EXPLORAR CAT&Aacute;LOGO</a>
                 <a href="https://wa.me/541169667685?text=Hola%20FMD%2C%20quiero%20pedir%20una%20pieza%20a%20medida%20con%20la%20banda%2C%20tapa%20o%20arte%20que%20quiera" class="hero-cta-btn hero-cta-btn-secondary" id="heroCtaWhatsapp" target="_blank" rel="noopener">PEDIR POR WHATSAPP</a>
             </div>
-            <p class="hero-bands-line">MEGADETH · IRON MAIDEN · SLAYER · PANTERA · AC/DC · METALLICA</p>
+            <div class="hero-band-access" id="heroPrimaryBandAccess" aria-label="Accesos principales del cat&aacute;logo"></div>
+            <section class="hero-symphonic-block" aria-labelledby="heroSymphonicTitle">
+                <div>
+                    <p class="hero-symphonic-kicker">Archivo destacado</p>
+                    <h2 id="heroSymphonicTitle">POWER / SINF&Oacute;NICO EN FMD</h2>
+                    <p>EPICA, RHAPSODY, Nightwish, Stratovarius y Tarja.</p>
+                </div>
+                <div class="hero-symphonic-actions" id="heroSymphonicBandAccess"></div>
+            </section>
             <div class="hero-proof">
-                <span class="hero-proof-priority">REMERAS · HOODIES · BUZOS</span>
-                <span>Negro o blanco · frontal o doble estampa · talles para adultos y chicos</span>
-                <span>3 prendas o más: envío gratis · 4 prendas o más: 15% OFF + envío gratis</span>
+                <span class="hero-proof-priority">REMERAS &middot; HOODIES &middot; BUZOS</span>
+                <span>Negro o blanco &middot; frontal o doble estampa &middot; talles para adultos y chicos</span>
+                <span>3 prendas o m&aacute;s: env&iacute;o gratis &middot; 4 prendas o m&aacute;s: 15% OFF + env&iacute;o gratis</span>
             </div>
         </div>
         <div class="hero-accent"></div>
@@ -216,6 +224,20 @@
             </div>
         </div>
         <div class="products-grid maiden-archive-grid" id="maidenArchiveGrid"></div>
+    </section>
+
+    <section class="epica-archive-section" id="epicaArchive">
+        <div class="epica-archive-banner">
+            <p class="epica-archive-kicker">ARCHIVO EPICA FMD</p>
+            <h2 class="epica-archive-title">EPICA ARGENTINA 2027</h2>
+            <p class="epica-archive-subtitle">Elegí la prenda y explorá los diseños disponibles para remera, hoodie y buzo cuello redondo.</p>
+            <p class="epica-archive-availability">Si no encontrás el diseño que buscás, también hacemos personalizados con la imagen o arte que quieras.</p>
+            <div class="epica-archive-actions">
+                <a href="#catalogoPrincipal" class="epica-archive-btn" id="epicaCtaCollection" onclick="showAllEpica(); return false;">VER TODO EPICA</a>
+                <a href="https://wa.me/541169667685?text=Hola%20FMD%2C%20quiero%20ver%20los%20disenos%20de%20Epica%20Argentina%202027" class="epica-archive-btn epica-archive-btn-secondary" id="epicaCtaWhatsapp" target="_blank" rel="noopener">PEDIR POR WHATSAPP</a>
+            </div>
+        </div>
+        <div class="products-grid epica-archive-grid" id="epicaArchiveGrid"></div>
     </section>
 
     <!-- NUEVA LÍNEA: BUZOS CUELLO REDONDO -->
@@ -968,7 +990,7 @@
                 <div class="nav-group nav-group-primary">
                     <div class="nav-group-head">
                         <h3 class="nav-group-title">Bandas principales</h3>
-                        <p class="nav-group-copy">Los archivos mas fuertes de FMD, ordenados para elegir prenda y despues diseno.</p>
+                        <p class="nav-group-copy">Los archivos y campanas mas fuertes de FMD, priorizados por demanda y volumen de disenos.</p>
                     </div>
                     <div class="nav-group-buttons">
                         <button class="cat-btn cat-btn-megadeth active" data-cat="Megadeth" data-count="0">
@@ -982,6 +1004,14 @@
                         <button class="cat-btn cat-btn-maiden" data-cat="Iron Maiden" data-count="14">
                             <span class="btn-text">Iron Maiden</span>
                             <span class="badge">14</span>
+                        </button>
+                        <button class="cat-btn cat-btn-epica" data-cat="Epica" data-scroll-target="epicaArchive" data-count="14">
+                            <span class="btn-text">EPICA</span>
+                            <span class="badge">14</span>
+                        </button>
+                        <button class="cat-btn cat-btn-rhapsody" data-cat="Rhapsody" data-count="11">
+                            <span class="btn-text">RHAPSODY</span>
+                            <span class="badge">11</span>
                         </button>
                     </div>
                 </div>
@@ -1078,6 +1108,8 @@
                     <button class="filter-pill" data-filter="Avenged Sevenfold">Avenged Sevenfold (2)</button>
                     <button class="filter-pill" data-filter="AC/DC">AC/DC (21)</button>
                     <button class="filter-pill" data-filter="Slayer">Slayer (21)</button>
+                    <button class="filter-pill" data-filter="Epica">EPICA (14)</button>
+                    <button class="filter-pill" data-filter="Rhapsody">RHAPSODY (11)</button>
                     <button class="filter-pill" data-filter="Bandas Sugeridas">Más bandas (21)</button>
                     <button class="filter-pill" data-filter="Hoodies Otras Bandas">Hoodies destacados (14)</button>
                     <button class="filter-pill" data-filter="Personalizados">Pedidos Especiales (28)</button>
