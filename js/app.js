@@ -1,4 +1,4 @@
-// === CONFIGURACIÓN DE PRECIOS ===
+﻿// === CONFIGURACIÃ“N DE PRECIOS ===
 const PRECIOS = {
     simple: 37000,
     doble: 44000,
@@ -42,7 +42,7 @@ const SLAYER_ARCHIVE_HIGHLIGHT_IDS = [7123, 7122, 7121, 7119, 7118, 7117, 7114, 
 let slayerGarmentPreference = null;
 let maidenGarmentPreference = null;
 let epicaGarmentPreference = null;
-const MEGADETH_ARCHIVE_CATEGORIES = new Set(['Orígenes', 'Album', 'Musician', 'Tour', 'VicRattlehead', 'Singles', 'Dorsales', 'Dave Mustaine', 'Hoodies FMD', 'Buzo Cuello Redondo']);
+const MEGADETH_ARCHIVE_CATEGORIES = new Set(['OrÃ­genes', 'Album', 'Musician', 'Tour', 'VicRattlehead', 'Singles', 'Dorsales', 'Dave Mustaine', 'Hoodies FMD', 'Buzo Cuello Redondo']);
 let megadethGarmentPreference = null;
 let megadethSegmentPreference = 'all';
 const MEGADETH_PAGE_SIZE = 24;
@@ -83,7 +83,7 @@ let selectedAge = 'adulto';
 let selectedSize = '';
 let selectedCut = 'clasica';
 let selectedColor = 'negro';
-let selectedBackIndex = -1; // Índice del dorso seleccionado para doble estampa (-1 = ninguno)
+let selectedBackIndex = -1; // Ãndice del dorso seleccionado para doble estampa (-1 = ninguno)
 let selectedPrintMode = 'simple';
 let fmdSpotlightTimer = null;
 let fmdSpotlightPaused = false;
@@ -341,7 +341,7 @@ const MEGADETH_SEGMENT_ORDER = {
     members: 5
 };
 const MEGADETH_SEGMENT_LABELS = {
-    albums: '1. ÁLBUMES',
+    albums: '1. ÃLBUMES',
     vic: '2. VIC RATTLEHEAD',
     dave: '3. DAVE MUSTAINE',
     tours: '4. TOURS',
@@ -420,8 +420,8 @@ function renderMegadethArchiveGrid() {
             <img src="${image}" alt="${definition.label}" loading="lazy" decoding="async">
             <div class="megadeth-garment-card-copy">
                 <strong>${definition.label}</strong>
-                <span>${entries.length} diseños visibles · ${definition.price}</span>
-                <button type="button" onclick="event.stopPropagation(); showMegadethGarment('${definition.id}')">ELEGIR Y VER DISEÑOS →</button>
+                <span>${entries.length} diseÃ±os visibles Â· ${definition.price}</span>
+                <button type="button" onclick="event.stopPropagation(); showMegadethGarment('${definition.id}')">ELEGIR Y VER DISEÃ‘OS â†’</button>
             </div>
         </article>`;
     }).join('');
@@ -611,7 +611,7 @@ function initFmdSpotlight() {
         });
     });
 
-    // Soporta auto-alta de nuevos diseños en JOYAS OCULTAS FMD
+    // Soporta auto-alta de nuevos diseÃ±os en JOYAS OCULTAS FMD
     // con solo agregarlos al JSON en images/fmd-edition-3d/vic_tour_2026/
     const vicTourPath = 'images/fmd-edition-3d/vic_tour_2026/';
     if (Array.isArray(db) && db.length) {
@@ -628,7 +628,7 @@ function initFmdSpotlight() {
                     const year = String(product?.year || '2026').trim();
                     pushSpotlightItem({
                         section: 'Originales FMD',
-                        title: `${year} · ${variantName.replace(/\s+FMD(?:\s+Edition)?$/i, '').trim()}`,
+                        title: `${year} Â· ${variantName.replace(/\s+FMD(?:\s+Edition)?$/i, '').trim()}`,
                         type: 'Original FMD',
                         label: 'Drop 2026',
                         img: variantImg,
@@ -648,7 +648,7 @@ function initFmdSpotlight() {
             const year = String(product?.year || '2026').trim();
             pushSpotlightItem({
                 section: 'Originales FMD',
-                title: `${year} · ${baseName.replace(/\s+FMD(?:\s+Edition)?$/i, '').trim()}`,
+                title: `${year} Â· ${baseName.replace(/\s+FMD(?:\s+Edition)?$/i, '').trim()}`,
                 type: 'Original FMD',
                 label: 'Drop 2026',
                 img: baseImg,
@@ -671,7 +671,7 @@ function initFmdSpotlight() {
         imageEl.src = item.img;
         imageEl.alt = item.alt;
         titleEl.textContent = item.title;
-        descEl.textContent = `${item.type} · ${item.label}`;
+        descEl.textContent = `${item.type} Â· ${item.label}`;
         typeEl.textContent = item.section;
         counterEl.textContent = `${current + 1} / ${items.length}`;
         mediaBtn.onclick = () => openSpotlightItem(item);
@@ -810,7 +810,7 @@ function initFmdEditionTags() {
         const clean = (tag || '').trim();
         if (!clean || forbiddenLabels.has(clean)) return '';
         if (clean.toLowerCase() === 'v1 / v2') return '2 versiones';
-        if (clean.toLowerCase() === '3d') return 'Edición 3D';
+        if (clean.toLowerCase() === '3d') return 'EdiciÃ³n 3D';
         return clean;
     };
 
@@ -825,7 +825,7 @@ function initFmdEditionTags() {
             .map(normalizeTag)
             .filter(Boolean);
 
-        const fallbackTag = normalizeTag(legacyTag) || 'Edición 3D';
+        const fallbackTag = normalizeTag(legacyTag) || 'EdiciÃ³n 3D';
         const tags = customTags.length ? customTags : [fallbackTag];
         const uniqueTags = [...new Set(tags)].slice(0, 1);
 
@@ -834,7 +834,7 @@ function initFmdEditionTags() {
 
         const tagWrap = document.createElement('div');
         tagWrap.className = 'fmd3d-card-tags';
-        tagWrap.setAttribute('aria-label', 'Etiquetas de edición');
+        tagWrap.setAttribute('aria-label', 'Etiquetas de ediciÃ³n');
 
         uniqueTags.forEach(tag => {
             const badge = document.createElement('span');
@@ -897,12 +897,12 @@ function initFmd3dCarousels() {
     window.addEventListener('resize', initFmdOriginalsAccordion);
 }
 
-// === BUSCADOR POR CÓDIGO PARA PEDIDOS ===
+// === BUSCADOR POR CÃ“DIGO PARA PEDIDOS ===
 // Uso: buscar("peace sells") o buscar("PS-002") o buscar(4) 
-// Genera código automático: PREFIJO-ID.Vn
+// Genera cÃ³digo automÃ¡tico: PREFIJO-ID.Vn
 function buscar(query) {
     if (!db.length) {
-        console.log('❌ Base de datos no cargada. Esperá a que cargue la página.');
+        console.log('âŒ Base de datos no cargada. EsperÃ¡ a que cargue la pÃ¡gina.');
         return;
     }
     
@@ -938,7 +938,7 @@ function buscar(query) {
         'personali': 'CUSTOM'
     };
     
-    // Generar prefijo automático basado en nombre
+    // Generar prefijo automÃ¡tico basado en nombre
     function getPrefijo(name) {
         const n = name.toLowerCase();
         for (const [key, val] of Object.entries(prefijos)) {
@@ -956,7 +956,7 @@ function buscar(query) {
         if (product) results.push(product);
     }
     
-    // Buscar por código tipo PS-002.V2
+    // Buscar por cÃ³digo tipo PS-002.V2
     const codeMatch = q.match(/^([a-z]+)-?(\d+)(?:\.v(\d+))?$/i);
     if (codeMatch) {
         const [, prefix, idStr, variantStr] = codeMatch;
@@ -977,35 +977,35 @@ function buscar(query) {
     }
     
     if (!results.length) {
-        console.log(`❌ No encontré nada para "${query}"`);
+        console.log(`âŒ No encontrÃ© nada para "${query}"`);
         return;
     }
     
-    // Mostrar resultados con códigos generados
-    console.log(`\n🔍 RESULTADOS PARA: "${query}"\n${'='.repeat(50)}`);
+    // Mostrar resultados con cÃ³digos generados
+    console.log(`\nðŸ” RESULTADOS PARA: "${query}"\n${'='.repeat(50)}`);
     
     results.slice(0, 10).forEach(p => {
         const prefijo = getPrefijo(p.name);
         const codigo = `${prefijo}-${String(p.id).padStart(3, '0')}`;
         
-        console.log(`\n📦 ${p.name} (ID: ${p.id})`);
-        console.log(`   Categoría: ${p.category} | Precio: ${p.tipoPrecio}`);
-        console.log(`   Código base: ${codigo}`);
+        console.log(`\nðŸ“¦ ${p.name} (ID: ${p.id})`);
+        console.log(`   CategorÃ­a: ${p.category} | Precio: ${p.tipoPrecio}`);
+        console.log(`   CÃ³digo base: ${codigo}`);
         
         if (p.variants && p.variants.length) {
             console.log(`   Variantes:`);
             p.variants.forEach((v, i) => {
                 const vCode = `${codigo}.V${i + 1}`;
-                console.log(`      ${vCode} → ${v.name}`);
+                console.log(`      ${vCode} â†’ ${v.name}`);
             });
         } else {
-            console.log(`      ${codigo} → Diseño único`);
+            console.log(`      ${codigo} â†’ DiseÃ±o Ãºnico`);
         }
         console.log(`   Imagen: ${p.img}`);
     });
     
     if (results.length > 10) {
-        console.log(`\n... y ${results.length - 10} resultados más`);
+        console.log(`\n... y ${results.length - 10} resultados mÃ¡s`);
     }
     
     return results;
@@ -1017,7 +1017,7 @@ window.b = buscar;
 function parseProductCode(query) {
     const normalized = String(query || '').trim().toLowerCase();
     // Soporta: PS-002, PS-002.V1, M2-017.V7, ps002, 002, 2, etc.
-    // Prefijo puede tener letras Y números (ej: M2, HBST, TA)
+    // Prefijo puede tener letras Y nÃºmeros (ej: M2, HBST, TA)
     const match = normalized.match(/^(?:[a-z0-9]+-)?0*(\d+)(?:\.v(\d+))?$/i);
     if (!match) return null;
     const id = parseInt(match[1], 10);
@@ -1078,7 +1078,7 @@ function renderHeroBandAccess() {
             return `
                 <button type="button" class="hero-symphonic-btn${item.featured ? ' hero-symphonic-btn-featured' : ''}" data-band-filter="${item.filter}" onclick="openBandAccess('${item.filter}')">
                     <strong>${item.label}</strong>
-                    <span>${count || ''}${count ? ' diseños' : ''}</span>
+                    <span>${count || ''}${count ? ' diseÃ±os' : ''}</span>
                 </button>
             `;
         }).join('');
@@ -1101,7 +1101,7 @@ function getFmdBadgeData(product, variantIndex = undefined) {
     if (!badge) return null;
     return {
         label: badge,
-        description: variant?.fmdBadgeDescription || product?.fmdBadgeDescription || 'Creación exclusiva FMD con identidad propia y presencia fuerte en prenda.'
+        description: variant?.fmdBadgeDescription || product?.fmdBadgeDescription || 'CreaciÃ³n exclusiva FMD con identidad propia y presencia fuerte en prenda.'
     };
 }
 
@@ -1249,7 +1249,7 @@ function markSelectionError(groupId) {
     group.scrollIntoView({ behavior: 'smooth', block: 'center' });
 }
 
-// Función para cambiar entre Adulto y Chico
+// FunciÃ³n para cambiar entre Adulto y Chico
 function selectAge(age) {
     selectedAge = age;
     selectedSize = ''; // Reset talle al cambiar edad
@@ -1272,7 +1272,7 @@ function selectAge(age) {
         }
     });
     
-    // Mostrar/ocultar selectores de talle según edad
+    // Mostrar/ocultar selectores de talle segÃºn edad
     const sizeAdult = document.getElementById('sizeSelector');
     const sizeKids = document.getElementById('sizeSelectorKids');
     const btnOversize = document.getElementById('btnOversize');
@@ -1281,21 +1281,21 @@ function selectAge(age) {
         if (age === 'adulto') {
             sizeAdult.style.display = 'flex';
             sizeKids.style.display = 'none';
-            // Mostrar opción Oversize para adultos
+            // Mostrar opciÃ³n Oversize para adultos
             if (btnOversize) btnOversize.style.display = '';
         } else {
             sizeAdult.style.display = 'none';
             sizeKids.style.display = 'flex';
-            // Ocultar opción Oversize para niños y forzar Clásica
+            // Ocultar opciÃ³n Oversize para niÃ±os y forzar ClÃ¡sica
             if (btnOversize) btnOversize.style.display = 'none';
-            // Si tenía Oversize seleccionado, cambiar a Clásica
+            // Si tenÃ­a Oversize seleccionado, cambiar a ClÃ¡sica
             if (selectedCut === 'oversize') {
                 selectCut('clasica');
             }
         }
     }
     
-    // Limpiar selección de talle
+    // Limpiar selecciÃ³n de talle
     document.querySelectorAll('#sizeSelector button, #sizeSelectorKids button').forEach(btn => {
         btn.classList.remove('active');
         if (!btn.classList.contains('size-oversize')) {
@@ -1318,10 +1318,10 @@ function selectAge(age) {
     updateModalSizeRange();
 }
 
-// Función para seleccionar talle
+// FunciÃ³n para seleccionar talle
 function selectSize(size) {
     if (!selectedAge) {
-        showNotification('Primero elegí edad.', 1800);
+        showNotification('Primero elegÃ­ edad.', 1800);
         markSelectionError('ageGroup');
         return;
     }
@@ -1335,14 +1335,14 @@ function selectSize(size) {
     document.querySelectorAll(`${activeSelector} button`).forEach(btn => {
         const isActive = btn.dataset.size === size;
         btn.classList.toggle('active', isActive);
-        // Solo aplicar estilo si el botón es visible
+        // Solo aplicar estilo si el botÃ³n es visible
         if (btn.style.display !== 'none') {
             btn.style.cssText = isActive ? activeStyle : inactiveStyle;
         }
     });
 }
 
-// Función para seleccionar corte
+// FunciÃ³n para seleccionar corte
 function selectCut(cut) {
     selectedCut = cut;
     selectedSize = ''; // Reset talle al cambiar corte
@@ -1360,7 +1360,7 @@ function selectCut(cut) {
         }
     });
     
-    // Mostrar/ocultar talles XXS y XS según el corte (solo para adultos)
+    // Mostrar/ocultar talles XXS y XS segÃºn el corte (solo para adultos)
     if (selectedAge !== 'chico') {
         document.querySelectorAll('#sizeSelector .size-oversize').forEach(btn => {
             if (cut === 'oversize') {
@@ -1372,7 +1372,7 @@ function selectCut(cut) {
         });
     }
     
-    // Limpiar selección de talle
+    // Limpiar selecciÃ³n de talle
     document.querySelectorAll('#sizeSelector button').forEach(btn => {
         btn.classList.remove('active');
         if (btn.style.display !== 'none') {
@@ -1385,28 +1385,28 @@ function selectCut(cut) {
     updateModalSizeRange();
 }
 
-// Función para seleccionar color
+// FunciÃ³n para seleccionar color
 function updateModalSizeRange() {
     const sizeRangeEl = document.getElementById('modalSizeRange');
     if (!sizeRangeEl) return;
 
     const garmentCategory = getActiveGarmentCategory(currentProduct);
     if (garmentCategory === 'Hoodies FMD' || garmentCategory === 'Hoodies Otras Bandas') {
-        sizeRangeEl.textContent = '📏 XS a XXL';
+        sizeRangeEl.textContent = 'ðŸ“ XS a XXL';
         return;
     }
 
     if (garmentCategory === 'Buzo Cuello Redondo') {
-        sizeRangeEl.textContent = '📏 S a XXL';
+        sizeRangeEl.textContent = 'ðŸ“ S a XXL';
         return;
     }
 
     if (selectedAge === 'chico') {
-        sizeRangeEl.textContent = '📏 4 a 16';
+        sizeRangeEl.textContent = 'ðŸ“ 4 a 16';
         return;
     }
 
-    sizeRangeEl.textContent = selectedCut === 'oversize' ? '📏 XS a 3XL' : '📏 S a XXL';
+    sizeRangeEl.textContent = selectedCut === 'oversize' ? 'ðŸ“ XS a 3XL' : 'ðŸ“ S a XXL';
 }
 
 function selectColor(color) {
@@ -1422,7 +1422,7 @@ function selectColor(color) {
     });
 }
 
-// Actualizar precios según selección adulto/chico, oversize y tipo de producto
+// Actualizar precios segÃºn selecciÃ³n adulto/chico, oversize y tipo de producto
 function isPersonalizedSelection(product = currentProduct) {
     if (!product) return false;
 
@@ -1506,15 +1506,15 @@ function updatePrintModeUI() {
     const doublePrice = document.getElementById('printModeDoublePrice');
     const help = document.getElementById('printModeHelp');
 
-    if (simplePrice) simplePrice.textContent = `$${prices.simple.toLocaleString('es-AR')} · Solo frente`;
-    if (doublePrice) doublePrice.textContent = `$${prices.doble.toLocaleString('es-AR')} · Frente + espalda`;
+    if (simplePrice) simplePrice.textContent = `$${prices.simple.toLocaleString('es-AR')} Â· Solo frente`;
+    if (doublePrice) doublePrice.textContent = `$${prices.doble.toLocaleString('es-AR')} Â· Frente + espalda`;
     document.querySelectorAll('[data-print-mode]').forEach(button => {
         button.classList.toggle('active', button.dataset.printMode === selectedPrintMode);
     });
     if (help) {
         help.textContent = selectedPrintMode === 'double'
-            ? 'Doble activa. Elegí el dorso abajo o dejalo a definir.'
-            : 'Estampa simple seleccionada: se imprime únicamente el frente.';
+            ? 'Doble activa: el dorso puede quedar a definir por WhatsApp.'
+            : 'Estampa simple seleccionada: se imprime solo el frente.';
     }
 }
 
@@ -1530,9 +1530,6 @@ function selectPrintMode(mode) {
         if (dorsoInput) dorsoInput.value = '';
         const summary = document.getElementById('dorsoSelectionSummary');
         if (summary) summary.style.display = 'none';
-    } else {
-        const panel = document.getElementById('modalAdvancedPanel');
-        if (panel) panel.open = true;
     }
 
     updatePrintModeUI();
@@ -1578,8 +1575,8 @@ function updateDoubleSelectionStatus(isDoubleActive) {
         : 'Doble estampa activa';
 
     statusEl.textContent = detail
-        ? `🔥 ${prefix}: ${detail}${diffText}`
-        : `🔥 ${prefix}${diffText}`;
+        ? `ðŸ”¥ ${prefix}: ${detail}${diffText}`
+        : `ðŸ”¥ ${prefix}${diffText}`;
     statusEl.style.display = 'block';
 }
 
@@ -1587,7 +1584,7 @@ function updateModalPrices() {
     if (!currentProduct) return;
     const precios = resolveModalPriceConfig(currentProduct);
 
-    // Precio depende de si el producto ya es doble o si el usuario sumó dorso
+    // Precio depende de si el producto ya es doble o si el usuario sumÃ³ dorso
     const tieneDoble = isDoubleSelectionActive(currentProduct);
     const precio = tieneDoble ? precios.doble : precios.simple;
     document.getElementById('modalPrice').textContent = '$' + precio.toLocaleString('es-AR');
@@ -1604,10 +1601,10 @@ function updateModalPrices() {
     const priceNote = document.querySelector('.modal-price-note');
     if (priceNote) {
         if (precios.isHoodie) {
-            priceNote.innerHTML = 'Combo hoodie doble + remera doble: <strong style="color:var(--price);">$99.000</strong> · envío según cantidad';
+            priceNote.innerHTML = 'Combo hoodie doble + remera doble: <strong style="color:var(--price);">$99.000</strong> Â· envÃ­o segÃºn cantidad';
         } else {
-            const customTag = precios.isCustom ? ' · personalizado' : '';
-            priceNote.textContent = `$${precio.toLocaleString('es-AR')}${customTag} · envío según zona · consultá por WhatsApp`;
+            const customTag = precios.isCustom ? ' Â· personalizado' : '';
+            priceNote.textContent = `$${precio.toLocaleString('es-AR')}${customTag} Â· envÃ­o segÃºn zona Â· consultÃ¡ por WhatsApp`;
         }
     }
 
@@ -1647,7 +1644,7 @@ class CartSystem {
         return abbreviation.substring(0, 6);
     }
 
-    // Generar código único para un producto (sin .DBL, solo base + variante)
+    // Generar cÃ³digo Ãºnico para un producto (sin .DBL, solo base + variante)
     generateCode(productId, variantIndex = 0) {
         const product = db.find(p => p.id === productId);
         if (!product) return null;
@@ -1658,7 +1655,7 @@ class CartSystem {
         return `${baseCode}${variantPart}`;
     }
 
-    // Agregar al carrito con soporte para dorso específico
+    // Agregar al carrito con soporte para dorso especÃ­fico
     addToCart(productId, variantIndex = 0, isDouble = false, options = {}) {
         const product = db.find(p => p.id === productId);
         if (!product) return false;
@@ -1666,7 +1663,7 @@ class CartSystem {
         let forceDouble = isDouble;
         const garmentCategory = options.category || getVariantGarmentCategory(product, variantIndex);
 
-        // Código del frente
+        // CÃ³digo del frente
         const frontCode = this.generateCode(productId, variantIndex);
         let frontName = product.variants && product.variants[variantIndex]
             ? product.variants[variantIndex].name
@@ -1674,7 +1671,7 @@ class CartSystem {
         const slayerGarmentLabel = product.category === 'Slayer' ? getSlayerPreferredGarmentLabel() : '';
         if (slayerGarmentLabel) frontName = `${product.name} - ${slayerGarmentLabel}`;
 
-        // Información del dorso (si es doble estampa)
+        // InformaciÃ³n del dorso (si es doble estampa)
         let backCode = null;
         let backName = null;
         let backIndex = options.backIndex !== undefined ? options.backIndex : -1;
@@ -1686,7 +1683,7 @@ class CartSystem {
 
         const item = {
             id: productId,
-            code: frontCode, // Código principal (frente)
+            code: frontCode, // CÃ³digo principal (frente)
             productName: product.name,
             category: garmentCategory,
             variantIndex: variantIndex,
@@ -1749,11 +1746,11 @@ class CartSystem {
 
     // Generar resumen para copiar
     generateSummary() {
-        if (this.cart.length === 0) return 'Carrito vacío';
+        if (this.cart.length === 0) return 'Carrito vacÃ­o';
 
-        // Ordenar productos: adulto primero, luego niño; dentro de adulto, hoodie/remera
+        // Ordenar productos: adulto primero, luego niÃ±o; dentro de adulto, hoodie/remera
         const sortOrder = item => {
-            // 0: adulto hoodie, 1: adulto remera, 2: niño
+            // 0: adulto hoodie, 1: adulto remera, 2: niÃ±o
             if (item.age === 'chico') return 2;
             if (item.category === 'Hoodies FMD') return 0;
             return 1;
@@ -1774,7 +1771,7 @@ class CartSystem {
         const details = sortedCart.map((item, idx) => {
             const isHoodie = item.category === 'Hoodies FMD' || item.category === 'Hoodies Otras Bandas';
             const isBuzoRedondo = item.category === 'Buzo Cuello Redondo';
-            const edad = item.age === 'chico' ? 'Niño' : 'Adulto';
+            const edad = item.age === 'chico' ? 'NiÃ±o' : 'Adulto';
             const talle = item.size ? item.size : 'A confirmar';
             const color = item.color === 'blanco' ? 'Blanca' : 'Negra';
             let tipoPrenda;
@@ -1785,7 +1782,7 @@ class CartSystem {
             } else if (item.cut === 'oversize') {
                 tipoPrenda = 'Remera oversize unisex';
             } else {
-                tipoPrenda = 'Remera clásica';
+                tipoPrenda = 'Remera clÃ¡sica';
             }
 
             let estampado;
@@ -1799,12 +1796,12 @@ class CartSystem {
 
             return [
                 `${idx + 1}) ${item.productName}`,
-                `• Código: ${item.code}`,
-                `• Prenda: ${tipoPrenda}`,
-                `• Edad: ${edad}`,
-                `• Talle: ${talle}`,
-                `• Color: ${color}`,
-                `• Estampa: ${estampado}`
+                `â€¢ CÃ³digo: ${item.code}`,
+                `â€¢ Prenda: ${tipoPrenda}`,
+                `â€¢ Edad: ${edad}`,
+                `â€¢ Talle: ${talle}`,
+                `â€¢ Color: ${color}`,
+                `â€¢ Estampa: ${estampado}`
             ].join('\n');
         }).join('\n\n');
 
@@ -1816,10 +1813,10 @@ class CartSystem {
         const tieneRemera = sortedCart.some(i => isAdultRemeraItem(i) && i.isDouble);
         let promoMsg = '';
         if (tieneHoodie && tieneRemera) {
-            promoMsg = '\n\n> Combo hoodie doble + remera doble: $99.000. El envío no está incluido; se bonifica únicamente desde 3 prendas.';
+            promoMsg = '\n\n> Combo hoodie doble + remera doble: $99.000. El envÃ­o no estÃ¡ incluido; se bonifica Ãºnicamente desde 3 prendas.';
         }
 
-        return `CÓDIGOS DEL PEDIDO:\n${codes}\n\nDETALLE DEL PEDIDO:\n\n${details}\n\nTOTAL: ${total} ${tipoConteo}${promoMsg}`;
+        return `CÃ“DIGOS DEL PEDIDO:\n${codes}\n\nDETALLE DEL PEDIDO:\n\n${details}\n\nTOTAL: ${total} ${tipoConteo}${promoMsg}`;
     }
 
     generateConsultationSummary() {
@@ -1841,13 +1838,13 @@ class CartSystem {
             const backVariant = product?.variants?.[item.backIndex];
             const bothAreBacks = item.isDouble && item.backCode && isBackVariant(frontVariant) && isBackVariant(backVariant);
             const warning = bothAreBacks
-                ? '\n* Importante: los dos diseños elegidos están identificados como dorso. Necesito confirmar cuál usar al frente.'
+                ? '\n* Importante: los dos diseÃ±os elegidos estÃ¡n identificados como dorso. Necesito confirmar cuÃ¡l usar al frente.'
                 : '';
             const designLines = item.isDouble && item.backCode
-                ? `* Diseño 1: ${item.frontName || item.frontCode} (${item.frontCode})\n* Diseño 2: ${item.backName || item.backCode} (${item.backCode})`
+                ? `* DiseÃ±o 1: ${item.frontName || item.frontCode} (${item.frontCode})\n* DiseÃ±o 2: ${item.backName || item.backCode} (${item.backCode})`
                 : item.isDouble
-                    ? `* Diseño: ${item.frontName || item.frontCode}\n* Dorso: a definir`
-                    : `* Diseño: ${item.frontName || item.code}`;
+                    ? `* DiseÃ±o: ${item.frontName || item.frontCode}\n* Dorso: a definir`
+                    : `* DiseÃ±o: ${item.frontName || item.code}`;
             const price = calculateItemPrice(item).toLocaleString('es-AR');
 
             return `${idx + 1}) ${item.productName}
@@ -1867,7 +1864,7 @@ ${designLines}
         const modalCartCount = document.getElementById('modalCartCount');
         const cartCount = this.cart.length;
 
-        // Actualizar botón flotante
+        // Actualizar botÃ³n flotante
         if (cartBtn) {
             if (cartCount > 0) {
                 cartBtn.style.display = 'flex';
@@ -1895,16 +1892,16 @@ ${designLines}
         if (!cartList) return;
 
         if (this.cart.length === 0) {
-            cartList.innerHTML = '<p style="text-align:center;color:var(--text-muted);padding:20px;">Carrito vacío</p>';
+            cartList.innerHTML = '<p style="text-align:center;color:var(--text-muted);padding:20px;">Carrito vacÃ­o</p>';
             if (cartSummary) cartSummary.style.display = 'none';
             return;
         }
 
         cartList.innerHTML = this.cart.map((item, idx) => {
-            const edad = item.age === 'chico' ? 'Niño' : 'Adulto';
-            const talle = item.size || '—';
-            // Niños siempre es Unisex
-            const corte = item.age === 'chico' ? 'Unisex' : (item.cut === 'oversize' ? 'Oversize' : 'Clásica');
+            const edad = item.age === 'chico' ? 'NiÃ±o' : 'Adulto';
+            const talle = item.size || 'â€”';
+            // NiÃ±os siempre es Unisex
+            const corte = item.age === 'chico' ? 'Unisex' : (item.cut === 'oversize' ? 'Oversize' : 'ClÃ¡sica');
             const color = item.color === 'blanco' ? 'Blanca' : 'Negra';
             return `
             <div class="cart-item">
@@ -1913,9 +1910,9 @@ ${designLines}
                     <div class="cart-item-name">${item.productName}</div>
                     ${item.variantName && item.variantName !== item.productName ? `<div class="cart-item-variant">${item.variantName}</div>` : ''}
                     ${item.isDouble ? '<div class="cart-item-double">Doble estampa</div>' : ''}
-                    <div class="cart-item-options">${edad} · T${talle} · ${corte} · ${color}</div>
+                    <div class="cart-item-options">${edad} Â· T${talle} Â· ${corte} Â· ${color}</div>
                 </div>
-                <button class="cart-item-remove" onclick="cart.removeFromCart(${idx})">✕</button>
+                <button class="cart-item-remove" onclick="cart.removeFromCart(${idx})">âœ•</button>
             </div>
         `}).join('');
 
@@ -1924,7 +1921,7 @@ ${designLines}
             cartSummary.innerHTML = `
                 <div class="cart-summary-content">
                     <button onclick="openCartPreview()" class="btn-send-whatsapp" style="background: var(--magic-green); color: #000;">
-                        👁️ Ver pedido completo
+                        ðŸ‘ï¸ Ver pedido completo
                     </button>
                     <button onclick="openCartPreview()" class="btn-send-whatsapp">
                         <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
@@ -1933,7 +1930,7 @@ ${designLines}
                         Revisar y enviar pedido
                     </button>
                     <button onclick="cart.clearCart()" class="btn-clear-cart">
-                        🗑️ Vaciar carrito
+                        ðŸ—‘ï¸ Vaciar carrito
                     </button>
                 </div>
             `;
@@ -1999,7 +1996,7 @@ function renderLatestReleases(limit = 5) {
             }
         });
 
-        // Priorizar variantes nuevas recién cargadas y luego ordenar por id
+        // Priorizar variantes nuevas reciÃ©n cargadas y luego ordenar por id
         displayCards.sort((a, b) => {
             const tourBoostA = (a.isNewVariant && a.category === 'Tour') ? 2000000 : 0;
             const tourBoostB = (b.isNewVariant && b.category === 'Tour') ? 2000000 : 0;
@@ -2012,7 +2009,7 @@ function renderLatestReleases(limit = 5) {
             return (b.productId || 0) - (a.productId || 0);
         });
 
-        // 3. Rellenar el resto de espacios hasta el límite con productos recientes
+        // 3. Rellenar el resto de espacios hasta el lÃ­mite con productos recientes
         if (displayCards.length < limit) {
             const sortedProducts = [...db].sort(compareProductsByPriorityThenId);
 
@@ -2038,7 +2035,7 @@ function renderLatestReleases(limit = 5) {
             }
         }
 
-        // Mostrar todos los diseños nuevos sin límite
+        // Mostrar todos los diseÃ±os nuevos sin lÃ­mite
         // Si limit es 0 o negativo, mostrar todos
         if (limit > 0) {
             displayCards = displayCards.slice(0, limit);
@@ -2049,13 +2046,13 @@ function renderLatestReleases(limit = 5) {
             const hasVariants = card.variants && card.variants.length > 1;
             const isDoble = card.tipoPrecio === 'doble';
             const isDorsoIdea = card.category === 'Dorsales';
-            const badgeText = (hasVariants && !card.isNewVariant) ? `${card.variants.length} diseños <span style='font-size:1.2em;margin-left:6px;'>➔</span>` : (isDoble ? '🔥 Doble estampa' : '');
+            const badgeText = (hasVariants && !card.isNewVariant) ? `${card.variants.length} diseÃ±os <span style='font-size:1.2em;margin-left:6px;'>âž”</span>` : (isDoble ? 'ðŸ”¥ Doble estampa' : '');
             // NUEVO badge
             const isNew = card.isNewVariant || card.isNew;
-            const newBadge = isNew ? `<span class="pack-badge" style="background:var(--magic-green);color:#000;">🆕 NUEVO</span>` : '';
+            const newBadge = isNew ? `<span class="pack-badge" style="background:var(--magic-green);color:#000;">ðŸ†• NUEVO</span>` : '';
             // COMBO badge
             const comboBadge = card.isComboEligible ? `<span class="pack-badge" style="background:var(--magic-orange);color:#000;">COMBO</span>` : '';
-            // Código
+            // CÃ³digo
             const code = card.code ? card.code : '';
             // Badges arriba de la imagen
             let badges = '';
@@ -2074,7 +2071,7 @@ function renderLatestReleases(limit = 5) {
                         ${
                             isDorsoIdea
                             ? `<span class="product-envio" style="color:var(--magic-green);border:1px solid rgba(57,255,20,.25);">Solo doble estampa</span>`
-                            : `${formatPreciosDual(card)}<div style="font-size:0.62rem;color:var(--text-muted);margin-top:4px;">3 prendas o más: envío gratis · 4 prendas o más: 15% OFF + envío gratis</div>`
+                            : `${formatPreciosDual(card)}<div style="font-size:0.62rem;color:var(--text-muted);margin-top:4px;">3 prendas o mÃ¡s: envÃ­o gratis Â· 4 prendas o mÃ¡s: 15% OFF + envÃ­o gratis</div>`
                         }
                     </div>
                 </div>
@@ -2098,13 +2095,13 @@ async function loadProducts() {
         renderMegadethArchiveGrid(); // Archivo Megadeth por prenda
         renderHoodiesGrid(); // Hoodies destacados
         renderBuzosRedondoGrid(); // Buzos cuello redondo destacados
-        renderHeroOrbit(6); // Poblar órbita del hero con 6 cards 3D
+        renderHeroOrbit(6); // Poblar Ã³rbita del hero con 6 cards 3D
         loadMegadethDestacados(); // Destacados para el show
         loadMegadethCollections(); // Colecciones Megadeth con preview
         if (ENABLE_UNIVERSE_SHOWCASES) renderUniverseShowcases();
-        filterProducts(); // Renderizar después de cargar
+        filterProducts(); // Renderizar despuÃ©s de cargar
         loadProductFromHash(); // Abrir producto desde URL hash si existe
-        loadCategoryFromURL();  // Ir a categoría desde ?cat= si existe
+        loadCategoryFromURL();  // Ir a categorÃ­a desde ?cat= si existe
     } catch (error) {
         console.error('Error:', error);
         // Fallback para desarrollo local
@@ -2141,7 +2138,7 @@ function renderSlayerArchiveGrid() {
             {
                 id: 'remera',
                 label: 'Remeras Slayer',
-                meta: 'Clásicas y oversize',
+                meta: 'ClÃ¡sicas y oversize',
                 price: 'Desde $37.000',
                 image: findGarmentImage('remera')
             },
@@ -2165,13 +2162,13 @@ function renderSlayerArchiveGrid() {
             <article class="slayer-garment-card" onclick="showSlayerGarment('${card.id}')">
                 <div class="slayer-garment-card-image">
                     <img src="${card.image}" alt="${card.label}" loading="lazy" decoding="async">
-                    <span>${products.length} diseños</span>
+                    <span>${products.length} diseÃ±os</span>
                 </div>
                 <div class="slayer-garment-card-info">
                     <strong>${card.label}</strong>
                     <p>${card.meta}</p>
                     <span>${card.price}</span>
-                    <button onclick="event.stopPropagation(); showSlayerGarment('${card.id}')">ELEGIR Y VER DISEÑOS →</button>
+                    <button onclick="event.stopPropagation(); showSlayerGarment('${card.id}')">ELEGIR Y VER DISEÃ‘OS â†’</button>
                 </div>
             </article>
         `).join('');
@@ -2225,13 +2222,13 @@ function renderEpicaArchiveGrid() {
             <article class="epica-garment-card" onclick="showEpicaGarment('${card.id}')">
                 <div class="epica-garment-card-image">
                     <img src="${card.image}" alt="${card.label}" loading="lazy" decoding="async">
-                    <span>${card.count} diseños</span>
+                    <span>${card.count} diseÃ±os</span>
                 </div>
                 <div class="epica-garment-card-info">
                     <strong>${card.label}</strong>
                     <p>${card.meta}</p>
                     <span>${card.price}</span>
-                    <button onclick="event.stopPropagation(); showEpicaGarment('${card.id}')">ELEGIR Y VER DISEÑOS →</button>
+                    <button onclick="event.stopPropagation(); showEpicaGarment('${card.id}')">ELEGIR Y VER DISEÃ‘OS â†’</button>
                 </div>
             </article>
         `).join('');
@@ -2322,14 +2319,14 @@ function renderMaidenArchiveGridLegacy() {
             const isLastCard = index === highlights.length - 1;
             const cardAction = isLastCard ? 'goToMaidenCollection()' : `openModal(${product.id})`;
             const ctaMarkup = isLastCard
-                ? `<button class="maiden-archive-card-cta" onclick="event.stopPropagation(); goToMaidenCollection();">VER MÁS →</button>`
+                ? `<button class="maiden-archive-card-cta" onclick="event.stopPropagation(); goToMaidenCollection();">VER MÃS â†’</button>`
                 : '';
 
             return `<div class="product-card hoodie-card" onclick="${cardAction}">
                 <img src="${product.img}" class="product-img" loading="lazy" decoding="async">
                 <div class="product-info">
                     <div class="product-name">${product.name}</div>
-                    <div class="product-meta">${product.year || 'FMD'} · ${meta}</div>
+                    <div class="product-meta">${product.year || 'FMD'} Â· ${meta}</div>
                     <div class="product-price-row">
                         <span class="product-price hoodie-price">${priceMarkup}</span>
                     </div>
@@ -2343,7 +2340,7 @@ function renderMaidenArchiveGridLegacy() {
     }
 }
 
-// Renderizar sección destacada de Hoodies FMD
+// Renderizar secciÃ³n destacada de Hoodies FMD
 function getMaidenGarmentLabel(product) {
     if (product?.category === 'Hoodies FMD' || product?.category === 'Hoodies Otras Bandas') return 'Hoodie';
     if (product?.category === 'Buzo Cuello Redondo') return 'Buzo cuello redondo';
@@ -2394,7 +2391,7 @@ function renderMaidenArchiveGridGroupedLegacy() {
                 <div class="maiden-design-head">
                     <div>
                         <div class="product-name">${group.title}</div>
-                        <div class="product-meta">${group.meta} · ${group.products.length} ${group.products.length === 1 ? 'prenda' : 'prendas'}</div>
+                        <div class="product-meta">${group.meta} Â· ${group.products.length} ${group.products.length === 1 ? 'prenda' : 'prendas'}</div>
                     </div>
                     <span class="maiden-design-count">${group.products.length}</span>
                 </div>
@@ -2433,9 +2430,9 @@ function renderMaidenArchiveGrid() {
             <img src="${image}" class="product-img" alt="${card.title}" loading="lazy" decoding="async">
             <div class="product-info">
                 <div class="product-name">${card.title}</div>
-                <div class="product-meta">${card.products.length} diseños agrupados</div>
+                <div class="product-meta">${card.products.length} diseÃ±os agrupados</div>
                 <div class="maiden-garment-price">${card.price}</div>
-                <button type="button" class="maiden-archive-card-cta" onclick="event.stopPropagation(); showMaidenGarment('${card.id}')">ELEGIR Y VER DISEÑOS →</button>
+                <button type="button" class="maiden-archive-card-cta" onclick="event.stopPropagation(); showMaidenGarment('${card.id}')">ELEGIR Y VER DISEÃ‘OS â†’</button>
             </div>
         </article>`;
     }).join('');
@@ -2446,7 +2443,7 @@ function renderHoodiesGrid() {
         const hoodiesGrid = document.getElementById('hoodiesGrid');
         if (!hoodiesGrid || !Array.isArray(db) || !db.length) return;
         
-        // Filtrar solo productos de la categoría "Hoodies FMD"
+        // Filtrar solo productos de la categorÃ­a "Hoodies FMD"
         const hoodies = db.filter(p => p.category === 'Hoodies FMD');
         
         if (hoodies.length === 0) {
@@ -2460,28 +2457,28 @@ function renderHoodiesGrid() {
         hoodies.forEach((product, idx) => {
             // Hoodies: siempre doble estampa por defecto
             const precio = PRECIOS_HOODIES.doble;
-            // Si es la 5ta card y hay más de 5, poner el botón y el blur
+            // Si es la 5ta card y hay mÃ¡s de 5, poner el botÃ³n y el blur
             if (idx === maxVisible - 1 && hoodies.length > maxVisible) {
                 html += `<div class="product-card hoodie-card ver-mas-card" id="verMasHoodiesCard" onclick="filterByCategory('Hoodies FMD')">
-                    <span class="variants-badge hoodie-badge">🧥 HOODIE</span>
+                    <span class="variants-badge hoodie-badge">ðŸ§¥ HOODIE</span>
                     <img src="${product.img}" class="product-img" loading="lazy">
                     <div class="product-info">
                         <div class="product-name">${product.name}</div>
-                        <div class="product-meta">${product.year} · Doble estampa</div>
+                        <div class="product-meta">${product.year} Â· Doble estampa</div>
                         <div class="product-price-row">
                             <span class="product-price hoodie-price">$${precio.toLocaleString('es-AR')}</span>
                         </div>
-                        <div class="maiden-archive-price-mode">Colección completa</div>
-                        <button class="maiden-archive-card-cta" onclick="event.stopPropagation(); filterByCategory('Hoodies FMD')">VER COLECCIÓN →</button>
+                        <div class="maiden-archive-price-mode">ColecciÃ³n completa</div>
+                        <button class="maiden-archive-card-cta" onclick="event.stopPropagation(); filterByCategory('Hoodies FMD')">VER COLECCIÃ“N â†’</button>
                     </div>
                 </div>`;
             } else if (idx < maxVisible - 1) {
                 html += `<div class="product-card hoodie-card" onclick="openModal(${product.id})">
-                    <span class="variants-badge hoodie-badge">🧥 HOODIE</span>
+                    <span class="variants-badge hoodie-badge">ðŸ§¥ HOODIE</span>
                     <img src="${product.img}" class="product-img" loading="lazy">
                     <div class="product-info">
                         <div class="product-name">${product.name}</div>
-                        <div class="product-meta">${product.year} · Doble estampa</div>
+                        <div class="product-meta">${product.year} Â· Doble estampa</div>
                         <div class="product-price-row">
                             <span class="product-price hoodie-price">$${precio.toLocaleString('es-AR')}</span>
                         </div>
@@ -2493,7 +2490,7 @@ function renderHoodiesGrid() {
     } catch(e) { console.warn('renderHoodiesGrid error', e); }
 }
 
-// Renderizar sección destacada de Buzos Cuello Redondo
+// Renderizar secciÃ³n destacada de Buzos Cuello Redondo
 function renderBuzosRedondoGrid() {
     try {
         const grid = document.getElementById('buzosRedondoGrid');
@@ -2524,12 +2521,12 @@ function renderBuzosRedondoGrid() {
                     <img src="${product.img}" class="product-img" loading="lazy">
                     <div class="product-info">
                         <div class="product-name">${product.name}</div>
-                        <div class="product-meta">${product.year || ''} · Doble estampa</div>
+                        <div class="product-meta">${product.year || ''} Â· Doble estampa</div>
                         <div class="product-price-row">
                             <span class="product-price hoodie-price">$${precio.toLocaleString('es-AR')}</span>
                         </div>
-                        <div class="maiden-archive-price-mode">Colección completa</div>
-                        <button class="maiden-archive-card-cta" onclick="event.stopPropagation(); filterByCategory('Buzo Cuello Redondo')">VER COLECCIÓN →</button>
+                        <div class="maiden-archive-price-mode">ColecciÃ³n completa</div>
+                        <button class="maiden-archive-card-cta" onclick="event.stopPropagation(); filterByCategory('Buzo Cuello Redondo')">VER COLECCIÃ“N â†’</button>
                     </div>
                 </div>`;
             } else if (idx < maxVisible - 1) {
@@ -2540,7 +2537,7 @@ function renderBuzosRedondoGrid() {
                     <img src="${product.img}" class="product-img" loading="lazy">
                     <div class="product-info">
                         <div class="product-name">${product.name}</div>
-                        <div class="product-meta">${product.year || ''} · Doble estampa</div>
+                        <div class="product-meta">${product.year || ''} Â· Doble estampa</div>
                         <div class="product-price-row">
                             <span class="product-price hoodie-price">$${precio.toLocaleString('es-AR')}</span>
                         </div>
@@ -2565,7 +2562,7 @@ function isMegadethUniverseProduct(product) {
         'tour',
         'dorsales',
         'hoodies fmd',
-        'orígenes'
+        'orÃ­genes'
     ].map(normalizeText);
 
     return megadethCategories.includes(category)
@@ -2573,7 +2570,7 @@ function isMegadethUniverseProduct(product) {
         || /megadeth|mustaine|vic rattlehead|tour argentina|edicion argentina|post show/.test(metadata);
 }
 
-// Renderizar órbita del hero solo con el universo Megadeth
+// Renderizar Ã³rbita del hero solo con el universo Megadeth
 function renderHeroOrbit(limit = 8) {
     try {
         const orbitRing = document.getElementById('orbitRing');
@@ -2631,14 +2628,14 @@ function renderHeroOrbit(limit = 8) {
 
         orbitItems = orbitItems.slice(0, limit);
 
-        // Renderizar items en la órbita
+        // Renderizar items en la Ã³rbita
         orbitRing.innerHTML = orbitItems.map((item, index) => 
             `<div class="orbit-item" onclick="openModal(${item.productId}${item.variantIndex !== undefined ? ', ' + item.variantIndex : ''})" title="${item.title}">
                 <img src="${item.img}" alt="${item.title}" loading="lazy">
             </div>`
         ).join('');
 
-        // Intersection Observer para pausar animación cuando no es visible
+        // Intersection Observer para pausar animaciÃ³n cuando no es visible
         setupOrbitObserver();
 
     } catch (e) {
@@ -2646,7 +2643,7 @@ function renderHeroOrbit(limit = 8) {
     }
 }
 
-// Pausar órbita cuando no está visible (optimización de rendimiento)
+// Pausar Ã³rbita cuando no estÃ¡ visible (optimizaciÃ³n de rendimiento)
 function setupOrbitObserver() {
     const heroSection = document.getElementById('heroSection');
     const orbitRing = document.getElementById('orbitRing');
@@ -2703,7 +2700,7 @@ function formatPreciosDual(product = null) {
     const pDoble = '$' + tabla.doble.toLocaleString('es-AR');
     if (isBuzoRedondo) {
         return `<div class="dual-prices dual-prices-buzo">
-        <div class="price-line price-line-primary"><span class="price-amount">${pDoble}</span><span class="price-label">Doble estampa mostrada</span></div>
+        <div class="price-line price-line-primary"><span class="price-amount">${pDoble}</span><span class="price-label">Doble estampa</span></div>
         <div class="price-line"><span class="price-amount">${pSimple}</span><span class="price-label">Solo frente opcional</span></div>
     </div>`;
     }
@@ -2723,8 +2720,8 @@ function openPackWhatsapp(packName, packIncludes, packPrice) {
         });
     }
     
-    // Blindaje anti-NaN: ignorar precio vacío o inválido
-    let msg = `Hola FMD, quiero información sobre el pack ${packName}`;
+    // Blindaje anti-NaN: ignorar precio vacÃ­o o invÃ¡lido
+    let msg = `Hola FMD, quiero informaciÃ³n sobre el pack ${packName}`;
     
     // Si hay detalles del pack, incluirlos en el mensaje
     if (packIncludes && packIncludes.trim()) {
@@ -2736,7 +2733,7 @@ function openPackWhatsapp(packName, packIncludes, packPrice) {
 
 // === FUNCIONES UTILITARIAS REUTILIZABLES ===
 
-// Mostrar notificación flotante
+// Mostrar notificaciÃ³n flotante
 function showNotification(text, duration = 2000) {
     const notification = document.createElement('div');
     notification.style.cssText = `
@@ -2767,7 +2764,7 @@ function copyToClipboard(text, feedbackElement = null) {
             const originalText = feedbackElement.textContent;
             const originalBg = feedbackElement.style.background;
             
-            feedbackElement.textContent = '✓';
+            feedbackElement.textContent = 'âœ“';
             feedbackElement.style.background = 'rgba(0, 0, 0, 0.5)';
             
             setTimeout(() => {
@@ -2776,10 +2773,10 @@ function copyToClipboard(text, feedbackElement = null) {
             }, 1500);
         }
         
-        showNotification('✓ Copiado al portapapeles');
+        showNotification('âœ“ Copiado al portapapeles');
     }).catch(err => {
         console.error('Error al copiar:', err);
-        showNotification('❌ Error al copiar', 1500);
+        showNotification('âŒ Error al copiar', 1500);
     });
 }
 
@@ -2787,10 +2784,10 @@ function buildWhatsappFallbackMessage() {
     if (currentProduct) {
         const images = getModalImages();
         const variantName = images?.[currentSlide]?.name ? `\nVariante: ${images[currentSlide].name}` : '';
-        return `Hola FMD! Quiero encargar esta prenda 🤘\n\nDiseño: ${currentProduct.name}${variantName}\nTalle: ___\nColor: ___\n\nPor favor confirmame precio, disponibilidad y opciones de envío.`;
+        return `Hola FMD! Quiero encargar esta prenda ðŸ¤˜\n\nDiseÃ±o: ${currentProduct.name}${variantName}\nTalle: ___\nColor: ___\n\nPor favor confirmame precio, disponibilidad y opciones de envÃ­o.`;
     }
 
-    return `Hola FMD! Quiero encargar una prenda de la colección Megadeth 🤘\n\nDiseño: ___\nTalle: ___\nColor: ___\nCP o ciudad: ___\n\n¿Me confirmás precio final y tiempo de envío?`;
+    return `Hola FMD! Quiero encargar una prenda de la colecciÃ³n Megadeth ðŸ¤˜\n\nDiseÃ±o: ___\nTalle: ___\nColor: ___\nCP o ciudad: ___\n\nÂ¿Me confirmÃ¡s precio final y tiempo de envÃ­o?`;
 }
 
 // Abrir WhatsApp con mensaje
@@ -2878,7 +2875,7 @@ function updateDobleWaLink(){
     if(!btn) return;
     const text = buildDobleMessage();
     
-    // Reemplazar el href con un onclick que use la función centralizada
+    // Reemplazar el href con un onclick que use la funciÃ³n centralizada
     btn.onclick = (e) => {
         e.preventDefault();
         openWhatsapp(text);
@@ -2886,7 +2883,7 @@ function updateDobleWaLink(){
     
     btn.href = '#'; // Placeholder para accesibilidad
     
-    // Actualizar precio según si hay dorso seleccionado
+    // Actualizar precio segÃºn si hay dorso seleccionado
     updateModalPrices();
 }
 
@@ -2941,7 +2938,7 @@ function renderDorsoSelector() {
     if (dorsoVariants.length > 0) {
         // Hay variantes de dorso disponibles
         variantsSection.style.display = 'block';
-        customSection.style.display = 'none'; // Ocultar opciones de personalización
+        customSection.style.display = 'none'; // Ocultar opciones de personalizaciÃ³n
         hideDorsoAutocomplete();
         
         variantsGrid.innerHTML = dorsoVariants.map(v => `
@@ -2954,7 +2951,7 @@ function renderDorsoSelector() {
             </div>
         `).join('');
     } else {
-        // No hay variantes de dorso, mostrar opciones de personalización
+        // No hay variantes de dorso, mostrar opciones de personalizaciÃ³n
         variantsSection.style.display = 'none';
         customSection.style.display = 'block';
     }
@@ -3459,7 +3456,7 @@ function openModal(id, variantIndex = undefined, scopedVariantIndexes = undefine
 
     carouselDots.innerHTML = modalImages.length > 1 ? modalImages.map((_, i) => `<div class="carousel-dot${i === currentSlide ? ' active' : ''}" data-index="${i}"></div>`).join('') : '';
     
-    // Añadir click listeners a los dots para que sean navegables
+    // AÃ±adir click listeners a los dots para que sean navegables
     if (modalImages.length > 1) {
         document.querySelectorAll('.carousel-dot').forEach(dot => {
             dot.addEventListener('click', function() {
@@ -3469,9 +3466,9 @@ function openModal(id, variantIndex = undefined, scopedVariantIndexes = undefine
         });
     }
 
-    // Ir al slide correcto (sin animación al abrir)
+    // Ir al slide correcto (sin animaciÃ³n al abrir)
     if (currentSlide > 0) {
-        // Usar setTimeout para que el DOM esté listo
+        // Usar setTimeout para que el DOM estÃ© listo
         setTimeout(() => goToSlide(currentSlide, false), 0);
     } else {
         carousel.scrollLeft = 0;
@@ -3497,7 +3494,7 @@ function openModal(id, variantIndex = undefined, scopedVariantIndexes = undefine
     selectedBackIndex = -1; // Reset dorso seleccionado
     selectedPrintMode = isDoubleByDefault(currentProduct) ? 'double' : 'simple';
     
-    // Reset botones de edad (sin preselección)
+    // Reset botones de edad (sin preselecciÃ³n)
     document.querySelectorAll('#ageSelector button').forEach(btn => {
         btn.classList.remove('active');
         btn.style.cssText = inactiveStyle;
@@ -3516,29 +3513,29 @@ function openModal(id, variantIndex = undefined, scopedVariantIndexes = undefine
         btn.style.display = 'none';
     });
     
-    // Mostrar talles adulto, ocultar niños
+    // Mostrar talles adulto, ocultar niÃ±os
     const sizeAdult = document.getElementById('sizeSelector');
     const sizeKids = document.getElementById('sizeSelectorKids');
     if (sizeAdult) sizeAdult.style.display = 'flex';
     if (sizeKids) sizeKids.style.display = 'none';
     
-    // Mostrar botón Oversize (porque es adulto por defecto)
+    // Mostrar botÃ³n Oversize (porque es adulto por defecto)
     const btnOversize = document.getElementById('btnOversize');
     if (btnOversize) btnOversize.style.display = '';
     
-    // Reset botones de corte (sin preselección)
+    // Reset botones de corte (sin preselecciÃ³n)
     document.querySelectorAll('#cutSelector button').forEach(btn => {
         btn.classList.remove('active');
         btn.style.cssText = inactiveStyle;
     });
     
-    // Reset botones de color (sin preselección)
+    // Reset botones de color (sin preselecciÃ³n)
     document.querySelectorAll('#colorSelector button').forEach(btn => {
         btn.classList.remove('active');
         btn.style.cssText = inactiveColorStyle;
     });
     
-    // === LÓGICA ESPECIAL PARA HOODIES Y BUZOS CUELLO REDONDO ===
+    // === LÃ“GICA ESPECIAL PARA HOODIES Y BUZOS CUELLO REDONDO ===
     const garmentCategory = getActiveGarmentCategory(currentProduct);
     const isHoodie = garmentCategory === 'Hoodies FMD' || garmentCategory === 'Hoodies Otras Bandas';
     const isBuzoRedondo = garmentCategory === 'Buzo Cuello Redondo';
@@ -3605,7 +3602,7 @@ function openModal(id, variantIndex = undefined, scopedVariantIndexes = undefine
     
     updateModalInfo();
     
-    // Mostrar/ocultar flechas según cantidad de imágenes
+    // Mostrar/ocultar flechas segÃºn cantidad de imÃ¡genes
     try {
         const prevBtn = document.getElementById('carouselPrev');
         const nextBtn = document.getElementById('carouselNext');
@@ -3613,12 +3610,12 @@ function openModal(id, variantIndex = undefined, scopedVariantIndexes = undefine
         
         const lockToSingle = hasSpecificVariant && !hasScopedVariants;
         if (lockToSingle) {
-            // Ocultar navegación si es variante específica
+            // Ocultar navegaciÃ³n si es variante especÃ­fica
             if(prevBtn) prevBtn.style.display = 'none';
             if(nextBtn) nextBtn.style.display = 'none';
             if(dotsContainer) dotsContainer.style.display = 'none';
         } else {
-            // Mostrar/ocultar según cantidad de imágenes
+            // Mostrar/ocultar segÃºn cantidad de imÃ¡genes
             if (modalImages.length > 1) {
                 if(prevBtn) prevBtn.style.display = '';
                 if(nextBtn) nextBtn.style.display = '';
@@ -3639,11 +3636,11 @@ function openModal(id, variantIndex = undefined, scopedVariantIndexes = undefine
 
     const modalAdvancedPanel = document.getElementById('modalAdvancedPanel');
     if (modalAdvancedPanel) {
-        modalAdvancedPanel.open = isDoubleByDefault(currentProduct);
+        modalAdvancedPanel.open = false;
     }
 
     modal.classList.add('active');
-    // Adjuntar listeners del carrusel una vez el modal está listo
+    // Adjuntar listeners del carrusel una vez el modal estÃ¡ listo
     attachCarouselListeners();
     try { showScrollHintIfNeeded(); } catch (e) { }
 }
@@ -3657,7 +3654,7 @@ function showScrollHintIfNeeded(){
     const hint = document.createElement('div');
     hint.className = 'scroll-hint';
     hint.setAttribute('aria-hidden','true');
-    hint.textContent = 'Deslizar ↓';
+    hint.textContent = 'Deslizar â†“';
     document.body.appendChild(hint);
 
     const removeHint = () => {
@@ -4076,7 +4073,7 @@ function endModalZoomPointerDrag(e) {
     applyModalImageZoom();
 }
 
-// Event listeners para carousel - se agregan en openModal() después de cargar imágenes
+// Event listeners para carousel - se agregan en openModal() despuÃ©s de cargar imÃ¡genes
 function attachCarouselListeners() {
     // Remover listeners previos si existen
     carousel.removeEventListener('scroll', onCarouselScroll);
@@ -4115,7 +4112,7 @@ function onCarouselScroll() {
     if (slideWidth <= 0) return;
     
     const scrollLeft = carousel.scrollLeft;
-    // Calcular qué slide está más visible
+    // Calcular quÃ© slide estÃ¡ mÃ¡s visible
     const newSlide = Math.round(scrollLeft / slideWidth);
     const images = getModalImages();
     const maxSlide = Math.max(0, images.length - 1);
@@ -4142,17 +4139,17 @@ function goToSlide(index, smooth = true) {
     const images = getModalImages();
     if (!images.length) return;
     
-    // Asegurar que el índice está dentro del rango válido
+    // Asegurar que el Ã­ndice estÃ¡ dentro del rango vÃ¡lido
     const validIndex = Math.max(0, Math.min(index, images.length - 1));
     currentSlide = validIndex;
     resetModalImageZoom();
     
-    // Calcular la posición de scroll
+    // Calcular la posiciÃ³n de scroll
     const slideWidth = carousel.offsetWidth;
     const targetScrollLeft = validIndex * slideWidth;
     
     // Usar scroll suave si se especifica (clicks en flechas/dots)
-    // Sin suave para swipes (más responsivo)
+    // Sin suave para swipes (mÃ¡s responsivo)
     if (smooth && carousel.scrollTo) {
         try {
             carousel.scrollTo({ left: targetScrollLeft, behavior: 'smooth' });
@@ -4227,7 +4224,7 @@ function updateModalInfo() {
     if (slayerGarmentLabel) displayName = `${currentProduct.name} - ${slayerGarmentLabel}`;
     document.getElementById('modalName').textContent = displayName;
     
-    // Actualizar código del producto
+    // Actualizar cÃ³digo del producto
     const code = cart.generateCode(currentProduct.id, activeVariantIndex, selectedBacks.size > 0 || selectedDorsoChips.size > 0);
     const displayCodeEl = document.getElementById('displayCode');
     if (displayCodeEl) {
@@ -4248,7 +4245,7 @@ function updateModalInfo() {
     document.getElementById('modalDesc').innerHTML = `${fmdBadge ? `<span class="fmd-original-badge modal-fmd-original-badge">${fmdBadge.label}</span><span class="modal-fmd-original-copy">${fmdBadge.description}</span>` : ''}${currentProduct.desc || ''}`;
     updateModalSizeRange();
     
-    // Actualizar precios según selector adulto/chico
+    // Actualizar precios segÃºn selector adulto/chico
     updateModalPrices();
     
     document.getElementById('modalCounter').textContent = `${currentSlide + 1}/${images.length}`;
@@ -4257,7 +4254,7 @@ function updateModalInfo() {
     const vName = activeVariantName;
     document.getElementById('variantName').textContent = vName;
     document.getElementById('variantName').style.display = vName ? 'block' : 'none';
-    const msg = `Hola FMD! Quiero encargar ${displayName} 🤘\n\nNecesito confirmar talle, color y opciones de envío.`;
+    const msg = `Hola FMD! Quiero encargar ${displayName} ðŸ¤˜\n\nNecesito confirmar talle, color y opciones de envÃ­o.`;
     const modalWaBtn = document.getElementById('modalWaBtn');
     if (modalWaBtn) {
         modalWaBtn.onclick = (e) => {
@@ -4296,7 +4293,7 @@ function renderUniverseShowcases() {
                 <img src="${product.img}" alt="${product.name}" loading="lazy" decoding="async">
                 <div class="universe-showcase-card-copy">
                     <strong>${product.name}</strong>
-                    <span>${product.band || 'FMD'} · ${product.visibilityTier}</span>
+                    <span>${product.band || 'FMD'} Â· ${product.visibilityTier}</span>
                 </div>
             </article>
         `).join('');
@@ -4423,18 +4420,18 @@ function renderFilteredProducts(filtered) {
     document.getElementById('productsCount').textContent = currentSearch
         ? `${filtered.length} resultados globales`
         : normalizeText(currentCategory) === 'epica'
-        ? `${filteredDesignCount} diseÃ±os Â· ${getEpicaPreferredGarmentPluralLabel()}`
+        ? `${filteredDesignCount} diseÃƒÂ±os Ã‚Â· ${getEpicaPreferredGarmentPluralLabel()}`
         : currentGarmentFilter
-        ? `${filtered.length} diseños · ${currentGarmentFilter === 'remera' ? 'Remeras' : currentGarmentFilter === 'hoodie' ? 'Hoodies' : 'Buzos cuello redondo'}`
+        ? `${filtered.length} diseÃ±os Â· ${currentGarmentFilter === 'remera' ? 'Remeras' : currentGarmentFilter === 'hoodie' ? 'Hoodies' : 'Buzos cuello redondo'}`
         : currentUniverse
-        ? `${filtered.length} productos · ${currentUniverse}`
+        ? `${filtered.length} productos Â· ${currentUniverse}`
         : maidenGarmentLabel
-        ? `${filtered.length} diseños · ${maidenGarmentLabel}`
+        ? `${filtered.length} diseÃ±os Â· ${maidenGarmentLabel}`
         : slayerGarmentLabel
-        ? `${filtered.length} diseños · ${slayerGarmentLabel}`
+        ? `${filtered.length} diseÃ±os Â· ${slayerGarmentLabel}`
         : megadethGarmentLabel
-            ? `${filtered.length} diseños · ${megadethGarmentLabel}`
-        : `${filtered.length} diseños`;
+            ? `${filtered.length} diseÃ±os Â· ${megadethGarmentLabel}`
+        : `${filtered.length} diseÃ±os`;
     productsGrid.innerHTML = visibleProducts.map((p, index) => {
         const isSlayerGarmentResult = p.category === 'Slayer' && typeof p.matchedVariantIndex === 'number';
         const isMegadethGarmentResult = normalizeText(currentCategory) === 'megadeth' && Boolean(megadethGarmentPreference) && typeof p.matchedVariantIndex === 'number';
@@ -4442,24 +4439,24 @@ function renderFilteredProducts(filtered) {
         const hasVariants = !isSlayerGarmentResult && !isMegadethGarmentResult && !isEpicaGarmentResult && p.variants && p.variants.length > 1;
         const isDoble = p.tipoPrecio === 'doble';
         const isDorsoIdea = p.category === 'Dorsales';
-        const variantUnit = p.category === 'Slayer' ? 'prendas' : 'diseños';
+        const variantUnit = p.category === 'Slayer' ? 'prendas' : 'diseÃ±os';
         const badgeText = isSlayerGarmentResult
-            ? `${p.matchedVariantIndexes?.length > 1 ? `${p.matchedVariantIndexes.length} versiones · ` : ''}${getSlayerPreferredGarmentLabel()}`
+            ? `${p.matchedVariantIndexes?.length > 1 ? `${p.matchedVariantIndexes.length} versiones Â· ` : ''}${getSlayerPreferredGarmentLabel()}`
             : isMegadethGarmentResult
-                ? `${p.matchedVariantIndexes?.length > 1 ? `${p.matchedVariantIndexes.length} diseños · ` : ''}${p.matchedGarment === 'remera' ? 'Remera' : p.matchedGarment === 'hoodie' ? 'Hoodie' : 'Buzo cuello redondo'}`
+                ? `${p.matchedVariantIndexes?.length > 1 ? `${p.matchedVariantIndexes.length} diseÃ±os Â· ` : ''}${p.matchedGarment === 'remera' ? 'Remera' : p.matchedGarment === 'hoodie' ? 'Hoodie' : 'Buzo cuello redondo'}`
             : isEpicaGarmentResult
                 ? (p.epicaExpandedVariant
                     ? `${p.matchedGarment === 'remera' ? 'Remera' : p.matchedGarment === 'hoodie' ? 'Hoodie' : 'Buzo cuello redondo'}`
                     : `${p.matchedVariantIndexes?.length > 1 ? `${p.matchedVariantIndexes.length} dise?os - ` : ''}${getEpicaPreferredGarmentLabel()}`)
             : hasVariants
-                ? `${p.variants.length} ${variantUnit} <span style='font-size:1.2em;margin-left:6px;'>➔</span>`
-                : (isDoble ? '🔥 Doble estampa' : '');
+                ? `${p.variants.length} ${variantUnit} <span style='font-size:1.2em;margin-left:6px;'>âž”</span>`
+                : (isDoble ? 'ðŸ”¥ Doble estampa' : '');
         // NUEVO badge
         const isNew = p.isNew;
-        const newBadge = isNew ? `<span class="pack-badge" style="background:var(--magic-green);color:#000;">🆕 NUEVO</span>` : '';
+        const newBadge = isNew ? `<span class="pack-badge" style="background:var(--magic-green);color:#000;">ðŸ†• NUEVO</span>` : '';
         // COMBO badge
         const comboBadge = p.isComboEligible ? `<span class="pack-badge" style="background:var(--magic-orange);color:#000;">COMBO</span>` : '';
-        // Código
+        // CÃ³digo
         const code = p.code ? p.code : '';
         // Badges arriba de la imagen
         let badges = '';
@@ -4491,7 +4488,7 @@ function renderFilteredProducts(filtered) {
                     ${
                         isDorsoIdea
                         ? `<span class="product-envio" style="color:var(--magic-green);border:1px solid rgba(57,255,20,.25);">Solo doble estampa</span>`
-                        : `${formatPreciosDual(p)}<div style="font-size:0.62rem;color:var(--text-muted);margin-top:4px;">3 prendas o más: envío gratis · 4 prendas o más: 15% OFF + envío gratis</div>`
+                        : `${formatPreciosDual(p)}<div style="font-size:0.62rem;color:var(--text-muted);margin-top:4px;">3 prendas o mÃ¡s: envÃ­o gratis Â· 4 prendas o mÃ¡s: 15% OFF + envÃ­o gratis</div>`
                     }
                 </div>
             </div>
@@ -4502,7 +4499,7 @@ function renderFilteredProducts(filtered) {
     if (loadMore && loadMoreStatus) {
         const hasMore = visibleProducts.length < totalFiltered;
         loadMore.hidden = !hasMore;
-        loadMoreStatus.textContent = hasMore ? `Mostrando ${visibleProducts.length} de ${totalFiltered} diseños` : '';
+        loadMoreStatus.textContent = hasMore ? `Mostrando ${visibleProducts.length} de ${totalFiltered} diseÃ±os` : '';
     }
     setView(currentView);
 }
@@ -4516,7 +4513,7 @@ searchInput.addEventListener('input', (e) => {
 
 searchInput.addEventListener('keydown', (e) => {
     if (e.key !== 'Enter') return;
-    // Enter con código exacto (ej: PS-002.V1) abre el modal directo
+    // Enter con cÃ³digo exacto (ej: PS-002.V1) abre el modal directo
     const opened = openExactCodeMatch(e.target.value);
     if (opened) {
         e.preventDefault();
@@ -4573,7 +4570,7 @@ document.addEventListener('click', (e) => {
     if (featuredCard) {
         const categoryToTrigger = featuredCard.dataset.trigger;
         if (categoryToTrigger) {
-            // Simular click en el botón de navegación correspondiente
+            // Simular click en el botÃ³n de navegaciÃ³n correspondiente
             const navBtn = document.querySelector(`[data-cat="${categoryToTrigger}"]`);
             if (navBtn) {
                 navBtn.click();
@@ -4605,7 +4602,7 @@ function updateShareLinks() {
     const images = getModalImages();
     const activeVariantName = images?.[currentSlide]?.name?.trim() || '';
     const displayName = activeVariantName || currentProduct.name;
-    const msg = `Mirá este diseño:\n${displayName}\n${getProductUrl()}`;
+    const msg = `MirÃ¡ este diseÃ±o:\n${displayName}\n${getProductUrl()}`;
     
     // Usar onclick centralizado en lugar de href
     const btnShareWa = document.getElementById('btnShareWa');
@@ -4617,14 +4614,14 @@ function updateShareLinks() {
         btnShareWa.href = '#';
     }
     
-    // Actualizar meta tags dinámicamente para compartir el producto
+    // Actualizar meta tags dinÃ¡micamente para compartir el producto
     const productUrl = `https://catalogo.fivemagicsdesigns.com/#producto-${currentProduct.id}`;
     const productImage = images[currentSlide]?.img || currentProduct.img;
     const year = currentProduct.year ? ` (${currentProduct.year})` : '';
-    const desc = currentProduct.desc ? currentProduct.desc.substring(0, 100) : 'Diseño exclusivo premium';
+    const desc = currentProduct.desc ? currentProduct.desc.substring(0, 100) : 'DiseÃ±o exclusivo premium';
     
     document.querySelector('meta[property="og:title"]').setAttribute('content', `${displayName} - Five Magics Designs`);
-    document.querySelector('meta[property="og:description"]').setAttribute('content', `${displayName}${year} • ${getCategoryLabel(currentProduct.category)}\n${desc}...`);
+    document.querySelector('meta[property="og:description"]').setAttribute('content', `${displayName}${year} â€¢ ${getCategoryLabel(currentProduct.category)}\n${desc}...`);
     document.querySelector('meta[property="og:image"]').setAttribute('content', productImage);
     document.querySelector('meta[property="og:url"]').setAttribute('content', productUrl);
     
@@ -4633,14 +4630,14 @@ function updateShareLinks() {
     document.querySelector('meta[name="twitter:image"]').setAttribute('content', productImage);
 }
 
-// Cálculo de contadores dinámicos
+// CÃ¡lculo de contadores dinÃ¡micos
 const CATEGORY_LABELS = {
-    'Orígenes': 'Orígenes Megadeth',
-    'Album': 'Álbumes Megadeth',
+    'OrÃ­genes': 'OrÃ­genes Megadeth',
+    'Album': 'Ãlbumes Megadeth',
     'Hoodies FMD': 'Hoodies Megadeth',
     'Hoodies Otras Bandas': 'Hoodies destacados',
     'Buzo Cuello Redondo': 'Buzos cuello redondo',
-    'Bandas Sugeridas': 'Más bandas',
+    'Bandas Sugeridas': 'MÃ¡s bandas',
     'Dave Mustaine': 'Dave Mustaine',
     'Dorsales': 'Dorsos para combinar',
     'Musician': 'Miembros Megadeth',
@@ -4656,7 +4653,7 @@ const CATEGORY_LABELS = {
     'Avenged Sevenfold': 'Avenged Sevenfold'
 };
 
-const MEGADETH_CATS = new Set(['Orígenes','Album','Musician','Tour','VicRattlehead','Singles','Dorsales']);
+const MEGADETH_CATS = new Set(['OrÃ­genes','Album','Musician','Tour','VicRattlehead','Singles','Dorsales']);
 const HIDDEN_FROM_ALBUM_CATEGORY = new Set([6025, 6026, 6027]);
 
 function getCategoryLabel(category) {
@@ -4664,7 +4661,7 @@ function getCategoryLabel(category) {
 }
 
 function formatCategoryMeta(year, categoryLabel) {
-    return year ? `${year} · ${categoryLabel}` : categoryLabel;
+    return year ? `${year} Â· ${categoryLabel}` : categoryLabel;
 }
 
 function computeCounts(){
@@ -4688,7 +4685,7 @@ function updateCountsUI(){
     try{
         if(!Array.isArray(db) || !db.length) return;
         const { byCategory, megadethTotal, totalAll } = computeCounts();
-        const origenesCount = byCategory['Orígenes'] || 0;
+        const origenesCount = byCategory['OrÃ­genes'] || 0;
         const albumVisibleCount = Math.max(0, (byCategory['Album'] || 0) - Array.from(HIDDEN_FROM_ALBUM_CATEGORY).filter(id => db.some(p => Number(p?.id) === id)).length);
         const epicaDesignCount = countDesignsByFilter('Epica');
         const rhapsodyDesignCount = countDesignsByFilter('Rhapsody');
@@ -4697,18 +4694,18 @@ function updateCountsUI(){
         const ftMegadethCard = document.querySelector('.featured-card[data-trigger="Album"]');
         if(ftMegadethCard){
             const badge = ftMegadethCard.querySelector('.featured-badge');
-            if(badge) badge.textContent = `${megadethTotal} diseños`;
+            if(badge) badge.textContent = `${megadethTotal} diseÃ±os`;
             const title = ftMegadethCard.querySelector('h3');
             if(title) title.textContent = 'Megadeth';
         }
         const ftPantera = document.querySelector('.featured-card[data-trigger="Pantera"] .featured-badge');
-        if(ftPantera) ftPantera.textContent = `${byCategory['Pantera']||0} diseños`;
+        if(ftPantera) ftPantera.textContent = `${byCategory['Pantera']||0} diseÃ±os`;
         const ftIron = document.querySelector('.featured-card[data-trigger="Iron Maiden"] .featured-badge');
-        if(ftIron) ftIron.textContent = `${byCategory['Iron Maiden']||0} diseños`;
+        if(ftIron) ftIron.textContent = `${byCategory['Iron Maiden']||0} diseÃ±os`;
         const ftMetal = document.querySelector('.featured-card[data-trigger="Metallica"] .featured-badge');
-        if(ftMetal) ftMetal.textContent = `${byCategory['Metallica']||0} diseños`;
+        if(ftMetal) ftMetal.textContent = `${byCategory['Metallica']||0} diseÃ±os`;
 
-        // Navegación categorías: badges
+        // NavegaciÃ³n categorÃ­as: badges
         const setNavBadge = (cat, val) => {
             const el = document.querySelector(`.cat-btn[data-cat="${cat}"] .badge`);
             if(el) el.textContent = val;
@@ -4719,7 +4716,7 @@ function updateCountsUI(){
         };
         setNavBadge('Album', albumVisibleCount);
         setNavBadge('Megadeth', db.filter(isMegadethArchiveProduct).length);
-        setNavBadge('Orígenes', byCategory['Orígenes']||0);
+        setNavBadge('OrÃ­genes', byCategory['OrÃ­genes']||0);
         setNavBadge('Avenged Sevenfold', byCategory['Avenged Sevenfold']||0);
         setNavBadge('AC/DC', byCategory['AC/DC']||0);
         setNavBadge('Pantera', byCategory['Pantera']||0);
@@ -4739,9 +4736,9 @@ function updateCountsUI(){
         setNavBadge('Singles', byCategory['Singles']||0);
         setNavBadge('Tour', byCategory['Tour']||0);
         setNavBadge('VicRattlehead', byCategory['VicRattlehead']||0);
-        toggleNavCategory('Orígenes', origenesCount > 0);
+        toggleNavCategory('OrÃ­genes', origenesCount > 0);
 
-        // Filtros: textos con cantidad (y corrección de etiqueta de Megadeth)
+        // Filtros: textos con cantidad (y correcciÃ³n de etiqueta de Megadeth)
         const setPill = (filter, label) => {
             const el = document.querySelector(`.filter-pill[data-filter="${filter}"]`);
             if(el) el.textContent = label;
@@ -4753,7 +4750,7 @@ function updateCountsUI(){
         setPill('all', `Todo (${totalAll})`);
         setPill('Megadeth', `Megadeth (${db.filter(isMegadethArchiveProduct).length})`);
         setPill('Album', `${getCategoryLabel('Album')} (${albumVisibleCount})`);
-        setPill('Orígenes', `${getCategoryLabel('Orígenes')} (${byCategory['Orígenes']||0})`);
+        setPill('OrÃ­genes', `${getCategoryLabel('OrÃ­genes')} (${byCategory['OrÃ­genes']||0})`);
         setPill('Hoodies FMD', `${getCategoryLabel('Hoodies FMD')} (${byCategory['Hoodies FMD']||0})`);
         setPill('Hoodies Otras Bandas', `${getCategoryLabel('Hoodies Otras Bandas')} (${byCategory['Hoodies Otras Bandas']||0})`);
         setPill('Buzo Cuello Redondo', `${getCategoryLabel('Buzo Cuello Redondo')} (${byCategory['Buzo Cuello Redondo']||0})`);
@@ -4773,9 +4770,9 @@ function updateCountsUI(){
         setPill('Dorsales', `${getCategoryLabel('Dorsales')} (${byCategory['Dorsales']||0})`);
         setPill('VicRattlehead', `${getCategoryLabel('VicRattlehead')} (${byCategory['VicRattlehead']||0})`);
         setPill('Personalizados', `${getCategoryLabel('Personalizados')} (${byCategory['Personalizados']||0})`);
-        togglePill('Orígenes', origenesCount > 0);
+        togglePill('OrÃ­genes', origenesCount > 0);
 
-        if (origenesCount === 0 && currentCategory === 'Orígenes') {
+        if (origenesCount === 0 && currentCategory === 'OrÃ­genes') {
             currentCategory = 'Album';
             document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
             const albumBtn = document.querySelector('.cat-btn[data-cat="Album"]');
@@ -4926,7 +4923,7 @@ zoomImg.addEventListener('pointerup', endFullZoomPointerDrag);
 zoomImg.addEventListener('pointercancel', endFullZoomPointerDrag);
 window.addEventListener('popstate', () => { if(modal.classList.contains('active')) closeModal(); });
 
-// Agregar soporte de teclado para navegación del carousel
+// Agregar soporte de teclado para navegaciÃ³n del carousel
 window.addEventListener('keydown', (e) => {
     if (!modal.classList.contains('active') || !currentProduct) return;
     const images = getModalImages();
@@ -4969,15 +4966,15 @@ window.addEventListener('keydown', (e) => {
         
         const touchEndX = e.changedTouches[0].clientX;
         const diff = touchStartX - touchEndX;
-        const threshold = 30; // threshold más sensible para respuesta rápida
+        const threshold = 30; // threshold mÃ¡s sensible para respuesta rÃ¡pida
         
         if (Math.abs(diff) < threshold) return;
         
-        // Swipe derecha → slide anterior
+        // Swipe derecha â†’ slide anterior
         if (diff < 0) {
             goToSlide(currentSlide - 1, false); // false = sin smooth animation
         }
-        // Swipe izquierda → slide siguiente
+        // Swipe izquierda â†’ slide siguiente
         else if (diff > 0) {
             goToSlide(currentSlide + 1, false); // false = sin smooth animation
         }
@@ -4986,7 +4983,7 @@ window.addEventListener('keydown', (e) => {
     }, { passive: true });
 })();
 
-// Inicializar comportamiento de pestañas
+// Inicializar comportamiento de pestaÃ±as
 (function initSizeTabs(){
     document.querySelectorAll('.tab-btn').forEach(btn=>{
         btn.addEventListener('click', function(){
@@ -5019,7 +5016,7 @@ document.querySelectorAll('.filter-pill').forEach(pill => {
         document.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
         e.target.classList.add('active');
         
-        // Actualizar filtro según qué se seleccione
+        // Actualizar filtro segÃºn quÃ© se seleccione
         if (filterValue === 'all') {
             currentUniverse = null;
             currentGarmentFilter = null;
@@ -5029,14 +5026,14 @@ document.querySelectorAll('.filter-pill').forEach(pill => {
         } else if (normalizeText(filterValue) === 'epica') {
             showAllEpica();
         } else {
-            // Simular click en el botón de categoría correspondiente
+            // Simular click en el botÃ³n de categorÃ­a correspondiente
             const navBtn = document.querySelector(`[data-cat="${filterValue}"]`);
             if (navBtn) navBtn.click();
         }
         
         filterProducts();
         
-        // Cerrar dropdown después de seleccionar
+        // Cerrar dropdown despuÃ©s de seleccionar
         filterDropdown.classList.remove('active');
     });
 });
@@ -5135,7 +5132,7 @@ function clearShippingCustomerData() {
         if (input) input.value = '';
     });
 
-    showNotification('Datos de envío limpiados', 1800);
+    showNotification('Datos de envÃ­o limpiados', 1800);
 }
 
 function hydrateAndBindShippingForm() {
@@ -5208,19 +5205,19 @@ function getShippingFieldLabel(fieldKey) {
 
 function buildCustomerDataForWhatsapp(data) {
     const lines = [];
-    if (data.nombre) lines.push(`• Nombre: ${data.nombre}`);
-    if (data.apellido) lines.push(`• Apellido: ${data.apellido}`);
-    if (data.telefono) lines.push(`• Teléfono: ${data.telefono}`);
-    if (data.direccion) lines.push(`• Dirección: ${data.direccion}`);
-    if (data.cp) lines.push(`• Código postal: ${data.cp}`);
-    if (data.localidad) lines.push(`• Localidad: ${data.localidad}`);
-    if (data.provincia) lines.push(`• Provincia: ${data.provincia}`);
+    if (data.nombre) lines.push(`â€¢ Nombre: ${data.nombre}`);
+    if (data.apellido) lines.push(`â€¢ Apellido: ${data.apellido}`);
+    if (data.telefono) lines.push(`â€¢ TelÃ©fono: ${data.telefono}`);
+    if (data.direccion) lines.push(`â€¢ DirecciÃ³n: ${data.direccion}`);
+    if (data.cp) lines.push(`â€¢ CÃ³digo postal: ${data.cp}`);
+    if (data.localidad) lines.push(`â€¢ Localidad: ${data.localidad}`);
+    if (data.provincia) lines.push(`â€¢ Provincia: ${data.provincia}`);
 
     if (!lines.length) {
-        return '\n\n📦 DATOS DE ENVÍO:\n• A confirmar por WhatsApp';
+        return '\n\nðŸ“¦ DATOS DE ENVÃO:\nâ€¢ A confirmar por WhatsApp';
     }
 
-    return `\n\n📦 DATOS DE ENVÍO:\n${lines.join('\n')}`;
+    return `\n\nðŸ“¦ DATOS DE ENVÃO:\n${lines.join('\n')}`;
 }
 
 function buildShippingContextForWhatsapp(postalCode = '', customerData = null) {
@@ -5231,18 +5228,18 @@ function buildShippingContextForWhatsapp(postalCode = '', customerData = null) {
     const quantity = cart.getCart().length;
 
     if (quantity >= 4) {
-        return '\n\n📦 DATOS DE ENVÍO:\n• 4 prendas o más: 15% OFF + envío gratis.';
+        return '\n\nðŸ“¦ DATOS DE ENVÃO:\nâ€¢ 4 prendas o mÃ¡s: 15% OFF + envÃ­o gratis.';
     }
 
     if (quantity >= 3) {
-        return '\n\n📦 DATOS DE ENVÍO:\n• 3 prendas o más: envío gratis.';
+        return '\n\nðŸ“¦ DATOS DE ENVÃO:\nâ€¢ 3 prendas o mÃ¡s: envÃ­o gratis.';
     }
 
     if (postalCode) {
-        return `\n\n📦 DATOS DE ENVÍO (1 o 2 prendas):\n• Código postal: ${postalCode}`;
+        return `\n\nðŸ“¦ DATOS DE ENVÃO (1 o 2 prendas):\nâ€¢ CÃ³digo postal: ${postalCode}`;
     }
 
-    return '\n\n📦 DATOS DE ENVÍO (1 o 2 prendas):\n• Código postal: no informado';
+    return '\n\nðŸ“¦ DATOS DE ENVÃO (1 o 2 prendas):\nâ€¢ CÃ³digo postal: no informado';
 }
 
 function sendViaWhatsapp(postalCode = '', customerData = null) {
@@ -5376,7 +5373,7 @@ function calculateCartTotal() {
     const items = cart.getCart();
     const subtotal = calculateCartSubtotal(items);
     
-    // Calcular descuento según cantidad (15% para 4 prendas o más)
+    // Calcular descuento segÃºn cantidad (15% para 4 prendas o mÃ¡s)
     let descuento = 0;
     const cantidad = items.length;
     
@@ -5384,15 +5381,15 @@ function calculateCartTotal() {
         descuento = subtotal * 0.15; // 15% descuento
     }
     
-    // Envío: gratis para 3 prendas o más, a calcular para 1 o 2
+    // EnvÃ­o: gratis para 3 prendas o mÃ¡s, a calcular para 1 o 2
     const envioGratis = cantidad >= 3;
     
     return {
         subtotal,
-        envio: 0, // No sumamos envío fijo, es dinámico
+        envio: 0, // No sumamos envÃ­o fijo, es dinÃ¡mico
         envioGratis,
         descuento,
-        total: subtotal - descuento, // Total SIN envío
+        total: subtotal - descuento, // Total SIN envÃ­o
         cantidad
     };
 }
@@ -5410,14 +5407,14 @@ function renderCartPreview() {
                 <svg viewBox="0 0 24 24" fill="currentColor">
                     <path d="M17 18c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2zM7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zm0-3l1.1-2h7.45c.75 0 1.41-.41 1.75-1.03L21.7 4H5.21l-.94-2H1v2h2l3.6 7.59L3.62 17H19v-2H7z"/>
                 </svg>
-                <h3>Tu carrito está vacío</h3>
-                <p>Agregá diseños para continuar</p>
+                <h3>Tu carrito estÃ¡ vacÃ­o</h3>
+                <p>AgregÃ¡ diseÃ±os para continuar</p>
             </div>
         `;
         footer.innerHTML = `
             <div class="cart-preview-actions">
                 <button class="btn-preview-continue" onclick="closeCartPreview()">
-                    ← Volver al catálogo
+                    â† Volver al catÃ¡logo
                 </button>
             </div>
         `;
@@ -5428,9 +5425,9 @@ function renderCartPreview() {
     body.innerHTML = items.map((item, idx) => {
         const img = getProductImage(item.id, item.variantIndex);
         const precio = calculateItemPrice(item);
-        const edad = item.age === 'chico' ? 'Niño' : 'Adulto';
+        const edad = item.age === 'chico' ? 'NiÃ±o' : 'Adulto';
         const talle = item.size || 'Por confirmar';
-        const corte = item.age === 'chico' ? 'Unisex' : (item.cut === 'oversize' ? 'Oversize' : 'Clásica');
+        const corte = item.age === 'chico' ? 'Unisex' : (item.cut === 'oversize' ? 'Oversize' : 'ClÃ¡sica');
         const color = item.color === 'blanco' ? 'Blanca' : 'Negra';
         
         return `
@@ -5442,17 +5439,17 @@ function renderCartPreview() {
                     <div class="cart-preview-item-name">${item.productName}</div>
                     ${item.variantName && item.variantName !== item.productName ? 
                         `<div class="cart-preview-item-variant">${item.variantName}</div>` : ''}
-                    ${item.isDouble ? '<span class="cart-preview-item-double">🔥 Doble estampa</span>' : ''}
+                    ${item.isDouble ? '<span class="cart-preview-item-double">ðŸ”¥ Doble estampa</span>' : ''}
                     <div class="cart-preview-item-options">
-                        <span class="cart-preview-option-tag">👤 ${edad}</span>
-                        <span class="cart-preview-option-tag">📐 ${talle}</span>
-                        <span class="cart-preview-option-tag">✂️ ${corte}</span>
-                        <span class="cart-preview-option-tag">${color === 'Blanca' ? '⚪' : '⚫'} ${color}</span>
+                        <span class="cart-preview-option-tag">ðŸ‘¤ ${edad}</span>
+                        <span class="cart-preview-option-tag">ðŸ“ ${talle}</span>
+                        <span class="cart-preview-option-tag">âœ‚ï¸ ${corte}</span>
+                        <span class="cart-preview-option-tag">${color === 'Blanca' ? 'âšª' : 'âš«'} ${color}</span>
                     </div>
                     <div class="cart-preview-item-price">$${precio.toLocaleString('es-AR')}</div>
                 </div>
                 <button class="cart-preview-item-remove" onclick="removeAndRefreshPreview(${idx})" title="Eliminar">
-                    ✕
+                    âœ•
                 </button>
             </div>
         `;
@@ -5464,13 +5461,13 @@ function renderCartPreview() {
     // Renderizar footer con resumen
     let shippingNote = '';
     if (totals.cantidad === 1) {
-        shippingNote = `<div class="cart-preview-shipping-note">¡Agregá 2 prendas más para envío gratis!</div>`;
+        shippingNote = `<div class="cart-preview-shipping-note">Â¡AgregÃ¡ 2 prendas mÃ¡s para envÃ­o gratis!</div>`;
     } else if (totals.cantidad === 2) {
-        shippingNote = `<div class="cart-preview-shipping-note">¡Agregá 1 prenda más para envío gratis!</div>`;
+        shippingNote = `<div class="cart-preview-shipping-note">Â¡AgregÃ¡ 1 prenda mÃ¡s para envÃ­o gratis!</div>`;
     } else if (totals.cantidad === 3) {
-        shippingNote = `<div class="cart-preview-shipping-note">🚚 ¡ENVÍO GRATIS! Sumá 1 más y activás 15% OFF 🎉</div>`;
+        shippingNote = `<div class="cart-preview-shipping-note">ðŸšš Â¡ENVÃO GRATIS! SumÃ¡ 1 mÃ¡s y activÃ¡s 15% OFF ðŸŽ‰</div>`;
     } else if (totals.cantidad >= 4) {
-        shippingNote = `<div class="cart-preview-shipping-note">🚚 ¡ENVÍO GRATIS + 15% OFF aplicado! 🎉</div>`;
+        shippingNote = `<div class="cart-preview-shipping-note">ðŸšš Â¡ENVÃO GRATIS + 15% OFF aplicado! ðŸŽ‰</div>`;
     }
 
     const shippingForm = `
@@ -5483,24 +5480,24 @@ function renderCartPreview() {
                 </div>
                 <div class="cart-cp-field">
                     <label for="inputApellido">Apellido</label>
-                    <input type="text" id="inputApellido" placeholder="Ej: Pérez">
+                    <input type="text" id="inputApellido" placeholder="Ej: PÃ©rez">
                 </div>
             </div>
             <div class="cart-customer-grid single">
                 <div class="cart-cp-field">
-                    <label for="inputTelefono">Teléfono</label>
+                    <label for="inputTelefono">TelÃ©fono</label>
                     <input type="text" id="inputTelefono" placeholder="Ej: 11 1234 5678" inputmode="tel">
                 </div>
             </div>
             <div class="cart-customer-grid single">
                 <div class="cart-cp-field">
-                    <label for="inputDireccion">Dirección</label>
+                    <label for="inputDireccion">DirecciÃ³n</label>
                     <input type="text" id="inputDireccion" placeholder="Ej: Av. Corrientes 1234">
                 </div>
             </div>
             <div class="cart-customer-grid">
                 <div class="cart-cp-field">
-                    <label for="inputCP">Código postal</label>
+                    <label for="inputCP">CÃ³digo postal</label>
                     <input type="text" id="inputCP" placeholder="Ej: 1425" maxlength="8" inputmode="numeric" pattern="[0-9]{4,8}" oninput="this.value=this.value.replace(/[^0-9]/g,'').slice(0,8)">
                 </div>
                 <div class="cart-cp-field">
@@ -5515,9 +5512,9 @@ function renderCartPreview() {
                 </div>
             </div>
             <div class="cart-customer-actions">
-                <button type="button" class="btn-clear-shipping" onclick="clearShippingCustomerData()">Limpiar datos de envío</button>
+                <button type="button" class="btn-clear-shipping" onclick="clearShippingCustomerData()">Limpiar datos de envÃ­o</button>
             </div>
-            <p class="cart-customer-hint">Si queres cerrar rapido, completá todos los datos. Si tenes dudas, podés consultar primero por WhatsApp.</p>
+            <p class="cart-customer-hint">Si queres cerrar rapido, completÃ¡ todos los datos. Si tenes dudas, podÃ©s consultar primero por WhatsApp.</p>
         </div>`;
     
     footer.innerHTML = `
@@ -5528,16 +5525,16 @@ function renderCartPreview() {
             </div>
             ${totals.descuento > 0 ? `
                 <div class="cart-preview-summary-row">
-                    <span>Descuento 15% (4 prendas o más)</span>
+                    <span>Descuento 15% (4 prendas o mÃ¡s)</span>
                     <span class="value" style="color: var(--magic-green);">-$${totals.descuento.toLocaleString('es-AR')}</span>
                 </div>
             ` : ''}
             <div class="cart-preview-summary-row">
-                <span>Envío</span>
-                <span class="value">${totals.envioGratis ? '<span style="color:var(--magic-green);">GRATIS ✓</span>' : 'Según zona (se confirma por WhatsApp)'}</span>
+                <span>EnvÃ­o</span>
+                <span class="value">${totals.envioGratis ? '<span style="color:var(--magic-green);">GRATIS âœ“</span>' : 'SegÃºn zona (se confirma por WhatsApp)'}</span>
             </div>
             <div class="cart-preview-summary-row total">
-                <span>Total${totals.envioGratis ? '' : ' (sin envío)'}</span>
+                <span>Total${totals.envioGratis ? '' : ' (sin envÃ­o)'}</span>
                 <span class="value">$${totals.total.toLocaleString('es-AR')}</span>
             </div>
         </div>
@@ -5545,15 +5542,15 @@ function renderCartPreview() {
         ${shippingForm}
         <div class="cart-preview-info" style="margin-top:12px;padding:12px;background:#0a0a0a;border:1px solid #222;border-radius:8px;font-size:0.8rem;color:#888;">
             <div style="margin-bottom:8px;">
-                <span style="color:#39ff14;">📦 ENVÍO ANDREANI:</span> A domicilio o punto de retiro Andreani · 3-7 días hábiles a todo el país. 1 o 2 prendas: envío según zona. 3 prendas o más: envío gratis. 4 prendas o más: 15% OFF + envío gratis.
+                <span style="color:#39ff14;">ðŸ“¦ ENVÃO ANDREANI:</span> A domicilio o punto de retiro Andreani Â· 3-7 dÃ­as hÃ¡biles a todo el paÃ­s. 1 o 2 prendas: envÃ­o segÃºn zona. 3 prendas o mÃ¡s: envÃ­o gratis. 4 prendas o mÃ¡s: 15% OFF + envÃ­o gratis.
             </div>
             <div>
-                <span style="color:#39ff14;">💳 PAGO:</span> Transferencia o MercadoPago. Tarjeta de crédito con recargo $8.000.
+                <span style="color:#39ff14;">ðŸ’³ PAGO:</span> Transferencia o MercadoPago. Tarjeta de crÃ©dito con recargo $8.000.
             </div>
         </div>
         <div class="cart-preview-actions">
             <button class="btn-preview-continue" onclick="closeCartPreview()">
-                ← Seguir eligiendo
+                â† Seguir eligiendo
             </button>
             <button class="btn-preview-continue" onclick="consultFirstViaWhatsapp()">
                 Consultar primero
@@ -5574,7 +5571,7 @@ function removeAndRefreshPreview(index) {
     cart.removeFromCart(index);
     renderCartPreview();
     
-    // Si queda vacío, cerrar después de un momento
+    // Si queda vacÃ­o, cerrar despuÃ©s de un momento
     if (cart.getCart().length === 0) {
         setTimeout(() => closeCartPreview(), 1500);
     }
@@ -5586,7 +5583,7 @@ function confirmAndSendWhatsapp() {
 
     if (missing.length) {
         const labels = missing.map(getShippingFieldLabel).join(', ');
-        showNotification(`Completá los datos de envio: ${labels}.`, 3500);
+        showNotification(`CompletÃ¡ los datos de envio: ${labels}.`, 3500);
         focusFirstMissingShippingField(missing[0]);
         return;
     }
@@ -5601,7 +5598,7 @@ function consultFirstViaWhatsapp() {
     const customerData = getShippingCustomerData();
     const hasCustomerData = Object.values(customerData).some(Boolean);
     const partialShippingContext = hasCustomerData ? buildCustomerDataForWhatsapp(customerData) : '';
-    const message = `Hola FMD! Quiero consultar antes de confirmar este pedido:\n\n${summary}${partialShippingContext}\n\n¿Se puede retirar personalmente cuando esté listo o trabajan solo con envío?\n¿Me confirman la combinación elegida y el tiempo de producción?`;
+    const message = `Hola FMD! Quiero consultar antes de confirmar este pedido:\n\n${summary}${partialShippingContext}\n\nÂ¿Se puede retirar personalmente cuando estÃ© listo o trabajan solo con envÃ­o?\nÂ¿Me confirman la combinaciÃ³n elegida y el tiempo de producciÃ³n?`;
     saveShippingCustomerDataToStorage(customerData);
     closeCartPreview();
     openWhatsapp(message, 'cart_consulta');
@@ -5625,30 +5622,30 @@ function addToCartFromModal() {
     clearSelectionError('colorGroup');
 
     if (!isHoodieOrBuzo && !selectedAge) {
-        showNotification('Elegí edad antes de continuar.', 2200);
+        showNotification('ElegÃ­ edad antes de continuar.', 2200);
         markSelectionError('ageGroup');
         return false;
     }
 
     if (!selectedSize) {
-        showNotification('Elegí talle antes de continuar.', 2200);
+        showNotification('ElegÃ­ talle antes de continuar.', 2200);
         markSelectionError('sizeGroup');
         return false;
     }
 
     if (!isHoodieOrBuzo && !selectedCut) {
-        showNotification('Elegí corte antes de continuar.', 2200);
+        showNotification('ElegÃ­ corte antes de continuar.', 2200);
         markSelectionError('cutGroup');
         return false;
     }
 
     if (!selectedColor) {
-        showNotification('Elegí color antes de continuar.', 2200);
+        showNotification('ElegÃ­ color antes de continuar.', 2200);
         markSelectionError('colorGroup');
         return false;
     }
     
-    // Determinar si es doble estampa basándose en el dorso seleccionado
+    // Determinar si es doble estampa basÃ¡ndose en el dorso seleccionado
     const isDouble = isDoubleSelectionActive(currentProduct);
     const isCustom = isPersonalizedSelection(currentProduct);
     const variantIndex = getActiveVariantIndex();
@@ -5659,7 +5656,7 @@ function addToCartFromModal() {
         cut: selectedCut,
         color: selectedColor,
         category: garmentCategory,
-        backIndex: selectedBackIndex, // Índice del dorso seleccionado
+        backIndex: selectedBackIndex, // Ãndice del dorso seleccionado
         isCustom: isCustom
     };
     
@@ -5667,8 +5664,8 @@ function addToCartFromModal() {
     
     if (success) {
         const msg = isDouble && selectedBackIndex >= 0 
-            ? '✓ Agregado con frente + dorso' 
-            : (isDouble ? '✓ Agregado (dorso a definir)' : '✓ Agregado al carrito');
+            ? 'âœ“ Agregado con frente + dorso' 
+            : (isDouble ? 'âœ“ Agregado (dorso a definir)' : 'âœ“ Agregado al carrito');
         showNotification(msg, 2000);
     }
     
@@ -5685,15 +5682,15 @@ function addToCartAndOpenWhatsapp() {
     // Redirigir al checkout del carrito para completar datos de envio antes de WhatsApp
     setTimeout(() => {
         openCartPreview();
-        showNotification('Podés cerrar rapido con datos completos o consultar primero.', 2800);
+        showNotification('PodÃ©s cerrar rapido con datos completos o consultar primero.', 2800);
     }, 300);
 }
 
-// Función para actualizar el contador de productos
+// FunciÃ³n para actualizar el contador de productos
 function updateProductCounter() {
     if (!currentProduct) return;
     
-    // Obtener productos de la misma categoría
+    // Obtener productos de la misma categorÃ­a
     const relatedProducts = db.filter(p => p.category === currentProduct.category);
     const currentIndex = relatedProducts.findIndex(p => p.id === currentProduct.id);
     
@@ -5702,7 +5699,7 @@ function updateProductCounter() {
         counterEl.textContent = `${currentIndex + 1}/${relatedProducts.length}`;
     }
     
-    // Habilitar/deshabilitar botones de navegación
+    // Habilitar/deshabilitar botones de navegaciÃ³n
     const btnPrev = document.getElementById('btnNavPrev');
     const btnNext = document.getElementById('btnNavNext');
     if (btnPrev) btnPrev.disabled = currentIndex === 0;
@@ -5744,7 +5741,7 @@ function renderRelatedProducts(category) {
     
     if (!relatedContainer || !relatedGrid) return;
     
-    // Obtener productos de la misma categoría, excluyendo el actual
+    // Obtener productos de la misma categorÃ­a, excluyendo el actual
     const related = db
         .filter(p => matchesCategoryOrMetadata(p, category) && p.id !== currentProduct.id)
         .sort(compareProductsByPriorityThenId)
@@ -5783,7 +5780,7 @@ function loadProductFromHash() {
     }
 }
 
-// Cargar categoría desde URL query param (?cat=HoodiesFMD)
+// Cargar categorÃ­a desde URL query param (?cat=HoodiesFMD)
 function loadCategoryFromURL() {
     const params = new URLSearchParams(window.location.search);
     const cat = params.get('cat');
@@ -5826,7 +5823,7 @@ function initSearchModal() {
         if (e.target === searchModal) searchModal.classList.remove('active');
     };
     
-    // Búsqueda en tiempo real
+    // BÃºsqueda en tiempo real
     searchModalInput.oninput = (e) => {
         const query = e.target.value.toLowerCase().trim();
         
@@ -5835,7 +5832,7 @@ function initSearchModal() {
             return;
         }
 
-        // Si es código exacto, abrir modal directo (solo si la búsqueda es SOLO el código, sin espacios)
+        // Si es cÃ³digo exacto, abrir modal directo (solo si la bÃºsqueda es SOLO el cÃ³digo, sin espacios)
         if (!query.includes(' ') && query.length >= 2 && parseProductCode(query)) {
             const opened = openExactCodeMatch(query, () => searchModal.classList.remove('active'));
             if (opened) return;
@@ -5851,7 +5848,7 @@ function initSearchModal() {
         searchModalResults.innerHTML = results.map(p => `
             <div class="search-result-item" onclick="openModal(${p.id}${typeof p.matchedVariantIndex === 'number' ? ', ' + p.matchedVariantIndex : ''}); document.getElementById('searchModal').classList.remove('active');">
                 <div class="search-result-name">${p.name}</div>
-                <div class="search-result-meta">${formatCategoryMeta(p.year, getCategoryLabel(p.category))}${typeof p.matchedVariantIndex === 'number' && p.variants?.[p.matchedVariantIndex] ? ' · ' + p.variants[p.matchedVariantIndex].name : ''}</div>
+                <div class="search-result-meta">${formatCategoryMeta(p.year, getCategoryLabel(p.category))}${typeof p.matchedVariantIndex === 'number' && p.variants?.[p.matchedVariantIndex] ? ' Â· ' + p.variants[p.matchedVariantIndex].name : ''}</div>
             </div>
         `).join('');
     };
@@ -5870,7 +5867,7 @@ function initSearchModal() {
     });
 }
 
-// === COUNTDOWN MEGADETH - ÚLTIMA GIRA ===
+// === COUNTDOWN MEGADETH - ÃšLTIMA GIRA ===
 function initCountdown() {
     const showDate = new Date('2026-04-30T20:00:00-03:00'); // 30 abril 2026, 20:00 Argentina
     const banner = document.getElementById('countdownBanner');
@@ -5910,11 +5907,11 @@ function loadMegadethDestacados() {
     const grid = document.getElementById('megadethDestacadosGrid');
     if (!grid) return;
     
-    // IDs de los productos MÁS VENDIDOS según ventas reales (análisis abril 2026)
+    // IDs de los productos MÃS VENDIDOS segÃºn ventas reales (anÃ¡lisis abril 2026)
     const destacadosIds = [
-        6022,  // 💀 HISTÓRICO — Fast Loud and Rude 1984 Origins
-        6014,  // 🇦🇷 Dave Mustaine Argentina V1 - destacado principal para el show
-        6020,  // 🔥 Aguante Megadeth - frente y dorso
+        6022,  // ðŸ’€ HISTÃ“RICO â€” Fast Loud and Rude 1984 Origins
+        6014,  // ðŸ‡¦ðŸ‡· Dave Mustaine Argentina V1 - destacado principal para el show
+        6020,  // ðŸ”¥ Aguante Megadeth - frente y dorso
         6025,  // Megadeth 2026 - VIC LLAMAS FMD EDITION
         6026,  // KIMB FMD Edition
         4,     // Rust in Peace
@@ -5952,21 +5949,21 @@ function loadMegadethDestacados() {
 }
 
 // === COLECCIONES MEGADETH CON PREVIEW ===
-// IDs prioritarios por categoría para mostrar en preview
+// IDs prioritarios por categorÃ­a para mostrar en preview
 const PREVIEW_PRIORITY_IDS = {
     'Album': [6025, 6026, 1],
-    'Orígenes': [6022],
+    'OrÃ­genes': [6022],
     'Dave Mustaine': [6014, 6020, 6013, 2814, 2815] // Argentina V1 + Aguante Megadeth primero para el show
 };
 
-function renderCollectionPreview(gridId, category, maxItems = 5, buttonText = 'VER MÁS') {
+function renderCollectionPreview(gridId, category, maxItems = 5, buttonText = 'VER MÃS') {
     const grid = document.getElementById(gridId);
     if (!grid || !db.length) return;
     
-    // Filtrar productos por categoría
+    // Filtrar productos por categorÃ­a
     let products = db.filter(p => p.category === category);
     
-    // Si hay IDs prioritarios para esta categoría, reordenar
+    // Si hay IDs prioritarios para esta categorÃ­a, reordenar
     if (PREVIEW_PRIORITY_IDS[category]) {
         const priorityIds = PREVIEW_PRIORITY_IDS[category];
         const priorityProducts = priorityIds.map(id => db.find(p => p.id === id)).filter(Boolean);
@@ -5976,7 +5973,7 @@ function renderCollectionPreview(gridId, category, maxItems = 5, buttonText = 'V
     if (products.length === 0) return;
     
     let html = '';
-    // Siempre mostrar 4 cards normales + 1 card VER MÁS
+    // Siempre mostrar 4 cards normales + 1 card VER MÃS
     const normalCards = Math.min(4, products.length - 1);
     
     // Renderizar las primeras 4 cards normales
@@ -6003,7 +6000,7 @@ function renderCollectionPreview(gridId, category, maxItems = 5, buttonText = 'V
         `;
     }
     
-    // El 5to card (o último) siempre es VER MÁS
+    // El 5to card (o Ãºltimo) siempre es VER MÃS
     const verMasProduct = products[normalCards] || products[products.length - 1];
     const isHoodieVerMas = category === 'Hoodies FMD';
     const isBuzoRedondoVerMas = category === 'Buzo Cuello Redondo';
@@ -6030,9 +6027,9 @@ function renderCollectionPreview(gridId, category, maxItems = 5, buttonText = 'V
     grid.innerHTML = html;
 }
 
-// Función para filtrar por categoría y hacer scroll al catálogo
+// FunciÃ³n para filtrar por categorÃ­a y hacer scroll al catÃ¡logo
 function filterByCategory(category) {
-    // Activar el botón de categoría correspondiente
+    // Activar el botÃ³n de categorÃ­a correspondiente
     const catBtns = document.querySelectorAll('.cat-btn');
     catBtns.forEach(btn => {
         btn.classList.remove('active');
@@ -6041,7 +6038,7 @@ function filterByCategory(category) {
         }
     });
     
-    // Actualizar categoría actual y filtrar
+    // Actualizar categorÃ­a actual y filtrar
     currentUniverse = null;
     currentGarmentFilter = null;
     currentCategory = category;
@@ -6059,7 +6056,7 @@ function filterByCategory(category) {
     }
     filterProducts();
     
-    // Scroll al catálogo
+    // Scroll al catÃ¡logo
     const catalogToolbar = document.querySelector('.catalog-toolbar');
     if (catalogToolbar) {
         catalogToolbar.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -6097,7 +6094,7 @@ function resolveMegadethSegment(product) {
     const category = String(product?.category || '').toLowerCase();
 
     if (category === 'tour') return 'tour';
-    if (category === 'album' || category === 'origenes' || category === 'orígenes') return 'albumes';
+    if (category === 'album' || category === 'origenes' || category === 'orÃ­genes') return 'albumes';
     if (category === 'musician' || category === 'dave mustaine' || category === 'vicrattlehead') return 'musicos';
     if (category === 'dorsales') return 'dorsos';
     return 'todo';
@@ -6192,7 +6189,7 @@ function renderMegadethShowcaseCards(filtered) {
                 </div>
                 <div class="mgx-card-info">
                     <h3 class="mgx-card-title">${p.name}</h3>
-                    <p class="mgx-card-meta">${categoryLabel} · ${codeLabel}</p>
+                    <p class="mgx-card-meta">${categoryLabel} Â· ${codeLabel}</p>
                     <div class="mgx-actions">
                         <button class="mgx-btn mgx-btn-toggle" data-mgx-toggle="${p.id}" ${p.mgxHasBack ? '' : 'disabled'}>${toggleLabel}</button>
                         <button class="mgx-btn mgx-btn-open" data-mgx-open="${p.id}">Abrir ficha</button>
@@ -6291,7 +6288,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (heroCtaWhatsapp) {
         heroCtaWhatsapp.addEventListener('click', (e) => {
             e.preventDefault();
-            openWhatsapp('Hola FMD! Quiero hacer un pedido de sus diseños 🤘\n\nFormato: Buzo / Hoodie / Remera\nDiseño: ___\nBanda: ___\nTalle: ___\nColor: ___\nCP o ciudad: ___\n\n¿Me confirmás precio final y envío?', 'hero_general');
+            openWhatsapp('Hola FMD! Quiero hacer un pedido de sus diseÃ±os ðŸ¤˜\n\nFormato: Buzo / Hoodie / Remera\nDiseÃ±o: ___\nBanda: ___\nTalle: ___\nColor: ___\nCP o ciudad: ___\n\nÂ¿Me confirmÃ¡s precio final y envÃ­o?', 'hero_general');
         });
     }
 
@@ -6307,7 +6304,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (maidenCtaWhatsapp) {
         maidenCtaWhatsapp.addEventListener('click', (e) => {
             e.preventDefault();
-            openWhatsapp('Hola FMD! Quiero encargar un diseño de Iron Maiden.\n\nFormato: Remera / Hoodie / Buzo\nDiseño: ___\nTalle: ___\nColor: ___\nCP o ciudad: ___\n\n¿Me confirmás precio final y envío?', 'maiden_archive');
+            openWhatsapp('Hola FMD! Quiero encargar un diseÃ±o de Iron Maiden.\n\nFormato: Remera / Hoodie / Buzo\nDiseÃ±o: ___\nTalle: ___\nColor: ___\nCP o ciudad: ___\n\nÂ¿Me confirmÃ¡s precio final y envÃ­o?', 'maiden_archive');
         });
     }
 
@@ -6323,7 +6320,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (slayerCtaWhatsapp) {
         slayerCtaWhatsapp.addEventListener('click', (e) => {
             e.preventDefault();
-            openWhatsapp('Hola FMD! Quiero encargar un diseño de Slayer.\n\nFormato: Remera / Hoodie / Buzo cuello redondo\nDiseño: ___\nTalle: ___\nColor: ___\nCP o ciudad: ___\n\n¿Me confirmás precio final y envío?', 'slayer_archive');
+            openWhatsapp('Hola FMD! Quiero encargar un diseÃ±o de Slayer.\n\nFormato: Remera / Hoodie / Buzo cuello redondo\nDiseÃ±o: ___\nTalle: ___\nColor: ___\nCP o ciudad: ___\n\nÂ¿Me confirmÃ¡s precio final y envÃ­o?', 'slayer_archive');
         });
     }
 
@@ -6362,3 +6359,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Escuchar cambios en hash (si usuario navega directamente a #producto-123)
 window.addEventListener('hashchange', loadProductFromHash);
+

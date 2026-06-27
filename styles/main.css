@@ -5600,9 +5600,9 @@ header {
 .print-mode-selector {
     margin: 14px 0 12px;
     padding: 12px;
-    border: 1px solid rgba(232, 67, 46, 0.28);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 12px;
-    background: rgba(232, 67, 46, 0.055);
+    background: rgba(255, 255, 255, 0.035);
 }
 
 .print-mode-title {
@@ -5677,7 +5677,7 @@ header {
 
 .modal-advanced-panel {
     margin-top: 10px;
-    border: 1px solid rgba(232,67,46,0.25);
+    border: 1px solid rgba(255,255,255,0.12);
     border-radius: 12px;
     background: linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0.01));
     overflow: hidden;
@@ -5688,7 +5688,7 @@ header {
     cursor: pointer;
     padding: 13px 14px;
     font-weight: 700;
-    color: #f0f0f0;
+    color: #d8d8d8;
     font-size: 0.92rem;
 }
 
@@ -5792,6 +5792,30 @@ header {
     color: var(--text-muted);
     font-weight: 500;
     min-width: 50px;
+}
+
+.option-label-row {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    min-width: 50px;
+}
+
+.inline-size-guide-btn {
+    border: 1px solid rgba(57, 255, 20, 0.24);
+    background: rgba(57, 255, 20, 0.08);
+    color: var(--magic-green);
+    border-radius: 999px;
+    padding: 4px 8px;
+    font-size: 0.68rem;
+    font-weight: 800;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.inline-size-guide-btn:hover {
+    border-color: rgba(57, 255, 20, 0.42);
+    background: rgba(57, 255, 20, 0.14);
 }
 
 .option-buttons {
