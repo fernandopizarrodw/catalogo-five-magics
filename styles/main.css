@@ -5563,6 +5563,25 @@ header {
     margin-bottom: 12px;
 }
 
+.modal-garment-group {
+    margin: 12px 0 10px;
+    padding: 12px;
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 12px;
+    background: rgba(255,255,255,0.035);
+}
+
+.modal-garment-buttons {
+    width: 100%;
+}
+
+.modal-garment-btn {
+    flex: 1 1 130px;
+    justify-content: center;
+    border-radius: 999px;
+    font-weight: 800;
+}
+
 .modal-breadcrumb {
     font-size: 0.75rem;
     color: #777;
@@ -5597,8 +5616,16 @@ header {
     margin-bottom: 14px;
 }
 
+.modal-product-info .product-options {
+    margin-top: 0;
+}
+
+.modal-product-info .product-info-banner {
+    text-align: left;
+}
+
 .print-mode-selector {
-    margin: 14px 0 12px;
+    margin: 10px 0 10px;
     padding: 12px;
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 12px;
@@ -5661,6 +5688,10 @@ header {
     color: #c8c8c8;
     font-size: 0.72rem;
     line-height: 1.35;
+}
+
+.print-mode-help:empty {
+    display: none;
 }
 
 .double-selection-status {
@@ -5885,10 +5916,10 @@ header {
 
 .modal-price {
     font-family: var(--font-title);
-    font-size: 2rem;
+    font-size: 2.15rem;
     color: var(--price);
     font-weight: 700;
-    margin-bottom: 4px;
+    margin: 8px 0 8px;
     text-shadow: 0 0 16px rgba(255,200,87,0.08);
 }
 
@@ -5896,18 +5927,18 @@ header {
     font-size: 0.82rem;
     color: var(--magic-green);
     margin-bottom: 14px;
+    font-weight: 600;
+    background: rgba(30,215,96,0.08);
+    border: 1px solid rgba(30,215,96,0.14);
+    border-radius: 8px;
+    padding: 8px 10px;
+}
 
 .option-group.field-required-error {
     border: 1px solid #ff4d4f !important;
     border-radius: 8px;
     padding: 8px 10px !important;
     background: rgba(255, 77, 79, 0.08);
-}
-    font-weight: 600;
-    background: rgba(30,215,96,0.08);
-    border: 1px solid rgba(30,215,96,0.14);
-    border-radius: 8px;
-    padding: 8px 10px;
 }
 
 .badge-doble {
@@ -10258,7 +10289,7 @@ footer p {
     }
 
     .modal-product-info {
-        padding: 12px 12px 18px;
+        padding: 10px 12px 18px;
     }
 
     .modal-breadcrumb {
@@ -10272,7 +10303,7 @@ footer p {
 
     .modal-product-meta {
         font-size: 0.8rem;
-        margin-bottom: 8px;
+        margin-bottom: 6px;
     }
 
     .modal-product-desc {
@@ -10300,7 +10331,8 @@ footer p {
     }
 
     .modal-price {
-        font-size: 1.72rem;
+        font-size: 1.9rem;
+        margin: 6px 0;
     }
 
     .modal-price-note {
@@ -10332,20 +10364,22 @@ footer p {
         position: sticky;
         bottom: calc(env(safe-area-inset-bottom, 0px));
         background: linear-gradient(180deg, rgba(10,10,10,0.2), rgba(10,10,10,0.96) 24%);
-        padding-top: 10px;
+        padding-top: 8px;
         padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 6px);
-        margin-top: 10px;
+        margin-top: 8px;
         z-index: 5;
     }
 
     .modal-actions-primary .btn-primary {
-        min-height: 50px;
-        font-size: 1rem;
+        min-height: 48px;
+        font-size: 0.96rem;
         letter-spacing: 0.2px;
     }
 
     .modal-actions-primary .btn-primary-alt {
-        display: none;
+        display: block;
+        min-height: 42px;
+        font-size: 0.82rem;
     }
 
     .modal-actions-primary,
