@@ -8368,6 +8368,126 @@
         "fmdBadgeDescription": "Artes originales y reinterpretaciones exclusivas FMD del universo Slayer, reunidas en una card especial por prenda."
     },
     {
+        "id": 7124,
+        "category": "Slayer",
+        "year": "2026",
+        "name": "Slayer V1",
+        "tipoPrecio": "simple",
+        "isNew": true,
+        "priority": 198,
+        "img": "images/slayer/remera_slayer_v1.jpg",
+        "variants": [
+            {
+                "img": "images/slayer/remera_slayer_v1.jpg",
+                "name": "Slayer V1 - Remera",
+                "garmentCategory": "Slayer"
+            }
+        ],
+        "desc": "Nuevo diseño Slayer en remera con estampa frontal. Disponible para adaptar a hoodie o buzo cuello redondo a pedido.",
+        "band": "Slayer",
+        "collections": [
+            "Slayer Archive FMD",
+            "Slayer 2026"
+        ],
+        "tags": [
+            "Slayer",
+            "Remera",
+            "Thrash Metal",
+            "Slayer Archive FMD"
+        ],
+        "universe": [
+            "Thrash Metal"
+        ],
+        "album": null,
+        "garments": [
+            "remera"
+        ],
+        "campaigns": [],
+        "commercialPriority": 78,
+        "visibilityTier": "catalog",
+        "legacyCategory": "Slayer"
+    },
+    {
+        "id": 7125,
+        "category": "Slayer",
+        "year": "2026",
+        "name": "Slayer V2",
+        "tipoPrecio": "simple",
+        "isNew": true,
+        "priority": 197,
+        "img": "images/slayer/remera_slayer_v2.jpg",
+        "variants": [
+            {
+                "img": "images/slayer/remera_slayer_v2.jpg",
+                "name": "Slayer V2 - Remera",
+                "garmentCategory": "Slayer"
+            }
+        ],
+        "desc": "Nuevo diseño Slayer en remera con estampa frontal. Disponible para adaptar a hoodie o buzo cuello redondo a pedido.",
+        "band": "Slayer",
+        "collections": [
+            "Slayer Archive FMD",
+            "Slayer 2026"
+        ],
+        "tags": [
+            "Slayer",
+            "Remera",
+            "Thrash Metal",
+            "Slayer Archive FMD"
+        ],
+        "universe": [
+            "Thrash Metal"
+        ],
+        "album": null,
+        "garments": [
+            "remera"
+        ],
+        "campaigns": [],
+        "commercialPriority": 78,
+        "visibilityTier": "catalog",
+        "legacyCategory": "Slayer"
+    },
+    {
+        "id": 7126,
+        "category": "Slayer",
+        "year": "2026",
+        "name": "Slayer V3",
+        "tipoPrecio": "simple",
+        "isNew": true,
+        "priority": 196,
+        "img": "images/slayer/remera_slayer_v3.jpg",
+        "variants": [
+            {
+                "img": "images/slayer/remera_slayer_v3.jpg",
+                "name": "Slayer V3 - Remera",
+                "garmentCategory": "Slayer"
+            }
+        ],
+        "desc": "Nuevo diseño Slayer en remera con estampa frontal. Disponible para adaptar a hoodie o buzo cuello redondo a pedido.",
+        "band": "Slayer",
+        "collections": [
+            "Slayer Archive FMD",
+            "Slayer 2026"
+        ],
+        "tags": [
+            "Slayer",
+            "Remera",
+            "Thrash Metal",
+            "Slayer Archive FMD"
+        ],
+        "universe": [
+            "Thrash Metal"
+        ],
+        "album": null,
+        "garments": [
+            "remera"
+        ],
+        "campaigns": [],
+        "commercialPriority": 78,
+        "visibilityTier": "catalog",
+        "legacyCategory": "Slayer"
+    },
+    {
         "id": 7101,
         "category": "Slayer",
         "year": "2026",
@@ -14544,6 +14664,148 @@
             "Mas bandas",
             "remera",
             "Deep Purple Archive"
+        ]
+    },
+    {
+        "id": 5084,
+        "category": "Bandas Sugeridas",
+        "year": "2026",
+        "name": "Evanescence - diseños sugeridos",
+        "tipoPrecio": "simple",
+        "isNew": true,
+        "img": "images/banda_sugeridas/evanescence/remera_evanescence_fallen.jpg",
+        "variants": [
+            {
+                "img": "images/banda_sugeridas/evanescence/remera_evanescence_fallen.jpg",
+                "name": "Evanescence Fallen - Remera",
+                "garmentCategory": "Bandas Sugeridas"
+            },
+            {
+                "img": "images/banda_sugeridas/evanescence/remera_evanescence_anywhere.jpg",
+                "name": "Evanescence Anywhere - Remera",
+                "garmentCategory": "Bandas Sugeridas"
+            },
+            {
+                "img": "images/banda_sugeridas/evanescence/remera_evanescence_evanescence.jpg",
+                "name": "Evanescence - Remera",
+                "garmentCategory": "Bandas Sugeridas"
+            },
+            {
+                "img": "images/banda_sugeridas/evanescence/remera_evanescence_lost_whispers.jpg",
+                "name": "Evanescence Lost Whispers - Remera",
+                "garmentCategory": "Bandas Sugeridas"
+            },
+            {
+                "img": "images/banda_sugeridas/evanescence/remera_evanescence_sanctuary.jpg",
+                "name": "Evanescence Sanctuary - Remera",
+                "garmentCategory": "Bandas Sugeridas"
+            },
+            {
+                "img": "images/banda_sugeridas/evanescence/remera_evanescence_synthesis.jpg",
+                "name": "Evanescence Synthesis - Remera",
+                "garmentCategory": "Bandas Sugeridas"
+            },
+            {
+                "img": "images/banda_sugeridas/evanescence/remera_evanescence_the_open_door.jpg",
+                "name": "Evanescence The Open Door - Remera",
+                "garmentCategory": "Bandas Sugeridas"
+            },
+            {
+                "img": "images/banda_sugeridas/evanescence/remera_evanescence_the_open_door_v2.jpg",
+                "name": "Evanescence The Open Door V2 - Remera",
+                "garmentCategory": "Bandas Sugeridas"
+            }
+        ],
+        "desc": "Selección inicial de Evanescence para sumar al archivo de más bandas. Formato rápido en remera con estampa frontal para medir demanda.",
+        "band": "Evanescence",
+        "universe": [
+            "Rock Legends",
+            "Modern Metal"
+        ],
+        "album": null,
+        "garments": [
+            "remera"
+        ],
+        "collections": [
+            "Evanescence Archive",
+            "Mas bandas"
+        ],
+        "campaigns": [],
+        "commercialPriority": 74,
+        "visibilityTier": "catalog",
+        "legacyCategory": "Bandas Sugeridas",
+        "tags": [
+            "Evanescence",
+            "Rock Legends",
+            "Modern Metal",
+            "Mas bandas",
+            "remera",
+            "Evanescence Archive"
+        ]
+    },
+    {
+        "id": 5085,
+        "category": "Bandas Sugeridas",
+        "year": "2026",
+        "name": "Anthrax - disenos sugeridos",
+        "tipoPrecio": "simple",
+        "isNew": true,
+        "img": "images/banda_sugeridas/anthrax/remera_anthrax_among_the_living.jpg",
+        "variants": [
+            {
+                "img": "images/banda_sugeridas/anthrax/remera_anthrax_among_the_living.jpg",
+                "name": "Anthrax Among The Living - Remera",
+                "garmentCategory": "Bandas Sugeridas"
+            },
+            {
+                "img": "images/banda_sugeridas/anthrax/remera_anthrax.jpg",
+                "name": "Anthrax - Remera",
+                "garmentCategory": "Bandas Sugeridas"
+            },
+            {
+                "img": "images/banda_sugeridas/anthrax/remera_anthrax_persistence_of_time.jpg",
+                "name": "Anthrax Persistence Of Time - Remera",
+                "garmentCategory": "Bandas Sugeridas"
+            },
+            {
+                "img": "images/banda_sugeridas/anthrax/remera_anthrax_sound_of_white_noise.jpg",
+                "name": "Anthrax Sound Of White Noise - Remera",
+                "garmentCategory": "Bandas Sugeridas"
+            },
+            {
+                "img": "images/banda_sugeridas/anthrax/remera_anthrax_spreanding_the_disease.jpg",
+                "name": "Anthrax Spreading The Disease - Remera",
+                "garmentCategory": "Bandas Sugeridas"
+            },
+            {
+                "img": "images/banda_sugeridas/anthrax/remera_anthrax_worship_music.jpg",
+                "name": "Anthrax Worship Music - Remera",
+                "garmentCategory": "Bandas Sugeridas"
+            }
+        ],
+        "desc": "Seleccion inicial de Anthrax para sumar al archivo de mas bandas. Formato rapido en remera con estampa frontal para medir demanda.",
+        "band": "Anthrax",
+        "universe": [
+            "Thrash Metal"
+        ],
+        "album": null,
+        "garments": [
+            "remera"
+        ],
+        "collections": [
+            "Anthrax Archive",
+            "Mas bandas"
+        ],
+        "campaigns": [],
+        "commercialPriority": 78,
+        "visibilityTier": "catalog",
+        "legacyCategory": "Bandas Sugeridas",
+        "tags": [
+            "Anthrax",
+            "Thrash Metal",
+            "Mas bandas",
+            "remera",
+            "Anthrax Archive"
         ]
     }
 ]

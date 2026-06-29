@@ -1,4 +1,4 @@
-/* --- VER MÁS HOODIES UX --- */
+﻿/* --- VER MÁS HOODIES UX --- */
 .ver-mas-card {
     position: relative;
     overflow: hidden;
@@ -5582,6 +5582,76 @@ header {
     font-weight: 800;
 }
 
+.modal-garment-group-locked .modal-garment-btn {
+    cursor: default;
+    opacity: 1;
+    pointer-events: none;
+}
+
+.modal-delivery-box {
+    margin: 12px 0;
+    padding: 12px;
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 12px;
+    background: rgba(255,255,255,0.035);
+}
+
+.modal-delivery-options {
+    display: grid;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.modal-delivery-btn {
+    width: 100%;
+    justify-content: flex-start;
+    text-align: left;
+    border-radius: 10px;
+}
+
+.modal-postal-field {
+    margin-top: 10px;
+}
+
+.modal-postal-field label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    font-weight: 800;
+}
+
+.modal-postal-field input {
+    width: 100%;
+    border: 1px solid rgba(255,255,255,0.16);
+    border-radius: 10px;
+    background: #090909;
+    color: #fff;
+    padding: 11px 12px;
+    font-size: 1rem;
+}
+
+.modal-postal-field small {
+    display: block;
+    margin-top: 6px;
+    color: var(--text-muted);
+    font-size: 0.76rem;
+    line-height: 1.3;
+}
+
+.modal-delivery-note {
+    margin: 10px 0 0;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    line-height: 1.45;
+}
+
+.modal-delivery-note strong {
+    color: #f2f2f2;
+}
+
 .modal-breadcrumb {
     font-size: 0.75rem;
     color: #777;
@@ -5916,7 +5986,7 @@ header {
 
 .modal-price {
     font-family: var(--font-title);
-    font-size: 2.15rem;
+    font-size: 1.72rem;
     color: var(--price);
     font-weight: 700;
     margin: 8px 0 8px;
@@ -10331,7 +10401,7 @@ footer p {
     }
 
     .modal-price {
-        font-size: 1.9rem;
+        font-size: 1.42rem;
         margin: 6px 0;
     }
 
