@@ -8488,6 +8488,46 @@
         "legacyCategory": "Slayer"
     },
     {
+        "id": 7127,
+        "category": "Slayer",
+        "year": "2026",
+        "name": "Slayer V4",
+        "tipoPrecio": "simple",
+        "isNew": true,
+        "priority": 195,
+        "img": "images/slayer/remera_slayer_v4.jpg",
+        "variants": [
+            {
+                "img": "images/slayer/remera_slayer_v4.jpg",
+                "name": "Slayer V4 - Remera",
+                "garmentCategory": "Slayer"
+            }
+        ],
+        "desc": "Nuevo diseño Slayer en remera con estampa frontal. Disponible para adaptar a hoodie o buzo cuello redondo a pedido.",
+        "band": "Slayer",
+        "collections": [
+            "Slayer Archive FMD",
+            "Slayer 2026"
+        ],
+        "tags": [
+            "Slayer",
+            "Remera",
+            "Thrash Metal",
+            "Slayer Archive FMD"
+        ],
+        "universe": [
+            "Thrash Metal"
+        ],
+        "album": null,
+        "garments": [
+            "remera"
+        ],
+        "campaigns": [],
+        "commercialPriority": 78,
+        "visibilityTier": "catalog",
+        "legacyCategory": "Slayer"
+    },
+    {
         "id": 7101,
         "category": "Slayer",
         "year": "2026",
