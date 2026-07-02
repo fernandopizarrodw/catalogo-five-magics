@@ -7167,22 +7167,65 @@
         "year": "2026",
         "name": "Angra",
         "tipoPrecio": "simple",
-        "img": "images/banda_sugeridas/angra/angra_temple_of_shadows_.jpg",
+        "img": "images/banda_sugeridas/angra/remera_angra_holy_land.jpg",
         "variants": [
             {
                 "img": "images/banda_sugeridas/angra/angra_temple_of_shadows_.jpg",
-                "name": "Temple of Shadows"
+                "name": "Angra Temple Of Shadows Classic - Remera",
+                "garmentCategory": "Bandas Sugeridas"
             },
             {
                 "img": "images/banda_sugeridas/angra/angra_rebirth.jpg",
-                "name": "Rebirth"
+                "name": "Angra Rebirth Classic - Remera",
+                "garmentCategory": "Bandas Sugeridas"
             },
             {
                 "img": "images/banda_sugeridas/angra/angra_angels_cry.jpg",
-                "name": "Angels Cry"
+                "name": "Angra Angels Cry Classic - Remera",
+                "garmentCategory": "Bandas Sugeridas"
+            },
+            {
+                "img": "images/banda_sugeridas/angra/remera_angra_angels_cry.jpg",
+                "name": "Angra Angels Cry - Remera",
+                "garmentCategory": "Bandas Sugeridas"
+            },
+            {
+                "img": "images/banda_sugeridas/angra/remera_angra_holy_land.jpg",
+                "name": "Angra Holy Land - Remera",
+                "garmentCategory": "Bandas Sugeridas"
+            },
+            {
+                "img": "images/banda_sugeridas/angra/remera_angra_holy_land_band.jpg",
+                "name": "Angra Holy Land Band - Remera",
+                "garmentCategory": "Bandas Sugeridas"
+            },
+            {
+                "img": "images/banda_sugeridas/angra/remera_angra_holy_land_white.jpg",
+                "name": "Angra Holy Land White - Remera",
+                "garmentCategory": "Bandas Sugeridas"
+            },
+            {
+                "img": "images/banda_sugeridas/angra/remera_angra_logo.jpg",
+                "name": "Angra Logo - Remera",
+                "garmentCategory": "Bandas Sugeridas"
+            },
+            {
+                "img": "images/banda_sugeridas/angra/remera_angra_rebirth.jpg",
+                "name": "Angra Rebirth - Remera",
+                "garmentCategory": "Bandas Sugeridas"
+            },
+            {
+                "img": "images/banda_sugeridas/angra/remera_angra_temple.jpg",
+                "name": "Angra Temple - Remera",
+                "garmentCategory": "Bandas Sugeridas"
+            },
+            {
+                "img": "images/banda_sugeridas/angra/remera_angra_temple_tour.jpg",
+                "name": "Angra Temple Tour - Remera",
+                "garmentCategory": "Bandas Sugeridas"
             }
         ],
-        "desc": "Angra - Metal progresivo brasileÃ±o con 3 diseÃ±os de Ã¡lbumes clÃ¡sicos.",
+        "desc": "Seleccion ampliada de Angra para el archivo de mas bandas. Formato rapido en remera con estampa frontal para medir demanda.",
         "band": "Angra",
         "universe": [
             "Heavy Metal Classics",
@@ -7193,7 +7236,8 @@
             "remera"
         ],
         "collections": [
-            "Angra Archive"
+            "Angra Archive",
+            "Mas bandas"
         ],
         "campaigns": [],
         "commercialPriority": 78,
@@ -7204,7 +7248,8 @@
             "Heavy Metal Classics",
             "Modern Metal",
             "remera",
-            "Angra Archive"
+            "Angra Archive",
+            "Mas bandas"
         ]
     },
     {
@@ -7481,18 +7526,56 @@
         "variants": [
             {
                 "img": "images/banda_sugeridas/helloween/helloween_40_tour.jpg",
-                "name": "Frente"
+                "name": "Helloween 40 Tour - Remera",
+                "garmentCategory": "Bandas Sugeridas"
             },
             {
                 "img": "images/banda_sugeridas/helloween/dorso_helloween_40_tour.jpg",
-                "name": "Dorso"
+                "name": "Helloween 40 Tour Dorso - Remera",
+                "garmentCategory": "Bandas Sugeridas"
             },
             {
                 "img": "images/banda_sugeridas/helloween/helloween.jpg",
-                "name": "Helloween"
+                "name": "Helloween - Remera",
+                "garmentCategory": "Bandas Sugeridas"
+            },
+            {
+                "img": "images/banda_sugeridas/helloween/remera_helloween_walls_of_jericho.jpg",
+                "name": "Helloween Walls Of Jericho - Remera",
+                "garmentCategory": "Bandas Sugeridas"
+            },
+            {
+                "img": "images/banda_sugeridas/helloween/remera_helloween_keepers.jpg",
+                "name": "Helloween Keepers - Remera",
+                "garmentCategory": "Bandas Sugeridas"
+            },
+            {
+                "img": "images/banda_sugeridas/helloween/remera_helloween_keepers_II.jpg",
+                "name": "Helloween Keepers II - Remera",
+                "garmentCategory": "Bandas Sugeridas"
+            },
+            {
+                "img": "images/banda_sugeridas/helloween/remera_helloween_2021.jpg",
+                "name": "Helloween 2021 - Remera",
+                "garmentCategory": "Bandas Sugeridas"
+            },
+            {
+                "img": "images/banda_sugeridas/helloween/remera_helloween_master.jpg",
+                "name": "Helloween Master - Remera",
+                "garmentCategory": "Bandas Sugeridas"
+            },
+            {
+                "img": "images/banda_sugeridas/helloween/remera_helloween_the_time.jpg",
+                "name": "Helloween The Time - Remera",
+                "garmentCategory": "Bandas Sugeridas"
+            },
+            {
+                "img": "images/banda_sugeridas/helloween/remera_helloween_better.jpg",
+                "name": "Helloween Better - Remera",
+                "garmentCategory": "Bandas Sugeridas"
             }
         ],
-        "desc": "Helloween - ColecciÃ³n con diseÃ±o 40 Tour, dorso y variante clÃ¡sica adicional.",
+        "desc": "Seleccion ampliada de Helloween para el archivo de mas bandas. Formato rapido en remera con estampa frontal para medir demanda.",
         "band": "Helloween",
         "universe": [
             "Heavy Metal Classics"
@@ -7502,7 +7585,8 @@
             "remera"
         ],
         "collections": [
-            "Helloween Archive"
+            "Helloween Archive",
+            "Mas bandas"
         ],
         "campaigns": [],
         "commercialPriority": 78,
@@ -7512,7 +7596,8 @@
             "Helloween",
             "Heavy Metal Classics",
             "remera",
-            "Helloween Archive"
+            "Helloween Archive",
+            "Mas bandas"
         ]
     },
     {
@@ -14846,6 +14931,131 @@
             "Mas bandas",
             "remera",
             "Anthrax Archive"
+        ]
+    },
+    {
+        "id": 5086,
+        "category": "Bandas Sugeridas",
+        "year": "2026",
+        "name": "Andre Matos - disenos sugeridos",
+        "tipoPrecio": "simple",
+        "isNew": true,
+        "img": "images/banda_sugeridas/angra/remera_andre_matos_time_to_be_free.jpg",
+        "variants": [
+            {
+                "img": "images/banda_sugeridas/angra/remera_andre_matos_time_to_be_free.jpg",
+                "name": "Andre Matos Time To Be Free - Remera",
+                "garmentCategory": "Bandas Sugeridas"
+            }
+        ],
+        "desc": "Seleccion inicial de Andre Matos para sumar al archivo de mas bandas. Formato rapido en remera con estampa frontal para medir demanda.",
+        "band": "Andre Matos",
+        "universe": [
+            "Power Metal",
+            "Heavy Metal Classics"
+        ],
+        "album": null,
+        "garments": [
+            "remera"
+        ],
+        "collections": [
+            "Andre Matos Archive",
+            "Mas bandas"
+        ],
+        "campaigns": [],
+        "commercialPriority": 72,
+        "visibilityTier": "catalog",
+        "legacyCategory": "Bandas Sugeridas",
+        "tags": [
+            "Andre Matos",
+            "Angra",
+            "Power Metal",
+            "Heavy Metal Classics",
+            "Mas bandas",
+            "remera",
+            "Andre Matos Archive"
+        ]
+    },
+    {
+        "id": 5087,
+        "category": "Bandas Sugeridas",
+        "year": "2026",
+        "name": "Blind Guardian - disenos sugeridos",
+        "tipoPrecio": "simple",
+        "isNew": true,
+        "img": "images/banda_sugeridas/blind_guardian/remera_blind_guardian_nightfall.jpg",
+        "variants": [
+            {
+                "img": "images/banda_sugeridas/blind_guardian/remera_blind_guardian_nightfall.jpg",
+                "name": "Blind Guardian Nightfall - Remera",
+                "garmentCategory": "Bandas Sugeridas"
+            },
+            {
+                "img": "images/banda_sugeridas/blind_guardian/remera_blind_guardian_a_night_.jpg",
+                "name": "Blind Guardian A Night At The Opera - Remera",
+                "garmentCategory": "Bandas Sugeridas"
+            },
+            {
+                "img": "images/banda_sugeridas/blind_guardian/remera_blind_guardian_follow.jpg",
+                "name": "Blind Guardian Follow The Blind - Remera",
+                "garmentCategory": "Bandas Sugeridas"
+            },
+            {
+                "img": "images/banda_sugeridas/blind_guardian/remera_blind_guardian_imaginations_.jpg",
+                "name": "Blind Guardian Imaginations - Remera",
+                "garmentCategory": "Bandas Sugeridas"
+            },
+            {
+                "img": "images/banda_sugeridas/blind_guardian/remera_blind_guardian_logo.jpg",
+                "name": "Blind Guardian Logo - Remera",
+                "garmentCategory": "Bandas Sugeridas"
+            },
+            {
+                "img": "images/banda_sugeridas/blind_guardian/remera_blind_guardian_sacrament.jpg",
+                "name": "Blind Guardian Sacrament - Remera",
+                "garmentCategory": "Bandas Sugeridas"
+            },
+            {
+                "img": "images/banda_sugeridas/blind_guardian/remera_blind_guardian_somewhere.jpg",
+                "name": "Blind Guardian Somewhere Far Beyond - Remera",
+                "garmentCategory": "Bandas Sugeridas"
+            },
+            {
+                "img": "images/banda_sugeridas/blind_guardian/remera_blind_guardian_swizard.jpg",
+                "name": "Blind Guardian Wizard - Remera",
+                "garmentCategory": "Bandas Sugeridas"
+            },
+            {
+                "img": "images/banda_sugeridas/blind_guardian/remera_blind_guardian_the_god_machine_.jpg",
+                "name": "Blind Guardian The God Machine - Remera",
+                "garmentCategory": "Bandas Sugeridas"
+            }
+        ],
+        "desc": "Seleccion inicial de Blind Guardian para sumar al archivo de mas bandas. Formato rapido en remera con estampa frontal para medir demanda.",
+        "band": "Blind Guardian",
+        "universe": [
+            "Power Metal",
+            "Heavy Metal Classics"
+        ],
+        "album": null,
+        "garments": [
+            "remera"
+        ],
+        "collections": [
+            "Blind Guardian Archive",
+            "Mas bandas"
+        ],
+        "campaigns": [],
+        "commercialPriority": 76,
+        "visibilityTier": "catalog",
+        "legacyCategory": "Bandas Sugeridas",
+        "tags": [
+            "Blind Guardian",
+            "Power Metal",
+            "Heavy Metal Classics",
+            "Mas bandas",
+            "remera",
+            "Blind Guardian Archive"
         ]
     }
 ]
