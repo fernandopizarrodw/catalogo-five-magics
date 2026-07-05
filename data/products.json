@@ -7362,25 +7362,75 @@
         "variants": [
             {
                 "img": "images/banda_sugeridas/dream_theater/dream_theater_parasomnia_frente.jpg",
-                "name": "Parasomnia Frente"
+                "name": "Dream Theater Parasomnia Frente - Remera",
+                "garmentCategory": "Bandas Sugeridas"
             },
             {
                 "img": "images/banda_sugeridas/dream_theater/dream_theater_parasomnia_dorso.jpg",
-                "name": "Parasomnia Dorso"
+                "name": "Dream Theater Parasomnia Dorso - Remera",
+                "garmentCategory": "Bandas Sugeridas"
+            },
+            {
+                "img": "images/banda_sugeridas/dream_theater/hoodie_dream_theater_awake.jpg",
+                "name": "Dream Theater Awake - Hoodie",
+                "garmentCategory": "Hoodies Otras Bandas"
+            },
+            {
+                "img": "images/banda_sugeridas/dream_theater/hoodie_dream_theater_black_clouds.jpg",
+                "name": "Dream Theater Black Clouds - Hoodie",
+                "garmentCategory": "Hoodies Otras Bandas"
+            },
+            {
+                "img": "images/banda_sugeridas/dream_theater/hoodie_dream_theater_images_and_words.jpg",
+                "name": "Dream Theater Images And Words - Hoodie",
+                "garmentCategory": "Hoodies Otras Bandas"
+            },
+            {
+                "img": "images/banda_sugeridas/dream_theater/hoodie_dream_theater_logo.jpg",
+                "name": "Dream Theater Logo - Hoodie",
+                "garmentCategory": "Hoodies Otras Bandas"
+            },
+            {
+                "img": "images/banda_sugeridas/dream_theater/hoodie_dream_theater_octavarium.jpg",
+                "name": "Dream Theater Octavarium - Hoodie",
+                "garmentCategory": "Hoodies Otras Bandas"
+            },
+            {
+                "img": "images/banda_sugeridas/dream_theater/hoodie_dream_theater_parasomnia.jpg",
+                "name": "Dream Theater Parasomnia - Hoodie",
+                "garmentCategory": "Hoodies Otras Bandas"
+            },
+            {
+                "img": "images/banda_sugeridas/dream_theater/hoodie_dream_theater_scenes.jpg",
+                "name": "Dream Theater Scenes - Hoodie",
+                "garmentCategory": "Hoodies Otras Bandas"
+            },
+            {
+                "img": "images/banda_sugeridas/dream_theater/hoodie_dream_theater_six_degrees.jpg",
+                "name": "Dream Theater Six Degrees - Hoodie",
+                "garmentCategory": "Hoodies Otras Bandas"
+            },
+            {
+                "img": "images/banda_sugeridas/dream_theater/hoodie_dream_theater_train_of_thought.jpg",
+                "name": "Dream Theater Train Of Thought - Hoodie",
+                "garmentCategory": "Hoodies Otras Bandas"
             }
         ],
-        "desc": "Dream Theater - Metal progresivo con 2 variantes frente y dorso.",
+        "desc": "Seleccion ampliada de Dream Theater con remeras y hoodies. Archivo de mas bandas para pedidos a demanda.",
         "band": "Dream Theater",
         "universe": [
             "Modern Metal"
         ],
         "album": "Parasomnia",
         "garments": [
-            "remera"
+            "remera",
+            "hoodie"
         ],
         "collections": [
             "Dream Theater Archive",
-            "Parasomnia"
+            "Parasomnia",
+            "Hoodies Otras Bandas",
+            "Mas bandas"
         ],
         "campaigns": [],
         "commercialPriority": 78,
@@ -7391,7 +7441,10 @@
             "Modern Metal",
             "Parasomnia",
             "remera",
-            "Dream Theater Archive"
+            "Dream Theater Archive",
+            "hoodie",
+            "Hoodies Otras Bandas",
+            "Mas bandas"
         ]
     },
     {

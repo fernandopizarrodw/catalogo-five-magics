@@ -1655,7 +1655,184 @@ body {
     font-size: 0.68rem;
 }
 
+.winter-promos-section {
+    max-width: 1180px;
+    margin: 26px auto 18px;
+    padding: 0 18px;
+}
+
+.winter-promos-head {
+    background: linear-gradient(135deg, rgba(10,10,10,0.96), rgba(22,18,15,0.94));
+    border: 1px solid rgba(255, 200, 87, 0.22);
+    border-radius: 22px 22px 0 0;
+    padding: 22px 24px 18px;
+    text-align: center;
+    box-shadow: 0 18px 50px rgba(0,0,0,0.28);
+}
+
+.winter-promos-kicker {
+    margin: 0 0 8px;
+    color: var(--magic-green);
+    font-family: var(--font-title);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-size: 0.82rem;
+}
+
+.winter-promos-head h2 {
+    margin: 0;
+    color: #fff;
+    font-family: var(--font-title);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    font-size: clamp(1.35rem, 3vw, 2.25rem);
+}
+
+.winter-promos-head p:not(.winter-promos-kicker) {
+    margin: 10px auto 0;
+    max-width: 720px;
+    color: rgba(255,255,255,0.72);
+    font-size: 0.95rem;
+    line-height: 1.45;
+}
+
+.winter-promos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 12px;
+    background: rgba(0,0,0,0.72);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-top: 0;
+    border-radius: 0 0 22px 22px;
+    padding: 14px;
+}
+
+.winter-promo-card {
+    position: relative;
+    min-height: 220px;
+    padding: 18px;
+    border-radius: 18px;
+    background: radial-gradient(circle at top left, rgba(57,255,20,0.09), transparent 42%), linear-gradient(160deg, rgba(18,18,18,0.98), rgba(8,8,8,0.98));
+    border: 1px solid rgba(255,255,255,0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    overflow: hidden;
+}
+
+.winter-promo-card-featured {
+    border-color: rgba(255,200,87,0.35);
+    box-shadow: inset 0 0 0 1px rgba(255,200,87,0.08), 0 12px 34px rgba(0,0,0,0.24);
+}
+
+.winter-promo-combo {
+    grid-column: span 2;
+    background: radial-gradient(circle at top left, rgba(255,200,87,0.18), transparent 44%), linear-gradient(145deg, rgba(28,18,10,0.98), rgba(8,8,8,0.98));
+}
+
+.winter-combo-lines {
+    display: grid;
+    gap: 8px;
+}
+
+.winter-combo-lines strong {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 10px 12px;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: #fff;
+    font-size: 0.86rem;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+}
+
+.winter-combo-lines span {
+    color: var(--fmd-yellow);
+    white-space: nowrap;
+}
+
+.winter-promo-tag {
+    align-self: flex-start;
+    padding: 5px 9px;
+    border-radius: 999px;
+    background: rgba(57,255,20,0.1);
+    border: 1px solid rgba(57,255,20,0.24);
+    color: var(--magic-green);
+    font-weight: 900;
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.winter-promo-card h3 {
+    margin: 0;
+    color: #fff;
+    font-family: var(--font-title);
+    text-transform: uppercase;
+    font-size: 1.1rem;
+    letter-spacing: 0.04em;
+}
+
+.winter-promo-card p {
+    margin: 0;
+    color: rgba(255,255,255,0.72);
+    font-size: 0.86rem;
+    line-height: 1.45;
+    flex: 1;
+}
+
 @media (max-width: 760px) {
+    .winter-promos-section {
+        margin: 18px auto 12px;
+        padding: 0 12px;
+    }
+
+    .winter-promos-head {
+        padding: 18px 14px 14px;
+        border-radius: 18px 18px 0 0;
+    }
+
+    .winter-promos-head h2 {
+        font-size: 1.35rem;
+        line-height: 1.05;
+    }
+
+    .winter-promos-head p:not(.winter-promos-kicker) {
+        font-size: 0.84rem;
+    }
+
+    .winter-promos-grid {
+        grid-template-columns: 1fr;
+        padding: 10px;
+        gap: 10px;
+        border-radius: 0 0 18px 18px;
+    }
+
+    .winter-promo-card {
+        min-height: auto;
+        padding: 15px;
+    }
+
+    .winter-promo-combo {
+        grid-column: auto;
+    }
+
+    .winter-combo-lines strong {
+        display: grid;
+        gap: 4px;
+    }
+
+    .winter-promo-card h3 {
+        font-size: 1rem;
+    }
+
+    .winter-promo-card p {
+        font-size: 0.82rem;
+    }
+
     .father-day-promo {
         padding: 16px 14px 18px;
     }
@@ -8992,7 +9169,8 @@ footer p {
     margin-top: 18px;
 }
 
-.hero-proof span {
+.hero-proof span,
+.hero-proof-promo {
     padding: 7px 14px;
     border-radius: 999px;
     background: rgba(7, 7, 7, 0.72);
@@ -9002,6 +9180,21 @@ footer p {
     letter-spacing: 0.04em;
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
+}
+
+.hero-proof-promo {
+    background: linear-gradient(135deg, rgba(232,67,46,0.95), rgba(255,92,62,0.92));
+    border-color: rgba(255,255,255,0.18);
+    color: #fff;
+    font-weight: 900;
+    text-decoration: none;
+    text-transform: uppercase;
+    box-shadow: 0 12px 28px rgba(232,67,46,0.22);
+}
+
+.hero-proof-promo:hover {
+    transform: translateY(-1px);
+    filter: brightness(1.06);
 }
 
 .hero-proof span.hero-proof-priority {
@@ -11101,7 +11294,8 @@ footer p {
         display: none;
     }
 
-    .hero-proof span {
+    .hero-proof span,
+    .hero-proof-promo {
         flex: none;
         width: 100%;
         padding: 8px 10px;
