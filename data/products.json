@@ -5567,14 +5567,18 @@
         ],
         "album": "Vulgar Display of Power",
         "garments": [
-            "remera"
+            "remera",
+            "hoodie"
         ],
         "collections": [
             "Pantera Archive",
             "Vulgar Display of Power",
-            "FMD Editions"
+            "FMD Editions",
+            "Hoodies Otras Bandas"
         ],
-        "campaigns": [],
+        "campaigns": [
+            "Invierno 2026"
+        ],
         "commercialPriority": 78,
         "visibilityTier": "featured",
         "legacyCategory": "Pantera",
@@ -5585,7 +5589,183 @@
             "FMD Editions",
             "Vulgar Display of Power",
             "remera",
-            "Pantera Archive"
+            "Pantera Archive",
+            "hoodie",
+            "Hoodies Otras Bandas",
+            "Invierno 2026"
+        ],
+        "variants": [
+            {
+                "img": "images/pantera/vulgar_fmd.jpg",
+                "name": "Vulgar FMD"
+            },
+            {
+                "img": "images/pantera/remera_pantera_vulgar_display_of_power.jpg",
+                "name": "Vulgar Display of Power - Remera"
+            },
+            {
+                "img": "images/pantera/hoodie_pantera_vulgar_display_of_power.jpg",
+                "name": "Vulgar Display of Power - Hoodie",
+                "garmentCategory": "Hoodies Otras Bandas"
+            }
+        ]
+    },
+    {
+        "id": 4192,
+        "category": "Pantera",
+        "year": "1990",
+        "name": "Cowboys From Hell",
+        "tipoPrecio": "simple",
+        "isNew": true,
+        "img": "images/pantera/remera_pantera_cowboys_from_hell.jpg",
+        "variants": [
+            {
+                "img": "images/pantera/remera_pantera_cowboys_from_hell.jpg",
+                "name": "Cowboys From Hell - Remera"
+            },
+            {
+                "img": "images/pantera/hoodie_pantera_cowboys_from_hell.jpg",
+                "name": "Cowboys From Hell - Hoodie",
+                "garmentCategory": "Hoodies Otras Bandas"
+            }
+        ],
+        "desc": "Cowboys From Hell. Cl?sico fundamental de Pantera, ahora en remera y hoodie para invierno.",
+        "band": "Pantera",
+        "universe": [
+            "Groove Metal",
+            "Heavy Metal Classics"
+        ],
+        "album": "Cowboys from Hell",
+        "garments": [
+            "remera",
+            "hoodie"
+        ],
+        "collections": [
+            "Pantera Archive",
+            "Cowboys from Hell",
+            "Hoodies Otras Bandas"
+        ],
+        "campaigns": [
+            "Invierno 2026"
+        ],
+        "commercialPriority": 80,
+        "visibilityTier": "featured",
+        "legacyCategory": "Pantera",
+        "tags": [
+            "Pantera",
+            "Groove Metal",
+            "Heavy Metal Classics",
+            "Cowboys from Hell",
+            "remera",
+            "hoodie",
+            "Pantera Archive",
+            "Invierno 2026",
+            "Hoodies Otras Bandas"
+        ]
+    },
+    {
+        "id": 4193,
+        "category": "Pantera",
+        "year": "1994",
+        "name": "Far Beyond Driven",
+        "tipoPrecio": "simple",
+        "isNew": true,
+        "img": "images/pantera/remera_pantera_far_beyond_driven.jpg",
+        "variants": [
+            {
+                "img": "images/pantera/remera_pantera_far_beyond_driven.jpg",
+                "name": "Far Beyond Driven - Remera"
+            },
+            {
+                "img": "images/pantera/hoodie_pantera_far_beyond_driven.jpg",
+                "name": "Far Beyond Driven - Hoodie",
+                "garmentCategory": "Hoodies Otras Bandas"
+            }
+        ],
+        "desc": "Far Beyond Driven. Era pesada de Pantera en remera y hoodie para campa?a de invierno.",
+        "band": "Pantera",
+        "universe": [
+            "Groove Metal",
+            "Heavy Metal Classics"
+        ],
+        "album": "Far Beyond Driven",
+        "garments": [
+            "remera",
+            "hoodie"
+        ],
+        "collections": [
+            "Pantera Archive",
+            "Far Beyond Driven",
+            "Hoodies Otras Bandas"
+        ],
+        "campaigns": [
+            "Invierno 2026"
+        ],
+        "commercialPriority": 79,
+        "visibilityTier": "featured",
+        "legacyCategory": "Pantera",
+        "tags": [
+            "Pantera",
+            "Groove Metal",
+            "Heavy Metal Classics",
+            "Far Beyond Driven",
+            "remera",
+            "hoodie",
+            "Pantera Archive",
+            "Invierno 2026",
+            "Hoodies Otras Bandas"
+        ]
+    },
+    {
+        "id": 4194,
+        "category": "Pantera",
+        "year": "1996",
+        "name": "The Great Southern Trendkill",
+        "tipoPrecio": "simple",
+        "isNew": true,
+        "img": "images/pantera/hoodie_pantera_the_great_southern_trendkill.jpg",
+        "variants": [
+            {
+                "img": "images/pantera/hoodie_pantera_the_great_southern_trendkill.jpg",
+                "name": "The Great Southern Trendkill - Hoodie",
+                "garmentCategory": "Hoodies Otras Bandas"
+            },
+            {
+                "img": "images/pantera/hoodie_pantera_mouth_for_war.jpg",
+                "name": "Mouth For War - Hoodie",
+                "garmentCategory": "Hoodies Otras Bandas"
+            }
+        ],
+        "desc": "The Great Southern Trendkill y Mouth For War en hoodies Pantera para invierno.",
+        "band": "Pantera",
+        "universe": [
+            "Groove Metal",
+            "Heavy Metal Classics"
+        ],
+        "album": "The Great Southern Trendkill",
+        "garments": [
+            "hoodie"
+        ],
+        "collections": [
+            "Pantera Archive",
+            "The Great Southern Trendkill",
+            "Hoodies Otras Bandas"
+        ],
+        "campaigns": [
+            "Invierno 2026"
+        ],
+        "commercialPriority": 76,
+        "visibilityTier": "featured",
+        "legacyCategory": "Pantera",
+        "tags": [
+            "Pantera",
+            "Groove Metal",
+            "Heavy Metal Classics",
+            "The Great Southern Trendkill",
+            "hoodie",
+            "Pantera Archive",
+            "Invierno 2026",
+            "Hoodies Otras Bandas"
         ]
     },
     {
@@ -6569,6 +6749,11 @@
             {
                 "img": "images/metallica/metallica_kill_em_all_dorso.jpg",
                 "name": "Dorso"
+            },
+            {
+                "img": "images/metallica/hoodie_metallica_kill_em_all.jpg",
+                "name": "Kill 'Em All - Hoodie",
+                "garmentCategory": "Hoodies Otras Bandas"
             }
         ],
         "desc": "Kill 'Em All. El debut brutal de Metallica de 1983 que redefiniÃ³ el thrash metal mundial.",
@@ -6579,12 +6764,16 @@
         ],
         "album": "Kill 'Em All",
         "garments": [
-            "remera"
+            "remera",
+            "hoodie"
         ],
         "collections": [
-            "Metallica Albums"
+            "Metallica Albums",
+            "Hoodies Otras Bandas"
         ],
-        "campaigns": [],
+        "campaigns": [
+            "Invierno 2026"
+        ],
         "commercialPriority": 76,
         "visibilityTier": "featured",
         "legacyCategory": "Metallica",
@@ -6594,7 +6783,10 @@
             "Heavy Metal Classics",
             "Kill 'Em All",
             "remera",
-            "Metallica Albums"
+            "Metallica Albums",
+            "hoodie",
+            "Hoodies Otras Bandas",
+            "Invierno 2026"
         ]
     },
     {
@@ -6620,6 +6812,16 @@
             {
                 "img": "images/metallica/metallica_ride_the_darker_light-dorso.jpg",
                 "name": "Dorso Oscuro"
+            },
+            {
+                "img": "images/metallica/hoodie_metallica_ride_the_lightning.jpg",
+                "name": "Ride the Lightning - Hoodie",
+                "garmentCategory": "Hoodies Otras Bandas"
+            },
+            {
+                "img": "images/metallica/hoodie_metallica_ride_band_1984.jpg",
+                "name": "Ride the Lightning Band 1984 - Hoodie",
+                "garmentCategory": "Hoodies Otras Bandas"
             }
         ],
         "desc": "Ride the Lightning. El segundo Ã¡lbum de Metallica de 1984 con variantes clÃ¡sicas y oscuras del arte legendario.",
@@ -6630,12 +6832,16 @@
         ],
         "album": "Ride the Lightning",
         "garments": [
-            "remera"
+            "remera",
+            "hoodie"
         ],
         "collections": [
-            "Metallica Albums"
+            "Metallica Albums",
+            "Hoodies Otras Bandas"
         ],
-        "campaigns": [],
+        "campaigns": [
+            "Invierno 2026"
+        ],
         "commercialPriority": 80,
         "visibilityTier": "featured",
         "legacyCategory": "Metallica",
@@ -6645,7 +6851,10 @@
             "Heavy Metal Classics",
             "Ride the Lightning",
             "remera",
-            "Metallica Albums"
+            "Metallica Albums",
+            "hoodie",
+            "Hoodies Otras Bandas",
+            "Invierno 2026"
         ]
     },
     {
@@ -6671,6 +6880,11 @@
             {
                 "img": "images/metallica/metallica_master_of_puppets_realistic-dorso.jpg",
                 "name": "Dorso Realista"
+            },
+            {
+                "img": "images/metallica/hoodie_metallica_master_of_puppets.jpg",
+                "name": "Master of Puppets - Hoodie",
+                "garmentCategory": "Hoodies Otras Bandas"
             }
         ],
         "desc": "Master of Puppets. La obra maestra de Metallica de 1986 con mÃºltiples versiones del arte icÃ³nico.",
@@ -6681,12 +6895,16 @@
         ],
         "album": "Master of Puppets",
         "garments": [
-            "remera"
+            "remera",
+            "hoodie"
         ],
         "collections": [
-            "Metallica Albums"
+            "Metallica Albums",
+            "Hoodies Otras Bandas"
         ],
-        "campaigns": [],
+        "campaigns": [
+            "Invierno 2026"
+        ],
         "commercialPriority": 82,
         "visibilityTier": "featured",
         "legacyCategory": "Metallica",
@@ -6696,7 +6914,10 @@
             "Heavy Metal Classics",
             "Master of Puppets",
             "remera",
-            "Metallica Albums"
+            "Metallica Albums",
+            "hoodie",
+            "Hoodies Otras Bandas",
+            "Invierno 2026"
         ]
     },
     {
@@ -6726,6 +6947,16 @@
             {
                 "img": "images/metallica/metallica_and_justice-heavy_shadows-dorso.jpg",
                 "name": "Dorso SombrÃ­o"
+            },
+            {
+                "img": "images/metallica/hoodie_metallica_and_justice_for_all.jpg",
+                "name": "...And Justice for All - Hoodie",
+                "garmentCategory": "Hoodies Otras Bandas"
+            },
+            {
+                "img": "images/metallica/hoodie_metallica_ajfa_red.jpg",
+                "name": "...And Justice for All Red - Hoodie",
+                "garmentCategory": "Hoodies Otras Bandas"
             }
         ],
         "desc": "...And Justice for All. El tercer Ã¡lbum de Metallica de 1988 con mÃºltiples versiones del arte devastador.",
@@ -6736,13 +6967,17 @@
         ],
         "album": "...And Justice for All",
         "garments": [
-            "remera"
+            "remera",
+            "hoodie"
         ],
         "collections": [
             "Metallica Archive",
-            "...And Justice for All"
+            "...And Justice for All",
+            "Hoodies Otras Bandas"
         ],
-        "campaigns": [],
+        "campaigns": [
+            "Invierno 2026"
+        ],
         "commercialPriority": 82,
         "visibilityTier": "featured",
         "legacyCategory": "Metallica",
@@ -6752,7 +6987,65 @@
             "Heavy Metal Classics",
             "...And Justice for All",
             "remera",
-            "Metallica Archive"
+            "Metallica Archive",
+            "hoodie",
+            "Hoodies Otras Bandas",
+            "Invierno 2026"
+        ]
+    },
+    {
+        "id": 1067,
+        "category": "Metallica",
+        "year": "1991",
+        "name": "Metallica Black Album",
+        "tipoPrecio": "simple",
+        "img": "images/metallica/hoodie_metallica_black_album.jpg",
+        "variants": [
+            {
+                "img": "images/metallica/hoodie_metallica_black_album.jpg",
+                "name": "Black Album - Hoodie",
+                "garmentCategory": "Hoodies Otras Bandas"
+            },
+            {
+                "img": "images/metallica/hoodie_metallica_black_album_art.jpg",
+                "name": "Black Album Art - Hoodie",
+                "garmentCategory": "Hoodies Otras Bandas"
+            },
+            {
+                "img": "images/metallica/hoodie_metallica_1992.jpg",
+                "name": "Metallica 1992 - Hoodie",
+                "garmentCategory": "Hoodies Otras Bandas"
+            }
+        ],
+        "desc": "Metallica Black Album. Hoodies del clasico de 1991 y la era 1992, listos para campana de invierno.",
+        "band": "Metallica",
+        "universe": [
+            "Thrash Metal",
+            "Heavy Metal Classics"
+        ],
+        "album": "Metallica Black Album",
+        "garments": [
+            "hoodie"
+        ],
+        "collections": [
+            "Metallica Albums",
+            "Hoodies Otras Bandas"
+        ],
+        "campaigns": [
+            "Invierno 2026"
+        ],
+        "commercialPriority": 82,
+        "visibilityTier": "featured",
+        "legacyCategory": "Metallica",
+        "tags": [
+            "Metallica",
+            "Thrash Metal",
+            "Heavy Metal Classics",
+            "Metallica Black Album",
+            "hoodie",
+            "Hoodies Otras Bandas",
+            "Metallica Albums",
+            "Invierno 2026"
         ]
     },
     {
@@ -6770,12 +7063,16 @@
         ],
         "album": null,
         "garments": [
-            "remera"
+            "remera",
+            "hoodie"
         ],
         "collections": [
-            "Metallica Archive"
+            "Metallica Archive",
+            "Hoodies Otras Bandas"
         ],
-        "campaigns": [],
+        "campaigns": [
+            "Invierno 2026"
+        ],
         "commercialPriority": 68,
         "visibilityTier": "catalog",
         "legacyCategory": "Metallica",
@@ -6784,7 +7081,18 @@
             "Thrash Metal",
             "Heavy Metal Classics",
             "remera",
-            "Metallica Archive"
+            "Metallica Archive",
+            "hoodie",
+            "Hoodies Otras Bandas",
+            "James Hetfield",
+            "Invierno 2026"
+        ],
+        "variants": [
+            {
+                "img": "images/metallica/hoodie_metallica_james_hetfield.jpg",
+                "name": "James Hetfield - Hoodie",
+                "garmentCategory": "Hoodies Otras Bandas"
+            }
         ]
     },
     {
@@ -10165,13 +10473,17 @@
         ],
         "album": "For Those About to Rock We Salute You",
         "garments": [
-            "remera"
+            "remera",
+            "hoodie"
         ],
         "collections": [
             "AC/DC Archive",
-            "For Those About to Rock We Salute You"
+            "For Those About to Rock We Salute You",
+            "Hoodies Otras Bandas"
         ],
-        "campaigns": [],
+        "campaigns": [
+            "Invierno 2026"
+        ],
         "commercialPriority": 64,
         "visibilityTier": "catalog",
         "legacyCategory": "AC/DC",
@@ -10181,7 +10493,21 @@
             "Heavy Metal Classics",
             "For Those About to Rock We Salute You",
             "remera",
-            "AC/DC Archive"
+            "AC/DC Archive",
+            "hoodie",
+            "Hoodies Otras Bandas",
+            "Invierno 2026"
+        ],
+        "variants": [
+            {
+                "img": "images/acdc/for_those_remastered.jpg",
+                "name": "For Those Remastered"
+            },
+            {
+                "img": "images/acdc/hoodie_acdc_for_those_about_to_rock.jpg",
+                "name": "For Those About to Rock - Hoodie",
+                "garmentCategory": "Hoodies Otras Bandas"
+            }
         ]
     },
     {
@@ -10287,13 +10613,17 @@
         ],
         "album": "Highway to Hell",
         "garments": [
-            "remera"
+            "remera",
+            "hoodie"
         ],
         "collections": [
             "AC/DC Archive",
-            "Highway to Hell"
+            "Highway to Hell",
+            "Hoodies Otras Bandas"
         ],
-        "campaigns": [],
+        "campaigns": [
+            "Invierno 2026"
+        ],
         "commercialPriority": 82,
         "visibilityTier": "featured",
         "legacyCategory": "AC/DC",
@@ -10303,7 +10633,21 @@
             "Heavy Metal Classics",
             "Highway to Hell",
             "remera",
-            "AC/DC Archive"
+            "AC/DC Archive",
+            "hoodie",
+            "Hoodies Otras Bandas",
+            "Invierno 2026"
+        ],
+        "variants": [
+            {
+                "img": "images/acdc/highway_v1.jpg",
+                "name": "Highway to Hell V1"
+            },
+            {
+                "img": "images/acdc/hoodie_acdc_highway_to_hell.jpg",
+                "name": "Highway to Hell - Hoodie",
+                "garmentCategory": "Hoodies Otras Bandas"
+            }
         ]
     },
     {
@@ -10404,13 +10748,17 @@
         ],
         "album": "High Voltage",
         "garments": [
-            "remera"
+            "remera",
+            "hoodie"
         ],
         "collections": [
             "AC/DC Archive",
-            "High Voltage"
+            "High Voltage",
+            "Hoodies Otras Bandas"
         ],
-        "campaigns": [],
+        "campaigns": [
+            "Invierno 2026"
+        ],
         "commercialPriority": 76,
         "visibilityTier": "featured",
         "legacyCategory": "AC/DC",
@@ -10420,7 +10768,21 @@
             "Heavy Metal Classics",
             "High Voltage",
             "remera",
-            "AC/DC Archive"
+            "AC/DC Archive",
+            "hoodie",
+            "Hoodies Otras Bandas",
+            "Invierno 2026"
+        ],
+        "variants": [
+            {
+                "img": "images/acdc/acdc_high_voltage.jpg",
+                "name": "High Voltage"
+            },
+            {
+                "img": "images/acdc/hoodie_acdc_high_voltaje.jpg",
+                "name": "High Voltage - Hoodie",
+                "garmentCategory": "Hoodies Otras Bandas"
+            }
         ]
     },
     {
@@ -10541,6 +10903,11 @@
             {
                 "img": "images/acdc/are_you_ready_dorso.jpg",
                 "name": "Dorso"
+            },
+            {
+                "img": "images/acdc/hoodie_acdc_are_you_ready.jpg",
+                "name": "Are You Ready - Hoodie",
+                "garmentCategory": "Hoodies Otras Bandas"
             }
         ],
         "desc": "Are You Ready - DiseÃ±o AC/DC con frente y dorso en un mismo carrusel.",
@@ -10551,13 +10918,17 @@
         ],
         "album": "The Razors Edge",
         "garments": [
-            "remera"
+            "remera",
+            "hoodie"
         ],
         "collections": [
             "AC/DC Archive",
-            "The Razors Edge"
+            "The Razors Edge",
+            "Hoodies Otras Bandas"
         ],
-        "campaigns": [],
+        "campaigns": [
+            "Invierno 2026"
+        ],
         "commercialPriority": 79,
         "visibilityTier": "featured",
         "legacyCategory": "AC/DC",
@@ -10567,7 +10938,10 @@
             "Heavy Metal Classics",
             "The Razors Edge",
             "remera",
-            "AC/DC Archive"
+            "AC/DC Archive",
+            "hoodie",
+            "Hoodies Otras Bandas",
+            "Invierno 2026"
         ]
     },
     {
