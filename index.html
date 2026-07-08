@@ -157,18 +157,9 @@
                 <a href="#categoryNav" class="hero-cta-btn" id="heroCtaBuzos">EXPLORAR CAT&Aacute;LOGO</a>
                 <a href="https://wa.me/541169667685?text=Hola%20FMD%2C%20quiero%20pedir%20una%20pieza%20a%20medida%20con%20la%20banda%2C%20tapa%20o%20arte%20que%20quiera" class="hero-cta-btn hero-cta-btn-secondary" id="heroCtaWhatsapp" target="_blank" rel="noopener">PEDIR POR WHATSAPP</a>
             </div>
-            <div class="hero-band-access" id="heroPrimaryBandAccess" aria-label="Accesos principales del cat&aacute;logo"></div>
-            <section class="hero-symphonic-block" aria-labelledby="heroSymphonicTitle">
-                <div>
-                    <p class="hero-symphonic-kicker">Archivo destacado</p>
-                    <h2 id="heroSymphonicTitle">POWER / SINF&Oacute;NICO EN FMD</h2>
-                    <p>EPICA, RHAPSODY, Nightwish, Stratovarius y Tarja.</p>
-                </div>
-                <div class="hero-symphonic-actions" id="heroSymphonicBandAccess"></div>
-            </section>
             <div class="hero-proof">
                 <span class="hero-proof-priority">REMERAS &middot; HOODIES &middot; BUZOS</span>
-                <span>Negro o blanco &middot; frontal o doble estampa &middot; talles para adultos y chicos</span>
+                <span>Negro o blanco &middot; estampa frontal o doble &middot; talles para adultos y chicos</span>
                 <a href="#promosInvierno" class="hero-proof-promo">VER PROMOS DE INVIERNO &darr;</a>
             </div>
         </div>
@@ -177,8 +168,46 @@
 
     <section class="adaptable-designs-bar" aria-label="Diseños adaptables y personalizados">
         <strong>TODOS LOS DISEÑOS SON ADAPTABLES</strong>
-        <span>Remera · Hoodie · Buzo cuello redondo</span>
-        <span>Frentes y dorsos combinables · Personalizados a pedido</span>
+        <span>Estampa frontal o doble · Frentes y dorsos combinables · Diseños personalizados</span>
+    </section>
+
+    <section class="home-curated-section home-main-bands" aria-labelledby="homeMainBandsTitle">
+        <div class="home-curated-head">
+            <p class="home-curated-kicker">ARCHIVOS FMD</p>
+            <h2 id="homeMainBandsTitle">BANDAS PRINCIPALES</h2>
+            <p>Explorá nuestras colecciones principales y encontrá tu próximo diseño.</p>
+        </div>
+        <div class="home-main-band-grid" id="homeMainBandAccess"></div>
+    </section>
+
+    <section class="home-curated-section home-campaign-section" id="homeActiveCampaign" aria-labelledby="homeCampaignTitle" hidden>
+        <div class="home-curated-head">
+            <p class="home-curated-kicker" id="homeCampaignKicker">CAMPAÑA ACTIVA</p>
+            <h2 id="homeCampaignTitle"></h2>
+            <p id="homeCampaignSubtitle"></p>
+        </div>
+        <div class="home-campaign-rail" id="homeCampaignBandAccess"></div>
+    </section>
+
+    <section class="home-curated-section home-outerwear-section" aria-labelledby="homeOuterwearTitle">
+        <div class="home-curated-head">
+            <p class="home-curated-kicker">INVIERNO FMD</p>
+            <h2 id="homeOuterwearTitle">HOODIES Y BUZOS DESTACADOS</h2>
+            <p>Diseños en hoodies y buzos, con estampa frontal o doble.</p>
+        </div>
+        <div class="home-outerwear-grid" id="homeOuterwearGrid"></div>
+    </section>
+
+    <section class="home-curated-section home-secondary-bands" aria-labelledby="homeSecondaryBandsTitle">
+        <div class="home-curated-head">
+            <p class="home-curated-kicker">MÁS ARCHIVOS FMD</p>
+            <h2 id="homeSecondaryBandsTitle">OTROS ARCHIVOS DESTACADOS</h2>
+        </div>
+        <div class="home-secondary-band-grid" id="homeSecondaryBandAccess"></div>
+    </section>
+
+    <section class="home-all-bands-access" aria-label="Archivo completo de bandas">
+        <button type="button" onclick="openBandAccess('Bandas Sugeridas')">VER TODAS LAS BANDAS</button>
     </section>
 
     <section class="winter-promos-section" id="promosInvierno" aria-labelledby="promosInviernoTitle">
@@ -190,12 +219,12 @@
         <div class="winter-promos-grid">
             <article class="winter-promo-card winter-promo-card-featured winter-promo-combo">
                 <span class="winter-promo-tag">Abrigo + remera</span>
-                <h3>Combo invierno</h3>
+                <h3>ABRIGO + REMERA</h3>
                 <div class="winter-combo-lines">
-                    <strong>Hoodie doble + remera doble <span>$99.000</span></strong>
-                    <strong>Buzo doble + remera doble <span>$95.000</span></strong>
+                    <strong>Hoodie doble + remera doble <span>— $99.000</span></strong>
+                    <strong>Buzo doble + remera doble <span>— $95.000</span></strong>
                 </div>
-                <p>Envío gratis a punto de retiro. Si la remera es oversize, suma $3.000.</p>
+                <p>Envío gratis a punto de retiro. Remera oversize: +$3.000.</p>
             </article>
             <article class="winter-promo-card">
                 <span class="winter-promo-tag">Cualquier combinación</span>
@@ -798,27 +827,6 @@
         </div>
     </section>
 
-    <!-- Diseño del ÚLTIMO DISCO - Destacado premium -->
-    <div class="ultimo-disco-banner" onclick="openModal(17,9,[9,10])">
-        <div class="ultimo-disco-media">
-            <img src="images/fmd-edition-3d/megadeth_last_album/vic_llamas_3d_edition_frente.jpg" alt="Vic Llamas FMD Edition" class="ultimo-disco-img" onerror="this.onerror=null;this.src='images/albums/Megadeth/vic_llamas_blanca.jpg';">
-            <span class="ultimo-disco-pill">🔥 NUEVO</span>
-        </div>
-        <div class="ultimo-disco-content">
-            <div class="ultimo-disco-kicker">NUEVO ARTE DEL ULTIMO DISCO</div>
-            <h3 class="ultimo-disco-title">VIC LLAMAS FMD EDITION</h3>
-            <p class="ultimo-disco-desc">Diseño exclusivo con frente y dorso ardiente. Edición 2026.</p>
-            <div class="ultimo-disco-meta">
-                <span class="ultimo-disco-price">$44.000</span>
-                <span class="ultimo-disco-chip">Doble Estampa</span>
-            </div>
-        </div>
-        <div class="ultimo-disco-cta-wrap">
-            <span class="ultimo-disco-cta">VER →</span>
-        </div>
-    </div>
-
-
     <!-- SECCIÓN DESTACADOS MEGADETH -->
     <section class="megadeth-destacados home-secondary-archive" id="megadeth-destacados">
         <div class="megadeth-destacados-header">
@@ -1035,7 +1043,7 @@
                 <div class="nav-group nav-group-primary">
                     <div class="nav-group-head">
                         <h3 class="nav-group-title">Bandas principales</h3>
-                        <p class="nav-group-copy">Los archivos y campañas más fuertes de FMD, priorizados por demanda y volumen de diseños.</p>
+                        <p class="nav-group-copy">Elegí una banda y explorá diseños disponibles en remera, hoodie o buzo.</p>
                     </div>
                     <div class="nav-group-buttons">
                         <button class="cat-btn cat-btn-megadeth active" data-cat="Megadeth" data-count="0">
@@ -1652,6 +1660,7 @@
                             <span class="option-label">Corte:</span>
                             <div class="option-buttons" id="cutSelector">
                                 <button type="button" class="option-btn active" data-cut="clasica" onclick="selectCut('clasica')">Clásica</button>
+                                <button type="button" class="option-btn" data-cut="mujer" onclick="selectCut('mujer')">Mujer</button>
                                 <button type="button" class="option-btn" id="btnOversize" data-cut="oversize" onclick="selectCut('oversize')">Oversize</button>
                             </div>
                         </div>

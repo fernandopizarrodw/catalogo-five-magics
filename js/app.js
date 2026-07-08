@@ -70,15 +70,34 @@ const PRIMARY_HERO_ACCESS = [
     { label: 'MEGADETH', filter: 'Megadeth', primary: true },
     { label: 'SLAYER', filter: 'Slayer' },
     { label: 'IRON MAIDEN', filter: 'Iron Maiden' },
-    { label: 'MAS BANDAS', filter: 'Bandas Sugeridas' }
+    { label: 'METALLICA', filter: 'Metallica' }
 ];
 
-const SYMPHONIC_FEATURED_BANDS = [
-    { label: 'EPICA', filter: 'Epica' },
-    { label: 'RHAPSODY', filter: 'Rhapsody' },
-    { label: 'NIGHTWISH', filter: 'Nightwish' },
-    { label: 'STRATOVARIUS', filter: 'Stratovarius' },
-    { label: 'TARJA', filter: 'Tarja Turunen' }
+const ACTIVE_HOME_CAMPAIGN = {
+    active: true,
+    kicker: 'DESTACADO FMD',
+    title: 'ÉPICO · POWER · SINFÓNICO',
+    subtitle: 'Nuevos diseños de EPICA, Rhapsody, Helloween, Angra y Blind Guardian.',
+    label: 'SHOW ARGENTINA 2027',
+    featuredFilters: ['Epica', 'Rhapsody', 'Helloween'],
+    bands: [
+        { label: 'EPICA', filter: 'Epica' },
+        { label: 'RHAPSODY', filter: 'Rhapsody' },
+        { label: 'HELLOWEEN', filter: 'Helloween' },
+        { label: 'ANGRA', filter: 'Angra' },
+        { label: 'BLIND GUARDIAN', filter: 'Blind Guardian' }
+    ]
+};
+
+const FEATURED_OUTERWEAR_PRODUCT_IDS = [5062, 7123, 7040, 1061, 6008, 6021];
+
+const SECONDARY_HOME_ACCESS = [
+    { label: 'PANTERA', filter: 'Pantera' },
+    { label: 'AC/DC', filter: 'AC/DC' },
+    { label: 'SEPULTURA', filter: 'Sepultura' },
+    { label: 'AVENGED SEVENFOLD', filter: 'Avenged Sevenfold' },
+    { label: 'DIO', filter: 'Dio' },
+    { label: 'NIGHTWISH', filter: 'Nightwish' }
 ];
 
 let db = [];
@@ -1066,27 +1085,117 @@ function openBandAccess(filter) {
     scrollToSection('catalogoPrincipal');
 }
 
-function renderHeroBandAccess() {
-    const primaryContainer = document.getElementById('heroPrimaryBandAccess');
-    if (primaryContainer) {
-        primaryContainer.innerHTML = PRIMARY_HERO_ACCESS.map(item => `
-            <button type="button" class="hero-band-access-btn${item.primary ? ' hero-band-access-btn-primary' : ''}" data-band-filter="${item.filter}" onclick="openBandAccess('${item.filter}')">
-                <span>${item.label}</span>
-            </button>
-        `).join('');
+function renderHomeBandButton(item, className, extra = '') {
+    const count = getBandDesignCount(item.filter);
+    return `
+        <button type="button" class="${className}${extra}" data-band-filter="${item.filter}" onclick="openBandAccess('${item.filter}')">
+            <strong>${item.label}</strong>
+            <span>${count ? `${count} diseños` : 'Ver archivo'}</span>
+        </button>
+    `;
+}
+
+function getHomeOuterwearPreview(product) {
+    const variants = Array.isArray(product?.variants) ? product.variants : [];
+    const preferredVariantIndex = variants.findIndex(variant => getVariantGarmentType(variant) === 'hoodie');
+    const fallbackVariantIndex = variants.findIndex(variant => getVariantGarmentType(variant) === 'buzo');
+    const variantIndex = preferredVariantIndex >= 0 ? preferredVariantIndex : fallbackVariantIndex;
+    const variant = variantIndex >= 0 ? variants[variantIndex] : null;
+    const img = variant?.img || variant?.image || product?.img || variants[0]?.img || variants[0]?.image || 'images/logo/MARCA DE AGUA.png';
+    const garmentType = variant ? getVariantGarmentType(variant) : '';
+    return { img, variantIndex, garmentType };
+}
+
+function formatHomeOuterwearPrices(garmentType) {
+    const isBuzo = garmentType === 'buzo';
+    const tabla = isBuzo ? PRECIOS_BUZO_REDONDO : PRECIOS_HOODIES;
+    const label = isBuzo ? 'Buzo' : 'Hoodie';
+    return `<div class="dual-prices">
+        <div class="price-line"><span class="price-amount">$${tabla.simple.toLocaleString('es-AR')}</span><span class="price-label">${label} estampa frontal</span></div>
+        <div class="price-line"><span class="price-amount">$${tabla.doble.toLocaleString('es-AR')}</span><span class="price-label">${label} doble estampa</span></div>
+    </div>`;
+}
+
+function renderHomeOuterwearCard(product) {
+    const preview = getHomeOuterwearPreview(product);
+    const category = product?.category || '';
+    const garmentList = Array.isArray(product?.garments) ? product.garments.map(normalizeText) : [];
+    const isBuzo = category === 'Buzo Cuello Redondo' || garmentList.includes('buzo_cuello_redondo') || garmentList.includes('buzo');
+    const isHoodie = category === 'Hoodies FMD' || category === 'Hoodies Otras Bandas' || garmentList.includes('hoodie');
+    const outerwearType = preview.garmentType === 'buzo' || isBuzo ? 'buzo' : 'hoodie';
+    const garment = outerwearType === 'buzo'
+        ? 'Buzo cuello redondo'
+        : preview.garmentType === 'hoodie' || isHoodie
+            ? 'Hoodie'
+            : 'Abrigo destacado';
+    const modalArgs = preview.variantIndex >= 0 ? `, ${preview.variantIndex}` : '';
+    return `
+        <article class="home-outerwear-card" onclick="openModal(${product.id}${modalArgs})">
+            <div class="home-outerwear-media">
+                <img src="${preview.img}" alt="${product.name}" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='images/logo/MARCA DE AGUA.png';">
+                <span>${garment}</span>
+            </div>
+            <div class="home-outerwear-info">
+                <p>${product.band || getCategoryLabel(product.category)}</p>
+                <h3>${product.name}</h3>
+                <div>${formatHomeOuterwearPrices(outerwearType)}</div>
+            </div>
+        </article>
+    `;
+}
+
+function renderHomeArchitecture() {
+    const mainContainer = document.getElementById('homeMainBandAccess');
+    if (mainContainer) {
+        mainContainer.innerHTML = PRIMARY_HERO_ACCESS.slice(0, 4)
+            .map(item => renderHomeBandButton(item, 'home-main-band-btn', item.primary ? ' is-primary' : ''))
+            .join('');
     }
 
-    const symphonicContainer = document.getElementById('heroSymphonicBandAccess');
-    if (symphonicContainer) {
-        symphonicContainer.innerHTML = SYMPHONIC_FEATURED_BANDS.map(item => {
-            const count = getBandDesignCount(item.filter);
-            return `
-                <button type="button" class="hero-symphonic-btn${item.featured ? ' hero-symphonic-btn-featured' : ''}" data-band-filter="${item.filter}" onclick="openBandAccess('${item.filter}')">
-                    <strong>${item.label}</strong>
-                    <span>${count || ''}${count ? ' diseños' : ''}</span>
-                </button>
-            `;
-        }).join('');
+    const campaignSection = document.getElementById('homeActiveCampaign');
+    if (campaignSection) {
+        campaignSection.hidden = !ACTIVE_HOME_CAMPAIGN.active;
+        if (ACTIVE_HOME_CAMPAIGN.active) {
+            const title = document.getElementById('homeCampaignTitle');
+            const subtitle = document.getElementById('homeCampaignSubtitle');
+            const kicker = document.getElementById('homeCampaignKicker');
+            const rail = document.getElementById('homeCampaignBandAccess');
+            if (title) title.textContent = ACTIVE_HOME_CAMPAIGN.title || 'CAMPAÑA ACTIVA';
+            if (subtitle) subtitle.textContent = ACTIVE_HOME_CAMPAIGN.subtitle || '';
+            if (kicker) kicker.textContent = ACTIVE_HOME_CAMPAIGN.kicker || 'CAMPAÑA ACTIVA';
+            if (rail) {
+                const featured = new Set((ACTIVE_HOME_CAMPAIGN.featuredFilters || []).map(normalizeText));
+                rail.innerHTML = (ACTIVE_HOME_CAMPAIGN.bands || []).slice(0, 5).map(item => {
+                    const isFeatured = featured.has(normalizeText(item.filter));
+                    const label = isFeatured && ACTIVE_HOME_CAMPAIGN.label
+                        ? `<em>${ACTIVE_HOME_CAMPAIGN.label}</em>`
+                        : '';
+                    return `
+                        <button type="button" class="home-campaign-card${isFeatured ? ' is-featured' : ''}" data-band-filter="${item.filter}" onclick="openBandAccess('${item.filter}')">
+                            ${label}
+                            <strong>${item.label}</strong>
+                            <span>${getBandDesignCount(item.filter) || ''}${getBandDesignCount(item.filter) ? ' diseños' : 'Ver archivo'}</span>
+                        </button>
+                    `;
+                }).join('');
+            }
+        }
+    }
+
+    const outerwearGrid = document.getElementById('homeOuterwearGrid');
+    if (outerwearGrid) {
+        outerwearGrid.innerHTML = FEATURED_OUTERWEAR_PRODUCT_IDS.slice(0, 6)
+            .map(id => db.find(product => Number(product?.id) === Number(id)))
+            .filter(Boolean)
+            .map(renderHomeOuterwearCard)
+            .join('');
+    }
+
+    const secondaryContainer = document.getElementById('homeSecondaryBandAccess');
+    if (secondaryContainer) {
+        secondaryContainer.innerHTML = SECONDARY_HOME_ACCESS.slice(0, 6)
+            .map(item => renderHomeBandButton(item, 'home-secondary-band-btn'))
+            .join('');
     }
 }
 
@@ -1293,8 +1402,9 @@ function selectAge(age) {
             sizeKids.style.display = 'flex';
             // Ocultar opción Oversize para niños y forzar Clásica
             if (btnOversize) btnOversize.style.display = 'none';
-            // Si tenía Oversize seleccionado, cambiar a Clásica
-            if (selectedCut === 'oversize') {
+            // Si tenía Oversize o Mujer seleccionado, cambiar a Clásica
+            if (selectedCut === 'oversize' || selectedCut === 'mujer') {
+                selectedModalGarment = 'remera_clasica';
                 selectCut('clasica');
             }
         }
@@ -1501,11 +1611,12 @@ function getAvailableModalGarments(product = currentProduct) {
     const activeVariantGarment = getVariantGarmentType(activeVariant);
     if (activeVariantGarment === 'hoodie') return ['hoodie'];
     if (activeVariantGarment === 'buzo') return ['buzo'];
-    if (activeVariantGarment === 'remera') return ['remera_clasica', 'oversize'];
+    if (activeVariantGarment === 'remera') return ['remera_clasica', 'mujer', 'oversize'];
 
     const garmentList = Array.isArray(product.garments) ? product.garments.map(normalizeText) : [];
     if (garmentList.includes('remera')) {
         available.add('remera_clasica');
+        available.add('mujer');
         available.add('oversize');
     }
     if (garmentList.includes('hoodie')) available.add('hoodie');
@@ -1516,6 +1627,7 @@ function getAvailableModalGarments(product = currentProduct) {
     if (category.includes('buzo cuello redondo')) available.add('buzo');
     if (!category.includes('hoodies') && !category.includes('buzo cuello redondo')) {
         available.add('remera_clasica');
+        available.add('mujer');
         available.add('oversize');
     }
 
@@ -1525,16 +1637,18 @@ function getAvailableModalGarments(product = currentProduct) {
         if (garment === 'buzo') available.add('buzo');
         if (garment === 'remera') {
             available.add('remera_clasica');
+            available.add('mujer');
             available.add('oversize');
         }
     });
 
-    return ['remera_clasica', 'oversize', 'hoodie', 'buzo'].filter(key => available.has(key));
+    return ['remera_clasica', 'mujer', 'oversize', 'hoodie', 'buzo'].filter(key => available.has(key));
 }
 
 const MODAL_GARMENT_LABELS = {
-    remera_clasica: 'Remera clásica',
-    oversize: 'Oversize',
+    remera_clasica: 'Clásica unisex',
+    mujer: 'Corte mujer',
+    oversize: 'Oversize unisex',
     hoodie: 'Hoodie',
     buzo: 'Buzo'
 };
@@ -1549,6 +1663,9 @@ function selectModalGarment(garment) {
     } else if (selectedModalGarment === 'oversize') {
         selectedAge = 'adulto';
         selectedCut = 'oversize';
+    } else if (selectedModalGarment === 'mujer') {
+        selectedAge = 'adulto';
+        selectedCut = 'mujer';
     } else {
         selectedAge = 'adulto';
         selectedCut = 'clasica';
@@ -1568,6 +1685,9 @@ function syncSelectedModalGarmentWithActiveVariant() {
     if (selectedModalGarment === 'hoodie' || selectedModalGarment === 'buzo' || selectedModalGarment === 'oversize') {
         selectedAge = 'adulto';
         selectedCut = 'oversize';
+    } else if (selectedModalGarment === 'mujer') {
+        selectedAge = 'adulto';
+        selectedCut = 'mujer';
     } else {
         selectedAge = selectedAge || 'adulto';
         selectedCut = 'clasica';
@@ -1586,7 +1706,7 @@ function updateModalGarmentUI() {
         `).join('');
     }
     if (garmentGroup) {
-        const isOnlyRemeraCuts = available.length === 2 && available.includes('remera_clasica') && available.includes('oversize');
+        const isOnlyRemeraCuts = available.every(garment => ['remera_clasica', 'mujer', 'oversize'].includes(garment));
         const label = garmentGroup.querySelector('.option-label');
         if (label) label.textContent = isOnlyRemeraCuts ? 'Corte de remera:' : 'Prenda:';
         garmentGroup.classList.toggle('modal-garment-group-locked', available.length === 1);
@@ -1932,8 +2052,10 @@ class CartSystem {
                 tipoPrenda = 'Hoodie oversize unisex';
             } else if (item.cut === 'oversize') {
                 tipoPrenda = 'Remera oversize unisex';
+            } else if (item.cut === 'mujer') {
+                tipoPrenda = 'Remera corte mujer';
             } else {
-                tipoPrenda = 'Remera clásica';
+                tipoPrenda = 'Remera clásica unisex';
             }
 
             let estampado;
@@ -1979,7 +2101,9 @@ class CartSystem {
                     ? 'Hoodie oversize unisex'
                     : item.cut === 'oversize'
                         ? 'Remera oversize unisex'
-                        : 'Remera clasica';
+                        : item.cut === 'mujer'
+                            ? 'Remera corte mujer'
+                            : 'Remera clásica unisex';
             const color = item.color === 'blanco' ? 'Blanca' : 'Negra';
             const product = db.find(p => Number(p?.id) === Number(item.id));
             const frontVariant = product?.variants?.[item.variantIndex];
@@ -2048,8 +2172,13 @@ ${designLines}
         cartList.innerHTML = this.cart.map((item, idx) => {
             const edad = item.age === 'chico' ? 'Niño' : 'Adulto';
             const talle = item.size || '—';
-            // Niños siempre es Unisex
-            const corte = item.age === 'chico' ? 'Unisex' : (item.cut === 'oversize' ? 'Oversize' : 'Clásica');
+            const corte = item.age === 'chico'
+                ? 'Chicos'
+                : item.cut === 'oversize'
+                    ? 'Remera oversize'
+                    : item.cut === 'mujer'
+                        ? 'Remera corte mujer'
+                        : 'Remera clásica unisex';
             const color = item.color === 'blanco' ? 'Blanca' : 'Negra';
             return `
             <div class="cart-item">
@@ -2262,7 +2391,7 @@ async function loadProducts() {
         db = repairCatalogEncoding(await response.json());
         buildDorsoAutocompletePool();
         updateCountsUI();
-        renderHeroBandAccess();
+        renderHomeArchitecture();
         renderMaidenArchiveGrid(); // Capsula editorial Iron Maiden
         renderSlayerArchiveGrid(); // Selector de prendas Slayer
         renderEpicaArchiveGrid(); // Archivo Epica por prenda
@@ -3481,9 +3610,14 @@ function filterCurrentAlbumByGarment(garment) {
 
 const MODAL_SIZE_GUIDES = {
     hombre: {
-        title: 'Remera clasica hombre',
+        title: 'Remera clásica hombre',
         copy: 'Medidas en centimetros. Pueden variar +/-5%.',
         rows: [['S', '52', '75'], ['M', '54', '77'], ['L', '56', '79'], ['XL', '58', '81'], ['2XL', '60', '83']]
+    },
+    mujer: {
+        title: 'Remera corte mujer',
+        copy: 'Medidas en centimetros. Pueden variar +/-5%.',
+        rows: [['S', '47', '61'], ['M', '49', '63'], ['L', '51', '65'], ['XL', '53', '67'], ['2XL', '55', '69']]
     },
     oversize: {
         title: 'Remera oversize unisex',
@@ -3536,6 +3670,8 @@ function openSizeGuideForCurrentGarment() {
             ? 'buzo-redondo'
             : selectedAge === 'chico'
                 ? 'ninos'
+                : selectedCut === 'mujer'
+                    ? 'mujer'
                 : selectedModalGarment === 'remera_clasica'
                     ? 'hombre'
                     : 'oversize';
@@ -5772,7 +5908,13 @@ function renderCartPreview() {
         const precio = calculateItemPrice(item);
         const edad = item.age === 'chico' ? 'Niño' : 'Adulto';
         const talle = item.size || 'Por confirmar';
-        const corte = item.age === 'chico' ? 'Unisex' : (item.cut === 'oversize' ? 'Oversize' : 'Clásica');
+        const corte = item.age === 'chico'
+            ? 'Chicos'
+            : item.cut === 'oversize'
+                ? 'Remera oversize'
+                : item.cut === 'mujer'
+                    ? 'Remera corte mujer'
+                    : 'Remera clásica unisex';
         const color = item.color === 'blanco' ? 'Blanca' : 'Negra';
         
         return `
@@ -5948,7 +6090,7 @@ function consultFirstViaWhatsapp() {
     const customerData = getShippingCustomerData();
     const hasCustomerData = Object.values(customerData).some(Boolean);
     const partialShippingContext = hasCustomerData ? buildCustomerDataForWhatsapp(customerData) : '';
-    const message = `Hola FMD! Quiero consultar antes de confirmar este pedido:\n\n${summary}${partialShippingContext}\n\n¿Se puede retirar personalmente cuando está listo o trabajan solo con envío?\n¿Me confirman la combinación elegida y el tiempo de producción?`;
+    const message = `Hola FMD! Quiero consultar antes de confirmar este pedido:\n\n${summary}${partialShippingContext}\n\n¿Me confirmás cómo avanzamos?`;
     saveShippingCustomerDataToStorage(customerData);
     closeCartPreview();
     openWhatsapp(message, 'cart_consulta');
@@ -5962,6 +6104,7 @@ function getModalGarmentLabel(product = currentProduct) {
     if (selectedModalGarment === 'hoodie') return 'Hoodie';
     if (selectedModalGarment === 'buzo') return 'Buzo cuello redondo';
     if (selectedModalGarment === 'oversize') return 'Remera oversize';
+    if (selectedModalGarment === 'mujer') return 'Remera corte mujer';
     const garmentCategory = getActiveGarmentCategory(product);
     const isHoodie = garmentCategory === 'Hoodies FMD' || garmentCategory === 'Hoodies Otras Bandas';
     const isBuzoRedondo = garmentCategory === 'Buzo Cuello Redondo';
@@ -5969,8 +6112,9 @@ function getModalGarmentLabel(product = currentProduct) {
     if (isBuzoRedondo) return 'Buzo cuello redondo';
     if (isHoodie) return 'Hoodie';
     if (selectedCut === 'oversize') return 'Remera oversize';
+    if (selectedCut === 'mujer') return 'Remera corte mujer';
     if (selectedAge === 'chico') return 'Remera chicos';
-    return 'Remera';
+    return 'Remera clásica unisex';
 }
 
 function getSelectedBackLabelForWhatsapp() {
