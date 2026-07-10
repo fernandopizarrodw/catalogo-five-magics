@@ -3602,6 +3602,29 @@
                 "role": "back",
                 "fmdBadge": "ORIGINAL FMD",
                 "fmdBadgeDescription": "Edición exclusiva FMD con espíritu conmemorativo y presencia fuerte de tour."
+            },
+            {
+                "img": "images/vic_rattlehead/remera_megadeth_vic_gaucho_argentino.jpg",
+                "name": "Vic Gaucho Argentino - Remera",
+                "role": "front",
+                "fmdBadge": "ORIGINAL FMD",
+                "fmdBadgeDescription": "Creación exclusiva FMD con Vic gaucho para acompañar los shows de Megadeth en Argentina."
+            },
+            {
+                "img": "images/vic_rattlehead/hoodie_megadeth_vic_gaucho_argentino.jpg",
+                "name": "Vic Gaucho Argentino - Hoodie",
+                "role": "front",
+                "garmentCategory": "Hoodies Otras Bandas",
+                "fmdBadge": "ORIGINAL FMD",
+                "fmdBadgeDescription": "Creación exclusiva FMD con Vic gaucho para acompañar los shows de Megadeth en Argentina."
+            },
+            {
+                "img": "images/vic_rattlehead/buzo_megadeth_vic_gaucho_argentino.jpg",
+                "name": "Vic Gaucho Argentino - Buzo cuello redondo",
+                "role": "front",
+                "garmentCategory": "Buzo Cuello Redondo",
+                "fmdBadge": "ORIGINAL FMD",
+                "fmdBadgeDescription": "Creación exclusiva FMD con Vic gaucho para acompañar los shows de Megadeth en Argentina."
             }
         ],
         "desc": "Serie especial VIC GAUCHO. 4 diseÃ±os Ãºnicos + dorso FMD.",
@@ -3611,7 +3634,9 @@
         ],
         "album": null,
         "garments": [
-            "remera"
+            "remera",
+            "hoodie",
+            "buzo_cuello_redondo"
         ],
         "campaigns": [
             "Argentina 2026"
@@ -5726,6 +5751,11 @@
         "img": "images/pantera/hoodie_pantera_the_great_southern_trendkill.jpg",
         "variants": [
             {
+                "img": "images/pantera/remera_pantera_the_great_southern_trendkill.jpg",
+                "name": "The Great Southern Trendkill - Remera",
+                "garmentCategory": "Pantera"
+            },
+            {
                 "img": "images/pantera/hoodie_pantera_the_great_southern_trendkill.jpg",
                 "name": "The Great Southern Trendkill - Hoodie",
                 "garmentCategory": "Hoodies Otras Bandas"
@@ -5744,6 +5774,7 @@
         ],
         "album": "The Great Southern Trendkill",
         "garments": [
+            "remera",
             "hoodie"
         ],
         "collections": [
@@ -5762,6 +5793,7 @@
             "Groove Metal",
             "Heavy Metal Classics",
             "The Great Southern Trendkill",
+            "remera",
             "hoodie",
             "Pantera Archive",
             "Invierno 2026",
@@ -6814,14 +6846,36 @@
                 "name": "Dorso Oscuro"
             },
             {
+                "img": "images/metallica/remera_metallica_ride_the_lightning.jpg",
+                "name": "Ride the Lightning - Remera"
+            },
+            {
+                "img": "images/metallica/remera_metallica_ride_v2.jpg",
+                "name": "Ride the Lightning V2 - Remera"
+            },
+            {
+                "img": "images/metallica/remera_metallica_ride_v3.jpg",
+                "name": "Ride the Lightning V3 - Remera"
+            },
+            {
                 "img": "images/metallica/hoodie_metallica_ride_the_lightning.jpg",
                 "name": "Ride the Lightning - Hoodie",
+                "garmentCategory": "Hoodies Otras Bandas"
+            },
+            {
+                "img": "images/metallica/hoodie_metallica_ride_v2.jpg",
+                "name": "Ride the Lightning V2 - Hoodie",
                 "garmentCategory": "Hoodies Otras Bandas"
             },
             {
                 "img": "images/metallica/hoodie_metallica_ride_band_1984.jpg",
                 "name": "Ride the Lightning Band 1984 - Hoodie",
                 "garmentCategory": "Hoodies Otras Bandas"
+            },
+            {
+                "img": "images/metallica/buzo_metallica_ride_the_lightning.jpg",
+                "name": "Ride the Lightning - Buzo cuello redondo",
+                "garmentCategory": "Buzo Cuello Redondo"
             }
         ],
         "desc": "Ride the Lightning. El segundo Ã¡lbum de Metallica de 1984 con variantes clÃ¡sicas y oscuras del arte legendario.",
@@ -6833,7 +6887,8 @@
         "album": "Ride the Lightning",
         "garments": [
             "remera",
-            "hoodie"
+            "hoodie",
+            "buzo_cuello_redondo"
         ],
         "collections": [
             "Metallica Albums",
@@ -6853,6 +6908,7 @@
             "remera",
             "Metallica Albums",
             "hoodie",
+            "buzo_cuello_redondo",
             "Hoodies Otras Bandas",
             "Invierno 2026"
         ]
@@ -8472,6 +8528,61 @@
         "tipoPrecio": "simple",
         "img": "images/banda_sugeridas/ozzy/ozzy.jpg",
         "desc": "Ozzy Osbourne. La leyenda del metal.",
+        "variants": [
+            {
+                "img": "images/banda_sugeridas/ozzy/ozzy.jpg",
+                "name": "Ozzy Osbourne - Remera"
+            },
+            {
+                "img": "images/banda_sugeridas/ozzy/remera_ozzy.jpg",
+                "name": "Ozzy - Remera"
+            },
+            {
+                "img": "images/banda_sugeridas/ozzy/remera_bark_at_the_moon.jpg",
+                "name": "Bark at the Moon - Remera"
+            },
+            {
+                "img": "images/banda_sugeridas/ozzy/remera_ozzy_blizzard_of_ozz.jpg",
+                "name": "Blizzard of Ozz - Remera"
+            },
+            {
+                "img": "images/banda_sugeridas/ozzy/remera_ozzy_diary_of_a_madman.jpg",
+                "name": "Diary of a Madman - Remera"
+            },
+            {
+                "img": "images/banda_sugeridas/ozzy/remera_ozzy_speak_of_the_devil.jpg",
+                "name": "Speak of the Devil - Remera"
+            },
+            {
+                "img": "images/banda_sugeridas/ozzy/remera_ozzy_the_ultimate_sin.jpg",
+                "name": "The Ultimate Sin - Remera"
+            },
+            {
+                "img": "images/banda_sugeridas/ozzy/hoodie_ozzy.jpg",
+                "name": "Ozzy - Hoodie",
+                "garmentCategory": "Hoodies Otras Bandas"
+            },
+            {
+                "img": "images/banda_sugeridas/ozzy/hoodie_ozzy_blizzard.jpg",
+                "name": "Blizzard of Ozz - Hoodie",
+                "garmentCategory": "Hoodies Otras Bandas"
+            },
+            {
+                "img": "images/banda_sugeridas/ozzy/hoodie_ozzy_diary_of_a_madman.jpg",
+                "name": "Diary of a Madman - Hoodie",
+                "garmentCategory": "Hoodies Otras Bandas"
+            },
+            {
+                "img": "images/banda_sugeridas/ozzy/buzo_ozzy.jpg",
+                "name": "Ozzy - Buzo cuello redondo",
+                "garmentCategory": "Buzo Cuello Redondo"
+            },
+            {
+                "img": "images/banda_sugeridas/ozzy/buzo_bark_at_the_moon.jpg",
+                "name": "Bark at the Moon - Buzo cuello redondo",
+                "garmentCategory": "Buzo Cuello Redondo"
+            }
+        ],
         "band": "Ozzy Osbourne",
         "universe": [
             "Heavy Metal Classics",
@@ -8479,7 +8590,9 @@
         ],
         "album": null,
         "garments": [
-            "remera"
+            "remera",
+            "hoodie",
+            "buzo_cuello_redondo"
         ],
         "collections": [
             "Ozzy Osbourne Archive"
@@ -8493,6 +8606,8 @@
             "Heavy Metal Classics",
             "Rock Legends",
             "remera",
+            "hoodie",
+            "buzo_cuello_redondo",
             "Ozzy Osbourne Archive"
         ]
     },
@@ -9227,6 +9342,11 @@
                 "garmentCategory": "Slayer"
             },
             {
+                "img": "images/slayer/remera_slayer_blanca_hell_awaits.jpg",
+                "name": "Slayer Hell Awaits - Remera blanca",
+                "garmentCategory": "Slayer"
+            },
+            {
                 "img": "images/slayer/hoodie_hell_awaits.jpg",
                 "name": "Slayer Hell Awaits - Hoodie",
                 "garmentCategory": "Hoodies Otras Bandas"
@@ -9277,6 +9397,16 @@
             {
                 "img": "images/slayer/remera_slayer_aguila.jpg",
                 "name": "Slayer Aguila - Remera",
+                "garmentCategory": "Slayer"
+            },
+            {
+                "img": "images/slayer/remera_slayer_aguila_v2.jpg",
+                "name": "Slayer Aguila V2 - Remera negra",
+                "garmentCategory": "Slayer"
+            },
+            {
+                "img": "images/slayer/remera_slayer_blanca_aguila.jpg",
+                "name": "Slayer Aguila - Remera blanca",
                 "garmentCategory": "Slayer"
             },
             {
@@ -14377,6 +14507,16 @@
                 "garmentCategory": "Slayer"
             },
             {
+                "img": "images/slayer/remera_slayer_show_no_mercy.jpg",
+                "name": "Slayer Show No Mercy - Remera negra",
+                "garmentCategory": "Slayer"
+            },
+            {
+                "img": "images/slayer/remera_slayer_blanca_show_no_mercy.jpg",
+                "name": "Slayer Show No Mercy - Remera blanca",
+                "garmentCategory": "Slayer"
+            },
+            {
                 "img": "images/slayer/hoodie_show_no_mercy.jpg",
                 "name": "Slayer Show No Mercy - Hoodie",
                 "garmentCategory": "Hoodies Otras Bandas"
@@ -14813,6 +14953,16 @@
                 "img": "images/slayer/remera_live_undead.jpg",
                 "name": "Slayer Live Undead - Remera",
                 "garmentCategory": "Slayer"
+            },
+            {
+                "img": "images/slayer/remera_slayer_live_undead.jpg",
+                "name": "Slayer Live Undead - Remera negra",
+                "garmentCategory": "Slayer"
+            },
+            {
+                "img": "images/slayer/remera_slayer_blanca_live_undead.jpg",
+                "name": "Slayer Live Undead - Remera blanca",
+                "garmentCategory": "Slayer"
             }
         ],
         "desc": "Slayer Live Undead doble estampa frente y dorso. Archivo Slayer FMD 2026.",
@@ -14962,6 +15112,45 @@
         "campaigns": [],
         "commercialPriority": 83,
         "visibilityTier": "featured",
+        "legacyCategory": "Slayer"
+    },
+    {
+        "id": 7128,
+        "category": "Slayer",
+        "year": "2026",
+        "name": "Slayer Repentless",
+        "tipoPrecio": "simple",
+        "isNew": true,
+        "priority": 220,
+        "img": "images/slayer/remera_slayer_replentless.jpg",
+        "variants": [
+            {
+                "img": "images/slayer/remera_slayer_replentless.jpg",
+                "name": "Slayer Repentless - Remera",
+                "garmentCategory": "Slayer"
+            }
+        ],
+        "desc": "Slayer Repentless estampa frontal. Archivo Slayer FMD 2026.",
+        "band": "Slayer",
+        "collections": [
+            "Slayer Archive FMD",
+            "Repentless"
+        ],
+        "tags": [
+            "Slayer",
+            "Repentless",
+            "Remera"
+        ],
+        "universe": [
+            "Thrash Metal"
+        ],
+        "album": "Repentless",
+        "garments": [
+            "remera"
+        ],
+        "campaigns": [],
+        "commercialPriority": 76,
+        "visibilityTier": "catalog",
         "legacyCategory": "Slayer"
     },
     {
@@ -15664,6 +15853,218 @@
             "Bandas Sugeridas",
             "remera",
             "Dio Archive",
+            "Invierno 2026"
+        ]
+    },
+    {
+        "id": 5089,
+        "category": "Bandas Sugeridas",
+        "year": "2026",
+        "name": "HammerFall - hoodies sugeridos",
+        "tipoPrecio": "hoodie",
+        "isNew": true,
+        "img": "images/banda_sugeridas/hammerfall/hoodie_hammerfall_crimson.jpg",
+        "variants": [
+            {
+                "img": "images/banda_sugeridas/hammerfall/hoodie_hammerfall_crimson.jpg",
+                "name": "HammerFall Crimson - Hoodie",
+                "garmentCategory": "Hoodies Otras Bandas"
+            },
+            {
+                "img": "images/banda_sugeridas/hammerfall/hoodie_hammerfall_glory_to_the_grave.jpg",
+                "name": "HammerFall Glory to the Grave - Hoodie",
+                "garmentCategory": "Hoodies Otras Bandas"
+            },
+            {
+                "img": "images/banda_sugeridas/hammerfall/hoodie_hammerfall_legacy.jpg",
+                "name": "HammerFall Legacy - Hoodie",
+                "garmentCategory": "Hoodies Otras Bandas"
+            },
+            {
+                "img": "images/banda_sugeridas/hammerfall/hoodie_hammerfall_renegade.jpg",
+                "name": "HammerFall Renegade - Hoodie",
+                "garmentCategory": "Hoodies Otras Bandas"
+            },
+            {
+                "img": "images/banda_sugeridas/hammerfall/hoodie_hammerfall_steel.jpg",
+                "name": "HammerFall Steel - Hoodie",
+                "garmentCategory": "Hoodies Otras Bandas"
+            }
+        ],
+        "desc": "HammerFall en hoodies para sumar al archivo de más bandas. Diseños disponibles a pedido y adaptables a otras prendas por WhatsApp.",
+        "band": "HammerFall",
+        "universe": [
+            "Heavy Metal Classics",
+            "Power Metal"
+        ],
+        "album": null,
+        "garments": [
+            "hoodie"
+        ],
+        "collections": [
+            "Bandas Sugeridas",
+            "HammerFall Archive"
+        ],
+        "campaigns": [
+            "Invierno 2026"
+        ],
+        "commercialPriority": 74,
+        "visibilityTier": "catalog",
+        "legacyCategory": "Bandas Sugeridas",
+        "tags": [
+            "HammerFall",
+            "Heavy Metal Classics",
+            "Power Metal",
+            "Bandas Sugeridas",
+            "hoodie",
+            "HammerFall Archive",
+            "Invierno 2026"
+        ]
+    },
+    {
+        "id": 5091,
+        "category": "Bandas Sugeridas",
+        "year": "2026",
+        "name": "Kreator - diseños sugeridos",
+        "tipoPrecio": "simple",
+        "isNew": true,
+        "img": "images/banda_sugeridas/kreator/remera_kreator_god_of_violence.jpg",
+        "variants": [
+            {
+                "img": "images/banda_sugeridas/kreator/remera_kreator_god_of_violence.jpg",
+                "name": "Kreator God of Violence - Remera",
+                "garmentCategory": "Bandas Sugeridas"
+            },
+            {
+                "img": "images/banda_sugeridas/kreator/remera_kreator_hate.jpg",
+                "name": "Kreator Hate - Remera",
+                "garmentCategory": "Bandas Sugeridas"
+            },
+            {
+                "img": "images/banda_sugeridas/kreator/remera_kreator_krushers.jpg",
+                "name": "Kreator Krushers - Remera",
+                "garmentCategory": "Bandas Sugeridas"
+            },
+            {
+                "img": "images/banda_sugeridas/kreator/remera_kreator_krushers_v2.jpg",
+                "name": "Kreator Krushers V2 - Remera",
+                "garmentCategory": "Bandas Sugeridas"
+            },
+            {
+                "img": "images/banda_sugeridas/kreator/remera_kreator_logo.jpg",
+                "name": "Kreator Logo - Remera",
+                "garmentCategory": "Bandas Sugeridas"
+            },
+            {
+                "img": "images/banda_sugeridas/kreator/remera_kreator_phantom.jpg",
+                "name": "Kreator Phantom - Remera",
+                "garmentCategory": "Bandas Sugeridas"
+            },
+            {
+                "img": "images/banda_sugeridas/kreator/remera_kreator_pleasure.jpg",
+                "name": "Kreator Pleasure - Remera",
+                "garmentCategory": "Bandas Sugeridas"
+            },
+            {
+                "img": "images/banda_sugeridas/kreator/remera_kreator_pleasure_v2.jpg",
+                "name": "Kreator Pleasure V2 - Remera",
+                "garmentCategory": "Bandas Sugeridas"
+            },
+            {
+                "img": "images/banda_sugeridas/kreator/remera_kreator_v1.jpg",
+                "name": "Kreator V1 - Remera",
+                "garmentCategory": "Bandas Sugeridas"
+            },
+            {
+                "img": "images/banda_sugeridas/kreator/remera_kreator_v2.jpg",
+                "name": "Kreator V2 - Remera",
+                "garmentCategory": "Bandas Sugeridas"
+            },
+            {
+                "img": "images/banda_sugeridas/kreator/remera_kreator_v3.jpg",
+                "name": "Kreator V3 - Remera",
+                "garmentCategory": "Bandas Sugeridas"
+            }
+        ],
+        "desc": "Kreator en remeras para sumar al archivo de más bandas. Diseños disponibles a pedido y adaptables a hoodie o buzo por WhatsApp.",
+        "band": "Kreator",
+        "universe": [
+            "Thrash Metal",
+            "Heavy Metal Classics"
+        ],
+        "album": null,
+        "garments": [
+            "remera"
+        ],
+        "collections": [
+            "Bandas Sugeridas",
+            "Kreator Archive"
+        ],
+        "campaigns": [],
+        "commercialPriority": 76,
+        "visibilityTier": "catalog",
+        "legacyCategory": "Bandas Sugeridas",
+        "tags": [
+            "Kreator",
+            "Thrash Metal",
+            "Heavy Metal Classics",
+            "Bandas Sugeridas",
+            "remera",
+            "Kreator Archive"
+        ]
+    },
+    {
+        "id": 5090,
+        "category": "Bandas Sugeridas",
+        "year": "2026",
+        "name": "Manowar - hoodies sugeridos",
+        "tipoPrecio": "hoodie",
+        "isNew": true,
+        "img": "images/banda_sugeridas/manowar/hoodie_manowar_fighting.jpg",
+        "variants": [
+            {
+                "img": "images/banda_sugeridas/manowar/hoodie_manowar_fighting.jpg",
+                "name": "Manowar Fighting - Hoodie",
+                "garmentCategory": "Hoodies Otras Bandas"
+            },
+            {
+                "img": "images/banda_sugeridas/manowar/hoodie_manowar_god_of_war.jpg",
+                "name": "Manowar God of War - Hoodie",
+                "garmentCategory": "Hoodies Otras Bandas"
+            },
+            {
+                "img": "images/banda_sugeridas/manowar/hoodie_manowar_kings_of_metal.jpg",
+                "name": "Manowar Kings of Metal - Hoodie",
+                "garmentCategory": "Hoodies Otras Bandas"
+            }
+        ],
+        "desc": "Manowar en hoodies para sumar al archivo de más bandas. Diseños disponibles a pedido y adaptables a otras prendas por WhatsApp.",
+        "band": "Manowar",
+        "universe": [
+            "Heavy Metal Classics",
+            "Power Metal"
+        ],
+        "album": null,
+        "garments": [
+            "hoodie"
+        ],
+        "collections": [
+            "Bandas Sugeridas",
+            "Manowar Archive"
+        ],
+        "campaigns": [
+            "Invierno 2026"
+        ],
+        "commercialPriority": 74,
+        "visibilityTier": "catalog",
+        "legacyCategory": "Bandas Sugeridas",
+        "tags": [
+            "Manowar",
+            "Heavy Metal Classics",
+            "Power Metal",
+            "Bandas Sugeridas",
+            "hoodie",
+            "Manowar Archive",
             "Invierno 2026"
         ]
     }
