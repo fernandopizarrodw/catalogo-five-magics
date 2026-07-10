@@ -121,21 +121,16 @@
             <div class="hero-divider"></div>
             <p class="hero-description">Dise&ntilde;os cl&aacute;sicos, ediciones FMD y personalizados.<br>Eleg&iacute; un dise&ntilde;o del cat&aacute;logo o pedinos uno personalizado con tu banda, tapa, foto o idea.</p>
             <div class="hero-actions">
-                <a href="#categoryNav" class="hero-cta-btn" id="heroCtaBuzos">EXPLORAR CAT&Aacute;LOGO</a>
+                <a href="#catalogoPrincipal" class="hero-cta-btn" id="heroCtaBuzos" onclick="showFullCatalog(); return false;">EXPLORAR CAT&Aacute;LOGO</a>
                 <a href="https://wa.me/541169667685?text=Hola%20FMD%2C%20quiero%20pedir%20una%20pieza%20a%20medida%20con%20la%20banda%2C%20tapa%20o%20arte%20que%20quiera" class="hero-cta-btn hero-cta-btn-secondary" id="heroCtaWhatsapp" target="_blank" rel="noopener">PEDIR POR WHATSAPP</a>
             </div>
             <div class="hero-proof">
                 <span class="hero-proof-priority">REMERAS &middot; HOODIES &middot; BUZOS</span>
-                <span>Negro o blanco &middot; estampa frontal o doble &middot; talles para adultos y chicos</span>
+                <span>Todos los dise&ntilde;os pueden adaptarse a remera, hoodie o buzo, con estampa frontal o doble.</span>
                 <a href="#promosInvierno" class="hero-proof-promo">VER PROMOS DE INVIERNO &darr;</a>
             </div>
         </div>
         <div class="hero-accent"></div>
-    </section>
-
-    <section class="adaptable-designs-bar" aria-label="Diseños adaptables y personalizados">
-        <strong>TODOS LOS DISEÑOS SON ADAPTABLES</strong>
-        <span>Estampa frontal o doble · Frentes y dorsos combinables · Diseños personalizados</span>
     </section>
 
     <section class="home-curated-section home-main-bands" aria-labelledby="homeMainBandsTitle">
@@ -173,10 +168,6 @@
         <div class="home-secondary-band-grid" id="homeSecondaryBandAccess"></div>
     </section>
 
-    <section class="home-all-bands-access" aria-label="Archivo completo de bandas">
-        <button type="button" onclick="openBandAccess('Bandas Sugeridas')">VER TODAS LAS BANDAS</button>
-    </section>
-
     <section class="winter-promos-section" id="promosInvierno" aria-labelledby="promosInviernoTitle">
         <div class="winter-promos-head">
             <p class="winter-promos-kicker">PROMOS DE INVIERNO</p>
@@ -185,7 +176,6 @@
         </div>
         <div class="winter-promos-grid">
             <article class="winter-promo-card winter-promo-card-featured winter-promo-combo">
-                <span class="winter-promo-tag">Abrigo + remera</span>
                 <h3>ABRIGO + REMERA</h3>
                 <div class="winter-combo-lines">
                     <strong>Hoodie doble + remera doble <span>— $99.000</span></strong>
@@ -214,6 +204,10 @@
                 <p>15% OFF + envío gratis a domicilio.</p>
             </article>
         </div>
+    </section>
+
+    <section class="home-all-bands-access" aria-label="Catálogo completo">
+        <button type="button" onclick="showFullCatalog()">VER CATÁLOGO COMPLETO</button>
     </section>
 
     <section class="megadeth-archive-section" id="megadethArchive">
@@ -702,7 +696,7 @@
                     <span>Key art HD</span>
                 </div>
                 <div class="reimagined-cta-row">
-                    <a href="https://wa.me/541169667685?text=Hola%20FMD%2C%20quiero%20reservar%20el%20drop%20Rust%20in%20Peace%20Reimagined" class="reimagined-cta" target="_blank" rel="noopener" onclick="openWhatsapp('Hola FMD! Quiero reservar el drop Rust in Peace / Hangar 18 Reimagined 🔵\n\nPrenda: ___\nTalle: ___\nColor: ___\nCiudad o CP: ___', 'reimagined_rip'); return false;">RESERVAR ESTE DROP POR WHATSAPP</a>
+                    <a href="https://wa.me/541169667685?text=Hola%20FMD%2C%20quiero%20reservar%20el%20drop%20Rust%20in%20Peace%20Reimagined" class="reimagined-cta" target="_blank" rel="noopener" onclick="openWhatsapp('Hola FMD! Quiero reservar el drop Rust in Peace / Hangar 18 Reimagined 🔵\n\nPrenda: ___\nTalle: ___\nColor: ___\nCódigo postal si necesitás envío: ___', 'reimagined_rip'); return false;">RESERVAR ESTE DROP POR WHATSAPP</a>
                 </div>
             </div>
         </div>
@@ -752,7 +746,7 @@
         </details>
 
         <div class="combo-showcase-cta">
-            <a href="https://wa.me/541169667685?text=Hola%20FMD%2C%20quiero%20armar%20un%20combo%20de%20invierno" class="combo-showcase-btn" target="_blank" rel="noopener" onclick="openWhatsapp('Hola FMD! Quiero armar un combo de invierno 🤘\n\nAbrigo: hoodie / buzo cuello redondo\nRemera: clásica / oversize\nTalle abrigo: ___\nTalle remera: ___\nColor: ___\nEntrega: punto Andreani / domicilio\nCP o ciudad: ___\n\nEntiendo que incluye envío gratis a punto de retiro Andreani y que a domicilio se abona la diferencia.', 'combo_showcase'); return false;">ARMAR COMBO POR WHATSAPP</a>
+            <a href="https://wa.me/541169667685?text=Hola%20FMD%2C%20quiero%20armar%20un%20combo%20de%20invierno" class="combo-showcase-btn" target="_blank" rel="noopener" onclick="openWhatsapp('Hola FMD! Quiero armar un combo de invierno 🤘\n\nAbrigo: hoodie / buzo cuello redondo\nRemera: clásica / oversize\nTalle abrigo: ___\nTalle remera: ___\nColor: ___\nEntrega: punto Andreani / domicilio\nCódigo postal: ___\n\nEntiendo que incluye envío gratis a punto de retiro Andreani y que a domicilio se abona la diferencia.', 'combo_showcase'); return false;">ARMAR COMBO POR WHATSAPP</a>
         </div>
     </section>
 
@@ -1068,7 +1062,7 @@
                 <div class="nav-group nav-group-featured">
                     <div class="nav-group-head">
                         <h3 class="nav-group-title">Especiales FMD</h3>
-                        <p class="nav-group-copy">Accesos comerciales temporales y pedidos a medida. La navegacion principal sigue siendo por banda.</p>
+                        <p class="nav-group-copy">Hoodies, buzos y pedidos personalizados para armar tu prenda a medida.</p>
                     </div>
                     <div class="nav-group-buttons">
                         <button class="cat-btn cat-btn-hoodie" data-cat="Hoodies Otras Bandas" data-count="14">
@@ -1107,6 +1101,15 @@
                     <path d="M18 6L6 18M6 6l12 12" />
                 </svg>
             </button>
+        </div>
+
+        <div class="catalog-quick-filters" aria-label="Accesos rápidos del catálogo">
+            <button type="button" class="catalog-quick-filter active" data-filter="all" onclick="showFullCatalog()">TODAS</button>
+            <button type="button" class="catalog-quick-filter" data-filter="Megadeth" onclick="openBandAccess('Megadeth')">MEGADETH</button>
+            <button type="button" class="catalog-quick-filter" data-filter="Slayer" onclick="openBandAccess('Slayer')">SLAYER</button>
+            <button type="button" class="catalog-quick-filter" data-filter="Iron Maiden" onclick="openBandAccess('Iron Maiden')">IRON MAIDEN</button>
+            <button type="button" class="catalog-quick-filter" data-filter="Metallica" onclick="openBandAccess('Metallica')">METALLICA</button>
+            <button type="button" class="catalog-quick-filter" data-filter="Bandas Sugeridas" onclick="openBandAccess('Bandas Sugeridas')">MÁS BANDAS</button>
         </div>
 
         <!-- Filtros por banda (expandible para 100+ diseños) -->
@@ -1379,35 +1382,35 @@
     <!-- CÓMO COMPRAR -->
     <section class="info-section" id="como-comprar">
         <h2 class="info-title">CÓMO COMPRAR</h2>
-        <p class="info-subtitle">4 pasos simples para tener tu remera</p>
+        <p class="info-subtitle">4 pasos simples para hacer tu pedido</p>
 
         <div class="steps-container">
             <div class="step-item">
                 <span class="step-num">1</span>
                 <div class="step-content">
                     <h4>Elegí tu diseño</h4>
-                    <p>Explorá el catálogo y encontré tu favorito.</p>
+                    <p>Explorá el catálogo y encontrá tu favorito.</p>
                 </div>
             </div>
             <div class="step-item">
                 <span class="step-num">2</span>
                 <div class="step-content">
-                    <h4>Escribime</h4>
-                    <p>Por WhatsApp con talle, color y ciudad.</p>
+                    <h4>Escribinos</h4>
+                    <p>Por WhatsApp con talle, color y código postal si necesitás envío.</p>
                 </div>
             </div>
             <div class="step-item">
                 <span class="step-num">3</span>
                 <div class="step-content">
                     <h4>Confirmación</h4>
-                    <p>Remeras desde $37k. Doble estampa desde $44k. Personalizados +$5k. 2 prendas: punto Andreani gratis. 3 prendas: domicilio gratis. 4+ prendas: 15% OFF.</p>
+                    <p>Te confirmamos el total, el envío y la mejor promoción disponible.</p>
                 </div>
             </div>
             <div class="step-item">
                 <span class="step-num">4</span>
                 <div class="step-content">
                     <h4>Pago → Producción</h4>
-                    <p>Producción 5-7 días hábiles + envío por Andreani. Aplicamos la mejor promo disponible según tu pedido.</p>
+                    <p>Producción 4 a 7 días hábiles + envío por Andreani. También podés retirar sin cargo en Villa Martelli.</p>
                 </div>
             </div>
         </div>
@@ -1458,13 +1461,13 @@
             <div class="faq-item bg-card">
                 <details>
                     <summary>Envíos (Andreani + tracking)</summary>
-                    <div class="faq-content">2 prendas: envío gratis a punto de retiro Andreani; a domicilio se abona la diferencia. Combo invierno: abrigo doble + remera doble desde $95.000. 3 prendas: envío gratis a domicilio. 3 prendas de abrigo: 10% OFF + envío gratis a domicilio. 4+ prendas: 15% OFF + envío gratis a domicilio. Te pasamos el tracking apenas despacha.</div>
+                    <div class="faq-content">2 prendas: envío gratis a punto de retiro Andreani; a domicilio se abona la diferencia. Abrigo + remera doble desde $95.000. 3 prendas: envío gratis a domicilio. 3 prendas de abrigo: 10% OFF + envío gratis a domicilio. 4+ prendas: 15% OFF + envío gratis a domicilio. Te pasamos el tracking apenas despacha.</div>
                 </details>
             </div>
             <div class="faq-item bg-card">
                 <details>
                     <summary>Medios de pago + personalizados</summary>
-                    <div class="faq-content">Transferencia o MercadoPago. ¿Querés tu diseño? Mandame la imagen en buena calidad y lo preparamos para DTG pro. ¿Tenés una imagen vieja o de baja calidad? No hay problema. En Five Magics Designs reconstruimos diseños para impresión profesional.</div>
+                    <div class="faq-content">Transferencia o MercadoPago. ¿Querés tu diseño? Mandanos la imagen en buena calidad y lo preparamos para DTG pro. ¿Tenés una imagen vieja o de baja calidad? No hay problema. En Five Magics Designs reconstruimos diseños para impresión profesional.</div>
                 </details>
             </div>
         </div>
@@ -1493,13 +1496,13 @@
         </div>
 
         <div class="footer-info footer-info-compact">
-            <p class="footer-info-line">📦 <strong>ENVÍO:</strong> Andreani a todo el país (domicilio o punto de retiro). Entrega en 4-7 días hábiles.</p>
-            <p>💳 <strong>PAGO:</strong> Transferencia o MercadoPago. Tarjeta de crédito con recargo $8.000.</p>
+            <p class="footer-info-line">📦 <strong>ENVÍO:</strong> Andreani a todo el país o retiro sin cargo en Villa Martelli. Producción estimada: 4 a 7 días hábiles.</p>
+            <p>💳 <strong>PAGO:</strong> Transferencia o MercadoPago. Tarjeta de crédito disponible con recargo.</p>
         </div>
 
         <div class="footer-divider"></div>
 
-        <p>© 2025 Five Magics Designs · Argentina</p>
+        <p>© 2026 Five Magics Designs · Argentina</p>
         <p class="footer-legal-note">Precios vigentes. Sujetos a modificación sin previo aviso.</p>
     </footer>
 

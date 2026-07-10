@@ -78,12 +78,11 @@ const ACTIVE_HOME_CAMPAIGN = {
     kicker: 'DESTACADO FMD',
     title: 'ÉPICO · POWER · SINFÓNICO',
     subtitle: 'Nuevos diseños de EPICA, Rhapsody, Helloween, Angra y Blind Guardian.',
-    label: 'SHOW ARGENTINA 2027',
     featuredFilters: ['Epica', 'Rhapsody', 'Helloween'],
     bands: [
-        { label: 'EPICA', filter: 'Epica' },
-        { label: 'RHAPSODY', filter: 'Rhapsody' },
-        { label: 'HELLOWEEN', filter: 'Helloween' },
+        { label: 'EPICA', filter: 'Epica', badge: 'SHOW ARGENTINA 2027' },
+        { label: 'RHAPSODY', filter: 'Rhapsody', badge: 'SHOW ARGENTINA 2027' },
+        { label: 'HELLOWEEN', filter: 'Helloween', badge: 'SHOW ARGENTINA 2026' },
         { label: 'ANGRA', filter: 'Angra' },
         { label: 'BLIND GUARDIAN', filter: 'Blind Guardian' }
     ]
@@ -1068,19 +1067,51 @@ function getBandDesignCount(filter) {
         .reduce((total, product) => total + Math.max(1, Array.isArray(product.variants) ? product.variants.length : 0), 0);
 }
 
-function openBandAccess(filter) {
+function syncCatalogQuickFilters(filter = null) {
+    const normalizedFilter = normalizeText(filter || 'all');
+    document.querySelectorAll('.catalog-quick-filter').forEach(button => {
+        const buttonFilter = button.dataset.filter || 'all';
+        button.classList.toggle('active', normalizeText(buttonFilter) === normalizedFilter);
+    });
+}
+
+function clearCatalogState() {
     currentUniverse = null;
     currentGarmentFilter = null;
     currentSearch = '';
     epicaGarmentPreference = null;
-    currentCategory = filter;
-    resetCatalogPagination();
+    slayerGarmentPreference = null;
+    maidenGarmentPreference = null;
+    megadethGarmentPreference = null;
+    megadethSegmentPreference = 'all';
     if (searchInput) searchInput.value = '';
     if (searchClear) searchClear.classList.remove('visible');
+}
+
+function openBandAccess(filter) {
+    clearCatalogState();
+    currentCategory = filter;
+    resetCatalogPagination();
     document.querySelectorAll('.cat-btn, .filter-pill, .hero-band-access-btn, .hero-symphonic-btn').forEach(button => {
         const buttonFilter = button.dataset.cat || button.dataset.filter || button.dataset.bandFilter;
         button.classList.toggle('active', normalizeText(buttonFilter) === normalizeText(filter));
     });
+    syncCatalogQuickFilters(filter);
+    filterProducts();
+    scrollToSection('catalogoPrincipal');
+}
+
+function showFullCatalog() {
+    clearCatalogState();
+    currentCategory = null;
+    resetCatalogPagination();
+    document.querySelectorAll('.cat-btn, .filter-pill, .hero-band-access-btn, .hero-symphonic-btn').forEach(button => {
+        const buttonFilter = button.dataset.cat || button.dataset.filter || button.dataset.bandFilter;
+        button.classList.toggle('active', normalizeText(buttonFilter) === 'all');
+    });
+    const allPill = document.querySelector('.filter-pill[data-filter="all"]');
+    if (allPill) allPill.classList.add('active');
+    syncCatalogQuickFilters('all');
     filterProducts();
     scrollToSection('catalogoPrincipal');
 }
@@ -1090,7 +1121,7 @@ function renderHomeBandButton(item, className, extra = '') {
     return `
         <button type="button" class="${className}${extra}" data-band-filter="${item.filter}" onclick="openBandAccess('${item.filter}')">
             <strong>${item.label}</strong>
-            <span>${count ? `${count} diseños` : 'Ver archivo'}</span>
+            <span>${count ? `${count} opciones` : 'Ver archivo'}</span>
         </button>
     `;
 }
@@ -1137,7 +1168,7 @@ function renderHomeOuterwearCard(product) {
             </div>
             <div class="home-outerwear-info">
                 <p>${product.band || getCategoryLabel(product.category)}</p>
-                <h3>${product.name}</h3>
+                <h3>${cleanPublicText(product.name)}</h3>
                 <div>${formatHomeOuterwearPrices(outerwearType)}</div>
             </div>
         </article>
@@ -1167,14 +1198,14 @@ function renderHomeArchitecture() {
                 const featured = new Set((ACTIVE_HOME_CAMPAIGN.featuredFilters || []).map(normalizeText));
                 rail.innerHTML = (ACTIVE_HOME_CAMPAIGN.bands || []).slice(0, 5).map(item => {
                     const isFeatured = featured.has(normalizeText(item.filter));
-                    const label = isFeatured && ACTIVE_HOME_CAMPAIGN.label
-                        ? `<em>${ACTIVE_HOME_CAMPAIGN.label}</em>`
+                    const label = isFeatured && item.badge
+                        ? `<em>${item.badge}</em>`
                         : '';
                     return `
                         <button type="button" class="home-campaign-card${isFeatured ? ' is-featured' : ''}" data-band-filter="${item.filter}" onclick="openBandAccess('${item.filter}')">
                             ${label}
                             <strong>${item.label}</strong>
-                            <span>${getBandDesignCount(item.filter) || ''}${getBandDesignCount(item.filter) ? ' diseños' : 'Ver archivo'}</span>
+                            <span>${getBandDesignCount(item.filter) || ''}${getBandDesignCount(item.filter) ? ' opciones' : 'Ver archivo'}</span>
                         </button>
                     `;
                 }).join('');
@@ -1200,6 +1231,7 @@ function renderHomeArchitecture() {
 }
 
 window.openBandAccess = openBandAccess;
+window.showFullCatalog = showFullCatalog;
 
 function getProductPriority(product) {
     const commercialPriority = Number(product?.commercialPriority);
@@ -1243,6 +1275,63 @@ function compareProductsByVisibilityThenPriority(a, b) {
     const tierDiff = (VISIBILITY_TIER_ORDER[a?.visibilityTier] ?? 99) - (VISIBILITY_TIER_ORDER[b?.visibilityTier] ?? 99);
     if (tierDiff !== 0) return tierDiff;
     return compareProductsByPriorityThenId(a, b);
+}
+
+const ALL_CATALOG_BAND_ORDER = [
+    'Megadeth',
+    'Slayer',
+    'Iron Maiden',
+    'Metallica',
+    'Epica',
+    'Rhapsody',
+    'Helloween',
+    'Angra',
+    'Blind Guardian',
+    'Pantera',
+    'AC/DC',
+    'Sepultura',
+    'Avenged Sevenfold',
+    'Dio',
+    'Nightwish'
+];
+
+function getCatalogBandLabel(product) {
+    const rawLabel = String(product?.band || product?.category || 'Otros diseños').trim();
+    const publicLabels = {
+        epica: 'EPICA',
+        acdc: 'AC/DC',
+        personalizados: 'Personalizados'
+    };
+    return publicLabels[normalizeText(rawLabel).replace(/[^a-z0-9]/g, '')] || rawLabel;
+}
+
+function orderAllCatalogProducts(products) {
+    const groups = new Map();
+    products.forEach(product => {
+        const label = getCatalogBandLabel(product);
+        if (!groups.has(label)) groups.set(label, []);
+        groups.get(label).push(product);
+    });
+    groups.forEach(group => group.sort(compareProductsByVisibilityThenPriority));
+
+    const configuredLabels = ALL_CATALOG_BAND_ORDER
+        .map(label => [...groups.keys()].find(groupLabel => normalizeText(groupLabel) === normalizeText(label)))
+        .filter(Boolean);
+    const remainingLabels = [...groups.keys()]
+        .filter(label => !configuredLabels.includes(label))
+        .sort((a, b) => a.localeCompare(b, 'es', { sensitivity: 'base' }));
+    const orderedLabels = [...configuredLabels, ...remainingLabels];
+    const orderedProducts = [];
+    const groupSize = 4;
+    const largestGroup = Math.max(0, ...orderedLabels.map(label => groups.get(label).length));
+
+    // Recorre todas las bandas en tandas cortas para que la primera página sea variada.
+    for (let offset = 0; offset < largestGroup; offset += groupSize) {
+        orderedLabels.forEach(label => {
+            orderedProducts.push(...groups.get(label).slice(offset, offset + groupSize));
+        });
+    }
+    return orderedProducts;
 }
 
 function productBelongsToUniverse(product, universe) {
@@ -2320,10 +2409,11 @@ function renderLatestReleases(limit = 5) {
 
         // 3. Renderizar las tarjetas en el DOM
         latestGrid.innerHTML = displayCards.map(card => {
+            const sourceProduct = db.find(product => Number(product?.id) === Number(card.productId)) || card;
             const hasVariants = card.variants && card.variants.length > 1;
             const isDoble = card.tipoPrecio === 'doble';
             const isDorsoIdea = card.category === 'Dorsales';
-            const badgeText = (hasVariants && !card.isNewVariant) ? `${card.variants.length} diseños <span style='font-size:1.2em;margin-left:6px;'>➔</span>` : (isDoble ? '🔥 Doble estampa' : '');
+            const badgeText = (hasVariants && !card.isNewVariant) ? `${card.variants.length} opciones <span style='font-size:1.2em;margin-left:6px;'>➔</span>` : (isDoble ? '🔥 Doble estampa' : '');
             // NUEVO badge
             const isNew = card.isNewVariant || card.isNew;
             const newBadge = isNew ? `<span class="pack-badge" style="background:var(--magic-green);color:#000;">🆕 NUEVO</span>` : '';
@@ -2341,14 +2431,14 @@ function renderLatestReleases(limit = 5) {
                 <div class="product-badges">${badges}</div>
                 <img src="${card.img}" class="product-img" loading="lazy">
                 <div class="product-info">
-                    <div class="product-name">${card.title}</div>
+                    <div class="product-name">${cleanCatalogCardText(card.title)}</div>
                     ${code ? `<div class="product-code" style="font-size:0.85em;color:var(--magic-orange);font-weight:600;letter-spacing:1px;">${code}</div>` : ''}
-                    <div class="product-meta">${formatCategoryMeta(card.year, getCategoryLabel(card.category))}</div>
+                    <div class="product-meta">${formatCategoryMeta(getPublicProductYear(sourceProduct), getPublicProductCategoryLabel(sourceProduct))}</div>
                     <div class="product-price-row">
                         ${
                             isDorsoIdea
                             ? `<span class="product-envio" style="color:var(--magic-green);border:1px solid rgba(57,255,20,.25);">Solo doble estampa</span>`
-                            : `${formatPreciosDual(card)}<div style="font-size:0.62rem;color:var(--text-muted);margin-top:4px;">2 prendas: punto Andreani gratis · 3 prendas: domicilio gratis · 4+ prendas: 15% OFF</div>`
+                            : formatPreciosDual(card)
                         }
                     </div>
                 </div>
@@ -3171,7 +3261,7 @@ function buildDobleMessage(){
     const input = (document.getElementById('dorsoCustomInput')?.value || '').trim();
     const custom = input ? `\nDetalle personalizado: ${input}` : '';
 
-    return `${base}${variant}${selectedBackVariant}${chips}${backs}${custom}\n\nTalle: ___  Color: ___  Ciudad: ___`;
+    return `${base}${variant}${selectedBackVariant}${chips}${backs}${custom}\n\nTalle: ___  Color: ___  Código postal si necesito envío: ___`;
 }
 
 function updateDobleWaLink(){
@@ -3447,7 +3537,7 @@ let scrollPosition = 0;
 let isScrolling = false;
 let scrollTimeout;
 let currentView = 'grid';
-let currentCategory = 'Megadeth';
+let currentCategory = null;
 let currentUniverse = null;
 let currentGarmentFilter = null;
 let currentSearch = '';
@@ -4531,6 +4621,36 @@ function stripGarmentPrefixFromName(name) {
         .trim();
 }
 
+function cleanPublicText(text = '') {
+    return String(text || '')
+        .replace(/Killing\s+Is\s+my\s+Bussines/gi, 'Killing Is My Business')
+        .replace(/Killing\s+Is\s+my\s+bussines/gi, 'Killing Is My Business')
+        .replace(/Killing\s+is\s+My\s+Business/gi, 'Killing Is My Business');
+}
+
+function cleanCatalogCardText(text = '') {
+    return cleanPublicText(text)
+        .replace(/\s*-\s*dise(?:n|ñ)os sugeridos\s*$/i, '')
+        .trim();
+}
+
+function getPublicProductYear(product) {
+    const id = Number(product?.id ?? product?.productId);
+    const metallicaYears = {
+        1060: 1984,
+        1061: 1986,
+        1062: 1988
+    };
+    return metallicaYears[id] || product?.year || '';
+}
+
+function getPublicProductCategoryLabel(product) {
+    if (product?.band) return product.band;
+    const category = normalizeText(product?.category);
+    if (category === 'bandas sugeridas' || category === 'hoodies otras bandas') return 'FMD';
+    return getCategoryLabel(product?.category);
+}
+
 function cleanVariantNameForModal(product, variantName = '') {
     let name = String(variantName || '').trim();
     if (!name) return '';
@@ -4548,8 +4668,8 @@ function cleanVariantNameForModal(product, variantName = '') {
 function getProductDisplayName(product, variantName = '') {
     if (!product) return '';
     const garmentSuffix = getModalDisplayGarmentSuffix();
-    const baseName = garmentSuffix ? stripGarmentPrefixFromName(product.name) : product.name;
-    const cleanVariantName = cleanVariantNameForModal(product, variantName);
+    const baseName = cleanPublicText(garmentSuffix ? stripGarmentPrefixFromName(product.name) : product.name);
+    const cleanVariantName = cleanPublicText(cleanVariantNameForModal(product, variantName));
 
     if (garmentSuffix) {
         const variantWithoutGarment = cleanVariantName;
@@ -4558,7 +4678,7 @@ function getProductDisplayName(product, variantName = '') {
             : `${baseName} - ${garmentSuffix}`;
     }
 
-    if (!cleanVariantName || normalizeText(cleanVariantName) === normalizeText(product.name)) return baseName;
+    if (!cleanVariantName || normalizeText(cleanVariantName) === normalizeText(baseName)) return baseName;
     return `${baseName} - ${cleanVariantName}`;
 }
 
@@ -4571,7 +4691,7 @@ function updateModalInfo() {
     const activeVariantName = images?.[currentSlide]?.name?.trim() || '';
     let displayName = getProductDisplayName(currentProduct, activeVariantName);
     const slayerGarmentLabel = currentProduct.category === 'Slayer' ? getSlayerPreferredGarmentLabel() : '';
-    if (slayerGarmentLabel && !activeVariantName) displayName = `${currentProduct.name} - ${slayerGarmentLabel}`;
+    if (slayerGarmentLabel && !activeVariantName) displayName = `${cleanPublicText(currentProduct.name)} - ${slayerGarmentLabel}`;
     document.getElementById('modalName').textContent = displayName;
     
     // Actualizar código del producto
@@ -4680,18 +4800,19 @@ function showUniverse(universe) {
     if (searchClear) searchClear.classList.remove('visible');
     resetCatalogPagination();
     document.querySelectorAll('.cat-btn, .filter-pill').forEach(button => button.classList.remove('active'));
+    syncCatalogQuickFilters(null);
     filterProducts();
     scrollToSection('catalogoPrincipal');
 }
 
 function showCompleteCatalog() {
-    currentUniverse = null;
+    clearCatalogState();
     currentCategory = null;
-    currentSearch = '';
-    if (searchInput) searchInput.value = '';
-    if (searchClear) searchClear.classList.remove('visible');
     resetCatalogPagination();
     document.querySelectorAll('.cat-btn, .filter-pill').forEach(button => button.classList.remove('active'));
+    const allPill = document.querySelector('.filter-pill[data-filter="all"]');
+    if (allPill) allPill.classList.add('active');
+    syncCatalogQuickFilters('all');
     filterProducts();
     scrollToSection('catalogoPrincipal');
 }
@@ -4738,7 +4859,10 @@ function filterProducts() {
         filtered = filtered.flatMap(product => expandEpicaVariants(product, epicaGarmentPreference));
     }
     const shouldSortAlbumsByYear = normalizedCategory === 'album' && filtered.every(p => normalizeText(p?.category) === 'album');
-    if (normalizedCategory !== 'megadeth') {
+    const isAllCatalogView = !currentSearch && !currentCategory && !currentUniverse && !currentGarmentFilter;
+    if (isAllCatalogView) {
+        filtered = orderAllCatalogProducts(filtered);
+    } else if (normalizedCategory !== 'megadeth') {
         filtered.sort(shouldSortAlbumsByYear ? compareAlbumProductsByYearAscThenId : compareProductsByVisibilityThenPriority);
     }
     renderFilteredProducts(filtered);
@@ -4746,6 +4870,7 @@ function filterProducts() {
 
 function renderFilteredProducts(filtered) {
     const isMegadethView = normalizeText(currentCategory) === 'megadeth';
+    const isAllCatalogView = !currentSearch && !currentCategory && !currentUniverse && !currentGarmentFilter;
     const totalFiltered = filtered.length;
     const filteredDesignCount = filtered.reduce((total, product) => {
         if (product.epicaExpandedVariant) return total + 1;
@@ -4772,18 +4897,20 @@ function renderFilteredProducts(filtered) {
     document.getElementById('productsCount').textContent = currentSearch
         ? `${filtered.length} resultados globales`
         : normalizeText(currentCategory) === 'epica'
-        ? `${filteredDesignCount} diseños · ${getEpicaPreferredGarmentPluralLabel()}`
+        ? `${filteredDesignCount} opciones · ${getEpicaPreferredGarmentPluralLabel()}`
         : currentGarmentFilter
-        ? `${filtered.length} diseños · ${currentGarmentFilter === 'remera' ? 'Remeras' : currentGarmentFilter === 'hoodie' ? 'Hoodies' : 'Buzos cuello redondo'}`
+        ? `${filteredDesignCount} opciones · ${currentGarmentFilter === 'remera' ? 'Remeras' : currentGarmentFilter === 'hoodie' ? 'Hoodies' : 'Buzos cuello redondo'}`
         : currentUniverse
-        ? `${filtered.length} productos · ${currentUniverse}`
+        ? `${filteredDesignCount} opciones · ${currentUniverse}`
         : maidenGarmentLabel
-        ? `${filtered.length} diseños · ${maidenGarmentLabel}`
+        ? `${filteredDesignCount} opciones · ${maidenGarmentLabel}`
         : slayerGarmentLabel
-        ? `${filtered.length} diseños · ${slayerGarmentLabel}`
+        ? `${filteredDesignCount} opciones · ${slayerGarmentLabel}`
         : megadethGarmentLabel
-            ? `${filtered.length} diseños · ${megadethGarmentLabel}`
-        : `${filtered.length} diseños`;
+            ? `${filteredDesignCount} opciones · ${megadethGarmentLabel}`
+        : isAllCatalogView
+        ? `${filteredDesignCount} opciones · ordenadas por banda`
+        : `${filteredDesignCount} opciones`;
     productsGrid.innerHTML = visibleProducts.map((p, index) => {
         const isSlayerGarmentResult = p.category === 'Slayer' && typeof p.matchedVariantIndex === 'number';
         const isMegadethGarmentResult = normalizeText(currentCategory) === 'megadeth' && Boolean(megadethGarmentPreference) && typeof p.matchedVariantIndex === 'number';
@@ -4791,15 +4918,15 @@ function renderFilteredProducts(filtered) {
         const hasVariants = !isSlayerGarmentResult && !isMegadethGarmentResult && !isEpicaGarmentResult && p.variants && p.variants.length > 1;
         const isDoble = p.tipoPrecio === 'doble';
         const isDorsoIdea = p.category === 'Dorsales';
-        const variantUnit = p.category === 'Slayer' ? 'prendas' : 'diseños';
+        const variantUnit = 'opciones';
         const badgeText = isSlayerGarmentResult
             ? `${p.matchedVariantIndexes?.length > 1 ? `${p.matchedVariantIndexes.length} versiones · ` : ''}${getSlayerPreferredGarmentLabel()}`
             : isMegadethGarmentResult
-                ? `${p.matchedVariantIndexes?.length > 1 ? `${p.matchedVariantIndexes.length} diseños · ` : ''}${p.matchedGarment === 'remera' ? 'Remera' : p.matchedGarment === 'hoodie' ? 'Hoodie' : 'Buzo cuello redondo'}`
+                ? `${p.matchedVariantIndexes?.length > 1 ? `${p.matchedVariantIndexes.length} opciones · ` : ''}${p.matchedGarment === 'remera' ? 'Remera' : p.matchedGarment === 'hoodie' ? 'Hoodie' : 'Buzo cuello redondo'}`
             : isEpicaGarmentResult
                 ? (p.epicaExpandedVariant
                     ? `${p.matchedGarment === 'remera' ? 'Remera' : p.matchedGarment === 'hoodie' ? 'Hoodie' : 'Buzo cuello redondo'}`
-                    : `${p.matchedVariantIndexes?.length > 1 ? `${p.matchedVariantIndexes.length} diseños - ` : ''}${getEpicaPreferredGarmentLabel()}`)
+                    : `${p.matchedVariantIndexes?.length > 1 ? `${p.matchedVariantIndexes.length} opciones - ` : ''}${getEpicaPreferredGarmentLabel()}`)
             : hasVariants
                 ? `${p.variants.length} ${variantUnit} <span style='font-size:1.2em;margin-left:6px;'>➔</span>`
                 : (isDoble ? '🔥 Doble estampa' : '');
@@ -4829,18 +4956,24 @@ function renderFilteredProducts(filtered) {
             ? `<div class="megadeth-catalog-group-title">${MEGADETH_SEGMENT_LABELS[p.matchedSegment] || 'MEGADETH'}</div>`
             : '';
 
-        return `${segmentHeader}<div class="${cardClasses.join(' ')}" onclick="openModal(${p.id}${modalArgs})">
+        const currentBandGroup = getCatalogBandLabel(p);
+        const previousBandGroup = index > 0 ? getCatalogBandLabel(visibleProducts[index - 1]) : '';
+        const bandHeader = isAllCatalogView && currentBandGroup !== previousBandGroup
+            ? `<div class="catalog-band-group-title">${currentBandGroup}</div>`
+            : '';
+
+        return `${bandHeader}${segmentHeader}<div class="${cardClasses.join(' ')}" onclick="openModal(${p.id}${modalArgs})">
             <div class="product-badges">${badges}</div>
             <img src="${p.matchedVariantImage || p.img}" class="product-img" loading="lazy" decoding="async" fetchpriority="low" onerror="this.onerror=null;this.src='images/logo/MARCA DE AGUA.png';this.classList.add('is-fallback');">
             <div class="product-info">
-                <div class="product-name">${p.matchedVariantName || p.name}</div>
+                <div class="product-name">${cleanCatalogCardText(p.matchedVariantName || p.name)}</div>
                 ${code ? `<div class="product-code" style="font-size:0.85em;color:var(--magic-orange);font-weight:600;letter-spacing:1px;">${code}</div>` : ''}
-                <div class="product-meta">${formatCategoryMeta(p.year, getCategoryLabel(p.category))}</div>
+                <div class="product-meta">${formatCategoryMeta(getPublicProductYear(p), getPublicProductCategoryLabel(p))}</div>
                 <div class="product-price-row">
                     ${
                         isDorsoIdea
                         ? `<span class="product-envio" style="color:var(--magic-green);border:1px solid rgba(57,255,20,.25);">Solo doble estampa</span>`
-                        : `${formatPreciosDual(p)}<div style="font-size:0.62rem;color:var(--text-muted);margin-top:4px;">2 prendas: punto Andreani gratis · 3 prendas: domicilio gratis · 4+ prendas: 15% OFF</div>`
+                        : formatPreciosDual(p)
                     }
                 </div>
             </div>
@@ -4851,7 +4984,7 @@ function renderFilteredProducts(filtered) {
     if (loadMore && loadMoreStatus) {
         const hasMore = visibleProducts.length < totalFiltered;
         loadMore.hidden = !hasMore;
-        loadMoreStatus.textContent = hasMore ? `Mostrando ${visibleProducts.length} de ${totalFiltered} diseños` : '';
+        loadMoreStatus.textContent = hasMore ? `Mostrando ${visibleProducts.length} de ${totalFiltered} productos` : '';
     }
     setView(currentView);
 }
@@ -4891,6 +5024,8 @@ categoryNav.addEventListener('click', (e) => {
         currentGarmentFilter = null;
         currentCategory = btn.dataset.cat;
         if (normalizeText(currentCategory) !== 'epica') epicaGarmentPreference = null;
+        slayerGarmentPreference = null;
+        if (normalizeText(currentCategory) !== 'iron maiden') maidenGarmentPreference = null;
         resetCatalogPagination();
         if (normalizeText(currentCategory) === 'megadeth') {
             megadethGarmentPreference = getActiveMegadethGarmentPreference();
@@ -4902,6 +5037,7 @@ categoryNav.addEventListener('click', (e) => {
             maidenGarmentPreference = null;
             renderMaidenArchiveGrid();
         }
+        syncCatalogQuickFilters(currentCategory);
         filterProducts();
         const productsSection = document.querySelector('.products-section');
         const header = document.querySelector('header');
@@ -5370,21 +5506,19 @@ document.querySelectorAll('.filter-pill').forEach(pill => {
         
         // Actualizar filtro según qué se seleccione
         if (filterValue === 'all') {
-            currentUniverse = null;
-            currentGarmentFilter = null;
-            epicaGarmentPreference = null;
-            currentCategory = null; // Mostrar todo
-            resetCatalogPagination();
+            showFullCatalog();
         } else if (normalizeText(filterValue) === 'epica') {
             showAllEpica();
         } else {
             // Simular click en el botón de categoría correspondiente
             const navBtn = document.querySelector(`[data-cat="${filterValue}"]`);
-            if (navBtn) navBtn.click();
+            if (navBtn) {
+                navBtn.click();
+            } else {
+                openBandAccess(filterValue);
+            }
         }
-        
-        filterProducts();
-        
+
         // Cerrar dropdown después de seleccionar
         filterDropdown.classList.remove('active');
     });
@@ -6037,7 +6171,7 @@ function renderCartPreview() {
                 <span style="color:#39ff14;">📦 ENVÍO ANDREANI:</span> 2 prendas: envío gratis a punto de retiro Andreani. 3 prendas: envío gratis a domicilio. 3 abrigos: 10% OFF + envío gratis a domicilio. 4 prendas o más: 15% OFF + envío gratis a domicilio.
             </div>
             <div>
-                <span style="color:#39ff14;">💳 PAGO:</span> Transferencia o MercadoPago. Tarjeta de crédito con recargo $8.000.
+                <span style="color:#39ff14;">💳 PAGO:</span> Transferencia o MercadoPago. Tarjeta de crédito disponible con recargo.
             </div>
         </div>
         <div class="cart-preview-actions">
@@ -6406,7 +6540,7 @@ function initSearchModal() {
         searchModalResults.innerHTML = results.map(p => `
             <div class="search-result-item" onclick="openModal(${p.id}${typeof p.matchedVariantIndex === 'number' ? ', ' + p.matchedVariantIndex : ''}); document.getElementById('searchModal').classList.remove('active');">
                 <div class="search-result-name">${p.name}</div>
-                <div class="search-result-meta">${formatCategoryMeta(p.year, getCategoryLabel(p.category))}${typeof p.matchedVariantIndex === 'number' && p.variants?.[p.matchedVariantIndex] ? ' · ' + p.variants[p.matchedVariantIndex].name : ''}</div>
+                <div class="search-result-meta">${formatCategoryMeta(getPublicProductYear(p), getPublicProductCategoryLabel(p))}${typeof p.matchedVariantIndex === 'number' && p.variants?.[p.matchedVariantIndex] ? ' · ' + p.variants[p.matchedVariantIndex].name : ''}</div>
             </div>
         `).join('');
     };
@@ -6601,6 +6735,8 @@ function filterByCategory(category) {
     currentGarmentFilter = null;
     currentCategory = category;
     if (normalizeText(currentCategory) !== 'epica') epicaGarmentPreference = null;
+    slayerGarmentPreference = null;
+    if (normalizeText(currentCategory) !== 'iron maiden') maidenGarmentPreference = null;
     resetCatalogPagination();
     if (normalizeText(category) === 'megadeth') {
         megadethGarmentPreference = getActiveMegadethGarmentPreference();
@@ -6612,6 +6748,7 @@ function filterByCategory(category) {
         maidenGarmentPreference = null;
         renderMaidenArchiveGrid();
     }
+    syncCatalogQuickFilters(category);
     filterProducts();
     
     // Scroll al catálogo
@@ -6632,6 +6769,7 @@ function filterByGarment(garment) {
     if (searchClear) searchClear.classList.remove('visible');
     resetCatalogPagination();
     document.querySelectorAll('.cat-btn, .filter-pill').forEach(button => button.classList.remove('active'));
+    syncCatalogQuickFilters(null);
     filterProducts();
     scrollToSection('catalogoPrincipal');
 }
@@ -6834,19 +6972,11 @@ function initMegadethShowcase() {
 
 // Inicializar
 document.addEventListener('DOMContentLoaded', () => {
-    const heroCtaBuzos = document.getElementById('heroCtaBuzos');
-    if (heroCtaBuzos) {
-        heroCtaBuzos.addEventListener('click', (e) => {
-            e.preventDefault();
-            scrollToSection('megadethCollections');
-        });
-    }
-
     const heroCtaWhatsapp = document.getElementById('heroCtaWhatsapp');
     if (heroCtaWhatsapp) {
         heroCtaWhatsapp.addEventListener('click', (e) => {
             e.preventDefault();
-            openWhatsapp('Hola FMD! Quiero hacer un pedido de sus diseños 🤘\n\nFormato: Buzo / Hoodie / Remera\nDiseño: ___\nBanda: ___\nTalle: ___\nColor: ___\nCP o ciudad: ___\n\n¿Me confirmás precio final y envío?', 'hero_general');
+            openWhatsapp('Hola FMD! Quiero hacer un pedido de sus diseños 🤘\n\nFormato: Buzo / Hoodie / Remera\nDiseño: ___\nBanda: ___\nTalle: ___\nColor: ___\nCódigo postal si necesito envío: ___\n\n¿Me confirmás precio final y envío?', 'hero_general');
         });
     }
 
@@ -6862,7 +6992,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (maidenCtaWhatsapp) {
         maidenCtaWhatsapp.addEventListener('click', (e) => {
             e.preventDefault();
-            openWhatsapp('Hola FMD! Quiero encargar un diseño de Iron Maiden.\n\nFormato: Remera / Hoodie / Buzo\nDiseño: ___\nTalle: ___\nColor: ___\nCP o ciudad: ___\n\n¿Me confirmás precio final y envío?', 'maiden_archive');
+            openWhatsapp('Hola FMD! Quiero encargar un diseño de Iron Maiden.\n\nFormato: Remera / Hoodie / Buzo\nDiseño: ___\nTalle: ___\nColor: ___\nCódigo postal si necesito envío: ___\n\n¿Me confirmás precio final y envío?', 'maiden_archive');
         });
     }
 
@@ -6878,7 +7008,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (slayerCtaWhatsapp) {
         slayerCtaWhatsapp.addEventListener('click', (e) => {
             e.preventDefault();
-            openWhatsapp('Hola FMD! Quiero encargar un diseño de Slayer.\n\nFormato: Remera / Hoodie / Buzo cuello redondo\nDiseño: ___\nTalle: ___\nColor: ___\nCP o ciudad: ___\n\n¿Me confirmás precio final y envío?', 'slayer_archive');
+            openWhatsapp('Hola FMD! Quiero encargar un diseño de Slayer.\n\nFormato: Remera / Hoodie / Buzo cuello redondo\nDiseño: ___\nTalle: ___\nColor: ___\nCódigo postal si necesito envío: ___\n\n¿Me confirmás precio final y envío?', 'slayer_archive');
         });
     }
 
