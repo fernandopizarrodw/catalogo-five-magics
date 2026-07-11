@@ -1109,7 +1109,7 @@
             <button type="button" class="catalog-quick-filter" data-filter="Slayer" onclick="openBandAccess('Slayer')">SLAYER</button>
             <button type="button" class="catalog-quick-filter" data-filter="Iron Maiden" onclick="openBandAccess('Iron Maiden')">IRON MAIDEN</button>
             <button type="button" class="catalog-quick-filter" data-filter="Metallica" onclick="openBandAccess('Metallica')">METALLICA</button>
-            <button type="button" class="catalog-quick-filter" data-filter="Bandas Sugeridas" onclick="openBandAccess('Bandas Sugeridas')">MÁS BANDAS</button>
+            <button type="button" class="catalog-quick-filter" data-filter="more" onclick="showMoreBandsDirectory()">MÁS BANDAS</button>
         </div>
 
         <!-- Filtros por banda (expandible para 100+ diseños) -->
@@ -1123,19 +1123,17 @@
             <div class="filter-dropdown" id="filterDropdown">
                 <h3>Buscar por banda</h3>
                 <div class="filter-pills">
-                    <button class="filter-pill" data-filter="all">Todo (233)</button>
+                    <button class="filter-pill" data-filter="all">Todas</button>
                     <button class="filter-pill" data-filter="Megadeth">Megadeth</button>
-                    <button class="filter-pill" data-filter="Pantera">Pantera (20)</button>
-                    <button class="filter-pill" data-filter="Iron Maiden">Iron Maiden (14)</button>
-                    <button class="filter-pill" data-filter="Metallica">Metallica (5)</button>
-                    <button class="filter-pill" data-filter="Avenged Sevenfold">Avenged Sevenfold (2)</button>
-                    <button class="filter-pill" data-filter="AC/DC">AC/DC (21)</button>
-                    <button class="filter-pill" data-filter="Slayer">Slayer (26)</button>
-                    <button class="filter-pill" data-filter="Epica">EPICA (14)</button>
-                    <button class="filter-pill" data-filter="Rhapsody">RHAPSODY (11)</button>
-                    <button class="filter-pill" data-filter="Bandas Sugeridas">Más bandas (25)</button>
-                    <button class="filter-pill" data-filter="Hoodies Otras Bandas">Hoodies destacados (14)</button>
-                    <button class="filter-pill" data-filter="Personalizados">Pedidos Especiales (28)</button>
+                    <button class="filter-pill" data-filter="Pantera">Pantera</button>
+                    <button class="filter-pill" data-filter="Iron Maiden">Iron Maiden</button>
+                    <button class="filter-pill" data-filter="Metallica">Metallica</button>
+                    <button class="filter-pill" data-filter="Avenged Sevenfold">Avenged Sevenfold</button>
+                    <button class="filter-pill" data-filter="AC/DC">AC/DC</button>
+                    <button class="filter-pill" data-filter="Slayer">Slayer</button>
+                    <button class="filter-pill" data-filter="Epica">EPICA</button>
+                    <button class="filter-pill" data-filter="Rhapsody">RHAPSODY</button>
+                    <button class="filter-pill" data-filter="Personalizados">Pedidos Especiales</button>
                 </div>
             </div>
         </div>
@@ -1700,6 +1698,9 @@
                                 🛒 Guardar en carrito
                             </button>
                         </div>
+                        <button type="button" class="modal-outerwear-catalog-btn" id="modalOuterwearCatalogBtn" onclick="showOuterwearCatalogFromModal()" hidden>
+                            VER TODOS LOS HOODIES Y BUZOS
+                        </button>
                     </div>
 
                     <details class="modal-advanced-panel" id="modalAdvancedPanel">

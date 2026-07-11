@@ -2583,39 +2583,41 @@ header {
 
     .home-campaign-rail {
         display: grid;
-        grid-auto-flow: column;
-        grid-auto-columns: minmax(148px, 68%);
-        grid-template-columns: none;
+        grid-auto-flow: row;
+        grid-auto-columns: auto;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 10px;
-        overflow-x: auto;
-        overscroll-behavior-inline: contain;
-        scroll-snap-type: x proximity;
-        padding: 2px 18px 8px 0;
-        margin-right: -15px;
-    }
-
-    .home-campaign-rail::-webkit-scrollbar {
-        display: none;
+        width: 100%;
+        max-width: 100%;
+        overflow: hidden;
+        padding: 2px 0;
+        margin: 0;
     }
 
     .home-campaign-card {
         min-height: 82px;
-        scroll-snap-align: start;
+        min-width: 0;
+    }
+
+    .home-campaign-card:last-child:nth-child(odd) {
+        grid-column: 1 / -1;
     }
 
     .home-outerwear-grid {
         display: grid;
-        grid-auto-flow: column;
-        grid-auto-columns: minmax(166px, 62%);
-        grid-template-columns: none;
-        overflow-x: auto;
+        grid-auto-flow: row;
+        grid-auto-columns: auto;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        width: 100%;
+        max-width: 100%;
+        overflow: hidden;
         gap: 10px;
-        padding: 2px 18px 8px 0;
-        margin-right: -15px;
+        padding: 2px 0;
+        margin: 0;
     }
 
-    .home-outerwear-grid::-webkit-scrollbar {
-        display: none;
+    .home-outerwear-card {
+        min-width: 0;
     }
 
     .home-secondary-band-grid {
@@ -2625,6 +2627,12 @@ header {
 
     .home-secondary-band-btn {
         min-height: 58px;
+    }
+}
+
+@media (max-width: 420px) {
+    .home-outerwear-grid {
+        grid-template-columns: minmax(0, 1fr);
     }
 }
 
@@ -5085,21 +5093,220 @@ header {
     animation: fadeIn 0.3s ease;
 }
 
-.catalog-band-group-title {
+.catalog-garment-group-title {
     grid-column: 1 / -1;
-    margin: 12px 0 0;
-    padding: 10px 12px 8px;
-    border-bottom: 1px solid rgba(57, 255, 20, 0.3);
-    color: var(--magic-green);
+    margin: 14px 0 0;
+    padding: 11px 12px 9px;
+    border-left: 4px solid var(--magic-green);
+    border-bottom: 1px solid rgba(57, 255, 20, 0.25);
+    background: linear-gradient(90deg, rgba(57, 255, 20, 0.09), transparent);
+    color: #fff;
     font-family: var(--font-title);
     font-size: 1rem;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+}
+
+.catalog-garment-group-title:first-child {
+    margin-top: 0;
+}
+
+.products-grid.catalog-band-directory {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+.catalog-directory-active .view-toggle {
+    display: none;
+}
+
+.catalog-band-directory-section {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    margin: 0 0 32px;
+    padding: 18px;
+    overflow: hidden;
+    scroll-margin-top: calc(var(--header-height, 76px) + 18px);
+    border: 1px solid rgba(255, 255, 255, 0.11);
+    border-radius: 16px;
+    background: linear-gradient(145deg, rgba(12, 12, 12, 0.98), rgba(4, 4, 4, 0.98));
+}
+
+.catalog-band-directory-section.is-primary {
+    border-color: rgba(57, 255, 20, 0.38);
+    box-shadow: inset 0 1px 0 rgba(57, 255, 20, 0.08), 0 14px 34px rgba(0, 0, 0, 0.34);
+}
+
+.catalog-band-directory-section.is-current {
+    border-color: rgba(255, 111, 0, 0.38);
+}
+
+.catalog-band-directory-head {
+    margin-bottom: 14px;
+}
+
+.catalog-band-directory-head h2 {
+    margin: 0;
+    color: #fff;
+    font-family: var(--font-title);
+    font-size: clamp(1.2rem, 4vw, 1.8rem);
+    letter-spacing: 0.06em;
+}
+
+.catalog-band-directory-section.is-primary .catalog-band-directory-head h2 {
+    color: var(--magic-green);
+}
+
+.catalog-band-directory-section.is-current .catalog-band-directory-head h2 {
+    color: var(--magic-orange);
+}
+
+.catalog-band-directory-head p {
+    margin: 5px 0 0;
+    color: rgba(255, 255, 255, 0.68);
+    font-size: 0.85rem;
+    line-height: 1.4;
+}
+
+.catalog-band-directory-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.catalog-band-directory-grid[hidden] {
+    display: none;
+}
+
+.catalog-more-bands-toggle {
+    display: block;
+    width: min(100%, 420px);
+    min-height: 48px;
+    margin: 4px auto 0;
+    padding: 12px 18px;
+    border: 1px solid rgba(57, 255, 20, 0.5);
+    border-radius: 999px;
+    background: rgba(0, 34, 0, 0.72);
+    color: var(--magic-green);
+    cursor: pointer;
+    font-family: var(--font-title);
+    font-size: 0.78rem;
     font-weight: 900;
     letter-spacing: 0.08em;
     text-transform: uppercase;
 }
 
-.catalog-band-group-title:first-child {
-    margin-top: 0;
+.catalog-more-bands-toggle[aria-expanded="true"] {
+    margin-bottom: 16px;
+    border-color: rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.06);
+    color: #fff;
+}
+
+.catalog-more-bands-toggle:hover {
+    border-color: var(--magic-green);
+    background: rgba(57, 255, 20, 0.1);
+}
+
+.catalog-band-card {
+    position: relative;
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    min-height: 178px;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 13px;
+    background: #080808;
+    color: #fff;
+    cursor: pointer;
+    text-align: left;
+    isolation: isolate;
+}
+
+.catalog-band-card img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.25s ease;
+}
+
+.catalog-band-card-shade {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.08) 20%, rgba(0, 0, 0, 0.94) 92%);
+}
+
+.catalog-band-card-copy {
+    position: absolute;
+    inset: auto 0 0;
+    z-index: 2;
+    display: grid;
+    gap: 2px;
+    padding: 13px;
+}
+
+.catalog-band-card-copy strong {
+    font-family: var(--font-title);
+    font-size: 1.05rem;
+    line-height: 1.05;
+    text-transform: uppercase;
+    overflow-wrap: anywhere;
+}
+
+.catalog-band-card-copy em {
+    margin-top: 5px;
+    color: var(--magic-green);
+    font-size: 0.68rem;
+    font-style: normal;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+}
+
+.catalog-band-card.is-current .catalog-band-card-copy em {
+    color: var(--magic-orange);
+}
+
+.catalog-band-card:hover {
+    border-color: rgba(57, 255, 20, 0.55);
+}
+
+.catalog-band-card:hover img {
+    transform: scale(1.035);
+}
+
+@media (min-width: 700px) {
+    .catalog-band-directory-grid {
+        grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    }
+
+    .catalog-band-card {
+        min-height: 220px;
+    }
+}
+
+@media (max-width: 480px) {
+    .catalog-band-directory-section {
+        padding: 12px;
+    }
+
+    .catalog-band-directory-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .catalog-band-card {
+        min-height: 190px;
+    }
 }
 
 .catalog-load-more {
@@ -5243,8 +5450,7 @@ header {
     border-color: rgba(255, 214, 92, 0.62);
     box-shadow:
         0 0 0 1px rgba(255, 214, 92, 0.12),
-        0 18px 40px rgba(0, 0, 0, 0.58),
-        0 0 30px rgba(255, 154, 31, 0.16);
+        0 18px 40px rgba(0, 0, 0, 0.58);
 }
 
 .product-card.slayer-fmd-originals-card::after {
@@ -5258,8 +5464,7 @@ header {
     border-color: rgba(255, 214, 92, 0.9);
     box-shadow:
         0 0 0 1px rgba(255, 214, 92, 0.25),
-        0 22px 48px rgba(0, 0, 0, 0.68),
-        0 0 36px rgba(255, 154, 31, 0.24);
+        0 22px 48px rgba(0, 0, 0, 0.68);
 }
 
 .product-card.slayer-fmd-originals-card .product-info {
@@ -9046,6 +9251,31 @@ footer p {
     transform: none;
 }
 
+.modal-outerwear-catalog-btn {
+    width: 100%;
+    min-height: 44px;
+    padding: 11px 14px;
+    border: 1px solid rgba(57, 255, 20, 0.48);
+    border-radius: 10px;
+    background: rgba(0, 35, 0, 0.64);
+    color: var(--magic-green);
+    cursor: pointer;
+    font-family: var(--font-title);
+    font-size: 0.76rem;
+    font-weight: 900;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.modal-outerwear-catalog-btn:hover {
+    border-color: var(--magic-green);
+    background: rgba(57, 255, 20, 0.1);
+}
+
+.modal-outerwear-catalog-btn[hidden] {
+    display: none !important;
+}
+
 .modal-actions-secondary {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -11730,4 +11960,5 @@ footer p {
         padding-right: 22px;
         box-sizing: border-box;
     }
+
 }
