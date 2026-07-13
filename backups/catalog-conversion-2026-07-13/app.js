@@ -56,7 +56,6 @@ const PUBLIC_VISIBILITY_TIERS = new Set(['hero', 'featured', 'catalog', 'archive
 const SHOWCASE_VISIBILITY_TIERS = new Set(['hero', 'featured', 'catalog']);
 const VISIBILITY_TIER_ORDER = { hero: 0, featured: 1, catalog: 2, archive: 3, hidden: 4 };
 const ENABLE_UNIVERSE_SHOWCASES = false;
-const ENABLE_CATALOG_DESIGN_RENDER = true;
 const UNIVERSE_SHOWCASE_DEFINITIONS = [
     { universe: 'Megadeth Vault', limit: 8, primary: true },
     { universe: 'FMD Editions', limit: 6, primary: true },
@@ -101,11 +100,6 @@ const SECONDARY_HOME_ACCESS = [
 ];
 
 let db = [];
-let catalogDesigns = [];
-let catalogDesignById = new Map();
-let catalogHistoricalBacks = [];
-let currentCatalogDesign = null;
-let selectedCatalogBackRef = null;
 let selectedAge = 'adulto';
 let selectedSize = '';
 let selectedCut = 'clasica';
@@ -1499,15 +1493,6 @@ function getSearchResults(query, sourceProducts = db, useGlobalCodeLookup = fals
 }
 
 function openExactCodeMatch(query, afterOpen) {
-    if (ENABLE_CATALOG_DESIGN_RENDER && catalogDesigns.length) {
-        const normalizedCode = normalizeText(query).replace(/\s+/g, '');
-        const design = catalogDesigns.find(item => normalizeText(item.orderCodeBase).replace(/\s+/g, '') === normalizedCode);
-        if (design) {
-            openCatalogDesign(design.designId);
-            if (typeof afterOpen === 'function') afterOpen(design);
-            return true;
-        }
-    }
     const results = getSearchResults(query, db, true);
     if (!results.length) return false;
 
@@ -1734,7 +1719,7 @@ function resolveModalPriceConfig(product = currentProduct) {
     const isBuzoRedondo = garmentCategory === 'Buzo Cuello Redondo';
     const isOversize = selectedCut === 'oversize';
     const isKids = selectedAge === 'chico';
-    const isCustom = isPersonalizedSelection(product) && !isKids;
+    const isCustom = isPersonalizedSelection(product) && !isHoodie && !isBuzoRedondo && !isKids;
 
     let basePrices;
     if (isHoodie) {
@@ -1768,9 +1753,6 @@ function getActiveGarmentCategory(product = currentProduct) {
     if (!product) return '';
     if (selectedModalGarment === 'hoodie') return 'Hoodies Otras Bandas';
     if (selectedModalGarment === 'buzo') return 'Buzo Cuello Redondo';
-    if (currentCatalogDesign && ['remera_clasica', 'mujer', 'oversize'].includes(selectedModalGarment)) {
-        return normalizeText(product.category) === 'personalizados' ? 'Personalizados' : 'Bandas Sugeridas';
-    }
     if (product.category === 'Slayer') {
         if (slayerGarmentPreference === 'hoodie') return 'Hoodies Otras Bandas';
         if (slayerGarmentPreference === 'buzo') return 'Buzo Cuello Redondo';
@@ -1782,18 +1764,6 @@ function getActiveGarmentCategory(product = currentProduct) {
 function getAvailableModalGarments(product = currentProduct) {
     const available = new Set();
     if (!product) return ['remera_clasica'];
-
-    if (currentCatalogDesign) {
-        const garments = currentCatalogDesign.availableGarments || [];
-        if (garments.includes('remera')) {
-            available.add('remera_clasica');
-            available.add('mujer');
-            available.add('oversize');
-        }
-        if (garments.includes('hoodie')) available.add('hoodie');
-        if (garments.includes('buzo_cuello_redondo')) available.add('buzo');
-        return ['remera_clasica', 'mujer', 'oversize', 'hoodie', 'buzo'].filter(key => available.has(key));
-    }
 
     const activeVariant = getModalImages()[currentSlide];
     const activeVariantGarment = getVariantGarmentType(activeVariant);
@@ -1860,14 +1830,12 @@ function selectModalGarment(garment) {
     }
 
     selectedSize = '';
-    if (currentCatalogDesign) selectCatalogDesignPreviewForGarment(selectedModalGarment);
     updateModalGarmentUI();
     updateModalPrices();
     updateModalSizeRange();
 }
 
 function syncSelectedModalGarmentWithActiveVariant() {
-    if (currentCatalogDesign) return;
     const available = getAvailableModalGarments(currentProduct);
     if (!available.length) return;
     if (available.includes(selectedModalGarment)) return;
@@ -1883,37 +1851,6 @@ function syncSelectedModalGarmentWithActiveVariant() {
         selectedCut = 'clasica';
     }
     selectedSize = '';
-}
-
-function getCatalogDesignGarmentKey(modalGarment = selectedModalGarment) {
-    if (modalGarment === 'hoodie') return 'hoodie';
-    if (modalGarment === 'buzo') return 'buzo_cuello_redondo';
-    return 'remera';
-}
-
-function updateCatalogDesignReferenceNote() {
-    const note = document.querySelector('.modal-adaptable-note');
-    if (!note || !currentCatalogDesign) return;
-    const garment = getCatalogDesignGarmentKey();
-    const hasPreview = Boolean(currentCatalogDesign.previewsByGarment?.[garment]?.length);
-    note.textContent = hasPreview
-        ? 'La imagen muestra una vista disponible. Podés personalizar frente y dorso por WhatsApp.'
-        : 'Vista de referencia. El diseño se adapta a la prenda seleccionada.';
-    note.classList.toggle('is-reference-view', !hasPreview);
-}
-
-function selectCatalogDesignPreviewForGarment(modalGarment) {
-    if (!currentCatalogDesign || !currentModalSourceRefs.length) return;
-    const garment = getCatalogDesignGarmentKey(modalGarment);
-    const previews = currentCatalogDesign.previewsByGarment?.[garment] || [];
-    if (previews.length) {
-        const preview = previews[0];
-        const slideIndex = currentModalSourceRefs.findIndex(ref => (
-            ref.productId === preview.productId && ref.variantIndex === preview.variantIndex
-        ));
-        if (slideIndex >= 0) goToSlide(slideIndex, false);
-    }
-    updateCatalogDesignReferenceNote();
 }
 
 function updateModalGarmentUI() {
@@ -2019,7 +1956,7 @@ function hasDorsoSelection() {
     const dorsoInputValue = (document.getElementById('dorsoCustomInput')?.value || '').trim();
     const hasBackExamples = typeof selectedBacks !== 'undefined' && selectedBacks && selectedBacks.size > 0;
     const hasChips = typeof selectedDorsoChips !== 'undefined' && selectedDorsoChips && selectedDorsoChips.size > 0;
-    return Boolean(selectedCatalogBackRef) || selectedBackIndex >= 0 || hasBackExamples || hasChips || dorsoInputValue.length > 0;
+    return selectedBackIndex >= 0 || hasBackExamples || hasChips || dorsoInputValue.length > 0;
 }
 
 function isDoubleSelectionActive(product = currentProduct) {
@@ -2035,7 +1972,6 @@ function updatePrintModeUI() {
     const doublePrice = document.getElementById('printModeDoublePrice');
     const help = document.getElementById('printModeHelp');
     const doubleNote = document.getElementById('modalDoubleNote');
-    const dorsoPanel = document.getElementById('upsellDorso');
     const isDouble = selectedPrintMode === 'double';
 
     if (simplePrice) simplePrice.textContent = `$${prices.simple.toLocaleString('es-AR')}`;
@@ -2045,7 +1981,6 @@ function updatePrintModeUI() {
     });
     if (help) help.textContent = '';
     if (doubleNote) doubleNote.classList.toggle('is-hidden', !isDouble);
-    if (dorsoPanel) dorsoPanel.style.display = isDouble ? 'block' : 'none';
 }
 
 function selectPrintMode(mode) {
@@ -2053,7 +1988,6 @@ function selectPrintMode(mode) {
 
     if (selectedPrintMode === 'simple') {
         selectedBackIndex = -1;
-        selectedCatalogBackRef = null;
         selectedDorsoChips.clear();
         selectedBacks.clear();
         document.querySelectorAll('#chipsRow .chip, .thumb-dorso').forEach(item => item.classList.remove('active', 'selected'));
@@ -2070,7 +2004,6 @@ function selectPrintMode(mode) {
 window.selectPrintMode = selectPrintMode;
 
 function isDoubleByDefault(product) {
-    if (currentCatalogDesign) return false;
     const activeVariantGarment = getVariantGarmentType(getModalImages()[currentSlide]);
     return activeVariantGarment === 'hoodie' || activeVariantGarment === 'buzo' || product?.category === 'Buzo Cuello Redondo';
 }
@@ -2160,10 +2093,10 @@ class CartSystem {
         const garmentCategory = options.category || getVariantGarmentCategory(product, variantIndex);
 
         // Código del frente
-        const frontCode = options.orderCodeBase || this.generateCode(productId, variantIndex);
-        let frontName = options.designName || (product.variants && product.variants[variantIndex]
+        const frontCode = this.generateCode(productId, variantIndex);
+        let frontName = product.variants && product.variants[variantIndex]
             ? product.variants[variantIndex].name
-            : product.name);
+            : product.name;
         const slayerGarmentLabel = product.category === 'Slayer' ? getSlayerPreferredGarmentLabel() : '';
         if (slayerGarmentLabel) frontName = `${product.name} - ${slayerGarmentLabel}`;
 
@@ -2176,15 +2109,11 @@ class CartSystem {
             backCode = this.generateCode(productId, backIndex);
             backName = product.variants[backIndex].name;
         }
-        if (forceDouble && options.backName) {
-            backCode = options.backCode || null;
-            backName = options.backName;
-        }
 
         const item = {
             id: productId,
             code: frontCode, // Código principal (frente)
-            productName: options.designName || product.name,
+            productName: product.name,
             category: garmentCategory,
             variantIndex: variantIndex,
             variantName: frontName,
@@ -2609,113 +2538,12 @@ function repairCatalogEncoding(value) {
     return value;
 }
 
-function isHistoricalBackProduct(product) {
-    const category = normalizeText(product?.category || '');
-    const name = normalizeText(product?.name || '');
-    return category === 'dorsales'
-        || name.startsWith('dorso ')
-        || name.includes(' dorsos')
-        || name.endsWith(' dorso');
-}
-
-function getCatalogDesignResolverId({ product, conceptName, transitionId, slugify }) {
-    const familyId = String(product?.designFamilyId || '').trim();
-    const isGenericCardFamily = /^megadeth-card-\d+$/i.test(familyId);
-    if (familyId && !isGenericCardFamily) {
-        return `cd-${slugify(familyId)}--${slugify(conceptName)}`;
-    }
-    return `cd-${transitionId}--p${product.id}`;
-}
-
-function collectCatalogHistoricalBacks() {
-    if (!window.FMDCatalogDesign) return [];
-    const refs = [];
-    db.forEach(product => {
-        const variants = Array.isArray(product?.variants) && product.variants.length
-            ? product.variants
-            : [{ img: product?.img, name: product?.name, role: isHistoricalBackProduct(product) ? 'back' : 'front' }];
-        variants.forEach((variant, variantIndex) => {
-            if (!isHistoricalBackProduct(product) && !window.FMDCatalogDesign.isBackVariant(variant)) return;
-            refs.push({
-                productId: Number(product.id),
-                variantIndex,
-                image: variant?.img || product?.img || '',
-                label: cleanPublicText(variant?.name || product?.name || 'Dorso'),
-                band: getCatalogBandLabel(product),
-                role: 'back'
-            });
-        });
-    });
-    const seen = new Set();
-    return refs.filter(ref => {
-        if (!ref.image || seen.has(ref.image)) return false;
-        seen.add(ref.image);
-        return true;
-    });
-}
-
-function buildConservativeCatalogDesignIds(products) {
-    if (!window.FMDCatalogDesign) return {};
-    const explicitIds = {};
-    products.forEach(product => {
-        const variants = Array.isArray(product?.variants) && product.variants.length
-            ? product.variants
-            : [{ img: product?.img, name: product?.name, role: 'front', garmentCategory: product?.category }];
-        const groups = new Map();
-        variants.forEach((variant, variantIndex) => {
-            if (window.FMDCatalogDesign.isBackVariant(variant)) return;
-            const conceptName = window.FMDCatalogDesign.getConceptName(product, variant);
-            const garment = window.FMDCatalogDesign.getGarment(variant, product);
-            const key = `${normalizeText(conceptName)}|${garment}`;
-            if (!groups.has(key)) groups.set(key, []);
-            groups.get(key).push({ variant, variantIndex, conceptName });
-        });
-        groups.forEach(entries => {
-            if (entries.length <= 1) return;
-            const nonTechnicalPresentations = entries.filter(entry => !/(frente\s+y\s+dorso|combo|full\s+art|hoodies?\s+models?)/i.test(entry.variant?.name || ''));
-            if (nonTechnicalPresentations.length <= 1) return;
-            entries.forEach(entry => {
-                explicitIds[`${product.id}:${entry.variantIndex}`] = `cd-${window.FMDCatalogDesign.slugify(getCatalogBandLabel(product))}-${window.FMDCatalogDesign.slugify(entry.conceptName)}--p${product.id}-v${entry.variantIndex + 1}`;
-            });
-        });
-    });
-    return explicitIds;
-}
-
-function initializeCatalogDesigns() {
-    catalogDesigns = [];
-    catalogDesignById = new Map();
-    catalogHistoricalBacks = [];
-    if (!ENABLE_CATALOG_DESIGN_RENDER || !window.FMDCatalogDesign || !Array.isArray(db) || !db.length) return;
-
-    const sourceProducts = db.filter(product => isPublicProduct(product) && !isHistoricalBackProduct(product));
-    const backTargetOverrides = {
-        '4:10': 'cd-megadeth-rust-in-peace--lineup-v2'
-    };
-    const explicitDesignIds = buildConservativeCatalogDesignIds(sourceProducts);
-    catalogDesigns = window.FMDCatalogDesign
-        .buildCatalogDesigns(sourceProducts, {
-            backTargetOverrides,
-            explicitDesignIds,
-            resolveDesignId: getCatalogDesignResolverId
-        })
-        .filter(design => design?.front?.image);
-    catalogDesignById = new Map(catalogDesigns.map(design => [design.designId, design]));
-    catalogHistoricalBacks = collectCatalogHistoricalBacks();
-
-    const validationErrors = window.FMDCatalogDesign.validateCatalogDesigns(catalogDesigns);
-    if (validationErrors.length) {
-        console.warn('CatalogDesign validation:', validationErrors);
-    }
-}
-
 // Cargar productos desde JSON
 async function loadProducts() {
     try {
         const response = await fetch('data/products.json?v=' + Date.now());
         if (!response.ok) throw new Error('Error cargando productos');
         db = repairCatalogEncoding(await response.json());
-        initializeCatalogDesigns();
         buildDorsoAutocompletePool();
         updateCountsUI();
         renderHomeArchitecture();
@@ -3415,7 +3243,7 @@ function buildWhatsappFallbackMessage() {
     if (currentProduct) {
         const images = getModalImages();
         const variantName = images?.[currentSlide]?.name || '';
-        const displayName = currentCatalogDesign?.publicName || getProductDisplayName(currentProduct, variantName);
+        const displayName = getProductDisplayName(currentProduct, variantName);
         return `Hola FMD! Quiero pedir este diseño:\n\nDiseño: ${displayName}\nTalle: A confirmar\nColor: A confirmar\n\n¿Me indicás cómo avanzamos?`;
     }
 
@@ -3479,14 +3307,12 @@ function toggleChip(el){
 
 function buildDobleMessage(){
     const base = currentProduct
-        ? `Hola FMD, quiero DOBLE ESTAMPA de: ${currentCatalogDesign?.publicName || currentProduct.name}`
+        ? `Hola FMD, quiero DOBLE ESTAMPA de: ${currentProduct.name}`
         : `Hola FMD, quiero DOBLE ESTAMPA`;
 
     const images = currentProduct ? getModalImages() : [];
     const variant = images?.[currentSlide]?.name ? `\nVariante: ${images[currentSlide].name}` : '';
-    const selectedBackVariant = selectedCatalogBackRef
-        ? `\nDorso elegido: ${selectedCatalogBackRef.label}`
-        : (selectedBackIndex >= 0 && currentProduct?.variants?.[selectedBackIndex])
+    const selectedBackVariant = (selectedBackIndex >= 0 && currentProduct?.variants?.[selectedBackIndex])
         ? `\nDorso elegido: ${currentProduct.variants[selectedBackIndex].name}`
         : '';
 
@@ -3552,41 +3378,11 @@ function renderBackExamples(){
 
 // Detectar variantes de dorso en el producto actual
 function getDorsoVariants(product) {
-    if (currentCatalogDesign) return currentCatalogDesign.backOptions || [];
     if (!product || !product.variants) return [];
     return product.variants
         .map((v, index) => ({ ...v, index }))
     .filter(v => isBackVariant(v));
 }
-
-function getCatalogDesignBackChoices() {
-    if (!currentCatalogDesign) return [];
-    const specific = (currentCatalogDesign.backOptions || []).map(ref => ({ ...ref, backType: 'Recomendado' }));
-    const specificImages = new Set(specific.map(ref => ref.image));
-    const historical = catalogHistoricalBacks
-        .filter(ref => normalizeText(ref.band) === normalizeText(currentCatalogDesign.band))
-        .filter(ref => !specificImages.has(ref.image))
-        .map(ref => ({ ...ref, backType: 'Archivo' }));
-    return [...specific, ...historical];
-}
-
-function selectCatalogDesignBack(productId, variantIndex) {
-    const choice = getCatalogDesignBackChoices().find(ref => (
-        Number(ref.productId) === Number(productId) && Number(ref.variantIndex) === Number(variantIndex)
-    ));
-    if (!choice) return;
-    const isSame = selectedCatalogBackRef
-        && Number(selectedCatalogBackRef.productId) === Number(choice.productId)
-        && Number(selectedCatalogBackRef.variantIndex) === Number(choice.variantIndex);
-    selectedCatalogBackRef = isSame ? null : choice;
-    selectedBackIndex = -1;
-    if (selectedCatalogBackRef) selectedPrintMode = 'double';
-    renderDorsoSelector();
-    updateModalPrices();
-    updateDobleWaLink();
-}
-
-window.selectCatalogDesignBack = selectCatalogDesignBack;
 
 // Renderizar selector de dorso con variantes disponibles
 function renderDorsoSelector() {
@@ -3597,36 +3393,6 @@ function renderDorsoSelector() {
     
     if (!variantsSection || !variantsGrid || !currentProduct) return;
     
-    if (currentCatalogDesign) {
-        const choices = getCatalogDesignBackChoices();
-        const recommended = choices.filter(ref => ref.backType === 'Recomendado');
-        const historical = choices.filter(ref => ref.backType === 'Archivo');
-        const renderChoice = ref => {
-            const selected = selectedCatalogBackRef
-                && Number(selectedCatalogBackRef.productId) === Number(ref.productId)
-                && Number(selectedCatalogBackRef.variantIndex) === Number(ref.variantIndex);
-            return `<button type="button" class="dorso-variant-item catalog-design-dorso${selected ? ' selected' : ''}"
-                    onclick="selectCatalogDesignBack(${ref.productId}, ${ref.variantIndex})">
-                <img src="${ref.image}" alt="${ref.label}">
-                <span><strong>${ref.label}</strong><small>${ref.backType}</small></span>
-            </button>`;
-        };
-        variantsSection.style.display = choices.length ? 'block' : 'none';
-        customSection.style.display = 'block';
-        variantsGrid.classList.add('catalog-design-dorso-grid');
-        variantsGrid.innerHTML = `
-            ${recommended.length ? `<div class="catalog-design-dorso-recommended"><p>Dorsos recomendados para este diseño</p><div>${recommended.map(renderChoice).join('')}</div></div>` : ''}
-            ${historical.length ? `<details class="catalog-design-dorso-archive"><summary>VER OTROS DORSOS DE ${currentCatalogDesign.band.toUpperCase()}</summary><div>${historical.map(renderChoice).join('')}</div></details>` : ''}
-        `;
-        if (summarySection) {
-            const summaryText = document.getElementById('dorsoSelectionText');
-            summarySection.style.display = selectedCatalogBackRef ? 'block' : 'none';
-            if (summaryText) summaryText.textContent = selectedCatalogBackRef?.label || '';
-        }
-        return;
-    }
-
-    variantsGrid.classList.remove('catalog-design-dorso-grid');
     const dorsoVariants = getDorsoVariants(currentProduct);
     
     if (dorsoVariants.length > 0) {
@@ -3832,7 +3598,6 @@ let currentProduct = null;
 let currentSlide = 0;
 let currentModalImages = [];
 let currentModalSourceIndexes = [];
-let currentModalSourceRefs = [];
 let currentAlbumGarmentFilter = 'all';
 let scrollPosition = 0;
 let isScrolling = false;
@@ -3863,35 +3628,6 @@ let modalImageZoom = {
     pinchLastCenterX: 0,
     pinchLastCenterY: 0
 };
-
-function configureCatalogConversionModalLayout() {
-    const garment = document.getElementById('modalGarmentGroup');
-    const printMode = document.getElementById('printModeSelector');
-    const doubleNote = document.getElementById('modalDoubleNote');
-    const dorso = document.getElementById('upsellDorso');
-    const productOptions = document.querySelector('.product-options-tight');
-    const delivery = document.getElementById('modalDeliveryBox');
-    const price = document.getElementById('modalPrice');
-    const priceNote = document.querySelector('.modal-price-note');
-    const adaptable = document.querySelector('.modal-adaptable-note');
-    const actions = document.querySelector('.modal-actions');
-    const advanced = document.getElementById('modalAdvancedPanel');
-
-    if (!garment || !printMode || !dorso || !productOptions || !delivery || !price || !actions) return;
-    garment.after(printMode);
-    printMode.after(doubleNote);
-    doubleNote.after(dorso);
-    dorso.after(productOptions);
-    productOptions.after(delivery);
-    delivery.after(price);
-    if (priceNote) price.after(priceNote);
-    if (adaptable) (priceNote || price).after(adaptable);
-    (adaptable || priceNote || price).after(actions);
-    if (advanced?.querySelector('summary')) advanced.querySelector('summary').textContent = 'Detalles del producto';
-    dorso.style.display = 'none';
-}
-
-configureCatalogConversionModalLayout();
 let fullImageZoom = {
     scale: 1,
     x: 0,
@@ -3956,7 +3692,6 @@ function getModalImages() {
 }
 
 function getActiveVariantIndex() {
-    if (currentCatalogDesign?.front) return currentCatalogDesign.front.variantIndex;
     if (!Array.isArray(currentModalSourceIndexes) || !currentModalSourceIndexes.length) {
         return currentSlide;
     }
@@ -4109,63 +3844,14 @@ function getAutoHighlightSlideIndex(product, images) {
     return -1;
 }
 
-function getCatalogDesignFrontRefs(design) {
-    if (!design) return [];
-    const refs = Object.values(design.previewsByGarment || {}).flat();
-    const seen = new Set();
-    return refs.filter(ref => {
-        const key = `${ref.productId}:${ref.variantIndex}`;
-        if (seen.has(key)) return false;
-        seen.add(key);
-        return true;
-    });
-}
-
-function catalogDesignRefToModalImage(ref) {
-    return {
-        img: ref.image,
-        name: ref.label,
-        role: 'front',
-        garmentCategory: ref.garment === 'hoodie'
-            ? 'Hoodies Otras Bandas'
-            : ref.garment === 'buzo_cuello_redondo'
-                ? 'Buzo Cuello Redondo'
-                : 'Bandas Sugeridas',
-        catalogSourceRef: ref
-    };
-}
-
-function renderModalDesignBadge(sourceIndex) {
-    if (!currentCatalogDesign) return renderFmdBadge(currentProduct, sourceIndex, 'carousel-fmd-original-badge');
-    const badge = currentCatalogDesign.badges?.[0];
-    return badge ? `<span class="fmd-original-badge carousel-fmd-original-badge">${badge}</span>` : '';
-}
-
-function openCatalogDesign(designId) {
-    const design = catalogDesignById.get(designId);
-    if (!design?.front) return;
-    openModal(design.front.productId, design.front.variantIndex, undefined, 'catalog_design', designId);
-}
-
-window.openCatalogDesign = openCatalogDesign;
-
 function openOuterwearFeaturedModal(id, variantIndex = undefined) {
     openModal(id, variantIndex, undefined, 'outerwear_feature');
 }
 
-function openModal(id, variantIndex = undefined, scopedVariantIndexes = undefined, source = 'catalog', catalogDesignId = null) {
-    currentCatalogDesign = catalogDesignId ? catalogDesignById.get(catalogDesignId) || null : null;
-    modal.classList.toggle('catalog-design-modal', Boolean(currentCatalogDesign));
-    selectedCatalogBackRef = null;
-    const canonicalProductId = currentCatalogDesign?.front?.productId ?? id;
-    const product = db.find(p => p.id === canonicalProductId);
+function openModal(id, variantIndex = undefined, scopedVariantIndexes = undefined, source = 'catalog') {
+    const product = db.find(p => p.id === id);
     if (!product || !isPublicProduct(product)) return;
     currentProduct = product;
-    const adaptableNote = document.querySelector('.modal-adaptable-note');
-    if (adaptableNote && !currentCatalogDesign) {
-        adaptableNote.textContent = '¿Querés este diseño en otra prenda o con otro dorso? Lo adaptamos por WhatsApp.';
-        adaptableNote.classList.remove('is-reference-view');
-    }
     currentAlbumGarmentFilter = 'all';
     const outerwearCatalogButton = document.getElementById('modalOuterwearCatalogBtn');
     if (outerwearCatalogButton) {
@@ -4179,29 +3865,13 @@ function openModal(id, variantIndex = undefined, scopedVariantIndexes = undefine
     document.body.classList.add('modal-open');
     document.body.style.top = `-${scrollPosition}px`;
 
-    history.pushState(
-        { modal: true, id: canonicalProductId, designId: currentCatalogDesign?.designId || null },
-        '',
-        currentCatalogDesign ? `#diseno-${currentCatalogDesign.designId}` : `#producto-${canonicalProductId}`
-    );
+    history.pushState({ modal: true, id }, '', `#producto-${id}`);
     const images = getImages(currentProduct);
     const hasSpecificVariant = variantIndex !== undefined && variantIndex !== null;
     const hasScopedVariants = Array.isArray(scopedVariantIndexes) && scopedVariantIndexes.length > 0;
     const autoHighlightSlide = hasSpecificVariant ? -1 : getAutoHighlightSlideIndex(currentProduct, images);
 
-    if (currentCatalogDesign) {
-        currentModalSourceRefs = getCatalogDesignFrontRefs(currentCatalogDesign);
-        currentModalImages = currentModalSourceRefs.map(catalogDesignRefToModalImage);
-        currentModalSourceIndexes = currentModalSourceRefs.map(ref => (
-            ref.productId === currentProduct.id ? ref.variantIndex : currentCatalogDesign.front.variantIndex
-        ));
-        const canonicalPosition = currentModalSourceRefs.findIndex(ref => (
-            ref.productId === currentCatalogDesign.front.productId
-            && ref.variantIndex === currentCatalogDesign.front.variantIndex
-        ));
-        currentSlide = canonicalPosition >= 0 ? canonicalPosition : 0;
-    } else if (hasScopedVariants) {
-        currentModalSourceRefs = [];
+    if (hasScopedVariants) {
         const safeScopedIndexes = Array.from(new Set(
             scopedVariantIndexes
                 .map(index => Number(index))
@@ -4221,13 +3891,11 @@ function openModal(id, variantIndex = undefined, scopedVariantIndexes = undefine
             currentSlide = scopedStartIndex >= 0 ? scopedStartIndex : 0;
         }
     } else if (hasSpecificVariant) {
-        currentModalSourceRefs = [];
         const safeVariantIndex = Math.max(0, Math.min(Number(variantIndex) || 0, images.length - 1));
         currentModalImages = [images[safeVariantIndex]];
         currentModalSourceIndexes = [safeVariantIndex];
         currentSlide = 0;
     } else {
-        currentModalSourceRefs = [];
         currentModalImages = images;
         currentModalSourceIndexes = images.map((_, index) => index);
         currentSlide = autoHighlightSlide >= 0 ? autoHighlightSlide : 0;
@@ -4237,8 +3905,8 @@ function openModal(id, variantIndex = undefined, scopedVariantIndexes = undefine
 
     carousel.innerHTML = modalImages.map((v, index) => `
         <div class="carousel-slide">
-            ${renderModalDesignBadge(currentModalSourceIndexes[index])}
-            <img src="${v.img}" alt="${currentCatalogDesign?.publicName || currentProduct.name}">
+            ${renderFmdBadge(currentProduct, currentModalSourceIndexes[index], 'carousel-fmd-original-badge')}
+            <img src="${v.img}" alt="${currentProduct.name}">
         </div>
     `).join('');
     resetModalImageZoom();
@@ -4281,7 +3949,7 @@ function openModal(id, variantIndex = undefined, scopedVariantIndexes = undefine
     selectedCut = '';
     selectedColor = '';
     selectedBackIndex = -1; // Reset dorso seleccionado
-    selectedPrintMode = currentCatalogDesign ? 'simple' : (isDoubleByDefault(currentProduct) ? 'double' : 'simple');
+    selectedPrintMode = isDoubleByDefault(currentProduct) ? 'double' : 'simple';
     selectedDeliveryMethod = '';
     const modalPostalCode = document.getElementById('modalPostalCode');
     if (modalPostalCode) modalPostalCode.value = '';
@@ -4292,9 +3960,7 @@ function openModal(id, variantIndex = undefined, scopedVariantIndexes = undefine
         : activeVariantGarment === 'buzo'
             ? 'buzo'
             : 'remera_clasica';
-    selectedModalGarment = currentCatalogDesign
-        ? (availableModalGarments.includes('remera_clasica') ? 'remera_clasica' : availableModalGarments[0])
-        : availableModalGarments.includes(preferredGarment)
+    selectedModalGarment = availableModalGarments.includes(preferredGarment)
         ? preferredGarment
         : (availableModalGarments[0] || 'remera_clasica');
     
@@ -4452,7 +4118,6 @@ function openModal(id, variantIndex = undefined, scopedVariantIndexes = undefine
 }
 
 function showScrollHintIfNeeded(){
-    if (currentCatalogDesign) return;
     const modalBody = modal.querySelector('.modal-body');
     if(!modalBody) return;
     if(modalBody.scrollHeight <= modalBody.clientHeight) return;
@@ -4497,13 +4162,6 @@ function closeModal() {
     window.scrollTo(0, scrollPosition);
     currentModalImages = [];
     currentModalSourceIndexes = [];
-    currentModalSourceRefs = [];
-    currentCatalogDesign = null;
-    modal.classList.remove('catalog-design-modal');
-    selectedCatalogBackRef = null;
-    if (/^#(?:producto|diseno)-/i.test(window.location.hash)) {
-        history.replaceState(null, '', '#catalogoPrincipal');
-    }
     resetModalImageZoom();
     closeZoom();
 }
@@ -5118,7 +4776,7 @@ function updateModalInfo() {
     const images = getModalImages();
     const activeVariantIndex = getActiveVariantIndex();
     const activeVariantName = images?.[currentSlide]?.name?.trim() || '';
-    let displayName = currentCatalogDesign?.publicName || getProductDisplayName(currentProduct, activeVariantName);
+    let displayName = getProductDisplayName(currentProduct, activeVariantName);
     const slayerGarmentLabel = currentProduct.category === 'Slayer' ? getSlayerPreferredGarmentLabel() : '';
     if (slayerGarmentLabel && !activeVariantName) displayName = `${cleanPublicText(currentProduct.name)} - ${slayerGarmentLabel}`;
     document.getElementById('modalName').textContent = displayName;
@@ -5126,7 +4784,9 @@ function updateModalInfo() {
     // Actualizar código del producto
     const code = cart.generateCode(currentProduct.id, activeVariantIndex, selectedBacks.size > 0 || selectedDorsoChips.size > 0);
     const displayCodeEl = document.getElementById('displayCode');
-    if (displayCodeEl) displayCodeEl.textContent = currentCatalogDesign?.orderCodeBase || code;
+    if (displayCodeEl) {
+        displayCodeEl.textContent = code;
+    }
     
     // Actualizar breadcrumb
     const breadcrumbCategory = document.getElementById('breadcrumbCategory');
@@ -5137,16 +4797,10 @@ function updateModalInfo() {
     // Actualizar contador de productos
     updateProductCounter();
     
-    const modalMetaLabel = currentCatalogDesign?.band || currentProduct.band || getCategoryLabel(currentProduct.category);
-    document.getElementById('modalMeta').textContent = currentCatalogDesign
-        ? modalMetaLabel
-        : formatCategoryMeta(currentProduct.year, modalMetaLabel);
-    const fmdBadge = currentCatalogDesign?.badges?.length
-        ? { label: currentCatalogDesign.badges[0], description: currentCatalogDesign.badgeDescriptions?.[0] || '' }
-        : getFmdBadgeData(currentProduct, activeVariantIndex);
-    const modalDesc = document.getElementById('modalDesc');
-    modalDesc.innerHTML = `${fmdBadge ? `<span class="fmd-original-badge modal-fmd-original-badge">${fmdBadge.label}</span><span class="modal-fmd-original-copy">${fmdBadge.description}</span>` : ''}${currentProduct.desc || ''}`;
-    modalDesc.classList.toggle('is-hidden', Boolean(currentCatalogDesign));
+    const modalMetaLabel = currentProduct.band || getCategoryLabel(currentProduct.category);
+    document.getElementById('modalMeta').textContent = formatCategoryMeta(currentProduct.year, modalMetaLabel);
+    const fmdBadge = getFmdBadgeData(currentProduct, activeVariantIndex);
+    document.getElementById('modalDesc').innerHTML = `${fmdBadge ? `<span class="fmd-original-badge modal-fmd-original-badge">${fmdBadge.label}</span><span class="modal-fmd-original-copy">${fmdBadge.description}</span>` : ''}${currentProduct.desc || ''}`;
     updateModalSizeRange();
     
     // Actualizar precios según selector adulto/chico
@@ -5170,7 +4824,6 @@ function updateModalInfo() {
     }
     renderBackExamples();
     renderDorsoSelector(); // Renderizar selector de dorso
-    updateCatalogDesignReferenceNote();
     renderAlbumGarmentFilter();
     updateDobleWaLink();
     document.querySelectorAll('.carousel-dot').forEach((dot, i) => { dot.classList.toggle('active', i === currentSlide); });
@@ -5254,104 +4907,7 @@ function showCompleteCatalog() {
 window.showUniverse = showUniverse;
 window.showCompleteCatalog = showCompleteCatalog;
 
-function getCatalogDesignStartingPrice(design) {
-    return design?.isPersonalized ? PRECIOS.simple_personalizado : PRECIOS.simple;
-}
-
-function getCatalogDesignSearchText(design) {
-    const sourceProducts = (design?.sourceProductIds || [])
-        .map(id => db.find(product => Number(product.id) === Number(id)))
-        .filter(Boolean);
-    return normalizeText([
-        design?.designId,
-        design?.publicName,
-        design?.band,
-        design?.orderCodeBase,
-        ...(design?.designFamilyIds || []),
-        ...sourceProducts.flatMap(product => [product.name, product.category, product.album, ...(product.tags || [])])
-    ].filter(Boolean).join(' '));
-}
-
-function catalogDesignBandExists(value) {
-    const band = normalizeText(value);
-    return Boolean(band) && catalogDesigns.some(design => normalizeText(design.band) === band);
-}
-
-function getCatalogDesignResults() {
-    if (!ENABLE_CATALOG_DESIGN_RENDER || !catalogDesigns.length || currentGarmentFilter === 'abrigo') return null;
-
-    let designs = null;
-    if (currentSearch) {
-        const query = normalizeText(currentSearch);
-        designs = catalogDesigns.filter(design => getCatalogDesignSearchText(design).includes(query));
-    } else if (normalizeText(currentCategory) === 'personalizados') {
-        designs = catalogDesigns.filter(design => design.isPersonalized);
-    } else if (catalogDesignBandExists(currentCategory)) {
-        const band = normalizeText(currentCategory);
-        designs = catalogDesigns.filter(design => normalizeText(design.band) === band);
-    }
-
-    if (!designs) return null;
-    return designs.sort((a, b) => {
-        const tierDiff = (VISIBILITY_TIER_ORDER[a.visibilityTier] ?? 99) - (VISIBILITY_TIER_ORDER[b.visibilityTier] ?? 99);
-        if (tierDiff) return tierDiff;
-        const priorityDiff = Number(b.commercialPriority || 0) - Number(a.commercialPriority || 0);
-        if (priorityDiff) return priorityDiff;
-        return a.publicName.localeCompare(b.publicName, 'es', { sensitivity: 'base' });
-    });
-}
-
-function renderCatalogDesignResults(designs) {
-    const visibleDesigns = designs.slice(0, catalogVisibleLimit);
-    productsGrid.classList.remove('catalog-band-directory', 'gallery-view');
-    productsGrid.classList.add('catalog-design-grid');
-    document.querySelector('.catalog-toolbar')?.classList.remove('catalog-directory-active');
-
-    let heading = 'DISEÑOS DISPONIBLES';
-    if (currentSearch) heading = `${designs.length} RESULTADOS`;
-    else if (currentCategory) heading = `DISEÑOS ${String(currentCategory).toUpperCase()}`;
-    document.getElementById('productsCount').textContent = heading;
-
-    productsGrid.innerHTML = visibleDesigns.map(design => {
-        const price = getCatalogDesignStartingPrice(design).toLocaleString('es-AR');
-        const badges = [
-            design.isNew ? '<span class="catalog-design-badge is-new">NUEVO</span>' : '',
-            ...(design.badges || []).map(badge => `<span class="catalog-design-badge is-fmd">${badge}</span>`)
-        ].join('');
-        return `<article class="catalog-design-card" data-design-id="${design.designId}">
-            <button type="button" class="catalog-design-card-main" onclick="openCatalogDesign('${design.designId}')" aria-label="Ver diseño ${design.publicName}">
-                <span class="catalog-design-media">
-                    ${badges ? `<span class="catalog-design-badges">${badges}</span>` : ''}
-                    <img src="${design.front.image}" alt="${design.publicName} - ${design.band}" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='images/logo/MARCA DE AGUA.png';">
-                </span>
-                <span class="catalog-design-copy">
-                    <span class="catalog-design-band">${design.band}</span>
-                    <strong>${design.publicName}</strong>
-                    <span class="catalog-design-price">Desde $${price}</span>
-                    <span class="catalog-design-cta">VER DISEÑO</span>
-                </span>
-            </button>
-        </article>`;
-    }).join('');
-
-    ['megadethBackBtn', 'slayerBackBtn', 'maidenBackBtn'].forEach(id => {
-        const button = document.getElementById(id);
-        if (button) button.hidden = true;
-    });
-    const loadMore = document.getElementById('catalogLoadMore');
-    const loadMoreStatus = document.getElementById('catalogLoadMoreStatus');
-    const hasMore = visibleDesigns.length < designs.length;
-    if (loadMore) loadMore.hidden = !hasMore;
-    if (loadMoreStatus) loadMoreStatus.textContent = hasMore ? 'HAY MÁS DISEÑOS DISPONIBLES' : '';
-}
-
 function filterProducts() {
-    const catalogDesignResults = getCatalogDesignResults();
-    if (catalogDesignResults) {
-        renderCatalogDesignResults(catalogDesignResults);
-        return;
-    }
-    productsGrid.classList.remove('catalog-design-grid');
     const garmentMetadataValue = currentGarmentFilter === 'buzo' ? 'buzo_cuello_redondo' : currentGarmentFilter;
     let filtered = currentGarmentFilter === 'abrigo'
         ? db.filter(product => isPublicProduct(product) && (!currentCategory || matchesCategoryOrMetadata(product, currentCategory)))
@@ -6389,7 +5945,7 @@ function calculateItemPrice(item) {
     const isBuzoRedondo = item.category === 'Buzo Cuello Redondo';
     const isKids = item.age === 'chico';
     const isOversize = item.cut === 'oversize';
-    const isCustom = Boolean(item.isCustom) && !isKids;
+    const isCustom = Boolean(item.isCustom) && !isHoodie && !isBuzoRedondo && !isKids;
 
     let basePrices;
     if (isHoodie) {
@@ -6839,7 +6395,6 @@ function getModalGarmentLabel(product = currentProduct) {
 }
 
 function getSelectedBackLabelForWhatsapp() {
-    if (selectedCatalogBackRef) return selectedCatalogBackRef.label;
     if (selectedBackIndex >= 0 && currentProduct?.variants?.[selectedBackIndex]) {
         return currentProduct.variants[selectedBackIndex].name;
     }
@@ -6860,9 +6415,8 @@ function buildModalOrderWhatsappMessage() {
     const activeVariantIndex = getActiveVariantIndex();
     const activeVariant = images?.[currentSlide];
     const variantName = activeVariant?.name?.trim() || '';
-    const displayName = currentCatalogDesign?.publicName || getProductDisplayName(currentProduct, variantName);
-    const code = currentCatalogDesign?.orderCodeBase
-        || cart.generateCode(currentProduct.id, activeVariantIndex, isDoubleSelectionActive(currentProduct));
+    const displayName = getProductDisplayName(currentProduct, variantName);
+    const code = cart.generateCode(currentProduct.id, activeVariantIndex, isDoubleSelectionActive(currentProduct));
     const garment = getModalGarmentLabel(currentProduct);
     const prices = resolveModalPriceConfig(currentProduct);
     const isDouble = isDoubleSelectionActive(currentProduct);
@@ -6945,19 +6499,13 @@ function addToCartFromModal() {
         color: selectedColor,
         category: garmentCategory,
         backIndex: selectedBackIndex, // índice del dorso seleccionado
-        isCustom: isCustom,
-        designName: currentCatalogDesign?.publicName || '',
-        orderCodeBase: currentCatalogDesign?.orderCodeBase || '',
-        backName: selectedCatalogBackRef?.label || '',
-        backCode: selectedCatalogBackRef
-            ? cart.generateCode(selectedCatalogBackRef.productId, selectedCatalogBackRef.variantIndex)
-            : ''
+        isCustom: isCustom
     };
     
     const success = cart.addToCart(currentProduct.id, variantIndex, isDouble, options);
     
     if (success) {
-        const msg = isDouble && (selectedBackIndex >= 0 || selectedCatalogBackRef)
+        const msg = isDouble && selectedBackIndex >= 0 
             ? '✓ Agregado con frente + dorso' 
             : (isDouble ? '✓ Agregado (dorso a definir)' : '✓ Agregado al carrito');
         showNotification(msg, 2000);
@@ -7055,10 +6603,7 @@ function renderRelatedProducts(category) {
 // Cargar producto desde URL hash (#producto-123)
 function loadProductFromHash() {
     const hash = window.location.hash.replace('#', '');
-    if (hash.startsWith('diseno-')) {
-        const designId = hash.slice('diseno-'.length);
-        if (catalogDesignById.has(designId)) openCatalogDesign(designId);
-    } else if (hash.startsWith('producto-')) {
+    if (hash.startsWith('producto-')) {
         const productId = parseInt(hash.split('-')[1]);
         const product = db.find(p => p.id === productId);
         if (product) {
@@ -7128,28 +6673,19 @@ function initSearchModal() {
             if (opened) return;
         }
 
-        const results = ENABLE_CATALOG_DESIGN_RENDER
-            ? catalogDesigns.filter(design => getCatalogDesignSearchText(design).includes(normalizeText(query))).slice(0, 8)
-            : getSearchResults(query, db, true).slice(0, 8);
+        const results = getSearchResults(query, db, true).slice(0, 8);
         
         if (results.length === 0) {
             searchModalResults.innerHTML = '<div class="search-empty">Sin resultados para "' + e.target.value + '"</div>';
             return;
         }
         
-        searchModalResults.innerHTML = ENABLE_CATALOG_DESIGN_RENDER
-            ? results.map(design => `
-                <div class="search-result-item" onclick="openCatalogDesign('${design.designId}'); document.getElementById('searchModal').classList.remove('active');">
-                    <div class="search-result-name">${design.publicName}</div>
-                    <div class="search-result-meta">${design.band} · Desde $${getCatalogDesignStartingPrice(design).toLocaleString('es-AR')}</div>
-                </div>
-            `).join('')
-            : results.map(p => `
-                <div class="search-result-item" onclick="openModal(${p.id}${typeof p.matchedVariantIndex === 'number' ? ', ' + p.matchedVariantIndex : ''}); document.getElementById('searchModal').classList.remove('active');">
-                    <div class="search-result-name">${p.name}</div>
-                    <div class="search-result-meta">${formatCategoryMeta(getPublicProductYear(p), getPublicProductCategoryLabel(p))}${typeof p.matchedVariantIndex === 'number' && p.variants?.[p.matchedVariantIndex] ? ' · ' + p.variants[p.matchedVariantIndex].name : ''}</div>
-                </div>
-            `).join('');
+        searchModalResults.innerHTML = results.map(p => `
+            <div class="search-result-item" onclick="openModal(${p.id}${typeof p.matchedVariantIndex === 'number' ? ', ' + p.matchedVariantIndex : ''}); document.getElementById('searchModal').classList.remove('active');">
+                <div class="search-result-name">${p.name}</div>
+                <div class="search-result-meta">${formatCategoryMeta(getPublicProductYear(p), getPublicProductCategoryLabel(p))}${typeof p.matchedVariantIndex === 'number' && p.variants?.[p.matchedVariantIndex] ? ' · ' + p.variants[p.matchedVariantIndex].name : ''}</div>
+            </div>
+        `).join('');
     };
 
     searchModalInput.addEventListener('keydown', (e) => {

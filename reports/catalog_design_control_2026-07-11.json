@@ -1,0 +1,2897 @@
+{
+  "generatedAt": "2026-07-11T18:43:52.105Z",
+  "status": "passed",
+  "modelVersion": "catalog-design-pilot-1",
+  "availableGarmentPolicy": [
+    "remera",
+    "hoodie",
+    "buzo_cuello_redondo"
+  ],
+  "identityPolicy": "Preferir designId explícito; transición actual por nombre normalizado con trazabilidad.",
+  "reviewNotes": [
+    "Slayer FMD Originals: 29 mocks de frente se agrupan en 15 diseños; los mocks de la misma idea por prenda no se duplican.",
+    "Los designId actuales son transitorios. No se escriben en products.json hasta completar la revisión curatorial."
+  ],
+  "summary": {
+    "auditCases": 10,
+    "sourceProducts": 12,
+    "sourceFrontMocks": 86,
+    "catalogDesigns": 55,
+    "validationErrors": 0
+  },
+  "cases": [
+    {
+      "key": "megadeth",
+      "label": "Megadeth - Rust in Peace",
+      "sourceProductIds": [
+        4
+      ],
+      "sourceFrontMocks": 5,
+      "catalogDesigns": 5,
+      "designIds": [
+        "megadeth-3d",
+        "megadeth-alternate",
+        "megadeth-lineup",
+        "megadeth-lineup-v2",
+        "megadeth-rust-in-peace"
+      ]
+    },
+    {
+      "key": "slayer",
+      "label": "Slayer - FMD Originals",
+      "sourceProductIds": [
+        7123
+      ],
+      "sourceFrontMocks": 29,
+      "catalogDesigns": 15,
+      "designIds": [
+        "slayer-angel-of-death",
+        "slayer-hell-awaits",
+        "slayer-live-undead",
+        "slayer-logo",
+        "slayer-reign-in-blood-3d",
+        "slayer-reign-in-blood-graphic",
+        "slayer-seasons-in-the-abyss",
+        "slayer-seasons-in-the-abyss-v2",
+        "slayer-show-no-mercy",
+        "slayer-skull",
+        "slayer-soldier-v2-graphic",
+        "slayer-soldiers",
+        "slayer-south-of-heaven",
+        "slayer-south-of-heaven-graphic",
+        "slayer-throne"
+      ]
+    },
+    {
+      "key": "iron-maiden",
+      "label": "Iron Maiden - Eddie Gaucho",
+      "sourceProductIds": [
+        7040
+      ],
+      "sourceFrontMocks": 3,
+      "catalogDesigns": 1,
+      "designIds": [
+        "iron-maiden-eddie-gaucho-argentino"
+      ]
+    },
+    {
+      "key": "metallica",
+      "label": "Metallica - Ride the Lightning",
+      "sourceProductIds": [
+        1060
+      ],
+      "sourceFrontMocks": 9,
+      "catalogDesigns": 6,
+      "designIds": [
+        "metallica-band-1984",
+        "metallica-ride-clasico",
+        "metallica-ride-mas-oscuro",
+        "metallica-ride-the-lightning",
+        "metallica-ride-the-lightning-v2",
+        "metallica-ride-the-lightning-v3"
+      ]
+    },
+    {
+      "key": "epica",
+      "label": "EPICA",
+      "sourceProductIds": [
+        5016
+      ],
+      "sourceFrontMocks": 14,
+      "catalogDesigns": 9,
+      "designIds": [
+        "epica-20th-anniversary",
+        "epica-aspiral",
+        "epica-design-your-universe",
+        "epica-logo",
+        "epica-omega",
+        "epica-omega-alive-dvd",
+        "epica-the-holographic-principle",
+        "epica-the-phantom-agony",
+        "epica-the-quantum-enigma"
+      ]
+    },
+    {
+      "key": "rhapsody",
+      "label": "Rhapsody",
+      "sourceProductIds": [
+        5083,
+        6009,
+        6017
+      ],
+      "sourceFrontMocks": 18,
+      "catalogDesigns": 12,
+      "designIds": [
+        "rhapsody-dawn-of-victory",
+        "rhapsody-holy-thunderforce",
+        "rhapsody-legendary-tales",
+        "rhapsody-legendary-years",
+        "rhapsody-power-of-the-dragon-flame",
+        "rhapsody-rain-of-a-thousand-flames",
+        "rhapsody-rhapsody",
+        "rhapsody-symphony-of-enchanted-lands",
+        "rhapsody-symphony-of-enchanted-lands-ii",
+        "rhapsody-tales-from-the-emerald-sword-saga",
+        "rhapsody-triumph-or-agony",
+        "rhapsody-v1-v1"
+      ]
+    },
+    {
+      "key": "hammerfall",
+      "label": "HammerFall",
+      "sourceProductIds": [
+        5089
+      ],
+      "sourceFrontMocks": 5,
+      "catalogDesigns": 5,
+      "designIds": [
+        "hammerfall-crimson",
+        "hammerfall-glory-to-the-grave",
+        "hammerfall-legacy",
+        "hammerfall-renegade",
+        "hammerfall-steel"
+      ]
+    },
+    {
+      "key": "single-design",
+      "label": "Banda con un diseño - King Diamond",
+      "sourceProductIds": [
+        5058
+      ],
+      "sourceFrontMocks": 1,
+      "catalogDesigns": 1,
+      "designIds": [
+        "king-diamond-abigail"
+      ]
+    },
+    {
+      "key": "outerwear",
+      "label": "Abrigo específico - Hoodie Rust in Peace",
+      "sourceProductIds": [
+        5062
+      ],
+      "sourceFrontMocks": 1,
+      "catalogDesigns": 1,
+      "designIds": [
+        "megadeth-rust-in-peace"
+      ]
+    },
+    {
+      "key": "custom",
+      "label": "Personalizado - Diego Maradona",
+      "sourceProductIds": [
+        5121
+      ],
+      "sourceFrontMocks": 1,
+      "catalogDesigns": 1,
+      "designIds": [
+        "personalizados-diego-maradona"
+      ]
+    }
+  ],
+  "validationErrors": [],
+  "designs": [
+    {
+      "designId": "epica-20th-anniversary",
+      "publicName": "20th Anniversary",
+      "band": "EPICA",
+      "front": {
+        "productId": 5016,
+        "variantIndex": 1,
+        "image": "images/banda_sugeridas/epica/remera_epica_20th_anniversary.jpg",
+        "label": "Epica 20th Anniversary - Remera",
+        "garment": "remera",
+        "role": "front"
+      },
+      "backOptions": [],
+      "availableGarments": [
+        "remera",
+        "hoodie",
+        "buzo_cuello_redondo"
+      ],
+      "previewsByGarment": {
+        "remera": [
+          {
+            "productId": 5016,
+            "variantIndex": 1,
+            "image": "images/banda_sugeridas/epica/remera_epica_20th_anniversary.jpg",
+            "label": "Epica 20th Anniversary - Remera",
+            "garment": "remera",
+            "role": "front"
+          }
+        ],
+        "hoodie": [],
+        "buzo_cuello_redondo": [
+          {
+            "productId": 5016,
+            "variantIndex": 12,
+            "image": "images/banda_sugeridas/epica/buzo_epica_20th_anniversary.jpg",
+            "label": "Epica 20th Anniversary - Buzo cuello redondo",
+            "garment": "buzo_cuello_redondo",
+            "role": "front"
+          }
+        ]
+      },
+      "sourceProductIds": [
+        5016
+      ],
+      "designFamilyIds": [],
+      "orderCodeBase": "EA2-5016.V2",
+      "identitySource": "transition-name",
+      "auditCases": [
+        "epica"
+      ]
+    },
+    {
+      "designId": "epica-aspiral",
+      "publicName": "Aspiral",
+      "band": "EPICA",
+      "front": {
+        "productId": 5016,
+        "variantIndex": 0,
+        "image": "images/banda_sugeridas/epica/remera_epica_aspiral.jpg",
+        "label": "Epica Aspiral - Remera",
+        "garment": "remera",
+        "role": "front"
+      },
+      "backOptions": [],
+      "availableGarments": [
+        "remera",
+        "hoodie",
+        "buzo_cuello_redondo"
+      ],
+      "previewsByGarment": {
+        "remera": [
+          {
+            "productId": 5016,
+            "variantIndex": 0,
+            "image": "images/banda_sugeridas/epica/remera_epica_aspiral.jpg",
+            "label": "Epica Aspiral - Remera",
+            "garment": "remera",
+            "role": "front"
+          }
+        ],
+        "hoodie": [],
+        "buzo_cuello_redondo": []
+      },
+      "sourceProductIds": [
+        5016
+      ],
+      "designFamilyIds": [],
+      "orderCodeBase": "EA2-5016.V1",
+      "identitySource": "transition-name",
+      "auditCases": [
+        "epica"
+      ]
+    },
+    {
+      "designId": "epica-design-your-universe",
+      "publicName": "Design Your Universe",
+      "band": "EPICA",
+      "front": {
+        "productId": 5016,
+        "variantIndex": 2,
+        "image": "images/banda_sugeridas/epica/remera_epica_design_your_universe.jpg",
+        "label": "Epica Design Your Universe - Remera",
+        "garment": "remera",
+        "role": "front"
+      },
+      "backOptions": [],
+      "availableGarments": [
+        "remera",
+        "hoodie",
+        "buzo_cuello_redondo"
+      ],
+      "previewsByGarment": {
+        "remera": [
+          {
+            "productId": 5016,
+            "variantIndex": 2,
+            "image": "images/banda_sugeridas/epica/remera_epica_design_your_universe.jpg",
+            "label": "Epica Design Your Universe - Remera",
+            "garment": "remera",
+            "role": "front"
+          }
+        ],
+        "hoodie": [],
+        "buzo_cuello_redondo": []
+      },
+      "sourceProductIds": [
+        5016
+      ],
+      "designFamilyIds": [],
+      "orderCodeBase": "EA2-5016.V3",
+      "identitySource": "transition-name",
+      "auditCases": [
+        "epica"
+      ]
+    },
+    {
+      "designId": "epica-logo",
+      "publicName": "Logo",
+      "band": "EPICA",
+      "front": {
+        "productId": 5016,
+        "variantIndex": 3,
+        "image": "images/banda_sugeridas/epica/remera_epica_logo.jpg",
+        "label": "Epica Logo - Remera",
+        "garment": "remera",
+        "role": "front"
+      },
+      "backOptions": [],
+      "availableGarments": [
+        "remera",
+        "hoodie",
+        "buzo_cuello_redondo"
+      ],
+      "previewsByGarment": {
+        "remera": [
+          {
+            "productId": 5016,
+            "variantIndex": 3,
+            "image": "images/banda_sugeridas/epica/remera_epica_logo.jpg",
+            "label": "Epica Logo - Remera",
+            "garment": "remera",
+            "role": "front"
+          }
+        ],
+        "hoodie": [],
+        "buzo_cuello_redondo": []
+      },
+      "sourceProductIds": [
+        5016
+      ],
+      "designFamilyIds": [],
+      "orderCodeBase": "EA2-5016.V4",
+      "identitySource": "transition-name",
+      "auditCases": [
+        "epica"
+      ]
+    },
+    {
+      "designId": "epica-omega",
+      "publicName": "Omega",
+      "band": "EPICA",
+      "front": {
+        "productId": 5016,
+        "variantIndex": 4,
+        "image": "images/banda_sugeridas/epica/remera_epica_omega.jpg",
+        "label": "Epica Omega - Remera",
+        "garment": "remera",
+        "role": "front"
+      },
+      "backOptions": [],
+      "availableGarments": [
+        "remera",
+        "hoodie",
+        "buzo_cuello_redondo"
+      ],
+      "previewsByGarment": {
+        "remera": [
+          {
+            "productId": 5016,
+            "variantIndex": 4,
+            "image": "images/banda_sugeridas/epica/remera_epica_omega.jpg",
+            "label": "Epica Omega - Remera",
+            "garment": "remera",
+            "role": "front"
+          }
+        ],
+        "hoodie": [
+          {
+            "productId": 5016,
+            "variantIndex": 9,
+            "image": "images/banda_sugeridas/epica/hoodie_epica_omega.jpg",
+            "label": "Epica Omega - Hoodie",
+            "garment": "hoodie",
+            "role": "front"
+          }
+        ],
+        "buzo_cuello_redondo": []
+      },
+      "sourceProductIds": [
+        5016
+      ],
+      "designFamilyIds": [],
+      "orderCodeBase": "EA2-5016.V5",
+      "identitySource": "transition-name",
+      "auditCases": [
+        "epica"
+      ]
+    },
+    {
+      "designId": "epica-omega-alive-dvd",
+      "publicName": "Omega Alive DVD",
+      "band": "EPICA",
+      "front": {
+        "productId": 5016,
+        "variantIndex": 5,
+        "image": "images/banda_sugeridas/epica/remera_epica_omega_alive_dvd.jpg",
+        "label": "Epica Omega Alive DVD - Remera",
+        "garment": "remera",
+        "role": "front"
+      },
+      "backOptions": [],
+      "availableGarments": [
+        "remera",
+        "hoodie",
+        "buzo_cuello_redondo"
+      ],
+      "previewsByGarment": {
+        "remera": [
+          {
+            "productId": 5016,
+            "variantIndex": 5,
+            "image": "images/banda_sugeridas/epica/remera_epica_omega_alive_dvd.jpg",
+            "label": "Epica Omega Alive DVD - Remera",
+            "garment": "remera",
+            "role": "front"
+          }
+        ],
+        "hoodie": [],
+        "buzo_cuello_redondo": []
+      },
+      "sourceProductIds": [
+        5016
+      ],
+      "designFamilyIds": [],
+      "orderCodeBase": "EA2-5016.V6",
+      "identitySource": "transition-name",
+      "auditCases": [
+        "epica"
+      ]
+    },
+    {
+      "designId": "epica-the-holographic-principle",
+      "publicName": "The Holographic Principle",
+      "band": "EPICA",
+      "front": {
+        "productId": 5016,
+        "variantIndex": 7,
+        "image": "images/banda_sugeridas/epica/remera_epica_the_holographic_principle.jpg",
+        "label": "Epica The Holographic Principle - Remera",
+        "garment": "remera",
+        "role": "front"
+      },
+      "backOptions": [],
+      "availableGarments": [
+        "remera",
+        "hoodie",
+        "buzo_cuello_redondo"
+      ],
+      "previewsByGarment": {
+        "remera": [
+          {
+            "productId": 5016,
+            "variantIndex": 7,
+            "image": "images/banda_sugeridas/epica/remera_epica_the_holographic_principle.jpg",
+            "label": "Epica The Holographic Principle - Remera",
+            "garment": "remera",
+            "role": "front"
+          }
+        ],
+        "hoodie": [
+          {
+            "productId": 5016,
+            "variantIndex": 10,
+            "image": "images/banda_sugeridas/epica/hoodie_epica_the_holographic_principle.jpg",
+            "label": "Epica The Holographic Principle - Hoodie",
+            "garment": "hoodie",
+            "role": "front"
+          }
+        ],
+        "buzo_cuello_redondo": []
+      },
+      "sourceProductIds": [
+        5016
+      ],
+      "designFamilyIds": [],
+      "orderCodeBase": "EA2-5016.V8",
+      "identitySource": "transition-name",
+      "auditCases": [
+        "epica"
+      ]
+    },
+    {
+      "designId": "epica-the-phantom-agony",
+      "publicName": "The Phantom Agony",
+      "band": "EPICA",
+      "front": {
+        "productId": 5016,
+        "variantIndex": 8,
+        "image": "images/banda_sugeridas/epica/remera_epica_the_phantom_agony.jpg",
+        "label": "Epica The Phantom Agony - Remera",
+        "garment": "remera",
+        "role": "front"
+      },
+      "backOptions": [],
+      "availableGarments": [
+        "remera",
+        "hoodie",
+        "buzo_cuello_redondo"
+      ],
+      "previewsByGarment": {
+        "remera": [
+          {
+            "productId": 5016,
+            "variantIndex": 8,
+            "image": "images/banda_sugeridas/epica/remera_epica_the_phantom_agony.jpg",
+            "label": "Epica The Phantom Agony - Remera",
+            "garment": "remera",
+            "role": "front"
+          }
+        ],
+        "hoodie": [
+          {
+            "productId": 5016,
+            "variantIndex": 11,
+            "image": "images/banda_sugeridas/epica/hoodie_epica_the_phantom_agony.jpg",
+            "label": "Epica The Phantom Agony - Hoodie",
+            "garment": "hoodie",
+            "role": "front"
+          }
+        ],
+        "buzo_cuello_redondo": []
+      },
+      "sourceProductIds": [
+        5016
+      ],
+      "designFamilyIds": [],
+      "orderCodeBase": "EA2-5016.V9",
+      "identitySource": "transition-name",
+      "auditCases": [
+        "epica"
+      ]
+    },
+    {
+      "designId": "epica-the-quantum-enigma",
+      "publicName": "The Quantum Enigma",
+      "band": "EPICA",
+      "front": {
+        "productId": 5016,
+        "variantIndex": 6,
+        "image": "images/banda_sugeridas/epica/remera_epica_quantum.jpg",
+        "label": "Epica The Quantum Enigma - Remera",
+        "garment": "remera",
+        "role": "front"
+      },
+      "backOptions": [],
+      "availableGarments": [
+        "remera",
+        "hoodie",
+        "buzo_cuello_redondo"
+      ],
+      "previewsByGarment": {
+        "remera": [
+          {
+            "productId": 5016,
+            "variantIndex": 6,
+            "image": "images/banda_sugeridas/epica/remera_epica_quantum.jpg",
+            "label": "Epica The Quantum Enigma - Remera",
+            "garment": "remera",
+            "role": "front"
+          }
+        ],
+        "hoodie": [],
+        "buzo_cuello_redondo": [
+          {
+            "productId": 5016,
+            "variantIndex": 13,
+            "image": "images/banda_sugeridas/epica/buzo_epica_quantum_enigma.jpg",
+            "label": "Epica The Quantum Enigma - Buzo cuello redondo",
+            "garment": "buzo_cuello_redondo",
+            "role": "front"
+          }
+        ]
+      },
+      "sourceProductIds": [
+        5016
+      ],
+      "designFamilyIds": [],
+      "orderCodeBase": "EA2-5016.V7",
+      "identitySource": "transition-name",
+      "auditCases": [
+        "epica"
+      ]
+    },
+    {
+      "designId": "hammerfall-crimson",
+      "publicName": "Crimson",
+      "band": "HammerFall",
+      "front": {
+        "productId": 5089,
+        "variantIndex": 0,
+        "image": "images/banda_sugeridas/hammerfall/hoodie_hammerfall_crimson.jpg",
+        "label": "HammerFall Crimson - Hoodie",
+        "garment": "hoodie",
+        "role": "front"
+      },
+      "backOptions": [],
+      "availableGarments": [
+        "remera",
+        "hoodie",
+        "buzo_cuello_redondo"
+      ],
+      "previewsByGarment": {
+        "remera": [],
+        "hoodie": [
+          {
+            "productId": 5089,
+            "variantIndex": 0,
+            "image": "images/banda_sugeridas/hammerfall/hoodie_hammerfall_crimson.jpg",
+            "label": "HammerFall Crimson - Hoodie",
+            "garment": "hoodie",
+            "role": "front"
+          }
+        ],
+        "buzo_cuello_redondo": []
+      },
+      "sourceProductIds": [
+        5089
+      ],
+      "designFamilyIds": [],
+      "orderCodeBase": "HHS-5089.V1",
+      "identitySource": "transition-name",
+      "auditCases": [
+        "hammerfall"
+      ]
+    },
+    {
+      "designId": "hammerfall-glory-to-the-grave",
+      "publicName": "Glory to the Grave",
+      "band": "HammerFall",
+      "front": {
+        "productId": 5089,
+        "variantIndex": 1,
+        "image": "images/banda_sugeridas/hammerfall/hoodie_hammerfall_glory_to_the_grave.jpg",
+        "label": "HammerFall Glory to the Grave - Hoodie",
+        "garment": "hoodie",
+        "role": "front"
+      },
+      "backOptions": [],
+      "availableGarments": [
+        "remera",
+        "hoodie",
+        "buzo_cuello_redondo"
+      ],
+      "previewsByGarment": {
+        "remera": [],
+        "hoodie": [
+          {
+            "productId": 5089,
+            "variantIndex": 1,
+            "image": "images/banda_sugeridas/hammerfall/hoodie_hammerfall_glory_to_the_grave.jpg",
+            "label": "HammerFall Glory to the Grave - Hoodie",
+            "garment": "hoodie",
+            "role": "front"
+          }
+        ],
+        "buzo_cuello_redondo": []
+      },
+      "sourceProductIds": [
+        5089
+      ],
+      "designFamilyIds": [],
+      "orderCodeBase": "HHS-5089.V2",
+      "identitySource": "transition-name",
+      "auditCases": [
+        "hammerfall"
+      ]
+    },
+    {
+      "designId": "hammerfall-legacy",
+      "publicName": "Legacy",
+      "band": "HammerFall",
+      "front": {
+        "productId": 5089,
+        "variantIndex": 2,
+        "image": "images/banda_sugeridas/hammerfall/hoodie_hammerfall_legacy.jpg",
+        "label": "HammerFall Legacy - Hoodie",
+        "garment": "hoodie",
+        "role": "front"
+      },
+      "backOptions": [],
+      "availableGarments": [
+        "remera",
+        "hoodie",
+        "buzo_cuello_redondo"
+      ],
+      "previewsByGarment": {
+        "remera": [],
+        "hoodie": [
+          {
+            "productId": 5089,
+            "variantIndex": 2,
+            "image": "images/banda_sugeridas/hammerfall/hoodie_hammerfall_legacy.jpg",
+            "label": "HammerFall Legacy - Hoodie",
+            "garment": "hoodie",
+            "role": "front"
+          }
+        ],
+        "buzo_cuello_redondo": []
+      },
+      "sourceProductIds": [
+        5089
+      ],
+      "designFamilyIds": [],
+      "orderCodeBase": "HHS-5089.V3",
+      "identitySource": "transition-name",
+      "auditCases": [
+        "hammerfall"
+      ]
+    },
+    {
+      "designId": "hammerfall-renegade",
+      "publicName": "Renegade",
+      "band": "HammerFall",
+      "front": {
+        "productId": 5089,
+        "variantIndex": 3,
+        "image": "images/banda_sugeridas/hammerfall/hoodie_hammerfall_renegade.jpg",
+        "label": "HammerFall Renegade - Hoodie",
+        "garment": "hoodie",
+        "role": "front"
+      },
+      "backOptions": [],
+      "availableGarments": [
+        "remera",
+        "hoodie",
+        "buzo_cuello_redondo"
+      ],
+      "previewsByGarment": {
+        "remera": [],
+        "hoodie": [
+          {
+            "productId": 5089,
+            "variantIndex": 3,
+            "image": "images/banda_sugeridas/hammerfall/hoodie_hammerfall_renegade.jpg",
+            "label": "HammerFall Renegade - Hoodie",
+            "garment": "hoodie",
+            "role": "front"
+          }
+        ],
+        "buzo_cuello_redondo": []
+      },
+      "sourceProductIds": [
+        5089
+      ],
+      "designFamilyIds": [],
+      "orderCodeBase": "HHS-5089.V4",
+      "identitySource": "transition-name",
+      "auditCases": [
+        "hammerfall"
+      ]
+    },
+    {
+      "designId": "hammerfall-steel",
+      "publicName": "Steel",
+      "band": "HammerFall",
+      "front": {
+        "productId": 5089,
+        "variantIndex": 4,
+        "image": "images/banda_sugeridas/hammerfall/hoodie_hammerfall_steel.jpg",
+        "label": "HammerFall Steel - Hoodie",
+        "garment": "hoodie",
+        "role": "front"
+      },
+      "backOptions": [],
+      "availableGarments": [
+        "remera",
+        "hoodie",
+        "buzo_cuello_redondo"
+      ],
+      "previewsByGarment": {
+        "remera": [],
+        "hoodie": [
+          {
+            "productId": 5089,
+            "variantIndex": 4,
+            "image": "images/banda_sugeridas/hammerfall/hoodie_hammerfall_steel.jpg",
+            "label": "HammerFall Steel - Hoodie",
+            "garment": "hoodie",
+            "role": "front"
+          }
+        ],
+        "buzo_cuello_redondo": []
+      },
+      "sourceProductIds": [
+        5089
+      ],
+      "designFamilyIds": [],
+      "orderCodeBase": "HHS-5089.V5",
+      "identitySource": "transition-name",
+      "auditCases": [
+        "hammerfall"
+      ]
+    },
+    {
+      "designId": "iron-maiden-eddie-gaucho-argentino",
+      "publicName": "Eddie Gaucho Argentino",
+      "band": "Iron Maiden",
+      "front": {
+        "productId": 7040,
+        "variantIndex": 0,
+        "image": "images/iron_maiden/remera_iron_maiden_eddie_gaucho_argentino.jpg",
+        "label": "Eddie Gaucho Argentino - Remera",
+        "garment": "remera",
+        "role": "front"
+      },
+      "backOptions": [],
+      "availableGarments": [
+        "remera",
+        "hoodie",
+        "buzo_cuello_redondo"
+      ],
+      "previewsByGarment": {
+        "remera": [
+          {
+            "productId": 7040,
+            "variantIndex": 0,
+            "image": "images/iron_maiden/remera_iron_maiden_eddie_gaucho_argentino.jpg",
+            "label": "Eddie Gaucho Argentino - Remera",
+            "garment": "remera",
+            "role": "front"
+          }
+        ],
+        "hoodie": [
+          {
+            "productId": 7040,
+            "variantIndex": 1,
+            "image": "images/iron_maiden/hoodie_iron_maiden_eddie_gaucho_argentino.jpg",
+            "label": "Eddie Gaucho Argentino - Hoodie",
+            "garment": "hoodie",
+            "role": "front"
+          }
+        ],
+        "buzo_cuello_redondo": [
+          {
+            "productId": 7040,
+            "variantIndex": 2,
+            "image": "images/iron_maiden/buzo_iron_maiden_eddie_gaucho_argentino.jpg",
+            "label": "Eddie Gaucho Argentino - Buzo cuello redondo",
+            "garment": "buzo_cuello_redondo",
+            "role": "front"
+          }
+        ]
+      },
+      "sourceProductIds": [
+        7040
+      ],
+      "designFamilyIds": [],
+      "orderCodeBase": "IMEGAF-7040.V1",
+      "identitySource": "transition-name",
+      "auditCases": [
+        "iron-maiden"
+      ]
+    },
+    {
+      "designId": "king-diamond-abigail",
+      "publicName": "Abigail",
+      "band": "King Diamond",
+      "front": {
+        "productId": 5058,
+        "variantIndex": 0,
+        "image": "images/banda_sugeridas/king_diamond/remera_king_diamond_abigail.jpg",
+        "label": "King Diamond Abigail - Remera",
+        "garment": "remera",
+        "role": "front"
+      },
+      "backOptions": [],
+      "availableGarments": [
+        "remera",
+        "hoodie",
+        "buzo_cuello_redondo"
+      ],
+      "previewsByGarment": {
+        "remera": [
+          {
+            "productId": 5058,
+            "variantIndex": 0,
+            "image": "images/banda_sugeridas/king_diamond/remera_king_diamond_abigail.jpg",
+            "label": "King Diamond Abigail - Remera",
+            "garment": "remera",
+            "role": "front"
+          }
+        ],
+        "hoodie": [],
+        "buzo_cuello_redondo": []
+      },
+      "sourceProductIds": [
+        5058
+      ],
+      "designFamilyIds": [],
+      "orderCodeBase": "KDDS-5058",
+      "identitySource": "transition-name",
+      "auditCases": [
+        "single-design"
+      ]
+    },
+    {
+      "designId": "megadeth-3d",
+      "publicName": "3D",
+      "band": "Megadeth",
+      "front": {
+        "productId": 4,
+        "variantIndex": 8,
+        "image": "images/fmd-edition-3d/rust/rust_in_peace_3d_edition_frente.jpg",
+        "label": "Rust in Peace 3D Frente",
+        "garment": "remera",
+        "role": "front"
+      },
+      "backOptions": [
+        {
+          "productId": 4,
+          "variantIndex": 9,
+          "image": "images/fmd-edition-3d/rust/rust_in_peace_3d_edition_dorso.jpg",
+          "label": "Rust in Peace 3D Dorso",
+          "garment": "remera",
+          "role": "back"
+        }
+      ],
+      "availableGarments": [
+        "remera",
+        "hoodie",
+        "buzo_cuello_redondo"
+      ],
+      "previewsByGarment": {
+        "remera": [
+          {
+            "productId": 4,
+            "variantIndex": 8,
+            "image": "images/fmd-edition-3d/rust/rust_in_peace_3d_edition_frente.jpg",
+            "label": "Rust in Peace 3D Frente",
+            "garment": "remera",
+            "role": "front"
+          }
+        ],
+        "hoodie": [],
+        "buzo_cuello_redondo": []
+      },
+      "sourceProductIds": [
+        4
+      ],
+      "designFamilyIds": [
+        "megadeth-rust-in-peace"
+      ],
+      "orderCodeBase": "RIP-004.V9",
+      "identitySource": "transition-name",
+      "auditCases": [
+        "megadeth"
+      ]
+    },
+    {
+      "designId": "megadeth-alternate",
+      "publicName": "Alternate",
+      "band": "Megadeth",
+      "front": {
+        "productId": 4,
+        "variantIndex": 5,
+        "image": "images/albums/Rust_in_peace/alternate-rip.jpg",
+        "label": "Alternate Frente",
+        "garment": "remera",
+        "role": "front"
+      },
+      "backOptions": [
+        {
+          "productId": 4,
+          "variantIndex": 6,
+          "image": "images/albums/Rust_in_peace/alternate-rip-dorso.jpg",
+          "label": "Alternate Dorso",
+          "garment": "remera",
+          "role": "back"
+        }
+      ],
+      "availableGarments": [
+        "remera",
+        "hoodie",
+        "buzo_cuello_redondo"
+      ],
+      "previewsByGarment": {
+        "remera": [
+          {
+            "productId": 4,
+            "variantIndex": 5,
+            "image": "images/albums/Rust_in_peace/alternate-rip.jpg",
+            "label": "Alternate Frente",
+            "garment": "remera",
+            "role": "front"
+          }
+        ],
+        "hoodie": [],
+        "buzo_cuello_redondo": []
+      },
+      "sourceProductIds": [
+        4
+      ],
+      "designFamilyIds": [
+        "megadeth-rust-in-peace"
+      ],
+      "orderCodeBase": "RIP-004.V6",
+      "identitySource": "transition-name",
+      "auditCases": [
+        "megadeth"
+      ]
+    },
+    {
+      "designId": "megadeth-lineup",
+      "publicName": "Lineup",
+      "band": "Megadeth",
+      "front": {
+        "productId": 4,
+        "variantIndex": 3,
+        "image": "images/albums/Rust_in_peace/rust_in_peace_lineup.jpg",
+        "label": "Lineup Frente",
+        "garment": "remera",
+        "role": "front"
+      },
+      "backOptions": [
+        {
+          "productId": 4,
+          "variantIndex": 4,
+          "image": "images/albums/Rust_in_peace/rust_in_peace_lineup-dorso.jpg",
+          "label": "Lineup Dorso",
+          "garment": "remera",
+          "role": "back"
+        }
+      ],
+      "availableGarments": [
+        "remera",
+        "hoodie",
+        "buzo_cuello_redondo"
+      ],
+      "previewsByGarment": {
+        "remera": [
+          {
+            "productId": 4,
+            "variantIndex": 3,
+            "image": "images/albums/Rust_in_peace/rust_in_peace_lineup.jpg",
+            "label": "Lineup Frente",
+            "garment": "remera",
+            "role": "front"
+          }
+        ],
+        "hoodie": [],
+        "buzo_cuello_redondo": []
+      },
+      "sourceProductIds": [
+        4
+      ],
+      "designFamilyIds": [
+        "megadeth-rust-in-peace"
+      ],
+      "orderCodeBase": "RIP-004.V4",
+      "identitySource": "transition-name",
+      "auditCases": [
+        "megadeth"
+      ]
+    },
+    {
+      "designId": "megadeth-lineup-v2",
+      "publicName": "Lineup V2",
+      "band": "Megadeth",
+      "front": {
+        "productId": 4,
+        "variantIndex": 7,
+        "image": "images/albums/Rust_in_peace/rust_in_peace_lineup_v2.jpg",
+        "label": "Lineup V2",
+        "garment": "remera",
+        "role": "front"
+      },
+      "backOptions": [
+        {
+          "productId": 4,
+          "variantIndex": 10,
+          "image": "images/albums/Rust_in_peace/rust_in_peace_lineup-dorso.png",
+          "label": "Lineup Dorso NG",
+          "garment": "remera",
+          "role": "back"
+        }
+      ],
+      "availableGarments": [
+        "remera",
+        "hoodie",
+        "buzo_cuello_redondo"
+      ],
+      "previewsByGarment": {
+        "remera": [
+          {
+            "productId": 4,
+            "variantIndex": 7,
+            "image": "images/albums/Rust_in_peace/rust_in_peace_lineup_v2.jpg",
+            "label": "Lineup V2",
+            "garment": "remera",
+            "role": "front"
+          }
+        ],
+        "hoodie": [],
+        "buzo_cuello_redondo": []
+      },
+      "sourceProductIds": [
+        4
+      ],
+      "designFamilyIds": [
+        "megadeth-rust-in-peace"
+      ],
+      "orderCodeBase": "RIP-004.V8",
+      "identitySource": "transition-name",
+      "auditCases": [
+        "megadeth"
+      ]
+    },
+    {
+      "designId": "megadeth-rust-in-peace",
+      "publicName": "Rust in Peace",
+      "band": "Megadeth",
+      "front": {
+        "productId": 4,
+        "variantIndex": 0,
+        "image": "images/albums/Rust_in_peace/rust_in_peace.jpg",
+        "label": "Frente",
+        "garment": "remera",
+        "role": "front"
+      },
+      "backOptions": [
+        {
+          "productId": 4,
+          "variantIndex": 1,
+          "image": "images/albums/Rust_in_peace/rust_in_peace_dorso.jpg",
+          "label": "Dorso",
+          "garment": "remera",
+          "role": "back"
+        },
+        {
+          "productId": 4,
+          "variantIndex": 2,
+          "image": "images/albums/Rust_in_peace/rust_in_peace_v2-dorso.jpg",
+          "label": "v2 Dorso",
+          "garment": "remera",
+          "role": "back"
+        }
+      ],
+      "availableGarments": [
+        "remera",
+        "hoodie",
+        "buzo_cuello_redondo"
+      ],
+      "previewsByGarment": {
+        "remera": [
+          {
+            "productId": 4,
+            "variantIndex": 0,
+            "image": "images/albums/Rust_in_peace/rust_in_peace.jpg",
+            "label": "Frente",
+            "garment": "remera",
+            "role": "front"
+          }
+        ],
+        "hoodie": [
+          {
+            "productId": 5062,
+            "variantIndex": 0,
+            "image": "images/hoddies_fmd/rust_in_peace.jpg",
+            "label": "Hoodie Rust in Peace",
+            "garment": "hoodie",
+            "role": "front"
+          }
+        ],
+        "buzo_cuello_redondo": []
+      },
+      "sourceProductIds": [
+        4,
+        5062
+      ],
+      "designFamilyIds": [
+        "megadeth-rust-in-peace"
+      ],
+      "orderCodeBase": "RIP-004.V1",
+      "identitySource": "transition-name",
+      "auditCases": [
+        "megadeth",
+        "outerwear"
+      ]
+    },
+    {
+      "designId": "metallica-band-1984",
+      "publicName": "Band 1984",
+      "band": "Metallica",
+      "front": {
+        "productId": 1060,
+        "variantIndex": 9,
+        "image": "images/metallica/hoodie_metallica_ride_band_1984.jpg",
+        "label": "Ride the Lightning Band 1984 - Hoodie",
+        "garment": "hoodie",
+        "role": "front"
+      },
+      "backOptions": [],
+      "availableGarments": [
+        "remera",
+        "hoodie",
+        "buzo_cuello_redondo"
+      ],
+      "previewsByGarment": {
+        "remera": [],
+        "hoodie": [
+          {
+            "productId": 1060,
+            "variantIndex": 9,
+            "image": "images/metallica/hoodie_metallica_ride_band_1984.jpg",
+            "label": "Ride the Lightning Band 1984 - Hoodie",
+            "garment": "hoodie",
+            "role": "front"
+          }
+        ],
+        "buzo_cuello_redondo": []
+      },
+      "sourceProductIds": [
+        1060
+      ],
+      "designFamilyIds": [],
+      "orderCodeBase": "RTL-1060.V10",
+      "identitySource": "transition-name",
+      "auditCases": [
+        "metallica"
+      ]
+    },
+    {
+      "designId": "metallica-ride-clasico",
+      "publicName": "Ride Clásico",
+      "band": "Metallica",
+      "front": {
+        "productId": 1060,
+        "variantIndex": 0,
+        "image": "images/metallica/metallica_ride_the_classic.jpg",
+        "label": "Ride ClÃ¡sico",
+        "garment": "remera",
+        "role": "front"
+      },
+      "backOptions": [
+        {
+          "productId": 1060,
+          "variantIndex": 1,
+          "image": "images/metallica/metallica_ride_the_classic-dorso.jpg",
+          "label": "Dorso",
+          "garment": "remera",
+          "role": "back"
+        }
+      ],
+      "availableGarments": [
+        "remera",
+        "hoodie",
+        "buzo_cuello_redondo"
+      ],
+      "previewsByGarment": {
+        "remera": [
+          {
+            "productId": 1060,
+            "variantIndex": 0,
+            "image": "images/metallica/metallica_ride_the_classic.jpg",
+            "label": "Ride ClÃ¡sico",
+            "garment": "remera",
+            "role": "front"
+          }
+        ],
+        "hoodie": [],
+        "buzo_cuello_redondo": []
+      },
+      "sourceProductIds": [
+        1060
+      ],
+      "designFamilyIds": [],
+      "orderCodeBase": "RTL-1060.V1",
+      "identitySource": "transition-name",
+      "auditCases": [
+        "metallica"
+      ]
+    },
+    {
+      "designId": "metallica-ride-mas-oscuro",
+      "publicName": "Ride Más Oscuro",
+      "band": "Metallica",
+      "front": {
+        "productId": 1060,
+        "variantIndex": 2,
+        "image": "images/metallica/metallica_ride_the_darker_light.jpg",
+        "label": "Ride MÃ¡s Oscuro",
+        "garment": "remera",
+        "role": "front"
+      },
+      "backOptions": [
+        {
+          "productId": 1060,
+          "variantIndex": 3,
+          "image": "images/metallica/metallica_ride_the_darker_light-dorso.jpg",
+          "label": "Dorso Oscuro",
+          "garment": "remera",
+          "role": "back"
+        }
+      ],
+      "availableGarments": [
+        "remera",
+        "hoodie",
+        "buzo_cuello_redondo"
+      ],
+      "previewsByGarment": {
+        "remera": [
+          {
+            "productId": 1060,
+            "variantIndex": 2,
+            "image": "images/metallica/metallica_ride_the_darker_light.jpg",
+            "label": "Ride MÃ¡s Oscuro",
+            "garment": "remera",
+            "role": "front"
+          }
+        ],
+        "hoodie": [],
+        "buzo_cuello_redondo": []
+      },
+      "sourceProductIds": [
+        1060
+      ],
+      "designFamilyIds": [],
+      "orderCodeBase": "RTL-1060.V3",
+      "identitySource": "transition-name",
+      "auditCases": [
+        "metallica"
+      ]
+    },
+    {
+      "designId": "metallica-ride-the-lightning",
+      "publicName": "Ride the Lightning",
+      "band": "Metallica",
+      "front": {
+        "productId": 1060,
+        "variantIndex": 4,
+        "image": "images/metallica/remera_metallica_ride_the_lightning.jpg",
+        "label": "Ride the Lightning - Remera",
+        "garment": "remera",
+        "role": "front"
+      },
+      "backOptions": [],
+      "availableGarments": [
+        "remera",
+        "hoodie",
+        "buzo_cuello_redondo"
+      ],
+      "previewsByGarment": {
+        "remera": [
+          {
+            "productId": 1060,
+            "variantIndex": 4,
+            "image": "images/metallica/remera_metallica_ride_the_lightning.jpg",
+            "label": "Ride the Lightning - Remera",
+            "garment": "remera",
+            "role": "front"
+          }
+        ],
+        "hoodie": [
+          {
+            "productId": 1060,
+            "variantIndex": 7,
+            "image": "images/metallica/hoodie_metallica_ride_the_lightning.jpg",
+            "label": "Ride the Lightning - Hoodie",
+            "garment": "hoodie",
+            "role": "front"
+          }
+        ],
+        "buzo_cuello_redondo": [
+          {
+            "productId": 1060,
+            "variantIndex": 10,
+            "image": "images/metallica/buzo_metallica_ride_the_lightning.jpg",
+            "label": "Ride the Lightning - Buzo cuello redondo",
+            "garment": "buzo_cuello_redondo",
+            "role": "front"
+          }
+        ]
+      },
+      "sourceProductIds": [
+        1060
+      ],
+      "designFamilyIds": [],
+      "orderCodeBase": "RTL-1060.V5",
+      "identitySource": "transition-name",
+      "auditCases": [
+        "metallica"
+      ]
+    },
+    {
+      "designId": "metallica-ride-the-lightning-v2",
+      "publicName": "Ride the Lightning V2",
+      "band": "Metallica",
+      "front": {
+        "productId": 1060,
+        "variantIndex": 5,
+        "image": "images/metallica/remera_metallica_ride_v2.jpg",
+        "label": "Ride the Lightning V2 - Remera",
+        "garment": "remera",
+        "role": "front"
+      },
+      "backOptions": [],
+      "availableGarments": [
+        "remera",
+        "hoodie",
+        "buzo_cuello_redondo"
+      ],
+      "previewsByGarment": {
+        "remera": [
+          {
+            "productId": 1060,
+            "variantIndex": 5,
+            "image": "images/metallica/remera_metallica_ride_v2.jpg",
+            "label": "Ride the Lightning V2 - Remera",
+            "garment": "remera",
+            "role": "front"
+          }
+        ],
+        "hoodie": [
+          {
+            "productId": 1060,
+            "variantIndex": 8,
+            "image": "images/metallica/hoodie_metallica_ride_v2.jpg",
+            "label": "Ride the Lightning V2 - Hoodie",
+            "garment": "hoodie",
+            "role": "front"
+          }
+        ],
+        "buzo_cuello_redondo": []
+      },
+      "sourceProductIds": [
+        1060
+      ],
+      "designFamilyIds": [],
+      "orderCodeBase": "RTL-1060.V6",
+      "identitySource": "transition-name",
+      "auditCases": [
+        "metallica"
+      ]
+    },
+    {
+      "designId": "metallica-ride-the-lightning-v3",
+      "publicName": "Ride the Lightning V3",
+      "band": "Metallica",
+      "front": {
+        "productId": 1060,
+        "variantIndex": 6,
+        "image": "images/metallica/remera_metallica_ride_v3.jpg",
+        "label": "Ride the Lightning V3 - Remera",
+        "garment": "remera",
+        "role": "front"
+      },
+      "backOptions": [],
+      "availableGarments": [
+        "remera",
+        "hoodie",
+        "buzo_cuello_redondo"
+      ],
+      "previewsByGarment": {
+        "remera": [
+          {
+            "productId": 1060,
+            "variantIndex": 6,
+            "image": "images/metallica/remera_metallica_ride_v3.jpg",
+            "label": "Ride the Lightning V3 - Remera",
+            "garment": "remera",
+            "role": "front"
+          }
+        ],
+        "hoodie": [],
+        "buzo_cuello_redondo": []
+      },
+      "sourceProductIds": [
+        1060
+      ],
+      "designFamilyIds": [],
+      "orderCodeBase": "RTL-1060.V7",
+      "identitySource": "transition-name",
+      "auditCases": [
+        "metallica"
+      ]
+    },
+    {
+      "designId": "personalizados-diego-maradona",
+      "publicName": "Diego Maradona",
+      "band": "Personalizados",
+      "front": {
+        "productId": 5121,
+        "variantIndex": 0,
+        "image": "images/personalizado/diego_maradona.jpg",
+        "label": "Diego Maradona",
+        "garment": "remera",
+        "role": "front"
+      },
+      "backOptions": [],
+      "availableGarments": [
+        "remera",
+        "hoodie",
+        "buzo_cuello_redondo"
+      ],
+      "previewsByGarment": {
+        "remera": [
+          {
+            "productId": 5121,
+            "variantIndex": 0,
+            "image": "images/personalizado/diego_maradona.jpg",
+            "label": "Diego Maradona",
+            "garment": "remera",
+            "role": "front"
+          }
+        ],
+        "hoodie": [],
+        "buzo_cuello_redondo": []
+      },
+      "sourceProductIds": [
+        5121
+      ],
+      "designFamilyIds": [],
+      "orderCodeBase": "DM-5121",
+      "identitySource": "transition-name",
+      "auditCases": [
+        "custom"
+      ]
+    },
+    {
+      "designId": "rhapsody-dawn-of-victory",
+      "publicName": "Dawn Of Victory",
+      "band": "Rhapsody",
+      "front": {
+        "productId": 5083,
+        "variantIndex": 0,
+        "image": "images/banda_sugeridas/rhapsody/remera_rhapsody_dawn_of_victory.jpg",
+        "label": "Rhapsody Dawn Of Victory - Remera",
+        "garment": "remera",
+        "role": "front"
+      },
+      "backOptions": [],
+      "availableGarments": [
+        "remera",
+        "hoodie",
+        "buzo_cuello_redondo"
+      ],
+      "previewsByGarment": {
+        "remera": [
+          {
+            "productId": 5083,
+            "variantIndex": 0,
+            "image": "images/banda_sugeridas/rhapsody/remera_rhapsody_dawn_of_victory.jpg",
+            "label": "Rhapsody Dawn Of Victory - Remera",
+            "garment": "remera",
+            "role": "front"
+          }
+        ],
+        "hoodie": [
+          {
+            "productId": 5083,
+            "variantIndex": 10,
+            "image": "images/banda_sugeridas/rhapsody/hoodie_rhapsody_dawn_of_victory.jpg",
+            "label": "Rhapsody Dawn Of Victory - Hoodie",
+            "garment": "hoodie",
+            "role": "front"
+          }
+        ],
+        "buzo_cuello_redondo": []
+      },
+      "sourceProductIds": [
+        5083
+      ],
+      "designFamilyIds": [],
+      "orderCodeBase": "RA2-5083.V1",
+      "identitySource": "transition-name",
+      "auditCases": [
+        "rhapsody"
+      ]
+    },
+    {
+      "designId": "rhapsody-holy-thunderforce",
+      "publicName": "Holy Thunderforce",
+      "band": "Rhapsody",
+      "front": {
+        "productId": 5083,
+        "variantIndex": 9,
+        "image": "images/banda_sugeridas/rhapsody/remera_rhapsody_holy_thunderforce.jpg",
+        "label": "Rhapsody Holy Thunderforce - Remera",
+        "garment": "remera",
+        "role": "front"
+      },
+      "backOptions": [],
+      "availableGarments": [
+        "remera",
+        "hoodie",
+        "buzo_cuello_redondo"
+      ],
+      "previewsByGarment": {
+        "remera": [
+          {
+            "productId": 5083,
+            "variantIndex": 9,
+            "image": "images/banda_sugeridas/rhapsody/remera_rhapsody_holy_thunderforce.jpg",
+            "label": "Rhapsody Holy Thunderforce - Remera",
+            "garment": "remera",
+            "role": "front"
+          }
+        ],
+        "hoodie": [],
+        "buzo_cuello_redondo": []
+      },
+      "sourceProductIds": [
+        5083
+      ],
+      "designFamilyIds": [],
+      "orderCodeBase": "RA2-5083.V10",
+      "identitySource": "transition-name",
+      "auditCases": [
+        "rhapsody"
+      ]
+    },
+    {
+      "designId": "rhapsody-legendary-tales",
+      "publicName": "Legendary Tales",
+      "band": "Rhapsody",
+      "front": {
+        "productId": 5083,
+        "variantIndex": 1,
+        "image": "images/banda_sugeridas/rhapsody/remera_rhapsody_legendary_tales.jpg",
+        "label": "Rhapsody Legendary Tales - Remera",
+        "garment": "remera",
+        "role": "front"
+      },
+      "backOptions": [],
+      "availableGarments": [
+        "remera",
+        "hoodie",
+        "buzo_cuello_redondo"
+      ],
+      "previewsByGarment": {
+        "remera": [
+          {
+            "productId": 5083,
+            "variantIndex": 1,
+            "image": "images/banda_sugeridas/rhapsody/remera_rhapsody_legendary_tales.jpg",
+            "label": "Rhapsody Legendary Tales - Remera",
+            "garment": "remera",
+            "role": "front"
+          }
+        ],
+        "hoodie": [],
+        "buzo_cuello_redondo": []
+      },
+      "sourceProductIds": [
+        5083
+      ],
+      "designFamilyIds": [],
+      "orderCodeBase": "RA2-5083.V2",
+      "identitySource": "transition-name",
+      "auditCases": [
+        "rhapsody"
+      ]
+    },
+    {
+      "designId": "rhapsody-legendary-years",
+      "publicName": "Legendary Years",
+      "band": "Rhapsody",
+      "front": {
+        "productId": 5083,
+        "variantIndex": 2,
+        "image": "images/banda_sugeridas/rhapsody/remera_rhapsody_legendary_years.jpg",
+        "label": "Rhapsody Legendary Years - Remera",
+        "garment": "remera",
+        "role": "front"
+      },
+      "backOptions": [],
+      "availableGarments": [
+        "remera",
+        "hoodie",
+        "buzo_cuello_redondo"
+      ],
+      "previewsByGarment": {
+        "remera": [
+          {
+            "productId": 5083,
+            "variantIndex": 2,
+            "image": "images/banda_sugeridas/rhapsody/remera_rhapsody_legendary_years.jpg",
+            "label": "Rhapsody Legendary Years - Remera",
+            "garment": "remera",
+            "role": "front"
+          }
+        ],
+        "hoodie": [],
+        "buzo_cuello_redondo": [
+          {
+            "productId": 5083,
+            "variantIndex": 13,
+            "image": "images/banda_sugeridas/rhapsody/buzo_rhapsody_legendary_years.jpg",
+            "label": "Rhapsody Legendary Years - Buzo cuello redondo",
+            "garment": "buzo_cuello_redondo",
+            "role": "front"
+          }
+        ]
+      },
+      "sourceProductIds": [
+        5083
+      ],
+      "designFamilyIds": [],
+      "orderCodeBase": "RA2-5083.V3",
+      "identitySource": "transition-name",
+      "auditCases": [
+        "rhapsody"
+      ]
+    },
+    {
+      "designId": "rhapsody-power-of-the-dragon-flame",
+      "publicName": "Power Of The Dragon Flame",
+      "band": "Rhapsody",
+      "front": {
+        "productId": 5083,
+        "variantIndex": 3,
+        "image": "images/banda_sugeridas/rhapsody/remera_rhapsody_power_of_the_dragon_flame.jpg",
+        "label": "Rhapsody Power Of The Dragon Flame - Remera",
+        "garment": "remera",
+        "role": "front"
+      },
+      "backOptions": [],
+      "availableGarments": [
+        "remera",
+        "hoodie",
+        "buzo_cuello_redondo"
+      ],
+      "previewsByGarment": {
+        "remera": [
+          {
+            "productId": 5083,
+            "variantIndex": 3,
+            "image": "images/banda_sugeridas/rhapsody/remera_rhapsody_power_of_the_dragon_flame.jpg",
+            "label": "Rhapsody Power Of The Dragon Flame - Remera",
+            "garment": "remera",
+            "role": "front"
+          }
+        ],
+        "hoodie": [
+          {
+            "productId": 5083,
+            "variantIndex": 11,
+            "image": "images/banda_sugeridas/rhapsody/hoodie_rhapsody_power_of_the_dragon_flame.jpg",
+            "label": "Rhapsody Power Of The Dragon Flame - Hoodie",
+            "garment": "hoodie",
+            "role": "front"
+          }
+        ],
+        "buzo_cuello_redondo": []
+      },
+      "sourceProductIds": [
+        5083
+      ],
+      "designFamilyIds": [],
+      "orderCodeBase": "RA2-5083.V4",
+      "identitySource": "transition-name",
+      "auditCases": [
+        "rhapsody"
+      ]
+    },
+    {
+      "designId": "rhapsody-rain-of-a-thousand-flames",
+      "publicName": "Rain Of A Thousand Flames",
+      "band": "Rhapsody",
+      "front": {
+        "productId": 5083,
+        "variantIndex": 4,
+        "image": "images/banda_sugeridas/rhapsody/remera_rhapsody_raind_of_a_thounsand_flames.jpg",
+        "label": "Rhapsody Rain Of A Thousand Flames - Remera",
+        "garment": "remera",
+        "role": "front"
+      },
+      "backOptions": [],
+      "availableGarments": [
+        "remera",
+        "hoodie",
+        "buzo_cuello_redondo"
+      ],
+      "previewsByGarment": {
+        "remera": [
+          {
+            "productId": 5083,
+            "variantIndex": 4,
+            "image": "images/banda_sugeridas/rhapsody/remera_rhapsody_raind_of_a_thounsand_flames.jpg",
+            "label": "Rhapsody Rain Of A Thousand Flames - Remera",
+            "garment": "remera",
+            "role": "front"
+          }
+        ],
+        "hoodie": [
+          {
+            "productId": 5083,
+            "variantIndex": 12,
+            "image": "images/banda_sugeridas/rhapsody/hoodie_rhapsody_raind_of_a_thounsand_flames.jpg",
+            "label": "Rhapsody Rain Of A Thousand Flames - Hoodie",
+            "garment": "hoodie",
+            "role": "front"
+          }
+        ],
+        "buzo_cuello_redondo": []
+      },
+      "sourceProductIds": [
+        5083
+      ],
+      "designFamilyIds": [],
+      "orderCodeBase": "RA2-5083.V5",
+      "identitySource": "transition-name",
+      "auditCases": [
+        "rhapsody"
+      ]
+    },
+    {
+      "designId": "rhapsody-rhapsody",
+      "publicName": "Rhapsody",
+      "band": "Rhapsody",
+      "front": {
+        "productId": 6009,
+        "variantIndex": 0,
+        "image": "images/hoddies_fmd/hoodies_otras_bandas/rapshody.jpg",
+        "label": "Hoodie Rhapsody",
+        "garment": "hoodie",
+        "role": "front"
+      },
+      "backOptions": [],
+      "availableGarments": [
+        "remera",
+        "hoodie",
+        "buzo_cuello_redondo"
+      ],
+      "previewsByGarment": {
+        "remera": [],
+        "hoodie": [
+          {
+            "productId": 6009,
+            "variantIndex": 0,
+            "image": "images/hoddies_fmd/hoodies_otras_bandas/rapshody.jpg",
+            "label": "Hoodie Rhapsody",
+            "garment": "hoodie",
+            "role": "front"
+          }
+        ],
+        "buzo_cuello_redondo": []
+      },
+      "sourceProductIds": [
+        6009
+      ],
+      "designFamilyIds": [],
+      "orderCodeBase": "HR-6009",
+      "identitySource": "transition-name",
+      "auditCases": [
+        "rhapsody"
+      ]
+    },
+    {
+      "designId": "rhapsody-symphony-of-enchanted-lands",
+      "publicName": "Symphony Of Enchanted Lands",
+      "band": "Rhapsody",
+      "front": {
+        "productId": 5083,
+        "variantIndex": 5,
+        "image": "images/banda_sugeridas/rhapsody/remera_rhapsody_symphony_of_enchanted_lands.jpg",
+        "label": "Rhapsody Symphony Of Enchanted Lands - Remera",
+        "garment": "remera",
+        "role": "front"
+      },
+      "backOptions": [],
+      "availableGarments": [
+        "remera",
+        "hoodie",
+        "buzo_cuello_redondo"
+      ],
+      "previewsByGarment": {
+        "remera": [
+          {
+            "productId": 5083,
+            "variantIndex": 5,
+            "image": "images/banda_sugeridas/rhapsody/remera_rhapsody_symphony_of_enchanted_lands.jpg",
+            "label": "Rhapsody Symphony Of Enchanted Lands - Remera",
+            "garment": "remera",
+            "role": "front"
+          }
+        ],
+        "hoodie": [],
+        "buzo_cuello_redondo": []
+      },
+      "sourceProductIds": [
+        5083
+      ],
+      "designFamilyIds": [],
+      "orderCodeBase": "RA2-5083.V6",
+      "identitySource": "transition-name",
+      "auditCases": [
+        "rhapsody"
+      ]
+    },
+    {
+      "designId": "rhapsody-symphony-of-enchanted-lands-ii",
+      "publicName": "Symphony Of Enchanted Lands II",
+      "band": "Rhapsody",
+      "front": {
+        "productId": 5083,
+        "variantIndex": 6,
+        "image": "images/banda_sugeridas/rhapsody/remera_rhapsody_symphony_of_enchanted_lands_II.jpg",
+        "label": "Rhapsody Symphony Of Enchanted Lands II - Remera",
+        "garment": "remera",
+        "role": "front"
+      },
+      "backOptions": [],
+      "availableGarments": [
+        "remera",
+        "hoodie",
+        "buzo_cuello_redondo"
+      ],
+      "previewsByGarment": {
+        "remera": [
+          {
+            "productId": 5083,
+            "variantIndex": 6,
+            "image": "images/banda_sugeridas/rhapsody/remera_rhapsody_symphony_of_enchanted_lands_II.jpg",
+            "label": "Rhapsody Symphony Of Enchanted Lands II - Remera",
+            "garment": "remera",
+            "role": "front"
+          }
+        ],
+        "hoodie": [],
+        "buzo_cuello_redondo": [
+          {
+            "productId": 5083,
+            "variantIndex": 14,
+            "image": "images/banda_sugeridas/rhapsody/buzo_rhapsody_symphony_of_enchanted_lands_II.jpg",
+            "label": "Rhapsody Symphony Of Enchanted Lands II - Buzo cuello redondo",
+            "garment": "buzo_cuello_redondo",
+            "role": "front"
+          }
+        ]
+      },
+      "sourceProductIds": [
+        5083
+      ],
+      "designFamilyIds": [],
+      "orderCodeBase": "RA2-5083.V7",
+      "identitySource": "transition-name",
+      "auditCases": [
+        "rhapsody"
+      ]
+    },
+    {
+      "designId": "rhapsody-tales-from-the-emerald-sword-saga",
+      "publicName": "Tales From The Emerald Sword Saga",
+      "band": "Rhapsody",
+      "front": {
+        "productId": 5083,
+        "variantIndex": 7,
+        "image": "images/banda_sugeridas/rhapsody/remera_rhapsody_tales_from_the_emerald_sword_saga.jpg",
+        "label": "Rhapsody Tales From The Emerald Sword Saga - Remera",
+        "garment": "remera",
+        "role": "front"
+      },
+      "backOptions": [],
+      "availableGarments": [
+        "remera",
+        "hoodie",
+        "buzo_cuello_redondo"
+      ],
+      "previewsByGarment": {
+        "remera": [
+          {
+            "productId": 5083,
+            "variantIndex": 7,
+            "image": "images/banda_sugeridas/rhapsody/remera_rhapsody_tales_from_the_emerald_sword_saga.jpg",
+            "label": "Rhapsody Tales From The Emerald Sword Saga - Remera",
+            "garment": "remera",
+            "role": "front"
+          }
+        ],
+        "hoodie": [],
+        "buzo_cuello_redondo": []
+      },
+      "sourceProductIds": [
+        5083
+      ],
+      "designFamilyIds": [],
+      "orderCodeBase": "RA2-5083.V8",
+      "identitySource": "transition-name",
+      "auditCases": [
+        "rhapsody"
+      ]
+    },
+    {
+      "designId": "rhapsody-triumph-or-agony",
+      "publicName": "Triumph Or Agony",
+      "band": "Rhapsody",
+      "front": {
+        "productId": 5083,
+        "variantIndex": 8,
+        "image": "images/banda_sugeridas/rhapsody/remera_rhapsody_triumph_or_agony.jpg",
+        "label": "Rhapsody Triumph Or Agony - Remera",
+        "garment": "remera",
+        "role": "front"
+      },
+      "backOptions": [],
+      "availableGarments": [
+        "remera",
+        "hoodie",
+        "buzo_cuello_redondo"
+      ],
+      "previewsByGarment": {
+        "remera": [
+          {
+            "productId": 5083,
+            "variantIndex": 8,
+            "image": "images/banda_sugeridas/rhapsody/remera_rhapsody_triumph_or_agony.jpg",
+            "label": "Rhapsody Triumph Or Agony - Remera",
+            "garment": "remera",
+            "role": "front"
+          }
+        ],
+        "hoodie": [],
+        "buzo_cuello_redondo": [
+          {
+            "productId": 5083,
+            "variantIndex": 15,
+            "image": "images/banda_sugeridas/rhapsody/buzo_rhapsody_triumph_or_agony.jpg",
+            "label": "Rhapsody Triumph Or Agony - Buzo cuello redondo",
+            "garment": "buzo_cuello_redondo",
+            "role": "front"
+          }
+        ]
+      },
+      "sourceProductIds": [
+        5083
+      ],
+      "designFamilyIds": [],
+      "orderCodeBase": "RA2-5083.V9",
+      "identitySource": "transition-name",
+      "auditCases": [
+        "rhapsody"
+      ]
+    },
+    {
+      "designId": "rhapsody-v1-v1",
+      "publicName": "V1 V1",
+      "band": "Rhapsody",
+      "front": {
+        "productId": 6017,
+        "variantIndex": 0,
+        "image": "images/hoddies_fmd/hoodies_otras_bandas/raphsody_v1.jpg",
+        "label": "Hoodie Rhapsody V1",
+        "garment": "hoodie",
+        "role": "front"
+      },
+      "backOptions": [],
+      "availableGarments": [
+        "remera",
+        "hoodie",
+        "buzo_cuello_redondo"
+      ],
+      "previewsByGarment": {
+        "remera": [],
+        "hoodie": [
+          {
+            "productId": 6017,
+            "variantIndex": 0,
+            "image": "images/hoddies_fmd/hoodies_otras_bandas/raphsody_v1.jpg",
+            "label": "Hoodie Rhapsody V1",
+            "garment": "hoodie",
+            "role": "front"
+          }
+        ],
+        "buzo_cuello_redondo": []
+      },
+      "sourceProductIds": [
+        6017
+      ],
+      "designFamilyIds": [],
+      "orderCodeBase": "HRV-6017",
+      "identitySource": "transition-name",
+      "auditCases": [
+        "rhapsody"
+      ]
+    },
+    {
+      "designId": "slayer-angel-of-death",
+      "publicName": "Angel Of Death",
+      "band": "Slayer",
+      "front": {
+        "productId": 7123,
+        "variantIndex": 0,
+        "image": "images/slayer/fmd_originals/remeras/remera_slayer_fmd_angel_of_death.jpg",
+        "label": "Slayer FMD Originals Angel Of Death - Remera",
+        "garment": "remera",
+        "role": "front"
+      },
+      "backOptions": [],
+      "availableGarments": [
+        "remera",
+        "hoodie",
+        "buzo_cuello_redondo"
+      ],
+      "previewsByGarment": {
+        "remera": [
+          {
+            "productId": 7123,
+            "variantIndex": 0,
+            "image": "images/slayer/fmd_originals/remeras/remera_slayer_fmd_angel_of_death.jpg",
+            "label": "Slayer FMD Originals Angel Of Death - Remera",
+            "garment": "remera",
+            "role": "front"
+          }
+        ],
+        "hoodie": [
+          {
+            "productId": 7123,
+            "variantIndex": 10,
+            "image": "images/slayer/fmd_originals/hoodies/hoodie_slayer_fmd_angel_of_death.jpg",
+            "label": "Slayer FMD Originals Angel Of Death - Hoodie",
+            "garment": "hoodie",
+            "role": "front"
+          }
+        ],
+        "buzo_cuello_redondo": [
+          {
+            "productId": 7123,
+            "variantIndex": 19,
+            "image": "images/slayer/fmd_originals/buzos/buzo_slayer_fmd_angel_of_death.jpg",
+            "label": "Slayer FMD Originals Angel Of Death - Buzo cuello redondo",
+            "garment": "buzo_cuello_redondo",
+            "role": "front"
+          }
+        ]
+      },
+      "sourceProductIds": [
+        7123
+      ],
+      "designFamilyIds": [
+        "slayer-fmd-originals"
+      ],
+      "orderCodeBase": "SFO-7123.V1",
+      "identitySource": "transition-name",
+      "auditCases": [
+        "slayer"
+      ]
+    },
+    {
+      "designId": "slayer-hell-awaits",
+      "publicName": "Hell Awaits",
+      "band": "Slayer",
+      "front": {
+        "productId": 7123,
+        "variantIndex": 1,
+        "image": "images/slayer/fmd_originals/remeras/remera_slayer_fmd_hell_awaits.jpg",
+        "label": "Slayer FMD Originals Hell Awaits - Remera",
+        "garment": "remera",
+        "role": "front"
+      },
+      "backOptions": [],
+      "availableGarments": [
+        "remera",
+        "hoodie",
+        "buzo_cuello_redondo"
+      ],
+      "previewsByGarment": {
+        "remera": [
+          {
+            "productId": 7123,
+            "variantIndex": 1,
+            "image": "images/slayer/fmd_originals/remeras/remera_slayer_fmd_hell_awaits.jpg",
+            "label": "Slayer FMD Originals Hell Awaits - Remera",
+            "garment": "remera",
+            "role": "front"
+          }
+        ],
+        "hoodie": [
+          {
+            "productId": 7123,
+            "variantIndex": 11,
+            "image": "images/slayer/fmd_originals/hoodies/hoodie_slayer_fmd_hell_awaits.jpg",
+            "label": "Slayer FMD Originals Hell Awaits - Hoodie",
+            "garment": "hoodie",
+            "role": "front"
+          }
+        ],
+        "buzo_cuello_redondo": [
+          {
+            "productId": 7123,
+            "variantIndex": 20,
+            "image": "images/slayer/fmd_originals/buzos/buzo_slayer_fmd_hell_awaits.jpg",
+            "label": "Slayer FMD Originals Hell Awaits - Buzo cuello redondo",
+            "garment": "buzo_cuello_redondo",
+            "role": "front"
+          }
+        ]
+      },
+      "sourceProductIds": [
+        7123
+      ],
+      "designFamilyIds": [
+        "slayer-fmd-originals"
+      ],
+      "orderCodeBase": "SFO-7123.V2",
+      "identitySource": "transition-name",
+      "auditCases": [
+        "slayer"
+      ]
+    },
+    {
+      "designId": "slayer-live-undead",
+      "publicName": "Live Undead",
+      "band": "Slayer",
+      "front": {
+        "productId": 7123,
+        "variantIndex": 2,
+        "image": "images/slayer/fmd_originals/remeras/remera_slayer_fmd_live_undead.jpg",
+        "label": "Slayer FMD Originals Live Undead - Remera",
+        "garment": "remera",
+        "role": "front"
+      },
+      "backOptions": [],
+      "availableGarments": [
+        "remera",
+        "hoodie",
+        "buzo_cuello_redondo"
+      ],
+      "previewsByGarment": {
+        "remera": [
+          {
+            "productId": 7123,
+            "variantIndex": 2,
+            "image": "images/slayer/fmd_originals/remeras/remera_slayer_fmd_live_undead.jpg",
+            "label": "Slayer FMD Originals Live Undead - Remera",
+            "garment": "remera",
+            "role": "front"
+          }
+        ],
+        "hoodie": [],
+        "buzo_cuello_redondo": []
+      },
+      "sourceProductIds": [
+        7123
+      ],
+      "designFamilyIds": [
+        "slayer-fmd-originals"
+      ],
+      "orderCodeBase": "SFO-7123.V3",
+      "identitySource": "transition-name",
+      "auditCases": [
+        "slayer"
+      ]
+    },
+    {
+      "designId": "slayer-logo",
+      "publicName": "Logo",
+      "band": "Slayer",
+      "front": {
+        "productId": 7123,
+        "variantIndex": 21,
+        "image": "images/slayer/fmd_originals/buzos/buzo_slayer_fmd_logo.jpg",
+        "label": "Slayer FMD Originals Logo - Buzo cuello redondo",
+        "garment": "buzo_cuello_redondo",
+        "role": "front"
+      },
+      "backOptions": [],
+      "availableGarments": [
+        "remera",
+        "hoodie",
+        "buzo_cuello_redondo"
+      ],
+      "previewsByGarment": {
+        "remera": [],
+        "hoodie": [],
+        "buzo_cuello_redondo": [
+          {
+            "productId": 7123,
+            "variantIndex": 21,
+            "image": "images/slayer/fmd_originals/buzos/buzo_slayer_fmd_logo.jpg",
+            "label": "Slayer FMD Originals Logo - Buzo cuello redondo",
+            "garment": "buzo_cuello_redondo",
+            "role": "front"
+          }
+        ]
+      },
+      "sourceProductIds": [
+        7123
+      ],
+      "designFamilyIds": [
+        "slayer-fmd-originals"
+      ],
+      "orderCodeBase": "SFO-7123.V22",
+      "identitySource": "transition-name",
+      "auditCases": [
+        "slayer"
+      ]
+    },
+    {
+      "designId": "slayer-reign-in-blood-3d",
+      "publicName": "Reign In Blood 3D",
+      "band": "Slayer",
+      "front": {
+        "productId": 7123,
+        "variantIndex": 3,
+        "image": "images/slayer/fmd_originals/remeras/remera_slayer_fmd_reign_in_blood_3D.jpg",
+        "label": "Slayer FMD Originals Reign In Blood 3D - Remera",
+        "garment": "remera",
+        "role": "front"
+      },
+      "backOptions": [],
+      "availableGarments": [
+        "remera",
+        "hoodie",
+        "buzo_cuello_redondo"
+      ],
+      "previewsByGarment": {
+        "remera": [
+          {
+            "productId": 7123,
+            "variantIndex": 3,
+            "image": "images/slayer/fmd_originals/remeras/remera_slayer_fmd_reign_in_blood_3D.jpg",
+            "label": "Slayer FMD Originals Reign In Blood 3D - Remera",
+            "garment": "remera",
+            "role": "front"
+          }
+        ],
+        "hoodie": [
+          {
+            "productId": 7123,
+            "variantIndex": 12,
+            "image": "images/slayer/fmd_originals/hoodies/hoodie_slayer_fmd_reign_in_blood_3D.jpg",
+            "label": "Slayer FMD Originals Reign In Blood 3D - Hoodie",
+            "garment": "hoodie",
+            "role": "front"
+          }
+        ],
+        "buzo_cuello_redondo": [
+          {
+            "productId": 7123,
+            "variantIndex": 22,
+            "image": "images/slayer/fmd_originals/buzos/buzo_slayer_fmd_reign_in_blood_3D.jpg",
+            "label": "Slayer FMD Originals Reign In Blood 3D - Buzo cuello redondo",
+            "garment": "buzo_cuello_redondo",
+            "role": "front"
+          }
+        ]
+      },
+      "sourceProductIds": [
+        7123
+      ],
+      "designFamilyIds": [
+        "slayer-fmd-originals"
+      ],
+      "orderCodeBase": "SFO-7123.V4",
+      "identitySource": "transition-name",
+      "auditCases": [
+        "slayer"
+      ]
+    },
+    {
+      "designId": "slayer-reign-in-blood-graphic",
+      "publicName": "Reign In Blood Graphic",
+      "band": "Slayer",
+      "front": {
+        "productId": 7123,
+        "variantIndex": 4,
+        "image": "images/slayer/fmd_originals/remeras/remera_slayer_fmd_reign_in_blood_graphic.jpg",
+        "label": "Slayer FMD Originals Reign In Blood Graphic - Remera",
+        "garment": "remera",
+        "role": "front"
+      },
+      "backOptions": [],
+      "availableGarments": [
+        "remera",
+        "hoodie",
+        "buzo_cuello_redondo"
+      ],
+      "previewsByGarment": {
+        "remera": [
+          {
+            "productId": 7123,
+            "variantIndex": 4,
+            "image": "images/slayer/fmd_originals/remeras/remera_slayer_fmd_reign_in_blood_graphic.jpg",
+            "label": "Slayer FMD Originals Reign In Blood Graphic - Remera",
+            "garment": "remera",
+            "role": "front"
+          }
+        ],
+        "hoodie": [
+          {
+            "productId": 7123,
+            "variantIndex": 13,
+            "image": "images/slayer/fmd_originals/hoodies/hoodie_slayer_fmd_reign_in_blood_graphic.jpg",
+            "label": "Slayer FMD Originals Reign In Blood Graphic - Hoodie",
+            "garment": "hoodie",
+            "role": "front"
+          }
+        ],
+        "buzo_cuello_redondo": [
+          {
+            "productId": 7123,
+            "variantIndex": 23,
+            "image": "images/slayer/fmd_originals/buzos/buzo_slayer_fmd_reign_in_blood_graphic.jpg",
+            "label": "Slayer FMD Originals Reign In Blood Graphic - Buzo cuello redondo",
+            "garment": "buzo_cuello_redondo",
+            "role": "front"
+          }
+        ]
+      },
+      "sourceProductIds": [
+        7123
+      ],
+      "designFamilyIds": [
+        "slayer-fmd-originals"
+      ],
+      "orderCodeBase": "SFO-7123.V5",
+      "identitySource": "transition-name",
+      "auditCases": [
+        "slayer"
+      ]
+    },
+    {
+      "designId": "slayer-seasons-in-the-abyss",
+      "publicName": "Seasons In The Abyss",
+      "band": "Slayer",
+      "front": {
+        "productId": 7123,
+        "variantIndex": 5,
+        "image": "images/slayer/fmd_originals/remeras/remera_slayer_fmd_seasons_in_the_abyss.jpg",
+        "label": "Slayer FMD Originals Seasons In The Abyss - Remera",
+        "garment": "remera",
+        "role": "front"
+      },
+      "backOptions": [],
+      "availableGarments": [
+        "remera",
+        "hoodie",
+        "buzo_cuello_redondo"
+      ],
+      "previewsByGarment": {
+        "remera": [
+          {
+            "productId": 7123,
+            "variantIndex": 5,
+            "image": "images/slayer/fmd_originals/remeras/remera_slayer_fmd_seasons_in_the_abyss.jpg",
+            "label": "Slayer FMD Originals Seasons In The Abyss - Remera",
+            "garment": "remera",
+            "role": "front"
+          }
+        ],
+        "hoodie": [
+          {
+            "productId": 7123,
+            "variantIndex": 14,
+            "image": "images/slayer/fmd_originals/hoodies/hoodie_slayer_fmd_seasons_in_the_abyss.jpg",
+            "label": "Slayer FMD Originals Seasons In The Abyss - Hoodie",
+            "garment": "hoodie",
+            "role": "front"
+          }
+        ],
+        "buzo_cuello_redondo": [
+          {
+            "productId": 7123,
+            "variantIndex": 24,
+            "image": "images/slayer/fmd_originals/buzos/buzo_slayer_fmd_seasons_in_the_abyss.jpg",
+            "label": "Slayer FMD Originals Seasons In The Abyss - Buzo cuello redondo",
+            "garment": "buzo_cuello_redondo",
+            "role": "front"
+          }
+        ]
+      },
+      "sourceProductIds": [
+        7123
+      ],
+      "designFamilyIds": [
+        "slayer-fmd-originals"
+      ],
+      "orderCodeBase": "SFO-7123.V6",
+      "identitySource": "transition-name",
+      "auditCases": [
+        "slayer"
+      ]
+    },
+    {
+      "designId": "slayer-seasons-in-the-abyss-v2",
+      "publicName": "Seasons In The Abyss V2",
+      "band": "Slayer",
+      "front": {
+        "productId": 7123,
+        "variantIndex": 15,
+        "image": "images/slayer/fmd_originals/hoodies/hoodie_slayer_fmd_seasons_in_the_abyss_v2.jpg",
+        "label": "Slayer FMD Originals Seasons In The Abyss V2 - Hoodie",
+        "garment": "hoodie",
+        "role": "front"
+      },
+      "backOptions": [],
+      "availableGarments": [
+        "remera",
+        "hoodie",
+        "buzo_cuello_redondo"
+      ],
+      "previewsByGarment": {
+        "remera": [],
+        "hoodie": [
+          {
+            "productId": 7123,
+            "variantIndex": 15,
+            "image": "images/slayer/fmd_originals/hoodies/hoodie_slayer_fmd_seasons_in_the_abyss_v2.jpg",
+            "label": "Slayer FMD Originals Seasons In The Abyss V2 - Hoodie",
+            "garment": "hoodie",
+            "role": "front"
+          }
+        ],
+        "buzo_cuello_redondo": []
+      },
+      "sourceProductIds": [
+        7123
+      ],
+      "designFamilyIds": [
+        "slayer-fmd-originals"
+      ],
+      "orderCodeBase": "SFO-7123.V16",
+      "identitySource": "transition-name",
+      "auditCases": [
+        "slayer"
+      ]
+    },
+    {
+      "designId": "slayer-show-no-mercy",
+      "publicName": "Show No Mercy",
+      "band": "Slayer",
+      "front": {
+        "productId": 7123,
+        "variantIndex": 6,
+        "image": "images/slayer/fmd_originals/remeras/remera_slayer_fmd_show_no_mercy.jpg",
+        "label": "Slayer FMD Originals Show No Mercy - Remera",
+        "garment": "remera",
+        "role": "front"
+      },
+      "backOptions": [],
+      "availableGarments": [
+        "remera",
+        "hoodie",
+        "buzo_cuello_redondo"
+      ],
+      "previewsByGarment": {
+        "remera": [
+          {
+            "productId": 7123,
+            "variantIndex": 6,
+            "image": "images/slayer/fmd_originals/remeras/remera_slayer_fmd_show_no_mercy.jpg",
+            "label": "Slayer FMD Originals Show No Mercy - Remera",
+            "garment": "remera",
+            "role": "front"
+          }
+        ],
+        "hoodie": [
+          {
+            "productId": 7123,
+            "variantIndex": 16,
+            "image": "images/slayer/fmd_originals/hoodies/hoodie_slayer_fmd_show_no_mercy.jpg",
+            "label": "Slayer FMD Originals Show No Mercy - Hoodie",
+            "garment": "hoodie",
+            "role": "front"
+          }
+        ],
+        "buzo_cuello_redondo": [
+          {
+            "productId": 7123,
+            "variantIndex": 25,
+            "image": "images/slayer/fmd_originals/buzos/buzo_slayer_fmd_show_no_mercy.jpg",
+            "label": "Slayer FMD Originals Show No Mercy - Buzo cuello redondo",
+            "garment": "buzo_cuello_redondo",
+            "role": "front"
+          }
+        ]
+      },
+      "sourceProductIds": [
+        7123
+      ],
+      "designFamilyIds": [
+        "slayer-fmd-originals"
+      ],
+      "orderCodeBase": "SFO-7123.V7",
+      "identitySource": "transition-name",
+      "auditCases": [
+        "slayer"
+      ]
+    },
+    {
+      "designId": "slayer-skull",
+      "publicName": "Skull",
+      "band": "Slayer",
+      "front": {
+        "productId": 7123,
+        "variantIndex": 7,
+        "image": "images/slayer/fmd_originals/remeras/remera_slayer_fmd_skull.jpg",
+        "label": "Slayer FMD Originals Skull - Remera",
+        "garment": "remera",
+        "role": "front"
+      },
+      "backOptions": [],
+      "availableGarments": [
+        "remera",
+        "hoodie",
+        "buzo_cuello_redondo"
+      ],
+      "previewsByGarment": {
+        "remera": [
+          {
+            "productId": 7123,
+            "variantIndex": 7,
+            "image": "images/slayer/fmd_originals/remeras/remera_slayer_fmd_skull.jpg",
+            "label": "Slayer FMD Originals Skull - Remera",
+            "garment": "remera",
+            "role": "front"
+          }
+        ],
+        "hoodie": [],
+        "buzo_cuello_redondo": [
+          {
+            "productId": 7123,
+            "variantIndex": 26,
+            "image": "images/slayer/fmd_originals/buzos/buzo_slayer_fmd_skull.jpg",
+            "label": "Slayer FMD Originals Skull - Buzo cuello redondo",
+            "garment": "buzo_cuello_redondo",
+            "role": "front"
+          }
+        ]
+      },
+      "sourceProductIds": [
+        7123
+      ],
+      "designFamilyIds": [
+        "slayer-fmd-originals"
+      ],
+      "orderCodeBase": "SFO-7123.V8",
+      "identitySource": "transition-name",
+      "auditCases": [
+        "slayer"
+      ]
+    },
+    {
+      "designId": "slayer-soldier-v2-graphic",
+      "publicName": "Soldier V2 Graphic",
+      "band": "Slayer",
+      "front": {
+        "productId": 7123,
+        "variantIndex": 27,
+        "image": "images/slayer/fmd_originals/buzos/buzo_slayer_fmd_soldier_v2_graphic.jpg",
+        "label": "Slayer FMD Originals Soldier V2 Graphic - Buzo cuello redondo",
+        "garment": "buzo_cuello_redondo",
+        "role": "front"
+      },
+      "backOptions": [],
+      "availableGarments": [
+        "remera",
+        "hoodie",
+        "buzo_cuello_redondo"
+      ],
+      "previewsByGarment": {
+        "remera": [],
+        "hoodie": [],
+        "buzo_cuello_redondo": [
+          {
+            "productId": 7123,
+            "variantIndex": 27,
+            "image": "images/slayer/fmd_originals/buzos/buzo_slayer_fmd_soldier_v2_graphic.jpg",
+            "label": "Slayer FMD Originals Soldier V2 Graphic - Buzo cuello redondo",
+            "garment": "buzo_cuello_redondo",
+            "role": "front"
+          }
+        ]
+      },
+      "sourceProductIds": [
+        7123
+      ],
+      "designFamilyIds": [
+        "slayer-fmd-originals"
+      ],
+      "orderCodeBase": "SFO-7123.V28",
+      "identitySource": "transition-name",
+      "auditCases": [
+        "slayer"
+      ]
+    },
+    {
+      "designId": "slayer-soldiers",
+      "publicName": "Soldiers",
+      "band": "Slayer",
+      "front": {
+        "productId": 7123,
+        "variantIndex": 8,
+        "image": "images/slayer/fmd_originals/remeras/remera_slayer_fmd_soldiers.jpg",
+        "label": "Slayer FMD Originals Soldiers - Remera",
+        "garment": "remera",
+        "role": "front"
+      },
+      "backOptions": [],
+      "availableGarments": [
+        "remera",
+        "hoodie",
+        "buzo_cuello_redondo"
+      ],
+      "previewsByGarment": {
+        "remera": [
+          {
+            "productId": 7123,
+            "variantIndex": 8,
+            "image": "images/slayer/fmd_originals/remeras/remera_slayer_fmd_soldiers.jpg",
+            "label": "Slayer FMD Originals Soldiers - Remera",
+            "garment": "remera",
+            "role": "front"
+          }
+        ],
+        "hoodie": [],
+        "buzo_cuello_redondo": []
+      },
+      "sourceProductIds": [
+        7123
+      ],
+      "designFamilyIds": [
+        "slayer-fmd-originals"
+      ],
+      "orderCodeBase": "SFO-7123.V9",
+      "identitySource": "transition-name",
+      "auditCases": [
+        "slayer"
+      ]
+    },
+    {
+      "designId": "slayer-south-of-heaven",
+      "publicName": "South Of Heaven",
+      "band": "Slayer",
+      "front": {
+        "productId": 7123,
+        "variantIndex": 9,
+        "image": "images/slayer/fmd_originals/remeras/remera_slayer_fmd_south_of_heaven.jpg",
+        "label": "Slayer FMD Originals South Of Heaven - Remera",
+        "garment": "remera",
+        "role": "front"
+      },
+      "backOptions": [],
+      "availableGarments": [
+        "remera",
+        "hoodie",
+        "buzo_cuello_redondo"
+      ],
+      "previewsByGarment": {
+        "remera": [
+          {
+            "productId": 7123,
+            "variantIndex": 9,
+            "image": "images/slayer/fmd_originals/remeras/remera_slayer_fmd_south_of_heaven.jpg",
+            "label": "Slayer FMD Originals South Of Heaven - Remera",
+            "garment": "remera",
+            "role": "front"
+          }
+        ],
+        "hoodie": [
+          {
+            "productId": 7123,
+            "variantIndex": 17,
+            "image": "images/slayer/fmd_originals/hoodies/hoodie_slayer_fmd_south_of_heaven.jpg",
+            "label": "Slayer FMD Originals South Of Heaven - Hoodie",
+            "garment": "hoodie",
+            "role": "front"
+          }
+        ],
+        "buzo_cuello_redondo": []
+      },
+      "sourceProductIds": [
+        7123
+      ],
+      "designFamilyIds": [
+        "slayer-fmd-originals"
+      ],
+      "orderCodeBase": "SFO-7123.V10",
+      "identitySource": "transition-name",
+      "auditCases": [
+        "slayer"
+      ]
+    },
+    {
+      "designId": "slayer-south-of-heaven-graphic",
+      "publicName": "South Of Heaven Graphic",
+      "band": "Slayer",
+      "front": {
+        "productId": 7123,
+        "variantIndex": 28,
+        "image": "images/slayer/fmd_originals/buzos/buzo_slayer_fmd_south_of_heaven_graphic.jpg",
+        "label": "Slayer FMD Originals South Of Heaven Graphic - Buzo cuello redondo",
+        "garment": "buzo_cuello_redondo",
+        "role": "front"
+      },
+      "backOptions": [],
+      "availableGarments": [
+        "remera",
+        "hoodie",
+        "buzo_cuello_redondo"
+      ],
+      "previewsByGarment": {
+        "remera": [],
+        "hoodie": [],
+        "buzo_cuello_redondo": [
+          {
+            "productId": 7123,
+            "variantIndex": 28,
+            "image": "images/slayer/fmd_originals/buzos/buzo_slayer_fmd_south_of_heaven_graphic.jpg",
+            "label": "Slayer FMD Originals South Of Heaven Graphic - Buzo cuello redondo",
+            "garment": "buzo_cuello_redondo",
+            "role": "front"
+          }
+        ]
+      },
+      "sourceProductIds": [
+        7123
+      ],
+      "designFamilyIds": [
+        "slayer-fmd-originals"
+      ],
+      "orderCodeBase": "SFO-7123.V29",
+      "identitySource": "transition-name",
+      "auditCases": [
+        "slayer"
+      ]
+    },
+    {
+      "designId": "slayer-throne",
+      "publicName": "Throne",
+      "band": "Slayer",
+      "front": {
+        "productId": 7123,
+        "variantIndex": 18,
+        "image": "images/slayer/fmd_originals/hoodies/hoodie_slayer_fmd_throne.jpg",
+        "label": "Slayer FMD Originals Throne - Hoodie",
+        "garment": "hoodie",
+        "role": "front"
+      },
+      "backOptions": [],
+      "availableGarments": [
+        "remera",
+        "hoodie",
+        "buzo_cuello_redondo"
+      ],
+      "previewsByGarment": {
+        "remera": [],
+        "hoodie": [
+          {
+            "productId": 7123,
+            "variantIndex": 18,
+            "image": "images/slayer/fmd_originals/hoodies/hoodie_slayer_fmd_throne.jpg",
+            "label": "Slayer FMD Originals Throne - Hoodie",
+            "garment": "hoodie",
+            "role": "front"
+          }
+        ],
+        "buzo_cuello_redondo": []
+      },
+      "sourceProductIds": [
+        7123
+      ],
+      "designFamilyIds": [
+        "slayer-fmd-originals"
+      ],
+      "orderCodeBase": "SFO-7123.V19",
+      "identitySource": "transition-name",
+      "auditCases": [
+        "slayer"
+      ]
+    }
+  ]
+}
