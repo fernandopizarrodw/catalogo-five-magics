@@ -210,6 +210,7 @@
             variantIndex,
             image: variant?.img || product.img || '',
             label: String(variant?.name || product.name || 'Diseño').trim(),
+            alt: String(variant?.alt || `${getPublicBand(product)} ${variant?.name || product.name || 'Diseño'}`).trim(),
             garment: getGarment(variant, product),
             role: isBackVariant(variant) ? 'back' : 'front'
         };
@@ -243,6 +244,7 @@
             if (!groups.has(designId)) {
                 groups.set(designId, {
                     designId,
+                    slug: variant?.designSlug || product?.designSlug || slugify(designId),
                     publicName: conceptName,
                     band,
                     fronts: [],
@@ -328,6 +330,7 @@
             const sourceProduct = products.find(product => Number(product.id) === canonicalFront?.productId);
             return {
                 designId: group.designId,
+                slug: group.slug,
                 publicName: group.publicName,
                 band: group.band,
                 front: canonicalFront || null,
@@ -361,10 +364,14 @@
     function validateCatalogDesigns(designs) {
         const errors = [];
         const seenIds = new Set();
+        const seenSlugs = new Set();
         for (const design of designs) {
             if (!design.designId) errors.push('Diseño sin designId');
             if (seenIds.has(design.designId)) errors.push(`designId duplicado: ${design.designId}`);
             seenIds.add(design.designId);
+            if (!design.slug) errors.push(`${design.designId}: slug vacío`);
+            if (seenSlugs.has(design.slug)) errors.push(`slug duplicado: ${design.slug}`);
+            seenSlugs.add(design.slug);
             if (!design.publicName) errors.push(`${design.designId}: nombre público vacío`);
             if (!design.band) errors.push(`${design.designId}: banda vacía`);
             if (!design.front?.image) errors.push(`${design.designId}: frente vacío`);

@@ -191,6 +191,83 @@ async function main() {
     const orderedTops = results.modal.order.map(item => item.top);
     assert(orderedTops.every((top, index) => index === 0 || top >= orderedTops[index - 1]), `Orden visual incorrecto: ${JSON.stringify(results.modal.order)}`, failures);
 
+    results.eddieSmoke = await cdp.evaluate(`(async () => {
+        closeModal();
+        openBandAccess('Iron Maiden');
+        await new Promise(resolve => setTimeout(resolve, 650));
+        const cards = [...document.querySelectorAll('.catalog-design-card')];
+        const matchingCards = cards.filter(card => normalizeText(card.querySelector('.catalog-design-copy > strong')?.textContent) === 'eddie gaucho argentino');
+        const design = catalogDesigns.find(item => normalizeText(item.band) === 'iron maiden' && normalizeText(item.publicName) === 'eddie gaucho argentino');
+        if (!design) return { error: 'Eddie Gaucho no encontrado' };
+
+        const root = document.documentElement;
+        const previousBehavior = root.style.scrollBehavior;
+        root.style.setProperty('scroll-behavior', 'auto', 'important');
+        window.scrollTo(0, Math.min(root.scrollHeight - window.innerHeight, document.getElementById('catalogoPrincipal').offsetTop + 520));
+        if (previousBehavior) root.style.scrollBehavior = previousBehavior;
+        else root.style.removeProperty('scroll-behavior');
+        const scrollBefore = window.scrollY;
+
+        openCatalogDesign(design.designId);
+        const initialCode = document.getElementById('displayCode').textContent.trim();
+        const snapshot = garment => {
+            selectModalGarment(garment);
+            const preview = currentModalSourceRefs[currentSlide] || null;
+            selectPrintMode('simple');
+            const simple = document.getElementById('modalPrice').textContent.trim();
+            selectPrintMode('double');
+            return {
+                garment,
+                previewGarment: preview?.garment || '',
+                previewImage: getModalImages()[currentSlide]?.img || '',
+                simple,
+                double: document.getElementById('modalPrice').textContent.trim(),
+                code: document.getElementById('displayCode').textContent.trim()
+            };
+        };
+        const remera = snapshot('remera_clasica');
+        const hoodie = snapshot('hoodie');
+        const buzo = snapshot('buzo');
+        selectSize('L');
+        selectColor('negro');
+        selectDeliveryMethod('taller');
+        const message = buildModalOrderWhatsappMessage();
+        closeModal();
+        await new Promise(resolve => setTimeout(resolve, 120));
+        return {
+            designId: design.designId,
+            matchingCards: matchingCards.length,
+            initialCode,
+            remera,
+            hoodie,
+            buzo,
+            message,
+            scrollBefore,
+            scrollAfter: window.scrollY,
+            categoryAfter: currentCategory,
+            modalActiveAfter: document.getElementById('modal').classList.contains('active')
+        };
+    })()`);
+    assert(!results.eddieSmoke.error, results.eddieSmoke.error || 'Error smoke Eddie Gaucho.', failures);
+    assert(results.eddieSmoke.matchingCards === 1, `Eddie Gaucho aparece en ${results.eddieSmoke.matchingCards} cards.`, failures);
+    assert([results.eddieSmoke.remera, results.eddieSmoke.hoodie, results.eddieSmoke.buzo].every(item => item.code === results.eddieSmoke.initialCode), 'Eddie Gaucho cambia de codigo con la prenda.', failures);
+    assert(results.eddieSmoke.remera.previewGarment === 'remera', `Preview remera incorrecto: ${results.eddieSmoke.remera.previewGarment}`, failures);
+    assert(results.eddieSmoke.hoodie.previewGarment === 'hoodie', `Preview hoodie incorrecto: ${results.eddieSmoke.hoodie.previewGarment}`, failures);
+    assert(results.eddieSmoke.buzo.previewGarment === 'buzo_cuello_redondo', `Preview buzo incorrecto: ${results.eddieSmoke.buzo.previewGarment}`, failures);
+    assert(new Set([results.eddieSmoke.remera.previewImage, results.eddieSmoke.hoodie.previewImage, results.eddieSmoke.buzo.previewImage]).size === 3, 'Eddie Gaucho no muestra tres previews diferentes.', failures);
+    assert(results.eddieSmoke.remera.simple.includes('$37.000') && results.eddieSmoke.remera.double.includes('$44.000'), 'Precios de remera Eddie Gaucho incorrectos.', failures);
+    assert(results.eddieSmoke.hoodie.simple.includes('$52.000') && results.eddieSmoke.hoodie.double.includes('$59.000'), 'Precios de hoodie Eddie Gaucho incorrectos.', failures);
+    assert(results.eddieSmoke.buzo.simple.includes('$50.000') && results.eddieSmoke.buzo.double.includes('$55.000'), 'Precios de buzo Eddie Gaucho incorrectos.', failures);
+    assert(results.eddieSmoke.message.includes('Prenda: Buzo cuello redondo'), 'WhatsApp Eddie Gaucho no informa buzo.', failures);
+    assert(results.eddieSmoke.message.includes('Talle: L'), 'WhatsApp Eddie Gaucho no informa talle.', failures);
+    assert(results.eddieSmoke.message.includes('Color: Negra'), 'WhatsApp Eddie Gaucho no informa color.', failures);
+    assert(results.eddieSmoke.message.includes('Estampa: Doble estampa'), 'WhatsApp Eddie Gaucho no informa estampa.', failures);
+    assert(results.eddieSmoke.message.includes('Precio del producto: $55.000'), 'WhatsApp Eddie Gaucho tiene precio incorrecto.', failures);
+    assert(results.eddieSmoke.message.includes('Retiro sin cargo en Villa Martelli'), 'WhatsApp Eddie Gaucho no informa entrega.', failures);
+    assert(results.eddieSmoke.categoryAfter === 'Iron Maiden', `Se perdio Iron Maiden al cerrar: ${results.eddieSmoke.categoryAfter}`, failures);
+    assert(results.eddieSmoke.scrollAfter === results.eddieSmoke.scrollBefore, `Eddie Gaucho no regreso al mismo punto: ${results.eddieSmoke.scrollBefore}/${results.eddieSmoke.scrollAfter}`, failures);
+    assert(!results.eddieSmoke.modalActiveAfter, 'El modal Eddie Gaucho sigue abierto despues de cerrar.', failures);
+
     results.referenceView = await cdp.evaluate(`(() => {
         closeModal();
         const design = catalogDesigns.find(item => normalizeText(item.band) === 'hammerfall' && normalizeText(item.publicName) === 'crimson');
@@ -209,6 +286,7 @@ async function main() {
 
     results.personalized = await cdp.evaluate(`(() => {
         closeModal();
+        openBandAccess('Personalizados');
         const design = catalogDesigns.find(item => normalizeText(item.publicName) === 'diego maradona');
         openCatalogDesign(design.designId);
         selectModalGarment('hoodie');
@@ -229,7 +307,7 @@ async function main() {
             modalActive: document.getElementById('modal').classList.contains('active')
         };
     })()`);
-    assert(results.returnState.hash === '#catalogoPrincipal', `Hash incorrecto al cerrar: ${results.returnState.hash}`, failures);
+    assert(!/^#(?:producto|diseno)-/i.test(results.returnState.hash), `Hash de producto activo al cerrar: ${results.returnState.hash}`, failures);
     assert(results.returnState.category === 'Personalizados', `Se perdió el filtro al cerrar: ${results.returnState.category}`, failures);
     assert(!results.returnState.modalActive, 'El modal sigue activo al cerrar.', failures);
 

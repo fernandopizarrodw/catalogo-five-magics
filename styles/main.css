@@ -5365,6 +5365,11 @@ header {
     display: none;
 }
 
+.catalog-directory-active .catalog-quick-filters,
+.catalog-directory-active .band-filters {
+    display: none;
+}
+
 .catalog-band-directory-section {
     width: 100%;
     max-width: 100%;
@@ -11454,6 +11459,10 @@ footer p {
 }
 
 /* CatalogDesign: el modal configura un diseño, no el mock que se está viendo. */
+#modal.catalog-design-modal .modal-product-desc {
+    display: none !important;
+}
+
 @media (min-width: 801px) {
     #modal.catalog-design-modal > .modal {
         width: min(1180px, calc(100vw - 48px));

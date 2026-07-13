@@ -32,6 +32,85 @@ const COMBO_BUZO_REMERA_CLASICA = 95000;
 const COMBO_BUZO_REMERA_OVERSIZE = 98000;
 const FECHA_VIGENCIA = "Junio 2026";
 const WHATSAPP = "541169667685";
+const BAND_LANDING_CONFIG = window.FMD_BAND_LANDING && typeof window.FMD_BAND_LANDING === 'object'
+    ? window.FMD_BAND_LANDING
+    : null;
+const BAND_LANDING_BAND = String(BAND_LANDING_CONFIG?.band || '').trim();
+const BAND_LANDING_GARMENTS = new Set(['remera', 'hoodie', 'buzo_cuello_redondo']);
+const configuredBandLandingGarment = String(BAND_LANDING_CONFIG?.defaultGarment || '').trim();
+let bandLandingGarment = BAND_LANDING_GARMENTS.has(configuredBandLandingGarment)
+    ? configuredBandLandingGarment
+    : (BAND_LANDING_BAND ? 'remera' : '');
+const BAND_LANDING_URLS = {
+    nightwish: '/nightwish/'
+};
+
+function isBandLandingMode() {
+    return Boolean(BAND_LANDING_BAND);
+}
+
+function usesBandLandingShownComposition() {
+    return isBandLandingMode() && BAND_LANDING_CONFIG?.usesShownComposition === true;
+}
+
+function isCatalogDesignInScope(design) {
+    return !isBandLandingMode() || normalizeText(design?.band) === normalizeText(BAND_LANDING_BAND);
+}
+
+function isProductInCatalogScope(product) {
+    return !isBandLandingMode() || normalizeText(getCatalogBandLabel(product)) === normalizeText(BAND_LANDING_BAND);
+}
+
+function normalizeBandLandingAssetPath(value) {
+    if (!isBandLandingMode() || typeof value !== 'string' || !value) return value;
+    if (/^(?:[a-z]+:|\/|#)/i.test(value)) return value;
+    return `/${value.replace(/^\.\//, '')}`;
+}
+
+function normalizeBandLandingProductAssets(products) {
+    if (!isBandLandingMode() || !Array.isArray(products)) return products;
+    return products.map(product => ({
+        ...product,
+        img: normalizeBandLandingAssetPath(product.img),
+        variants: Array.isArray(product.variants)
+            ? product.variants.map(variant => ({
+                ...variant,
+                img: normalizeBandLandingAssetPath(variant.img)
+            }))
+            : product.variants
+    }));
+}
+
+function getBandLandingUrl(band) {
+    return BAND_LANDING_URLS[normalizeText(band)] || '';
+}
+
+function getBandLandingModalGarment(garment = bandLandingGarment) {
+    if (garment === 'hoodie') return 'hoodie';
+    if (garment === 'buzo_cuello_redondo') return 'buzo';
+    return 'remera_clasica';
+}
+
+function getBandLandingGarmentLabel(garment = bandLandingGarment) {
+    if (garment === 'hoodie') return 'HOODIES';
+    if (garment === 'buzo_cuello_redondo') return 'BUZOS';
+    return 'REMERAS';
+}
+
+function selectBandLandingGarment(garment) {
+    if (!isBandLandingMode() || !BAND_LANDING_GARMENTS.has(garment)) return;
+    bandLandingGarment = garment;
+    document.querySelectorAll('[data-band-landing-garment]').forEach(button => {
+        const isActive = button.dataset.bandLandingGarment === garment;
+        button.classList.toggle('active', isActive);
+        button.setAttribute('aria-selected', String(isActive));
+    });
+    resetCatalogPagination();
+    filterProducts();
+    scrollToSection('bandCatalogTitle');
+}
+
+window.selectBandLandingGarment = selectBandLandingGarment;
 const MAIDEN_ARCHIVE_HIGHLIGHT_IDS = [7015, 7027, 7023, 7025, 7026, 7029];
 const MAIDEN_ARCHIVE_GROUPS = [
     { title: 'Iron Maiden clasico', meta: 'Archivo original FMD', productIds: [308, 6004, 7011] },
@@ -97,7 +176,7 @@ const SECONDARY_HOME_ACCESS = [
     { label: 'SEPULTURA', filter: 'Sepultura' },
     { label: 'AVENGED SEVENFOLD', filter: 'Avenged Sevenfold' },
     { label: 'DIO', filter: 'Dio' },
-    { label: 'NIGHTWISH', filter: 'Nightwish' }
+    { label: 'NIGHTWISH', filter: 'Nightwish', href: '/nightwish/' }
 ];
 
 let db = [];
@@ -1096,7 +1175,7 @@ function clearCatalogState() {
 
 function openBandAccess(filter) {
     clearCatalogState();
-    currentCategory = filter;
+    currentCategory = isBandLandingMode() ? BAND_LANDING_BAND : filter;
     resetCatalogPagination();
     document.querySelectorAll('.cat-btn, .filter-pill, .hero-band-access-btn, .hero-symphonic-btn').forEach(button => {
         const buttonFilter = button.dataset.cat || button.dataset.filter || button.dataset.bandFilter;
@@ -1109,7 +1188,7 @@ function openBandAccess(filter) {
 
 function showFullCatalog() {
     clearCatalogState();
-    currentCategory = null;
+    currentCategory = isBandLandingMode() ? BAND_LANDING_BAND : null;
     resetCatalogPagination();
     document.querySelectorAll('.cat-btn, .filter-pill, .hero-band-access-btn, .hero-symphonic-btn').forEach(button => {
         const buttonFilter = button.dataset.cat || button.dataset.filter || button.dataset.bandFilter;
@@ -1141,6 +1220,14 @@ function setMoreBandsDirectoryExpanded(expanded) {
 }
 
 function renderHomeBandButton(item, className, extra = '') {
+    if (item.href) {
+        return `
+            <a class="${className}${extra}" href="${item.href}" aria-label="Ver diseños de ${item.label}">
+                <strong>${item.label}</strong>
+                <span>VER DISEÑOS</span>
+            </a>
+        `;
+    }
     return `
         <button type="button" class="${className}${extra}" data-band-filter="${item.filter}" onclick="openBandAccess('${item.filter}')">
             <strong>${item.label}</strong>
@@ -1501,14 +1588,17 @@ function getSearchResults(query, sourceProducts = db, useGlobalCodeLookup = fals
 function openExactCodeMatch(query, afterOpen) {
     if (ENABLE_CATALOG_DESIGN_RENDER && catalogDesigns.length) {
         const normalizedCode = normalizeText(query).replace(/\s+/g, '');
-        const design = catalogDesigns.find(item => normalizeText(item.orderCodeBase).replace(/\s+/g, '') === normalizedCode);
+        const design = catalogDesigns.find(item => (
+            isCatalogDesignInScope(item)
+            && normalizeText(item.orderCodeBase).replace(/\s+/g, '') === normalizedCode
+        ));
         if (design) {
             openCatalogDesign(design.designId);
             if (typeof afterOpen === 'function') afterOpen(design);
             return true;
         }
     }
-    const results = getSearchResults(query, db, true);
+    const results = getSearchResults(query, db.filter(isProductInCatalogScope), false);
     if (!results.length) return false;
 
     const normalized = String(query || '').trim().toLowerCase();
@@ -1591,7 +1681,7 @@ function selectAge(age) {
         }
     });
     
-    // Ocultar talles oversize (XXS, XS) si estaba en oversize
+    // Ocultar talles exclusivos de oversize (2XS, XS y 3XL).
     document.querySelectorAll('#sizeSelector .size-oversize').forEach(btn => {
         btn.style.display = 'none';
     });
@@ -1648,7 +1738,7 @@ function selectCut(cut) {
         }
     });
     
-    // Mostrar/ocultar talles XXS y XS según el corte (solo para adultos)
+    // Mostrar/ocultar talles exclusivos de oversize según el corte.
     if (selectedAge !== 'chico') {
         document.querySelectorAll('#sizeSelector .size-oversize').forEach(btn => {
             if (cut === 'oversize') {
@@ -1679,22 +1769,50 @@ function updateModalSizeRange() {
     if (!sizeRangeEl) return;
 
     const garmentCategory = getActiveGarmentCategory(currentProduct);
+    let sizeRange = '';
     if (garmentCategory === 'Hoodies FMD' || garmentCategory === 'Hoodies Otras Bandas') {
-        sizeRangeEl.textContent = '📏 XS a XXL';
+        sizeRange = 'XS a 2XL';
+    } else if (garmentCategory === 'Buzo Cuello Redondo') {
+        sizeRange = 'XS a 2XL';
+    } else if (selectedAge === 'chico') {
+        sizeRange = '4 a 16';
+    } else {
+        sizeRange = selectedCut === 'oversize' ? '2XS a 3XL' : 'S a 2XL';
+    }
+
+    sizeRangeEl.textContent = `📏 ${sizeRange}`;
+    updateBandLandingModalSpecs();
+}
+
+function updateBandLandingModalSpecs() {
+    if (!usesBandLandingShownComposition()) return;
+    const print = document.getElementById('modalSpecPrint');
+    const fabric = document.getElementById('modalSpecFabric');
+    const garment = document.getElementById('modalSpecGarment');
+    if (print) print.textContent = '☢️ DTG premium';
+
+    if (selectedModalGarment === 'hoodie') {
+        if (fabric) fabric.textContent = '🖤 Algodón frizado';
+        if (garment) garment.textContent = '⚡ Canguro oversize con capucha';
         return;
     }
 
-    if (garmentCategory === 'Buzo Cuello Redondo') {
-        sizeRangeEl.textContent = '📏 S a XXL';
+    if (selectedModalGarment === 'buzo') {
+        if (fabric) fabric.textContent = '🖤 Sin tacto plástico';
+        if (garment) garment.textContent = '⚡ Cuello redondo oversize';
         return;
     }
 
-    if (selectedAge === 'chico') {
-        sizeRangeEl.textContent = '📏 4 a 16';
-        return;
+    if (fabric) fabric.textContent = '🖤 Algodón peinado';
+    if (garment) {
+        garment.textContent = selectedAge === 'chico'
+            ? '⚡ Remera para chicos'
+            : selectedModalGarment === 'mujer'
+                ? '⚡ Corte mujer'
+                : selectedModalGarment === 'oversize'
+                    ? '⚡ Oversize unisex'
+                    : '⚡ Clásica unisex';
     }
-
-    sizeRangeEl.textContent = selectedCut === 'oversize' ? '📏 XS a 3XL' : '📏 S a XXL';
 }
 
 function selectColor(color) {
@@ -1896,9 +2014,13 @@ function updateCatalogDesignReferenceNote() {
     if (!note || !currentCatalogDesign) return;
     const garment = getCatalogDesignGarmentKey();
     const hasPreview = Boolean(currentCatalogDesign.previewsByGarment?.[garment]?.length);
-    note.textContent = hasPreview
-        ? 'La imagen muestra una vista disponible. Podés personalizar frente y dorso por WhatsApp.'
-        : 'Vista de referencia. El diseño se adapta a la prenda seleccionada.';
+    const shouldHide = usesBandLandingShownComposition() && hasPreview;
+    note.classList.toggle('is-hidden', shouldHide);
+    if (!shouldHide) {
+        note.textContent = hasPreview
+            ? 'La imagen muestra una vista disponible. Podés personalizar frente y dorso por WhatsApp.'
+            : 'Vista de referencia. El diseño se adapta a la prenda seleccionada.';
+    }
     note.classList.toggle('is-reference-view', !hasPreview);
 }
 
@@ -1960,7 +2082,9 @@ function updateModalGarmentUI() {
     });
     document.querySelectorAll('#sizeSelector .size-oversize').forEach(btn => {
         const size = btn.dataset.size;
-        const show = isHoodie ? size === 'XS' : isBuzo ? false : isOversize;
+        const show = isHoodie || isBuzo
+            ? size === 'XS'
+            : isOversize;
         btn.style.display = show ? '' : 'none';
     });
     document.querySelectorAll('#sizeSelector button, #sizeSelectorKids button').forEach(btn => {
@@ -2037,6 +2161,7 @@ function updatePrintModeUI() {
     const doubleNote = document.getElementById('modalDoubleNote');
     const dorsoPanel = document.getElementById('upsellDorso');
     const isDouble = selectedPrintMode === 'double';
+    const usesShownComposition = usesBandLandingShownComposition();
 
     if (simplePrice) simplePrice.textContent = `$${prices.simple.toLocaleString('es-AR')}`;
     if (doublePrice) doublePrice.textContent = `$${prices.doble.toLocaleString('es-AR')}`;
@@ -2044,8 +2169,13 @@ function updatePrintModeUI() {
         button.classList.toggle('active', button.dataset.printMode === selectedPrintMode);
     });
     if (help) help.textContent = '';
-    if (doubleNote) doubleNote.classList.toggle('is-hidden', !isDouble);
-    if (dorsoPanel) dorsoPanel.style.display = isDouble ? 'block' : 'none';
+    if (doubleNote) {
+        doubleNote.textContent = usesShownComposition
+            ? 'La composición se entrega como se muestra. Si querés modificarla, consultanos antes de confirmar.'
+            : 'Podés elegir el dorso ahora o definirlo por WhatsApp.';
+        doubleNote.classList.toggle('is-hidden', !isDouble);
+    }
+    if (dorsoPanel) dorsoPanel.style.display = isDouble && !usesShownComposition ? 'block' : 'none';
 }
 
 function selectPrintMode(mode) {
@@ -2195,12 +2325,14 @@ class CartSystem {
             backIndex: backIndex,
             backCode: backCode,
             backName: backName,
+            usesShownComposition: Boolean(options.usesShownComposition),
             // Opciones de prenda
             age: options.age || 'adulto',
             size: options.size || '',
             cut: options.cut || 'clasica',
             color: options.color || 'negro',
             isCustom: Boolean(options.isCustom),
+            publicGarmentLabel: options.publicGarmentLabel || '',
             timestamp: Date.now()
         };
 
@@ -2258,6 +2390,9 @@ class CartSystem {
         const sortedCart = [...this.cart].sort((a, b) => sortOrder(a) - sortOrder(b));
 
         const codes = sortedCart.map((item, idx) => {
+            if (item.isDouble && item.usesShownComposition) {
+                return `${idx + 1}. [${item.frontCode}] (composición mostrada)`;
+            }
             if (item.isDouble && item.backCode) {
                 return `${idx + 1}. Frente [${item.frontCode}] + dorso [${item.backCode}]`;
             }
@@ -2275,7 +2410,9 @@ class CartSystem {
             const talle = item.size ? item.size : 'A confirmar';
             const color = item.color === 'blanco' ? 'Blanca' : 'Negra';
             let tipoPrenda;
-            if (isBuzoRedondo) {
+            if (item.publicGarmentLabel) {
+                tipoPrenda = item.publicGarmentLabel;
+            } else if (isBuzoRedondo) {
                 tipoPrenda = 'Buzo cuello redondo unisex';
             } else if (isHoodie) {
                 tipoPrenda = 'Hoodie oversize unisex';
@@ -2288,7 +2425,9 @@ class CartSystem {
             }
 
             let estampado;
-            if (item.isDouble && item.backCode) {
+            if (item.isDouble && item.usesShownComposition) {
+                estampado = 'Doble estampa (composición mostrada)';
+            } else if (item.isDouble && item.backCode) {
                 estampado = `Doble estampa (frente ${item.frontCode} + dorso ${item.backCode})`;
             } else if (item.isDouble) {
                 estampado = `Doble estampa (dorso a definir)`;
@@ -2324,7 +2463,7 @@ class CartSystem {
         return this.cart.map((item, idx) => {
             const isHoodie = isHoodieItem(item);
             const isBuzoRedondo = isBuzoRedondoItem(item);
-            const garment = isBuzoRedondo
+            const garment = item.publicGarmentLabel || (isBuzoRedondo
                 ? 'Buzo cuello redondo unisex'
                 : isHoodie
                     ? 'Hoodie oversize unisex'
@@ -2332,7 +2471,7 @@ class CartSystem {
                         ? 'Remera oversize unisex'
                         : item.cut === 'mujer'
                             ? 'Remera corte mujer'
-                            : 'Remera clásica unisex';
+                            : 'Remera clásica unisex');
             const color = item.color === 'blanco' ? 'Blanca' : 'Negra';
             const product = db.find(p => Number(p?.id) === Number(item.id));
             const frontVariant = product?.variants?.[item.variantIndex];
@@ -2341,7 +2480,9 @@ class CartSystem {
             const warning = bothAreBacks
                 ? '\n* Importante: los dos diseños elegidos están identificados como dorso. Necesito confirmar cuál usar al frente.'
                 : '';
-            const designLines = item.isDouble && item.backCode
+            const designLines = item.isDouble && item.usesShownComposition
+                ? `* Diseño: ${item.frontName || item.frontCode}\n* Composición: propuesta mostrada`
+                : item.isDouble && item.backCode
                 ? `* Diseño 1: ${item.frontName || item.frontCode} (${item.frontCode})\n* Diseño 2: ${item.backName || item.backCode} (${item.backCode})`
                 : item.isDouble
                     ? `* Diseño: ${item.frontName || item.frontCode}\n* Dorso: a definir`
@@ -2401,13 +2542,13 @@ ${designLines}
         cartList.innerHTML = this.cart.map((item, idx) => {
             const edad = item.age === 'chico' ? 'Niño' : 'Adulto';
             const talle = item.size || '—';
-            const corte = item.age === 'chico'
+            const corte = item.publicGarmentLabel || (item.age === 'chico'
                 ? 'Chicos'
                 : item.cut === 'oversize'
                     ? 'Remera oversize'
                     : item.cut === 'mujer'
                         ? 'Remera corte mujer'
-                        : 'Remera clásica unisex';
+                        : 'Remera clásica unisex');
             const color = item.color === 'blanco' ? 'Blanca' : 'Negra';
             return `
             <div class="cart-item">
@@ -2636,11 +2777,16 @@ function collectCatalogHistoricalBacks() {
             : [{ img: product?.img, name: product?.name, role: isHistoricalBackProduct(product) ? 'back' : 'front' }];
         variants.forEach((variant, variantIndex) => {
             if (!isHistoricalBackProduct(product) && !window.FMDCatalogDesign.isBackVariant(variant)) return;
+            const productLabel = cleanPublicText(product?.name || getCatalogBandLabel(product) || 'Diseño');
+            const variantLabel = cleanPublicText(variant?.name || 'Dorso');
+            const publicLabel = normalizeText(variantLabel).includes(normalizeText(productLabel))
+                ? variantLabel
+                : `${productLabel} - ${variantLabel}`;
             refs.push({
                 productId: Number(product.id),
                 variantIndex,
                 image: variant?.img || product?.img || '',
-                label: cleanPublicText(variant?.name || product?.name || 'Dorso'),
+                label: publicLabel,
                 band: getCatalogBandLabel(product),
                 role: 'back'
             });
@@ -2712,9 +2858,10 @@ function initializeCatalogDesigns() {
 // Cargar productos desde JSON
 async function loadProducts() {
     try {
-        const response = await fetch('data/products.json?v=' + Date.now());
+        const productsUrl = `${isBandLandingMode() ? '/data/products.json' : 'data/products.json'}?v=${Date.now()}`;
+        const response = await fetch(productsUrl);
         if (!response.ok) throw new Error('Error cargando productos');
-        db = repairCatalogEncoding(await response.json());
+        db = normalizeBandLandingProductAssets(repairCatalogEncoding(await response.json()));
         initializeCatalogDesigns();
         buildDorsoAutocompletePool();
         updateCountsUI();
@@ -3838,7 +3985,7 @@ let scrollPosition = 0;
 let isScrolling = false;
 let scrollTimeout;
 let currentView = 'grid';
-let currentCategory = null;
+let currentCategory = BAND_LANDING_BAND || null;
 let currentUniverse = null;
 let currentGarmentFilter = null;
 let currentSearch = '';
@@ -4043,17 +4190,17 @@ const MODAL_SIZE_GUIDES = {
     oversize: {
         title: 'Remera oversize unisex',
         copy: 'Medidas en centimetros. En remera oversize llegamos hasta 3XL.',
-        rows: [['XS', '57', '71'], ['S', '59', '73'], ['M', '61', '75'], ['L', '63', '77'], ['XL', '66', '79'], ['2XL', '69', '81'], ['3XL', '72', '83']]
+        rows: [['2XS', '55', '69'], ['XS', '57', '71'], ['S', '59', '73'], ['M', '61', '75'], ['L', '63', '77'], ['XL', '66', '79'], ['2XL', '69', '81'], ['3XL', '72', '83']]
     },
     hoodies: {
-        title: 'Hoodie canguro oversize',
+        title: 'Hoodie canguro over unisex',
         copy: 'Algodon frizado. Medidas en centimetros. Pueden variar +/-5%.',
-        rows: [['XS', '64', '67'], ['S', '66', '69'], ['M', '68', '71'], ['L', '70', '73'], ['XL', '72', '75'], ['XXL', '74', '77']]
+        rows: [['XS', '64', '67'], ['S', '66', '69'], ['M', '68', '71'], ['L', '70', '73'], ['XL', '72', '75'], ['2XL', '74', '77']]
     },
     'buzo-redondo': {
-        title: 'Buzo cuello redondo',
-        copy: 'Corte amplio unisex. Largo mas justo que el hoodie. Medidas en centimetros.',
-        rows: [['S', '65', '66'], ['M', '67', '68'], ['L', '71', '72'], ['XL', '73', '74'], ['XXL', '75', '76']]
+        title: 'Buzo cuello redondo over unisex',
+        copy: 'Medidas en centimetros. Pueden variar +/-5%.',
+        rows: [['XS', '65', '66'], ['S', '67', '68'], ['M', '69', '70'], ['L', '71', '72'], ['XL', '73', '74'], ['2XL', '75', '76']]
     },
     ninos: {
         title: 'Remera chicos',
@@ -4067,7 +4214,10 @@ function renderModalSizeGuide(tabName) {
     const title = document.getElementById('modalSizeGuideTitle');
     const copy = document.getElementById('modalSizeGuideCopy');
     const table = document.getElementById('modalSizeGuideTable');
-    const guide = MODAL_SIZE_GUIDES[tabName] || MODAL_SIZE_GUIDES.hombre;
+    const baseGuide = MODAL_SIZE_GUIDES[tabName] || MODAL_SIZE_GUIDES.hombre;
+    const guide = usesBandLandingShownComposition() && tabName === 'hoodies'
+        ? { ...baseGuide, title: 'Hoodie canguro oversize unisex' }
+        : baseGuide;
     if (!panel || !title || !copy || !table) return;
 
     title.textContent = guide.title;
@@ -4125,6 +4275,7 @@ function catalogDesignRefToModalImage(ref) {
     return {
         img: ref.image,
         name: ref.label,
+        alt: ref.alt,
         role: 'front',
         garmentCategory: ref.garment === 'hoodie'
             ? 'Hoodies Otras Bandas'
@@ -4141,10 +4292,12 @@ function renderModalDesignBadge(sourceIndex) {
     return badge ? `<span class="fmd-original-badge carousel-fmd-original-badge">${badge}</span>` : '';
 }
 
-function openCatalogDesign(designId) {
+function openCatalogDesign(designId, initialGarment = '') {
     const design = catalogDesignById.get(designId);
-    if (!design?.front) return;
+    if (!design?.front || !isCatalogDesignInScope(design)) return;
     openModal(design.front.productId, design.front.variantIndex, undefined, 'catalog_design', designId);
+    const requestedGarment = initialGarment || (isBandLandingMode() ? getBandLandingModalGarment() : '');
+    if (requestedGarment) selectModalGarment(requestedGarment);
 }
 
 window.openCatalogDesign = openCatalogDesign;
@@ -4238,7 +4391,7 @@ function openModal(id, variantIndex = undefined, scopedVariantIndexes = undefine
     carousel.innerHTML = modalImages.map((v, index) => `
         <div class="carousel-slide">
             ${renderModalDesignBadge(currentModalSourceIndexes[index])}
-            <img src="${v.img}" alt="${currentCatalogDesign?.publicName || currentProduct.name}">
+            <img src="${v.img}" alt="${v.alt || currentCatalogDesign?.publicName || currentProduct.name}">
         </div>
     `).join('');
     resetModalImageZoom();
@@ -4312,7 +4465,7 @@ function openModal(id, variantIndex = undefined, scopedVariantIndexes = undefine
         }
     });
     
-    // Ocultar talles oversize (XXS, XS)
+    // Ocultar talles exclusivos de oversize.
     document.querySelectorAll('#sizeSelector .size-oversize').forEach(btn => {
         btn.style.display = 'none';
     });
@@ -4363,13 +4516,13 @@ function openModal(id, variantIndex = undefined, scopedVariantIndexes = undefine
         selectedCut = 'oversize';
         selectedAge = 'adulto';
         
-        // Mostrar solo talle XS para hoodies (XS a XXL)
+        // Mostrar el talle XS adicional para hoodies (XS a 2XL).
         document.querySelectorAll('#sizeSelector .size-oversize').forEach(btn => {
             if (btn.dataset.size === 'XS') {
                 btn.style.display = '';
                 btn.style.cssText = inactiveStyle;
             } else {
-                btn.style.display = 'none'; // Ocultar XXS
+                btn.style.display = 'none';
             }
         });
     } else if (isBuzoRedondo) {
@@ -4387,7 +4540,7 @@ function openModal(id, variantIndex = undefined, scopedVariantIndexes = undefine
         selectedCut = 'oversize';
         selectedAge = 'adulto';
         
-        // Mostrar tallaje oversize para buzo cuello redondo (S a XXL)
+        // Mostrar el talle XS adicional para buzo cuello redondo (XS a 2XL).
         document.querySelectorAll('#sizeSelector .size-oversize').forEach(btn => {
             if (btn.dataset.size === 'XS') {
                 btn.style.display = '';
@@ -4487,6 +4640,10 @@ window.showOuterwearCatalogFromModal = showOuterwearCatalogFromModal;
 
 function closeModal() {
     if (!modal.classList.contains('active')) return;
+    const returnScrollPosition = scrollPosition;
+    const root = document.documentElement;
+    const previousInlineScrollBehavior = root.style.scrollBehavior;
+    root.style.setProperty('scroll-behavior', 'auto', 'important');
     modal.classList.remove('active');
     // Remover listeners del carrusel para evitar fugas de memoria
     carousel.removeEventListener('scroll', onCarouselScroll);
@@ -4494,7 +4651,6 @@ function closeModal() {
     try { const existing = document.querySelector('.scroll-hint'); if(existing) existing.remove(); } catch(e){}
     document.body.classList.remove('modal-open');
     document.body.style.removeProperty('top');
-    window.scrollTo(0, scrollPosition);
     currentModalImages = [];
     currentModalSourceIndexes = [];
     currentModalSourceRefs = [];
@@ -4502,8 +4658,21 @@ function closeModal() {
     modal.classList.remove('catalog-design-modal');
     selectedCatalogBackRef = null;
     if (/^#(?:producto|diseno)-/i.test(window.location.hash)) {
-        history.replaceState(null, '', '#catalogoPrincipal');
+        history.replaceState(
+            { catalog: true, category: currentCategory || null },
+            '',
+            `${window.location.pathname}${window.location.search}`
+        );
     }
+    window.scrollTo(0, returnScrollPosition);
+    requestAnimationFrame(() => {
+        window.scrollTo(0, returnScrollPosition);
+        requestAnimationFrame(() => {
+            window.scrollTo(0, returnScrollPosition);
+            if (previousInlineScrollBehavior) root.style.scrollBehavior = previousInlineScrollBehavior;
+            else root.style.removeProperty('scroll-behavior');
+        });
+    });
     resetModalImageZoom();
     closeZoom();
 }
@@ -5258,6 +5427,21 @@ function getCatalogDesignStartingPrice(design) {
     return design?.isPersonalized ? PRECIOS.simple_personalizado : PRECIOS.simple;
 }
 
+function getBandLandingDesignStartingPrice(design) {
+    if (bandLandingGarment === 'hoodie') {
+        return PRECIOS_HOODIES.simple + (design?.isPersonalized ? PERSONALIZADO_EXTRA : 0);
+    }
+    if (bandLandingGarment === 'buzo_cuello_redondo') {
+        return PRECIOS_BUZO_REDONDO.simple + (design?.isPersonalized ? PERSONALIZADO_EXTRA : 0);
+    }
+    return getCatalogDesignStartingPrice(design);
+}
+
+function getBandLandingDesignPreview(design) {
+    if (!isBandLandingMode() || !bandLandingGarment) return design?.front || null;
+    return design?.previewsByGarment?.[bandLandingGarment]?.[0] || null;
+}
+
 function getCatalogDesignSearchText(design) {
     const sourceProducts = (design?.sourceProductIds || [])
         .map(id => db.find(product => Number(product.id) === Number(id)))
@@ -5280,15 +5464,23 @@ function catalogDesignBandExists(value) {
 function getCatalogDesignResults() {
     if (!ENABLE_CATALOG_DESIGN_RENDER || !catalogDesigns.length || currentGarmentFilter === 'abrigo') return null;
 
+    let scopedDesigns = isBandLandingMode()
+        ? catalogDesigns.filter(isCatalogDesignInScope)
+        : catalogDesigns;
+    if (isBandLandingMode() && bandLandingGarment) {
+        scopedDesigns = scopedDesigns.filter(design => Boolean(getBandLandingDesignPreview(design)));
+    }
     let designs = null;
     if (currentSearch) {
         const query = normalizeText(currentSearch);
-        designs = catalogDesigns.filter(design => getCatalogDesignSearchText(design).includes(query));
+        designs = scopedDesigns.filter(design => getCatalogDesignSearchText(design).includes(query));
     } else if (normalizeText(currentCategory) === 'personalizados') {
-        designs = catalogDesigns.filter(design => design.isPersonalized);
+        designs = scopedDesigns.filter(design => design.isPersonalized);
     } else if (catalogDesignBandExists(currentCategory)) {
         const band = normalizeText(currentCategory);
-        designs = catalogDesigns.filter(design => normalizeText(design.band) === band);
+        designs = scopedDesigns.filter(design => normalizeText(design.band) === band);
+    } else if (isBandLandingMode()) {
+        designs = scopedDesigns;
     }
 
     if (!designs) return null;
@@ -5309,20 +5501,23 @@ function renderCatalogDesignResults(designs) {
 
     let heading = 'DISEÑOS DISPONIBLES';
     if (currentSearch) heading = `${designs.length} RESULTADOS`;
+    else if (isBandLandingMode() && bandLandingGarment) heading = `${getBandLandingGarmentLabel()} ${BAND_LANDING_BAND.toUpperCase()}`;
     else if (currentCategory) heading = `DISEÑOS ${String(currentCategory).toUpperCase()}`;
     document.getElementById('productsCount').textContent = heading;
 
     productsGrid.innerHTML = visibleDesigns.map(design => {
-        const price = getCatalogDesignStartingPrice(design).toLocaleString('es-AR');
+        const preview = getBandLandingDesignPreview(design) || design.front;
+        const price = (isBandLandingMode() ? getBandLandingDesignStartingPrice(design) : getCatalogDesignStartingPrice(design)).toLocaleString('es-AR');
+        const initialGarment = isBandLandingMode() ? getBandLandingModalGarment() : '';
         const badges = [
             design.isNew ? '<span class="catalog-design-badge is-new">NUEVO</span>' : '',
             ...(design.badges || []).map(badge => `<span class="catalog-design-badge is-fmd">${badge}</span>`)
         ].join('');
         return `<article class="catalog-design-card" data-design-id="${design.designId}">
-            <button type="button" class="catalog-design-card-main" onclick="openCatalogDesign('${design.designId}')" aria-label="Ver diseño ${design.publicName}">
+            <button type="button" class="catalog-design-card-main" onclick="openCatalogDesign('${design.designId}', '${initialGarment}')" aria-label="Ver diseño ${design.publicName}">
                 <span class="catalog-design-media">
                     ${badges ? `<span class="catalog-design-badges">${badges}</span>` : ''}
-                    <img src="${design.front.image}" alt="${design.publicName} - ${design.band}" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='images/logo/MARCA DE AGUA.png';">
+                    <img src="${preview.image}" alt="${preview.alt || `${design.publicName} - ${design.band}`}" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='images/logo/MARCA DE AGUA.png';">
                 </span>
                 <span class="catalog-design-copy">
                     <span class="catalog-design-band">${design.band}</span>
@@ -5432,6 +5627,18 @@ function renderCatalogBandDirectory(products) {
         const group = groups.get(label) || [];
         const preview = group[0];
         const encodedFilter = encodeURIComponent(label);
+        const landingUrl = getBandLandingUrl(label);
+        if (landingUrl) {
+            return `
+            <a class="catalog-band-card ${emphasis}" href="${landingUrl}" aria-label="Ver diseños de ${label}">
+                <img src="${getCatalogDirectoryImage(preview)}" alt="${label}" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='images/logo/MARCA DE AGUA.png';">
+                <span class="catalog-band-card-shade"></span>
+                <span class="catalog-band-card-copy">
+                    <strong>${label}</strong>
+                    <em>VER DISEÑOS</em>
+                </span>
+            </a>`;
+        }
         return `
             <button type="button" class="catalog-band-card ${emphasis}" data-band-filter="${encodedFilter}">
                 <img src="${getCatalogDirectoryImage(preview)}" alt="${label}" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='images/logo/MARCA DE AGUA.png';">
@@ -6822,8 +7029,8 @@ function toggleCartPanel() {
 }
 
 function getModalGarmentLabel(product = currentProduct) {
-    if (selectedModalGarment === 'hoodie') return 'Hoodie';
-    if (selectedModalGarment === 'buzo') return 'Buzo cuello redondo';
+    if (selectedModalGarment === 'hoodie') return usesBandLandingShownComposition() ? 'Hoodie canguro oversize unisex' : 'Hoodie';
+    if (selectedModalGarment === 'buzo') return usesBandLandingShownComposition() ? 'Buzo cuello redondo oversize unisex' : 'Buzo cuello redondo';
     if (selectedModalGarment === 'oversize') return 'Remera oversize';
     if (selectedModalGarment === 'mujer') return 'Remera corte mujer';
     const garmentCategory = getActiveGarmentCategory(product);
@@ -6869,8 +7076,15 @@ function buildModalOrderWhatsappMessage() {
     const price = isDouble ? prices.doble : prices.simple;
     const color = selectedColor === 'blanco' ? 'Blanca' : selectedColor === 'negro' ? 'Negra' : 'A confirmar';
     const size = selectedSize || 'A confirmar';
-    const printMode = isDouble ? 'Doble estampa' : selectedPrintMode === 'simple' ? 'Estampa frontal' : 'A definir';
-    const backLine = isDouble ? `\nDorso: ${getSelectedBackLabelForWhatsapp()}` : '';
+    const usesShownComposition = isDouble && usesBandLandingShownComposition();
+    const printMode = usesShownComposition
+        ? 'Doble estampa (composición mostrada)'
+        : isDouble
+            ? 'Doble estampa'
+            : selectedPrintMode === 'simple'
+                ? 'Estampa frontal'
+                : 'A definir';
+    const backLine = isDouble && !usesShownComposition ? `\nDorso: ${getSelectedBackLabelForWhatsapp()}` : '';
     const delivery = DELIVERY_LABELS[selectedDeliveryMethod] || 'A confirmar';
     const postalCode = getModalPostalCode();
     const deliveryLines = selectedDeliveryMethod === 'taller'
@@ -6946,8 +7160,10 @@ function addToCartFromModal() {
         category: garmentCategory,
         backIndex: selectedBackIndex, // índice del dorso seleccionado
         isCustom: isCustom,
+        publicGarmentLabel: usesBandLandingShownComposition() ? getModalGarmentLabel(currentProduct) : '',
         designName: currentCatalogDesign?.publicName || '',
         orderCodeBase: currentCatalogDesign?.orderCodeBase || '',
+        usesShownComposition: isDouble && usesBandLandingShownComposition(),
         backName: selectedCatalogBackRef?.label || '',
         backCode: selectedCatalogBackRef
             ? cart.generateCode(selectedCatalogBackRef.productId, selectedCatalogBackRef.variantIndex)
@@ -6957,7 +7173,9 @@ function addToCartFromModal() {
     const success = cart.addToCart(currentProduct.id, variantIndex, isDouble, options);
     
     if (success) {
-        const msg = isDouble && (selectedBackIndex >= 0 || selectedCatalogBackRef)
+        const msg = options.usesShownComposition
+            ? '✓ Agregado con la composición mostrada'
+            : isDouble && (selectedBackIndex >= 0 || selectedCatalogBackRef)
             ? '✓ Agregado con frente + dorso' 
             : (isDouble ? '✓ Agregado (dorso a definir)' : '✓ Agregado al carrito');
         showNotification(msg, 2000);
@@ -7030,7 +7248,7 @@ function renderRelatedProducts(category) {
     
     // Obtener productos de la misma categoría, excluyendo el actual
     const related = db
-        .filter(p => matchesCategoryOrMetadata(p, category) && p.id !== currentProduct.id)
+        .filter(p => isProductInCatalogScope(p) && matchesCategoryOrMetadata(p, category) && p.id !== currentProduct.id)
         .sort(compareProductsByPriorityThenId)
         .slice(0, 3);
     
@@ -7057,11 +7275,12 @@ function loadProductFromHash() {
     const hash = window.location.hash.replace('#', '');
     if (hash.startsWith('diseno-')) {
         const designId = hash.slice('diseno-'.length);
-        if (catalogDesignById.has(designId)) openCatalogDesign(designId);
+        const design = catalogDesignById.get(designId);
+        if (design && isCatalogDesignInScope(design)) openCatalogDesign(designId);
     } else if (hash.startsWith('producto-')) {
         const productId = parseInt(hash.split('-')[1]);
         const product = db.find(p => p.id === productId);
-        if (product) {
+        if (product && isProductInCatalogScope(product)) {
             currentProduct = product;
             currentSlide = 0;
             updateShareLinks();
@@ -7072,6 +7291,7 @@ function loadProductFromHash() {
 
 // Cargar categoría desde URL query param (?cat=HoodiesFMD)
 function loadCategoryFromURL() {
+    if (isBandLandingMode()) return;
     const params = new URLSearchParams(window.location.search);
     const cat = params.get('cat');
     if (!cat) return;

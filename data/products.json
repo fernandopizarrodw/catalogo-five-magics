@@ -8089,36 +8089,286 @@
         "variants": [
             {
                 "img": "images/banda_sugeridas/nightwish/remera_nightwish_once.jpg",
-                "name": "Nightwish Once - Remera",
-                "garmentCategory": "Bandas Sugeridas"
+                "name": "Once - Remera",
+                "garmentCategory": "Bandas Sugeridas",
+                "designId": "nightwish-once",
+                "designSlug": "nightwish-once",
+                "alt": "Remera Nightwish Once con estampa frontal y dorso"
             },
             {
                 "img": "images/banda_sugeridas/nightwish/remera_nightwish_century_child.jpg",
-                "name": "Nightwish Century Child - Remera",
-                "garmentCategory": "Bandas Sugeridas"
+                "name": "Century Child - Remera",
+                "garmentCategory": "Bandas Sugeridas",
+                "designId": "nightwish-century-child",
+                "designSlug": "nightwish-century-child",
+                "alt": "Remera Nightwish Century Child con estampa frontal y dorso"
             },
             {
                 "img": "images/banda_sugeridas/nightwish/remera_nightwish_human_nature.jpg",
-                "name": "Nightwish Human Nature - Remera",
-                "garmentCategory": "Bandas Sugeridas"
+                "name": "Human Nature - Remera",
+                "garmentCategory": "Bandas Sugeridas",
+                "designId": "nightwish-human-nature",
+                "designSlug": "nightwish-human-nature",
+                "alt": "Remera Nightwish Human Nature con estampa frontal y dorso"
             },
             {
                 "img": "images/banda_sugeridas/nightwish/remera_nightwish_oceanborn_v1.jpg",
-                "name": "Nightwish Oceanborn V1 - Remera",
-                "garmentCategory": "Bandas Sugeridas"
+                "name": "Oceanborn V1 - Remera",
+                "garmentCategory": "Bandas Sugeridas",
+                "designId": "nightwish-oceanborn-v1",
+                "designSlug": "nightwish-oceanborn-v1",
+                "alt": "Remera Nightwish Oceanborn V1 con estampa frontal y dorso"
             },
             {
                 "img": "images/banda_sugeridas/nightwish/remera_nightwish_oceanborn_v2.jpg",
-                "name": "Nightwish Oceanborn V2 - Remera",
-                "garmentCategory": "Bandas Sugeridas"
+                "name": "Oceanborn V2 - Remera",
+                "garmentCategory": "Bandas Sugeridas",
+                "designId": "nightwish-oceanborn-v2",
+                "designSlug": "nightwish-oceanborn-v2",
+                "alt": "Remera Nightwish Oceanborn V2 con estampa frontal"
             },
             {
                 "img": "images/banda_sugeridas/nightwish/remera_nightwish_wishmaster.jpg",
-                "name": "Nightwish Wishmaster - Remera",
-                "garmentCategory": "Bandas Sugeridas"
+                "name": "Wishmaster - Remera",
+                "garmentCategory": "Bandas Sugeridas",
+                "designId": "nightwish-wishmaster",
+                "designSlug": "nightwish-wishmaster",
+                "alt": "Remera Nightwish Wishmaster con estampa frontal y dorso"
+            },
+            {
+                "img": "images/banda_sugeridas/nightwish/hoodie_nightwish_century_child.jpg",
+                "name": "Century Child - Hoodie",
+                "garmentCategory": "Hoodies Otras Bandas",
+                "designId": "nightwish-century-child",
+                "designSlug": "nightwish-century-child",
+                "alt": "Hoodie Nightwish Century Child con estampa frontal y dorso"
+            },
+            {
+                "img": "images/banda_sugeridas/nightwish/buzo_nightwish_century_child.jpg",
+                "name": "Century Child - Buzo cuello redondo",
+                "garmentCategory": "Buzo Cuello Redondo",
+                "designId": "nightwish-century-child",
+                "designSlug": "nightwish-century-child",
+                "alt": "Buzo cuello redondo Nightwish Century Child con estampa frontal y dorso"
+            },
+            {
+                "img": "images/banda_sugeridas/nightwish/hoodie_nightwish_human_nature.jpg",
+                "name": "Human Nature - Hoodie",
+                "garmentCategory": "Hoodies Otras Bandas",
+                "designId": "nightwish-human-nature",
+                "designSlug": "nightwish-human-nature",
+                "alt": "Hoodie Nightwish Human Nature con estampa frontal y dorso"
+            },
+            {
+                "img": "images/banda_sugeridas/nightwish/buzo_nightwish_human_nature.jpg",
+                "name": "Human Nature - Buzo cuello redondo",
+                "garmentCategory": "Buzo Cuello Redondo",
+                "designId": "nightwish-human-nature",
+                "designSlug": "nightwish-human-nature",
+                "alt": "Buzo cuello redondo Nightwish Human Nature con estampa frontal y dorso"
+            },
+            {
+                "img": "images/banda_sugeridas/nightwish/hoodie_nightwish_oceanborn.jpg",
+                "name": "Oceanborn V1 - Hoodie",
+                "garmentCategory": "Hoodies Otras Bandas",
+                "designId": "nightwish-oceanborn-v1",
+                "designSlug": "nightwish-oceanborn-v1",
+                "alt": "Hoodie Nightwish Oceanborn V1 con estampa frontal y dorso"
+            },
+            {
+                "img": "images/banda_sugeridas/nightwish/buzo_nightwish_oceanborn.jpg",
+                "name": "Oceanborn V1 - Buzo cuello redondo",
+                "garmentCategory": "Buzo Cuello Redondo",
+                "designId": "nightwish-oceanborn-v1",
+                "designSlug": "nightwish-oceanborn-v1",
+                "alt": "Buzo cuello redondo Nightwish Oceanborn V1 con estampa frontal y dorso"
+            },
+            {
+                "img": "images/banda_sugeridas/nightwish/hoodie_nightwish_once.jpg",
+                "name": "Once - Hoodie",
+                "garmentCategory": "Hoodies Otras Bandas",
+                "designId": "nightwish-once",
+                "designSlug": "nightwish-once",
+                "alt": "Hoodie Nightwish Once con estampa frontal y dorso"
+            },
+            {
+                "img": "images/banda_sugeridas/nightwish/buzo_nightwish_once.jpg",
+                "name": "Once - Buzo cuello redondo",
+                "garmentCategory": "Buzo Cuello Redondo",
+                "designId": "nightwish-once",
+                "designSlug": "nightwish-once",
+                "alt": "Buzo cuello redondo Nightwish Once con estampa frontal y dorso"
+            },
+            {
+                "img": "images/banda_sugeridas/nightwish/hoodie_nightwish_wishmaster.jpg",
+                "name": "Wishmaster - Hoodie",
+                "garmentCategory": "Hoodies Otras Bandas",
+                "designId": "nightwish-wishmaster",
+                "designSlug": "nightwish-wishmaster",
+                "alt": "Hoodie Nightwish Wishmaster con estampa frontal y dorso"
+            },
+            {
+                "img": "images/banda_sugeridas/nightwish/buzo_nightwish_wishmaster.jpg",
+                "name": "Wishmaster - Buzo cuello redondo",
+                "garmentCategory": "Buzo Cuello Redondo",
+                "designId": "nightwish-wishmaster",
+                "designSlug": "nightwish-wishmaster",
+                "alt": "Buzo cuello redondo Nightwish Wishmaster con estampa frontal y dorso"
+            },
+            {
+                "img": "images/banda_sugeridas/nightwish/remera_nightwish_2003_band.jpg",
+                "name": "Band 2003 - Remera",
+                "garmentCategory": "Bandas Sugeridas",
+                "designId": "nightwish-band-2003",
+                "designSlug": "nightwish-band-2003",
+                "alt": "Remera Nightwish Band 2003 con estampa frontal y dorso"
+            },
+            {
+                "img": "images/banda_sugeridas/nightwish/remera_nightwish_2005_band.jpg",
+                "name": "Band 2005 - Remera",
+                "garmentCategory": "Bandas Sugeridas",
+                "designId": "nightwish-band-2005",
+                "designSlug": "nightwish-band-2005",
+                "alt": "Remera Nightwish Band 2005 con estampa frontal y dorso"
+            },
+            {
+                "img": "images/banda_sugeridas/nightwish/remera_nightwish_2012_band.jpg",
+                "name": "Band 2012 - Remera",
+                "garmentCategory": "Bandas Sugeridas",
+                "designId": "nightwish-band-2012",
+                "designSlug": "nightwish-band-2012",
+                "alt": "Remera Nightwish Band 2012 con estampa frontal y dorso"
+            },
+            {
+                "img": "images/banda_sugeridas/nightwish/remera_nightwish_century_band.jpg",
+                "name": "Century Child Band - Remera",
+                "garmentCategory": "Bandas Sugeridas",
+                "designId": "nightwish-century-child-band",
+                "designSlug": "nightwish-century-child-band",
+                "alt": "Remera Nightwish Century Child Band con estampa frontal y dorso"
+            },
+            {
+                "img": "images/banda_sugeridas/nightwish/hoodie_nightwish_century_child_band.jpg",
+                "name": "Century Child Band - Hoodie",
+                "garmentCategory": "Hoodies Otras Bandas",
+                "designId": "nightwish-century-child-band",
+                "designSlug": "nightwish-century-child-band",
+                "alt": "Hoodie Nightwish Century Child Band con estampa frontal y dorso"
+            },
+            {
+                "img": "images/banda_sugeridas/nightwish/remera_nightwish_century_child_band_dbl.jpg",
+                "name": "Century Child Album + Band - Remera",
+                "garmentCategory": "Bandas Sugeridas",
+                "designId": "nightwish-century-child-album-band",
+                "designSlug": "nightwish-century-child-album-band",
+                "alt": "Remera Nightwish Century Child con arte del álbum al frente y banda al dorso"
+            },
+            {
+                "img": "images/banda_sugeridas/nightwish/buzo_nightwish_century_child_band.jpg",
+                "name": "Century Child Album + Band - Buzo cuello redondo",
+                "garmentCategory": "Buzo Cuello Redondo",
+                "designId": "nightwish-century-child-album-band",
+                "designSlug": "nightwish-century-child-album-band",
+                "alt": "Buzo Nightwish Century Child con arte del álbum al frente y banda al dorso"
+            },
+            {
+                "img": "images/banda_sugeridas/nightwish/remera_nightwish_dark_passion_play.jpg",
+                "name": "Dark Passion Play - Remera",
+                "garmentCategory": "Bandas Sugeridas",
+                "designId": "nightwish-dark-passion-play",
+                "designSlug": "nightwish-dark-passion-play",
+                "alt": "Remera Nightwish Dark Passion Play con estampa frontal y dorso"
+            },
+            {
+                "img": "images/banda_sugeridas/nightwish/remera_nightwish_decades.jpg",
+                "name": "Decades - Remera",
+                "garmentCategory": "Bandas Sugeridas",
+                "designId": "nightwish-decades",
+                "designSlug": "nightwish-decades",
+                "alt": "Remera Nightwish Decades con estampa frontal y dorso"
+            },
+            {
+                "img": "images/banda_sugeridas/nightwish/hoodie_nightwish_decades.jpg",
+                "name": "Decades - Hoodie",
+                "garmentCategory": "Hoodies Otras Bandas",
+                "designId": "nightwish-decades",
+                "designSlug": "nightwish-decades",
+                "alt": "Hoodie Nightwish Decades con estampa frontal y dorso"
+            },
+            {
+                "img": "images/banda_sugeridas/nightwish/remera_nightwish_end_of_an_era.jpg",
+                "name": "End of an Era - Remera",
+                "garmentCategory": "Bandas Sugeridas",
+                "designId": "nightwish-end-of-an-era",
+                "designSlug": "nightwish-end-of-an-era",
+                "alt": "Remera Nightwish End of an Era con estampa frontal y dorso"
+            },
+            {
+                "img": "images/banda_sugeridas/nightwish/hoodie_nightwish_end_of_an_era.jpg",
+                "name": "End of an Era - Hoodie",
+                "garmentCategory": "Hoodies Otras Bandas",
+                "designId": "nightwish-end-of-an-era",
+                "designSlug": "nightwish-end-of-an-era",
+                "alt": "Hoodie Nightwish End of an Era con estampa frontal y dorso"
+            },
+            {
+                "img": "images/banda_sugeridas/nightwish/remera_nightwish_endless_forms_most_beautiful.jpg",
+                "name": "Endless Forms Most Beautiful - Remera",
+                "garmentCategory": "Bandas Sugeridas",
+                "designId": "nightwish-endless-forms-most-beautiful",
+                "designSlug": "nightwish-endless-forms-most-beautiful",
+                "alt": "Remera Nightwish Endless Forms Most Beautiful con estampa frontal y dorso"
+            },
+            {
+                "img": "images/banda_sugeridas/nightwish/remera_nightwish_imaginarium.jpg",
+                "name": "Imaginaerum - Remera",
+                "garmentCategory": "Bandas Sugeridas",
+                "designId": "nightwish-imaginaerum",
+                "designSlug": "nightwish-imaginaerum",
+                "alt": "Remera Nightwish Imaginaerum con estampa frontal y dorso"
+            },
+            {
+                "img": "images/banda_sugeridas/nightwish/hoodie_nightwish_imaginarium.jpg",
+                "name": "Imaginaerum - Hoodie",
+                "garmentCategory": "Hoodies Otras Bandas",
+                "designId": "nightwish-imaginaerum",
+                "designSlug": "nightwish-imaginaerum",
+                "alt": "Hoodie Nightwish Imaginaerum con estampa frontal y dorso"
+            },
+            {
+                "img": "images/banda_sugeridas/nightwish/remera_nightwish_logo_dove.jpg",
+                "name": "Nightwish Logo Owl - Remera",
+                "garmentCategory": "Bandas Sugeridas",
+                "designId": "nightwish-logo-owl",
+                "designSlug": "nightwish-logo-owl",
+                "alt": "Remera Nightwish con logo y búho en estampa frontal y dorso"
+            },
+            {
+                "img": "images/banda_sugeridas/nightwish/hoodie_nightwish_logo_dove.jpg",
+                "name": "Nightwish Logo Owl - Hoodie",
+                "garmentCategory": "Hoodies Otras Bandas",
+                "designId": "nightwish-logo-owl",
+                "designSlug": "nightwish-logo-owl",
+                "alt": "Hoodie Nightwish con logo y búho en estampa frontal y dorso"
+            },
+            {
+                "img": "images/banda_sugeridas/nightwish/remera_nightwish_the_crow.jpg",
+                "name": "The Crow, the Owl and the Dove - Remera",
+                "garmentCategory": "Bandas Sugeridas",
+                "designId": "nightwish-the-crow-the-owl-and-the-dove",
+                "designSlug": "nightwish-the-crow-the-owl-and-the-dove",
+                "alt": "Remera Nightwish The Crow, the Owl and the Dove con estampa frontal y dorso"
+            },
+            {
+                "img": "images/banda_sugeridas/nightwish/remera_nightwish_tuomas.jpg",
+                "name": "Tuomas - Remera",
+                "garmentCategory": "Bandas Sugeridas",
+                "designId": "nightwish-tuomas",
+                "designSlug": "nightwish-tuomas",
+                "alt": "Remera Nightwish Tuomas con estampa frontal y dorso"
             }
         ],
-        "desc": "Seleccion inicial de disenos Nightwish sugeridos por la comunidad. Formato rapido en remera con estampa frontal para validar demanda.",
+        "desc": "Diseños Nightwish disponibles en remera, hoodie y buzo cuello redondo, con estampa frontal o doble.",
         "band": "Nightwish",
         "universe": [
             "Modern Metal",
@@ -8126,7 +8376,9 @@
         ],
         "album": null,
         "garments": [
-            "remera"
+            "remera",
+            "hoodie",
+            "buzo_cuello_redondo"
         ],
         "collections": [
             "Nightwish Archive",
@@ -8146,6 +8398,8 @@
             "Encuesta Instagram",
             "Mas bandas",
             "remera",
+            "hoodie",
+            "buzo_cuello_redondo",
             "Nightwish Archive"
         ]
     },
