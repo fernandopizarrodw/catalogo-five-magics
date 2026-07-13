@@ -157,13 +157,13 @@ const ACTIVE_HOME_CAMPAIGN = {
     active: true,
     kicker: 'DESTACADO FMD',
     title: 'ÉPICO · POWER · SINFÓNICO',
-    subtitle: 'Nuevos diseños de EPICA, Rhapsody, Helloween, Angra y Blind Guardian.',
+    subtitle: 'Nuevos diseños de EPICA, Rhapsody, Helloween, Nightwish y Blind Guardian.',
     featuredFilters: ['Epica', 'Rhapsody', 'Helloween'],
     bands: [
         { label: 'EPICA', filter: 'Epica', badge: 'SHOW ARGENTINA 2027' },
         { label: 'RHAPSODY', filter: 'Rhapsody', badge: 'SHOW ARGENTINA 2027' },
         { label: 'HELLOWEEN', filter: 'Helloween', badge: 'SHOW ARGENTINA 2026' },
-        { label: 'ANGRA', filter: 'Angra' },
+        { label: 'NIGHTWISH', filter: 'Nightwish', href: '/nightwish/' },
         { label: 'BLIND GUARDIAN', filter: 'Blind Guardian' }
     ]
 };
@@ -1304,6 +1304,15 @@ function renderHomeArchitecture() {
                     const label = isFeatured && item.badge
                         ? `<em>${item.badge}</em>`
                         : '';
+                    if (item.href) {
+                        return `
+                        <a class="home-campaign-card${isFeatured ? ' is-featured' : ''}" href="${item.href}" aria-label="Ver diseños de ${item.label}">
+                            ${label}
+                            <strong>${item.label}</strong>
+                            <span>VER DISEÑOS</span>
+                        </a>
+                    `;
+                    }
                     return `
                         <button type="button" class="home-campaign-card${isFeatured ? ' is-featured' : ''}" data-band-filter="${item.filter}" onclick="openBandAccess('${item.filter}')">
                             ${label}
@@ -5617,7 +5626,7 @@ function renderCatalogBandDirectory(products) {
 
     const findLabel = label => [...groups.keys()].find(groupLabel => normalizeText(groupLabel) === normalizeText(label));
     const primaryLabels = ['Megadeth', 'Slayer', 'Iron Maiden', 'Metallica'].map(findLabel).filter(Boolean);
-    const currentLabels = ['EPICA', 'Rhapsody', 'Helloween', 'Angra', 'Blind Guardian'].map(findLabel).filter(Boolean);
+    const currentLabels = ['EPICA', 'Rhapsody', 'Helloween', 'Nightwish', 'Blind Guardian'].map(findLabel).filter(Boolean);
     const reservedLabels = new Set([...primaryLabels, ...currentLabels]);
     const remainingLabels = [...groups.keys()]
         .filter(label => !reservedLabels.has(label))
@@ -5672,7 +5681,7 @@ function renderCatalogBandDirectory(products) {
     document.getElementById('productsCount').textContent = 'ELEGÍ UNA BANDA PARA VER SUS DISEÑOS';
     productsGrid.innerHTML = [
         renderSection('primary', 'BANDAS PRINCIPALES', 'Entrá directo a las colecciones más grandes de FMD.', primaryLabels, 'is-primary'),
-        renderSection('current', 'NUEVOS DISEÑOS', 'EPICA, Rhapsody, Helloween, Angra y Blind Guardian.', currentLabels, 'is-current'),
+        renderSection('current', 'NUEVOS DISEÑOS', 'EPICA, Rhapsody, Helloween, Nightwish y Blind Guardian.', currentLabels, 'is-current'),
         renderSection('more', 'MÁS BANDAS', 'Todo el catálogo disponible, ordenado alfabéticamente.', remainingLabels)
     ].join('');
     productsGrid.querySelectorAll('[data-band-filter]').forEach(button => {

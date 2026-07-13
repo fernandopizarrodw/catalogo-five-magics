@@ -20,6 +20,31 @@
     text-decoration: none;
 }
 
+.band-landing-page .btn-back-catalog {
+    min-height: 42px;
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 16px;
+    color: #f2f2f2;
+    background: rgba(255, 255, 255, 0.04);
+    font-family: "Oswald", sans-serif;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.band-landing-page .btn-back-catalog:hover,
+.band-landing-page .btn-back-catalog:focus-visible {
+    border-color: rgba(232, 67, 46, 0.72);
+    color: #fff;
+    background: rgba(232, 67, 46, 0.12);
+}
+
 .band-landing-hero {
     width: min(1180px, calc(100% - 32px));
     min-height: 570px;
@@ -338,6 +363,17 @@
 @media (max-width: 560px) {
     .band-landing-page .header-content {
         gap: 10px;
+    }
+
+    .band-landing-page .header-actions {
+        gap: 6px;
+    }
+
+    .band-landing-page .btn-back-catalog {
+        min-height: 38px;
+        padding-inline: 10px;
+        font-size: 0.72rem;
+        letter-spacing: 0.04em;
     }
 
     .band-landing-page .btn-wa-header {
