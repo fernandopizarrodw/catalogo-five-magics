@@ -1,0 +1,133 @@
+{
+  "status": "passed",
+  "desktop": {
+    "initial": {
+      "quickFilters": "none",
+      "bandFilters": "none",
+      "mainBands": 4,
+      "newBands": 5,
+      "moreButton": "VER TODAS LAS BANDAS",
+      "moreGridHidden": true
+    },
+    "band": {
+      "quickFilters": "flex",
+      "bandFilters": "block",
+      "heading": "DISEÑOS METALLICA",
+      "cards": 20,
+      "scrollY": 2505,
+      "firstCards": [
+        {
+          "band": "Metallica",
+          "name": "...And Justice for All",
+          "price": "Desde $37.000"
+        },
+        {
+          "band": "Metallica",
+          "name": "...And Justice for All Red",
+          "price": "Desde $37.000"
+        },
+        {
+          "band": "Metallica",
+          "name": "Black Album",
+          "price": "Desde $37.000"
+        },
+        {
+          "band": "Metallica",
+          "name": "Black Album 1992",
+          "price": "Desde $37.000"
+        }
+      ]
+    },
+    "modal": {
+      "designId": "cd-metallica-ride-the-lightning--p1060",
+      "name": "Ride the Lightning",
+      "codeBefore": "RTL-1060.V5",
+      "codeAfter": "RTL-1060.V5",
+      "garment": "hoodie",
+      "printMode": "double",
+      "back": "Ride the Lightning - Dorso",
+      "size": "L",
+      "color": "negro",
+      "delivery": "domicilio",
+      "postalCode": "1678",
+      "price": "Precio del producto: $59.000",
+      "message": "Hola FMD! Quiero pedir este diseño:\nDiseño: Ride the Lightning\nCódigo: RTL-1060.V5\nPrenda: Hoodie\nTalle: L\nColor: Negra\nEstampa: Doble estampa\nDorso: Ride the Lightning - Dorso\nPrecio del producto: $59.000\nEntrega: Andreani a domicilio\nCódigo postal: 1678\n¿Me confirmás el costo de envío y cómo avanzamos?"
+    },
+    "returned": {
+      "hash": "",
+      "category": "Metallica",
+      "scrollY": 2505,
+      "modalActive": false,
+      "cards": 20
+    },
+    "widthState": {
+      "innerWidth": 1440,
+      "scrollWidth": 1440
+    }
+  },
+  "mobile": {
+    "initial": {
+      "quickFilters": "none",
+      "bandFilters": "none",
+      "mainBands": 4,
+      "newBands": 5,
+      "moreButton": "VER TODAS LAS BANDAS",
+      "moreGridHidden": true
+    },
+    "band": {
+      "quickFilters": "flex",
+      "bandFilters": "block",
+      "heading": "DISEÑOS METALLICA",
+      "cards": 20,
+      "scrollY": 5437,
+      "firstCards": [
+        {
+          "band": "Metallica",
+          "name": "...And Justice for All",
+          "price": "Desde $37.000"
+        },
+        {
+          "band": "Metallica",
+          "name": "...And Justice for All Red",
+          "price": "Desde $37.000"
+        },
+        {
+          "band": "Metallica",
+          "name": "Black Album",
+          "price": "Desde $37.000"
+        },
+        {
+          "band": "Metallica",
+          "name": "Black Album 1992",
+          "price": "Desde $37.000"
+        }
+      ]
+    },
+    "modal": {
+      "designId": "cd-metallica-ride-the-lightning--p1060",
+      "name": "Ride the Lightning",
+      "codeBefore": "RTL-1060.V5",
+      "codeAfter": "RTL-1060.V5",
+      "garment": "hoodie",
+      "printMode": "double",
+      "back": "Ride the Lightning - Dorso",
+      "size": "L",
+      "color": "negro",
+      "delivery": "domicilio",
+      "postalCode": "1678",
+      "price": "Precio del producto: $59.000",
+      "message": "Hola FMD! Quiero pedir este diseño:\nDiseño: Ride the Lightning\nCódigo: RTL-1060.V5\nPrenda: Hoodie\nTalle: L\nColor: Negra\nEstampa: Doble estampa\nDorso: Ride the Lightning - Dorso\nPrecio del producto: $59.000\nEntrega: Andreani a domicilio\nCódigo postal: 1678\n¿Me confirmás el costo de envío y cómo avanzamos?"
+    },
+    "returned": {
+      "hash": "",
+      "category": "Metallica",
+      "scrollY": 5437,
+      "modalActive": false,
+      "cards": 20
+    },
+    "widthState": {
+      "innerWidth": 390,
+      "scrollWidth": 390
+    }
+  }
+}
