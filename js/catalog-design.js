@@ -257,6 +257,8 @@
                     },
                     sourceProductIds: [],
                     designFamilyIds: [],
+                    categories: [],
+                    collectionIds: [],
                     badges: [],
                     badgeDescriptions: [],
                     isNew: false,
@@ -294,7 +296,7 @@
                 const source = makeSourceRef(product, variant, variantIndex);
 
                 if (source.role === 'back') {
-                    const targetDesignId = backTargetOverrides[sourceKey] || lastFrontDesignId;
+                    const targetDesignId = variant?.backTargetDesignId || backTargetOverrides[sourceKey] || lastFrontDesignId;
                     if (!targetDesignId || !groups.has(targetDesignId)) {
                         const orphanGroup = ensureGroup(product, variant, conceptName, explicitId, sourceKey);
                         orphanGroup.backOptions.push({ ...source, orphan: true });
@@ -312,6 +314,9 @@
                 group.previewsByGarment[source.garment].push(source);
                 group.sourceProductIds.push(Number(product.id));
                 if (product.designFamilyId) group.designFamilyIds.push(product.designFamilyId);
+                if (product.category) group.categories.push(product.category);
+                if (Array.isArray(product.collectionIds)) group.collectionIds.push(...product.collectionIds);
+                if (Array.isArray(variant?.collectionIds)) group.collectionIds.push(...variant.collectionIds);
                 if (variant?.fmdBadge || product?.fmdBadge) group.badges.push(variant?.fmdBadge || product?.fmdBadge);
                 if (variant?.fmdBadgeDescription || product?.fmdBadgeDescription) {
                     group.badgeDescriptions.push(variant?.fmdBadgeDescription || product?.fmdBadgeDescription);
@@ -341,6 +346,8 @@
                 ),
                 sourceProductIds: unique(group.sourceProductIds),
                 designFamilyIds: unique(group.designFamilyIds),
+                categories: unique(group.categories),
+                collectionIds: unique(group.collectionIds),
                 badges: unique(group.badges),
                 badgeDescriptions: unique(group.badgeDescriptions),
                 isNew: group.isNew,

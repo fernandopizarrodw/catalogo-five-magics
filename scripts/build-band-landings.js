@@ -3,36 +3,33 @@ const path = require('path');
 
 const ROOT = path.resolve(__dirname, '..');
 const INDEX_PATH = path.join(ROOT, 'index.html');
+const SITEMAP_PATH = path.join(ROOT, 'sitemap.xml');
+const LANDINGS = require(path.join(ROOT, 'js', 'band-archives-config.js'));
 
-const LANDINGS = [
-    {
-        output: 'nightwish/index.html',
-        slug: 'nightwish',
-        band: 'Nightwish',
-        displayName: 'NIGHTWISH',
-        title: 'Nightwish: remeras, hoodies y buzos | Five Magics Designs',
-        description: 'Diseños de Nightwish en remeras, hoodies y buzos hechos a pedido. Elegí estampa frontal o doble, talle, color y forma de entrega.',
-        canonical: 'https://catalogo.fivemagicsdesigns.com/nightwish/',
-        image: '/images/banda_sugeridas/nightwish/remera_nightwish_once.jpg',
-        imageUrl: 'https://catalogo.fivemagicsdesigns.com/images/banda_sugeridas/nightwish/remera_nightwish_once.jpg',
-        heroTitle: 'REMERAS, HOODIES Y BUZOS',
-        heroCopy: 'Diseños disponibles con estampa frontal o doble. Elegí tu favorito y armá tu pedido.',
-        finalTitle: '¿BUSCABAS OTRO DISEÑO DE NIGHTWISH?',
-        finalCopy: 'También hacemos diseños personalizados a partir de una tapa, imagen o idea.',
-        whatsappMessage: 'Hola FMD! Quiero consultar por un diseño de Nightwish a partir de una tapa, imagen o idea.',
-        defaultGarment: 'hoodie',
-        usesShownComposition: true,
-        garments: [
-            { key: 'hoodie', title: 'HOODIES', price: 'Desde $52.000', image: '/images/banda_sugeridas/nightwish/hoodie_nightwish_once.jpg', alt: 'Hoodie Nightwish Once' },
-            { key: 'buzo_cuello_redondo', title: 'BUZOS', price: 'Desde $50.000', image: '/images/banda_sugeridas/nightwish/buzo_nightwish_once.jpg', alt: 'Buzo cuello redondo Nightwish Once' },
-            { key: 'remera', title: 'REMERAS', price: 'Desde $37.000', image: '/images/banda_sugeridas/nightwish/remera_nightwish_once.jpg', alt: 'Remera Nightwish Once' }
-        ]
-    }
-];
+function renderSitemap() {
+    const lastmod = new Date().toISOString().slice(0, 10);
+    const landingEntries = LANDINGS.map(config => `  <url>
+    <loc>${config.canonical}</loc>
+    <lastmod>${lastmod}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>`).join('\n');
+    return `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://catalogo.fivemagicsdesigns.com/</loc>
+    <lastmod>${lastmod}</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+${landingEntries}
+</urlset>
+`;
+}
 
 function extractSharedCommerceMarkup(source) {
     const startMarker = '    <div class="zoom-overlay" id="zoomOverlay">';
-    const endMarker = '    <script src="js/catalog-design.js" defer></script>';
+    const endMarker = '    <script src="js/band-archives-config.js" defer></script>';
     const start = source.indexOf(startMarker);
     const end = source.indexOf(endMarker);
     if (start < 0 || end < 0 || end <= start) {
@@ -50,7 +47,8 @@ function serializeInlineConfig(config) {
         band: config.band,
         slug: config.slug,
         defaultGarment: config.defaultGarment,
-        usesShownComposition: config.usesShownComposition
+        usesShownComposition: config.usesShownComposition,
+        collections: Array.isArray(config.collections) ? config.collections : []
     })
         .replace(/</g, '\\u003c');
 }
@@ -66,10 +64,6 @@ function customizeSharedCommerceMarkup(config, markup) {
         .replace(
             'Corte amplio unisex · Largo más justo que el hoodie · Estampa DTG',
             'Buzo cuello redondo oversize unisex · Largo más justo que el hoodie · Estampa DTG'
-        )
-        .replace(
-            'Pod&eacute;s elegir el dorso ahora o definirlo por WhatsApp.',
-            'La composici&oacute;n se entrega como se muestra. Si quer&eacute;s modificarla, consultanos antes de confirmar.'
         )
         .replace(
             '<strong>Producción estimada: 4 a 7 días hábiles.</strong> Envíos por Andreani a domicilio o punto de retiro. Retiro sin cargo en Villa Martelli.',
@@ -145,6 +139,7 @@ function renderLanding(config, sharedCommerceMarkup) {
         <div class="header-content">
             <a href="/#catalogoPrincipal" class="logo" aria-label="Volver al catálogo FMD">FIVE <span>MAGICS</span></a>
             <div class="header-actions">
+                <a href="/#catalogoPrincipal" class="btn-back-catalog">VER TODO FMD</a>
                 <a href="${whatsappUrl(`Hola FMD! Quiero hacer un pedido de ${config.band}.`)}" class="btn-wa-header" target="_blank" rel="noopener">
                     <span>WhatsApp</span>
                 </a>
@@ -182,7 +177,7 @@ function renderLanding(config, sharedCommerceMarkup) {
         <section class="band-landing-garment-selector" id="catalogoPrincipal" aria-label="Elegir prenda ${config.band}">
             <div class="band-landing-garment-grid" role="tablist" aria-label="Prendas disponibles">
 ${config.garments.map((garment, index) => `
-                <button type="button" class="band-landing-garment-card${index === 0 ? ' active' : ''}" data-band-landing-garment="${garment.key}" role="tab" aria-selected="${index === 0 ? 'true' : 'false'}" onclick="selectBandLandingGarment('${garment.key}')">
+                <button type="button" class="band-landing-garment-card${garment.key === config.defaultGarment ? ' active' : ''}" data-band-landing-garment="${garment.key}" role="tab" aria-selected="${garment.key === config.defaultGarment ? 'true' : 'false'}" onclick="selectBandLandingGarment('${garment.key}')">
                     <span class="band-landing-garment-media">
                         <img src="${garment.image}" alt="${garment.alt}" loading="${index === 0 ? 'eager' : 'lazy'}" decoding="async">
                     </span>
@@ -202,6 +197,10 @@ ${config.garments.map((garment, index) => `
             </div>
 
             <nav id="categoryNav" hidden aria-hidden="true"></nav>
+${Array.isArray(config.collections) && config.collections.length ? `            <div class="band-landing-collections" id="bandLandingCollections" aria-label="Explorar ${config.band} por colección">
+                <button type="button" class="band-landing-collection-btn active" data-band-landing-collection="" onclick="selectBandLandingCollection('')">TODOS <span data-collection-count=""></span></button>
+${config.collections.map(collection => `                <button type="button" class="band-landing-collection-btn" data-band-landing-collection="${collection.id}" onclick="selectBandLandingCollection('${collection.id}')">${collection.label} <span data-collection-count="${collection.id}"></span></button>`).join('\n')}
+            </div>` : ''}
             <div class="catalog-toolbar">
                 <button type="button" id="megadethBackBtn" hidden></button>
                 <button type="button" id="slayerBackBtn" hidden></button>
@@ -256,6 +255,7 @@ ${config.garments.map((garment, index) => `
 
 ${commerceMarkup}
 
+    <script src="/js/band-archives-config.js" defer></script>
     <script src="/js/catalog-design.js" defer></script>
     <script src="/js/app.js" defer></script>
 </body>
@@ -272,6 +272,8 @@ function main() {
         fs.writeFileSync(outputPath, renderLanding(config, sharedCommerceMarkup), 'utf8');
         process.stdout.write(`Generada ${path.relative(ROOT, outputPath)} para ${config.band}\n`);
     });
+    fs.writeFileSync(SITEMAP_PATH, renderSitemap(), 'utf8');
+    process.stdout.write('Sitemap actualizado\n');
 }
 
 main();

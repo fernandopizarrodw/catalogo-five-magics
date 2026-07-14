@@ -262,6 +262,41 @@
     margin: 80px auto 0;
 }
 
+.band-landing-collections {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 9px;
+    margin: 22px 0 16px;
+}
+
+.band-landing-collection-btn {
+    min-height: 42px;
+    padding: 9px 15px;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 999px;
+    background: #101011;
+    color: #d7d7d7;
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.035em;
+    cursor: pointer;
+}
+
+.band-landing-collection-btn span {
+    color: var(--text-muted);
+    font-weight: 600;
+}
+
+.band-landing-collection-btn:hover,
+.band-landing-collection-btn:focus-visible,
+.band-landing-collection-btn.active {
+    border-color: var(--magic-green);
+    color: #fff;
+    background: rgba(30, 215, 96, 0.1);
+}
+
 .band-landing-section-head {
     margin: 0 auto 22px;
     text-align: center;
@@ -287,6 +322,13 @@
 
 .band-landing-page .catalog-design-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.band-landing-page .catalog-design-copy > strong {
+    font-family: var(--font-body);
+    font-weight: 600;
+    line-height: 1.35;
+    letter-spacing: 0.01em;
 }
 
 .band-landing-hidden-controls {
@@ -443,6 +485,21 @@
     .band-landing-catalog {
         width: calc(100% - 16px);
         margin-top: 56px;
+    }
+
+    .band-landing-collections {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+        margin: 18px 0 12px;
+    }
+
+    .band-landing-collection-btn {
+        width: 100%;
+        min-width: 0;
+        padding-inline: 8px;
+        border-radius: 10px;
+        white-space: normal;
     }
 
     .band-landing-page .catalog-toolbar {

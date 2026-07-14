@@ -1010,6 +1010,7 @@
             {
                 "img": "images/albums/Rust_in_peace/rust_in_peace_lineup-dorso.png",
                 "name": "Lineup Dorso NG",
+                "backTargetDesignId": "cd-megadeth-rust-in-peace--lineup-v2",
                 "isNew": true
             }
         ],

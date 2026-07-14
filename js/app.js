@@ -32,18 +32,26 @@ const COMBO_BUZO_REMERA_CLASICA = 95000;
 const COMBO_BUZO_REMERA_OVERSIZE = 98000;
 const FECHA_VIGENCIA = "Junio 2026";
 const WHATSAPP = "541169667685";
+const BAND_ARCHIVE_CONFIGS = Array.isArray(window.FMD_BAND_ARCHIVES)
+    ? window.FMD_BAND_ARCHIVES
+    : [];
 const BAND_LANDING_CONFIG = window.FMD_BAND_LANDING && typeof window.FMD_BAND_LANDING === 'object'
     ? window.FMD_BAND_LANDING
     : null;
 const BAND_LANDING_BAND = String(BAND_LANDING_CONFIG?.band || '').trim();
+const BAND_LANDING_COLLECTIONS = Array.isArray(BAND_LANDING_CONFIG?.collections)
+    ? BAND_LANDING_CONFIG.collections
+    : [];
 const BAND_LANDING_GARMENTS = new Set(['remera', 'hoodie', 'buzo_cuello_redondo']);
 const configuredBandLandingGarment = String(BAND_LANDING_CONFIG?.defaultGarment || '').trim();
 let bandLandingGarment = BAND_LANDING_GARMENTS.has(configuredBandLandingGarment)
     ? configuredBandLandingGarment
     : (BAND_LANDING_BAND ? 'remera' : '');
-const BAND_LANDING_URLS = {
-    nightwish: '/nightwish/'
-};
+let bandLandingCollection = '';
+const BAND_LANDING_URLS = Object.fromEntries(BAND_ARCHIVE_CONFIGS.map(config => [
+    normalizeText(config.band),
+    `/${String(config.slug || '').replace(/^\/+|\/+$/g, '')}/`
+]));
 
 function isBandLandingMode() {
     return Boolean(BAND_LANDING_BAND);
@@ -96,6 +104,48 @@ function getBandLandingGarmentLabel(garment = bandLandingGarment) {
     if (garment === 'buzo_cuello_redondo') return 'BUZOS';
     return 'REMERAS';
 }
+
+function matchesBandLandingCollection(design, collection) {
+    if (!collection) return true;
+    const collectionId = normalizeText(collection.id);
+    if ((design?.collectionIds || []).some(id => normalizeText(id) === collectionId)) return true;
+
+    const categoryMatches = (collection.match?.categories || []).map(normalizeText);
+    if (categoryMatches.length && (design?.categories || [design?.category]).some(category => categoryMatches.includes(normalizeText(category)))) {
+        return true;
+    }
+
+    const badgeMatches = (collection.match?.badges || []).map(normalizeText);
+    return badgeMatches.length > 0
+        && (design?.badges || []).some(badge => badgeMatches.includes(normalizeText(badge)));
+}
+
+function updateBandLandingCollectionCounts(designs) {
+    if (!isBandLandingMode() || !BAND_LANDING_COLLECTIONS.length) return;
+    const allDesigns = Array.isArray(designs) ? designs : [];
+    document.querySelectorAll('[data-collection-count]').forEach(counter => {
+        const collectionId = counter.dataset.collectionCount || '';
+        const collection = BAND_LANDING_COLLECTIONS.find(item => item.id === collectionId);
+        const count = collection ? allDesigns.filter(design => matchesBandLandingCollection(design, collection)).length : allDesigns.length;
+        counter.textContent = `(${count})`;
+    });
+}
+
+function selectBandLandingCollection(collectionId = '') {
+    if (!isBandLandingMode()) return;
+    const nextId = String(collectionId || '');
+    if (nextId && !BAND_LANDING_COLLECTIONS.some(collection => collection.id === nextId)) return;
+    bandLandingCollection = nextId;
+    document.querySelectorAll('[data-band-landing-collection]').forEach(button => {
+        const isActive = button.dataset.bandLandingCollection === nextId;
+        button.classList.toggle('active', isActive);
+        button.setAttribute('aria-pressed', String(isActive));
+    });
+    resetCatalogPagination();
+    filterProducts();
+}
+
+window.selectBandLandingCollection = selectBandLandingCollection;
 
 function selectBandLandingGarment(garment) {
     if (!isBandLandingMode() || !BAND_LANDING_GARMENTS.has(garment)) return;
@@ -592,7 +642,9 @@ window.showAllMegadeth = showAllMegadeth;
 window.openMegadethSizeGuide = openMegadethSizeGuide;
 
 function loadMoreCatalogDesigns() {
-    if (normalizeText(currentCategory) === 'megadeth') {
+    if (productsGrid?.classList.contains('catalog-design-grid')) {
+        catalogVisibleLimit += CATALOG_PAGE_SIZE;
+    } else if (normalizeText(currentCategory) === 'megadeth') {
         megadethVisibleLimit += MEGADETH_PAGE_SIZE;
     } else {
         catalogVisibleLimit += CATALOG_PAGE_SIZE;
@@ -1968,6 +2020,68 @@ const MODAL_GARMENT_LABELS = {
     buzo: 'Buzo'
 };
 
+const MODAL_GARMENT_TYPE_LABELS = {
+    remera: 'Remera',
+    hoodie: 'Hoodie',
+    buzo: 'Buzo'
+};
+
+const MODAL_REMERA_VARIANTS = [
+    { id: 'hombre_clasica', label: 'Hombre clásica', garment: 'remera_clasica', age: 'adulto', cut: 'clasica' },
+    { id: 'mujer_clasica', label: 'Mujer clásica', garment: 'mujer', age: 'adulto', cut: 'mujer' },
+    { id: 'oversize_unisex', label: 'Oversize unisex', garment: 'oversize', age: 'adulto', cut: 'oversize' },
+    { id: 'nino', label: 'Niño', garment: 'remera_clasica', age: 'chico', cut: 'clasica' }
+];
+
+function getAvailableModalGarmentTypes(available = getAvailableModalGarments(currentProduct)) {
+    const types = [];
+    if (available.some(garment => ['remera_clasica', 'mujer', 'oversize'].includes(garment))) types.push('remera');
+    if (available.includes('hoodie')) types.push('hoodie');
+    if (available.includes('buzo')) types.push('buzo');
+    return types;
+}
+
+function getSelectedModalGarmentType() {
+    if (selectedModalGarment === 'hoodie') return 'hoodie';
+    if (selectedModalGarment === 'buzo') return 'buzo';
+    return 'remera';
+}
+
+function getSelectedRemeraVariantId() {
+    if (selectedAge === 'chico') return 'nino';
+    if (selectedModalGarment === 'mujer' || selectedCut === 'mujer') return 'mujer_clasica';
+    if (selectedModalGarment === 'oversize' || selectedCut === 'oversize') return 'oversize_unisex';
+    return 'hombre_clasica';
+}
+
+function selectModalGarmentType(type) {
+    const availableTypes = getAvailableModalGarmentTypes();
+    if (!availableTypes.includes(type)) return;
+    if (type === 'remera') {
+        selectRemeraVariant('hombre_clasica');
+        return;
+    }
+    selectModalGarment(type);
+}
+
+function selectRemeraVariant(variantId) {
+    const variant = MODAL_REMERA_VARIANTS.find(item => item.id === variantId);
+    const available = getAvailableModalGarments(currentProduct);
+    if (!variant || !available.includes(variant.garment)) return;
+
+    selectedModalGarment = variant.garment;
+    selectedAge = variant.age;
+    selectedCut = variant.cut;
+    selectedSize = '';
+    clearSelectionError('ageGroup');
+    clearSelectionError('cutGroup');
+    clearSelectionError('sizeGroup');
+    if (currentCatalogDesign) selectCatalogDesignPreviewForGarment(selectedModalGarment);
+    updateModalGarmentUI();
+    updateModalPrices();
+    updateModalSizeRange();
+}
+
 function selectModalGarment(garment) {
     const available = getAvailableModalGarments(currentProduct);
     selectedModalGarment = available.includes(garment) ? garment : (available[0] || 'remera_clasica');
@@ -2019,26 +2133,34 @@ function getCatalogDesignGarmentKey(modalGarment = selectedModalGarment) {
 }
 
 function updateCatalogDesignReferenceNote() {
-    const note = document.querySelector('.modal-adaptable-note');
+    const note = document.getElementById('modalPreviewReferenceNote');
     if (!note || !currentCatalogDesign) return;
+    document.querySelector('.modal-adaptable-note')?.classList.add('is-hidden');
     const garment = getCatalogDesignGarmentKey();
     const hasPreview = Boolean(currentCatalogDesign.previewsByGarment?.[garment]?.length);
-    const shouldHide = usesBandLandingShownComposition() && hasPreview;
-    note.classList.toggle('is-hidden', shouldHide);
-    if (!shouldHide) {
-        note.textContent = hasPreview
-            ? 'La imagen muestra una vista disponible. Podés personalizar frente y dorso por WhatsApp.'
-            : 'Vista de referencia. El diseño se adapta a la prenda seleccionada.';
-    }
-    note.classList.toggle('is-reference-view', !hasPreview);
+    const garmentLabel = garment === 'hoodie'
+        ? 'hoodie'
+        : garment === 'buzo_cuello_redondo'
+            ? 'buzo cuello redondo'
+            : 'remera';
+    note.classList.toggle('is-hidden', hasPreview);
+    note.textContent = hasPreview
+        ? ''
+        : `Vista de referencia. Adaptamos este diseño a ${garmentLabel}.`;
 }
 
 function selectCatalogDesignPreviewForGarment(modalGarment) {
     if (!currentCatalogDesign || !currentModalSourceRefs.length) return;
     const garment = getCatalogDesignGarmentKey(modalGarment);
     const previews = currentCatalogDesign.previewsByGarment?.[garment] || [];
-    if (previews.length) {
-        const preview = previews[0];
+    let preview = previews[0];
+    if (!preview) {
+        const fallbackGarments = ['remera', 'hoodie', 'buzo_cuello_redondo'];
+        preview = fallbackGarments
+            .flatMap(key => currentCatalogDesign.previewsByGarment?.[key] || [])
+            .find(Boolean) || currentCatalogDesign.front;
+    }
+    if (preview) {
         const slideIndex = currentModalSourceRefs.findIndex(ref => (
             ref.productId === preview.productId && ref.variantIndex === preview.variantIndex
         ));
@@ -2051,18 +2173,32 @@ function updateModalGarmentUI() {
     const selector = document.getElementById('modalGarmentSelector');
     const garmentGroup = document.getElementById('modalGarmentGroup');
     const available = getAvailableModalGarments(currentProduct);
-    const shouldShowGarmentChoice = available.length > 1;
+    const availableTypes = getAvailableModalGarmentTypes(available);
+    const selectedType = getSelectedModalGarmentType();
+    const shouldShowGarmentChoice = availableTypes.length > 1;
     if (selector) {
-        selector.innerHTML = available.map(garment => `
-            <button type="button" class="option-btn modal-garment-btn${selectedModalGarment === garment ? ' active' : ''}" data-modal-garment="${garment}" ${available.length === 1 ? 'disabled' : `onclick="selectModalGarment('${garment}')"`}>${MODAL_GARMENT_LABELS[garment]}</button>
+        selector.innerHTML = availableTypes.map(type => `
+            <button type="button" class="option-btn modal-garment-btn${selectedType === type ? ' active' : ''}" data-modal-garment-type="${type}" ${availableTypes.length === 1 ? 'disabled' : `onclick="selectModalGarmentType('${type}')"`}>${MODAL_GARMENT_TYPE_LABELS[type]}</button>
         `).join('');
     }
     if (garmentGroup) {
-        const isOnlyRemeraCuts = available.every(garment => ['remera_clasica', 'mujer', 'oversize'].includes(garment));
         const label = garmentGroup.querySelector('.option-label');
-        if (label) label.textContent = isOnlyRemeraCuts ? 'Corte de remera:' : 'Prenda:';
-        garmentGroup.classList.toggle('modal-garment-group-locked', available.length === 1);
+        if (label) label.textContent = 'Prenda:';
+        garmentGroup.classList.toggle('modal-garment-group-locked', availableTypes.length === 1);
         garmentGroup.style.display = shouldShowGarmentChoice ? '' : 'none';
+    }
+
+    const remeraVariantGroup = document.getElementById('modalRemeraVariantGroup');
+    const remeraVariantSelector = document.getElementById('modalRemeraVariantSelector');
+    const availableRemeraVariants = MODAL_REMERA_VARIANTS.filter(variant => available.includes(variant.garment));
+    if (remeraVariantSelector) {
+        const activeRemeraVariant = getSelectedRemeraVariantId();
+        remeraVariantSelector.innerHTML = availableRemeraVariants.map(variant => `
+            <button type="button" class="option-btn${activeRemeraVariant === variant.id ? ' active' : ''}" data-remera-variant="${variant.id}" onclick="selectRemeraVariant('${variant.id}')">${variant.label}</button>
+        `).join('');
+    }
+    if (remeraVariantGroup) {
+        remeraVariantGroup.style.display = selectedType === 'remera' && availableRemeraVariants.length ? '' : 'none';
     }
 
     const isHoodie = selectedModalGarment === 'hoodie';
@@ -2073,14 +2209,14 @@ function updateModalGarmentUI() {
     const hoodieInfoBanner = document.getElementById('hoodieInfoBanner');
     const buzoRedondoInfoBanner = document.getElementById('buzoRedondoInfoBanner');
 
-    if (ageGroup) ageGroup.style.display = isHoodie || isBuzo ? 'none' : 'flex';
+    if (ageGroup) ageGroup.style.display = 'none';
     if (cutGroup) cutGroup.style.display = 'none';
     if (hoodieInfoBanner) hoodieInfoBanner.style.display = isHoodie ? 'block' : 'none';
     if (buzoRedondoInfoBanner) buzoRedondoInfoBanner.style.display = isBuzo ? 'block' : 'none';
 
     const sizeAdult = document.getElementById('sizeSelector');
     const sizeKids = document.getElementById('sizeSelectorKids');
-    if (sizeAdult) sizeAdult.style.display = 'flex';
+    if (sizeAdult) sizeAdult.style.display = selectedAge === 'chico' && !isHoodie && !isBuzo ? 'none' : 'flex';
     if (sizeKids) sizeKids.style.display = selectedAge === 'chico' && !isHoodie && !isBuzo ? 'flex' : 'none';
 
     document.querySelectorAll('#ageSelector button').forEach(btn => {
@@ -2102,6 +2238,8 @@ function updateModalGarmentUI() {
 }
 
 window.selectModalGarment = selectModalGarment;
+window.selectModalGarmentType = selectModalGarmentType;
+window.selectRemeraVariant = selectRemeraVariant;
 
 const DELIVERY_LABELS = {
     domicilio: 'Andreani a domicilio',
@@ -2179,9 +2317,7 @@ function updatePrintModeUI() {
     });
     if (help) help.textContent = '';
     if (doubleNote) {
-        doubleNote.textContent = usesShownComposition
-            ? 'La composición se entrega como se muestra. Si querés modificarla, consultanos antes de confirmar.'
-            : 'Podés elegir el dorso ahora o definirlo por WhatsApp.';
+        doubleNote.textContent = 'Todos los diseños son personalizables. Si querés cambiar, agregar o quitar estampas, lo coordinamos por WhatsApp antes de producir tu pedido.';
         doubleNote.classList.toggle('is-hidden', !isDouble);
     }
     if (dorsoPanel) dorsoPanel.style.display = isDouble && !usesShownComposition ? 'block' : 'none';
@@ -2844,13 +2980,9 @@ function initializeCatalogDesigns() {
     if (!ENABLE_CATALOG_DESIGN_RENDER || !window.FMDCatalogDesign || !Array.isArray(db) || !db.length) return;
 
     const sourceProducts = db.filter(product => isPublicProduct(product) && !isHistoricalBackProduct(product));
-    const backTargetOverrides = {
-        '4:10': 'cd-megadeth-rust-in-peace--lineup-v2'
-    };
     const explicitDesignIds = buildConservativeCatalogDesignIds(sourceProducts);
     catalogDesigns = window.FMDCatalogDesign
         .buildCatalogDesigns(sourceProducts, {
-            backTargetOverrides,
             explicitDesignIds,
             resolveDesignId: getCatalogDesignResolverId
         })
@@ -4324,9 +4456,15 @@ function openModal(id, variantIndex = undefined, scopedVariantIndexes = undefine
     if (!product || !isPublicProduct(product)) return;
     currentProduct = product;
     const adaptableNote = document.querySelector('.modal-adaptable-note');
+    const previewReferenceNote = document.getElementById('modalPreviewReferenceNote');
     if (adaptableNote && !currentCatalogDesign) {
         adaptableNote.textContent = '¿Querés este diseño en otra prenda o con otro dorso? Lo adaptamos por WhatsApp.';
         adaptableNote.classList.remove('is-reference-view');
+        adaptableNote.classList.remove('is-hidden');
+    }
+    if (previewReferenceNote && !currentCatalogDesign) {
+        previewReferenceNote.textContent = '';
+        previewReferenceNote.classList.add('is-hidden');
     }
     currentAlbumGarmentFilter = 'all';
     const outerwearCatalogButton = document.getElementById('modalOuterwearCatalogBtn');
@@ -4459,6 +4597,16 @@ function openModal(id, variantIndex = undefined, scopedVariantIndexes = undefine
         : availableModalGarments.includes(preferredGarment)
         ? preferredGarment
         : (availableModalGarments[0] || 'remera_clasica');
+    if (selectedModalGarment === 'hoodie' || selectedModalGarment === 'buzo' || selectedModalGarment === 'oversize') {
+        selectedAge = 'adulto';
+        selectedCut = 'oversize';
+    } else if (selectedModalGarment === 'mujer') {
+        selectedAge = 'adulto';
+        selectedCut = 'mujer';
+    } else {
+        selectedAge = 'adulto';
+        selectedCut = 'clasica';
+    }
     
     // Reset botones de edad (sin preselección)
     document.querySelectorAll('#ageSelector button').forEach(btn => {
@@ -5478,6 +5626,11 @@ function getCatalogDesignResults() {
         : catalogDesigns;
     if (isBandLandingMode() && bandLandingGarment) {
         scopedDesigns = scopedDesigns.filter(design => Boolean(getBandLandingDesignPreview(design)));
+    }
+    updateBandLandingCollectionCounts(scopedDesigns);
+    if (isBandLandingMode() && bandLandingCollection) {
+        const collection = BAND_LANDING_COLLECTIONS.find(item => item.id === bandLandingCollection);
+        if (collection) scopedDesigns = scopedDesigns.filter(design => matchesBandLandingCollection(design, collection));
     }
     let designs = null;
     if (currentSearch) {

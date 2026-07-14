@@ -1544,6 +1544,7 @@
                     <div class="carousel" id="carousel"></div>
                     <button class="carousel-arrow right is-hidden" id="carouselNext" aria-label="Siguiente"></button>
                     <div class="carousel-indicators" id="carouselDots"></div>
+                    <div class="modal-preview-reference-note is-hidden" id="modalPreviewReferenceNote" aria-live="polite"></div>
                 </div>
                 <div class="variant-name" id="variantName">Original Art</div>
                 <div class="album-garment-filter is-hidden" id="albumGarmentFilter"></div>
@@ -1576,6 +1577,11 @@
                         <div class="option-buttons modal-garment-buttons" id="modalGarmentSelector"></div>
                     </div>
 
+                    <div class="option-group" id="modalRemeraVariantGroup" style="display:none;">
+                        <span class="option-label">Tipo de remera:</span>
+                        <div class="option-buttons" id="modalRemeraVariantSelector"></div>
+                    </div>
+
                     <!-- Selectores de compra -->
                     <div class="product-options product-options-tight">
                         <!-- Info especial Hoodies (oculto por defecto) -->
@@ -1589,7 +1595,7 @@
                         </div>
                         
                         <!-- Selector Adulto/Chico -->
-                        <div class="option-group" id="ageGroup">
+                        <div class="option-group is-hidden" id="ageGroup">
                             <span class="option-label">Edad:</span>
                             <div class="option-buttons" id="ageSelector">
                                 <button type="button" class="option-btn active" data-age="adulto" onclick="selectAge('adulto')">Adulto</button>
@@ -1668,7 +1674,7 @@
                     <div class="modal-price-note is-hidden"></div>
 
                     <div class="modal-simple-note is-hidden" id="modalDoubleNote">
-                        Pod&eacute;s elegir el dorso ahora o definirlo por WhatsApp.
+                        Todos los dise&ntilde;os son personalizables. Si quer&eacute;s cambiar, agregar o quitar estampas, lo coordinamos por WhatsApp antes de producir tu pedido.
                     </div>
                     <div class="double-selection-status is-hidden" id="doubleSelectionStatus"></div>
 
@@ -1812,6 +1818,7 @@
         </div>
     </div>
 
+    <script src="js/band-archives-config.js" defer></script>
     <script src="js/catalog-design.js" defer></script>
     <script src="js/app.js" defer></script>
 </body>
