@@ -48,7 +48,12 @@ function serializeInlineConfig(config) {
         slug: config.slug,
         defaultGarment: config.defaultGarment,
         usesShownComposition: config.usesShownComposition,
-        collections: Array.isArray(config.collections) ? config.collections : []
+        usesShownCompositionGarments: Array.isArray(config.usesShownCompositionGarments)
+            ? config.usesShownCompositionGarments
+            : [],
+        collections: Array.isArray(config.collections) ? config.collections : [],
+        designOrder: Array.isArray(config.designOrder) ? config.designOrder : [],
+        albumOrder: Array.isArray(config.albumOrder) ? config.albumOrder : []
     })
         .replace(/</g, '\\u003c');
 }

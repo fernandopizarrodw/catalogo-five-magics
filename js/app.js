@@ -42,10 +42,32 @@ const BAND_LANDING_BAND = String(BAND_LANDING_CONFIG?.band || '').trim();
 const BAND_LANDING_COLLECTIONS = Array.isArray(BAND_LANDING_CONFIG?.collections)
     ? BAND_LANDING_CONFIG.collections
     : [];
+const BAND_LANDING_SHOWN_COMPOSITION_GARMENTS = new Set(
+    Array.isArray(BAND_LANDING_CONFIG?.usesShownCompositionGarments)
+        ? BAND_LANDING_CONFIG.usesShownCompositionGarments
+        : []
+);
+const BAND_LANDING_DESIGN_ORDER = Array.isArray(BAND_LANDING_CONFIG?.designOrder)
+    ? BAND_LANDING_CONFIG.designOrder
+    : [];
+const BAND_LANDING_DESIGN_ORDER_INDEX = new Map(
+    BAND_LANDING_DESIGN_ORDER.map((designId, index) => [designId, index])
+);
+const BAND_LANDING_ALBUM_ORDER = Array.isArray(BAND_LANDING_CONFIG?.albumOrder)
+    ? BAND_LANDING_CONFIG.albumOrder
+    : [];
+const BAND_LANDING_ALBUM_ORDER_INDEX = new Map(
+    BAND_LANDING_ALBUM_ORDER.map((album, index) => [normalizeText(album), index])
+);
 const BAND_LANDING_GARMENTS = new Set(['remera', 'hoodie', 'buzo_cuello_redondo']);
 const configuredBandLandingGarment = String(BAND_LANDING_CONFIG?.defaultGarment || '').trim();
-let bandLandingGarment = BAND_LANDING_GARMENTS.has(configuredBandLandingGarment)
-    ? configuredBandLandingGarment
+const requestedBandLandingGarment = typeof window !== 'undefined'
+    ? String(new URLSearchParams(window.location.search).get('prenda') || '').trim()
+    : '';
+let bandLandingGarment = BAND_LANDING_GARMENTS.has(requestedBandLandingGarment)
+    ? requestedBandLandingGarment
+    : BAND_LANDING_GARMENTS.has(configuredBandLandingGarment)
+        ? configuredBandLandingGarment
     : (BAND_LANDING_BAND ? 'remera' : '');
 let bandLandingCollection = '';
 const BAND_LANDING_URLS = Object.fromEntries(BAND_ARCHIVE_CONFIGS.map(config => [
@@ -53,12 +75,39 @@ const BAND_LANDING_URLS = Object.fromEntries(BAND_ARCHIVE_CONFIGS.map(config => 
     `/${String(config.slug || '').replace(/^\/+|\/+$/g, '')}/`
 ]));
 
+function trackCatalogEvent(eventName, params = {}) {
+    if (typeof gtag === 'undefined' || !eventName) return;
+
+    const query = new URLSearchParams(window.location.search);
+    const context = {
+        page_path: window.location.pathname,
+        archive: BAND_LANDING_BAND || 'catalogo_general',
+        debug_mode: query.get('ga_debug') === '1' ? true : undefined,
+        utm_source: query.get('utm_source') || undefined,
+        utm_medium: query.get('utm_medium') || undefined,
+        utm_campaign: query.get('utm_campaign') || undefined
+    };
+    const payload = Object.fromEntries(
+        Object.entries({ ...context, ...params })
+            .filter(([, value]) => value !== undefined && value !== null && value !== '')
+    );
+
+    gtag('event', eventName, payload);
+}
+
 function isBandLandingMode() {
     return Boolean(BAND_LANDING_BAND);
 }
 
 function usesBandLandingShownComposition() {
-    return isBandLandingMode() && BAND_LANDING_CONFIG?.usesShownComposition === true;
+    if (!isBandLandingMode()) return false;
+    if (BAND_LANDING_CONFIG?.usesShownComposition === true) return true;
+    const garment = selectedModalGarment === 'buzo'
+        ? 'buzo_cuello_redondo'
+        : selectedModalGarment === 'hoodie'
+            ? 'hoodie'
+            : 'remera';
+    return BAND_LANDING_SHOWN_COMPOSITION_GARMENTS.has(garment);
 }
 
 function isCatalogDesignInScope(design) {
@@ -1311,24 +1360,34 @@ function formatHomeOuterwearPrices(garmentType) {
 
 function renderHomeOuterwearCard(product) {
     const preview = getHomeOuterwearPreview(product);
-    const category = product?.category || '';
-    const garmentList = Array.isArray(product?.garments) ? product.garments.map(normalizeText) : [];
-    const isBuzo = category === 'Buzo Cuello Redondo' || garmentList.includes('buzo_cuello_redondo') || garmentList.includes('buzo');
-    const outerwearType = preview.garmentType === 'buzo' || isBuzo ? 'buzo' : 'hoodie';
-    const modalArgs = preview.variantIndex >= 0 ? `, ${preview.variantIndex}` : '';
+    const band = product.band || getCategoryLabel(product.category);
+    const encodedBand = encodeURIComponent(band);
+    const garment = preview.garmentType === 'buzo' ? 'buzo_cuello_redondo' : 'hoodie';
     return `
-        <article class="home-outerwear-card" onclick="openOuterwearFeaturedModal(${product.id}${modalArgs})">
+        <article class="home-outerwear-card" role="button" tabindex="0" onclick="openHomeOuterwearBand('${encodedBand}', '${garment}')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openHomeOuterwearBand('${encodedBand}', '${garment}');}">
             <div class="home-outerwear-media">
-                <img src="${preview.img}" alt="${product.name}" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='images/logo/MARCA DE AGUA.png';">
+                <img src="${preview.img}" alt="${band}: hoodies y buzos" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='images/logo/MARCA DE AGUA.png';">
             </div>
             <div class="home-outerwear-info">
-                <p>${product.band || getCategoryLabel(product.category)}</p>
-                <h3>${cleanPublicText(product.name)}</h3>
-                <div>${formatHomeOuterwearPrices(outerwearType)}</div>
+                <p>ARCHIVO FMD</p>
+                <h3>${band}</h3>
+                <span class="home-outerwear-cta">VER HOODIES Y BUZOS</span>
             </div>
         </article>
     `;
 }
+
+function openHomeOuterwearBand(encodedBand, garment = 'hoodie') {
+    const band = decodeURIComponent(encodedBand || '');
+    const landingUrl = getBandLandingUrl(band);
+    if (landingUrl) {
+        window.location.href = `${landingUrl}?prenda=${encodeURIComponent(garment)}#catalogoPrincipal`;
+        return;
+    }
+    filterOuterwearByBand(band);
+}
+
+window.openHomeOuterwearBand = openHomeOuterwearBand;
 
 function renderHomeArchitecture() {
     const mainContainer = document.getElementById('homeMainBandAccess');
@@ -2064,10 +2123,12 @@ function selectModalGarmentType(type) {
     selectModalGarment(type);
 }
 
-function selectRemeraVariant(variantId) {
+function selectRemeraVariant(variantId, shouldTrack = true) {
     const variant = MODAL_REMERA_VARIANTS.find(item => item.id === variantId);
     const available = getAvailableModalGarments(currentProduct);
     if (!variant || !available.includes(variant.garment)) return;
+
+    const previousSelection = `${getSelectedModalGarmentType()}:${getSelectedRemeraVariantId()}`;
 
     selectedModalGarment = variant.garment;
     selectedAge = variant.age;
@@ -2080,10 +2141,22 @@ function selectRemeraVariant(variantId) {
     updateModalGarmentUI();
     updateModalPrices();
     updateModalSizeRange();
+
+    const currentSelection = `${getSelectedModalGarmentType()}:${getSelectedRemeraVariantId()}`;
+    if (shouldTrack && previousSelection !== currentSelection) {
+        trackCatalogEvent('garment_select', {
+            band: currentCatalogDesign?.band || getCatalogBandLabel(currentProduct),
+            design_id: currentCatalogDesign?.designId,
+            design_name: currentCatalogDesign?.publicName || currentProduct?.name,
+            garment: getSelectedModalGarmentType(),
+            garment_variant: getSelectedRemeraVariantId()
+        });
+    }
 }
 
-function selectModalGarment(garment) {
+function selectModalGarment(garment, shouldTrack = true) {
     const available = getAvailableModalGarments(currentProduct);
+    const previousGarment = getSelectedModalGarmentType();
     selectedModalGarment = available.includes(garment) ? garment : (available[0] || 'remera_clasica');
 
     if (selectedModalGarment === 'hoodie' || selectedModalGarment === 'buzo') {
@@ -2105,6 +2178,17 @@ function selectModalGarment(garment) {
     updateModalGarmentUI();
     updateModalPrices();
     updateModalSizeRange();
+
+    const currentGarment = getSelectedModalGarmentType();
+    if (shouldTrack && previousGarment !== currentGarment) {
+        trackCatalogEvent('garment_select', {
+            band: currentCatalogDesign?.band || getCatalogBandLabel(currentProduct),
+            design_id: currentCatalogDesign?.designId,
+            design_name: currentCatalogDesign?.publicName || currentProduct?.name,
+            garment: currentGarment,
+            garment_variant: currentGarment === 'remera' ? getSelectedRemeraVariantId() : undefined
+        });
+    }
 }
 
 function syncSelectedModalGarmentWithActiveVariant() {
@@ -2153,7 +2237,7 @@ function selectCatalogDesignPreviewForGarment(modalGarment) {
     if (!currentCatalogDesign || !currentModalSourceRefs.length) return;
     const garment = getCatalogDesignGarmentKey(modalGarment);
     const previews = currentCatalogDesign.previewsByGarment?.[garment] || [];
-    let preview = previews[0];
+    let preview = previews.find(item => item.preferredPreview) || previews[0];
     if (!preview) {
         const fallbackGarments = ['remera', 'hoodie', 'buzo_cuello_redondo'];
         preview = fallbackGarments
@@ -3630,15 +3714,6 @@ function formatPreciosDual(product = null) {
 }
 
 function openPackWhatsapp(packName, packIncludes, packPrice) {
-    // Rastrear evento en Google Analytics
-    if (typeof gtag !== 'undefined') {
-        gtag('event', 'whatsapp_click', {
-            'event_category': 'engagement',
-            'event_label': `Pack: ${packName}`,
-            'value': packPrice || 0
-        });
-    }
-    
     // Blindaje anti-NaN: ignorar precio vacío o inválido
     let msg = `Hola FMD, quiero información sobre el pack ${packName}`;
     
@@ -3647,7 +3722,7 @@ function openPackWhatsapp(packName, packIncludes, packPrice) {
         msg += `\n${packIncludes}`;
     }
     
-    openWhatsapp(msg);
+    openWhatsapp(msg, `pack_${packName || 'general'}`);
 }
 
 // === FUNCIONES UTILITARIAS REUTILIZABLES ===
@@ -3714,14 +3789,16 @@ function buildWhatsappFallbackMessage() {
 function openWhatsapp(message, source = 'general') {
     const finalMessage = (message && String(message).trim()) ? message : buildWhatsappFallbackMessage();
 
-    if (typeof gtag !== 'undefined') {
-        gtag('event', 'whatsapp_click', {
-            'event_category': 'engagement',
-            'event_label': source,
-            'page_path': window.location.pathname,
-            'product_name': currentProduct?.name || 'general'
-        });
-    }
+    trackCatalogEvent('whatsapp_click', {
+        event_category: 'engagement',
+        event_label: source,
+        band: currentCatalogDesign?.band || (currentProduct ? getCatalogBandLabel(currentProduct) : undefined),
+        design_id: currentCatalogDesign?.designId,
+        design_name: currentCatalogDesign?.publicName || currentProduct?.name || 'general',
+        garment: currentProduct ? getSelectedModalGarmentType() : undefined,
+        print_mode: currentProduct ? selectedPrintMode : undefined,
+        cart_items: cart?.getCart?.().length || 0
+    });
     
     const encodedMessage = encodeURIComponent(finalMessage);
     window.open(`https://wa.me/${WHATSAPP}?text=${encodedMessage}`, '_blank', 'noopener');
@@ -4436,9 +4513,15 @@ function renderModalDesignBadge(sourceIndex) {
 function openCatalogDesign(designId, initialGarment = '') {
     const design = catalogDesignById.get(designId);
     if (!design?.front || !isCatalogDesignInScope(design)) return;
+    trackCatalogEvent('design_open', {
+        band: design.band,
+        design_id: design.designId,
+        design_name: design.publicName,
+        initial_garment: initialGarment || (isBandLandingMode() ? bandLandingGarment : undefined)
+    });
     openModal(design.front.productId, design.front.variantIndex, undefined, 'catalog_design', designId);
     const requestedGarment = initialGarment || (isBandLandingMode() ? getBandLandingModalGarment() : '');
-    if (requestedGarment) selectModalGarment(requestedGarment);
+    if (requestedGarment) selectModalGarment(requestedGarment, false);
 }
 
 window.openCatalogDesign = openCatalogDesign;
@@ -4789,7 +4872,12 @@ window.openOuterwearFeaturedModal = openOuterwearFeaturedModal;
 function showOuterwearCatalogFromModal() {
     const button = document.getElementById('modalOuterwearCatalogBtn');
     const band = button?.dataset.bandFilter ? decodeURIComponent(button.dataset.bandFilter) : '';
+    const landingUrl = getBandLandingUrl(band);
     closeModal();
+    if (landingUrl) {
+        window.location.href = landingUrl;
+        return;
+    }
     filterOuterwearByBand(band);
 }
 
@@ -5596,7 +5684,8 @@ function getBandLandingDesignStartingPrice(design) {
 
 function getBandLandingDesignPreview(design) {
     if (!isBandLandingMode() || !bandLandingGarment) return design?.front || null;
-    return design?.previewsByGarment?.[bandLandingGarment]?.[0] || null;
+    const previews = design?.previewsByGarment?.[bandLandingGarment] || [];
+    return previews.find(item => item.preferredPreview) || previews[0] || null;
 }
 
 function getCatalogDesignSearchText(design) {
@@ -5611,6 +5700,15 @@ function getCatalogDesignSearchText(design) {
         ...(design?.designFamilyIds || []),
         ...sourceProducts.flatMap(product => [product.name, product.category, product.album, ...(product.tags || [])])
     ].filter(Boolean).join(' '));
+}
+
+function getBandLandingAlbumOrderIndex(design) {
+    if (!BAND_LANDING_ALBUM_ORDER_INDEX.size) return Number.MAX_SAFE_INTEGER;
+    const indexes = (design?.sourceProductIds || [])
+        .map(id => db.find(product => Number(product.id) === Number(id)))
+        .map(product => BAND_LANDING_ALBUM_ORDER_INDEX.get(normalizeText(product?.album || '')))
+        .filter(index => Number.isInteger(index));
+    return indexes.length ? Math.min(...indexes) : Number.MAX_SAFE_INTEGER;
 }
 
 function catalogDesignBandExists(value) {
@@ -5647,6 +5745,16 @@ function getCatalogDesignResults() {
 
     if (!designs) return null;
     return designs.sort((a, b) => {
+        if (isBandLandingMode() && BAND_LANDING_DESIGN_ORDER_INDEX.size) {
+            const fallbackOrder = Number.MAX_SAFE_INTEGER;
+            const archiveOrderDiff = (BAND_LANDING_DESIGN_ORDER_INDEX.get(a.designId) ?? fallbackOrder)
+                - (BAND_LANDING_DESIGN_ORDER_INDEX.get(b.designId) ?? fallbackOrder);
+            if (archiveOrderDiff) return archiveOrderDiff;
+        }
+        if (isBandLandingMode() && BAND_LANDING_ALBUM_ORDER_INDEX.size) {
+            const albumOrderDiff = getBandLandingAlbumOrderIndex(a) - getBandLandingAlbumOrderIndex(b);
+            if (albumOrderDiff) return albumOrderDiff;
+        }
         const tierDiff = (VISIBILITY_TIER_ORDER[a.visibilityTier] ?? 99) - (VISIBILITY_TIER_ORDER[b.visibilityTier] ?? 99);
         if (tierDiff) return tierDiff;
         const priorityDiff = Number(b.commercialPriority || 0) - Number(a.commercialPriority || 0);
@@ -5780,9 +5888,7 @@ function renderCatalogBandDirectory(products) {
     const findLabel = label => [...groups.keys()].find(groupLabel => normalizeText(groupLabel) === normalizeText(label));
     const primaryLabels = ['Megadeth', 'Slayer', 'Iron Maiden', 'Metallica'].map(findLabel).filter(Boolean);
     const currentLabels = ['EPICA', 'Rhapsody', 'Helloween', 'Nightwish', 'Blind Guardian'].map(findLabel).filter(Boolean);
-    const reservedLabels = new Set([...primaryLabels, ...currentLabels]);
-    const remainingLabels = [...groups.keys()]
-        .filter(label => !reservedLabels.has(label))
+    const allLabels = [...groups.keys()]
         .sort((a, b) => a.localeCompare(b, 'es', { sensitivity: 'base' }));
 
     const renderBandCard = (label, emphasis = '') => {
@@ -5835,7 +5941,7 @@ function renderCatalogBandDirectory(products) {
     productsGrid.innerHTML = [
         renderSection('primary', 'BANDAS PRINCIPALES', 'Entrá directo a las colecciones más grandes de FMD.', primaryLabels, 'is-primary'),
         renderSection('current', 'NUEVOS DISEÑOS', 'EPICA, Rhapsody, Helloween, Nightwish y Blind Guardian.', currentLabels, 'is-current'),
-        renderSection('more', 'MÁS BANDAS', 'Todo el catálogo disponible, ordenado alfabéticamente.', remainingLabels)
+        renderSection('more', 'TODAS LAS BANDAS', 'Todo el catálogo disponible, ordenado alfabéticamente.', allLabels)
     ].join('');
     productsGrid.querySelectorAll('[data-band-filter]').forEach(button => {
         button.addEventListener('click', () => openBandAccess(decodeURIComponent(button.dataset.bandFilter)));
@@ -6663,6 +6769,10 @@ function buildCustomerDataForWhatsapp(data) {
 }
 
 function buildShippingContextForWhatsapp(postalCode = '', customerData = null) {
+    if (selectedDeliveryMethod === 'taller') {
+        return '\n\n📦 ENTREGA:\n• Retiro sin cargo en Villa Martelli.';
+    }
+
     if (customerData) {
         return buildCustomerDataForWhatsapp(customerData);
     }
@@ -6706,12 +6816,20 @@ function buildShippingContextForWhatsapp(postalCode = '', customerData = null) {
 function sendViaWhatsapp(postalCode = '', customerData = null) {
     const summary = cart.generateSummary();
     const shippingContext = buildShippingContextForWhatsapp(postalCode, customerData);
-    const message = `Hola FMD!\n\nQuiero encargar este pedido:\n\n${summary}${shippingContext}\n\nTe paso mis datos completos de envío para calcular Andreani y avanzar con el pedido.`;
-    openWhatsapp(message);
+    const closing = selectedDeliveryMethod === 'taller'
+        ? '¿Me confirmás cómo avanzamos?'
+        : 'Te paso mis datos completos de envío para calcular Andreani y avanzar con el pedido.';
+    const message = `Hola FMD!\n\nQuiero encargar este pedido:\n\n${summary}${shippingContext}\n\n${closing}`;
+    openWhatsapp(message, 'cart_confirmar_pedido');
 }
 
 // === MODAL VISTA PREVIA DEL CARRITO ===
 function openCartPreview() {
+    trackCatalogEvent('cart_open', {
+        cart_items: cart.getCart().length,
+        band: currentCatalogDesign?.band || (currentProduct ? getCatalogBandLabel(currentProduct) : undefined),
+        design_id: currentCatalogDesign?.designId
+    });
     const modal = document.getElementById('cartPreviewModal');
     if (!modal) {
         toggleCartPanel();
@@ -6819,10 +6937,10 @@ function calculateDiscountableSubtotal(items) {
 }
 
 function findWinterCombo(items) {
-    const remera = items.find(item => isAdultRemeraItem(item) && item.isDouble);
+    const remera = items.find(item => isAdultRemeraItem(item));
     if (!remera) return null;
 
-    const hoodie = items.find(item => item !== remera && isHoodieItem(item) && item.isDouble);
+    const hoodie = items.find(item => item !== remera && isHoodieItem(item));
     if (hoodie) {
         const comboBase = remera.cut === 'oversize' ? COMBO_HOODIE_REMERA_OVERSIZE : COMBO_HOODIE_REMERA_CLASICA;
         return {
@@ -6832,11 +6950,11 @@ function findWinterCombo(items) {
             label: remera.cut === 'oversize'
                 ? 'Combo hoodie + remera oversize: $102.000'
                 : 'Combo hoodie + remera clásica: $99.000',
-            description: 'Incluye hoodie doble estampa + remera doble estampa y envío gratis a punto de retiro Andreani.'
+            description: 'Incluye hoodie + remera, con estampa frontal o doble, y envío gratis a punto de retiro Andreani.'
         };
     }
 
-    const buzo = items.find(item => item !== remera && isBuzoRedondoItem(item) && item.isDouble);
+    const buzo = items.find(item => item !== remera && isBuzoRedondoItem(item));
     if (buzo) {
         const comboBase = remera.cut === 'oversize' ? COMBO_BUZO_REMERA_OVERSIZE : COMBO_BUZO_REMERA_CLASICA;
         return {
@@ -6846,7 +6964,7 @@ function findWinterCombo(items) {
             label: remera.cut === 'oversize'
                 ? 'Combo buzo + remera oversize: $98.000'
                 : 'Combo buzo + remera clásica: $95.000',
-            description: 'Incluye buzo cuello redondo doble estampa + remera doble estampa y envío gratis a punto de retiro Andreani.'
+            description: 'Incluye buzo cuello redondo + remera, con estampa frontal o doble, y envío gratis a punto de retiro Andreani.'
         };
     }
 
@@ -6856,7 +6974,8 @@ function findWinterCombo(items) {
 function buildComboPromotion(items, combo) {
     const rawSubtotal = calculateCartSubtotal(items);
     const comboCustomExtra = combo.comboItems.reduce((sum, item) => sum + getCustomExtraForCartItem(item), 0);
-    const total = combo.base + comboCustomExtra;
+    const comboTotal = combo.base + comboCustomExtra;
+    const total = Math.min(rawSubtotal, comboTotal);
 
     return {
         id: combo.id,
@@ -6881,7 +7000,7 @@ function calculateWinterPromotion(items) {
         return {
             id: 'general_4_plus',
             label: '4 prendas o más: 15% OFF + envío gratis a domicilio',
-            description: 'Promo aplicada sobre las prendas. Los recargos de personalizados no reciben descuento.',
+            description: 'Los diseños personalizados tienen un adicional de $5.000 por diseño. Ese adicional no recibe descuentos promocionales.',
             subtotal: rawSubtotal,
             descuento: discount,
             total: rawSubtotal - discount,
@@ -6896,7 +7015,7 @@ function calculateWinterPromotion(items) {
             return {
                 id: 'tres_abrigos',
                 label: '3 prendas de abrigo: 10% OFF + envío gratis a domicilio',
-                description: 'Promo aplicada por llevar tres hoodies y/o buzos cuello redondo. Los recargos de personalizados no reciben descuento.',
+                description: 'Aplica a hoodies y/o buzos, en cualquier combinación. Los diseños personalizados tienen un adicional de $5.000 por diseño y ese adicional no recibe descuentos promocionales.',
                 subtotal: rawSubtotal,
                 descuento: discount,
                 total: rawSubtotal - discount,
@@ -6921,7 +7040,8 @@ function calculateWinterPromotion(items) {
         const combo = findWinterCombo(items);
 
         if (combo) {
-            return buildComboPromotion(items, combo);
+            const comboPromotion = buildComboPromotion(items, combo);
+            if (comboPromotion.descuento > 0) return comboPromotion;
         }
 
         return {
@@ -7046,7 +7166,11 @@ function renderCartPreview() {
         shippingNote = `<div class="cart-preview-shipping-note">Sumá una prenda más y tenés envío gratis a punto Andreani.</div>`;
     }
 
-    const shippingForm = `
+    const shippingForm = selectedDeliveryMethod === 'taller' ? `
+        <div class="cart-customer-fields compact cart-pickup-confirmation">
+            <p class="cart-customer-title">Retiro sin cargo en Villa Martelli</p>
+            <p class="cart-customer-hint">No necesitás completar datos de envío. Coordinamos el retiro por WhatsApp.</p>
+        </div>` : `
         <div class="cart-customer-fields ${totals.cantidad >= 2 ? 'compact' : ''}">
             <p class="cart-customer-title">Datos para el envio (para finalizar tu pedido)</p>
             <div class="cart-customer-grid">
@@ -7160,6 +7284,12 @@ function removeAndRefreshPreview(index) {
 }
 
 function confirmAndSendWhatsapp() {
+    if (selectedDeliveryMethod === 'taller') {
+        closeCartPreview();
+        sendViaWhatsapp('', null);
+        return;
+    }
+
     const customerData = getShippingCustomerData();
     const missing = getMissingShippingFields(customerData);
 
@@ -7335,6 +7465,18 @@ function addToCartFromModal() {
     const success = cart.addToCart(currentProduct.id, variantIndex, isDouble, options);
     
     if (success) {
+        const prices = resolveModalPriceConfig(currentProduct);
+        trackCatalogEvent('add_to_cart', {
+            band: currentCatalogDesign?.band || getCatalogBandLabel(currentProduct),
+            design_id: currentCatalogDesign?.designId,
+            design_name: currentCatalogDesign?.publicName || currentProduct.name,
+            garment: getSelectedModalGarmentType(),
+            garment_variant: getSelectedModalGarmentType() === 'remera' ? getSelectedRemeraVariantId() : undefined,
+            print_mode: isDouble ? 'double' : 'simple',
+            value: isDouble ? prices.doble : prices.simple,
+            currency: 'ARS',
+            cart_items: cart.getCart().length
+        });
         const msg = options.usesShownComposition
             ? '✓ Agregado con la composición mostrada'
             : isDouble && (selectedBackIndex >= 0 || selectedCatalogBackRef)
@@ -7977,6 +8119,14 @@ function initMegadethShowcase() {
 
 // Inicializar
 document.addEventListener('DOMContentLoaded', () => {
+    if (isBandLandingMode()) {
+        trackCatalogEvent('archive_view', {
+            band: BAND_LANDING_BAND,
+            archive_slug: BAND_LANDING_CONFIG?.slug,
+            default_garment: bandLandingGarment
+        });
+    }
+
     const heroCtaWhatsapp = document.getElementById('heroCtaWhatsapp');
     if (heroCtaWhatsapp) {
         heroCtaWhatsapp.addEventListener('click', (e) => {

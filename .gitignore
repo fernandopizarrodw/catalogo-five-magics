@@ -1,0 +1,4 @@
+# Perfiles temporales y logs creados por pruebas locales de Analytics/Chrome.
+reports/analytics-profile/
+reports/analytics-chrome*.log
+reports/analytics-server*.log

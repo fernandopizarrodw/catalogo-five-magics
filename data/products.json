@@ -1107,6 +1107,59 @@
                 "isNew": true,
                 "fmdBadge": "ORIGINAL FMD",
                 "fmdBadgeDescription": "Diseño exclusivo FMD desarrollado para destacar el concepto visual de esta etapa de Megadeth."
+            },
+            {
+                "img": "images/albums/Countdown_to_extinction/remera_megadeth_countdown_to_extinction.jpg",
+                "name": "Countdown to Extinction - Remera",
+                "alt": "Remera Megadeth Countdown to Extinction con estampa frente y dorso",
+                "category": "Album",
+                "garmentCategory": "Album",
+                "designId": "megadeth-countdown-to-extinction",
+                "designSlug": "countdown-to-extinction",
+                "preferredPreview": true,
+                "isNew": true
+            },
+            {
+                "img": "images/albums/Countdown_to_extinction/hoodie_megadeth_countdown_to_extinction.jpg",
+                "name": "Countdown to Extinction - Hoodie",
+                "alt": "Hoodie Megadeth Countdown to Extinction con estampa frente y dorso",
+                "category": "Hoodies FMD",
+                "garmentCategory": "Hoodies FMD",
+                "designId": "megadeth-countdown-to-extinction",
+                "designSlug": "countdown-to-extinction",
+                "preferredPreview": true,
+                "isNew": true
+            },
+            {
+                "img": "images/albums/Countdown_to_extinction/buzo_megadeth_countdown_to_extinction.jpg",
+                "name": "Countdown to Extinction - Buzo cuello redondo",
+                "alt": "Buzo cuello redondo Megadeth Countdown to Extinction con estampa frente y dorso",
+                "category": "Buzo Cuello Redondo",
+                "garmentCategory": "Buzo Cuello Redondo",
+                "designId": "megadeth-countdown-to-extinction",
+                "designSlug": "countdown-to-extinction",
+                "preferredPreview": true,
+                "isNew": true
+            },
+            {
+                "img": "images/albums/Countdown_to_extinction/remera_megadeth_countdown_band.jpg",
+                "name": "Countdown Band",
+                "alt": "Remera Megadeth Countdown Band con estampa de la banda al frente y calaveras al dorso",
+                "category": "Album",
+                "garmentCategory": "Album",
+                "designId": "megadeth-countdown-band",
+                "designSlug": "countdown-band",
+                "isNew": true
+            },
+            {
+                "img": "images/albums/Countdown_to_extinction/remera_megadeth_countdown_bandV2.jpg",
+                "name": "Countdown Vic & Band",
+                "alt": "Remera Megadeth Countdown Vic y banda con estampa frente y dorso",
+                "category": "Album",
+                "garmentCategory": "Album",
+                "designId": "megadeth-countdown-vic-band",
+                "designSlug": "countdown-vic-band",
+                "isNew": true
             }
         ],
         "desc": "Countdown to Extinction con variantes clÃ¡sicas, circulares y versiones FMD frente y dorso.",
@@ -1117,7 +1170,9 @@
         ],
         "album": "Countdown to Extinction",
         "garments": [
-            "remera"
+            "remera",
+            "hoodie",
+            "buzo_cuello_redondo"
         ],
         "collections": [
             "Megadeth Archive",
@@ -1134,6 +1189,8 @@
             "Thrash Metal",
             "Countdown to Extinction",
             "remera",
+            "hoodie",
+            "buzo_cuello_redondo",
             "Megadeth Archive",
             "Megadeth Albums"
         ],
@@ -8367,6 +8424,30 @@
                 "designId": "nightwish-tuomas",
                 "designSlug": "nightwish-tuomas",
                 "alt": "Remera Nightwish Tuomas con estampa frontal y dorso"
+            },
+            {
+                "img": "images/banda_sugeridas/nightwish/remera_nightwish_angels.jpg",
+                "name": "Angels Fall First - Remera",
+                "garmentCategory": "Bandas Sugeridas",
+                "designId": "nightwish-angels-fall-first",
+                "designSlug": "nightwish-angels-fall-first",
+                "alt": "Remera Nightwish Angels Fall First con estampa frontal y dorso"
+            },
+            {
+                "img": "images/banda_sugeridas/nightwish/hoodie_nightwish_angels.jpg",
+                "name": "Angels Fall First - Hoodie",
+                "garmentCategory": "Hoodies Otras Bandas",
+                "designId": "nightwish-angels-fall-first",
+                "designSlug": "nightwish-angels-fall-first",
+                "alt": "Hoodie Nightwish Angels Fall First con estampa frontal y dorso"
+            },
+            {
+                "img": "images/banda_sugeridas/nightwish/buzo_nightwish_angels.jpg",
+                "name": "Angels Fall First - Buzo cuello redondo",
+                "garmentCategory": "Buzo Cuello Redondo",
+                "designId": "nightwish-angels-fall-first",
+                "designSlug": "nightwish-angels-fall-first",
+                "alt": "Buzo cuello redondo Nightwish Angels Fall First con estampa frontal y dorso"
             }
         ],
         "desc": "Diseños Nightwish disponibles en remera, hoodie y buzo cuello redondo, con estampa frontal o doble.",

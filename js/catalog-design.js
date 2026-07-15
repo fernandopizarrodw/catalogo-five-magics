@@ -212,7 +212,8 @@
             label: String(variant?.name || product.name || 'Diseño').trim(),
             alt: String(variant?.alt || `${getPublicBand(product)} ${variant?.name || product.name || 'Diseño'}`).trim(),
             garment: getGarment(variant, product),
-            role: isBackVariant(variant) ? 'back' : 'front'
+            role: isBackVariant(variant) ? 'back' : 'front',
+            preferredPreview: variant?.preferredPreview === true
         };
     }
 
