@@ -34,6 +34,7 @@
                 'nightwish-band-2003',
                 'nightwish-once',
                 'nightwish-band-2005',
+                'nightwish-highest-hopes',
                 'nightwish-end-of-an-era',
                 'nightwish-dark-passion-play',
                 'nightwish-imaginaerum',
@@ -42,6 +43,7 @@
                 'nightwish-endless-forms-most-beautiful',
                 'nightwish-decades',
                 'nightwish-human-nature',
+                'nightwish-yesterwynde',
                 'nightwish-logo-owl',
                 'nightwish-tuomas'
             ],

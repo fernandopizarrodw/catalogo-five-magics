@@ -8448,6 +8448,24 @@
                 "designId": "nightwish-angels-fall-first",
                 "designSlug": "nightwish-angels-fall-first",
                 "alt": "Buzo cuello redondo Nightwish Angels Fall First con estampa frontal y dorso"
+            },
+            {
+                "img": "images/banda_sugeridas/nightwish/remera_nightwish_highest_hopes.jpg",
+                "name": "Highest Hopes - Remera",
+                "garmentCategory": "Bandas Sugeridas",
+                "designId": "nightwish-highest-hopes",
+                "designSlug": "nightwish-highest-hopes",
+                "alt": "Remera Nightwish Highest Hopes con estampa frontal y dorso",
+                "isNew": true
+            },
+            {
+                "img": "images/banda_sugeridas/nightwish/remera_nightwish_yesterwynde.jpg",
+                "name": "Yesterwynde - Remera",
+                "garmentCategory": "Bandas Sugeridas",
+                "designId": "nightwish-yesterwynde",
+                "designSlug": "nightwish-yesterwynde",
+                "alt": "Remera Nightwish Yesterwynde con estampa frontal y dorso",
+                "isNew": true
             }
         ],
         "desc": "Diseños Nightwish disponibles en remera, hoodie y buzo cuello redondo, con estampa frontal o doble.",
