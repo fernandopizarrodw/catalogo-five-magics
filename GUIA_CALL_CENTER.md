@@ -74,7 +74,7 @@
 
 ---
 
-## 💰 PRECIOS FMD — JUNIO 2026
+## 💰 PRECIOS FMD — JULIO 2027
 
 ### **Categoría Base:**
 | Tipo | Precio |
