@@ -6965,7 +6965,7 @@ function findWinterCombo(items) {
             label: remera.cut === 'oversize'
                 ? 'Combo hoodie + remera oversize: $102.000'
                 : 'Combo hoodie + remera clásica: $99.000',
-            description: 'Incluye hoodie + remera, con estampa frontal o doble, y envío gratis a punto de retiro Andreani.'
+            description: 'Incluye hoodie + remera, con estampa frontal o doble, y envío gratis a domicilio durante julio.'
         };
     }
 
@@ -6979,7 +6979,7 @@ function findWinterCombo(items) {
             label: remera.cut === 'oversize'
                 ? 'Combo buzo + remera oversize: $98.000'
                 : 'Combo buzo + remera clásica: $95.000',
-            description: 'Incluye buzo cuello redondo + remera, con estampa frontal o doble, y envío gratis a punto de retiro Andreani.'
+            description: 'Incluye buzo cuello redondo + remera, con estampa frontal o doble, y envío gratis a domicilio durante julio.'
         };
     }
 
@@ -7000,7 +7000,7 @@ function buildComboPromotion(items, combo) {
         descuento: Math.max(0, rawSubtotal - total),
         total,
         envioGratis: true,
-        envioGratisPuntoAndreani: true
+        envioGratisPuntoAndreani: false
     };
 }
 
@@ -7061,8 +7061,21 @@ function calculateWinterPromotion(items) {
 
         return {
             id: 'dos_prendas',
-            label: '2 prendas: envío gratis a punto Andreani',
-            description: 'Promo aplicada a cualquier combinación de dos remeras, hoodies o buzos. A domicilio se abona la diferencia.',
+            label: '2 prendas: envío gratis a domicilio',
+            description: 'Promo de julio aplicada a cualquier combinación de dos remeras, hoodies o buzos.',
+            subtotal: rawSubtotal,
+            descuento: 0,
+            total: rawSubtotal,
+            envioGratis: true,
+            envioGratisPuntoAndreani: false
+        };
+    }
+
+    if (quantity === 1) {
+        return {
+            id: 'julio_una_prenda',
+            label: 'Julio: envío gratis desde 1 prenda',
+            description: 'Envío gratis a un punto de retiro Andreani cercano, disponible en todo el país.',
             subtotal: rawSubtotal,
             descuento: 0,
             total: rawSubtotal,
@@ -7177,8 +7190,6 @@ function renderCartPreview() {
             ? ' Envío gratis a punto Andreani; a domicilio se abona diferencia.'
             : ' Envío gratis a domicilio.';
         shippingNote = `<div class="cart-preview-shipping-note">🎁 ${totals.promotion.label}.${extra}</div>`;
-    } else if (totals.cantidad === 1) {
-        shippingNote = `<div class="cart-preview-shipping-note">Sumá una prenda más y tenés envío gratis a punto Andreani.</div>`;
     }
 
     const shippingForm = selectedDeliveryMethod === 'taller' ? `
@@ -7263,7 +7274,7 @@ function renderCartPreview() {
         ${shippingForm}
         <div class="cart-preview-info" style="margin-top:12px;padding:12px;background:#0a0a0a;border:1px solid #222;border-radius:8px;font-size:0.8rem;color:#888;">
             <div style="margin-bottom:8px;">
-                <span style="color:#39ff14;">📦 ENVÍO ANDREANI:</span> 2 prendas: envío gratis a punto de retiro Andreani. 3 prendas: envío gratis a domicilio. 3 abrigos: 10% OFF + envío gratis a domicilio. 4 prendas o más: 15% OFF + envío gratis a domicilio.
+                <span style="color:#39ff14;">📦 PROMO JULIO:</span> Desde 1 prenda: envío gratis a punto de retiro Andreani. Desde 2 prendas: envío gratis a domicilio. 3 abrigos: 10% OFF + envío gratis a domicilio. 4 prendas o más: 15% OFF + envío gratis a domicilio.
             </div>
             <div>
                 <span style="color:#39ff14;">💳 PAGO:</span> Transferencia o MercadoPago. Tarjeta de crédito disponible con recargo.

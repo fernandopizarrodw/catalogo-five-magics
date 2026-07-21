@@ -179,6 +179,13 @@ function renderLanding(config, sharedCommerceMarkup) {
             </div>
         </section>
 
+        <section class="july-shipping-promo" aria-label="Promoción de envíos gratis durante julio">
+            <p>DURANTE TODO JULIO</p>
+            <strong>ENVÍO GRATIS</strong>
+            <span>Desde 1 prenda · A punto de retiro Andreani cercano · Todo el país</span>
+            <b>DESDE 2 PRENDAS · ENVÍO GRATIS A DOMICILIO</b>
+        </section>
+
         <section class="band-landing-garment-selector" id="catalogoPrincipal" aria-label="Elegir prenda ${config.band}">
             <div class="band-landing-garment-grid" role="tablist" aria-label="Prendas disponibles">
 ${config.garments.map((garment, index) => `
