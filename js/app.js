@@ -100,6 +100,7 @@ function isBandLandingMode() {
 }
 
 function usesBandLandingShownComposition() {
+    if (currentCatalogDesign?.usesShownComposition === true || currentProduct?.usesShownComposition === true) return true;
     if (!isBandLandingMode()) return false;
     if (BAND_LANDING_CONFIG?.usesShownComposition === true) return true;
     const garment = selectedModalGarment === 'buzo'
@@ -617,7 +618,7 @@ function renderMegadethArchiveGrid() {
     const definitions = [
         { id: 'remera', label: 'Remeras Megadeth', price: 'Desde $37.000' },
         { id: 'hoodie', label: 'Hoodies Megadeth', price: 'Desde $52.000' },
-        { id: 'buzo', label: 'Buzos Megadeth', price: 'Desde $50.000' }
+        { id: 'buzo', label: 'Buzos Megadeth', price: 'Frontal $50.000 · Doble $55.000' }
     ];
 
     grid.innerHTML = definitions.map(definition => {
@@ -1946,6 +1947,7 @@ function selectColor(color) {
         btn.classList.toggle('active', isActive);
         btn.style.cssText = isActive ? activeStyle : inactiveStyle;
     });
+    if (currentCatalogDesign) selectCatalogDesignPreviewForGarment(selectedModalGarment);
 }
 
 // Actualizar precios según selección adulto/chico, oversize y tipo de producto
@@ -2237,12 +2239,18 @@ function selectCatalogDesignPreviewForGarment(modalGarment) {
     if (!currentCatalogDesign || !currentModalSourceRefs.length) return;
     const garment = getCatalogDesignGarmentKey(modalGarment);
     const previews = currentCatalogDesign.previewsByGarment?.[garment] || [];
-    let preview = previews.find(item => item.preferredPreview) || previews[0];
+    const selectedColorKey = normalizeText(selectedColor);
+    let preview = previews.find(item => selectedColorKey && normalizeText(item.color) === selectedColorKey)
+        || previews.find(item => item.preferredPreview)
+        || previews[0];
     if (!preview) {
         const fallbackGarments = ['remera', 'hoodie', 'buzo_cuello_redondo'];
-        preview = fallbackGarments
-            .flatMap(key => currentCatalogDesign.previewsByGarment?.[key] || [])
-            .find(Boolean) || currentCatalogDesign.front;
+        const fallbackPreviews = fallbackGarments
+            .flatMap(key => currentCatalogDesign.previewsByGarment?.[key] || []);
+        preview = fallbackPreviews.find(item => selectedColorKey && normalizeText(item.color) === selectedColorKey)
+            || fallbackPreviews.find(item => item.preferredPreview)
+            || fallbackPreviews[0]
+            || currentCatalogDesign.front;
     }
     if (preview) {
         const slideIndex = currentModalSourceRefs.findIndex(ref => (
@@ -3155,7 +3163,7 @@ function renderSlayerArchiveGrid() {
                 id: 'buzo',
                 label: 'Buzos Slayer',
                 meta: 'Cuello redondo unisex',
-                price: 'Desde $50.000',
+                price: 'Frontal $50.000 · Doble $55.000',
                 image: findGarmentImage('buzo')
             }
         ];
@@ -3214,7 +3222,7 @@ function renderEpicaArchiveGrid() {
                 id: 'buzo',
                 label: 'Buzos EPICA',
                 meta: 'Cuello redondo unisex',
-                price: 'Desde $50.000',
+                price: 'Frontal $50.000 · Doble $55.000',
                 image: findGarmentImage('buzo'),
                 count: getVariantsByGarment('buzo').length
             }
@@ -3418,7 +3426,7 @@ function renderMaidenArchiveGrid() {
     const cards = [
         { id: 'remera', title: 'Remeras Iron Maiden', price: 'Desde $37.000' },
         { id: 'hoodie', title: 'Hoodies Iron Maiden', price: 'Desde $52.000' },
-        { id: 'buzo', title: 'Buzos Iron Maiden', price: 'Desde $50.000' }
+        { id: 'buzo', title: 'Buzos Iron Maiden', price: 'Frontal $50.000 · Doble $55.000' }
     ].map(card => ({ ...card, products: getMaidenArchiveProducts(card.id) }));
 
     if (!cards.some(card => card.products.length)) {
@@ -4664,7 +4672,9 @@ function openModal(id, variantIndex = undefined, scopedVariantIndexes = undefine
     selectedCut = '';
     selectedColor = '';
     selectedBackIndex = -1; // Reset dorso seleccionado
-    selectedPrintMode = currentCatalogDesign ? 'simple' : (isDoubleByDefault(currentProduct) ? 'double' : 'simple');
+    selectedPrintMode = currentCatalogDesign
+        ? (currentCatalogDesign.defaultPrintMode === 'double' ? 'double' : 'simple')
+        : (isDoubleByDefault(currentProduct) ? 'double' : 'simple');
     selectedDeliveryMethod = '';
     const modalPostalCode = document.getElementById('modalPostalCode');
     if (modalPostalCode) modalPostalCode.value = '';
@@ -5669,6 +5679,7 @@ window.showUniverse = showUniverse;
 window.showCompleteCatalog = showCompleteCatalog;
 
 function getCatalogDesignStartingPrice(design) {
+    if (Number(design?.catalogStartingPrice) > 0) return Number(design.catalogStartingPrice);
     return design?.isPersonalized ? PRECIOS.simple_personalizado : PRECIOS.simple;
 }
 
@@ -5778,6 +5789,9 @@ function renderCatalogDesignResults(designs) {
     productsGrid.innerHTML = visibleDesigns.map(design => {
         const preview = getBandLandingDesignPreview(design) || design.front;
         const price = (isBandLandingMode() ? getBandLandingDesignStartingPrice(design) : getCatalogDesignStartingPrice(design)).toLocaleString('es-AR');
+        const priceText = !isBandLandingMode() && design.catalogPriceText
+            ? design.catalogPriceText
+            : `Desde $${price}`;
         const initialGarment = isBandLandingMode() ? getBandLandingModalGarment() : '';
         const badges = [
             design.isNew ? '<span class="catalog-design-badge is-new">NUEVO</span>' : '',
@@ -5792,7 +5806,8 @@ function renderCatalogDesignResults(designs) {
                 <span class="catalog-design-copy">
                     <span class="catalog-design-band">${design.band}</span>
                     <strong>${design.publicName}</strong>
-                    <span class="catalog-design-price">Desde $${price}</span>
+                    ${design.publicSubtitle ? `<span class="catalog-design-subtitle">${design.publicSubtitle}</span>` : ''}
+                    <span class="catalog-design-price">${priceText}</span>
                     <span class="catalog-design-cta">VER DISEÑO</span>
                 </span>
             </button>

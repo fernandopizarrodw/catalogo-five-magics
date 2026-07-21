@@ -271,7 +271,14 @@ ${commerceMarkup}
 function main() {
     const indexSource = fs.readFileSync(INDEX_PATH, 'utf8');
     const sharedCommerceMarkup = extractSharedCommerceMarkup(indexSource);
-    LANDINGS.forEach(config => {
+    const requestedSlug = String(process.argv[2] || '').trim().toLowerCase();
+    const selectedLandings = requestedSlug
+        ? LANDINGS.filter(config => String(config.slug || '').toLowerCase() === requestedSlug)
+        : LANDINGS;
+    if (!selectedLandings.length) {
+        throw new Error(`No existe una configuración para el archivo "${requestedSlug}".`);
+    }
+    selectedLandings.forEach(config => {
         const outputPath = path.join(ROOT, config.output);
         fs.mkdirSync(path.dirname(outputPath), { recursive: true });
         fs.writeFileSync(outputPath, renderLanding(config, sharedCommerceMarkup), 'utf8');

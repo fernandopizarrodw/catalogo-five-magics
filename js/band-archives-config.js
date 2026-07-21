@@ -49,7 +49,7 @@
             ],
             garments: [
                 { key: 'hoodie', title: 'HOODIES', price: 'Desde $52.000', image: '/images/banda_sugeridas/nightwish/hoodie_nightwish_once.jpg', alt: 'Hoodie Nightwish Once' },
-                { key: 'buzo_cuello_redondo', title: 'BUZOS', price: 'Desde $50.000', image: '/images/banda_sugeridas/nightwish/buzo_nightwish_once.jpg', alt: 'Buzo cuello redondo Nightwish Once' },
+                { key: 'buzo_cuello_redondo', title: 'BUZOS', price: 'Frontal $50.000 · Doble $55.000', image: '/images/banda_sugeridas/nightwish/buzo_nightwish_once.jpg', alt: 'Buzo cuello redondo Nightwish Once' },
                 { key: 'remera', title: 'REMERAS', price: 'Desde $37.000', image: '/images/banda_sugeridas/nightwish/remera_nightwish_once.jpg', alt: 'Remera Nightwish Once' }
             ]
         },
@@ -112,7 +112,7 @@
             ],
             garments: [
                 { key: 'hoodie', title: 'HOODIES', price: 'Desde $52.000', image: '/images/slayer/fmd_originals/hoodies/hoodie_slayer_fmd_angel_of_death.jpg', alt: 'Hoodie Slayer FMD Angel of Death' },
-                { key: 'buzo_cuello_redondo', title: 'BUZOS', price: 'Desde $50.000', image: '/images/slayer/fmd_originals/buzos/buzo_slayer_fmd_angel_of_death.jpg', alt: 'Buzo cuello redondo Slayer FMD Angel of Death' },
+                { key: 'buzo_cuello_redondo', title: 'BUZOS', price: 'Frontal $50.000 · Doble $55.000', image: '/images/slayer/fmd_originals/buzos/buzo_slayer_fmd_angel_of_death.jpg', alt: 'Buzo cuello redondo Slayer FMD Angel of Death' },
                 { key: 'remera', title: 'REMERAS', price: 'Desde $37.000', image: '/images/slayer/fmd_originals/remeras/remera_slayer_fmd_angel_of_death.jpg', alt: 'Remera Slayer FMD Angel of Death' }
             ]
         },
@@ -156,7 +156,7 @@
             ],
             garments: [
                 { key: 'hoodie', title: 'HOODIES', price: 'Desde $52.000', image: '/images/hoddies_fmd/rust_in_peace.jpg', alt: 'Hoodie Megadeth Rust in Peace' },
-                { key: 'buzo_cuello_redondo', title: 'BUZOS', price: 'Desde $50.000', image: '/images/buzos cuello redondo/megadeth_rust_in_peace_original_fmd.jpg', alt: 'Buzo cuello redondo Megadeth Rust in Peace FMD' },
+                { key: 'buzo_cuello_redondo', title: 'BUZOS', price: 'Frontal $50.000 · Doble $55.000', image: '/images/buzos cuello redondo/megadeth_rust_in_peace_original_fmd.jpg', alt: 'Buzo cuello redondo Megadeth Rust in Peace FMD' },
                 { key: 'remera', title: 'REMERAS', price: 'Desde $37.000', image: '/images/albums/Rust_in_peace/rust_in_peace.jpg', alt: 'Remera Megadeth Rust in Peace' }
             ],
             collections: [
@@ -165,6 +165,29 @@
                 { id: 'mustaine', label: 'DAVE MUSTAINE', match: { categories: ['Dave Mustaine'] } },
                 { id: 'tours', label: 'TOURS', match: { categories: ['Tour'] } },
                 { id: 'originals', label: 'ORIGINALES FMD', match: { badges: ['ORIGINAL FMD'] } }
+            ]
+        },
+        {
+            output: 'argentina/index.html',
+            slug: 'argentina',
+            band: 'Argentina',
+            displayName: 'ARGENTINA 2026',
+            title: 'Argentina 2026: remeras, hoodies y buzos | Five Magics Designs',
+            description: 'Diseños de Argentina 2026 en remeras, hoodies y buzos hechos a pedido. Elegí estampa frontal o doble, talle, color y forma de entrega.',
+            canonical: 'https://catalogo.fivemagicsdesigns.com/argentina/',
+            image: '/images/argentina/remera_malvinas.jpg',
+            imageUrl: 'https://catalogo.fivemagicsdesigns.com/images/argentina/remera_malvinas.jpg',
+            heroTitle: 'REMERAS, HOODIES Y BUZOS',
+            heroCopy: 'Ediciones especiales de Argentina para el Mundial 2026. Elegí tu diseño y armá tu pedido.',
+            finalTitle: '¿BUSCABAS OTRO DISEÑO DE ARGENTINA?',
+            finalCopy: 'También hacemos diseños personalizados a partir de una imagen, camiseta o idea.',
+            whatsappMessage: 'Hola FMD! Quiero consultar por un diseño personalizado de Argentina.',
+            defaultGarment: 'remera',
+            usesShownComposition: true,
+            garments: [
+                { key: 'hoodie', title: 'HOODIES', price: 'Frontal $52.000 · Doble $59.000', image: '/images/argentina/hoodie_malvinas.jpg', alt: 'Hoodie negro Las Malvinas son Argentinas' },
+                { key: 'buzo_cuello_redondo', title: 'BUZOS', price: 'Frontal $50.000 · Doble $55.000', image: '/images/argentina/buzo_malvinas.jpg', alt: 'Buzo cuello redondo negro Las Malvinas son Argentinas' },
+                { key: 'remera', title: 'REMERAS', price: 'Frontal $37.000 · Doble $44.000', image: '/images/argentina/remera_malvinas.jpg', alt: 'Remera negra Las Malvinas son Argentinas' }
             ]
         }
     ]);

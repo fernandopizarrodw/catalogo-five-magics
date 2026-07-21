@@ -213,7 +213,8 @@
             alt: String(variant?.alt || `${getPublicBand(product)} ${variant?.name || product.name || 'Diseño'}`).trim(),
             garment: getGarment(variant, product),
             role: isBackVariant(variant) ? 'back' : 'front',
-            preferredPreview: variant?.preferredPreview === true
+            preferredPreview: variant?.preferredPreview === true,
+            color: String(variant?.color || '').trim()
         };
     }
 
@@ -241,7 +242,9 @@
             const resolvedDesignId = resolveDesignId
                 ? resolveDesignId({ product, variant, conceptName, sourceKey, transitionId, slugify, normalizeText })
                 : '';
-            const designId = explicitId || embeddedDesignId || resolvedDesignId || transitionId;
+            // IDs stored with the product are authoritative. The generated map is
+            // only a transition aid for legacy records without explicit identity.
+            const designId = embeddedDesignId || explicitId || resolvedDesignId || transitionId;
             if (!groups.has(designId)) {
                 groups.set(designId, {
                     designId,
@@ -263,12 +266,17 @@
                     badges: [],
                     badgeDescriptions: [],
                     isNew: false,
+                    publicSubtitle: String(variant?.publicSubtitle || product?.publicSubtitle || '').trim(),
+                    catalogStartingPrice: Number(variant?.catalogStartingPrice ?? product?.catalogStartingPrice) || 0,
+                    catalogPriceText: String(variant?.catalogPriceText || product?.catalogPriceText || '').trim(),
+                    defaultPrintMode: variant?.defaultPrintMode || product?.defaultPrintMode || '',
+                    usesShownComposition: variant?.usesShownComposition === true || product?.usesShownComposition === true,
                     visibilityTier: product?.visibilityTier || 'catalog',
                     commercialPriority: Number(product?.commercialPriority ?? product?.priority ?? 0) || 0,
-                    identitySource: explicitId
-                        ? 'explicit-map'
-                        : embeddedDesignId
-                            ? 'explicit-data'
+                    identitySource: embeddedDesignId
+                        ? 'explicit-data'
+                        : explicitId
+                            ? 'explicit-map'
                             : resolvedDesignId
                                 ? 'conservative-resolver'
                                 : 'transition-name'
@@ -352,6 +360,11 @@
                 badges: unique(group.badges),
                 badgeDescriptions: unique(group.badgeDescriptions),
                 isNew: group.isNew,
+                publicSubtitle: group.publicSubtitle,
+                catalogStartingPrice: group.catalogStartingPrice,
+                catalogPriceText: group.catalogPriceText,
+                defaultPrintMode: group.defaultPrintMode,
+                usesShownComposition: group.usesShownComposition,
                 visibilityTier: group.visibilityTier,
                 commercialPriority: group.commercialPriority,
                 year: sourceProduct?.year || '',
