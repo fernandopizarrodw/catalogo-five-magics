@@ -16822,6 +16822,34 @@
                 "catalogStartingPrice": 59000,
                 "catalogPriceText": "Doble estampa $59.000",
                 "fmdBadge": "DOBLE ESTAMPA"
+            },
+            {
+                "img": "images/argentina/hoodie_malvinas_negro.jpg",
+                "name": "Tres Estrellas y Malvinas V2 - Hoodie",
+                "alt": "Hoodie negro Tres Estrellas y Malvinas versión 2 con estampa frente y dorso",
+                "garmentCategory": "Hoodie",
+                "designId": "argentina-tres-estrellas-malvinas-v2-hoodie-negro-2026",
+                "designSlug": "tres-estrellas-malvinas-v2-hoodie-negro-2026",
+                "color": "negro",
+                "defaultPrintMode": "double",
+                "usesShownComposition": true,
+                "catalogStartingPrice": 59000,
+                "catalogPriceText": "Doble estampa $59.000",
+                "fmdBadge": "DOBLE ESTAMPA"
+            },
+            {
+                "img": "images/argentina/hoodie_malvinas_blancov2.jpg",
+                "name": "Tres Estrellas y Malvinas V2 - Hoodie",
+                "alt": "Hoodie blanco Tres Estrellas y Malvinas versión 2 con estampa frente y dorso",
+                "garmentCategory": "Hoodie",
+                "designId": "argentina-tres-estrellas-malvinas-v2-hoodie-blanco-2026",
+                "designSlug": "tres-estrellas-malvinas-v2-hoodie-blanco-2026",
+                "color": "blanco",
+                "defaultPrintMode": "double",
+                "usesShownComposition": true,
+                "catalogStartingPrice": 59000,
+                "catalogPriceText": "Doble estampa $59.000",
+                "fmdBadge": "DOBLE ESTAMPA"
             }
         ],
         "desc": "Diseño especial inspirado en la bandera desplegada durante los festejos de la semifinal Argentina-Inglaterra. Símbolo al frente y ficha del partido en el dorso. Disponible en negro o blanco.",

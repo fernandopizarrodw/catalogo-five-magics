@@ -124,6 +124,29 @@
             </div>
         </section>
 
+        <details class="band-landing-size-guide" id="tablaDeMedidas">
+            <summary>
+                <span>CONSULTÁ LA TABLA DE MEDIDAS</span>
+                <small>Compará las medidas antes de elegir el talle</small>
+            </summary>
+            <div class="band-landing-size-guide-body">
+                <div class="band-landing-size-guide-tabs" aria-label="Elegir tabla de medidas">
+                    <button type="button" class="active" data-landing-size-guide="hombre" onclick="selectLandingSizeGuide('hombre')">Remera hombre</button>
+                    <button type="button" data-landing-size-guide="mujer" onclick="selectLandingSizeGuide('mujer')">Remera mujer</button>
+                    <button type="button" data-landing-size-guide="oversize" onclick="selectLandingSizeGuide('oversize')">Oversize</button>
+                    <button type="button" data-landing-size-guide="ninos" onclick="selectLandingSizeGuide('ninos')">Niños</button>
+                    <button type="button" data-landing-size-guide="hoodies" onclick="selectLandingSizeGuide('hoodies')">Hoodie</button>
+                    <button type="button" data-landing-size-guide="buzo-redondo" onclick="selectLandingSizeGuide('buzo-redondo')">Buzo</button>
+                </div>
+                <div class="band-landing-size-guide-content">
+                    <h3 id="landingSizeGuideTitle">Tabla de medidas</h3>
+                    <p id="landingSizeGuideCopy"></p>
+                    <div id="landingSizeGuideTable"></div>
+                    <p class="band-landing-size-guide-note">Medí una prenda similar extendida sobre una superficie plana. Las medidas pueden variar hasta un 5%.</p>
+                </div>
+            </div>
+        </details>
+
         <section class="band-landing-catalog" aria-labelledby="bandCatalogTitle">
             <div class="band-landing-section-head">
                 <p>ARCHIVO FMD</p>

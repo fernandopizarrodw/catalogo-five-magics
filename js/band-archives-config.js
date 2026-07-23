@@ -184,6 +184,7 @@
             whatsappMessage: 'Hola FMD! Quiero consultar por un diseño personalizado de Argentina.',
             defaultGarment: 'remera',
             usesShownComposition: true,
+            showSizeGuide: true,
             garments: [
                 { key: 'hoodie', title: 'HOODIES', price: 'Frontal $52.000 · Doble $59.000', image: '/images/argentina/hoodie_malvinas.jpg', alt: 'Hoodie negro Las Malvinas son Argentinas' },
                 { key: 'buzo_cuello_redondo', title: 'BUZOS', price: 'Frontal $50.000 · Doble $55.000', image: '/images/argentina/buzo_malvinas.jpg', alt: 'Buzo cuello redondo negro Las Malvinas son Argentinas' },

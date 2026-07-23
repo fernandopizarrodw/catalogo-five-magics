@@ -257,6 +257,119 @@
     white-space: nowrap;
 }
 
+.band-landing-size-guide {
+    width: min(920px, calc(100% - 32px));
+    margin: 22px auto 0;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 16px;
+    background: rgba(10, 10, 12, 0.94);
+    overflow: hidden;
+}
+
+.band-landing-size-guide > summary {
+    min-height: 66px;
+    padding: 15px 20px;
+    display: grid;
+    align-content: center;
+    gap: 3px;
+    cursor: pointer;
+    list-style: none;
+    position: relative;
+}
+
+.band-landing-size-guide > summary::-webkit-details-marker {
+    display: none;
+}
+
+.band-landing-size-guide > summary::after {
+    content: "+";
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    color: var(--band-accent);
+    font-size: 1.6rem;
+    transform: translateY(-50%);
+}
+
+.band-landing-size-guide[open] > summary::after {
+    content: "−";
+}
+
+.band-landing-size-guide > summary span {
+    color: #fff;
+    font-family: "Oswald", sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+}
+
+.band-landing-size-guide > summary small {
+    color: #aaa7ae;
+    font-size: 0.78rem;
+}
+
+.band-landing-size-guide-body {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 18px;
+}
+
+.band-landing-size-guide-tabs {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+    margin-bottom: 18px;
+}
+
+.band-landing-size-guide-tabs button {
+    min-height: 42px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 9px;
+    background: #121216;
+    color: #ddd;
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.band-landing-size-guide-tabs button:hover,
+.band-landing-size-guide-tabs button:focus-visible,
+.band-landing-size-guide-tabs button.active {
+    border-color: var(--band-accent);
+    background: var(--band-accent-soft);
+    color: #fff;
+    outline: none;
+}
+
+.band-landing-size-guide-content {
+    max-width: 620px;
+    margin: 0 auto;
+}
+
+.band-landing-size-guide-content h3 {
+    margin: 0;
+    color: #fff;
+    font-family: "Oswald", sans-serif;
+    font-size: 1.25rem;
+}
+
+.band-landing-size-guide-content > p:not(.band-landing-size-guide-note) {
+    margin: 5px 0 14px;
+    color: #aaa7ae;
+    font-size: 0.82rem;
+}
+
+.band-landing-size-guide-content .size-table {
+    width: 100%;
+}
+
+.band-landing-size-guide-note {
+    margin: 12px 0 0;
+    color: #aaa7ae;
+    font-size: 0.76rem;
+    line-height: 1.45;
+}
+
 .band-landing-catalog {
     width: min(1220px, calc(100% - 24px));
     margin: 80px auto 0;
@@ -632,6 +745,29 @@ body.band-landing-page[data-band="Argentina"] #modal .btn-add-cart {
     .band-landing-garment-cta {
         padding: 8px 10px;
         font-size: 0.7rem;
+    }
+
+    .band-landing-size-guide {
+        width: calc(100% - 20px);
+        margin-top: 14px;
+        border-radius: 14px;
+    }
+
+    .band-landing-size-guide > summary {
+        padding: 13px 42px 13px 14px;
+    }
+
+    .band-landing-size-guide > summary::after {
+        right: 14px;
+    }
+
+    .band-landing-size-guide-body {
+        padding: 12px;
+    }
+
+    .band-landing-size-guide-tabs {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 7px;
     }
 
     .band-landing-catalog {

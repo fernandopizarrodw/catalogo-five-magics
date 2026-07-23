@@ -4435,15 +4435,19 @@ const MODAL_SIZE_GUIDES = {
     }
 };
 
+function getSizeGuideDefinition(tabName) {
+    const baseGuide = MODAL_SIZE_GUIDES[tabName] || MODAL_SIZE_GUIDES.hombre;
+    return usesBandLandingShownComposition() && tabName === 'hoodies'
+        ? { ...baseGuide, title: 'Hoodie canguro oversize unisex' }
+        : baseGuide;
+}
+
 function renderModalSizeGuide(tabName) {
     const panel = document.getElementById('modalSizeGuidePanel');
     const title = document.getElementById('modalSizeGuideTitle');
     const copy = document.getElementById('modalSizeGuideCopy');
     const table = document.getElementById('modalSizeGuideTable');
-    const baseGuide = MODAL_SIZE_GUIDES[tabName] || MODAL_SIZE_GUIDES.hombre;
-    const guide = usesBandLandingShownComposition() && tabName === 'hoodies'
-        ? { ...baseGuide, title: 'Hoodie canguro oversize unisex' }
-        : baseGuide;
+    const guide = getSizeGuideDefinition(tabName);
     if (!panel || !title || !copy || !table) return;
 
     title.textContent = guide.title;
@@ -4454,6 +4458,29 @@ function renderModalSizeGuide(tabName) {
     </table>`;
     panel.classList.remove('is-hidden');
     panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+function renderLandingSizeGuide(tabName = 'hombre') {
+    const title = document.getElementById('landingSizeGuideTitle');
+    const copy = document.getElementById('landingSizeGuideCopy');
+    const table = document.getElementById('landingSizeGuideTable');
+    if (!title || !copy || !table) return;
+
+    const guide = getSizeGuideDefinition(tabName);
+    title.textContent = guide.title;
+    copy.textContent = guide.copy;
+    table.innerHTML = `<table class="size-table modal-size-table">
+        <thead><tr><th>Talle</th><th>Pecho</th><th>Largo</th></tr></thead>
+        <tbody>${guide.rows.map(row => `<tr><td>${row[0]}</td><td>${row[1]}</td><td>${row[2]}</td></tr>`).join('')}</tbody>
+    </table>`;
+
+    document.querySelectorAll('[data-landing-size-guide]').forEach(button => {
+        button.classList.toggle('active', button.dataset.landingSizeGuide === tabName);
+    });
+}
+
+function selectLandingSizeGuide(tabName) {
+    renderLandingSizeGuide(tabName);
 }
 
 function closeModalSizeGuide() {
@@ -4478,6 +4505,7 @@ function openSizeGuideForCurrentGarment() {
 window.filterCurrentAlbumByGarment = filterCurrentAlbumByGarment;
 window.openSizeGuideForCurrentGarment = openSizeGuideForCurrentGarment;
 window.closeModalSizeGuide = closeModalSizeGuide;
+window.selectLandingSizeGuide = selectLandingSizeGuide;
 
 function getAutoHighlightSlideIndex(product, images) {
     if (!product || !Array.isArray(images) || !images.length) return -1;
@@ -8145,6 +8173,8 @@ function initMegadethShowcase() {
 
 // Inicializar
 document.addEventListener('DOMContentLoaded', () => {
+    renderLandingSizeGuide('hombre');
+
     if (isBandLandingMode()) {
         trackCatalogEvent('archive_view', {
             band: BAND_LANDING_BAND,
