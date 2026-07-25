@@ -37,7 +37,7 @@
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
         gtag('config', 'G-1H3XPM82ED');
-        window.FMD_BAND_LANDING = Object.freeze({"band":"Argentina","slug":"argentina","defaultGarment":"remera","usesShownComposition":true,"usesShownCompositionGarments":[],"collections":[],"designOrder":[],"albumOrder":[]});
+        window.FMD_BAND_LANDING = Object.freeze({"band":"Argentina","slug":"argentina","defaultGarment":"remera","usesShownComposition":true,"usesShownCompositionGarments":[],"collections":[],"designOrder":["argentina-no-era-un-partido-mas-malvinas-2026","argentina-nunca-fue-un-partido-mas-malvinas-2026","argentina-tres-estrellas-15-julio-2026-doble","argentina-festejo-2-1-malvinas-2026","argentina-malvinas-resultado-2-1-remera-blanca-2026","argentina-tres-estrellas-malvinas-15-julio-remera-blanca-2026","argentina-estrellas-malvinas-v1-remera-negra-2026","argentina-estrellas-malvinas-v1-remera-blanca-2026","argentina-estrellas-malvinas-v2-remera-negra-2026","argentina-estrellas-malvinas-v2-remera-blanca-2026","argentina-estrellas-malvinas-v3-remera-negra-2026","argentina-estrellas-malvinas-v3-remera-blanca-2026","argentina-escudo-afa-remera-negra-2026","argentina-escudo-afa-remera-blanca-2026","argentina-malvinas-tipografico-remera-negra-2026","argentina-malvinas-tipografico-remera-blanca-2026","argentina-malvinas-remera-negra-2026","argentina-malvinas-remera-blanca-2026","argentina-malvinas-hoodie-negro-2026","argentina-malvinas-hoodie-blanco-2026","argentina-tres-estrellas-malvinas-hoodie-negro-2026","argentina-tres-estrellas-malvinas-v2-hoodie-negro-2026","argentina-tres-estrellas-malvinas-v2-hoodie-blanco-2026","argentina-malvinas-buzo-negro-2026","argentina-malvinas-buzo-blanco-2026"],"albumOrder":[],"featuredDesigns":[{"designId":"argentina-tres-estrellas-15-julio-2026-doble","image":"/images/argentina/archivo_mundial_2026/3_estrellas.jpg","alt":"Tres Estrellas y Malvinas en remera, buzo y hoodie negros"},{"designId":"argentina-tres-estrellas-malvinas-15-julio-remera-blanca-2026","image":"/images/argentina/archivo_mundial_2026/3_estrellas_blanco.jpg","alt":"Tres Estrellas y resultado Argentina Inglaterra en remera, buzo y hoodie blancos"},{"designId":"argentina-nunca-fue-un-partido-mas-malvinas-2026","image":"/images/argentina/archivo_mundial_2026/bandera_goles.jpg","alt":"Nunca fue un partido más en remera, buzo y hoodie negros"},{"designId":"argentina-malvinas-remera-blanca-2026","image":"/images/argentina/archivo_mundial_2026/escudo_bandera_blanca.jpg","alt":"Escudo de Argentina y bandera de Malvinas en remera, buzo y hoodie blancos"},{"designId":"argentina-festejo-2-1-malvinas-2026","image":"/images/argentina/archivo_mundial_2026/escudo_festejo.jpg","alt":"Escudo de Argentina y festejo del resultado 2 a 1 en remera, buzo y hoodie negros"},{"designId":"argentina-malvinas-resultado-2-1-remera-blanca-2026","image":"/images/argentina/archivo_mundial_2026/malvinas_argentinas_blanca.jpg","alt":"Las Malvinas son Argentinas y resultado 2 a 1 en remera, buzo y hoodie blancos"}]});
     </script>
 </head>
 <body class="band-landing-page" data-band="Argentina">
@@ -152,6 +152,57 @@
                 <p>ARCHIVO FMD</p>
                 <h2 id="bandCatalogTitle">DISEÑOS DE ARGENTINA 2026</h2>
             </div>
+
+            <section class="band-landing-featured-designs" aria-labelledby="bandFeaturedDesignsTitle">
+                <div class="band-landing-featured-head">
+                    <div>
+                        <p>ARCHIVO MUNDIAL 2026</p>
+                        <h2 id="bandFeaturedDesignsTitle">NUEVOS DISEÑOS</h2>
+                    </div>
+                </div>
+                <div class="band-landing-featured-track">
+                    <article class="band-landing-featured-group">
+                        <div class="band-landing-featured-group-images">
+                            <button type="button" class="band-landing-featured-group-slide is-active" onclick="openImageModal('/images/argentina/archivo_mundial_2026/3_estrellas.jpg', 'Tres Estrellas y Malvinas en remera, buzo y hoodie negros')" aria-label="Ampliar Tres Estrellas y Malvinas">
+                                <img src="/images/argentina/archivo_mundial_2026/3_estrellas.jpg" alt="Tres Estrellas y Malvinas en remera, buzo y hoodie negros" width="1080" height="1350" loading="lazy" decoding="async">
+                            </button>
+                            <button type="button" class="band-landing-featured-group-slide" onclick="openImageModal('/images/argentina/archivo_mundial_2026/bandera_goles.jpg', 'Nunca fue un partido más en remera, buzo y hoodie negros')" aria-label="Ampliar Nunca fue un partido más">
+                                <img src="/images/argentina/archivo_mundial_2026/bandera_goles.jpg" alt="Nunca fue un partido más en remera, buzo y hoodie negros" width="1080" height="1350" loading="lazy" decoding="async">
+                            </button>
+                            <button type="button" class="band-landing-featured-group-slide" onclick="openImageModal('/images/argentina/archivo_mundial_2026/escudo_festejo.jpg', 'Escudo de Argentina y festejo del resultado 2 a 1 en remera, buzo y hoodie negros')" aria-label="Ampliar Escudo de Argentina y festejo">
+                                <img src="/images/argentina/archivo_mundial_2026/escudo_festejo.jpg" alt="Escudo de Argentina y festejo del resultado 2 a 1 en remera, buzo y hoodie negros" width="1080" height="1350" loading="lazy" decoding="async">
+                            </button>
+                        </div>
+                        <div class="band-landing-featured-group-footer">
+                            <strong>DISEÑOS EN NEGRO</strong>
+                            <div class="band-landing-featured-group-controls" aria-label="Navegar diseños en negro">
+                                <button type="button" onclick="cycleBandFeaturedGroup(this, -1)" aria-label="Ver diseño anterior">&#8249;</button>
+                                <button type="button" onclick="cycleBandFeaturedGroup(this, 1)" aria-label="Ver diseño siguiente">&#8250;</button>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="band-landing-featured-group">
+                        <div class="band-landing-featured-group-images">
+                            <button type="button" class="band-landing-featured-group-slide is-active" onclick="openImageModal('/images/argentina/archivo_mundial_2026/3_estrellas_blanco.jpg', 'Tres Estrellas y resultado Argentina Inglaterra en remera, buzo y hoodie blancos')" aria-label="Ampliar Tres Estrellas en blanco">
+                                <img src="/images/argentina/archivo_mundial_2026/3_estrellas_blanco.jpg" alt="Tres Estrellas y resultado Argentina Inglaterra en remera, buzo y hoodie blancos" width="1080" height="1350" loading="lazy" decoding="async">
+                            </button>
+                            <button type="button" class="band-landing-featured-group-slide" onclick="openImageModal('/images/argentina/archivo_mundial_2026/escudo_bandera_blanca.jpg', 'Escudo de Argentina y bandera de Malvinas en remera, buzo y hoodie blancos')" aria-label="Ampliar Escudo y bandera en blanco">
+                                <img src="/images/argentina/archivo_mundial_2026/escudo_bandera_blanca.jpg" alt="Escudo de Argentina y bandera de Malvinas en remera, buzo y hoodie blancos" width="1080" height="1350" loading="lazy" decoding="async">
+                            </button>
+                            <button type="button" class="band-landing-featured-group-slide" onclick="openImageModal('/images/argentina/archivo_mundial_2026/malvinas_argentinas_blanca.jpg', 'Las Malvinas son Argentinas y resultado 2 a 1 en remera, buzo y hoodie blancos')" aria-label="Ampliar Las Malvinas son Argentinas en blanco">
+                                <img src="/images/argentina/archivo_mundial_2026/malvinas_argentinas_blanca.jpg" alt="Las Malvinas son Argentinas y resultado 2 a 1 en remera, buzo y hoodie blancos" width="1080" height="1350" loading="lazy" decoding="async">
+                            </button>
+                        </div>
+                        <div class="band-landing-featured-group-footer">
+                            <strong>DISEÑOS EN BLANCO</strong>
+                            <div class="band-landing-featured-group-controls" aria-label="Navegar diseños en blanco">
+                                <button type="button" onclick="cycleBandFeaturedGroup(this, -1)" aria-label="Ver diseño anterior">&#8249;</button>
+                                <button type="button" onclick="cycleBandFeaturedGroup(this, 1)" aria-label="Ver diseño siguiente">&#8250;</button>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
 
             <nav id="categoryNav" hidden aria-hidden="true"></nav>
 

@@ -16810,20 +16810,6 @@
                 "fmdBadge": "DOBLE ESTAMPA"
             },
             {
-                "img": "images/argentina/hoodie_3_estrellas_blanco.jpg",
-                "name": "Tres Estrellas y Malvinas - Hoodie",
-                "alt": "Hoodie blanco Tres Estrellas y Malvinas con estampa frente y dorso",
-                "garmentCategory": "Hoodie",
-                "designId": "argentina-tres-estrellas-malvinas-hoodie-blanco-2026",
-                "designSlug": "tres-estrellas-malvinas-hoodie-blanco-2026",
-                "color": "blanco",
-                "defaultPrintMode": "double",
-                "usesShownComposition": true,
-                "catalogStartingPrice": 59000,
-                "catalogPriceText": "Doble estampa $59.000",
-                "fmdBadge": "DOBLE ESTAMPA"
-            },
-            {
                 "img": "images/argentina/hoodie_malvinas_negro.jpg",
                 "name": "Tres Estrellas y Malvinas V2 - Hoodie",
                 "alt": "Hoodie negro Tres Estrellas y Malvinas versión 2 con estampa frente y dorso",
@@ -16885,19 +16871,6 @@
                 "designId": "argentina-festejo-2-1-malvinas-2026",
                 "designSlug": "festejo-argentina-2-1-malvinas-2026",
                 "color": "blanco",
-                "defaultPrintMode": "simple",
-                "catalogStartingPrice": 37000,
-                "catalogPriceText": "Estampa frontal $37.000",
-                "fmdBadge": "ESTAMPA FRONTAL"
-            },
-            {
-                "img": "images/argentina/remera_argentina_no_era_un_partido_mas.jpg",
-                "name": "No era un partido más - Malvinas",
-                "alt": "Remera negra Argentina No era un partido más con homenaje a las Islas Malvinas",
-                "garmentCategory": "Argentina",
-                "designId": "argentina-no-era-un-partido-mas-malvinas-2026",
-                "designSlug": "no-era-un-partido-mas-malvinas-2026",
-                "color": "negro",
                 "defaultPrintMode": "simple",
                 "catalogStartingPrice": 37000,
                 "catalogPriceText": "Estampa frontal $37.000",

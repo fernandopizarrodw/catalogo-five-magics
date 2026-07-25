@@ -184,6 +184,52 @@
             whatsappMessage: 'Hola FMD! Quiero consultar por un diseño personalizado de Argentina.',
             defaultGarment: 'remera',
             usesShownComposition: true,
+            designOrder: [
+                'argentina-nunca-fue-un-partido-mas-malvinas-2026',
+                'argentina-tres-estrellas-15-julio-2026-doble',
+                'argentina-festejo-2-1-malvinas-2026',
+                'argentina-malvinas-resultado-2-1-remera-blanca-2026',
+                'argentina-tres-estrellas-malvinas-15-julio-remera-blanca-2026',
+                'argentina-estrellas-malvinas-v1-remera-negra-2026',
+                'argentina-estrellas-malvinas-v1-remera-blanca-2026',
+                'argentina-estrellas-malvinas-v2-remera-negra-2026',
+                'argentina-estrellas-malvinas-v2-remera-blanca-2026',
+                'argentina-estrellas-malvinas-v3-remera-negra-2026',
+                'argentina-estrellas-malvinas-v3-remera-blanca-2026',
+                'argentina-escudo-afa-remera-negra-2026',
+                'argentina-escudo-afa-remera-blanca-2026',
+                'argentina-malvinas-tipografico-remera-negra-2026',
+                'argentina-malvinas-tipografico-remera-blanca-2026',
+                'argentina-malvinas-remera-negra-2026',
+                'argentina-malvinas-remera-blanca-2026',
+                'argentina-malvinas-hoodie-negro-2026',
+                'argentina-malvinas-hoodie-blanco-2026',
+                'argentina-tres-estrellas-malvinas-hoodie-negro-2026',
+                'argentina-tres-estrellas-malvinas-v2-hoodie-negro-2026',
+                'argentina-tres-estrellas-malvinas-v2-hoodie-blanco-2026',
+                'argentina-malvinas-buzo-negro-2026',
+                'argentina-malvinas-buzo-blanco-2026'
+            ],
+            featuredEyebrow: 'ARCHIVO MUNDIAL 2026',
+            featuredTitle: 'NUEVOS DISEÑOS',
+            featuredGroups: [
+                {
+                    label: 'DISEÑOS EN NEGRO',
+                    images: [
+                        { image: '/images/argentina/archivo_mundial_2026/3_estrellas.jpg', alt: 'Tres Estrellas y Malvinas en remera, buzo y hoodie negros' },
+                        { image: '/images/argentina/archivo_mundial_2026/bandera_goles.jpg', alt: 'Nunca fue un partido más en remera, buzo y hoodie negros' },
+                        { image: '/images/argentina/archivo_mundial_2026/escudo_festejo.jpg', alt: 'Escudo de Argentina y festejo del resultado 2 a 1 en remera, buzo y hoodie negros' }
+                    ]
+                },
+                {
+                    label: 'DISEÑOS EN BLANCO',
+                    images: [
+                        { image: '/images/argentina/archivo_mundial_2026/3_estrellas_blanco.jpg', alt: 'Tres Estrellas y resultado Argentina Inglaterra en remera, buzo y hoodie blancos' },
+                        { image: '/images/argentina/archivo_mundial_2026/escudo_bandera_blanca.jpg', alt: 'Escudo de Argentina y bandera de Malvinas en remera, buzo y hoodie blancos' },
+                        { image: '/images/argentina/archivo_mundial_2026/malvinas_argentinas_blanca.jpg', alt: 'Las Malvinas son Argentinas y resultado 2 a 1 en remera, buzo y hoodie blancos' }
+                    ]
+                }
+            ],
             showSizeGuide: true,
             garments: [
                 { key: 'hoodie', title: 'HOODIES', price: 'Frontal $52.000 · Doble $59.000', image: '/images/argentina/hoodie_malvinas.jpg', alt: 'Hoodie negro Las Malvinas son Argentinas' },

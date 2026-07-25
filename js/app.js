@@ -4609,12 +4609,13 @@ function openModal(id, variantIndex = undefined, scopedVariantIndexes = undefine
     const autoHighlightSlide = hasSpecificVariant ? -1 : getAutoHighlightSlideIndex(currentProduct, images);
 
     if (currentCatalogDesign) {
-        currentModalSourceRefs = getCatalogDesignFrontRefs(currentCatalogDesign);
-        currentModalImages = currentModalSourceRefs.map(catalogDesignRefToModalImage);
-        currentModalSourceIndexes = currentModalSourceRefs.map(ref => (
+        const designRefs = getCatalogDesignFrontRefs(currentCatalogDesign);
+        currentModalSourceRefs = [...designRefs];
+        currentModalImages = designRefs.map(catalogDesignRefToModalImage);
+        currentModalSourceIndexes = designRefs.map(ref => (
             ref.productId === currentProduct.id ? ref.variantIndex : currentCatalogDesign.front.variantIndex
         ));
-        const canonicalPosition = currentModalSourceRefs.findIndex(ref => (
+        const canonicalPosition = designRefs.findIndex(ref => (
             ref.productId === currentCatalogDesign.front.productId
             && ref.variantIndex === currentCatalogDesign.front.variantIndex
         ));
@@ -6383,9 +6384,32 @@ function openImageModal(src, alt) {
     }
 
     const imgModal = document.getElementById('imageModal');
-    document.getElementById('imageModalImg').src = src;
+    const modalImage = document.getElementById('imageModalImg');
+    modalImage.src = src;
+    modalImage.alt = alt || 'Vista ampliada del diseño';
     imgModal.classList.add('active');
     document.body.style.overflow = 'hidden';
+}
+
+function scrollBandFeaturedCarousel(button, direction) {
+    const track = button?.closest('.band-landing-featured-designs')?.querySelector('.band-landing-featured-track');
+    if (!track) return;
+
+    const card = track.querySelector('.band-landing-featured-group, .band-landing-featured-card');
+    const gap = Number.parseFloat(getComputedStyle(track).gap) || 0;
+    const step = card ? card.getBoundingClientRect().width + gap : track.clientWidth * 0.85;
+    track.scrollBy({ left: direction * step, behavior: 'smooth' });
+}
+
+function cycleBandFeaturedGroup(button, direction) {
+    const group = button?.closest('.band-landing-featured-group');
+    const slides = Array.from(group?.querySelectorAll('.band-landing-featured-group-slide') || []);
+    if (!slides.length) return;
+
+    const currentIndex = Math.max(0, slides.findIndex(slide => slide.classList.contains('is-active')));
+    const nextIndex = (currentIndex + direction + slides.length) % slides.length;
+    slides[currentIndex].classList.remove('is-active');
+    slides[nextIndex].classList.add('is-active');
 }
 
 function normalizeAssetPath(pathValue) {
