@@ -53,51 +53,13 @@ function serializeInlineConfig(config) {
             : [],
         collections: Array.isArray(config.collections) ? config.collections : [],
         designOrder: Array.isArray(config.designOrder) ? config.designOrder : [],
-        albumOrder: Array.isArray(config.albumOrder) ? config.albumOrder : [],
-        featuredDesigns: Array.isArray(config.featuredDesigns) ? config.featuredDesigns : [],
-        featuredGroups: Array.isArray(config.featuredGroups) ? config.featuredGroups : []
+        albumOrder: Array.isArray(config.albumOrder) ? config.albumOrder : []
     })
         .replace(/</g, '\\u003c');
 }
 
 function whatsappUrl(message) {
     return `https://wa.me/541169667685?text=${encodeURIComponent(message)}`;
-}
-
-function renderFeaturedDesigns(config) {
-    const groups = Array.isArray(config.featuredGroups) ? config.featuredGroups : [];
-    const designs = Array.isArray(config.featuredDesigns) ? config.featuredDesigns : [];
-    if (!groups.length && !designs.length) return '';
-    const eyebrow = config.featuredEyebrow || 'ARCHIVO FMD';
-    const title = config.featuredTitle || 'NUEVOS DISEÑOS';
-    return `
-            <section class="band-landing-featured-designs" aria-labelledby="bandFeaturedDesignsTitle">
-                <div class="band-landing-featured-head">
-                    <div>
-                        <p>${eyebrow}</p>
-                        <h2 id="bandFeaturedDesignsTitle">${title}</h2>
-                    </div>
-                </div>
-                <div class="band-landing-featured-track">
-${groups.length ? groups.map(group => `                    <article class="band-landing-featured-group">
-                        <div class="band-landing-featured-group-images">
-${group.images.map((item, index) => `                            <button type="button" class="band-landing-featured-group-slide${index === 0 ? ' is-active' : ''}" onclick="openImageModal('${item.image}', '${item.alt}')" aria-label="Ampliar ${item.alt}">
-                                <img src="${item.image}" alt="${item.alt}" width="1080" height="1350" loading="lazy" decoding="async">
-                            </button>`).join('\n')}
-                        </div>
-                        <div class="band-landing-featured-group-footer">
-                            <strong>${group.label}</strong>
-                            <div class="band-landing-featured-group-controls" aria-label="Navegar ${group.label}">
-                                <button type="button" onclick="cycleBandFeaturedGroup(this, -1)" aria-label="Ver diseño anterior">&#8249;</button>
-                                <button type="button" onclick="cycleBandFeaturedGroup(this, 1)" aria-label="Ver diseño siguiente">&#8250;</button>
-                            </div>
-                        </div>
-                    </article>`).join('\n') : designs.map(item => `                    <button type="button" class="band-landing-featured-card" onclick="openImageModal('${item.image}', '${item.alt}')">
-                        <img src="${item.image}" alt="${item.alt}" width="1080" height="1350" loading="lazy" decoding="async">
-                        <span>AMPLIAR</span>
-                    </button>`).join('\n')}
-                </div>
-            </section>`;
 }
 
 function customizeSharedCommerceMarkup(config, markup) {
@@ -268,8 +230,6 @@ ${config.showSizeGuide ? `
                 <p>ARCHIVO FMD</p>
                 <h2 id="bandCatalogTitle">DISEÑOS DE ${config.displayName}</h2>
             </div>
-${renderFeaturedDesigns(config)}
-
             <nav id="categoryNav" hidden aria-hidden="true"></nav>
 ${Array.isArray(config.collections) && config.collections.length ? `            <div class="band-landing-collections" id="bandLandingCollections" aria-label="Explorar ${config.band} por colección">
                 <button type="button" class="band-landing-collection-btn active" data-band-landing-collection="" onclick="selectBandLandingCollection('')">TODOS <span data-collection-count=""></span></button>

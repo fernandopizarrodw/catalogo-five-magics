@@ -421,198 +421,6 @@
     letter-spacing: 0.035em;
 }
 
-.band-landing-featured-designs {
-    margin: 0 0 34px;
-    padding: 22px 0 18px;
-    overflow: hidden;
-}
-
-.band-landing-featured-head {
-    display: flex;
-    align-items: end;
-    justify-content: space-between;
-    gap: 20px;
-    margin-bottom: 16px;
-    text-align: left;
-}
-
-.band-landing-featured-head p {
-    margin: 0 0 4px;
-    color: var(--magic-green);
-    font-size: 0.72rem;
-    font-weight: 800;
-    letter-spacing: 0.18em;
-}
-
-.band-landing-featured-head h2 {
-    margin: 0;
-    font-size: clamp(2rem, 4vw, 3rem);
-    letter-spacing: 0.035em;
-}
-
-.band-landing-featured-track {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 14px;
-    padding: 2px 2px 12px;
-}
-
-.band-landing-featured-track::-webkit-scrollbar {
-    display: none;
-}
-
-.band-landing-featured-card {
-    position: relative;
-    display: block;
-    flex: 0 0 calc((100% - 28px) / 3);
-    width: calc((100% - 28px) / 3);
-    aspect-ratio: 4 / 5;
-    padding: 0;
-    overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.14);
-    border-radius: 16px;
-    background: #0b0b0c;
-    cursor: pointer;
-    scroll-snap-align: start;
-}
-
-.band-landing-featured-group {
-    min-width: 0;
-    margin: 0;
-    overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.14);
-    border-radius: 18px;
-    background: rgba(5, 5, 6, 0.82);
-}
-
-.band-landing-featured-group-images {
-    position: relative;
-    display: block;
-}
-
-.band-landing-featured-group-images button {
-    display: none;
-    min-width: 0;
-    width: 100%;
-    aspect-ratio: 4 / 5;
-    padding: 0;
-    overflow: hidden;
-    border: 0;
-    border-radius: 12px;
-    background: #fff;
-    cursor: zoom-in;
-}
-
-.band-landing-featured-group-images button.is-active {
-    display: block;
-}
-
-.band-landing-featured-group-images img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-}
-
-.band-landing-featured-group-footer {
-    display: flex;
-    min-height: 58px;
-    align-items: center;
-    justify-content: space-between;
-    gap: 12px;
-    padding: 8px 10px 8px 16px;
-}
-
-.band-landing-featured-group-footer > strong {
-    color: #fff;
-    font-size: 0.8rem;
-    letter-spacing: 0.12em;
-}
-
-.band-landing-featured-group-controls {
-    display: flex;
-    gap: 6px;
-}
-
-.band-landing-featured-group-controls button {
-    display: grid;
-    width: 36px;
-    height: 36px;
-    padding: 0;
-    place-items: center;
-    border: 1px solid rgba(255, 255, 255, 0.24);
-    border-radius: 50%;
-    background: #111;
-    color: #fff;
-    font: 600 1.6rem/1 Arial, sans-serif;
-    cursor: pointer;
-}
-
-.band-landing-featured-group-controls button:hover,
-.band-landing-featured-group-controls button:focus-visible {
-    border-color: var(--magic-green);
-    color: var(--magic-green);
-}
-
-.band-landing-featured-group-images button:hover,
-.band-landing-featured-group-images button:focus-visible {
-    outline: 2px solid var(--magic-green);
-    outline-offset: -2px;
-}
-
-.band-landing-featured-controls {
-    display: flex;
-    flex: 0 0 auto;
-    gap: 8px;
-}
-
-.band-landing-featured-controls button {
-    display: grid;
-    width: 42px;
-    height: 42px;
-    padding: 0;
-    place-items: center;
-    border: 1px solid rgba(255, 255, 255, 0.24);
-    border-radius: 50%;
-    background: rgba(5, 5, 6, 0.84);
-    color: #fff;
-    font: 600 2rem/1 Arial, sans-serif;
-    cursor: pointer;
-}
-
-.band-landing-featured-controls button:hover,
-.band-landing-featured-controls button:focus-visible {
-    border-color: var(--magic-green);
-    color: var(--magic-green);
-}
-
-.band-landing-featured-card img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-}
-
-.band-landing-featured-card span {
-    position: absolute;
-    right: 10px;
-    bottom: 10px;
-    padding: 7px 10px;
-    border: 1px solid rgba(255, 255, 255, 0.28);
-    border-radius: 999px;
-    background: rgba(5, 5, 6, 0.86);
-    color: #fff;
-    font-size: 0.68rem;
-    font-weight: 800;
-    letter-spacing: 0.08em;
-}
-
-.band-landing-featured-card:hover,
-.band-landing-featured-card:focus-visible {
-    border-color: var(--magic-green);
-    transform: translateY(-2px);
-}
-
 .band-landing-page .catalog-toolbar {
     scroll-margin-top: 92px;
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -806,16 +614,6 @@ body.band-landing-page[data-band="Argentina"] .catalog-design-cta {
     color: #eaf7ff;
 }
 
-body.band-landing-page[data-band="Argentina"] .band-landing-featured-head p {
-    color: #e2b93f;
-}
-
-body.band-landing-page[data-band="Argentina"] .band-landing-featured-card:hover,
-body.band-landing-page[data-band="Argentina"] .band-landing-featured-card:focus-visible {
-    border-color: #74acdf;
-    box-shadow: 0 10px 28px rgba(116, 172, 223, 0.2);
-}
-
 body.band-landing-page[data-band="Argentina"] .catalog-toolbar {
     border-color: rgba(116, 172, 223, 0.35);
     background: rgba(5, 25, 40, 0.94);
@@ -868,9 +666,6 @@ body.band-landing-page[data-band="Argentina"] #modal .btn-add-cart {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
-    .band-landing-featured-track {
-        grid-template-columns: 1fr;
-    }
 }
 
 @media (max-width: 560px) {
@@ -979,31 +774,6 @@ body.band-landing-page[data-band="Argentina"] #modal .btn-add-cart {
     .band-landing-catalog {
         width: calc(100% - 16px);
         margin-top: 56px;
-    }
-
-    .band-landing-featured-designs {
-        margin-bottom: 24px;
-        padding-block: 12px 8px;
-    }
-
-    .band-landing-featured-head {
-        align-items: center;
-        padding-inline: 2px;
-    }
-
-    .band-landing-featured-track {
-        gap: 10px;
-    }
-
-    .band-landing-featured-card {
-        flex-basis: min(76vw, 300px);
-        width: min(76vw, 300px);
-    }
-
-    .band-landing-featured-controls button {
-        width: 38px;
-        height: 38px;
-        font-size: 1.7rem;
     }
 
     .band-landing-collections {
