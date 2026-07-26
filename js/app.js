@@ -4549,15 +4549,14 @@ function renderModalDesignBadge(sourceIndex) {
 function openCatalogDesign(designId, initialGarment = '') {
     const design = catalogDesignById.get(designId);
     if (!design?.front || !isCatalogDesignInScope(design)) return;
+    const requestedGarment = initialGarment || (isBandLandingMode() ? getBandLandingModalGarment() : '');
     trackCatalogEvent('design_open', {
         band: design.band,
         design_id: design.designId,
         design_name: design.publicName,
-        initial_garment: initialGarment || (isBandLandingMode() ? bandLandingGarment : undefined)
+        initial_garment: requestedGarment || undefined
     });
-    openModal(design.front.productId, design.front.variantIndex, undefined, 'catalog_design', designId);
-    const requestedGarment = initialGarment || (isBandLandingMode() ? getBandLandingModalGarment() : '');
-    if (requestedGarment) selectModalGarment(requestedGarment, false);
+    openModal(design.front.productId, design.front.variantIndex, undefined, 'catalog_design', designId, requestedGarment);
 }
 
 window.openCatalogDesign = openCatalogDesign;
@@ -4566,7 +4565,7 @@ function openOuterwearFeaturedModal(id, variantIndex = undefined) {
     openModal(id, variantIndex, undefined, 'outerwear_feature');
 }
 
-function openModal(id, variantIndex = undefined, scopedVariantIndexes = undefined, source = 'catalog', catalogDesignId = null) {
+function openModal(id, variantIndex = undefined, scopedVariantIndexes = undefined, source = 'catalog', catalogDesignId = null, initialModalGarment = '') {
     currentCatalogDesign = catalogDesignId ? catalogDesignById.get(catalogDesignId) || null : null;
     modal.classList.toggle('catalog-design-modal', Boolean(currentCatalogDesign));
     selectedCatalogBackRef = null;
@@ -4715,7 +4714,9 @@ function openModal(id, variantIndex = undefined, scopedVariantIndexes = undefine
             ? 'buzo'
             : 'remera_clasica';
     selectedModalGarment = currentCatalogDesign
-        ? (availableModalGarments.includes('remera_clasica') ? 'remera_clasica' : availableModalGarments[0])
+        ? (availableModalGarments.includes(initialModalGarment)
+            ? initialModalGarment
+            : (availableModalGarments.includes('remera_clasica') ? 'remera_clasica' : availableModalGarments[0]))
         : availableModalGarments.includes(preferredGarment)
         ? preferredGarment
         : (availableModalGarments[0] || 'remera_clasica');
@@ -4877,6 +4878,7 @@ function openModal(id, variantIndex = undefined, scopedVariantIndexes = undefine
     }
 
     updateDeliveryUI();
+    if (currentCatalogDesign) selectCatalogDesignPreviewForGarment(selectedModalGarment);
     modal.classList.add('active');
     // Adjuntar listeners del carrusel una vez el modal está listo
     attachCarouselListeners();
