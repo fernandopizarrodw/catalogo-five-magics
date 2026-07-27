@@ -26,10 +26,6 @@ const PRECIOS_BUZO_REDONDO = {
     doble_personalizado: 60000
 };
 const PERSONALIZADO_EXTRA = 5000;
-const COMBO_HOODIE_REMERA_CLASICA = 99000;
-const COMBO_HOODIE_REMERA_OVERSIZE = 102000;
-const COMBO_BUZO_REMERA_CLASICA = 95000;
-const COMBO_BUZO_REMERA_OVERSIZE = 98000;
 const FECHA_VIGENCIA = "Julio 2027";
 const WHATSAPP = "541169667685";
 const BAND_ARCHIVE_CONFIGS = Array.isArray(window.FMD_BAND_ARCHIVES)
@@ -6846,12 +6842,16 @@ function buildShippingContextForWhatsapp(postalCode = '', customerData = null) {
         return `\n\n📦 DATOS DE ENVÍO / PROMO:\n${lines.join('\n')}`;
     }
 
-    if (quantity >= 4) {
-        return '\n\n📦 DATOS DE ENVÍO:\n• 4 prendas o más: 15% OFF + envío gratis a domicilio.';
+    if (quantity >= 3) {
+        return '\n\n📦 DATOS DE ENVÍO:\n• 3 prendas o más: 10% OFF + envío gratis a domicilio.';
     }
 
-    if (quantity >= 3) {
-        return '\n\n📦 DATOS DE ENVÍO:\n• 3 prendas: envío gratis a domicilio.';
+    if (quantity === 2) {
+        return '\n\n📦 DATOS DE ENVÍO:\n• 2 prendas: envío gratis a domicilio.';
+    }
+
+    if (quantity === 1) {
+        return '\n\n📦 DATOS DE ENVÍO:\n• 1 prenda: envío gratis a punto de retiro Andreani.';
     }
 
     if (postalCode) {
@@ -6984,70 +6984,16 @@ function calculateDiscountableSubtotal(items) {
     return Math.max(0, calculateCartSubtotal(items) - calculateCustomExtraSubtotal(items));
 }
 
-function findWinterCombo(items) {
-    const remera = items.find(item => isAdultRemeraItem(item));
-    if (!remera) return null;
-
-    const hoodie = items.find(item => item !== remera && isHoodieItem(item));
-    if (hoodie) {
-        const comboBase = remera.cut === 'oversize' ? COMBO_HOODIE_REMERA_OVERSIZE : COMBO_HOODIE_REMERA_CLASICA;
-        return {
-            id: 'combo_hoodie_remera',
-            comboItems: [hoodie, remera],
-            base: comboBase,
-            label: remera.cut === 'oversize'
-                ? 'Combo hoodie + remera oversize: $102.000'
-                : 'Combo hoodie + remera clásica: $99.000',
-            description: 'Incluye hoodie + remera, con estampa frontal o doble, y envío gratis a domicilio durante julio.'
-        };
-    }
-
-    const buzo = items.find(item => item !== remera && isBuzoRedondoItem(item));
-    if (buzo) {
-        const comboBase = remera.cut === 'oversize' ? COMBO_BUZO_REMERA_OVERSIZE : COMBO_BUZO_REMERA_CLASICA;
-        return {
-            id: 'combo_buzo_remera',
-            comboItems: [buzo, remera],
-            base: comboBase,
-            label: remera.cut === 'oversize'
-                ? 'Combo buzo + remera oversize: $98.000'
-                : 'Combo buzo + remera clásica: $95.000',
-            description: 'Incluye buzo cuello redondo + remera, con estampa frontal o doble, y envío gratis a domicilio durante julio.'
-        };
-    }
-
-    return null;
-}
-
-function buildComboPromotion(items, combo) {
-    const rawSubtotal = calculateCartSubtotal(items);
-    const comboCustomExtra = combo.comboItems.reduce((sum, item) => sum + getCustomExtraForCartItem(item), 0);
-    const comboTotal = combo.base + comboCustomExtra;
-    const total = Math.min(rawSubtotal, comboTotal);
-
-    return {
-        id: combo.id,
-        label: combo.label,
-        description: combo.description,
-        subtotal: rawSubtotal,
-        descuento: Math.max(0, rawSubtotal - total),
-        total,
-        envioGratis: true,
-        envioGratisPuntoAndreani: false
-    };
-}
-
 function calculateWinterPromotion(items) {
     const quantity = items.length;
     const rawSubtotal = calculateCartSubtotal(items);
     const discountableSubtotal = calculateDiscountableSubtotal(items);
-    const abrigoItems = items.filter(item => isHoodieItem(item) || isBuzoRedondoItem(item));
 
-    if (quantity >= 4) {
-        const discount = discountableSubtotal * 0.15;
+    if (quantity >= 3) {
+        const discount = discountableSubtotal * 0.10;
         return {
-            id: 'general_4_plus',
-            label: '4 prendas o más: 15% OFF + envío gratis a domicilio',
+            id: 'general_3_plus',
+            label: '3 prendas o más: 10% OFF + envío gratis a domicilio',
             description: 'Los diseños personalizados tienen un adicional de $5.000 por diseño. Ese adicional no recibe descuentos promocionales.',
             subtotal: rawSubtotal,
             descuento: discount,
@@ -7057,41 +7003,7 @@ function calculateWinterPromotion(items) {
         };
     }
 
-    if (quantity === 3) {
-        if (abrigoItems.length === 3) {
-            const discount = discountableSubtotal * 0.10;
-            return {
-                id: 'tres_abrigos',
-                label: '3 prendas de abrigo: 10% OFF + envío gratis a domicilio',
-                description: 'Aplica a hoodies y/o buzos, en cualquier combinación. Los diseños personalizados tienen un adicional de $5.000 por diseño y ese adicional no recibe descuentos promocionales.',
-                subtotal: rawSubtotal,
-                descuento: discount,
-                total: rawSubtotal - discount,
-                envioGratis: true,
-                envioGratisPuntoAndreani: false
-            };
-        }
-
-        return {
-            id: 'general_3',
-            label: '3 prendas: envío gratis a domicilio',
-            description: 'Promo aplicada a cualquier combinación de remeras, hoodies y buzos.',
-            subtotal: rawSubtotal,
-            descuento: 0,
-            total: rawSubtotal,
-            envioGratis: true,
-            envioGratisPuntoAndreani: false
-        };
-    }
-
     if (quantity === 2) {
-        const combo = findWinterCombo(items);
-
-        if (combo) {
-            const comboPromotion = buildComboPromotion(items, combo);
-            if (comboPromotion.descuento > 0) return comboPromotion;
-        }
-
         return {
             id: 'dos_prendas',
             label: '2 prendas: envío gratis a domicilio',
@@ -7107,8 +7019,8 @@ function calculateWinterPromotion(items) {
     if (quantity === 1) {
         return {
             id: 'julio_una_prenda',
-            label: 'Julio: envío gratis desde 1 prenda',
-            description: 'Envío gratis a un punto de retiro Andreani cercano, disponible en todo el país.',
+            label: '1 prenda: envío gratis a punto de retiro Andreani',
+            description: 'Elegí el punto de retiro Andreani que te quede más cómodo.',
             subtotal: rawSubtotal,
             descuento: 0,
             total: rawSubtotal,
@@ -7284,7 +7196,7 @@ function renderCartPreview() {
             </div>
             ${totals.descuento > 0 ? `
                 <div class="cart-preview-summary-row">
-                    <span>${totals.promotion?.id === 'general_4_plus' ? 'Descuento 15% (4 prendas o más)' : totals.promotion?.id === 'tres_abrigos' ? 'Descuento 10% (3 abrigos)' : 'Descuento promo invierno'}</span>
+                    <span>Descuento 10% (3 prendas o más)</span>
                     <span class="value" style="color: var(--magic-green);">-$${totals.descuento.toLocaleString('es-AR')}</span>
                 </div>
             ` : ''}
@@ -7307,7 +7219,7 @@ function renderCartPreview() {
         ${shippingForm}
         <div class="cart-preview-info" style="margin-top:12px;padding:12px;background:#0a0a0a;border:1px solid #222;border-radius:8px;font-size:0.8rem;color:#888;">
             <div style="margin-bottom:8px;">
-                <span style="color:#39ff14;">📦 PROMO JULIO:</span> Desde 1 prenda: envío gratis a punto de retiro Andreani. Desde 2 prendas: envío gratis a domicilio. 3 abrigos: 10% OFF + envío gratis a domicilio. 4 prendas o más: 15% OFF + envío gratis a domicilio.
+                <span style="color:#39ff14;">📦 PROMO JULIO:</span> 1 prenda: envío gratis a punto de retiro Andreani. 2 prendas: envío gratis a domicilio. 3 prendas o más: 10% OFF + envío gratis a domicilio.
             </div>
             <div>
                 <span style="color:#39ff14;">💳 PAGO:</span> Transferencia o MercadoPago. Tarjeta de crédito disponible con recargo.
