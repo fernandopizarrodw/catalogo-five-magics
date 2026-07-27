@@ -3573,7 +3573,8 @@
         "variants": [
             {
                 "img": "images/iron_maiden/iron_maiden.jpg",
-                "name": "Frente"
+                "name": "Frente",
+                "designId": "iron-maiden-iron-maiden-classic"
             },
             {
                 "img": "images/iron_maiden/iron_maiden_empire.jpg",
@@ -10568,7 +10569,7 @@
         "variants": [
             {
                 "img": "images/iron_maiden/iron_maiden_book.jpg",
-                "name": "DiseÃ±o"
+                "name": "The Book of Souls"
             }
         ],
         "desc": "Iron Maiden Book - DiseÃ±o de la banda clÃ¡sica.",
@@ -10606,7 +10607,7 @@
         "variants": [
             {
                 "img": "images/iron_maiden/iron_maiden_can_i.jpg",
-                "name": "DiseÃ±o"
+                "name": "Can I Play with Madness"
             }
         ],
         "desc": "Iron Maiden Can I - DiseÃ±o de la banda clÃ¡sica.",
@@ -10644,7 +10645,7 @@
         "variants": [
             {
                 "img": "images/iron_maiden/iron_maiden_the_book.jpg",
-                "name": "DiseÃ±o"
+                "name": "The Book of Souls V2"
             }
         ],
         "desc": "Iron Maiden The Book - DiseÃ±o de la banda clÃ¡sica.",
@@ -10682,7 +10683,7 @@
         "variants": [
             {
                 "img": "images/iron_maiden/iron_maiden_brave.jpg",
-                "name": "DiseÃ±o"
+                "name": "Brave New World"
             }
         ],
         "desc": "Iron Maiden Brave - DiseÃ±o de la banda clÃ¡sica.",
@@ -10762,7 +10763,7 @@
         "variants": [
             {
                 "img": "images/iron_maiden/iron_maiden_somewhere.jpg",
-                "name": "DiseÃ±o"
+                "name": "Somewhere in Time"
             }
         ],
         "desc": "Iron Maiden Somewhere - DiseÃ±o de la banda clÃ¡sica.",
@@ -13003,6 +13004,7 @@
     },
     {
         "id": 6004,
+        "designId": "iron-maiden-iron-maiden-classic",
         "category": "Hoodies Otras Bandas",
         "year": "2026",
         "name": "Hoodie Iron Maiden",
@@ -13873,9 +13875,10 @@
     },
     {
         "id": 7011,
+        "designId": "iron-maiden-powerslave-fmd",
         "category": "Buzo Cuello Redondo",
         "year": "2026",
-        "name": "Buzo Iron Maiden FMD",
+        "name": "Buzo Iron Maiden Powerslave FMD",
         "tipoPrecio": "doble",
         "isNew": true,
         "priority": 89,
@@ -13909,9 +13912,10 @@
     },
     {
         "id": 7012,
+        "designId": "iron-maiden-live-after-death-fmd",
         "category": "Buzo Cuello Redondo",
         "year": "2026",
-        "name": "Buzo Iron Maiden After Death FMD",
+        "name": "Buzo Iron Maiden Live After Death FMD",
         "tipoPrecio": "doble",
         "isNew": true,
         "priority": 88,
@@ -14408,6 +14412,7 @@
     },
     {
         "id": 7025,
+        "designId": "iron-maiden-live-after-death-fmd",
         "category": "Iron Maiden",
         "year": "2026",
         "name": "Iron Maiden Fmd Live After Death FMD",
@@ -14456,6 +14461,7 @@
     },
     {
         "id": 7026,
+        "designId": "iron-maiden-powerslave-fmd",
         "category": "Iron Maiden",
         "year": "2026",
         "name": "Iron Maiden Fmd Powerslave FMD",
