@@ -14908,6 +14908,69 @@
         ]
     },
     {
+        "id": 7041,
+        "category": "Iron Maiden",
+        "year": "2026",
+        "name": "Iron Maiden Run For Your Lives World Tour 2026",
+        "designId": "iron-maiden-run-for-your-lives-2026-oficial",
+        "designSlug": "iron-maiden-run-for-your-lives-2026-oficial",
+        "tipoPrecio": "doble",
+        "defaultPrintMode": "doble",
+        "usesShownComposition": true,
+        "isNew": true,
+        "img": "images/iron_maiden/remera_iron_maiden_run_oficial.jpg",
+        "variants": [
+            {
+                "img": "images/iron_maiden/remera_iron_maiden_run_oficial.jpg",
+                "name": "Run For Your Lives World Tour 2026 - Remera",
+                "designId": "iron-maiden-run-for-your-lives-2026-oficial"
+            },
+            {
+                "img": "images/iron_maiden/hoodie_iron_maiden_run_oficial.jpg",
+                "name": "Run For Your Lives World Tour 2026 - Hoodie",
+                "designId": "iron-maiden-run-for-your-lives-2026-oficial",
+                "garmentCategory": "Hoodies Otras Bandas"
+            },
+            {
+                "img": "images/iron_maiden/buzo_iron_maiden_run_oficial.jpg",
+                "name": "Run For Your Lives World Tour 2026 - Buzo cuello redondo",
+                "designId": "iron-maiden-run-for-your-lives-2026-oficial",
+                "garmentCategory": "Buzo Cuello Redondo"
+            }
+        ],
+        "desc": "Run For Your Lives World Tour 2026. Diseño de Iron Maiden disponible en remera, hoodie y buzo cuello redondo, con la composición de frente y dorso mostrada.",
+        "publicSubtitle": "Run For Your Lives World Tour 2026 · Argentina",
+        "band": "Iron Maiden",
+        "album": null,
+        "garments": [
+            "remera",
+            "hoodie",
+            "buzo_cuello_redondo"
+        ],
+        "collections": [
+            "Archivo Maiden",
+            "Run For Your Lives World Tour 2026",
+            "Hoodies Otras Bandas",
+            "Buzo Cuello Redondo"
+        ],
+        "campaigns": [
+            "Argentina 2026",
+            "Invierno 2026"
+        ],
+        "commercialPriority": 99,
+        "visibilityTier": "hero",
+        "legacyCategory": "Iron Maiden",
+        "tags": [
+            "Iron Maiden",
+            "Run For Your Lives",
+            "World Tour 2026",
+            "Argentina 2026",
+            "remera",
+            "hoodie",
+            "buzo_cuello_redondo"
+        ]
+    },
+    {
         "id": 7107,
         "category": "Slayer",
         "year": "2026",

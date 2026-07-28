@@ -185,6 +185,7 @@
             defaultGarment: 'remera',
             usesShownComposition: true,
             designOrder: [
+                'iron-maiden-run-for-your-lives-2026-oficial',
                 'cd-iron-maiden-eddie-gaucho-argentino--p7040',
                 'iron-maiden-iron-maiden-classic',
                 'cd-iron-maiden-killers--p5036',
