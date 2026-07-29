@@ -233,6 +233,37 @@
             ]
         },
         {
+            output: 'hermetica/index.html',
+            slug: 'hermetica',
+            band: 'Hermetica',
+            displayName: 'HERMÉTICA',
+            title: 'Hermética: remeras, hoodies y buzos | Five Magics Designs',
+            description: 'Diseños de Hermética en remeras, hoodies y buzos hechos a pedido. Elegí estampa frontal o doble, talle, color y forma de entrega.',
+            canonical: 'https://catalogo.fivemagicsdesigns.com/hermetica/',
+            image: '/images/banda_sugeridas/hermetica/remera_v8_hermetica_almafuerte_iorio.jpg',
+            imageUrl: 'https://catalogo.fivemagicsdesigns.com/images/banda_sugeridas/hermetica/remera_v8_hermetica_almafuerte_iorio.jpg',
+            heroTitle: 'REMERAS, HOODIES Y BUZOS',
+            heroCopy: 'Explorá diseños de Hermética y homenajes a Ricardo Iorio. Elegí tu favorito y armá tu pedido.',
+            finalTitle: '¿BUSCABAS OTRO DISEÑO DE HERMÉTICA?',
+            finalCopy: 'También hacemos diseños personalizados a partir de una tapa, imagen o idea.',
+            whatsappMessage: 'Hola FMD! Quiero consultar por un diseño de Hermética a partir de una tapa, imagen o idea.',
+            defaultGarment: 'remera',
+            usesShownComposition: true,
+            designOrder: [
+                'v8-hermetica-almafuerte-iorio',
+                'hermetica-acido-argentino',
+                'hermetica-victimas-del-vaciamiento',
+                'hermetica-victimas-del-vaciamiento-banda',
+                'hermetica-en-concierto',
+                'hermetica-interpretes'
+            ],
+            garments: [
+                { key: 'hoodie', title: 'HOODIES', price: 'Frontal $52.000 · Doble $59.000', image: '/images/banda_sugeridas/hermetica/hoodie_v8_hermetica_almafuerte_iorio.jpg', alt: 'Hoodie V8 Hermética Almafuerte Ricardo Iorio' },
+                { key: 'buzo_cuello_redondo', title: 'BUZOS', price: 'Frontal $50.000 · Doble $55.000', image: '/images/banda_sugeridas/hermetica/buzo_v8_hermetica_almafuerte_iorio.jpg', alt: 'Buzo cuello redondo V8 Hermética Almafuerte Ricardo Iorio' },
+                { key: 'remera', title: 'REMERAS', price: 'Frontal $37.000 · Doble $44.000', image: '/images/banda_sugeridas/hermetica/remera_v8_hermetica_almafuerte_iorio.jpg', alt: 'Remera V8 Hermética Almafuerte Ricardo Iorio' }
+            ]
+        },
+        {
             output: 'argentina/index.html',
             slug: 'argentina',
             band: 'Argentina',
