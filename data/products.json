@@ -6196,38 +6196,6 @@
         "reviewStatus": "manual-review"
     },
     {
-        "id": 5119,
-        "category": "Personalizados",
-        "year": "2025",
-        "name": "Hermética",
-        "tipoPrecio": "simple",
-        "img": "images/personalizado/hermetica.jpg",
-        "desc": "Mockup Hermética.",
-        "band": "Hermetica",
-        "universe": [
-            "Argentina Heavy",
-            "Custom Archive"
-        ],
-        "album": null,
-        "garments": [
-            "remera"
-        ],
-        "collections": [
-            "Personalizados FMD"
-        ],
-        "campaigns": [],
-        "commercialPriority": 56,
-        "visibilityTier": "catalog",
-        "legacyCategory": "Personalizados",
-        "tags": [
-            "Hermetica",
-            "Argentina Heavy",
-            "Custom Archive",
-            "remera",
-            "Personalizados FMD"
-        ]
-    },
-    {
         "id": 312,
         "category": "Personalizados",
         "year": "2025",
