@@ -5820,14 +5820,9 @@ function renderCatalogDesignResults(designs) {
             ? design.catalogPriceText
             : `Desde $${price}`;
         const initialGarment = isBandLandingMode() ? getBandLandingModalGarment() : '';
-        const badges = [
-            design.isNew ? '<span class="catalog-design-badge is-new">NUEVO</span>' : '',
-            ...(design.badges || []).map(badge => `<span class="catalog-design-badge is-fmd">${badge}</span>`)
-        ].join('');
         return `<article class="catalog-design-card" data-design-id="${design.designId}">
             <button type="button" class="catalog-design-card-main" onclick="openCatalogDesign('${design.designId}', '${initialGarment}')" aria-label="Ver diseño ${design.publicName}">
                 <span class="catalog-design-media">
-                    ${badges ? `<span class="catalog-design-badges">${badges}</span>` : ''}
                     <img src="${preview.image}" alt="${preview.alt || `${design.publicName} - ${design.band}`}" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='images/logo/MARCA DE AGUA.png';">
                 </span>
                 <span class="catalog-design-copy">
