@@ -306,6 +306,7 @@
                             'almafuerte-banda-y-cartas',
                             'almafuerte-a-fondo-blanco',
                             'almafuerte-piedra-libre',
+                            'almafuerte-iorio-malvinas',
                             'almafuerte-toro-y-pampa',
                             'almafuerte-trillando-la-fina',
                             'v8-hermetica-almafuerte-iorio'
@@ -337,6 +338,7 @@
             designOrder: [
                 'v8-hermetica-almafuerte-iorio',
                 'ricardo-iorio-bueno-malo-y-feo',
+                'almafuerte-iorio-malvinas',
                 'v8-luchando-por-el-metal',
                 'almafuerte-piedra-libre',
                 'almafuerte-trillando-la-fina',
