@@ -274,6 +274,11 @@
             imageUrl: 'https://catalogo.fivemagicsdesigns.com/images/banda_sugeridas/ricardo_iorio/remera_v8_hermetica_almafuerte_iorio.jpg',
             heroTitle: 'REMERAS, HOODIES Y BUZOS',
             heroCopy: 'Diseños de Ricardo Iorio, V8, Hermética y Almafuerte. Elegí tu favorito y armá tu pedido.',
+            relatedArchive: {
+                label: 'EXPLORÁ TAMBIÉN',
+                title: 'HERMÉTICA',
+                href: '/hermetica/'
+            },
             finalTitle: '¿BUSCABAS OTRO DISEÑO DE RICARDO IORIO?',
             finalCopy: 'También hacemos diseños personalizados a partir de una tapa, imagen o idea.',
             whatsappMessage: 'Hola FMD! Quiero consultar por un diseño de Ricardo Iorio, V8, Hermética o Almafuerte.',
@@ -294,7 +299,7 @@
                 'hermetica-victimas-del-vaciamiento-banda'
             ],
             garments: [
-                { key: 'hoodie', title: 'HOODIES', price: 'Frontal $52.000 · Doble $59.000', image: '/images/banda_sugeridas/ricardo_iorio/hoodie_ioriov4.jpg', alt: 'Hoodie Ricardo Iorio Blanco y Negro' },
+                { key: 'hoodie', title: 'HOODIES', price: 'Frontal $52.000 · Doble $59.000', image: '/images/banda_sugeridas/ricardo_iorio/hoodie_ioriov4.jpg', alt: 'Hoodie Ricardo Iorio Leyenda' },
                 { key: 'buzo_cuello_redondo', title: 'BUZOS', price: 'Frontal $50.000 · Doble $55.000', image: '/images/banda_sugeridas/ricardo_iorio/buzo_iorio_leyenda.jpg', alt: 'Buzo cuello redondo Ricardo Iorio Leyenda' },
                 { key: 'remera', title: 'REMERAS', price: 'Frontal $37.000 · Doble $44.000', image: '/images/banda_sugeridas/ricardo_iorio/remera_iorio_ilustracion.jpg', alt: 'Remera Ricardo Iorio Ilustración' }
             ]

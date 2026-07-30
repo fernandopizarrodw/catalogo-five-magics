@@ -174,6 +174,11 @@ function renderLanding(config, sharedCommerceMarkup) {
                 <h2>${config.heroTitle}</h2>
                 <p>${config.heroCopy}</p>
                 <a class="band-landing-primary-cta" href="#catalogoPrincipal">VER DISEÑOS</a>
+${config.relatedArchive ? `                <a class="band-landing-related-archive" href="${config.relatedArchive.href}" aria-label="${config.relatedArchive.label}: ${config.relatedArchive.title}">
+                    <span>${config.relatedArchive.label}</span>
+                    <strong>${config.relatedArchive.title}</strong>
+                    <span aria-hidden="true">→</span>
+                </a>` : ''}
             </div>
             <div class="band-landing-hero-art">
                 <img src="${config.image}" alt="Diseño ${config.band} disponible en Five Magics Designs" width="1200" height="1200">

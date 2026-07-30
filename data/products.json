@@ -17350,7 +17350,7 @@
         "id": 7202,
         "category": "Bandas Sugeridas",
         "year": "2026",
-        "name": "Almafuerte - Banda y Cartas",
+        "name": "Almafuerte - Almafuerte",
         "designId": "almafuerte-banda-y-cartas",
         "designSlug": "almafuerte-banda-y-cartas",
         "publishedAt": "2026-07-30",
@@ -17362,14 +17362,14 @@
         "variants": [
             {
                 "img": "images/banda_sugeridas/ricardo_iorio/remera_almafuerte.jpg",
-                "name": "Almafuerte - Banda y Cartas",
+                "name": "Almafuerte - Almafuerte",
                 "alt": "Remera Almafuerte con la banda y cartas al frente y listado de canciones en el dorso",
                 "designId": "almafuerte-banda-y-cartas",
                 "preferredPreview": true
             },
             {
                 "img": "images/banda_sugeridas/ricardo_iorio/remera_almafuerte_v2.jpg",
-                "name": "Almafuerte - Banda y Cartas",
+                "name": "Almafuerte - Almafuerte",
                 "alt": "Detalle de la composición Almafuerte Banda y Cartas",
                 "designId": "almafuerte-banda-y-cartas"
             }
@@ -17428,7 +17428,7 @@
         "id": 7204,
         "category": "Bandas Sugeridas",
         "year": "2026",
-        "name": "Ricardo Iorio en Vivo V2",
+        "name": "Ricardo Iorio - En vivo",
         "designId": "ricardo-iorio-en-vivo-v2",
         "designSlug": "ricardo-iorio-en-vivo-v2",
         "publishedAt": "2026-07-30",
@@ -17452,7 +17452,7 @@
         "id": 7205,
         "category": "Bandas Sugeridas",
         "year": "2026",
-        "name": "Ricardo Iorio - Blanco y Negro",
+        "name": "Ricardo Iorio - Leyenda",
         "designId": "ricardo-iorio-blanco-y-negro",
         "designSlug": "ricardo-iorio-blanco-y-negro",
         "publishedAt": "2026-07-30",
@@ -17464,14 +17464,14 @@
         "variants": [
             {
                 "img": "images/banda_sugeridas/ricardo_iorio/remera_ioriov4.jpg",
-                "name": "Ricardo Iorio - Blanco y Negro - Remera",
+                "name": "Ricardo Iorio - Leyenda - Remera",
                 "alt": "Remera Ricardo Iorio en blanco y negro con logo Metal Pesado Argentino en el dorso",
                 "designId": "ricardo-iorio-blanco-y-negro",
                 "preferredPreview": true
             },
             {
                 "img": "images/banda_sugeridas/ricardo_iorio/hoodie_ioriov4.jpg",
-                "name": "Ricardo Iorio - Blanco y Negro - Hoodie",
+                "name": "Ricardo Iorio - Leyenda - Hoodie",
                 "alt": "Hoodie Ricardo Iorio con logo al frente y retrato en blanco y negro en el dorso",
                 "designId": "ricardo-iorio-blanco-y-negro",
                 "garmentCategory": "Hoodies Otras Bandas"

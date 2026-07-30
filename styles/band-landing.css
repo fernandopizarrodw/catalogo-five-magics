@@ -142,6 +142,37 @@
     margin-top: 28px;
 }
 
+.band-landing-related-archive {
+    width: max-content;
+    max-width: 100%;
+    margin-top: 12px;
+    border: 1px solid rgba(152, 196, 170, 0.45);
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 14px;
+    background: rgba(21, 54, 38, 0.42);
+    color: #d9eee1;
+    font-family: "Oswald", sans-serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    text-decoration: none;
+    transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+}
+
+.band-landing-related-archive strong {
+    color: #fff;
+    font-size: 0.9rem;
+}
+
+.band-landing-related-archive:hover,
+.band-landing-related-archive:focus-visible {
+    border-color: #75c48f;
+    background: rgba(31, 83, 56, 0.65);
+    transform: translateY(-1px);
+}
+
 .band-landing-primary-cta:hover,
 .band-landing-custom a:hover {
     background: #ff563f;
@@ -706,6 +737,11 @@ body.band-landing-page[data-band="Argentina"] #modal .btn-add-cart {
 
     .band-landing-primary-cta {
         width: 100%;
+    }
+
+    .band-landing-related-archive {
+        width: 100%;
+        justify-content: center;
     }
 
     .band-landing-hero-art {
