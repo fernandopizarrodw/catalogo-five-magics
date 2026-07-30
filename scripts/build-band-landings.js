@@ -53,6 +53,7 @@ function serializeInlineConfig(config) {
             : [],
         collections: Array.isArray(config.collections) ? config.collections : [],
         designOrder: Array.isArray(config.designOrder) ? config.designOrder : [],
+        sharedDesignIds: Array.isArray(config.sharedDesignIds) ? config.sharedDesignIds : [],
         albumOrder: Array.isArray(config.albumOrder) ? config.albumOrder : []
     })
         .replace(/</g, '\\u003c');

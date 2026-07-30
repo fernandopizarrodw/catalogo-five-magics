@@ -5551,6 +5551,77 @@ header {
     border-color: rgba(255, 111, 0, 0.38);
 }
 
+.catalog-custom-design-callout {
+    display: grid;
+    gap: 16px;
+    width: 100%;
+    margin: 0 0 24px;
+    padding: 20px;
+    box-sizing: border-box;
+    border: 1px solid rgba(57, 255, 20, 0.42);
+    border-radius: 16px;
+    background:
+        linear-gradient(135deg, rgba(57, 255, 20, 0.11), transparent 48%),
+        #070907;
+}
+
+.catalog-custom-design-callout p {
+    margin: 0 0 5px;
+    color: var(--magic-green);
+    font-size: 0.7rem;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+}
+
+.catalog-custom-design-callout h2 {
+    margin: 0;
+    color: #fff;
+    font-family: var(--font-title);
+    font-size: clamp(1.35rem, 4vw, 2rem);
+    letter-spacing: 0.04em;
+}
+
+.catalog-custom-design-callout span,
+.catalog-custom-design-callout strong {
+    display: block;
+    margin-top: 7px;
+    line-height: 1.45;
+}
+
+.catalog-custom-design-callout span {
+    color: rgba(255, 255, 255, 0.82);
+}
+
+.catalog-custom-design-callout strong {
+    color: #fff;
+    font-size: 0.8rem;
+    letter-spacing: 0.025em;
+}
+
+.catalog-custom-design-callout a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 46px;
+    padding: 11px 16px;
+    border: 1px solid var(--magic-green);
+    border-radius: 999px;
+    background: var(--magic-green);
+    color: #020402;
+    font-family: var(--font-title);
+    font-size: 0.78rem;
+    font-weight: 900;
+    letter-spacing: 0.07em;
+    text-align: center;
+}
+
+@media (min-width: 760px) {
+    .catalog-custom-design-callout {
+        grid-template-columns: minmax(0, 1fr) auto;
+        align-items: center;
+    }
+}
+
 .catalog-band-directory-head {
     margin-bottom: 14px;
 }
@@ -5704,15 +5775,24 @@ header {
 
 @media (max-width: 480px) {
     .catalog-band-directory-section {
-        padding: 12px;
+        padding: 10px;
     }
 
     .catalog-band-directory-grid {
-        grid-template-columns: minmax(0, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
     }
 
     .catalog-band-card {
-        min-height: 190px;
+        min-height: 150px;
+    }
+
+    .catalog-band-card-copy {
+        padding: 10px;
+    }
+
+    .catalog-band-card-copy strong {
+        font-size: 0.9rem;
     }
 }
 

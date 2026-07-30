@@ -49,6 +49,11 @@ const BAND_LANDING_DESIGN_ORDER = Array.isArray(BAND_LANDING_CONFIG?.designOrder
 const BAND_LANDING_DESIGN_ORDER_INDEX = new Map(
     BAND_LANDING_DESIGN_ORDER.map((designId, index) => [designId, index])
 );
+const BAND_LANDING_SHARED_DESIGN_IDS = new Set(
+    Array.isArray(BAND_LANDING_CONFIG?.sharedDesignIds)
+        ? BAND_LANDING_CONFIG.sharedDesignIds
+        : []
+);
 const BAND_LANDING_ALBUM_ORDER = Array.isArray(BAND_LANDING_CONFIG?.albumOrder)
     ? BAND_LANDING_CONFIG.albumOrder
     : [];
@@ -108,11 +113,15 @@ function usesBandLandingShownComposition() {
 }
 
 function isCatalogDesignInScope(design) {
-    return !isBandLandingMode() || normalizeText(design?.band) === normalizeText(BAND_LANDING_BAND);
+    return !isBandLandingMode()
+        || normalizeText(design?.band) === normalizeText(BAND_LANDING_BAND)
+        || BAND_LANDING_SHARED_DESIGN_IDS.has(design?.designId);
 }
 
 function isProductInCatalogScope(product) {
-    return !isBandLandingMode() || normalizeText(getCatalogBandLabel(product)) === normalizeText(BAND_LANDING_BAND);
+    return !isBandLandingMode()
+        || normalizeText(getCatalogBandLabel(product)) === normalizeText(BAND_LANDING_BAND)
+        || BAND_LANDING_SHARED_DESIGN_IDS.has(product?.designId);
 }
 
 function normalizeBandLandingAssetPath(value) {
@@ -5774,11 +5783,11 @@ function getCatalogDesignResults() {
         designs = scopedDesigns.filter(design => getCatalogDesignSearchText(design).includes(query));
     } else if (normalizeText(currentCategory) === 'personalizados') {
         designs = scopedDesigns.filter(design => design.isPersonalized);
+    } else if (isBandLandingMode()) {
+        designs = scopedDesigns;
     } else if (catalogDesignBandExists(currentCategory)) {
         const band = normalizeText(currentCategory);
         designs = scopedDesigns.filter(design => normalizeText(design.band) === band);
-    } else if (isBandLandingMode()) {
-        designs = scopedDesigns;
     }
 
     if (!designs) return null;
@@ -5925,6 +5934,7 @@ function renderCatalogBandDirectory(products) {
     const findLabel = label => [...groups.keys()].find(groupLabel => normalizeText(groupLabel) === normalizeText(label));
     const primaryLabels = ['Megadeth', 'Slayer', 'Iron Maiden', 'Metallica'].map(findLabel).filter(Boolean);
     const currentLabels = ['EPICA', 'Rhapsody', 'Helloween', 'Nightwish', 'Blind Guardian'].map(findLabel).filter(Boolean);
+    const featuredLabels = [...new Set([...primaryLabels, ...currentLabels])];
     const allLabels = [...groups.keys()]
         .sort((a, b) => a.localeCompare(b, 'es', { sensitivity: 'base' }));
 
@@ -5976,9 +5986,17 @@ function renderCatalogBandDirectory(products) {
     document.querySelector('.catalog-toolbar')?.classList.add('catalog-directory-active');
     document.getElementById('productsCount').textContent = 'ELEGÍ UNA BANDA PARA VER SUS DISEÑOS';
     productsGrid.innerHTML = [
-        renderSection('primary', 'BANDAS PRINCIPALES', 'Entrá directo a las colecciones más grandes de FMD.', primaryLabels, 'is-primary'),
-        renderSection('current', 'NUEVOS DISEÑOS', 'EPICA, Rhapsody, Helloween, Nightwish y Blind Guardian.', currentLabels, 'is-current'),
-        renderSection('more', 'TODAS LAS BANDAS', 'Todo el catálogo disponible, ordenado alfabéticamente.', allLabels)
+        `<section class="catalog-custom-design-callout" aria-labelledby="catalogCustomDesignTitle">
+            <div>
+                <p>PERSONALIZADOS FMD</p>
+                <h2 id="catalogCustomDesignTitle">TU DISEÑO, EN LA PRENDA QUE QUIERAS</h2>
+                <span>Hacemos diseños personalizados en remeras, hoodies y buzos.</span>
+                <strong>DTG PREMIUM · Impresión directa sobre tela · Sin vinilo, transfer, plástico ni DTF</strong>
+            </div>
+            <a href="https://wa.me/${WHATSAPP}?text=${encodeURIComponent('Hola FMD! Quiero consultar por un diseño personalizado.')}" target="_blank" rel="noopener">PEDIR UN DISEÑO PERSONALIZADO</a>
+        </section>`,
+        renderSection('more', 'TODAS LAS BANDAS', 'Explorá el catálogo completo, ordenado alfabéticamente.', allLabels),
+        renderSection('featured', 'ELEGÍ TU BANDA', 'Entrá y encontrá tu próximo diseño.', featuredLabels, 'is-primary')
     ].join('');
     productsGrid.querySelectorAll('[data-band-filter]').forEach(button => {
         button.addEventListener('click', () => openBandAccess(decodeURIComponent(button.dataset.bandFilter)));
