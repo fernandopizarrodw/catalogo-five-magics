@@ -243,6 +243,11 @@
             imageUrl: 'https://catalogo.fivemagicsdesigns.com/images/banda_sugeridas/hermetica/remera_hermetica_acido.jpg',
             heroTitle: 'REMERAS, HOODIES Y BUZOS',
             heroCopy: 'Explorá diseños de Hermética y homenajes a Ricardo Iorio. Elegí tu favorito y armá tu pedido.',
+            relatedArchive: {
+                label: 'EXPLORÁ EL UNIVERSO COMPLETO',
+                title: 'RICARDO IORIO',
+                href: '/ricardo-iorio/'
+            },
             finalTitle: '¿BUSCABAS OTRO DISEÑO DE HERMÉTICA?',
             finalCopy: 'También hacemos diseños personalizados a partir de una tapa, imagen o idea.',
             whatsappMessage: 'Hola FMD! Quiero consultar por un diseño de Hermética a partir de una tapa, imagen o idea.',
@@ -274,11 +279,6 @@
             imageUrl: 'https://catalogo.fivemagicsdesigns.com/images/banda_sugeridas/ricardo_iorio/remera_v8_hermetica_almafuerte_iorio.jpg',
             heroTitle: 'REMERAS, HOODIES Y BUZOS',
             heroCopy: 'Diseños de Ricardo Iorio, V8, Hermética y Almafuerte. Elegí tu favorito y armá tu pedido.',
-            relatedArchive: {
-                label: 'EXPLORÁ TAMBIÉN',
-                title: 'HERMÉTICA',
-                href: '/hermetica/'
-            },
             finalTitle: '¿BUSCABAS OTRO DISEÑO DE RICARDO IORIO?',
             finalCopy: 'También hacemos diseños personalizados a partir de una tapa, imagen o idea.',
             whatsappMessage: 'Hola FMD! Quiero consultar por un diseño de Ricardo Iorio, V8, Hermética o Almafuerte.',
@@ -287,8 +287,66 @@
             sharedDesignIds: [
                 'hermetica-victimas-del-vaciamiento-banda'
             ],
+            sharedBands: ['Hermetica', 'Almafuerte'],
+            collections: [
+                {
+                    id: 'hermetica',
+                    label: 'HERMÉTICA',
+                    match: {
+                        bands: ['Hermetica'],
+                        designIds: ['v8-hermetica-almafuerte-iorio']
+                    }
+                },
+                {
+                    id: 'almafuerte',
+                    label: 'ALMAFUERTE',
+                    match: {
+                        bands: ['Almafuerte'],
+                        designIds: [
+                            'almafuerte-banda-y-cartas',
+                            'almafuerte-a-fondo-blanco',
+                            'almafuerte-piedra-libre',
+                            'almafuerte-toro-y-pampa',
+                            'almafuerte-trillando-la-fina',
+                            'v8-hermetica-almafuerte-iorio'
+                        ]
+                    }
+                },
+                {
+                    id: 'v8',
+                    label: 'V8',
+                    match: {
+                        designIds: ['v8-tiempos-metalicos', 'v8-luchando-por-el-metal', 'v8-hermetica-almafuerte-iorio']
+                    }
+                },
+                {
+                    id: 'solista',
+                    label: 'IORIO SOLISTA',
+                    match: {
+                        designIds: [
+                            'ricardo-iorio-metal-pesado-argentino',
+                            'ricardo-iorio-bueno-malo-y-feo',
+                            'ricardo-iorio-ilustracion',
+                            'ricardo-iorio-leyenda',
+                            'ricardo-iorio-en-vivo-v2',
+                            'ricardo-iorio-blanco-y-negro'
+                        ]
+                    }
+                }
+            ],
             designOrder: [
                 'v8-hermetica-almafuerte-iorio',
+                'ricardo-iorio-bueno-malo-y-feo',
+                'v8-luchando-por-el-metal',
+                'almafuerte-piedra-libre',
+                'almafuerte-trillando-la-fina',
+                'almafuerte-a-fondo-blanco',
+                'almafuerte-toro-y-pampa',
+                'hermetica-acido-argentino',
+                'hermetica-victimas-del-vaciamiento',
+                'hermetica-victimas-del-vaciamiento-banda',
+                'hermetica-en-concierto',
+                'hermetica-interpretes',
                 'ricardo-iorio-metal-pesado-argentino',
                 'ricardo-iorio-ilustracion',
                 'ricardo-iorio-leyenda',

@@ -93,10 +93,8 @@
 
 ### **Nota Importante:**
 - Los precios mostrados son **precios de venta al cliente**
-- El combo no incluye envío gratis
-- 1 o 2 prendas: envío según zona
-- 3 prendas o más: envío gratis
-- 4 prendas o más: 15% OFF + envío gratis
+- Durante agosto, desde 1 prenda: envío gratis a punto de retiro Andreani
+- Desde 3 prendas: 10% OFF + envío gratis a domicilio
 - Costo de producción (Dreamful): $15-22 ARS por unidad
 - Margen de ganancia: $4-24 ARS por remera
 

@@ -26,7 +26,7 @@ const PRECIOS_BUZO_REDONDO = {
     doble_personalizado: 60000
 };
 const PERSONALIZADO_EXTRA = 5000;
-const FECHA_VIGENCIA = "Julio 2027";
+const FECHA_VIGENCIA = "Agosto 2027";
 const WHATSAPP = "541169667685";
 const BAND_ARCHIVE_CONFIGS = Array.isArray(window.FMD_BAND_ARCHIVES)
     ? window.FMD_BAND_ARCHIVES
@@ -52,6 +52,11 @@ const BAND_LANDING_DESIGN_ORDER_INDEX = new Map(
 const BAND_LANDING_SHARED_DESIGN_IDS = new Set(
     Array.isArray(BAND_LANDING_CONFIG?.sharedDesignIds)
         ? BAND_LANDING_CONFIG.sharedDesignIds
+        : []
+);
+const BAND_LANDING_SHARED_BANDS = new Set(
+    Array.isArray(BAND_LANDING_CONFIG?.sharedBands)
+        ? BAND_LANDING_CONFIG.sharedBands.map(normalizeText)
         : []
 );
 const BAND_LANDING_ALBUM_ORDER = Array.isArray(BAND_LANDING_CONFIG?.albumOrder)
@@ -115,12 +120,14 @@ function usesBandLandingShownComposition() {
 function isCatalogDesignInScope(design) {
     return !isBandLandingMode()
         || normalizeText(design?.band) === normalizeText(BAND_LANDING_BAND)
+        || BAND_LANDING_SHARED_BANDS.has(normalizeText(design?.band))
         || BAND_LANDING_SHARED_DESIGN_IDS.has(design?.designId);
 }
 
 function isProductInCatalogScope(product) {
     return !isBandLandingMode()
         || normalizeText(getCatalogBandLabel(product)) === normalizeText(BAND_LANDING_BAND)
+        || BAND_LANDING_SHARED_BANDS.has(normalizeText(getCatalogBandLabel(product)))
         || BAND_LANDING_SHARED_DESIGN_IDS.has(product?.designId);
 }
 
@@ -164,6 +171,12 @@ function matchesBandLandingCollection(design, collection) {
     if (!collection) return true;
     const collectionId = normalizeText(collection.id);
     if ((design?.collectionIds || []).some(id => normalizeText(id) === collectionId)) return true;
+
+    const designIdMatches = (collection.match?.designIds || []).map(normalizeText);
+    if (designIdMatches.includes(normalizeText(design?.designId))) return true;
+
+    const bandMatches = (collection.match?.bands || []).map(normalizeText);
+    if (bandMatches.includes(normalizeText(design?.band))) return true;
 
     const categoryMatches = (collection.match?.categories || []).map(normalizeText);
     if (categoryMatches.length && (design?.categories || [design?.category]).some(category => categoryMatches.includes(normalizeText(category)))) {
@@ -6952,12 +6965,8 @@ function buildShippingContextForWhatsapp(postalCode = '', customerData = null) {
         return '\n\n📦 DATOS DE ENVÍO:\n• 3 prendas o más: 10% OFF + envío gratis a domicilio.';
     }
 
-    if (quantity === 2) {
-        return '\n\n📦 DATOS DE ENVÍO:\n• 2 prendas: envío gratis a domicilio.';
-    }
-
-    if (quantity === 1) {
-        return '\n\n📦 DATOS DE ENVÍO:\n• 1 prenda: envío gratis a punto de retiro Andreani.';
+    if (quantity >= 1) {
+        return '\n\n📦 DATOS DE ENVÍO:\n• Promo agosto: envío gratis a punto de retiro Andreani.';
     }
 
     if (postalCode) {
@@ -7109,24 +7118,11 @@ function calculateWinterPromotion(items) {
         };
     }
 
-    if (quantity === 2) {
+    if (quantity >= 1) {
         return {
-            id: 'dos_prendas',
-            label: '2 prendas: envío gratis a domicilio',
-            description: 'Promo de julio aplicada a cualquier combinación de dos remeras, hoodies o buzos.',
-            subtotal: rawSubtotal,
-            descuento: 0,
-            total: rawSubtotal,
-            envioGratis: true,
-            envioGratisPuntoAndreani: false
-        };
-    }
-
-    if (quantity === 1) {
-        return {
-            id: 'julio_una_prenda',
-            label: '1 prenda: envío gratis a punto de retiro Andreani',
-            description: 'Elegí el punto de retiro Andreani que te quede más cómodo.',
+            id: 'agosto_desde_una_prenda',
+            label: 'Promo agosto: envío gratis a punto de retiro Andreani',
+            description: 'Beneficio vigente desde una prenda. Elegí el punto de retiro Andreani que te quede más cómodo.',
             subtotal: rawSubtotal,
             descuento: 0,
             total: rawSubtotal,
@@ -7325,7 +7321,7 @@ function renderCartPreview() {
         ${shippingForm}
         <div class="cart-preview-info" style="margin-top:12px;padding:12px;background:#0a0a0a;border:1px solid #222;border-radius:8px;font-size:0.8rem;color:#888;">
             <div style="margin-bottom:8px;">
-                <span style="color:#39ff14;">📦 PROMO JULIO:</span> 1 prenda: envío gratis a punto de retiro Andreani. 2 prendas: envío gratis a domicilio. 3 prendas o más: 10% OFF + envío gratis a domicilio.
+                <span style="color:#39ff14;">📦 PROMO AGOSTO:</span> Desde 1 prenda: envío gratis a punto de retiro Andreani. Desde 3 prendas: 10% OFF + envío gratis a domicilio.
             </div>
             <div>
                 <span style="color:#39ff14;">💳 PAGO:</span> Transferencia o MercadoPago. Tarjeta de crédito disponible con recargo.

@@ -54,6 +54,7 @@ function serializeInlineConfig(config) {
         collections: Array.isArray(config.collections) ? config.collections : [],
         designOrder: Array.isArray(config.designOrder) ? config.designOrder : [],
         sharedDesignIds: Array.isArray(config.sharedDesignIds) ? config.sharedDesignIds : [],
+        sharedBands: Array.isArray(config.sharedBands) ? config.sharedBands : [],
         albumOrder: Array.isArray(config.albumOrder) ? config.albumOrder : []
     })
         .replace(/</g, '\\u003c');
@@ -182,10 +183,9 @@ ${config.relatedArchive ? `                <a class="band-landing-related-archiv
         </section>
 
         <section class="july-shipping-promo" aria-label="Beneficios FMD">
-            <p>BENEFICIOS FMD</p>
+            <p>PROMO AGOSTO</p>
             <strong>ENVÍO GRATIS</strong>
-            <span>1 prenda · A punto de retiro Andreani · Todo el país</span>
-            <b>2 PRENDAS · ENVÍO GRATIS A DOMICILIO</b>
+            <span>Desde 1 prenda · A punto de retiro Andreani · Todo el país</span>
             <b>3 PRENDAS O MÁS · 10% OFF + ENVÍO GRATIS A DOMICILIO</b>
         </section>
 
