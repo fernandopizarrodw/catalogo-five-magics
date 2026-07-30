@@ -98,8 +98,6 @@
                 'slayer-demonic-admat',
                 'slayer-logo',
                 'slayer-nation',
-                'slayer-remera-blanca',
-                'slayer-remera-negra',
                 'slayer-skull',
                 'slayer-slayer-v1',
                 'slayer-slayer-v2',
@@ -199,8 +197,8 @@
                 'cd-iron-maiden-somewhere-in-time--p5037',
                 'cd-iron-maiden-somewhere-in-time-fmd--p7027',
                 'cd-iron-maiden-can-i-play-with-madness--p5033',
-                'cd-iron-maiden-fear-variante-1--p5038',
-                'cd-iron-maiden-fear-variante-2--p5038',
+                'cd-iron-maiden-the-number-of-the-beast-v1--p5038',
+                'cd-iron-maiden-the-number-of-the-beast-v2--p5038',
                 'cd-iron-maiden-fear-of-the-dark-fmd--p7022',
                 'cd-iron-maiden-brave-new-world--p5035',
                 'cd-iron-maiden-the-book-of-souls--p5032',
@@ -235,13 +233,14 @@
         {
             output: 'hermetica/index.html',
             slug: 'hermetica',
+            publishedAt: '2026-07-29',
             band: 'Hermetica',
             displayName: 'HERMÉTICA',
             title: 'Hermética: remeras, hoodies y buzos | Five Magics Designs',
             description: 'Diseños de Hermética en remeras, hoodies y buzos hechos a pedido. Elegí estampa frontal o doble, talle, color y forma de entrega.',
             canonical: 'https://catalogo.fivemagicsdesigns.com/hermetica/',
-            image: '/images/banda_sugeridas/ricardo_iorio/remera_iorio_ilustracion.jpg',
-            imageUrl: 'https://catalogo.fivemagicsdesigns.com/images/banda_sugeridas/ricardo_iorio/remera_iorio_ilustracion.jpg',
+            image: '/images/banda_sugeridas/hermetica/remera_hermetica_acido.jpg',
+            imageUrl: 'https://catalogo.fivemagicsdesigns.com/images/banda_sugeridas/hermetica/remera_hermetica_acido.jpg',
             heroTitle: 'REMERAS, HOODIES Y BUZOS',
             heroCopy: 'Explorá diseños de Hermética y homenajes a Ricardo Iorio. Elegí tu favorito y armá tu pedido.',
             finalTitle: '¿BUSCABAS OTRO DISEÑO DE HERMÉTICA?',
@@ -250,7 +249,6 @@
             defaultGarment: 'remera',
             usesShownComposition: true,
             designOrder: [
-                'v8-hermetica-almafuerte-iorio',
                 'hermetica-acido-argentino',
                 'hermetica-victimas-del-vaciamiento',
                 'hermetica-victimas-del-vaciamiento-banda',
@@ -258,21 +256,22 @@
                 'hermetica-interpretes'
             ],
             garments: [
-                { key: 'hoodie', title: 'HOODIES', price: 'Frontal $52.000 · Doble $59.000', image: '/images/banda_sugeridas/hermetica/hoodie_v8_hermetica_almafuerte_iorio.jpg', alt: 'Hoodie V8 Hermética Almafuerte Ricardo Iorio' },
-                { key: 'buzo_cuello_redondo', title: 'BUZOS', price: 'Frontal $50.000 · Doble $55.000', image: '/images/banda_sugeridas/hermetica/buzo_v8_hermetica_almafuerte_iorio.jpg', alt: 'Buzo cuello redondo V8 Hermética Almafuerte Ricardo Iorio' },
-                { key: 'remera', title: 'REMERAS', price: 'Frontal $37.000 · Doble $44.000', image: '/images/banda_sugeridas/hermetica/remera_v8_hermetica_almafuerte_iorio.jpg', alt: 'Remera V8 Hermética Almafuerte Ricardo Iorio' }
+                { key: 'hoodie', title: 'HOODIES', price: 'Frontal $52.000 · Doble $59.000', image: '/images/banda_sugeridas/hermetica/hoodie_hermetica_acido.jpg', alt: 'Hoodie Hermética Ácido Argentino' },
+                { key: 'buzo_cuello_redondo', title: 'BUZOS', price: 'Frontal $50.000 · Doble $55.000', image: '/images/banda_sugeridas/hermetica/buzo_hermetica_acido.jpg', alt: 'Buzo cuello redondo Hermética Ácido Argentino' },
+                { key: 'remera', title: 'REMERAS', price: 'Frontal $37.000 · Doble $44.000', image: '/images/banda_sugeridas/hermetica/remera_hermetica_acido.jpg', alt: 'Remera Hermética Ácido Argentino' }
             ]
         },
         {
             output: 'ricardo-iorio/index.html',
             slug: 'ricardo-iorio',
+            publishedAt: '2026-07-30',
             band: 'Ricardo Iorio',
             displayName: 'RICARDO IORIO',
             title: 'Ricardo Iorio: remeras, hoodies y buzos | Five Magics Designs',
             description: 'Diseños de Ricardo Iorio, V8, Hermética y Almafuerte en remeras, hoodies y buzos hechos a pedido.',
             canonical: 'https://catalogo.fivemagicsdesigns.com/ricardo-iorio/',
-            image: '/images/banda_sugeridas/hermetica/remera_v8_hermetica_almafuerte_iorio.jpg',
-            imageUrl: 'https://catalogo.fivemagicsdesigns.com/images/banda_sugeridas/hermetica/remera_v8_hermetica_almafuerte_iorio.jpg',
+            image: '/images/banda_sugeridas/ricardo_iorio/remera_v8_hermetica_almafuerte_iorio.jpg',
+            imageUrl: 'https://catalogo.fivemagicsdesigns.com/images/banda_sugeridas/ricardo_iorio/remera_v8_hermetica_almafuerte_iorio.jpg',
             heroTitle: 'REMERAS, HOODIES Y BUZOS',
             heroCopy: 'Diseños de Ricardo Iorio, V8, Hermética y Almafuerte. Elegí tu favorito y armá tu pedido.',
             finalTitle: '¿BUSCABAS OTRO DISEÑO DE RICARDO IORIO?',
@@ -281,7 +280,6 @@
             defaultGarment: 'remera',
             usesShownComposition: true,
             sharedDesignIds: [
-                'v8-hermetica-almafuerte-iorio',
                 'hermetica-victimas-del-vaciamiento-banda'
             ],
             designOrder: [

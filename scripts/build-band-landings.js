@@ -72,8 +72,8 @@ function customizeSharedCommerceMarkup(config, markup) {
             'Buzo cuello redondo oversize unisex · Largo más justo que el hoodie · Estampa DTG'
         )
         .replace(
-            '<strong>Producción estimada: 4 a 7 días hábiles, según la zona.</strong> Envíos por Andreani a domicilio o punto de retiro. Retiro sin cargo en Villa Martelli.',
-            '<strong>Producción estimada: 4 a 7 días hábiles, según la zona.</strong> Envíos por Andreani o retiro sin cargo en Villa Martelli.'
+            '<strong>Plazo estimado total: 4 a 7 días hábiles, según el destino.</strong> Envíos por Andreani a domicilio o punto de retiro. Retiro sin cargo en Villa Martelli.',
+            '<strong>Plazo estimado total: 4 a 7 días hábiles, según el destino.</strong> Envíos por Andreani o retiro sin cargo en Villa Martelli.'
         )
         .replace('🛒 Guardar en carrito', 'AGREGAR AL CARRITO')
         .replace('<summary>Dorso y personalización</summary>', '<summary>Detalles del producto</summary>')
@@ -180,8 +180,8 @@ function renderLanding(config, sharedCommerceMarkup) {
             </div>
         </section>
 
-        <section class="july-shipping-promo" aria-label="Promoción de envíos gratis durante julio">
-            <p>DURANTE TODO JULIO</p>
+        <section class="july-shipping-promo" aria-label="Beneficios FMD">
+            <p>BENEFICIOS FMD</p>
             <strong>ENVÍO GRATIS</strong>
             <span>1 prenda · A punto de retiro Andreani · Todo el país</span>
             <b>2 PRENDAS · ENVÍO GRATIS A DOMICILIO</b>

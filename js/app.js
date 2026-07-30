@@ -218,8 +218,8 @@ function selectBandLandingGarment(garment) {
 window.selectBandLandingGarment = selectBandLandingGarment;
 const MAIDEN_ARCHIVE_HIGHLIGHT_IDS = [7015, 7027, 7023, 7025, 7026, 7029];
 const MAIDEN_ARCHIVE_GROUPS = [
-    { title: 'Iron Maiden clasico', meta: 'Archivo original FMD', productIds: [308, 6004, 7011] },
-    { title: 'Iron Maiden Fear / 666', meta: 'Diseño agrupado por disco', productIds: [5038, 6005] },
+    { title: 'Iron Maiden clásico', meta: 'Diseños FMD', productIds: [308, 6004, 7011] },
+    { title: 'The Number of the Beast / 666', meta: 'Dos clásicos de Iron Maiden', productIds: [5038, 6005] },
     { title: 'Killers', meta: 'Versiones FMD', productIds: [7023, 6006, 7024, 6007] },
     { title: 'Live After Death', meta: 'Frente + dorso', productIds: [7025, 7012] },
     { title: 'Tour 2026', meta: 'Edicion tour FMD', productIds: [7029, 7013] },
@@ -1375,7 +1375,6 @@ function renderHomeOuterwearCard(product) {
                 <img src="${preview.img}" alt="${band}: hoodies y buzos" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='images/logo/MARCA DE AGUA.png';">
             </div>
             <div class="home-outerwear-info">
-                <p>ARCHIVO FMD</p>
                 <h3>${band}</h3>
                 <span class="home-outerwear-cta">VER HOODIES Y BUZOS</span>
             </div>
@@ -1411,9 +1410,9 @@ function renderHomeArchitecture() {
             const subtitle = document.getElementById('homeCampaignSubtitle');
             const kicker = document.getElementById('homeCampaignKicker');
             const rail = document.getElementById('homeCampaignBandAccess');
-            if (title) title.textContent = ACTIVE_HOME_CAMPAIGN.title || 'CAMPAÑA ACTIVA';
+            if (title) title.textContent = ACTIVE_HOME_CAMPAIGN.title || 'DESTACADO FMD';
             if (subtitle) subtitle.textContent = ACTIVE_HOME_CAMPAIGN.subtitle || '';
-            if (kicker) kicker.textContent = ACTIVE_HOME_CAMPAIGN.kicker || 'CAMPAÑA ACTIVA';
+            if (kicker) kicker.textContent = ACTIVE_HOME_CAMPAIGN.kicker || 'DESTACADO FMD';
             if (rail) {
                 const featured = new Set((ACTIVE_HOME_CAMPAIGN.featuredFilters || []).map(normalizeText));
                 rail.innerHTML = (ACTIVE_HOME_CAMPAIGN.bands || []).slice(0, 5).map(item => {
@@ -1457,6 +1456,72 @@ function renderHomeArchitecture() {
             .map(item => renderHomeBandButton(item, 'home-secondary-band-btn'))
             .join('');
     }
+
+    renderHomeLatestDesigns();
+}
+
+function getCatalogDesignPublishedAt(design) {
+    return (design?.sourceProductIds || [])
+        .map(id => db.find(product => Number(product?.id) === Number(id))?.publishedAt)
+        .filter(Boolean)
+        .sort((a, b) => String(b).localeCompare(String(a)))[0] || '';
+}
+
+function renderHomeLatestDesigns() {
+    const section = document.getElementById('homeLatestDesigns');
+    const grid = document.getElementById('homeLatestGrid');
+    const archives = document.getElementById('homeLatestArchives');
+    if (!section || !grid || !archives) return;
+
+    const latestDesigns = catalogDesigns
+        .map(design => ({ design, publishedAt: getCatalogDesignPublishedAt(design) }))
+        .filter(item => item.publishedAt)
+        .sort((a, b) => {
+            const dateDiff = String(b.publishedAt).localeCompare(String(a.publishedAt));
+            if (dateDiff) return dateDiff;
+            return Number(b.design?.commercialPriority || 0) - Number(a.design?.commercialPriority || 0);
+        })
+        .slice(0, 8);
+
+    const latestArchives = BAND_ARCHIVE_CONFIGS
+        .filter(config => config?.publishedAt && config?.slug && config?.displayName)
+        .sort((a, b) => String(b.publishedAt).localeCompare(String(a.publishedAt)))
+        .slice(0, 4);
+
+    section.hidden = latestDesigns.length === 0 && latestArchives.length === 0;
+    archives.hidden = latestArchives.length === 0;
+    archives.innerHTML = latestArchives.map(config => `
+        <a href="/${String(config.slug).replace(/^\/+|\/+$/g, '')}/">
+            <span>NUEVA COLECCIÓN</span>
+            <strong>${config.displayName}</strong>
+        </a>
+    `).join('');
+
+    grid.innerHTML = latestDesigns.map(({ design }) => {
+        const preview = design.front;
+        const bandName = normalizeText(design.band) === 'hermetica' ? 'Hermética' : design.band;
+        const publicName = design.designId === 'ricardo-iorio-en-vivo-v2'
+            ? 'Ricardo Iorio - En vivo'
+            : design.designId === 'v8-hermetica-almafuerte-iorio'
+                ? 'V8 · Hermética · Almafuerte'
+                : design.publicName;
+        const price = getCatalogDesignStartingPrice(design).toLocaleString('es-AR');
+        return `
+            <article class="home-latest-card">
+                <button type="button" onclick="openCatalogDesign('${design.designId}')" aria-label="Ver diseño ${publicName}">
+                    <span class="home-latest-media">
+                        <img src="${preview.image}" alt="${preview.alt || `${publicName} - ${bandName}`}" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='images/logo/MARCA DE AGUA.png';">
+                    </span>
+                    <span class="home-latest-copy">
+                        <span>${bandName}</span>
+                        <strong>${publicName}</strong>
+                        <b>Desde $${price}</b>
+                        <em>VER DISEÑO</em>
+                    </span>
+                </button>
+            </article>
+        `;
+    }).join('');
 }
 
 window.openBandAccess = openBandAccess;
@@ -3445,7 +3510,7 @@ function renderMaidenArchiveGrid() {
             <img src="${image}" class="product-img" alt="${card.title}" loading="lazy" decoding="async">
             <div class="product-info">
                 <div class="product-name">${card.title}</div>
-                <div class="product-meta">${card.products.length} diseños agrupados</div>
+                <div class="product-meta">${card.products.length} diseños disponibles</div>
                 <div class="maiden-garment-price">${card.price}</div>
                 <button type="button" class="maiden-archive-card-cta" onclick="event.stopPropagation(); showMaidenGarment('${card.id}')">ELEGIR Y VER DISEÑOS →</button>
             </div>
@@ -5991,7 +6056,7 @@ function renderCatalogBandDirectory(products) {
                 <p>PERSONALIZADOS FMD</p>
                 <h2 id="catalogCustomDesignTitle">TU DISEÑO, EN LA PRENDA QUE QUIERAS</h2>
                 <span>Hacemos diseños personalizados en remeras, hoodies y buzos.</span>
-                <strong>DTG PREMIUM · Impresión directa sobre tela · Sin vinilo, transfer, plástico ni DTF</strong>
+                <strong>DTG PREMIUM · Impresión directa sobre la tela · Sin vinilo, transfer ni DTF plástico</strong>
             </div>
             <a href="https://wa.me/${WHATSAPP}?text=${encodeURIComponent('Hola FMD! Quiero consultar por un diseño personalizado.')}" target="_blank" rel="noopener">PEDIR UN DISEÑO PERSONALIZADO</a>
         </section>`,

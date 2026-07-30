@@ -1084,7 +1084,7 @@
             },
             {
                 "img": "images/fmd-edition-3d/countdown/countdown_3d_edition.jpg",
-                "name": "FMD V2",
+                "name": "Countdown 3D Edition",
                 "isNew": true,
                 "fmdBadge": "ORIGINAL FMD",
                 "fmdBadgeDescription": "Diseño exclusivo FMD desarrollado para destacar el concepto visual de esta etapa de Megadeth."
@@ -2174,11 +2174,11 @@
             },
             {
                 "img": "images/singles/rusted_pieces_artv1.jpg",
-                "name": "Art v1"
+                "name": "Atlas V1"
             },
             {
                 "img": "images/singles/rusted_pieces_artv2.jpg",
-                "name": "Art v2"
+                "name": "Atlas V2"
             },
             {
                 "img": "images/singles/rusted_pieces_darker.jpg",
@@ -2198,7 +2198,7 @@
                 "isNew": true
             }
         ],
-        "desc": "Rusted Pieces â€” ediciÃ³n VHS remasterizada. DiseÃ±o exclusivo con 5 variantes.",
+        "desc": "Rusted Pieces - edición VHS remasterizada con variantes del diseño.",
         "band": "Megadeth",
         "universe": [
             "Megadeth Vault",
@@ -5389,10 +5389,10 @@
         "id": 412,
         "category": "Pantera",
         "year": "2025",
-        "name": "Pantera Art",
+        "name": "The Great Southern Trendkill",
         "tipoPrecio": "simple",
         "img": "images/pantera/pantera_art.jpg",
-        "desc": "Pantera Art. InterpretaciÃ³n artÃ­stica de la banda legendaria.",
+        "desc": "Diseño de Pantera inspirado en The Great Southern Trendkill.",
         "band": "Pantera",
         "universe": [
             "Groove Metal",
@@ -6762,10 +6762,10 @@
         "id": 5130,
         "category": "Personalizados",
         "year": "2026",
-        "name": "Kanonenfiebe Argentina",
+        "name": "Kanonenfieber Argentina",
         "tipoPrecio": "simple",
         "img": "images/personalizado/kanonenfiebe_argentina.jpg",
-        "desc": "Mockup Kanonenfiebe Argentina.",
+        "desc": "Diseño de Kanonenfieber Argentina.",
         "band": "Kanonenfieber",
         "universe": [
             "Modern Metal",
@@ -8051,6 +8051,7 @@
         "name": "Hermética Ácido Argentino",
         "designId": "hermetica-acido-argentino",
         "designSlug": "hermetica-acido-argentino",
+        "publishedAt": "2026-07-29",
         "tipoPrecio": "doble",
         "defaultPrintMode": "doble",
         "usesShownComposition": true,
@@ -9748,23 +9749,27 @@
         "variants": [
             {
                 "img": "images/slayer/remera_hell_awaits.jpg",
-                "name": "Slayer Hell Awaits - Remera",
-                "garmentCategory": "Slayer"
+                "name": "Slayer Hell Awaits",
+                "garmentCategory": "Slayer",
+                "designId": "slayer-hell-awaits"
             },
             {
                 "img": "images/slayer/remera_slayer_blanca_hell_awaits.jpg",
-                "name": "Slayer Hell Awaits - Remera blanca",
-                "garmentCategory": "Slayer"
+                "name": "Slayer Hell Awaits",
+                "garmentCategory": "Slayer",
+                "designId": "slayer-hell-awaits"
             },
             {
                 "img": "images/slayer/hoodie_hell_awaits.jpg",
-                "name": "Slayer Hell Awaits - Hoodie",
-                "garmentCategory": "Hoodies Otras Bandas"
+                "name": "Slayer Hell Awaits",
+                "garmentCategory": "Hoodies Otras Bandas",
+                "designId": "slayer-hell-awaits"
             },
             {
                 "img": "images/slayer/buzo_hell_awaits.jpg",
-                "name": "Slayer Hell Awaits - Buzo cuello redondo",
-                "garmentCategory": "Buzo Cuello Redondo"
+                "name": "Slayer Hell Awaits",
+                "garmentCategory": "Buzo Cuello Redondo",
+                "designId": "slayer-hell-awaits"
             }
         ],
         "desc": "Archivo Slayer FMD 2026. Diseno Hell Awaits disponible en remera, hoodie y buzo cuello redondo.",
@@ -9806,23 +9811,31 @@
         "variants": [
             {
                 "img": "images/slayer/remera_slayer_aguila.jpg",
-                "name": "Slayer Aguila - Remera",
-                "garmentCategory": "Slayer"
+                "name": "Slayer Águila",
+                "garmentCategory": "Slayer",
+                "designId": "slayer-aguila",
+                "alt": "Remera Slayer Águila"
             },
             {
                 "img": "images/slayer/remera_slayer_aguila_v2.jpg",
-                "name": "Slayer Aguila V2 - Remera negra",
-                "garmentCategory": "Slayer"
+                "name": "Slayer Águila",
+                "garmentCategory": "Slayer",
+                "designId": "slayer-aguila",
+                "alt": "Remera negra Slayer Águila"
             },
             {
                 "img": "images/slayer/remera_slayer_blanca_aguila.jpg",
-                "name": "Slayer Aguila - Remera blanca",
-                "garmentCategory": "Slayer"
+                "name": "Slayer Águila",
+                "garmentCategory": "Slayer",
+                "designId": "slayer-aguila",
+                "alt": "Remera blanca Slayer Águila"
             },
             {
                 "img": "images/slayer/buzo_slayer_aguila.jpg",
-                "name": "Slayer Aguila - Buzo cuello redondo",
-                "garmentCategory": "Buzo Cuello Redondo"
+                "name": "Slayer Águila",
+                "garmentCategory": "Buzo Cuello Redondo",
+                "designId": "slayer-aguila",
+                "alt": "Buzo cuello redondo Slayer Águila"
             },
             {
                 "img": "images/slayer/hoodie_slayer_aguila_logo.jpg",
@@ -10794,35 +10807,35 @@
         "id": 5038,
         "category": "Iron Maiden",
         "year": "2026",
-        "name": "Iron Maiden Fear",
+        "name": "Iron Maiden The Number of the Beast",
         "tipoPrecio": "simple",
         "img": "images/iron_maiden/iron_maiden_fear_v1.jpg",
         "variants": [
             {
                 "img": "images/iron_maiden/iron_maiden_fear_v1.jpg",
-                "name": "Variante 1"
+                "name": "The Number of the Beast V1"
             },
             {
                 "img": "images/iron_maiden/iron_maiden_fear_v2.jpg",
-                "name": "Variante 2"
+                "name": "The Number of the Beast V2"
             },
             {
                 "img": "images/iron_maiden/dorso_666.jpg",
                 "name": "Dorso 666"
             }
         ],
-        "desc": "Iron Maiden Fear - DiseÃ±os del mismo disco agrupados en un carrusel con 3 variantes.",
+        "desc": "Diseños de Iron Maiden inspirados en The Number of the Beast.",
         "band": "Iron Maiden",
         "universe": [
             "Heavy Metal Classics"
         ],
-        "album": "Fear of the Dark",
+        "album": "The Number of the Beast",
         "garments": [
             "remera"
         ],
         "collections": [
             "Archivo Maiden",
-            "Fear of the Dark"
+            "The Number of the Beast"
         ],
         "campaigns": [],
         "commercialPriority": 84,
@@ -14913,6 +14926,7 @@
         "name": "Hermética En Concierto",
         "designId": "hermetica-en-concierto",
         "designSlug": "hermetica-en-concierto",
+        "publishedAt": "2026-07-29",
         "tipoPrecio": "doble",
         "defaultPrintMode": "doble",
         "usesShownComposition": true,
@@ -14936,6 +14950,7 @@
         "name": "Hermética Intérpretes",
         "designId": "hermetica-interpretes",
         "designSlug": "hermetica-interpretes",
+        "publishedAt": "2026-07-29",
         "tipoPrecio": "doble",
         "defaultPrintMode": "doble",
         "usesShownComposition": true,
@@ -14959,6 +14974,7 @@
         "name": "Hermética Víctimas del Vaciamiento - Banda",
         "designId": "hermetica-victimas-del-vaciamiento-banda",
         "designSlug": "hermetica-victimas-del-vaciamiento-banda",
+        "publishedAt": "2026-07-29",
         "tipoPrecio": "doble",
         "defaultPrintMode": "doble",
         "usesShownComposition": true,
@@ -14987,6 +15003,7 @@
         "name": "Hermética Víctimas del Vaciamiento",
         "designId": "hermetica-victimas-del-vaciamiento",
         "designSlug": "hermetica-victimas-del-vaciamiento",
+        "publishedAt": "2026-07-29",
         "tipoPrecio": "doble",
         "defaultPrintMode": "doble",
         "usesShownComposition": true,
@@ -15015,21 +15032,22 @@
         "name": "V8 · Hermética · Almafuerte · Iorio",
         "designId": "v8-hermetica-almafuerte-iorio",
         "designSlug": "v8-hermetica-almafuerte-iorio",
+        "publishedAt": "2026-07-29",
         "tipoPrecio": "doble",
         "defaultPrintMode": "doble",
         "usesShownComposition": true,
         "isNew": true,
-        "img": "images/banda_sugeridas/hermetica/remera_v8_hermetica_almafuerte_iorio.jpg",
+        "img": "images/banda_sugeridas/ricardo_iorio/remera_v8_hermetica_almafuerte_iorio.jpg",
         "variants": [
-            {"img": "images/banda_sugeridas/hermetica/remera_v8_hermetica_almafuerte_iorio.jpg", "name": "V8 Hermética Almafuerte Iorio - Remera", "designId": "v8-hermetica-almafuerte-iorio"},
-            {"img": "images/banda_sugeridas/hermetica/hoodie_v8_hermetica_almafuerte_iorio.jpg", "name": "V8 Hermética Almafuerte Iorio - Hoodie", "designId": "v8-hermetica-almafuerte-iorio", "garmentCategory": "Hoodies Otras Bandas"},
-            {"img": "images/banda_sugeridas/hermetica/buzo_v8_hermetica_almafuerte_iorio.jpg", "name": "V8 Hermética Almafuerte Iorio - Buzo cuello redondo", "designId": "v8-hermetica-almafuerte-iorio", "garmentCategory": "Buzo Cuello Redondo"}
+            {"img": "images/banda_sugeridas/ricardo_iorio/remera_v8_hermetica_almafuerte_iorio.jpg", "name": "V8 Hermética Almafuerte Iorio - Remera", "designId": "v8-hermetica-almafuerte-iorio"},
+            {"img": "images/banda_sugeridas/ricardo_iorio/hoodie_v8_hermetica_almafuerte_iorio.jpg", "name": "V8 Hermética Almafuerte Iorio - Hoodie", "designId": "v8-hermetica-almafuerte-iorio", "garmentCategory": "Hoodies Otras Bandas"},
+            {"img": "images/banda_sugeridas/ricardo_iorio/buzo_v8_hermetica_almafuerte_iorio.jpg", "name": "V8 Hermética Almafuerte Iorio - Buzo cuello redondo", "designId": "v8-hermetica-almafuerte-iorio", "garmentCategory": "Buzo Cuello Redondo"}
         ],
         "desc": "Homenaje a V8, Hermética, Almafuerte y Ricardo Iorio. Disponible en remera, hoodie y buzo cuello redondo.",
-        "band": "Hermetica",
+        "band": "Ricardo Iorio",
         "album": null,
         "garments": ["remera", "hoodie", "buzo_cuello_redondo"],
-        "collections": ["Hermetica Archive", "Ricardo Iorio"],
+        "collections": ["Ricardo Iorio", "V8", "Almafuerte"],
         "campaigns": ["Invierno 2026"],
         "commercialPriority": 93,
         "visibilityTier": "hero",
@@ -15111,28 +15129,33 @@
         "variants": [
             {
                 "img": "images/slayer/remera_show_no_mercy.jpg",
-                "name": "Slayer Show No Mercy - Remera",
-                "garmentCategory": "Slayer"
+                "name": "Slayer Show No Mercy",
+                "garmentCategory": "Slayer",
+                "designId": "slayer-show-no-mercy"
             },
             {
                 "img": "images/slayer/remera_slayer_show_no_mercy.jpg",
-                "name": "Slayer Show No Mercy - Remera negra",
-                "garmentCategory": "Slayer"
+                "name": "Slayer Show No Mercy",
+                "garmentCategory": "Slayer",
+                "designId": "slayer-show-no-mercy"
             },
             {
                 "img": "images/slayer/remera_slayer_blanca_show_no_mercy.jpg",
-                "name": "Slayer Show No Mercy - Remera blanca",
-                "garmentCategory": "Slayer"
+                "name": "Slayer Show No Mercy",
+                "garmentCategory": "Slayer",
+                "designId": "slayer-show-no-mercy"
             },
             {
                 "img": "images/slayer/hoodie_show_no_mercy.jpg",
-                "name": "Slayer Show No Mercy - Hoodie",
-                "garmentCategory": "Hoodies Otras Bandas"
+                "name": "Slayer Show No Mercy",
+                "garmentCategory": "Hoodies Otras Bandas",
+                "designId": "slayer-show-no-mercy"
             },
             {
                 "img": "images/slayer/buzo_slayer_show_no_mercy.jpg",
-                "name": "Slayer Show No Mercy - Buzo cuello redondo",
-                "garmentCategory": "Buzo Cuello Redondo"
+                "name": "Slayer Show No Mercy",
+                "garmentCategory": "Buzo Cuello Redondo",
+                "designId": "slayer-show-no-mercy"
             }
         ],
         "desc": "Slayer Show No Mercy frente y dorso. Disponible en remera, hoodie y buzo cuello redondo.",
@@ -15559,18 +15582,21 @@
         "variants": [
             {
                 "img": "images/slayer/remera_live_undead.jpg",
-                "name": "Slayer Live Undead - Remera",
-                "garmentCategory": "Slayer"
+                "name": "Slayer Live Undead",
+                "garmentCategory": "Slayer",
+                "designId": "slayer-live-undead"
             },
             {
                 "img": "images/slayer/remera_slayer_live_undead.jpg",
-                "name": "Slayer Live Undead - Remera negra",
-                "garmentCategory": "Slayer"
+                "name": "Slayer Live Undead",
+                "garmentCategory": "Slayer",
+                "designId": "slayer-live-undead"
             },
             {
                 "img": "images/slayer/remera_slayer_blanca_live_undead.jpg",
-                "name": "Slayer Live Undead - Remera blanca",
-                "garmentCategory": "Slayer"
+                "name": "Slayer Live Undead",
+                "garmentCategory": "Slayer",
+                "designId": "slayer-live-undead"
             }
         ],
         "desc": "Slayer Live Undead doble estampa frente y dorso. Archivo Slayer FMD 2026.",
@@ -17327,6 +17353,7 @@
         "name": "Almafuerte - Banda y Cartas",
         "designId": "almafuerte-banda-y-cartas",
         "designSlug": "almafuerte-banda-y-cartas",
+        "publishedAt": "2026-07-30",
         "tipoPrecio": "doble",
         "defaultPrintMode": "doble",
         "usesShownComposition": true,
@@ -17365,6 +17392,7 @@
         "name": "Ricardo Iorio - Metal Pesado Argentino",
         "designId": "ricardo-iorio-metal-pesado-argentino",
         "designSlug": "ricardo-iorio-metal-pesado-argentino",
+        "publishedAt": "2026-07-30",
         "tipoPrecio": "doble",
         "defaultPrintMode": "doble",
         "usesShownComposition": true,
@@ -17403,6 +17431,7 @@
         "name": "Ricardo Iorio en Vivo V2",
         "designId": "ricardo-iorio-en-vivo-v2",
         "designSlug": "ricardo-iorio-en-vivo-v2",
+        "publishedAt": "2026-07-30",
         "tipoPrecio": "doble",
         "defaultPrintMode": "doble",
         "usesShownComposition": true,
@@ -17426,6 +17455,7 @@
         "name": "Ricardo Iorio - Blanco y Negro",
         "designId": "ricardo-iorio-blanco-y-negro",
         "designSlug": "ricardo-iorio-blanco-y-negro",
+        "publishedAt": "2026-07-30",
         "tipoPrecio": "doble",
         "defaultPrintMode": "doble",
         "usesShownComposition": true,
@@ -17465,6 +17495,7 @@
         "name": "V8 - Tiempos Metálicos",
         "designId": "v8-tiempos-metalicos",
         "designSlug": "v8-tiempos-metalicos",
+        "publishedAt": "2026-07-30",
         "tipoPrecio": "doble",
         "defaultPrintMode": "doble",
         "usesShownComposition": true,
@@ -17488,6 +17519,7 @@
         "name": "Ricardo Iorio - Ilustración",
         "designId": "ricardo-iorio-ilustracion",
         "designSlug": "ricardo-iorio-ilustracion",
+        "publishedAt": "2026-07-30",
         "tipoPrecio": "doble",
         "defaultPrintMode": "doble",
         "usesShownComposition": true,
@@ -17511,6 +17543,7 @@
         "name": "Ricardo Iorio - Leyenda",
         "designId": "ricardo-iorio-leyenda",
         "designSlug": "ricardo-iorio-leyenda",
+        "publishedAt": "2026-07-30",
         "tipoPrecio": "doble",
         "defaultPrintMode": "doble",
         "usesShownComposition": true,
