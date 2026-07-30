@@ -5875,7 +5875,28 @@ function getCatalogDesignResults() {
     });
 }
 
+function updateBandLandingFinalMessage() {
+    if (!isBandLandingMode()) return;
+
+    const section = document.getElementById('bandLandingFinal');
+    const kicker = document.getElementById('bandLandingFinalKicker');
+    const title = document.getElementById('bandCustomTitle');
+    const copy = document.getElementById('bandLandingFinalCopy');
+    const cta = document.getElementById('bandLandingFinalCta');
+    if (!section || !kicker || !title || !copy || !cta) return;
+
+    const archiveDesignCount = catalogDesigns.filter(isCatalogDesignInScope).length;
+    if (archiveDesignCount < 1 || archiveDesignCount >= 10) return;
+
+    section.classList.add('band-landing-custom-growing');
+    kicker.textContent = 'ARCHIVO FMD';
+    title.textContent = 'ESTE ARCHIVO SIGUE CRECIENDO';
+    copy.textContent = `Estamos sumando nuevos diseños de ${BAND_LANDING_BAND}. Si buscás uno en particular, escribinos y lo hacemos personalizado.`;
+    cta.textContent = 'PEDIR UN DISEÑO';
+}
+
 function renderCatalogDesignResults(designs) {
+    updateBandLandingFinalMessage();
     const visibleDesigns = designs.slice(0, catalogVisibleLimit);
     productsGrid.classList.remove('catalog-band-directory', 'gallery-view');
     productsGrid.classList.add('catalog-design-grid');

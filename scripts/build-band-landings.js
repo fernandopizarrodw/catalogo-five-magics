@@ -278,11 +278,11 @@ ${config.collections.map(collection => `                <button type="button" cl
             </section>
         </section>
 
-        <section class="band-landing-custom" aria-labelledby="bandCustomTitle">
-            <p>PERSONALIZADOS FMD</p>
+        <section class="band-landing-custom" id="bandLandingFinal" aria-labelledby="bandCustomTitle">
+            <p id="bandLandingFinalKicker">PERSONALIZADOS FMD</p>
             <h2 id="bandCustomTitle">${config.finalTitle}</h2>
-            <div>${config.finalCopy}</div>
-            <a href="${whatsappUrl(config.whatsappMessage)}" target="_blank" rel="noopener">CONSULTAR POR WHATSAPP</a>
+            <div id="bandLandingFinalCopy">${config.finalCopy}</div>
+            <a id="bandLandingFinalCta" href="${whatsappUrl(config.whatsappMessage)}" target="_blank" rel="noopener">CONSULTAR POR WHATSAPP</a>
         </section>
     </main>
 
