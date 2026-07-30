@@ -5889,6 +5889,12 @@ function renderCatalogDesignResults(designs) {
 
     productsGrid.innerHTML = visibleDesigns.map(design => {
         const preview = getBandLandingDesignPreview(design) || design.front;
+        const availableGarments = new Set((design.availableGarments || []).map(garment => normalizeText(garment)));
+        const garmentLabels = [
+            [...availableGarments].some(garment => garment.includes('remera')) ? 'Remera' : '',
+            [...availableGarments].some(garment => garment.includes('hoodie')) ? 'Hoodie' : '',
+            [...availableGarments].some(garment => garment.includes('buzo')) ? 'Buzo' : ''
+        ].filter(Boolean);
         const price = (isBandLandingMode() ? getBandLandingDesignStartingPrice(design) : getCatalogDesignStartingPrice(design)).toLocaleString('es-AR');
         const priceText = !isBandLandingMode() && design.catalogPriceText
             ? design.catalogPriceText
@@ -5903,6 +5909,7 @@ function renderCatalogDesignResults(designs) {
                     <span class="catalog-design-band">${design.band}</span>
                     <strong>${design.publicName}</strong>
                     ${design.publicSubtitle ? `<span class="catalog-design-subtitle">${design.publicSubtitle}</span>` : ''}
+                    ${garmentLabels.length ? `<span class="catalog-design-garments"><b>Disponible en:</b> ${garmentLabels.join(' · ')}</span>` : ''}
                     <span class="catalog-design-price">${priceText}</span>
                     <span class="catalog-design-cta">VER DISEÑO</span>
                 </span>

@@ -105,6 +105,17 @@
     line-height: 1.35;
 }
 
+.catalog-design-garments {
+    color: #d5d5d5;
+    font-size: .76rem;
+    line-height: 1.4;
+}
+
+.catalog-design-garments b {
+    color: var(--magic-green);
+    font-weight: 800;
+}
+
 .catalog-design-copy > strong {
     min-height: 2.5em;
     color: #fff;
@@ -262,6 +273,10 @@
 
     .catalog-design-price {
         font-size: 1rem;
+    }
+
+    .catalog-design-garments {
+        font-size: .7rem;
     }
 
     .catalog-design-dorso-recommended > div,

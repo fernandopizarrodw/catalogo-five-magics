@@ -68,10 +68,6 @@ function customizeSharedCommerceMarkup(config, markup) {
 
     let output = markup
         .replace(
-            'Corte amplio unisex · Largo más justo que el hoodie · Estampa DTG',
-            'Buzo cuello redondo oversize unisex · Largo más justo que el hoodie · Estampa DTG'
-        )
-        .replace(
             '<strong>Plazo estimado total: 4 a 7 días hábiles, según el destino.</strong> Envíos por Andreani a domicilio o punto de retiro. Retiro sin cargo en Villa Martelli.',
             '<strong>Plazo estimado total: 4 a 7 días hábiles, según el destino.</strong> Envíos por Andreani o retiro sin cargo en Villa Martelli.'
         )
@@ -236,6 +232,7 @@ ${config.showSizeGuide ? `
             <div class="band-landing-section-head">
                 <p>ARCHIVO FMD</p>
                 <h2 id="bandCatalogTitle">DISEÑOS DE ${config.displayName}</h2>
+                <div class="band-landing-design-note">Cada diseño puede pedirse en remera, hoodie o buzo. Elegí la prenda al abrirlo.</div>
             </div>
             <nav id="categoryNav" hidden aria-hidden="true"></nav>
 ${Array.isArray(config.collections) && config.collections.length ? `            <div class="band-landing-collections" id="bandLandingCollections" aria-label="Explorar ${config.band} por colección">
