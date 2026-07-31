@@ -3123,7 +3123,6 @@ async function loadProducts() {
         renderMegadethArchiveGrid(); // Archivo Megadeth por prenda
         renderHoodiesGrid(); // Hoodies destacados
         renderBuzosRedondoGrid(); // Buzos cuello redondo destacados
-        renderHeroOrbit(6); // Poblar órbita del hero con 6 cards 3D
         loadMegadethDestacados(); // Destacados para el show
         loadMegadethCollections(); // Colecciones Megadeth con preview
         if (ENABLE_UNIVERSE_SHOWCASES) renderUniverseShowcases();
@@ -3596,99 +3595,6 @@ function isMegadethUniverseProduct(product) {
     return megadethCategories.includes(category)
         || /megadeth|mustaine|vic rattlehead|rust in peace|peace sells|youthanasia|countdown/.test(haystack)
         || /megadeth|mustaine|vic rattlehead|tour argentina|edicion argentina|post show/.test(metadata);
-}
-
-// Renderizar órbita del hero solo con el universo Megadeth
-function renderHeroOrbit(limit = 8) {
-    try {
-        const orbitRing = document.getElementById('orbitRing');
-        if (!orbitRing || !Array.isArray(db) || !db.length) return;
-
-        const heroPool = db.filter(isMegadethUniverseProduct);
-        const sourcePool = heroPool.length ? heroPool : db;
-        let orbitItems = [];
-
-        // 1. Productos nuevos del universo Megadeth
-        sourcePool.forEach(product => {
-            if (product.isNew && orbitItems.length < limit) {
-                orbitItems.push({
-                    productId: product.id,
-                    img: product.img,
-                    title: product.name
-                });
-            }
-        });
-
-        // 2. Variantes nuevas del universo Megadeth
-        sourcePool.forEach(product => {
-            if (product.variants && product.variants.length > 0) {
-                product.variants.forEach((variant, index) => {
-                    if (variant.isNew && orbitItems.length < limit) {
-                        const alreadyAdded = orbitItems.some(item => item.productId === product.id);
-                        if (!alreadyAdded) {
-                            orbitItems.push({
-                                productId: product.id,
-                                variantIndex: index,
-                                img: variant.img,
-                                title: `${product.name} - ${variant.name}`
-                            });
-                        }
-                    }
-                });
-            }
-        });
-
-        // 3. Rellenar con productos relevantes si hace falta
-        if (orbitItems.length < limit) {
-            const sortedProducts = [...sourcePool].sort(compareProductsByPriorityThenId);
-            for (const product of sortedProducts) {
-                const alreadyAdded = orbitItems.some(item => item.productId === product.id);
-                if (!alreadyAdded) {
-                    orbitItems.push({
-                        productId: product.id,
-                        img: product.img,
-                        title: product.name
-                    });
-                }
-                if (orbitItems.length >= limit) break;
-            }
-        }
-
-        orbitItems = orbitItems.slice(0, limit);
-
-        // Renderizar items en la órbita
-        orbitRing.innerHTML = orbitItems.map((item, index) => 
-            `<div class="orbit-item" onclick="openModal(${item.productId}${item.variantIndex !== undefined ? ', ' + item.variantIndex : ''})" title="${item.title}">
-                <img src="${item.img}" alt="${item.title}" loading="lazy">
-            </div>`
-        ).join('');
-
-        // Intersection Observer para pausar animación cuando no es visible
-        setupOrbitObserver();
-
-    } catch (e) {
-        console.warn('renderHeroOrbit error', e);
-    }
-}
-
-// Pausar órbita cuando no está visible (optimización de rendimiento)
-function setupOrbitObserver() {
-    const heroSection = document.getElementById('heroSection');
-    const orbitRing = document.getElementById('orbitRing');
-    
-    if (!heroSection || !orbitRing || !('IntersectionObserver' in window)) return;
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                orbitRing.classList.remove('paused');
-            } else {
-                orbitRing.classList.add('paused');
-            }
-        });
-    }, { threshold: 0.1 });
-
-    observer.observe(heroSection);
 }
 
 function formatPrecio(tipo) {
