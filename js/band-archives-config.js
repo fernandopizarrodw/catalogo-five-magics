@@ -305,6 +305,7 @@
                         designIds: [
                             'almafuerte-banda-y-cartas',
                             'almafuerte-a-fondo-blanco',
+                            'almafuerte-album-homonimo',
                             'almafuerte-piedra-libre',
                             'almafuerte-iorio-malvinas',
                             'almafuerte-toro-y-pampa',
@@ -326,6 +327,7 @@
                     match: {
                         designIds: [
                             'ricardo-iorio-metal-pesado-argentino',
+                            'ricardo-iorio-metal-pesado-argentino-en-vivo',
                             'ricardo-iorio-bueno-malo-y-feo',
                             'ricardo-iorio-ilustracion',
                             'ricardo-iorio-leyenda',
@@ -339,6 +341,8 @@
                 'v8-hermetica-almafuerte-iorio',
                 'ricardo-iorio-bueno-malo-y-feo',
                 'almafuerte-iorio-malvinas',
+                'almafuerte-album-homonimo',
+                'ricardo-iorio-metal-pesado-argentino-en-vivo',
                 'v8-luchando-por-el-metal',
                 'almafuerte-piedra-libre',
                 'almafuerte-trillando-la-fina',

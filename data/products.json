@@ -15039,9 +15039,11 @@
         "isNew": true,
         "img": "images/banda_sugeridas/ricardo_iorio/remera_v8_hermetica_almafuerte_iorio.jpg",
         "variants": [
-            {"img": "images/banda_sugeridas/ricardo_iorio/remera_v8_hermetica_almafuerte_iorio.jpg", "name": "V8 Hermética Almafuerte Iorio - Remera", "designId": "v8-hermetica-almafuerte-iorio"},
-            {"img": "images/banda_sugeridas/ricardo_iorio/hoodie_v8_hermetica_almafuerte_iorio.jpg", "name": "V8 Hermética Almafuerte Iorio - Hoodie", "designId": "v8-hermetica-almafuerte-iorio", "garmentCategory": "Hoodies Otras Bandas"},
-            {"img": "images/banda_sugeridas/ricardo_iorio/buzo_v8_hermetica_almafuerte_iorio.jpg", "name": "V8 Hermética Almafuerte Iorio - Buzo cuello redondo", "designId": "v8-hermetica-almafuerte-iorio", "garmentCategory": "Buzo Cuello Redondo"}
+            {"img": "images/banda_sugeridas/ricardo_iorio/remera_v8_hermetica_almafuerte_iorio.jpg", "name": "V8 Hermética Almafuerte Iorio - Remera negra", "alt": "Remera negra V8 Hermética Almafuerte Ricardo Iorio", "designId": "v8-hermetica-almafuerte-iorio", "color": "negro"},
+            {"img": "images/banda_sugeridas/ricardo_iorio/remera_v8_hermetica_almafuerte_iorio_blanca.jpg", "name": "V8 Hermética Almafuerte Iorio - Remera blanca", "alt": "Remera blanca V8 Hermética Almafuerte Ricardo Iorio", "designId": "v8-hermetica-almafuerte-iorio", "color": "blanco"},
+            {"img": "images/banda_sugeridas/ricardo_iorio/hoodie_v8_hermetica_almafuerte_iorio.jpg", "name": "V8 Hermética Almafuerte Iorio - Hoodie negro", "alt": "Hoodie negro V8 Hermética Almafuerte Ricardo Iorio", "designId": "v8-hermetica-almafuerte-iorio", "garmentCategory": "Hoodies Otras Bandas", "color": "negro"},
+            {"img": "images/banda_sugeridas/ricardo_iorio/buzo_v8_hermetica_almafuerte_iorio.jpg", "name": "V8 Hermética Almafuerte Iorio - Buzo cuello redondo negro", "alt": "Buzo cuello redondo negro V8 Hermética Almafuerte Ricardo Iorio", "designId": "v8-hermetica-almafuerte-iorio", "garmentCategory": "Buzo Cuello Redondo", "color": "negro"},
+            {"img": "images/banda_sugeridas/ricardo_iorio/buzo_v8_hermetica_almafuerte_iorio_blanca.jpg", "name": "V8 Hermética Almafuerte Iorio - Buzo cuello redondo blanco", "alt": "Buzo cuello redondo blanco V8 Hermética Almafuerte Ricardo Iorio", "designId": "v8-hermetica-almafuerte-iorio", "garmentCategory": "Buzo Cuello Redondo", "color": "blanco"}
         ],
         "desc": "Homenaje a V8, Hermética, Almafuerte y Ricardo Iorio. Disponible en remera, hoodie y buzo cuello redondo.",
         "band": "Ricardo Iorio",
@@ -17742,6 +17744,72 @@
         "visibilityTier": "hero",
         "legacyCategory": "Bandas Sugeridas",
         "tags": ["Ricardo Iorio", "Almafuerte", "Malvinas", "Argentina Heavy", "remera", "estampa frontal"]
+    },
+    {
+        "id": 7216,
+        "category": "Bandas Sugeridas",
+        "year": "1995",
+        "name": "Almafuerte - Álbum homónimo",
+        "designId": "almafuerte-album-homonimo",
+        "designSlug": "almafuerte-album-homonimo",
+        "publishedAt": "2026-08-01",
+        "tipoPrecio": "simple",
+        "defaultPrintMode": "frontal",
+        "isNew": true,
+        "img": "images/banda_sugeridas/ricardo_iorio/remera_almafuerte_album.jpg",
+        "variants": [
+            {
+                "img": "images/banda_sugeridas/ricardo_iorio/remera_almafuerte_album.jpg",
+                "name": "Almafuerte - Álbum homónimo - Remera negra",
+                "alt": "Remera negra Almafuerte con el arte del álbum homónimo de 1995",
+                "designId": "almafuerte-album-homonimo",
+                "color": "negro",
+                "preferredPreview": true
+            }
+        ],
+        "desc": "Arte del álbum homónimo de Almafuerte, publicado en 1995.",
+        "band": "Ricardo Iorio",
+        "album": "Almafuerte",
+        "garments": ["remera"],
+        "collections": ["Ricardo Iorio", "Almafuerte"],
+        "campaigns": [],
+        "commercialPriority": 94,
+        "visibilityTier": "featured",
+        "legacyCategory": "Bandas Sugeridas",
+        "tags": ["Ricardo Iorio", "Almafuerte", "Álbum homónimo", "Argentina Heavy", "remera", "negro", "estampa frontal"]
+    },
+    {
+        "id": 7217,
+        "category": "Bandas Sugeridas",
+        "year": null,
+        "name": "Ricardo Iorio - Metal Pesado Argentino en vivo",
+        "designId": "ricardo-iorio-metal-pesado-argentino-en-vivo",
+        "designSlug": "ricardo-iorio-metal-pesado-argentino-en-vivo",
+        "publishedAt": "2026-08-01",
+        "tipoPrecio": "simple",
+        "defaultPrintMode": "frontal",
+        "isNew": true,
+        "img": "images/banda_sugeridas/ricardo_iorio/remera_ricardo_iorio_bn.jpg",
+        "variants": [
+            {
+                "img": "images/banda_sugeridas/ricardo_iorio/remera_ricardo_iorio_bn.jpg",
+                "name": "Ricardo Iorio - Metal Pesado Argentino en vivo - Remera negra",
+                "alt": "Remera negra Ricardo Iorio cantando en vivo con arte Metal Pesado Argentino",
+                "designId": "ricardo-iorio-metal-pesado-argentino-en-vivo",
+                "color": "negro",
+                "preferredPreview": true
+            }
+        ],
+        "desc": "Ricardo Iorio cantando en vivo con la identidad Metal Pesado Argentino.",
+        "band": "Ricardo Iorio",
+        "album": null,
+        "garments": ["remera"],
+        "collections": ["Ricardo Iorio"],
+        "campaigns": [],
+        "commercialPriority": 95,
+        "visibilityTier": "featured",
+        "legacyCategory": "Bandas Sugeridas",
+        "tags": ["Ricardo Iorio", "Metal Pesado Argentino", "En vivo", "Argentina Heavy", "remera", "negro", "estampa frontal"]
     },
     {
         "id": 5090,

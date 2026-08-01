@@ -26,7 +26,7 @@ const PRECIOS_BUZO_REDONDO = {
     doble_personalizado: 60000
 };
 const PERSONALIZADO_EXTRA = 5000;
-const FECHA_VIGENCIA = "Agosto 2027";
+const FECHA_VIGENCIA = "Agosto 2026";
 const WHATSAPP = "541169667685";
 const BAND_ARCHIVE_CONFIGS = Array.isArray(window.FMD_BAND_ARCHIVES)
     ? window.FMD_BAND_ARCHIVES
@@ -1992,7 +1992,7 @@ function resolveModalPriceConfig(product = currentProduct) {
     const isBuzoRedondo = garmentCategory === 'Buzo Cuello Redondo';
     const isOversize = selectedCut === 'oversize';
     const isKids = selectedAge === 'chico';
-    const isCustom = isPersonalizedSelection(product) && !isKids;
+    const isCustom = isPersonalizedSelection(product);
 
     let basePrices;
     if (isHoodie) {
@@ -2587,6 +2587,8 @@ class CartSystem {
             cut: options.cut || 'clasica',
             color: options.color || 'negro',
             isCustom: Boolean(options.isCustom),
+            designId: options.designId || '',
+            customizationText: options.customizationText || '',
             publicGarmentLabel: options.publicGarmentLabel || '',
             timestamp: Date.now()
         };
@@ -2715,6 +2717,7 @@ class CartSystem {
     generateConsultationSummary() {
         if (this.cart.length === 0) return 'Carrito vacio';
 
+        const itemPrices = calculateCartItemPrices(this.cart);
         return this.cart.map((item, idx) => {
             const isHoodie = isHoodieItem(item);
             const isBuzoRedondo = isBuzoRedondoItem(item);
@@ -2742,7 +2745,7 @@ class CartSystem {
                 : item.isDouble
                     ? `* Diseño: ${item.frontName || item.frontCode}\n* Dorso: a definir`
                     : `* Diseño: ${item.frontName || item.code}`;
-            const price = calculateItemPrice(item).toLocaleString('es-AR');
+            const price = itemPrices[idx].toLocaleString('es-AR');
 
             return `${idx + 1}) ${item.productName}
 * Prenda: ${garment}
@@ -6875,12 +6878,11 @@ function getProductImage(productId, variantIndex = 0) {
     return product.img || 'images/logo/MARCA DE AGUA.png';
 }
 
-function calculateItemPrice(item) {
+function calculateItemBasePrice(item) {
     const isHoodie = item.category === 'Hoodies FMD' || item.category === 'Hoodies Otras Bandas';
     const isBuzoRedondo = item.category === 'Buzo Cuello Redondo';
     const isKids = item.age === 'chico';
     const isOversize = item.cut === 'oversize';
-    const isCustom = Boolean(item.isCustom) && !isKids;
 
     let basePrices;
     if (isHoodie) {
@@ -6895,16 +6897,7 @@ function calculateItemPrice(item) {
         basePrices = PRECIOS;
     }
 
-    const precios = {
-        simple: isCustom
-            ? (basePrices.simple_personalizado ?? (basePrices.simple + PERSONALIZADO_EXTRA))
-            : basePrices.simple,
-        doble: isCustom
-            ? (basePrices.doble_personalizado ?? (basePrices.doble + PERSONALIZADO_EXTRA))
-            : basePrices.doble
-    };
-
-    return item.isDouble ? precios.doble : precios.simple;
+    return item.isDouble ? basePrices.doble : basePrices.simple;
 }
 
 function isHoodieItem(item) {
@@ -6924,16 +6917,42 @@ function isCustomCartItem(item) {
     return Boolean(item?.isCustom) || normalizeText(product?.category || '') === 'personalizados';
 }
 
-function getCustomExtraForCartItem(item) {
-    return isCustomCartItem(item) ? PERSONALIZADO_EXTRA : 0;
+function getCustomDesignKey(item) {
+    if (!isCustomCartItem(item)) return '';
+
+    const explicitDesignId = String(item?.designId || '').trim();
+    const fallbackIdentity = normalizeText(
+        item?.productName || item?.frontName || item?.code || String(item?.id || '')
+    );
+    const customization = normalizeText(item?.customizationText || '');
+    const designIdentity = explicitDesignId || fallbackIdentity || String(item?.id || 'personalizado');
+
+    return `${designIdentity}::${customization || 'catalogo'}`;
+}
+
+function getCustomExtraAssignments(items) {
+    const chargedDesigns = new Set();
+
+    return items.map(item => {
+        const designKey = getCustomDesignKey(item);
+        if (!designKey || chargedDesigns.has(designKey)) return 0;
+
+        chargedDesigns.add(designKey);
+        return PERSONALIZADO_EXTRA;
+    });
+}
+
+function calculateCartItemPrices(items) {
+    const customExtras = getCustomExtraAssignments(items);
+    return items.map((item, index) => calculateItemBasePrice(item) + customExtras[index]);
 }
 
 function calculateCartSubtotal(items) {
-    return items.reduce((sum, item) => sum + calculateItemPrice(item), 0);
+    return calculateCartItemPrices(items).reduce((sum, price) => sum + price, 0);
 }
 
 function calculateCustomExtraSubtotal(items) {
-    return items.reduce((sum, item) => sum + getCustomExtraForCartItem(item), 0);
+    return getCustomExtraAssignments(items).reduce((sum, extra) => sum + extra, 0);
 }
 
 function calculateDiscountableSubtotal(items) {
@@ -7029,9 +7048,10 @@ function renderCartPreview() {
     }
     
     // Renderizar items
+    const itemPrices = calculateCartItemPrices(items);
     body.innerHTML = items.map((item, idx) => {
         const img = getProductImage(item.id, item.variantIndex);
-        const precio = calculateItemPrice(item);
+        const precio = itemPrices[idx];
         const edad = item.age === 'chico' ? 'Niño' : 'Adulto';
         const talle = item.size || 'Por confirmar';
         const corte = item.age === 'chico'
@@ -7366,6 +7386,8 @@ function addToCartFromModal() {
         category: garmentCategory,
         backIndex: selectedBackIndex, // índice del dorso seleccionado
         isCustom: isCustom,
+        designId: currentCatalogDesign?.designId || '',
+        customizationText: (document.getElementById('dorsoCustomInput')?.value || '').trim(),
         publicGarmentLabel: usesBandLandingShownComposition() ? getModalGarmentLabel(currentProduct) : '',
         designName: currentCatalogDesign?.publicName || '',
         orderCodeBase: currentCatalogDesign?.orderCodeBase || '',
