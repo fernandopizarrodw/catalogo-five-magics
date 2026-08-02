@@ -17812,6 +17812,105 @@
         "tags": ["Ricardo Iorio", "Metal Pesado Argentino", "En vivo", "Argentina Heavy", "remera", "negro", "estampa frontal"]
     },
     {
+        "id": 7218,
+        "category": "Bandas Sugeridas",
+        "year": null,
+        "name": "Ricardo Iorio - Unas Estrofas Más",
+        "designId": "ricardo-iorio-unas-estrofas-mas",
+        "designSlug": "ricardo-iorio-unas-estrofas-mas",
+        "publishedAt": "2026-08-01",
+        "tipoPrecio": "simple",
+        "defaultPrintMode": "frontal",
+        "isNew": true,
+        "img": "images/banda_sugeridas/ricardo_iorio/remera_iorio_unas_estrofas_mas.jpg",
+        "variants": [
+            {
+                "img": "images/banda_sugeridas/ricardo_iorio/remera_iorio_unas_estrofas_mas.jpg",
+                "name": "Ricardo Iorio - Unas Estrofas Más - Remera negra",
+                "alt": "Remera negra Ricardo Iorio Unas Estrofas Más",
+                "designId": "ricardo-iorio-unas-estrofas-mas",
+                "color": "negro",
+                "preferredPreview": true
+            }
+        ],
+        "desc": "Ricardo Iorio en vivo con la frase Unas Estrofas Más.",
+        "band": "Ricardo Iorio",
+        "album": null,
+        "garments": ["remera"],
+        "collections": ["Ricardo Iorio"],
+        "campaigns": [],
+        "commercialPriority": 96,
+        "visibilityTier": "featured",
+        "legacyCategory": "Bandas Sugeridas",
+        "tags": ["Ricardo Iorio", "Unas Estrofas Más", "Argentina Heavy", "remera", "negro", "estampa frontal"]
+    },
+    {
+        "id": 7219,
+        "category": "Bandas Sugeridas",
+        "year": null,
+        "name": "Ricardo Iorio - En vivo con guitarra",
+        "designId": "ricardo-iorio-en-vivo-con-guitarra",
+        "designSlug": "ricardo-iorio-en-vivo-con-guitarra",
+        "publishedAt": "2026-08-02",
+        "tipoPrecio": "simple",
+        "defaultPrintMode": "frontal",
+        "isNew": true,
+        "img": "images/banda_sugeridas/ricardo_iorio/remera_ricardo_iorio_v2.jpg",
+        "variants": [
+            {
+                "img": "images/banda_sugeridas/ricardo_iorio/remera_ricardo_iorio_v2.jpg",
+                "name": "Ricardo Iorio - En vivo con guitarra - Remera negra",
+                "alt": "Remera negra Ricardo Iorio cantando y tocando la guitarra en vivo",
+                "designId": "ricardo-iorio-en-vivo-con-guitarra",
+                "color": "negro",
+                "preferredPreview": true
+            }
+        ],
+        "desc": "Ricardo Iorio cantando y tocando la guitarra en vivo.",
+        "band": "Ricardo Iorio",
+        "album": null,
+        "garments": ["remera"],
+        "collections": ["Ricardo Iorio"],
+        "campaigns": [],
+        "commercialPriority": 95,
+        "visibilityTier": "featured",
+        "legacyCategory": "Bandas Sugeridas",
+        "tags": ["Ricardo Iorio", "En vivo", "Guitarra", "Argentina Heavy", "remera", "negro", "estampa frontal"]
+    },
+    {
+        "id": 7220,
+        "category": "Bandas Sugeridas",
+        "year": null,
+        "name": "Ricardo Iorio - Avivando la Llama de la Ley Natural",
+        "designId": "ricardo-iorio-avivando-la-llama",
+        "designSlug": "ricardo-iorio-avivando-la-llama",
+        "publishedAt": "2026-08-02",
+        "tipoPrecio": "simple",
+        "defaultPrintMode": "frontal",
+        "isNew": true,
+        "img": "images/banda_sugeridas/ricardo_iorio/remera_iorio_avivando_la_llama.jpg",
+        "variants": [
+            {
+                "img": "images/banda_sugeridas/ricardo_iorio/remera_iorio_avivando_la_llama.jpg",
+                "name": "Ricardo Iorio - Avivando la Llama de la Ley Natural - Remera negra",
+                "alt": "Remera negra Ricardo Iorio Avivando la Llama de la Ley Natural",
+                "designId": "ricardo-iorio-avivando-la-llama",
+                "color": "negro",
+                "preferredPreview": true
+            }
+        ],
+        "desc": "Ricardo Iorio con la frase Avivando la Llama de la Ley Natural.",
+        "band": "Ricardo Iorio",
+        "album": null,
+        "garments": ["remera"],
+        "collections": ["Ricardo Iorio"],
+        "campaigns": [],
+        "commercialPriority": 97,
+        "visibilityTier": "featured",
+        "legacyCategory": "Bandas Sugeridas",
+        "tags": ["Ricardo Iorio", "Avivando la Llama", "Ley Natural", "Argentina Heavy", "remera", "negro", "estampa frontal"]
+    },
+    {
         "id": 5090,
         "category": "Bandas Sugeridas",
         "year": "2026",
