@@ -14968,6 +14968,39 @@
         "tags": ["Hermetica", "Argentina Heavy", "Interpretes", "remera"]
     },
     {
+        "id": 7221,
+        "category": "Bandas Sugeridas",
+        "year": null,
+        "name": "Hermética - Formación",
+        "designId": "hermetica-formacion",
+        "designSlug": "hermetica-formacion",
+        "publishedAt": "2026-08-02",
+        "tipoPrecio": "simple",
+        "defaultPrintMode": "frontal",
+        "isNew": true,
+        "img": "images/banda_sugeridas/hermetica/remera_hermetica_banda.jpg",
+        "variants": [
+            {
+                "img": "images/banda_sugeridas/hermetica/remera_hermetica_banda.jpg",
+                "name": "Hermética - Formación - Remera negra",
+                "alt": "Remera negra Hermética con la formación de la banda y logo blanco",
+                "designId": "hermetica-formacion",
+                "color": "negro",
+                "preferredPreview": true
+            }
+        ],
+        "desc": "Formación de Hermética con el logo blanco de la banda.",
+        "band": "Hermetica",
+        "album": null,
+        "garments": ["remera"],
+        "collections": ["Hermetica Archive"],
+        "campaigns": [],
+        "commercialPriority": 92,
+        "visibilityTier": "featured",
+        "legacyCategory": "Bandas Sugeridas",
+        "tags": ["Hermetica", "Formación", "Argentina Heavy", "remera", "negro", "estampa frontal"]
+    },
+    {
         "id": 7044,
         "category": "Bandas Sugeridas",
         "year": "2026",
@@ -17909,6 +17942,39 @@
         "visibilityTier": "featured",
         "legacyCategory": "Bandas Sugeridas",
         "tags": ["Ricardo Iorio", "Avivando la Llama", "Ley Natural", "Argentina Heavy", "remera", "negro", "estampa frontal"]
+    },
+    {
+        "id": 7222,
+        "category": "Bandas Sugeridas",
+        "year": null,
+        "name": "Almafuerte - En Obras",
+        "designId": "almafuerte-en-obras",
+        "designSlug": "almafuerte-en-obras",
+        "publishedAt": "2026-08-02",
+        "tipoPrecio": "simple",
+        "defaultPrintMode": "frontal",
+        "isNew": true,
+        "img": "images/banda_sugeridas/ricardo_iorio/remera_almafuerte_obras.jpg",
+        "variants": [
+            {
+                "img": "images/banda_sugeridas/ricardo_iorio/remera_almafuerte_obras.jpg",
+                "name": "Almafuerte - En Obras - Remera negra",
+                "alt": "Remera negra Almafuerte en vivo en Obras",
+                "designId": "almafuerte-en-obras",
+                "color": "negro",
+                "preferredPreview": true
+            }
+        ],
+        "desc": "Almafuerte en vivo en Obras.",
+        "band": "Ricardo Iorio",
+        "album": null,
+        "garments": ["remera"],
+        "collections": ["Ricardo Iorio", "Almafuerte"],
+        "campaigns": [],
+        "commercialPriority": 96,
+        "visibilityTier": "featured",
+        "legacyCategory": "Bandas Sugeridas",
+        "tags": ["Ricardo Iorio", "Almafuerte", "En Obras", "En vivo", "Argentina Heavy", "remera", "negro", "estampa frontal"]
     },
     {
         "id": 5090,

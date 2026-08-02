@@ -254,6 +254,7 @@
             defaultGarment: 'remera',
             usesShownComposition: true,
             designOrder: [
+                'hermetica-formacion',
                 'hermetica-acido-argentino',
                 'hermetica-victimas-del-vaciamiento',
                 'hermetica-victimas-del-vaciamiento-banda',
@@ -306,6 +307,7 @@
                             'almafuerte-banda-y-cartas',
                             'almafuerte-a-fondo-blanco',
                             'almafuerte-album-homonimo',
+                            'almafuerte-en-obras',
                             'almafuerte-piedra-libre',
                             'almafuerte-iorio-malvinas',
                             'almafuerte-toro-y-pampa',
@@ -345,6 +347,7 @@
                 'ricardo-iorio-bueno-malo-y-feo',
                 'almafuerte-iorio-malvinas',
                 'almafuerte-album-homonimo',
+                'almafuerte-en-obras',
                 'ricardo-iorio-metal-pesado-argentino-en-vivo',
                 'ricardo-iorio-avivando-la-llama',
                 'ricardo-iorio-unas-estrofas-mas',
