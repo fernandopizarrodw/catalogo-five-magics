@@ -254,6 +254,7 @@
             defaultGarment: 'remera',
             usesShownComposition: true,
             designOrder: [
+                'hermetica-logo-y-simbolo',
                 'hermetica-formacion',
                 'hermetica-acido-argentino',
                 'hermetica-victimas-del-vaciamiento',

@@ -15001,6 +15001,46 @@
         "tags": ["Hermetica", "Formación", "Argentina Heavy", "remera", "negro", "estampa frontal"]
     },
     {
+        "id": 7223,
+        "category": "Bandas Sugeridas",
+        "year": null,
+        "name": "Hermética - Logo y símbolo",
+        "designId": "hermetica-logo-y-simbolo",
+        "designSlug": "hermetica-logo-y-simbolo",
+        "publishedAt": "2026-08-02",
+        "tipoPrecio": "simple",
+        "defaultPrintMode": "frontal",
+        "isNew": true,
+        "img": "images/banda_sugeridas/hermetica/remera_hermetica_logo.jpg",
+        "variants": [
+            {
+                "img": "images/banda_sugeridas/hermetica/remera_hermetica_logo.jpg",
+                "name": "Hermética - Logo y símbolo - Remera negra",
+                "alt": "Remera negra Hermética con logo rojo y símbolo blanco",
+                "designId": "hermetica-logo-y-simbolo",
+                "color": "negro",
+                "preferredPreview": true
+            },
+            {
+                "img": "images/banda_sugeridas/hermetica/remera_hermetica_logo_blanca.jpg",
+                "name": "Hermética - Logo y símbolo - Remera blanca",
+                "alt": "Remera blanca Hermética con logo rojo y símbolo negro",
+                "designId": "hermetica-logo-y-simbolo",
+                "color": "blanco"
+            }
+        ],
+        "desc": "Logo de Hermética y símbolo de la banda, disponible en remera negra o blanca.",
+        "band": "Hermetica",
+        "album": null,
+        "garments": ["remera"],
+        "collections": ["Hermetica Archive"],
+        "campaigns": [],
+        "commercialPriority": 93,
+        "visibilityTier": "featured",
+        "legacyCategory": "Bandas Sugeridas",
+        "tags": ["Hermetica", "Logo", "Símbolo", "Argentina Heavy", "remera", "negro", "blanco", "estampa frontal"]
+    },
+    {
         "id": 7044,
         "category": "Bandas Sugeridas",
         "year": "2026",
