@@ -184,8 +184,8 @@ ${config.relatedArchive ? `                <a class="band-landing-related-archiv
 
         <section class="july-shipping-promo" aria-label="Beneficios FMD">
             <p>PROMO AGOSTO</p>
-            <strong>ENVÍO GRATIS</strong>
-            <span>Desde 1 prenda · A punto de retiro Andreani · Todo el país</span>
+            <strong>ENVÍO GRATIS <em>A TODO EL PAÍS</em></strong>
+            <span>Durante agosto · Desde 1 prenda · A punto de retiro Andreani</span>
             <b>3 PRENDAS O MÁS · 10% OFF + ENVÍO GRATIS A DOMICILIO</b>
         </section>
 
