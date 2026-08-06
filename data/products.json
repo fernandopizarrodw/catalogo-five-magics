@@ -16953,7 +16953,7 @@
                 "fmdBadge": "ESTAMPA FRONTAL"
             },
             {
-                "img": "images/argentina/remera_estrellas_v2_blanca.jpg",
+                "img": "images/argentina/remera_estrellas_v2_blanca.png",
                 "name": "Tres Estrellas y Malvinas V2",
                 "alt": "Remera blanca Tres Estrellas y Malvinas versión 2",
                 "garmentCategory": "Argentina",
@@ -17137,6 +17137,19 @@
                 "catalogStartingPrice": 44000,
                 "catalogPriceText": "Doble estampa $44.000",
                 "fmdBadge": "DOBLE ESTAMPA"
+            },
+            {
+                "img": "images/argentina/malvinas blanca resultado.jpg",
+                "name": "Malvinas Argentinas - Resultado 2-1",
+                "alt": "Remera blanca Las Malvinas son Argentinas con resultado Argentina 2 Inglaterra 1 al frente",
+                "garmentCategory": "Argentina",
+                "designId": "argentina-malvinas-resultado-2-1-2026",
+                "designSlug": "malvinas-resultado-2-1-2026",
+                "color": "blanco",
+                "defaultPrintMode": "simple",
+                "catalogStartingPrice": 37000,
+                "catalogPriceText": "Estampa frontal $37.000",
+                "fmdBadge": "ESTAMPA FRONTAL"
             },
             {
                 "img": "images/argentina/remera_argentina_bandera.jpg",
