@@ -334,6 +334,9 @@
                             'ricardo-iorio-unas-estrofas-mas',
                             'ricardo-iorio-en-vivo-con-guitarra',
                             'ricardo-iorio-avivando-la-llama',
+                            'ricardo-iorio-en-vivo-blanco-y-negro-v3',
+                            'ricardo-iorio-metal-pesado-argentino-en-vivo-v2',
+                            'ricardo-iorio-en-vivo-con-cruz-v5',
                             'ricardo-iorio-bueno-malo-y-feo',
                             'ricardo-iorio-ilustracion',
                             'ricardo-iorio-leyenda',
@@ -344,6 +347,9 @@
                 }
             ],
             designOrder: [
+                'ricardo-iorio-en-vivo-blanco-y-negro-v3',
+                'ricardo-iorio-metal-pesado-argentino-en-vivo-v2',
+                'ricardo-iorio-en-vivo-con-cruz-v5',
                 'v8-hermetica-almafuerte-iorio',
                 'ricardo-iorio-bueno-malo-y-feo',
                 'almafuerte-iorio-malvinas',

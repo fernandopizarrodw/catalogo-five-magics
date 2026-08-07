@@ -14982,7 +14982,7 @@
         "variants": [
             {
                 "img": "images/banda_sugeridas/hermetica/remera_hermetica_banda.jpg",
-                "name": "Hermética - Formación - Remera negra",
+                "name": "Hermética - Formación",
                 "alt": "Remera negra Hermética con la formación de la banda y logo blanco",
                 "designId": "hermetica-formacion",
                 "color": "negro",
@@ -15015,7 +15015,7 @@
         "variants": [
             {
                 "img": "images/banda_sugeridas/hermetica/remera_hermetica_logo.jpg",
-                "name": "Hermética - Logo y símbolo - Remera negra",
+                "name": "Hermética - Logo y símbolo",
                 "alt": "Remera negra Hermética con logo rojo y símbolo blanco",
                 "designId": "hermetica-logo-y-simbolo",
                 "color": "negro",
@@ -17628,7 +17628,7 @@
         "id": 7208,
         "category": "Bandas Sugeridas",
         "year": "2026",
-        "name": "Ricardo Iorio - Leyenda",
+        "name": "Ricardo Iorio - V8 · Hermética · Almafuerte",
         "designId": "ricardo-iorio-leyenda",
         "designSlug": "ricardo-iorio-leyenda",
         "publishedAt": "2026-07-30",
@@ -17784,7 +17784,7 @@
         "variants": [
             {
                 "img": "images/banda_sugeridas/ricardo_iorio/remera_v8.jpg",
-                "name": "V8 - Luchando por el Metal - Remera negra",
+                "name": "V8 - Luchando por el Metal",
                 "alt": "Remera negra V8 Luchando por el Metal",
                 "designId": "v8-luchando-por-el-metal",
                 "preferredPreview": true
@@ -17846,7 +17846,7 @@
         "variants": [
             {
                 "img": "images/banda_sugeridas/ricardo_iorio/remera_almafuerte_album.jpg",
-                "name": "Almafuerte - Álbum homónimo - Remera negra",
+                "name": "Almafuerte - Álbum homónimo",
                 "alt": "Remera negra Almafuerte con el arte del álbum homónimo de 1995",
                 "designId": "almafuerte-album-homonimo",
                 "color": "negro",
@@ -17879,7 +17879,7 @@
         "variants": [
             {
                 "img": "images/banda_sugeridas/ricardo_iorio/remera_ricardo_iorio_bn.jpg",
-                "name": "Ricardo Iorio - Metal Pesado Argentino en vivo - Remera negra",
+                "name": "Iorio Metal Pesado Argentino v1",
                 "alt": "Remera negra Ricardo Iorio cantando en vivo con arte Metal Pesado Argentino",
                 "designId": "ricardo-iorio-metal-pesado-argentino-en-vivo",
                 "color": "negro",
@@ -17912,7 +17912,7 @@
         "variants": [
             {
                 "img": "images/banda_sugeridas/ricardo_iorio/remera_iorio_unas_estrofas_mas.jpg",
-                "name": "Ricardo Iorio - Unas Estrofas Más - Remera negra",
+                "name": "Ricardo Iorio - Unas Estrofas Más",
                 "alt": "Remera negra Ricardo Iorio Unas Estrofas Más",
                 "designId": "ricardo-iorio-unas-estrofas-mas",
                 "color": "negro",
@@ -17945,7 +17945,7 @@
         "variants": [
             {
                 "img": "images/banda_sugeridas/ricardo_iorio/remera_ricardo_iorio_v2.jpg",
-                "name": "Ricardo Iorio - En vivo con guitarra - Remera negra",
+                "name": "Iorio Metal Pesado Argentino v2",
                 "alt": "Remera negra Ricardo Iorio cantando y tocando la guitarra en vivo",
                 "designId": "ricardo-iorio-en-vivo-con-guitarra",
                 "color": "negro",
@@ -17978,7 +17978,7 @@
         "variants": [
             {
                 "img": "images/banda_sugeridas/ricardo_iorio/remera_iorio_avivando_la_llama.jpg",
-                "name": "Ricardo Iorio - Avivando la Llama de la Ley Natural - Remera negra",
+                "name": "Ricardo Iorio - Avivando la Llama de la Ley Natural",
                 "alt": "Remera negra Ricardo Iorio Avivando la Llama de la Ley Natural",
                 "designId": "ricardo-iorio-avivando-la-llama",
                 "color": "negro",
@@ -18011,7 +18011,7 @@
         "variants": [
             {
                 "img": "images/banda_sugeridas/ricardo_iorio/remera_almafuerte_obras.jpg",
-                "name": "Almafuerte - En Obras - Remera negra",
+                "name": "Almafuerte - En Obras",
                 "alt": "Remera negra Almafuerte en vivo en Obras",
                 "designId": "almafuerte-en-obras",
                 "color": "negro",
@@ -18028,6 +18028,105 @@
         "visibilityTier": "featured",
         "legacyCategory": "Bandas Sugeridas",
         "tags": ["Ricardo Iorio", "Almafuerte", "En Obras", "En vivo", "Argentina Heavy", "remera", "negro", "estampa frontal"]
+    },
+    {
+        "id": 7224,
+        "category": "Bandas Sugeridas",
+        "year": null,
+        "name": "Ricardo Iorio - En vivo en blanco y negro",
+        "designId": "ricardo-iorio-en-vivo-blanco-y-negro-v3",
+        "designSlug": "ricardo-iorio-en-vivo-blanco-y-negro-v3",
+        "publishedAt": "2026-08-06",
+        "tipoPrecio": "simple",
+        "defaultPrintMode": "frontal",
+        "isNew": true,
+        "img": "images/banda_sugeridas/ricardo_iorio/remera_ricardo_iorio_v3.jpg",
+        "variants": [
+            {
+                "img": "images/banda_sugeridas/ricardo_iorio/remera_ricardo_iorio_v3.jpg",
+                "name": "Ricardo Iorio - En vivo en blanco y negro",
+                "alt": "Remera negra Ricardo Iorio cantando en vivo en blanco y negro",
+                "designId": "ricardo-iorio-en-vivo-blanco-y-negro-v3",
+                "color": "negro",
+                "preferredPreview": true
+            }
+        ],
+        "desc": "Ricardo Iorio cantando en vivo con fotografía en blanco y negro.",
+        "band": "Ricardo Iorio",
+        "album": null,
+        "garments": ["remera"],
+        "collections": ["Ricardo Iorio"],
+        "campaigns": [],
+        "commercialPriority": 98,
+        "visibilityTier": "featured",
+        "legacyCategory": "Bandas Sugeridas",
+        "tags": ["Ricardo Iorio", "En vivo", "Blanco y negro", "Argentina Heavy", "remera", "negro", "estampa frontal"]
+    },
+    {
+        "id": 7225,
+        "category": "Bandas Sugeridas",
+        "year": null,
+        "name": "Ricardo Iorio - Metal Pesado Argentino - En vivo a color",
+        "designId": "ricardo-iorio-metal-pesado-argentino-en-vivo-v2",
+        "designSlug": "ricardo-iorio-metal-pesado-argentino-en-vivo-v2",
+        "publishedAt": "2026-08-06",
+        "tipoPrecio": "simple",
+        "defaultPrintMode": "frontal",
+        "isNew": true,
+        "img": "images/banda_sugeridas/ricardo_iorio/remera_ricardo_iorio_v4.jpg",
+        "variants": [
+            {
+                "img": "images/banda_sugeridas/ricardo_iorio/remera_ricardo_iorio_v4.jpg",
+                "name": "Ricardo Iorio - Metal Pesado Argentino - En vivo a color",
+                "alt": "Remera negra Ricardo Iorio cantando en vivo con logo Metal Pesado Argentino",
+                "designId": "ricardo-iorio-metal-pesado-argentino-en-vivo-v2",
+                "color": "negro",
+                "preferredPreview": true
+            }
+        ],
+        "desc": "Ricardo Iorio cantando en vivo con la identidad Metal Pesado Argentino.",
+        "band": "Ricardo Iorio",
+        "album": null,
+        "garments": ["remera"],
+        "collections": ["Ricardo Iorio"],
+        "campaigns": [],
+        "commercialPriority": 98,
+        "visibilityTier": "featured",
+        "legacyCategory": "Bandas Sugeridas",
+        "tags": ["Ricardo Iorio", "Metal Pesado Argentino", "En vivo", "Argentina Heavy", "remera", "negro", "estampa frontal"]
+    },
+    {
+        "id": 7226,
+        "category": "Bandas Sugeridas",
+        "year": null,
+        "name": "Ricardo Iorio - En vivo con cruz",
+        "designId": "ricardo-iorio-en-vivo-con-cruz-v5",
+        "designSlug": "ricardo-iorio-en-vivo-con-cruz-v5",
+        "publishedAt": "2026-08-06",
+        "tipoPrecio": "simple",
+        "defaultPrintMode": "frontal",
+        "isNew": true,
+        "img": "images/banda_sugeridas/ricardo_iorio/remera_ricardo_iorio_v5.jpg",
+        "variants": [
+            {
+                "img": "images/banda_sugeridas/ricardo_iorio/remera_ricardo_iorio_v5.jpg",
+                "name": "Ricardo Iorio - En vivo con cruz",
+                "alt": "Remera negra Ricardo Iorio cantando en vivo con cruz",
+                "designId": "ricardo-iorio-en-vivo-con-cruz-v5",
+                "color": "negro",
+                "preferredPreview": true
+            }
+        ],
+        "desc": "Ricardo Iorio cantando en vivo con la cruz sobre su ropa.",
+        "band": "Ricardo Iorio",
+        "album": null,
+        "garments": ["remera"],
+        "collections": ["Ricardo Iorio"],
+        "campaigns": [],
+        "commercialPriority": 98,
+        "visibilityTier": "featured",
+        "legacyCategory": "Bandas Sugeridas",
+        "tags": ["Ricardo Iorio", "En vivo", "Cruz", "Metal Pesado Argentino", "Argentina Heavy", "remera", "negro", "estampa frontal"]
     },
     {
         "id": 5090,
