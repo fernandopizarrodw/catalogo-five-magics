@@ -2430,7 +2430,10 @@ function validateModalDeliveryBeforeWhatsapp() {
         delivery_method: selectedDeliveryMethod,
         validation_error: 'missing_postal_code'
     });
-    showNotification('Ingresá el código postal para calcular el envío Andreani.', 2600);
+    const postalMessage = selectedDeliveryMethod === 'retiro_andreani'
+        ? 'Ingresá el código postal para elegir el punto Andreani que te quede más cómodo.'
+        : 'Ingresá el código postal para coordinar el envío a domicilio.';
+    showNotification(postalMessage, 2600);
     const field = document.getElementById('modalPostalField');
     const input = document.getElementById('modalPostalCode');
     if (field) {
@@ -6900,52 +6903,55 @@ function buildShippingContextForWhatsapp(postalCode = '', customerData = null) {
         return '\n\n📦 ENTREGA:\n• Retiro sin cargo en Villa Martelli.\n• Disponible desde el tercer día hábil posterior a la compra.';
     }
 
-    if (customerData) {
-        return buildCustomerDataForWhatsapp(customerData);
-    }
-
     const totals = calculateCartTotal();
-    const quantity = totals.cantidad;
+    const lines = [];
+    const hasPromotion = totals.promotion?.id && totals.promotion.id !== 'sin_promo';
+    const isFreeAtPoint = selectedDeliveryMethod === 'retiro_andreani' && totals.envioGratis;
+    const isFreeAtHome = selectedDeliveryMethod === 'domicilio'
+        && totals.envioGratis
+        && !totals.envioGratisPuntoAndreani;
 
-    if (totals.promotion?.id && totals.promotion.id !== 'sin_promo') {
-        const lines = [
-            `• Promo aplicada: ${totals.promotion.label}`,
-            `• ${totals.promotion.description}`
-        ];
-
-        if (totals.envioGratisPuntoAndreani) {
-            lines.push('• Envío gratis a punto de retiro Andreani.');
-            lines.push('• Si elijo envío a domicilio, abono la diferencia.');
-        } else if (totals.envioGratis) {
-            lines.push('• Envío gratis a domicilio.');
-        }
-
-        if (postalCode) lines.push(`• Código postal: ${postalCode}`);
-
-        return `\n\n📦 DATOS DE ENVÍO / PROMO:\n${lines.join('\n')}`;
+    if (selectedDeliveryMethod === 'retiro_andreani') {
+        lines.push('• Entrega: punto de retiro Andreani.');
+        lines.push(isFreeAtPoint
+            ? '• Envío: GRATIS.'
+            : '• Costo del envío: a confirmar.');
+    } else if (selectedDeliveryMethod === 'domicilio') {
+        lines.push('• Entrega: Andreani a domicilio.');
+        lines.push(isFreeAtHome
+            ? '• Envío: GRATIS.'
+            : '• Costo del envío a domicilio: a confirmar según código postal.');
+    } else {
+        lines.push('• Forma de entrega: a confirmar por WhatsApp.');
     }
 
-    if (quantity >= 3) {
-        return '\n\n📦 DATOS DE ENVÍO:\n• 3 prendas o más: 10% OFF + envío gratis a domicilio.';
+    if (hasPromotion) {
+        lines.push(`• Promo aplicada: ${totals.promotion.label}.`);
     }
+    if (postalCode && !customerData) lines.push(`• Código postal: ${postalCode}`);
 
-    if (quantity >= 1) {
-        return '\n\n📦 DATOS DE ENVÍO:\n• Promo agosto: envío gratis a punto de retiro Andreani.';
-    }
-
-    if (postalCode) {
-        return `\n\n📦 DATOS DE ENVÍO:\n• Código postal: ${postalCode}`;
-    }
-
-    return '\n\n📦 DATOS DE ENVÍO:\n• Código postal: no informado';
+    const deliveryContext = `\n\n📦 ENTREGA / PROMO:\n${lines.join('\n')}`;
+    const customerContext = customerData ? buildCustomerDataForWhatsapp(customerData) : '';
+    return `${deliveryContext}${customerContext}`;
 }
 
 function sendViaWhatsapp(postalCode = '', customerData = null) {
     const summary = cart.generateSummary();
     const shippingContext = buildShippingContextForWhatsapp(postalCode, customerData);
+    const totals = calculateCartTotal();
+    const isFreeAtPoint = selectedDeliveryMethod === 'retiro_andreani' && totals.envioGratis;
+    const isFreeAtHome = selectedDeliveryMethod === 'domicilio'
+        && totals.envioGratis
+        && !totals.envioGratisPuntoAndreani;
     const closing = selectedDeliveryMethod === 'taller'
         ? '¿Me confirmás cómo avanzamos?'
-        : 'Te paso mis datos completos de envío para calcular Andreani y avanzar con el pedido.';
+        : isFreeAtPoint
+            ? '¿Me confirmás el punto de retiro Andreani más conveniente y cómo avanzamos?'
+            : isFreeAtHome
+                ? '¿Me confirmás cómo avanzamos con el envío gratis a domicilio?'
+                : selectedDeliveryMethod === 'domicilio'
+                    ? '¿Me confirmás el costo del envío a domicilio y cómo avanzamos?'
+                    : '¿Me confirmás la forma de entrega y cómo avanzamos?';
     const message = `Hola FMD!\n\nQuiero encargar este pedido:\n\n${summary}${shippingContext}\n\n${closing}`;
     openWhatsapp(message, 'cart_confirmar_pedido');
 }
@@ -7433,12 +7439,28 @@ function buildModalOrderWhatsappMessage() {
     const backLine = isDouble && !usesShownComposition ? `\nDorso: ${getSelectedBackLabelForWhatsapp()}` : '';
     const delivery = DELIVERY_LABELS[selectedDeliveryMethod] || 'A confirmar';
     const postalCode = getModalPostalCode();
-    const deliveryLines = selectedDeliveryMethod === 'taller'
-        ? [`Entrega: ${delivery}`, 'Retiro disponible: desde el tercer día hábil posterior a la compra']
-        : [`Entrega: ${delivery}`, `Código postal: ${postalCode}`];
-    const closingLine = selectedDeliveryMethod === 'taller'
-        ? '¿Me confirmás cómo avanzamos?'
-        : '¿Me confirmás el costo de envío y cómo avanzamos?';
+    let deliveryLines;
+    let closingLine;
+    if (selectedDeliveryMethod === 'taller') {
+        deliveryLines = [
+            `Entrega: ${delivery}`,
+            'Retiro disponible: desde el tercer día hábil posterior a la compra'
+        ];
+        closingLine = '¿Me confirmás cómo avanzamos?';
+    } else if (selectedDeliveryMethod === 'retiro_andreani') {
+        deliveryLines = [
+            `Entrega: ${delivery}`,
+            `Código postal: ${postalCode}`,
+            'Envío: GRATIS (promo agosto)'
+        ];
+        closingLine = '¿Me confirmás el punto de retiro Andreani más conveniente y cómo avanzamos?';
+    } else {
+        deliveryLines = [
+            `Entrega: ${delivery}`,
+            `Código postal: ${postalCode}`
+        ];
+        closingLine = '¿Me confirmás el costo del envío a domicilio y cómo avanzamos?';
+    }
 
     return [
         'Hola FMD! Quiero pedir este diseño:',
