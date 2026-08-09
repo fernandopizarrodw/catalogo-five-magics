@@ -7220,6 +7220,30 @@ header {
     background: rgba(255,255,255,0.035);
 }
 
+.modal-delivery-promo {
+    display: grid;
+    gap: 3px;
+    margin-bottom: 12px;
+    padding: 11px 12px;
+    border: 1px solid rgba(57, 255, 20, 0.58);
+    border-radius: 10px;
+    background: linear-gradient(135deg, rgba(57, 255, 20, 0.16), rgba(57, 255, 20, 0.04));
+}
+
+.modal-delivery-promo strong {
+    color: var(--magic-green);
+    font-family: var(--font-title);
+    font-size: 1.05rem;
+    letter-spacing: 0.08em;
+}
+
+.modal-delivery-promo span {
+    color: #fff;
+    font-size: 0.78rem;
+    font-weight: 700;
+    line-height: 1.35;
+}
+
 .modal-delivery-options {
     display: grid;
     gap: 8px;
@@ -7231,6 +7255,22 @@ header {
     justify-content: flex-start;
     text-align: left;
     border-radius: 10px;
+}
+
+.modal-delivery-btn.modal-delivery-free {
+    border-color: rgba(57, 255, 20, 0.5);
+}
+
+.modal-delivery-btn.modal-delivery-free::after {
+    content: 'GRATIS';
+    margin-left: auto;
+    padding: 3px 7px;
+    border-radius: 999px;
+    background: var(--magic-green);
+    color: #031003;
+    font-size: 0.65rem;
+    font-weight: 900;
+    letter-spacing: 0.06em;
 }
 
 .modal-postal-field {

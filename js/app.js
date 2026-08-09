@@ -1964,7 +1964,7 @@ function updateBandLandingModalSpecs() {
                 ? '⚡ Corte mujer'
                 : selectedModalGarment === 'oversize'
                     ? '⚡ Oversize unisex'
-                    : '⚡ Clásica unisex';
+                    : '⚡ Clásica hombre';
     }
 }
 
@@ -2106,8 +2106,8 @@ function getAvailableModalGarments(product = currentProduct) {
 }
 
 const MODAL_GARMENT_LABELS = {
-    remera_clasica: 'Clásica unisex',
-    mujer: 'Corte mujer',
+    remera_clasica: 'Clásica hombre',
+    mujer: 'Clásica mujer',
     oversize: 'Oversize unisex',
     hoodie: 'Hoodie',
     buzo: 'Buzo'
@@ -2120,8 +2120,8 @@ const MODAL_GARMENT_TYPE_LABELS = {
 };
 
 const MODAL_REMERA_VARIANTS = [
-    { id: 'hombre_clasica', label: 'Hombre clásica', garment: 'remera_clasica', age: 'adulto', cut: 'clasica' },
-    { id: 'mujer_clasica', label: 'Mujer clásica', garment: 'mujer', age: 'adulto', cut: 'mujer' },
+    { id: 'hombre_clasica', label: 'Clásica hombre', garment: 'remera_clasica', age: 'adulto', cut: 'clasica' },
+    { id: 'mujer_clasica', label: 'Clásica mujer', garment: 'mujer', age: 'adulto', cut: 'mujer' },
     { id: 'oversize_unisex', label: 'Oversize unisex', garment: 'oversize', age: 'adulto', cut: 'oversize' },
     { id: 'nino', label: 'Niño', garment: 'remera_clasica', age: 'chico', cut: 'clasica' }
 ];
@@ -2400,6 +2400,12 @@ function updateDeliveryUI() {
     });
     const postalField = document.getElementById('modalPostalField');
     if (postalField) postalField.classList.toggle('is-hidden', selectedDeliveryMethod === 'taller' || !selectedDeliveryMethod);
+    const postalHelp = postalField?.querySelector('small');
+    if (postalHelp) {
+        postalHelp.textContent = selectedDeliveryMethod === 'retiro_andreani'
+            ? 'Necesario para elegir el punto Andreani que te quede más cómodo.'
+            : 'Necesario para coordinar el envío a domicilio.';
+    }
 }
 
 function getModalPostalCode() {
@@ -2711,7 +2717,7 @@ class CartSystem {
             if (item.publicGarmentLabel) {
                 tipoPrenda = item.publicGarmentLabel;
             } else if (isBuzoRedondo) {
-                tipoPrenda = 'Buzo cuello redondo unisex';
+                tipoPrenda = 'Buzo cuello redondo oversize unisex';
             } else if (isHoodie) {
                 tipoPrenda = 'Hoodie oversize unisex';
             } else if (item.cut === 'oversize') {
@@ -2719,7 +2725,7 @@ class CartSystem {
             } else if (item.cut === 'mujer') {
                 tipoPrenda = 'Remera corte mujer';
             } else {
-                tipoPrenda = 'Remera clásica unisex';
+                tipoPrenda = 'Remera clásica hombre';
             }
 
             let estampado;
@@ -2763,14 +2769,14 @@ class CartSystem {
             const isHoodie = isHoodieItem(item);
             const isBuzoRedondo = isBuzoRedondoItem(item);
             const garment = item.publicGarmentLabel || (isBuzoRedondo
-                ? 'Buzo cuello redondo unisex'
+                ? 'Buzo cuello redondo oversize unisex'
                 : isHoodie
                     ? 'Hoodie oversize unisex'
                     : item.cut === 'oversize'
                         ? 'Remera oversize unisex'
                         : item.cut === 'mujer'
                             ? 'Remera corte mujer'
-                            : 'Remera clásica unisex');
+                            : 'Remera clásica hombre');
             const color = item.color === 'blanco' ? 'Blanca' : 'Negra';
             const product = db.find(p => Number(p?.id) === Number(item.id));
             const frontVariant = product?.variants?.[item.variantIndex];
@@ -2847,7 +2853,7 @@ ${designLines}
                     ? 'Remera oversize'
                     : item.cut === 'mujer'
                         ? 'Remera corte mujer'
-                        : 'Remera clásica unisex');
+                        : 'Remera clásica hombre');
             const color = item.color === 'blanco' ? 'Blanca' : 'Negra';
             return `
             <div class="cart-item">
@@ -6891,7 +6897,7 @@ function buildCustomerDataForWhatsapp(data) {
 
 function buildShippingContextForWhatsapp(postalCode = '', customerData = null) {
     if (selectedDeliveryMethod === 'taller') {
-        return '\n\n📦 ENTREGA:\n• Retiro sin cargo en Villa Martelli.';
+        return '\n\n📦 ENTREGA:\n• Retiro sin cargo en Villa Martelli.\n• Disponible desde el tercer día hábil posterior a la compra.';
     }
 
     if (customerData) {
@@ -7174,7 +7180,7 @@ function renderCartPreview() {
                 ? 'Remera oversize'
                 : item.cut === 'mujer'
                     ? 'Remera corte mujer'
-                    : 'Remera clásica unisex';
+                    : 'Remera clásica hombre';
         const color = item.color === 'blanco' ? 'Blanca' : 'Negra';
         
         return `
@@ -7217,7 +7223,7 @@ function renderCartPreview() {
     const shippingForm = selectedDeliveryMethod === 'taller' ? `
         <div class="cart-customer-fields compact cart-pickup-confirmation">
             <p class="cart-customer-title">Retiro sin cargo en Villa Martelli</p>
-            <p class="cart-customer-hint">No necesitás completar datos de envío. Coordinamos el retiro por WhatsApp.</p>
+            <p class="cart-customer-hint">Disponible desde el tercer día hábil posterior a la compra. Coordinamos el retiro por WhatsApp.</p>
         </div>` : `
         <div class="cart-customer-fields ${totals.cantidad >= 2 ? 'compact' : ''}">
             <p class="cart-customer-title">Datos para el envio (para finalizar tu pedido)</p>
@@ -7369,20 +7375,20 @@ function toggleCartPanel() {
 }
 
 function getModalGarmentLabel(product = currentProduct) {
-    if (selectedModalGarment === 'hoodie') return usesBandLandingShownComposition() ? 'Hoodie canguro oversize unisex' : 'Hoodie';
-    if (selectedModalGarment === 'buzo') return usesBandLandingShownComposition() ? 'Buzo cuello redondo oversize unisex' : 'Buzo cuello redondo';
-    if (selectedModalGarment === 'oversize') return 'Remera oversize';
-    if (selectedModalGarment === 'mujer') return 'Remera corte mujer';
+    if (selectedModalGarment === 'hoodie') return 'Hoodie canguro oversize unisex';
+    if (selectedModalGarment === 'buzo') return 'Buzo cuello redondo oversize unisex';
+    if (selectedModalGarment === 'oversize') return 'Remera oversize unisex';
+    if (selectedModalGarment === 'mujer') return 'Remera clásica mujer';
     const garmentCategory = getActiveGarmentCategory(product);
     const isHoodie = garmentCategory === 'Hoodies FMD' || garmentCategory === 'Hoodies Otras Bandas';
     const isBuzoRedondo = garmentCategory === 'Buzo Cuello Redondo';
 
-    if (isBuzoRedondo) return 'Buzo cuello redondo';
-    if (isHoodie) return 'Hoodie';
-    if (selectedCut === 'oversize') return 'Remera oversize';
-    if (selectedCut === 'mujer') return 'Remera corte mujer';
+    if (isBuzoRedondo) return 'Buzo cuello redondo oversize unisex';
+    if (isHoodie) return 'Hoodie canguro oversize unisex';
+    if (selectedCut === 'oversize') return 'Remera oversize unisex';
+    if (selectedCut === 'mujer') return 'Remera clásica mujer';
     if (selectedAge === 'chico') return 'Remera chicos';
-    return 'Remera clásica unisex';
+    return 'Remera clásica hombre';
 }
 
 function getSelectedBackLabelForWhatsapp() {
@@ -7428,7 +7434,7 @@ function buildModalOrderWhatsappMessage() {
     const delivery = DELIVERY_LABELS[selectedDeliveryMethod] || 'A confirmar';
     const postalCode = getModalPostalCode();
     const deliveryLines = selectedDeliveryMethod === 'taller'
-        ? [`Entrega: ${delivery}`]
+        ? [`Entrega: ${delivery}`, 'Retiro disponible: desde el tercer día hábil posterior a la compra']
         : [`Entrega: ${delivery}`, `Código postal: ${postalCode}`];
     const closingLine = selectedDeliveryMethod === 'taller'
         ? '¿Me confirmás cómo avanzamos?'

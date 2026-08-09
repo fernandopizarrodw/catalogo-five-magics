@@ -181,7 +181,7 @@ async function main() {
     assert(results.modal.modalActive, 'El modal no quedó abierto.', failures);
     assert(results.modal.name.includes('Eddie Gaucho'), 'Nombre incorrecto en modal.', failures);
     assert(results.modal.initialCode === results.modal.codeAfterGarment && results.modal.initialCode === results.modal.codeAfterSlide, 'El código cambia con prenda o imagen.', failures);
-    assert(['Clásica unisex','Corte mujer','Oversize unisex','Hoodie','Buzo'].every(label => results.modal.garmentLabels.includes(label)), 'Faltan prendas en el modal.', failures);
+    assert(['Clásica hombre','Clásica mujer','Oversize unisex','Hoodie','Buzo'].every(label => results.modal.garmentLabels.includes(label)), 'Faltan prendas en el modal.', failures);
     assert(results.modal.hoodieSimple.includes('$52.000'), `Precio hoodie frontal incorrecto: ${results.modal.hoodieSimple}`, failures);
     assert(results.modal.hoodieDouble.includes('$59.000'), `Precio hoodie doble incorrecto: ${results.modal.hoodieDouble}`, failures);
     assert(results.modal.message.includes('Prenda: Hoodie'), 'WhatsApp no informa Hoodie.', failures);

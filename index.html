@@ -751,7 +751,7 @@
         <div class="decision-boost-shell">
             <div class="decision-boost-copy">
                 <strong>🎸 COLECCIÓN MEGADETH - EDICIÓN ARGENTINA 2026</strong>
-                <p>Diseños exclusivos conmemorativos de Megadeth en Argentina. <strong>Plazo estimado total: 4 a 7 días hábiles, según el destino.</strong> Envíos por Andreani a todo el país.</p>
+                <p>Diseños exclusivos conmemorativos de Megadeth en Argentina. <strong>Plazo estimado total: 3 a 7 días hábiles, según el destino.</strong> Envíos por Andreani a todo el país.</p>
             </div>
             <a href="https://wa.me/541169667685?text=Hola%20FMD%2C%20quiero%20encargar%20una%20prenda%20de%20Megadeth" class="decision-boost-btn" onclick="openWhatsapp('Hola FMD! Quiero pedir una prenda de la colección Megadeth 🤘\n\nDiseño: ___\nTalle: A confirmar\nColor: A confirmar\nEntrega: A confirmar\n\n¿Me indicás cómo avanzamos?', 'decision_bar'); return false;">ENCARGAR AHORA</a>
         </div>
@@ -761,7 +761,7 @@
         <div class="logistica-show-shell">
             <div class="logistica-show-copy">
                 <strong>📦 ENVÍO A TODO EL PAÍS</strong>
-                <p>Despachamos por <strong>Andreani</strong> a domicilio o punto de retiro Andreani cercano.<br><strong>Plazo estimado total: 4 a 7 días hábiles, según el destino.</strong> <strong>Desde 1 prenda: punto Andreani gratis durante agosto; desde 3 prendas: 10% OFF + domicilio gratis.</strong></p>
+                <p>Despachamos por <strong>Andreani</strong> a domicilio o punto de retiro Andreani cercano.<br><strong>Plazo estimado total: 3 a 7 días hábiles, según el destino.</strong> <strong>Desde 1 prenda: punto Andreani gratis durante agosto; desde 3 prendas: 10% OFF + domicilio gratis.</strong></p>
             </div>
             <a href="https://wa.me/541169667685?text=Hola%20FMD%2C%20quiero%20encargar%20una%20prenda%20de%20Megadeth" class="logistica-show-btn" onclick="openWhatsapp('Hola FMD! Quiero pedir una prenda de la colección Megadeth 🤘\n\nDiseño: ___\nTalle: A confirmar\nColor: A confirmar\nEntrega: A confirmar\n\n¿Me indicás cómo avanzamos?', 'retiro_tecnopolis'); return false;">ENCARGAR AHORA</a>
         </div>
@@ -1410,13 +1410,13 @@
             <div class="faq-item bg-card">
                 <details>
                     <summary>Producción y tiempos</summary>
-                    <div class="faq-content">Trabajamos ON DEMAND (sin stock). Plazo estimado total: 4 a 7 días hábiles, según el destino. Como cada prenda se realiza a pedido, revisá talle y color antes de confirmar.</div>
+                    <div class="faq-content">Trabajamos ON DEMAND (sin stock). Plazo estimado total: 3 a 7 días hábiles, según el destino. Como cada prenda se realiza a pedido, revisá talle y color antes de confirmar.</div>
                 </details>
             </div>
             <div class="faq-item bg-card">
                 <details>
                     <summary>Producto (tela y corte)</summary>
-                    <div class="faq-content">Tela: Algodón peinado 24/1 premium. Corte: Clásico (no slim fit) y Oversize Unisex.</div>
+                    <div class="faq-content">Tela: Algodón peinado 24/1 premium. Cortes: clásica hombre, clásica mujer y oversize unisex.</div>
                 </details>
             </div>
             <div class="faq-item bg-card">
@@ -1475,7 +1475,7 @@
         </div>
 
         <div class="footer-info footer-info-compact">
-            <p class="footer-info-line">📦 <strong>ENVÍOS:</strong> Andreani a domicilio o punto de retiro en todo el país. Retiro sin cargo en Villa Martelli. Plazo estimado total: 4 a 7 días hábiles.</p>
+            <p class="footer-info-line">📦 <strong>ENVÍOS:</strong> Andreani a domicilio o punto de retiro en todo el país. Retiro sin cargo en Villa Martelli desde el tercer día hábil posterior a la compra. Plazo estimado total: 3 a 7 días hábiles, según el destino.</p>
             <p>💳 <strong>PAGO:</strong> Transferencia o Mercado Pago. Tarjeta de crédito disponible con recargo.</p>
         </div>
 
@@ -1661,18 +1661,22 @@
                     </div>
 
                     <div class="modal-delivery-box" id="modalDeliveryBox">
+                        <div class="modal-delivery-promo">
+                            <strong>ENVÍO GRATIS</strong>
+                            <span>Durante agosto, desde 1 prenda a un punto de retiro Andreani.</span>
+                        </div>
                         <span class="option-label">Forma de entrega:</span>
                         <div class="modal-delivery-options" id="deliverySelector">
                             <button type="button" class="option-btn modal-delivery-btn" data-delivery="domicilio" onclick="selectDeliveryMethod('domicilio')">Envío Andreani a domicilio</button>
-                            <button type="button" class="option-btn modal-delivery-btn" data-delivery="retiro_andreani" onclick="selectDeliveryMethod('retiro_andreani')">Envío a punto de retiro Andreani</button>
-                            <button type="button" class="option-btn modal-delivery-btn" data-delivery="taller" onclick="selectDeliveryMethod('taller')">Retiro sin cargo en Villa Martelli</button>
+                            <button type="button" class="option-btn modal-delivery-btn modal-delivery-free" data-delivery="retiro_andreani" aria-label="Envío gratis a punto de retiro Andreani" onclick="selectDeliveryMethod('retiro_andreani')">Punto de retiro Andreani</button>
+                            <button type="button" class="option-btn modal-delivery-btn" data-delivery="taller" onclick="selectDeliveryMethod('taller')">Retiro sin cargo en Villa Martelli · desde el 3.er día hábil</button>
                         </div>
                         <div class="modal-postal-field" id="modalPostalField">
                             <label for="modalPostalCode">Código postal</label>
                             <input type="text" id="modalPostalCode" inputmode="numeric" autocomplete="postal-code" placeholder="Ej: 1678">
                             <small>Necesario para cotizar el envío</small>
                         </div>
-                        <p class="modal-delivery-note"><strong>Plazo estimado total: 4 a 7 días hábiles, según el destino.</strong> Envíos por Andreani a domicilio o punto de retiro. Retiro sin cargo en Villa Martelli.</p>
+                        <p class="modal-delivery-note"><strong>Plazo estimado total: 3 a 7 días hábiles, según el destino.</strong> El retiro en Villa Martelli está disponible desde el tercer día hábil posterior a la compra.</p>
                     </div>
 
                     <div class="modal-actions">

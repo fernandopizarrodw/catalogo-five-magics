@@ -68,15 +68,11 @@ function customizeSharedCommerceMarkup(config, markup) {
     if (!config.usesShownComposition) return markup;
 
     let output = markup
-        .replace(
-            '<strong>Plazo estimado total: 4 a 7 días hábiles, según el destino.</strong> Envíos por Andreani a domicilio o punto de retiro. Retiro sin cargo en Villa Martelli.',
-            '<strong>Plazo estimado total: 4 a 7 días hábiles, según el destino.</strong> Envíos por Andreani o retiro sin cargo en Villa Martelli.'
-        )
         .replace('🛒 Guardar en carrito', 'AGREGAR AL CARRITO')
         .replace('<summary>Dorso y personalización</summary>', '<summary>Detalles del producto</summary>')
         .replace('<div class="spec-value">☢️ DTG Premium</div>', '<div class="spec-value" id="modalSpecPrint">☢️ DTG Premium</div>')
         .replace('<div class="spec-value">🖤 Sin tacto plástico</div>', '<div class="spec-value" id="modalSpecFabric">🖤 Algodón peinado</div>')
-        .replace('<div class="spec-value">⚡ Algodón peinado</div>', '<div class="spec-value" id="modalSpecGarment">⚡ Remera clásica unisex</div>')
+        .replace('<div class="spec-value">⚡ Algodón peinado</div>', '<div class="spec-value" id="modalSpecGarment">⚡ Remera clásica hombre</div>')
         .replace(/\s*<a href="#" class="btn-wa btn-wa-secondary" id="modalWaBtn">[\s\S]*?<\/a>/, '');
 
     const helpLink = `
