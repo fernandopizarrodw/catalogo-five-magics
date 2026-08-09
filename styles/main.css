@@ -6165,7 +6165,7 @@ header {
     overflow: hidden;
 }
 
-.catalog-band-directory-grid[hidden] {
+.catalog-band-directory-grid.is-preview .catalog-band-card:nth-child(n + 9) {
     display: none;
 }
 
@@ -6173,7 +6173,7 @@ header {
     display: block;
     width: min(100%, 420px);
     min-height: 48px;
-    margin: 4px auto 0;
+    margin: 16px auto 0;
     padding: 12px 18px;
     border: 1px solid rgba(57, 255, 20, 0.5);
     border-radius: 999px;
@@ -6188,7 +6188,6 @@ header {
 }
 
 .catalog-more-bands-toggle[aria-expanded="true"] {
-    margin-bottom: 16px;
     border-color: rgba(255, 255, 255, 0.3);
     background: rgba(255, 255, 255, 0.06);
     color: #fff;
@@ -6288,6 +6287,10 @@ header {
     .catalog-band-directory-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 8px;
+    }
+
+    .catalog-band-directory-grid.is-preview .catalog-band-card:nth-child(n + 7) {
+        display: none;
     }
 
     .catalog-band-card {

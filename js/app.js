@@ -1330,13 +1330,27 @@ function showMoreBandsDirectory() {
     }));
 }
 
+let moreBandsDirectoryExpanded = (() => {
+    try {
+        return sessionStorage.getItem('fmd-more-bands-expanded') === 'true';
+    } catch (error) {
+        return false;
+    }
+})();
+
 function setMoreBandsDirectoryExpanded(expanded) {
     const grid = document.getElementById('catalogMoreBandsGrid');
     const toggle = document.getElementById('catalogMoreBandsToggle');
     if (!grid || !toggle) return;
-    grid.hidden = !expanded;
+    moreBandsDirectoryExpanded = Boolean(expanded);
+    grid.classList.toggle('is-preview', !moreBandsDirectoryExpanded);
     toggle.setAttribute('aria-expanded', String(expanded));
     toggle.textContent = expanded ? 'OCULTAR BANDAS' : 'VER TODAS LAS BANDAS';
+    try {
+        sessionStorage.setItem('fmd-more-bands-expanded', String(moreBandsDirectoryExpanded));
+    } catch (error) {
+        // La vista sigue funcionando aunque el navegador bloquee el almacenamiento.
+    }
 }
 
 function renderHomeBandButton(item, className, extra = '') {
@@ -2357,9 +2371,27 @@ const DELIVERY_LABELS = {
     taller: 'Retiro sin cargo en Villa Martelli'
 };
 
+function getModalAnalyticsContext() {
+    if (!currentProduct) return {};
+    return {
+        band: currentCatalogDesign?.band || getCatalogBandLabel(currentProduct),
+        design_id: currentCatalogDesign?.designId || currentProduct.id,
+        design_name: currentCatalogDesign?.publicName || currentProduct.name,
+        garment: getSelectedModalGarmentType(),
+        print_mode: selectedPrintMode
+    };
+}
+
 function selectDeliveryMethod(method) {
+    const previousMethod = selectedDeliveryMethod;
     selectedDeliveryMethod = DELIVERY_LABELS[method] ? method : '';
     updateDeliveryUI();
+    if (selectedDeliveryMethod && selectedDeliveryMethod !== previousMethod) {
+        trackCatalogEvent('delivery_select', {
+            ...getModalAnalyticsContext(),
+            delivery_method: selectedDeliveryMethod
+        });
+    }
 }
 
 function updateDeliveryUI() {
@@ -2376,6 +2408,10 @@ function getModalPostalCode() {
 
 function validateModalDeliveryBeforeWhatsapp() {
     if (!selectedDeliveryMethod) {
+        trackCatalogEvent('modal_validation_error', {
+            ...getModalAnalyticsContext(),
+            validation_error: 'missing_delivery'
+        });
         showNotification('Elegí una forma de entrega para avanzar.', 2600);
         document.getElementById('modalDeliveryBox')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
         return false;
@@ -2383,6 +2419,11 @@ function validateModalDeliveryBeforeWhatsapp() {
     if (selectedDeliveryMethod === 'taller') return true;
     const cp = getModalPostalCode();
     if (cp) return true;
+    trackCatalogEvent('modal_validation_error', {
+        ...getModalAnalyticsContext(),
+        delivery_method: selectedDeliveryMethod,
+        validation_error: 'missing_postal_code'
+    });
     showNotification('Ingresá el código postal para calcular el envío Andreani.', 2600);
     const field = document.getElementById('modalPostalField');
     const input = document.getElementById('modalPostalCode');
@@ -5918,16 +5959,17 @@ function renderCatalogBandDirectory(products) {
     const renderSection = (key, title, subtitle, labels, emphasis = '') => {
         if (!labels.length) return '';
         const isCollapsible = key === 'more';
+        const isExpanded = isCollapsible && moreBandsDirectoryExpanded;
         return `
         <section class="catalog-band-directory-section ${emphasis}" data-directory-section="${key}">
             <div class="catalog-band-directory-head">
                 <h2>${title}</h2>
                 ${subtitle ? `<p>${subtitle}</p>` : ''}
             </div>
-            ${isCollapsible ? `<button type="button" class="catalog-more-bands-toggle" id="catalogMoreBandsToggle" aria-expanded="false" aria-controls="catalogMoreBandsGrid">VER TODAS LAS BANDAS</button>` : ''}
-            <div class="catalog-band-directory-grid"${isCollapsible ? ' id="catalogMoreBandsGrid" hidden' : ''}>
+            <div class="catalog-band-directory-grid${isCollapsible && !isExpanded ? ' is-preview' : ''}"${isCollapsible ? ' id="catalogMoreBandsGrid"' : ''}>
                 ${labels.map(label => renderBandCard(label, emphasis)).join('')}
             </div>
+            ${isCollapsible ? `<button type="button" class="catalog-more-bands-toggle" id="catalogMoreBandsToggle" aria-expanded="${isExpanded}" aria-controls="catalogMoreBandsGrid">${isExpanded ? 'OCULTAR BANDAS' : 'VER TODAS LAS BANDAS'}</button>` : ''}
         </section>`;
     };
 
@@ -6056,11 +6098,32 @@ function renderFilteredProducts(filtered) {
     setView(currentView);
 }
 
+let catalogSearchEventTimer = null;
+let lastTrackedCatalogSearch = '';
+
+function queueCatalogSearchEvent(searchTerm) {
+    if (catalogSearchEventTimer) clearTimeout(catalogSearchEventTimer);
+    const normalizedTerm = String(searchTerm || '').trim().toLowerCase();
+    if (normalizedTerm.length < 2) {
+        lastTrackedCatalogSearch = '';
+        return;
+    }
+    catalogSearchEventTimer = setTimeout(() => {
+        if (normalizedTerm === lastTrackedCatalogSearch) return;
+        lastTrackedCatalogSearch = normalizedTerm;
+        trackCatalogEvent('catalog_search', {
+            band: currentCategory || BAND_LANDING_BAND || undefined,
+            search_term: normalizedTerm
+        });
+    }, 800);
+}
+
 searchInput.addEventListener('input', (e) => {
     currentSearch = e.target.value.toLowerCase().trim();
     resetCatalogPagination();
     searchClear.classList.toggle('visible', currentSearch.length > 0);
     filterProducts();
+    queueCatalogSearchEvent(currentSearch);
 });
 
 searchInput.addEventListener('keydown', (e) => {
@@ -7427,6 +7490,13 @@ function addToCartFromModal() {
 // Agregár al carrito y abrir WhatsApp directamente
 function addToCartAndOpenWhatsapp() {
     if (!currentProduct) return;
+    trackCatalogEvent('modal_order_attempt', {
+        ...getModalAnalyticsContext(),
+        delivery_method: selectedDeliveryMethod || 'not_selected',
+        postal_code_provided: Boolean(getModalPostalCode()),
+        size_selected: Boolean(selectedSize),
+        color_selected: Boolean(selectedColor)
+    });
     if (!validateModalDeliveryBeforeWhatsapp()) return;
     openWhatsapp(buildModalOrderWhatsappMessage(), 'modal_pedir_diseno');
 }
