@@ -4176,6 +4176,8 @@ let currentModalSourceIndexes = [];
 let currentModalSourceRefs = [];
 let currentAlbumGarmentFilter = 'all';
 let scrollPosition = 0;
+let modalReturnElement = null;
+let modalReturnDesignId = '';
 let isScrolling = false;
 let scrollTimeout;
 let currentView = 'grid';
@@ -4562,6 +4564,11 @@ function openModal(id, variantIndex = undefined, scopedVariantIndexes = undefine
     }
 
     scrollPosition = window.pageYOffset;
+    modalReturnDesignId = catalogDesignId || '';
+    modalReturnElement = catalogDesignId
+        ? [...document.querySelectorAll('.catalog-design-card[data-design-id]')]
+            .find(card => card.dataset.designId === catalogDesignId)?.querySelector('.catalog-design-card-main') || null
+        : document.activeElement?.closest?.('.product-card, .collection-card, .catalog-design-card-main') || null;
     document.body.classList.add('modal-open');
     document.body.style.top = `-${scrollPosition}px`;
 
@@ -4882,7 +4889,7 @@ function showOuterwearCatalogFromModal() {
     const button = document.getElementById('modalOuterwearCatalogBtn');
     const band = button?.dataset.bandFilter ? decodeURIComponent(button.dataset.bandFilter) : '';
     const landingUrl = getBandLandingUrl(band);
-    closeModal();
+    closeModal(false, false);
     if (landingUrl) {
         window.location.href = landingUrl;
         return;
@@ -4892,7 +4899,36 @@ function showOuterwearCatalogFromModal() {
 
 window.showOuterwearCatalogFromModal = showOuterwearCatalogFromModal;
 
-function closeModal() {
+function getModalReturnElement() {
+    if (modalReturnElement?.isConnected) return modalReturnElement;
+    if (!modalReturnDesignId) return null;
+    const card = [...document.querySelectorAll('.catalog-design-card[data-design-id]')]
+        .find(item => item.dataset.designId === modalReturnDesignId);
+    return card?.querySelector('.catalog-design-card-main') || null;
+}
+
+function restoreModalCatalogPosition(returnScrollPosition) {
+    const target = getModalReturnElement();
+    if (!target) {
+        window.scrollTo(0, returnScrollPosition);
+        return;
+    }
+
+    target.scrollIntoView({ behavior: 'auto', block: 'center', inline: 'nearest' });
+    try {
+        target.focus({ preventScroll: true });
+    } catch (error) {
+        target.focus();
+    }
+    const card = target.closest('.catalog-design-card, .product-card, .collection-card');
+    if (card) {
+        card.classList.remove('is-modal-return-target');
+        requestAnimationFrame(() => card.classList.add('is-modal-return-target'));
+        setTimeout(() => card.classList.remove('is-modal-return-target'), 1800);
+    }
+}
+
+function closeModal(fromHistory = false, shouldRestorePosition = true) {
     if (!modal.classList.contains('active')) return;
     const returnScrollPosition = scrollPosition;
     const root = document.documentElement;
@@ -4911,24 +4947,39 @@ function closeModal() {
     currentCatalogDesign = null;
     modal.classList.remove('catalog-design-modal');
     selectedCatalogBackRef = null;
-    if (/^#(?:producto|diseno)-/i.test(window.location.hash)) {
+    if (!fromHistory && /^#(?:producto|diseno)-/i.test(window.location.hash)) {
         history.replaceState(
             { catalog: true, category: currentCategory || null },
             '',
             `${window.location.pathname}${window.location.search}`
         );
     }
-    window.scrollTo(0, returnScrollPosition);
-    requestAnimationFrame(() => {
+    if (shouldRestorePosition) {
         window.scrollTo(0, returnScrollPosition);
         requestAnimationFrame(() => {
-            window.scrollTo(0, returnScrollPosition);
-            if (previousInlineScrollBehavior) root.style.scrollBehavior = previousInlineScrollBehavior;
-            else root.style.removeProperty('scroll-behavior');
+            restoreModalCatalogPosition(returnScrollPosition);
+            requestAnimationFrame(() => {
+                restoreModalCatalogPosition(returnScrollPosition);
+                if (previousInlineScrollBehavior) root.style.scrollBehavior = previousInlineScrollBehavior;
+                else root.style.removeProperty('scroll-behavior');
+            });
         });
-    });
+    } else if (previousInlineScrollBehavior) {
+        root.style.scrollBehavior = previousInlineScrollBehavior;
+    } else {
+        root.style.removeProperty('scroll-behavior');
+    }
     resetModalImageZoom();
     closeZoom();
+}
+
+function requestModalClose() {
+    if (!modal.classList.contains('active')) return;
+    if (history.state?.modal) {
+        history.back();
+        return;
+    }
+    closeModal();
 }
 
 function openZoom(src) {
@@ -6529,7 +6580,7 @@ function closeImageModal() {
     if (!modal.classList.contains('active')) document.body.style.overflow = '';
 }
 
-document.getElementById('modalClose').onclick = closeModal;
+document.getElementById('modalClose').onclick = requestModalClose;
 document.getElementById('zoomClose').onclick = closeZoom;
 zoomOverlay.onclick = (e) => { if(e.target.id === 'zoomContainer' || e.target === zoomOverlay) closeZoom(); };
 zoomOverlay.addEventListener('wheel', onFullZoomWheel, { passive: false });
@@ -6541,7 +6592,7 @@ zoomImg.addEventListener('pointerdown', onFullZoomPointerDown);
 zoomImg.addEventListener('pointermove', onFullZoomPointerMove);
 zoomImg.addEventListener('pointerup', endFullZoomPointerDrag);
 zoomImg.addEventListener('pointercancel', endFullZoomPointerDrag);
-window.addEventListener('popstate', () => { if(modal.classList.contains('active')) closeModal(); });
+window.addEventListener('popstate', () => { if(modal.classList.contains('active')) closeModal(true); });
 
 // Agregár soporte de teclado para navegación del carousel
 window.addEventListener('keydown', (e) => {

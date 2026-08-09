@@ -569,24 +569,37 @@
 @media (max-width: 700px) {
     .products-grid.catalog-design-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 10px;
+        gap: 8px;
         overflow-x: visible;
     }
 
     .catalog-design-copy {
-        padding: 11px;
+        gap: 5px;
+        padding: 8px;
     }
 
     .catalog-design-copy > strong {
-        font-size: .92rem;
+        min-height: 2.45em;
+        font-size: .84rem;
+        line-height: 1.22;
     }
 
     .catalog-design-price {
-        font-size: 1rem;
+        font-size: .9rem;
     }
 
+    .catalog-design-band {
+        font-size: .62rem;
+    }
+
+    .catalog-design-subtitle,
     .catalog-design-garments {
-        font-size: .7rem;
+        display: none;
+    }
+
+    .catalog-design-cta {
+        padding-top: 6px;
+        font-size: .65rem;
     }
 
     .catalog-design-dorso-recommended > div,
@@ -595,9 +608,34 @@
     }
 }
 
-@media (max-width: 390px) {
-    .products-grid.catalog-design-grid {
-        grid-template-columns: 1fr;
+@keyframes modalReturnTarget {
+    0%, 100% { border-color: rgba(255,255,255,.13); box-shadow: 0 14px 35px rgba(0,0,0,.28); }
+    25%, 75% { border-color: var(--magic-green); box-shadow: 0 0 0 2px rgba(57,255,20,.42); }
+}
+
+.catalog-design-card.is-modal-return-target,
+.product-card.is-modal-return-target,
+.collection-card.is-modal-return-target {
+    animation: modalReturnTarget 1.6s ease;
+}
+
+@media (max-width: 700px) {
+    body:not(.band-landing-page) .catalog-toolbar:not(.catalog-directory-active) .view-toggle,
+    body:not(.band-landing-page) .catalog-toolbar:not(.catalog-directory-active) .band-filters {
+        display: none;
+    }
+
+    body:not(.band-landing-page) .catalog-toolbar:not(.catalog-directory-active) .catalog-quick-filter:not(.active):not([data-filter="all"]) {
+        display: none;
+    }
+
+    body:not(.band-landing-page) .catalog-toolbar:not(.catalog-directory-active) .catalog-quick-filters {
+        justify-content: flex-start;
+    }
+
+    .products-grid.catalog-design-grid.gallery-view {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
     }
 }
 .ver-mas-card:hover {
