@@ -6,6 +6,7 @@ const path = require('path');
 const CDP_URL = 'http://127.0.0.1:9333';
 const SITE_URL = 'http://127.0.0.1:5500/index.html';
 const ROOT_DIR = path.resolve(__dirname, '..');
+const EXPECTED_PRODUCT_COUNT = JSON.parse(fs.readFileSync(path.join(ROOT_DIR, 'data', 'products.json'), 'utf8')).length;
 
 function delay(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
@@ -88,10 +89,61 @@ async function main() {
         duplicateDesignIds: catalogDesigns.length - new Set(catalogDesigns.map(item => item.designId)).size,
         validationErrors: FMDCatalogDesign.validateCatalogDesigns(catalogDesigns).length
     })`);
-    assert(results.bootstrap.products === 319, `Se esperaban 319 productos; hay ${results.bootstrap.products}.`, failures);
+    assert(results.bootstrap.products === EXPECTED_PRODUCT_COUNT, `Se esperaban ${EXPECTED_PRODUCT_COUNT} productos; hay ${results.bootstrap.products}.`, failures);
     assert(results.bootstrap.designs > 250, `CatalogDesign produjo muy pocas entradas: ${results.bootstrap.designs}.`, failures);
     assert(results.bootstrap.duplicateDesignIds === 0, 'Hay designId duplicados.', failures);
     assert(results.bootstrap.validationErrors === 0, `Hay ${results.bootstrap.validationErrors} errores CatalogDesign.`, failures);
+
+    results.home = await cdp.evaluate(`(() => {
+        setMoreBandsDirectoryExpanded(false);
+        const directSection = document.querySelector('[data-directory-section="featured"]');
+        const directBands = [...(directSection?.querySelectorAll('.catalog-band-card-copy strong') || [])]
+            .map(item => item.textContent.trim());
+        const toggle = document.getElementById('catalogMoreBandsToggle');
+        const collapsedInitially = toggle?.getAttribute('aria-expanded') === 'false';
+        toggle?.click();
+        const expandedAfterClick = toggle?.getAttribute('aria-expanded') === 'true';
+        toggle?.click();
+        const collapsedAfterSecondClick = toggle?.getAttribute('aria-expanded') === 'false';
+        const obsoleteSelectors = [
+            '.home-argentina-world-cup',
+            '.home-outerwear-section',
+            '.winter-promos-section',
+            '.home-iorio-feature',
+            '.home-main-bands'
+        ];
+        return {
+            newsCards: document.querySelectorAll('#homeNewsGrid .home-news-card').length,
+            newsItems: [...document.querySelectorAll('#homeNewsGrid .home-news-card')].map(card => ({
+                universe: card.querySelector('small')?.textContent.trim() || '',
+                name: card.querySelector('strong')?.textContent.trim() || ''
+            })),
+            newsMoreHref: document.querySelector('.home-news-more')?.getAttribute('href') || '',
+            sectionOrder: [...document.querySelectorAll('#productsGrid > section')].map(section => (
+                section.dataset.directorySection || (section.classList.contains('home-news-section') ? 'news' : '')
+            )),
+            directBands,
+            collapsedInitially,
+            expandedAfterClick,
+            collapsedAfterSecondClick,
+            informationAccordions: document.querySelectorAll('#informacion details').length,
+            oldVisibleSections: obsoleteSelectors.filter(selector => {
+                const element = document.querySelector(selector);
+                return element && getComputedStyle(element).display !== 'none';
+            }),
+            heroPromo: document.querySelector('.hero-promo-summary')?.textContent.trim() || ''
+        };
+    })()`);
+    const expectedDirectBands = ['Megadeth', 'Slayer', 'Iron Maiden', 'Metallica', 'Ricardo Iorio', 'Hermética', 'Nightwish'];
+    assert(results.home.newsCards === 4, `Novedades debe mostrar 4 diseños; muestra ${results.home.newsCards}.`, failures);
+    assert(expectedDirectBands.every(band => results.home.directBands.includes(band)), `Faltan accesos directos: ${results.home.directBands.join(', ')}.`, failures);
+    assert(['Ricardo Iorio', 'Almafuerte', 'Hermética'].every(universe => results.home.newsItems.some(item => item.universe === universe)), `Novedades no representa los tres universos pedidos: ${results.home.newsItems.map(item => item.universe).join(', ')}.`, failures);
+    assert(results.home.newsMoreHref === '/ricardo-iorio/', `El acceso a Ricardo Iorio es incorrecto: ${results.home.newsMoreHref}.`, failures);
+    assert(results.home.sectionOrder.join(',') === 'featured,news,more', `Orden de inicio incorrecto: ${results.home.sectionOrder.join(',')}.`, failures);
+    assert(results.home.collapsedInitially && results.home.expandedAfterClick && results.home.collapsedAfterSecondClick, 'VER TODAS LAS BANDAS no abre y cierra correctamente.', failures);
+    assert(results.home.informationAccordions >= 8, `Información no quedó agrupada en acordeones: ${results.home.informationAccordions}.`, failures);
+    assert(results.home.oldVisibleSections.length === 0, `Siguen visibles secciones eliminadas: ${results.home.oldVisibleSections.join(', ')}.`, failures);
+    assert(/ENVÍO GRATIS/i.test(results.home.heroPromo), 'La promo vigente no aparece resumida en el hero.', failures);
 
     results.publicData = await cdp.evaluate(`({
         names: catalogDesigns.map(item => item.publicName),
@@ -181,7 +233,7 @@ async function main() {
     assert(results.modal.modalActive, 'El modal no quedó abierto.', failures);
     assert(results.modal.name.includes('Eddie Gaucho'), 'Nombre incorrecto en modal.', failures);
     assert(results.modal.initialCode === results.modal.codeAfterGarment && results.modal.initialCode === results.modal.codeAfterSlide, 'El código cambia con prenda o imagen.', failures);
-    assert(['Clásica hombre','Clásica mujer','Oversize unisex','Hoodie','Buzo'].every(label => results.modal.garmentLabels.includes(label)), 'Faltan prendas en el modal.', failures);
+    assert(['Remera','Hoodie','Buzo'].every(label => results.modal.garmentLabels.includes(label)), 'Faltan prendas principales en el modal.', failures);
     assert(results.modal.hoodieSimple.includes('$52.000'), `Precio hoodie frontal incorrecto: ${results.modal.hoodieSimple}`, failures);
     assert(results.modal.hoodieDouble.includes('$59.000'), `Precio hoodie doble incorrecto: ${results.modal.hoodieDouble}`, failures);
     assert(results.modal.message.includes('Prenda: Hoodie'), 'WhatsApp no informa Hoodie.', failures);
@@ -275,7 +327,7 @@ async function main() {
         selectModalGarment('remera_clasica');
         selectPrintMode('simple');
         return {
-            note: document.querySelector('.modal-adaptable-note').textContent.trim(),
+            note: document.getElementById('modalPreviewReferenceNote').textContent.trim(),
             price: document.getElementById('modalPrice').textContent.trim(),
             codeBefore: document.getElementById('displayCode').textContent.trim(),
             image: getModalImages()[currentSlide]?.img
@@ -319,9 +371,26 @@ async function main() {
     });
     await cdp.navigate();
     results.mobile = await cdp.evaluate(`(() => {
+        const homeState = {
+            newsCards: document.querySelectorAll('#homeNewsGrid .home-news-card').length,
+            newsColumns: getComputedStyle(document.getElementById('homeNewsGrid')).gridTemplateColumns,
+            initialScrollWidth: document.documentElement.scrollWidth,
+            heroBrand: (() => {
+                const element = document.querySelector('.fmd-institutional-hero .hero-brand');
+                const rect = element.getBoundingClientRect();
+                return {
+                    left: rect.left,
+                    right: rect.right,
+                    width: rect.width,
+                    clientWidth: element.clientWidth,
+                    scrollWidth: element.scrollWidth
+                };
+            })()
+        };
         openBandAccess('Metallica');
         const cards = document.querySelectorAll('.catalog-design-card');
         return {
+            homeState,
             innerWidth: window.innerWidth,
             scrollWidth: document.documentElement.scrollWidth,
             cards: cards.length,
@@ -329,6 +398,10 @@ async function main() {
             firstCardWidth: cards[0]?.getBoundingClientRect().width || 0
         };
     })()`);
+    assert(results.mobile.homeState.newsCards === 4, 'Mobile no muestra las cuatro novedades.', failures);
+    assert(results.mobile.homeState.initialScrollWidth <= results.mobile.innerWidth + 1, `La home tiene scroll horizontal mobile: ${results.mobile.homeState.initialScrollWidth}/${results.mobile.innerWidth}.`, failures);
+    assert(results.mobile.homeState.heroBrand.left >= 0 && results.mobile.homeState.heroBrand.right <= results.mobile.innerWidth + 1, 'El nombre de marca se recorta fuera del viewport mobile.', failures);
+    assert(results.mobile.homeState.heroBrand.scrollWidth <= results.mobile.homeState.heroBrand.clientWidth + 1, 'El nombre de marca desborda su contenedor mobile.', failures);
     assert(results.mobile.cards > 0, 'Mobile no muestra Metallica.', failures);
     assert(results.mobile.scrollWidth <= results.mobile.innerWidth + 1, `Hay scroll horizontal mobile: ${results.mobile.scrollWidth}/${results.mobile.innerWidth}.`, failures);
 

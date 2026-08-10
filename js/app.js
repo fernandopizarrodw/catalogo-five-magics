@@ -1486,6 +1486,77 @@ function renderHomeArchitecture() {
 
 }
 
+function renderHomeNews() {
+    const host = document.getElementById('homeNewsGrid');
+    if (!host || !Array.isArray(catalogDesigns) || !catalogDesigns.length) return;
+
+    const getSourceProducts = design => (design.sourceProductIds || [])
+        .map(id => db.find(product => Number(product?.id) === Number(id)))
+        .filter(Boolean);
+    const isNewDesign = design => {
+        const products = getSourceProducts(design);
+        const frontProduct = db.find(product => Number(product?.id) === Number(design.front?.productId));
+        const frontVariant = Number.isInteger(design.front?.variantIndex)
+            ? frontProduct?.variants?.[design.front.variantIndex]
+            : null;
+        return Boolean(frontVariant?.isNew || products.some(product => (
+            product?.isNew || (product?.variants || []).some(variant => variant?.isNew)
+        )));
+    };
+    const getRecentMetalUniverse = design => {
+        const searchable = [
+            design.band,
+            design.publicName,
+            ...getSourceProducts(design).flatMap(product => [
+                product.band,
+                product.name,
+                ...(Array.isArray(product.collections) ? product.collections : []),
+                ...(Array.isArray(product.tags) ? product.tags : [])
+            ])
+        ].map(normalizeText).join(' ');
+        const publicName = normalizeText(design.publicName);
+        const band = normalizeText(design.band);
+        if (band === 'hermetica' || publicName.startsWith('hermetica')) return 'Hermética';
+        if (publicName.startsWith('almafuerte')) return 'Almafuerte';
+        if (searchable.includes('ricardo iorio')) return 'Ricardo Iorio';
+        if (searchable.includes('almafuerte')) return 'Almafuerte';
+        if (searchable.includes('hermetica')) return 'Hermética';
+        return '';
+    };
+    const recency = design => Math.max(-1, ...getSourceProducts(design).map(product => db.indexOf(product)));
+    const relevantDesigns = catalogDesigns
+        .filter(design => design?.front?.image && getRecentMetalUniverse(design))
+        .sort((a, b) => recency(b) - recency(a));
+    const candidates = relevantDesigns.filter(isNewDesign);
+    const representatives = ['Ricardo Iorio', 'Almafuerte', 'Hermética']
+        .map(universe => candidates.find(design => getRecentMetalUniverse(design) === universe)
+            || relevantDesigns.find(design => getRecentMetalUniverse(design) === universe))
+        .filter(Boolean);
+    const selected = [
+        ...representatives,
+        ...candidates,
+        ...relevantDesigns
+    ]
+        .filter((design, index, all) => all.findIndex(item => item.designId === design.designId) === index)
+        .slice(0, 4);
+
+    host.innerHTML = selected.map(design => {
+        const price = getCatalogDesignStartingPrice(design).toLocaleString('es-AR');
+        return `
+            <article class="home-news-card">
+                <button type="button" onclick="openCatalogDesign('${design.designId}')" aria-label="Ver diseño ${design.publicName}">
+                    <img src="${design.front.image}" alt="${design.front.alt || `${design.publicName} - ${design.band}`}" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='images/logo/MARCA DE AGUA.png';">
+                    <span>
+                        <small>${getRecentMetalUniverse(design)}</small>
+                        <strong>${design.publicName}</strong>
+                        <b>Desde $${price}</b>
+                        <em>VER DISEÑO</em>
+                    </span>
+                </button>
+            </article>`;
+    }).join('');
+}
+
 window.openBandAccess = openBandAccess;
 window.showFullCatalog = showFullCatalog;
 window.showMoreBandsDirectory = showMoreBandsDirectory;
@@ -1541,6 +1612,7 @@ function getCatalogBandLabel(product) {
     const publicLabels = {
         epica: 'EPICA',
         acdc: 'AC/DC',
+        hermetica: 'Hermética',
         personalizados: 'Personalizados'
     };
     return publicLabels[normalizeText(rawLabel).replace(/[^a-z0-9]/g, '')] || rawLabel;
@@ -3169,17 +3241,9 @@ async function loadProducts() {
         initializeCatalogDesigns();
         buildDorsoAutocompletePool();
         updateCountsUI();
-        renderHomeArchitecture();
-        renderMaidenArchiveGrid(); // Capsula editorial Iron Maiden
-        renderSlayerArchiveGrid(); // Selector de prendas Slayer
-        renderEpicaArchiveGrid(); // Archivo Epica por prenda
-        renderMegadethArchiveGrid(); // Archivo Megadeth por prenda
-        renderHoodiesGrid(); // Hoodies destacados
-        renderBuzosRedondoGrid(); // Buzos cuello redondo destacados
-        loadMegadethDestacados(); // Destacados para el show
-        loadMegadethCollections(); // Colecciones Megadeth con preview
         if (ENABLE_UNIVERSE_SHOWCASES) renderUniverseShowcases();
         filterProducts(); // Renderizar después de cargar
+        renderHomeNews();
         loadProductFromHash(); // Abrir producto desde URL hash si existe
         loadCategoryFromURL();  // Ir a categoría desde ?cat= si existe
     } catch (error) {
@@ -4918,12 +4982,8 @@ function getModalReturnElement() {
 
 function restoreModalCatalogPosition(returnScrollPosition) {
     const target = getModalReturnElement();
-    if (!target) {
-        window.scrollTo(0, returnScrollPosition);
-        return;
-    }
-
-    target.scrollIntoView({ behavior: 'auto', block: 'center', inline: 'nearest' });
+    window.scrollTo(0, returnScrollPosition);
+    if (!target) return;
     try {
         target.focus({ preventScroll: true });
     } catch (error) {
@@ -5983,10 +6043,12 @@ function renderCatalogBandDirectory(products) {
     groups.forEach(group => group.sort(compareProductsByVisibilityThenPriority));
 
     const findLabel = label => [...groups.keys()].find(groupLabel => normalizeText(groupLabel) === normalizeText(label));
-    const primaryLabels = ['Megadeth', 'Slayer', 'Iron Maiden', 'Metallica'].map(findLabel).filter(Boolean);
-    const currentLabels = ['EPICA', 'Rhapsody', 'Helloween', 'Nightwish', 'Blind Guardian'].map(findLabel).filter(Boolean);
-    const featuredLabels = [...new Set([...primaryLabels, ...currentLabels])];
+    const initialLabels = ['Megadeth', 'Slayer', 'Iron Maiden', 'Metallica', 'Ricardo Iorio', 'Hermética', 'Nightwish']
+        .map(findLabel)
+        .filter(Boolean);
+    const initialLabelKeys = new Set(initialLabels.map(normalizeText));
     const allLabels = [...groups.keys()]
+        .filter(label => !initialLabelKeys.has(normalizeText(label)))
         .sort((a, b) => a.localeCompare(b, 'es', { sensitivity: 'base' }));
 
     const renderBandCard = (label, emphasis = '') => {
@@ -6038,17 +6100,17 @@ function renderCatalogBandDirectory(products) {
     document.querySelector('.catalog-toolbar')?.classList.add('catalog-directory-active');
     document.getElementById('productsCount').textContent = 'ELEGÍ UNA BANDA PARA VER SUS DISEÑOS';
     productsGrid.innerHTML = [
-        `<section class="catalog-custom-design-callout" aria-labelledby="catalogCustomDesignTitle">
-            <div>
-                <p>PERSONALIZADOS FMD</p>
-                <h2 id="catalogCustomDesignTitle">TU DISEÑO, EN LA PRENDA QUE QUIERAS</h2>
-                <span>Hacemos diseños personalizados en remeras, hoodies y buzos.</span>
-                <strong>DTG PREMIUM · Impresión directa sobre la tela · Sin vinilo, transfer ni DTF plástico</strong>
+        renderSection('featured', 'ACCESOS DIRECTOS', '', initialLabels, 'is-primary'),
+        `<section class="home-news-section home-news-section-in-catalog" aria-labelledby="homeNewsTitle">
+            <div class="home-simple-head">
+                <p>NOVEDADES FMD</p>
+                <h2 id="homeNewsTitle">ÚLTIMOS DISEÑOS</h2>
+                <span>Ricardo Iorio · Almafuerte · Hermética</span>
             </div>
-            <a href="https://wa.me/${WHATSAPP}?text=${encodeURIComponent('Hola FMD! Quiero consultar por un diseño personalizado.')}" target="_blank" rel="noopener">PEDIR UN DISEÑO PERSONALIZADO</a>
+            <div class="home-news-grid" id="homeNewsGrid"></div>
+            <a class="home-news-more" href="/ricardo-iorio/">VER MÁS DE RICARDO IORIO</a>
         </section>`,
-        renderSection('more', 'TODAS LAS BANDAS', 'Explorá el catálogo completo, ordenado alfabéticamente.', allLabels),
-        renderSection('featured', 'ELEGÍ TU BANDA', 'Entrá y encontrá tu próximo diseño.', featuredLabels, 'is-primary')
+        renderSection('more', 'MÁS BANDAS', 'Todo el catálogo sigue disponible.', allLabels)
     ].join('');
     productsGrid.querySelectorAll('[data-band-filter]').forEach(button => {
         button.addEventListener('click', () => openBandAccess(decodeURIComponent(button.dataset.bandFilter)));
@@ -8278,9 +8340,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    loadProducts().finally(() => {
-        initFmdSpotlight();
-    });
+    loadProducts();
     setView('grid');
     initSearchModal();
     initCountdown();

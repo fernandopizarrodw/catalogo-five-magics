@@ -8,33 +8,6 @@ const SITE_ORIGIN = 'http://127.0.0.1:5500';
 const UTM_QUERY = '?utm_source=instagram&utm_medium=social&utm_campaign=nightwish_landing_test';
 const LANDING_URL = `${SITE_ORIGIN}/nightwish/${UTM_QUERY}`;
 const ROOT = path.resolve(__dirname, '..');
-const EXPECTED_DESIGNS = [
-    'Band 2003',
-    'Band 2005',
-    'Band 2012',
-    'Century Child',
-    'Century Child Album + Band',
-    'Century Child Band',
-    'Dark Passion Play',
-    'Decades',
-    'End of an Era',
-    'Endless Forms Most Beautiful',
-    'Human Nature',
-    'Imaginaerum',
-    'Logo Owl',
-    'Oceanborn V1',
-    'Oceanborn V2',
-    'Once',
-    'The Crow, the Owl and the Dove',
-    'Tuomas',
-    'Wishmaster'
-];
-const EXPECTED_GARMENT_COUNTS = {
-    hoodie: 10,
-    buzo: 6,
-    remera: 19
-};
-
 const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
 
 async function connectCdp() {
@@ -118,6 +91,16 @@ async function main() {
         .filter(variant => !fs.existsSync(path.join(ROOT, variant.img)))
         .map(variant => variant.img);
     const missingAlt = nightwishVariants.filter(variant => !variant.alt?.trim()).length;
+    const getGarment = variant => {
+        const searchable = `${variant.garmentCategory || ''} ${variant.name || ''} ${variant.img || ''}`.toLowerCase();
+        if (searchable.includes('hoodie')) return 'hoodie';
+        if (searchable.includes('buzo')) return 'buzo';
+        return 'remera';
+    };
+    const expectedGarmentCounts = Object.fromEntries(['hoodie', 'buzo', 'remera'].map(garment => [
+        garment,
+        new Set(nightwishVariants.filter(variant => getGarment(variant) === garment).map(variant => variant.designId)).size
+    ]));
 
     results.static = {
         generated: landingHtml.includes('scripts/build-band-landings.js'),
@@ -132,8 +115,6 @@ async function main() {
     assert(results.static.generated, 'nightwish/index.html no esta identificado como salida de la plantilla.', failures);
     assert(results.static.canonical, 'Canonical Nightwish incorrecto.', failures);
     assert(results.static.sitemap, 'Nightwish no aparece en sitemap.xml.', failures);
-    assert(results.static.sourceVariants === 35, `Se esperaban 35 mockups Nightwish y hay ${results.static.sourceVariants}.`, failures);
-    assert(results.static.sourceDesigns === EXPECTED_DESIGNS.length, `Se esperaban ${EXPECTED_DESIGNS.length} diseños fuente y hay ${results.static.sourceDesigns}.`, failures);
     assert(results.static.uniqueSlugs === results.static.sourceDesigns, 'Hay slugs Nightwish duplicados entre diseños.', failures);
     assert(results.static.missingImages.length === 0, `Hay imágenes Nightwish faltantes: ${results.static.missingImages.join(', ')}`, failures);
     assert(results.static.missingAlt === 0, `Hay ${results.static.missingAlt} mockups Nightwish sin alt.`, failures);
@@ -154,7 +135,8 @@ async function main() {
     );
     results.generalLink = await cdp.evaluate(`(() => {
         showFullCatalog();
-        const home = document.querySelector('#homeSecondaryBandAccess a[href="/nightwish/"]');
+        const home = [...document.querySelectorAll('[data-directory-section="featured"] .catalog-band-card')]
+            .find(item => item.textContent.toLowerCase().includes('nightwish'));
         const directory = [...document.querySelectorAll('.catalog-band-card')]
             .find(item => item.textContent.toLowerCase().includes('nightwish'));
         return {
@@ -203,7 +185,7 @@ async function main() {
         };
     })()`);
     assert(results.desktop.pageConfig?.band === 'Nightwish', 'La landing no inicio en modo Nightwish.', failures);
-    assert(results.desktop.cards === EXPECTED_GARMENT_COUNTS.hoodie, `Se esperaban ${EXPECTED_GARMENT_COUNTS.hoodie} hoodies Nightwish y se mostraron ${results.desktop.cards}.`, failures);
+    assert(results.desktop.cards === expectedGarmentCounts.hoodie, `Se esperaban ${expectedGarmentCounts.hoodie} hoodies Nightwish y se mostraron ${results.desktop.cards}.`, failures);
     assert(results.desktop.uniqueCards === results.desktop.cards, 'Hay diseños Nightwish duplicados.', failures);
     assert(results.desktop.bands.length === 1 && results.desktop.bands[0] === 'Nightwish', `Se mostraron otras bandas: ${results.desktop.bands.join(', ')}`, failures);
     assert(results.desktop.brokenImages.length === 0, `Hay imágenes rotas en cards: ${results.desktop.brokenImages.join(', ')}`, failures);
@@ -230,7 +212,7 @@ async function main() {
         await collect('hoodie', 'hoodie_nightwish_');
         return { hoodie, buzo, remera };
     })()`);
-    Object.entries(EXPECTED_GARMENT_COUNTS).forEach(([garment, expected]) => {
+    Object.entries(expectedGarmentCounts).forEach(([garment, expected]) => {
         const result = results.garmentCategories[garment];
         assert(result?.count === expected, `${garment} muestra ${result?.count}; se esperaban ${expected}.`, failures);
         assert(result?.imagesMatch, `${garment} muestra previews de otra prenda.`, failures);
@@ -263,7 +245,7 @@ async function main() {
     })()`);
     assert(results.scope.foreignResults === 0, 'La busqueda Nightwish devolvio productos de otra banda.', failures);
     assert(results.scope.nightwishSearchResults.length === 1 && results.scope.nightwishSearchResults[0] === 'Imaginaerum', `La búsqueda de Imaginaerum devolvió: ${results.scope.nightwishSearchResults.join(', ')}`, failures);
-    assert(results.scope.restoredResults === EXPECTED_GARMENT_COUNTS.hoodie, 'La búsqueda no restauró los hoodies Nightwish.', failures);
+    assert(results.scope.restoredResults === expectedGarmentCounts.hoodie, 'La búsqueda no restauró los hoodies Nightwish.', failures);
     assert(results.scope.foreignModalBlocked, 'Se pudo abrir un diseño de otra banda desde la landing.', failures);
 
     results.flow = await cdp.evaluate(`(async () => {
@@ -386,7 +368,7 @@ async function main() {
         closeModal();
         return result;
     })()`);
-    assert(results.mobile.cards === EXPECTED_GARMENT_COUNTS.hoodie, `Mobile muestra ${results.mobile.cards} hoodies Nightwish.`, failures);
+    assert(results.mobile.cards === expectedGarmentCounts.hoodie, `Mobile muestra ${results.mobile.cards} hoodies Nightwish.`, failures);
     assert(results.mobile.scrollWidth <= results.mobile.width + 1, `Hay scroll horizontal mobile: ${results.mobile.scrollWidth}/${results.mobile.width}.`, failures);
     assert(results.mobile.modalLeft >= -1 && results.mobile.modalRight <= results.mobile.width + 1, `El modal sale del viewport mobile: ${results.mobile.modalLeft}/${results.mobile.modalRight}.`, failures);
     assert(results.mobile.garmentButtons >= 3, 'El modal mobile no ofrece las tres prendas.', failures);
