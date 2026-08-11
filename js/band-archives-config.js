@@ -273,15 +273,15 @@
             slug: 'ricardo-iorio',
             publishedAt: '2026-07-30',
             band: 'Ricardo Iorio',
-            displayName: 'RICARDO IORIO',
-            title: 'Ricardo Iorio: remeras, hoodies y buzos | Five Magics Designs',
-            description: 'Diseños de Ricardo Iorio, V8, Hermética y Almafuerte en remeras, hoodies y buzos hechos a pedido.',
+            displayName: 'V8 · HERMÉTICA · ALMAFUERTE · IORIO SOLISTA',
+            title: 'V8, Hermética, Almafuerte y Ricardo Iorio | Five Magics Designs',
+            description: 'Diseños de V8, Hermética, Almafuerte y Ricardo Iorio solista en remeras, hoodies y buzos hechos a pedido.',
             canonical: 'https://catalogo.fivemagicsdesigns.com/ricardo-iorio/',
             image: '/images/banda_sugeridas/ricardo_iorio/remera_v8_hermetica_almafuerte_iorio.jpg',
             imageUrl: 'https://catalogo.fivemagicsdesigns.com/images/banda_sugeridas/ricardo_iorio/remera_v8_hermetica_almafuerte_iorio.jpg',
             heroTitle: 'REMERAS, HOODIES Y BUZOS',
-            heroCopy: 'Diseños de Ricardo Iorio, V8, Hermética y Almafuerte. Elegí tu favorito y armá tu pedido.',
-            finalTitle: '¿BUSCABAS OTRO DISEÑO DE RICARDO IORIO?',
+            heroCopy: 'Recorré el legado de Ricardo Iorio: V8, Hermética, Almafuerte y su etapa solista. Elegí tu diseño y armá tu pedido.',
+            finalTitle: '¿BUSCABAS OTRO DISEÑO DE V8, HERMÉTICA, ALMAFUERTE O IORIO?',
             finalCopy: 'También hacemos diseños personalizados a partir de una tapa, imagen o idea.',
             whatsappMessage: 'Hola FMD! Quiero consultar por un diseño de Ricardo Iorio, V8, Hermética o Almafuerte.',
             defaultGarment: 'remera',
@@ -291,6 +291,13 @@
             ],
             sharedBands: ['Hermetica', 'Almafuerte'],
             collections: [
+                {
+                    id: 'v8',
+                    label: 'V8',
+                    match: {
+                        designIds: ['v8-tiempos-metalicos', 'v8-luchando-por-el-metal', 'v8-hermetica-almafuerte-iorio']
+                    }
+                },
                 {
                     id: 'hermetica',
                     label: 'HERMÉTICA',
@@ -318,13 +325,6 @@
                     }
                 },
                 {
-                    id: 'v8',
-                    label: 'V8',
-                    match: {
-                        designIds: ['v8-tiempos-metalicos', 'v8-luchando-por-el-metal', 'v8-hermetica-almafuerte-iorio']
-                    }
-                },
-                {
                     id: 'solista',
                     label: 'IORIO SOLISTA',
                     match: {
@@ -347,36 +347,37 @@
                 }
             ],
             designOrder: [
-                'ricardo-iorio-en-vivo-blanco-y-negro-v3',
-                'ricardo-iorio-metal-pesado-argentino-en-vivo-v2',
-                'ricardo-iorio-en-vivo-con-cruz-v5',
-                'v8-hermetica-almafuerte-iorio',
-                'ricardo-iorio-bueno-malo-y-feo',
-                'almafuerte-iorio-malvinas',
-                'almafuerte-album-homonimo',
-                'almafuerte-en-obras',
-                'ricardo-iorio-metal-pesado-argentino-en-vivo',
-                'ricardo-iorio-avivando-la-llama',
-                'ricardo-iorio-unas-estrofas-mas',
-                'ricardo-iorio-en-vivo-con-guitarra',
+                'v8-tiempos-metalicos',
                 'v8-luchando-por-el-metal',
-                'almafuerte-piedra-libre',
-                'almafuerte-trillando-la-fina',
-                'almafuerte-a-fondo-blanco',
-                'almafuerte-toro-y-pampa',
+                'v8-hermetica-almafuerte-iorio',
+                'hermetica-logo-y-simbolo',
+                'hermetica-formacion',
                 'hermetica-acido-argentino',
                 'hermetica-victimas-del-vaciamiento',
                 'hermetica-victimas-del-vaciamiento-banda',
                 'hermetica-en-concierto',
                 'hermetica-interpretes',
+                'almafuerte-banda-y-cartas',
+                'almafuerte-a-fondo-blanco',
+                'almafuerte-album-homonimo',
+                'almafuerte-en-obras',
+                'almafuerte-piedra-libre',
+                'almafuerte-iorio-malvinas',
+                'almafuerte-toro-y-pampa',
+                'almafuerte-trillando-la-fina',
                 'ricardo-iorio-metal-pesado-argentino',
+                'ricardo-iorio-metal-pesado-argentino-en-vivo',
+                'ricardo-iorio-metal-pesado-argentino-en-vivo-v2',
+                'ricardo-iorio-avivando-la-llama',
+                'ricardo-iorio-unas-estrofas-mas',
+                'ricardo-iorio-en-vivo-con-guitarra',
+                'ricardo-iorio-en-vivo-blanco-y-negro-v3',
+                'ricardo-iorio-en-vivo-con-cruz-v5',
+                'ricardo-iorio-bueno-malo-y-feo',
                 'ricardo-iorio-ilustracion',
                 'ricardo-iorio-leyenda',
                 'ricardo-iorio-en-vivo-v2',
-                'ricardo-iorio-blanco-y-negro',
-                'almafuerte-banda-y-cartas',
-                'v8-tiempos-metalicos',
-                'hermetica-victimas-del-vaciamiento-banda'
+                'ricardo-iorio-blanco-y-negro'
             ],
             garments: [
                 { key: 'hoodie', title: 'HOODIES', price: 'Frontal $52.000 · Doble $59.000', image: '/images/banda_sugeridas/ricardo_iorio/hoodie_ioriov4.jpg', alt: 'Hoodie Ricardo Iorio Leyenda' },
