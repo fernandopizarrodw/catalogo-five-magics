@@ -2,3 +2,5 @@
 reports/analytics-profile/
 reports/analytics-chrome*.log
 reports/analytics-server*.log
+reports/modal-review-profile*/
+reports/megadeth-*-profile*/

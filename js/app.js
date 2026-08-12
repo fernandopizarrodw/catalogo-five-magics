@@ -31,6 +31,9 @@ const WHATSAPP = "541169667685";
 const BAND_ARCHIVE_CONFIGS = Array.isArray(window.FMD_BAND_ARCHIVES)
     ? window.FMD_BAND_ARCHIVES
     : [];
+const RETIRED_CATALOG_DESIGN_IDS = new Set(
+    BAND_ARCHIVE_CONFIGS.flatMap(config => Array.isArray(config?.retiredDesignIds) ? config.retiredDesignIds : [])
+);
 const BAND_LANDING_CONFIG = window.FMD_BAND_LANDING && typeof window.FMD_BAND_LANDING === 'object'
     ? window.FMD_BAND_LANDING
     : null;
@@ -49,6 +52,10 @@ const BAND_LANDING_DESIGN_ORDER = Array.isArray(BAND_LANDING_CONFIG?.designOrder
 const BAND_LANDING_DESIGN_ORDER_INDEX = new Map(
     BAND_LANDING_DESIGN_ORDER.map((designId, index) => [designId, index])
 );
+const BAND_LANDING_CURATED_DESIGN_CATEGORIES = BAND_LANDING_CONFIG?.curatedDesignCategories
+    && typeof BAND_LANDING_CONFIG.curatedDesignCategories === 'object'
+    ? BAND_LANDING_CONFIG.curatedDesignCategories
+    : {};
 const BAND_LANDING_SHARED_DESIGN_IDS = new Set(
     Array.isArray(BAND_LANDING_CONFIG?.sharedDesignIds)
         ? BAND_LANDING_CONFIG.sharedDesignIds
@@ -169,11 +176,14 @@ function getBandLandingGarmentLabel(garment = bandLandingGarment) {
 
 function matchesBandLandingCollection(design, collection) {
     if (!collection) return true;
+    const designIds = (collection.match?.designIds || []).map(normalizeText);
+    if (designIds.length) return designIds.includes(normalizeText(design?.designId));
     const collectionId = normalizeText(collection.id);
     if ((design?.collectionIds || []).some(id => normalizeText(id) === collectionId)) return true;
 
-    const designIdMatches = (collection.match?.designIds || []).map(normalizeText);
-    if (designIdMatches.includes(normalizeText(design?.designId))) return true;
+    const curatedCategory = normalizeText(BAND_LANDING_CURATED_DESIGN_CATEGORIES[design?.designId]);
+    const collectionCategory = normalizeText(collection.curatedCategory || collection.label);
+    if (curatedCategory && curatedCategory === collectionCategory) return true;
 
     const bandMatches = (collection.match?.bands || []).map(normalizeText);
     if (bandMatches.includes(normalizeText(design?.band))) return true;
@@ -2609,7 +2619,17 @@ function validateModalSelectionsBeforeWhatsapp() {
     });
     showNotification(missing.message, 2600);
     markSelectionError(missing.group);
-    document.getElementById(missing.group)?.querySelector('button:not([disabled]), input')?.focus({ preventScroll: true });
+    const focusSelectors = {
+        sizeGroup: '[data-size]:not([disabled])',
+        colorGroup: '[data-color]:not([disabled])',
+        modalGarmentGroup: '[data-garment-type]:not([disabled])',
+        modalRemeraVariantGroup: '[data-remera-variant]:not([disabled])',
+        printModeSelector: '[data-print-mode]:not([disabled])'
+    };
+    const group = document.getElementById(missing.group);
+    const focusTarget = [...(group?.querySelectorAll(focusSelectors[missing.group] || 'input, button:not([disabled])') || [])]
+        .find(element => element.offsetParent !== null);
+    focusTarget?.focus({ preventScroll: true });
     return false;
 }
 
@@ -3325,7 +3345,7 @@ function initializeCatalogDesigns() {
             explicitDesignIds,
             resolveDesignId: getCatalogDesignResolverId
         })
-        .filter(design => design?.front?.image);
+        .filter(design => design?.front?.image && !RETIRED_CATALOG_DESIGN_IDS.has(design.designId));
     catalogDesignById = new Map(catalogDesigns.map(design => [design.designId, design]));
     catalogHistoricalBacks = collectCatalogHistoricalBacks();
 
@@ -6048,7 +6068,12 @@ function renderCatalogDesignResults(designs) {
             : `Desde $${price}`;
         const initialGarment = isBandLandingMode() ? getBandLandingModalGarment() : '';
         const explicitBadges = (design.badges || []).map(label => ({ label, className: '' }));
+        const activeLandingCollection = BAND_LANDING_COLLECTIONS.find(collection => collection.id === bandLandingCollection);
+        const explicitFeaturedIds = new Set((activeLandingCollection?.match?.designIds || []).map(String));
         const commercialBadges = [
+            isBandLandingMode() && bandLandingCollection === 'featured' && explicitFeaturedIds.has(String(design.designId))
+                ? { label: 'Destacado FMD', className: 'is-featured' }
+                : null,
             design.isNew ? { label: 'Nuevo', className: 'is-new' } : null,
             design.defaultPrintMode === 'double' ? { label: 'Doble recomendado', className: '' } : null
         ].filter(Boolean);
@@ -7601,7 +7626,13 @@ function buildModalOrderWhatsappMessage() {
     const displayName = currentCatalogDesign?.publicName || getProductDisplayName(currentProduct, variantName);
     const code = currentCatalogDesign?.orderCodeBase
         || cart.generateCode(currentProduct.id, activeVariantIndex, isDoubleSelectionActive(currentProduct));
-    const garment = getModalGarmentLabel(currentProduct);
+    const garmentType = getSelectedModalGarmentType();
+    const garment = MODAL_GARMENT_TYPE_LABELS[garmentType] || 'Prenda';
+    const garmentVariant = garmentType === 'remera'
+        ? (MODAL_REMERA_VARIANTS.find(item => item.id === getSelectedRemeraVariantId())?.label || 'A confirmar')
+        : garmentType === 'hoodie'
+            ? 'Canguro oversize unisex'
+            : 'Cuello redondo oversize unisex';
     const prices = resolveModalPriceConfig(currentProduct);
     const isDouble = isDoubleSelectionActive(currentProduct);
     const price = isDouble ? prices.doble : prices.simple;
@@ -7640,6 +7671,10 @@ function buildModalOrderWhatsappMessage() {
         ];
         closingLine = '¿Me confirmás el costo del envío a domicilio y cómo avanzamos?';
     }
+    const designHash = currentCatalogDesign?.designId
+        ? `#diseno-${encodeURIComponent(currentCatalogDesign.designId)}`
+        : `#producto-${encodeURIComponent(currentProduct.id)}`;
+    const designLink = `${BASE_URL}${designHash}`;
 
     return [
         'Hola FMD! Quiero pedir este diseño:',
@@ -7647,11 +7682,13 @@ function buildModalOrderWhatsappMessage() {
         `Diseño: ${displayName}`,
         `Código: ${code}`,
         `Prenda: ${garment}`,
+        `Tipo/corte: ${garmentVariant}`,
         `Talle: ${size}`,
         `Color: ${color}`,
         `Estampa: ${printMode}${backLine}`,
         `Precio del producto: $${price.toLocaleString('es-AR')}`,
         ...deliveryLines,
+        `Link del diseño: ${designLink}`,
         '',
         closingLine
     ].filter(Boolean).join('\n');

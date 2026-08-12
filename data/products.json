@@ -1,92 +1,5 @@
 [
     {
-        "id": 6032,
-        "category": "Singles",
-        "year": "2026",
-        "name": "Rust in Peace / Hangar 18 Reimagined",
-        "tipoPrecio": "doble",
-        "isNew": true,
-        "priority": 100,
-        "img": "images/albums/Rust_in_peace/rust in peace - re-imaginado/rip_fmd_frente.jpg",
-        "variants": [
-            {
-                "img": "images/albums/Rust_in_peace/rust in peace - re-imaginado/rip_fmd_frente.jpg",
-                "name": "RIP Reimagined Frente",
-                "role": "front"
-            },
-            {
-                "img": "images/albums/Rust_in_peace/rust in peace - re-imaginado/rip_fmd_dorso.jpg",
-                "name": "RIP Reimagined Dorso",
-                "role": "back"
-            },
-            {
-                "img": "images/albums/Rust_in_peace/rust in peace - re-imaginado/rip_fmd_dorso_v2.jpg",
-                "name": "RIP Reimagined Dorso V2",
-                "role": "back"
-            },
-            {
-                "img": "images/albums/Rust_in_peace/rust in peace - re-imaginado/rip_fmd_frente_y_dorso.jpg",
-                "name": "RIP Reimagined Frente y Dorso"
-            },
-            {
-                "img": "images/albums/Rust_in_peace/rust in peace - re-imaginado/rip_fmd_combo.jpg",
-                "name": "RIP Reimagined Combo"
-            },
-            {
-                "img": "images/albums/Rust_in_peace/rust in peace - re-imaginado/full_art.jpg",
-                "name": "RIP Reimagined Full Art"
-            },
-            {
-                "img": "images/albums/Rust_in_peace/rust in peace - re-imaginado/full_art.png",
-                "name": "RIP Reimagined Full Art PNG"
-            },
-            {
-                "img": "images/albums/Rust_in_peace/rust in peace - re-imaginado/rip_fmd_hoodies.jpg",
-                "name": "RIP Reimagined Hoodie",
-                "garmentCategory": "Hoodies FMD"
-            },
-            {
-                "img": "images/albums/Rust_in_peace/rust in peace - re-imaginado/rip_fmd_hoodies_models.jpg",
-                "name": "RIP Reimagined Hoodies Models",
-                "garmentCategory": "Hoodies FMD"
-            }
-        ],
-        "desc": "Reinterpretación cinematográfica FMD inspirada en Rust in Peace y Hangar 18. Disponible en remera y hoodie.",
-        "band": "Megadeth",
-        "collections": [
-            "Original FMD",
-            "Rust in Peace Reimagined"
-        ],
-        "tags": [
-            "Megadeth",
-            "Rust in Peace",
-            "Hangar 18",
-            "Original FMD",
-            "Reimagined"
-        ],
-        "universe": [
-            "Megadeth Vault",
-            "Thrash Metal",
-            "FMD Editions"
-        ],
-        "album": "Rust in Peace",
-        "garments": [
-            "remera",
-            "hoodie"
-        ],
-        "campaigns": [],
-        "commercialPriority": 96,
-        "visibilityTier": "hero",
-        "legacyCategory": "Singles",
-        "designFamilyId": "megadeth-card-6032",
-        "megadethSection": "reimagined_fmd",
-        "megadethAlbum": "Rust in Peace",
-        "megadethEra": "1990",
-        "megadethDesignType": "reimagined_fmd",
-        "isDesignDuplicateCandidate": false,
-        "curationNotes": "Revisar sección propuesta: reimagined_fmd"
-    },
-    {
         "id": 6030,
         "category": "VicRattlehead",
         "year": "2026",
@@ -340,199 +253,6 @@
         "curationNotes": "Corrección curatorial confirmada por Fernando en Sprint 3.3"
     },
     {
-        "id": 6027,
-        "category": "Album",
-        "year": "2026",
-        "name": "Peace Sells FMD Edition",
-        "tipoPrecio": "simple",
-        "isNew": true,
-        "priority": 94,
-        "img": "images/fmd-edition-3d/peace/peace_3d_edition_v1.jpg",
-        "variants": [
-            {
-                "img": "images/fmd-edition-3d/peace/peace_3d_edition_v1.jpg",
-                "name": "Frente",
-                "role": "front"
-            },
-            {
-                "img": "images/fmd-edition-3d/peace/peace_3d_edition_v2.jpg",
-                "name": "Frente V2",
-                "role": "front",
-                "isNew": true
-            }
-        ],
-        "desc": "Peace Sells FMD Edition - Nuevo arte exclusivo 2026. Edición especial Five Magics Designs.",
-        "band": "Megadeth",
-        "collections": [
-            "Peace Sells Legacy",
-            "Últimos Lanzamientos 2026",
-            "Megadeth Archive",
-            "Megadeth Albums",
-            "Peace Sells... but Who's Buying?",
-            "FMD Editions"
-        ],
-        "tags": [
-            "Megadeth",
-            "Megadeth Vault",
-            "Thrash Metal",
-            "FMD Editions",
-            "Peace Sells... but Who's Buying?",
-            "remera",
-            "Megadeth Archive",
-            "Megadeth Albums"
-        ],
-        "universe": [
-            "Megadeth Vault",
-            "Thrash Metal",
-            "FMD Editions"
-        ],
-        "album": "Peace Sells... but Who's Buying?",
-        "garments": [
-            "remera"
-        ],
-        "campaigns": [],
-        "commercialPriority": 66,
-        "visibilityTier": "catalog",
-        "legacyCategory": "Album",
-        "reviewStatus": "classified",
-        "designFamilyId": "megadeth-peace-sells",
-        "megadethSection": "albums",
-        "megadethAlbum": "Peace Sells... but Who's Buying?",
-        "megadethEra": "1986",
-        "megadethDesignType": "original_fmd",
-        "isDesignDuplicateCandidate": true,
-        "curationNotes": "Corrección curatorial confirmada por Fernando en Sprint 3.3",
-        "fmdBadge": "ORIGINAL FMD",
-        "fmdBadgeDescription": "Arte exclusivo FMD con impronta de colección, pensado para llevar la era del disco a una prenda con presencia."
-    },
-    {
-        "id": 6026,
-        "category": "Album",
-        "year": "2026",
-        "name": "Killing Is my Bussines FMD Edition",
-        "tipoPrecio": "doble",
-        "isNew": true,
-        "priority": 95,
-        "img": "images/fmd-edition-3d/killing/killing_final_3d_edition.jpg",
-        "variants": [
-            {
-                "img": "images/fmd-edition-3d/killing/killing_final_3d_edition.jpg",
-                "name": "Frente",
-                "role": "front"
-            },
-            {
-                "img": "images/fmd-edition-3d/killing/killing_retro_3d_edition.jpg",
-                "name": "Dorso",
-                "role": "back"
-            }
-        ],
-        "desc": "Killing Is my Bussines FMD Edition - Nuevo arte del clásico debut de 1985. Frente y dorso en edición exclusiva Five Magics 2026.",
-        "band": "Megadeth",
-        "collections": [
-            "KIMB Legacy",
-            "Últimos Lanzamientos 2026",
-            "Megadeth Archive",
-            "Megadeth Albums",
-            "Killing Is My Business... and Business Is Good!",
-            "FMD Editions"
-        ],
-        "tags": [
-            "Megadeth",
-            "Megadeth Vault",
-            "Thrash Metal",
-            "FMD Editions",
-            "Killing Is My Business... and Business Is Good!",
-            "remera",
-            "Megadeth Archive",
-            "Megadeth Albums"
-        ],
-        "universe": [
-            "Megadeth Vault",
-            "Thrash Metal",
-            "FMD Editions"
-        ],
-        "album": "Killing Is My Business... and Business Is Good!",
-        "garments": [
-            "remera"
-        ],
-        "campaigns": [],
-        "commercialPriority": 66,
-        "visibilityTier": "catalog",
-        "legacyCategory": "Album",
-        "reviewStatus": "classified",
-        "designFamilyId": "megadeth-killing-is-my-bussines",
-        "megadethSection": "albums",
-        "megadethAlbum": "Killing Is My Business... and Business Is Good!",
-        "megadethEra": "1985",
-        "megadethDesignType": "original_fmd",
-        "isDesignDuplicateCandidate": true,
-        "curationNotes": "Corrección curatorial confirmada por Fernando en Sprint 3.3",
-        "fmdBadge": "ORIGINAL FMD",
-        "fmdBadgeDescription": "Diseño exclusivo FMD desarrollado para destacar el concepto visual de esta etapa de Megadeth."
-    },
-    {
-        "id": 6025,
-        "category": "Album",
-        "year": "2026",
-        "name": "Vic Llamas FMD Edition",
-        "tipoPrecio": "doble",
-        "isNew": true,
-        "priority": 99,
-        "img": "images/fmd-edition-3d/megadeth_last_album/vic_llamas_3d_edition_frente.jpg",
-        "variants": [
-            {
-                "img": "images/fmd-edition-3d/megadeth_last_album/vic_llamas_3d_edition_frente.jpg",
-                "name": "Frente",
-                "role": "front"
-            },
-            {
-                "img": "images/fmd-edition-3d/megadeth_last_album/vic_llamas_3d_edition_dorso.jpg",
-                "name": "Dorso",
-                "role": "back"
-            }
-        ],
-        "desc": "Vic Llamas FMD Edition - Nuevo arte exclusivo del último disco. Frente y dorso con diseño inflamable.",
-        "band": "Megadeth",
-        "collections": [
-            "Megadeth 2026",
-            "Último Disco 2026",
-            "Original FMD"
-        ],
-        "tags": [
-            "Megadeth",
-            "Album",
-            "VicRattlehead",
-            "Vic Rattlehead",
-            "Último Disco",
-            "Nuevo",
-            "Doble Estampa"
-        ],
-        "universe": [
-            "Megadeth Vault",
-            "Thrash Metal",
-            "FMD Editions"
-        ],
-        "album": "Megadeth (2026)",
-        "garments": [
-            "remera"
-        ],
-        "campaigns": [
-            "Argentina 2026"
-        ],
-        "commercialPriority": 92,
-        "visibilityTier": "hero",
-        "legacyCategory": "Album",
-        "designFamilyId": "megadeth-card-6025",
-        "megadethSection": "albums",
-        "megadethAlbum": "Megadeth (2026)",
-        "megadethEra": "2026",
-        "megadethDesignType": "original_fmd",
-        "isDesignDuplicateCandidate": false,
-        "curationNotes": "Corrección curatorial confirmada por Fernando en Sprint 3.3",
-        "fmdBadge": "ORIGINAL FMD",
-        "fmdBadgeDescription": "Creación FMD de autor con foco en impacto visual, espíritu thrash y lectura premium en prenda."
-    },
-    {
         "id": 302,
         "category": "AC/DC",
         "year": "",
@@ -682,10 +402,6 @@
                 "name": "EdiciÃ³n 2012"
             },
             {
-                "img": "images/albums/Killing_Is_my_bussines/kimb_art_2012.jpg",
-                "name": "Art 2012"
-            },
-            {
                 "img": "images/albums/Killing_Is_my_bussines/kimb_gris_rojo.jpg",
                 "name": "Gris Rojo"
             },
@@ -708,14 +424,6 @@
             {
                 "img": "images/albums/Killing_Is_my_bussines/kimb_1985_original_dorso.jpg",
                 "name": "Dorso Original 1985"
-            },
-            {
-                "img": "images/fmd-edition-3d/killing/killing_final_3d_edition.jpg",
-                "name": "KIMB FMD Edition Frente",
-                "role": "front",
-                "isNew": true,
-                "fmdBadge": "ORIGINAL FMD",
-                "fmdBadgeDescription": "Creación FMD de autor con foco en impacto visual, espíritu thrash y lectura premium en prenda."
             },
             {
                 "img": "images/fmd-edition-3d/killing/killing_retro_3d_edition.jpg",
@@ -806,15 +514,11 @@
         "year": "1986",
         "name": "Peace Sells",
         "tipoPrecio": "simple",
-        "img": "images/albums/Peace_sells/peace_sells_tapa.jpg",
+        "img": "images/albums/Peace_sells/peace_sells_frente.jpg",
         "variants": [
             {
                 "img": "images/albums/Peace_sells/peace_sells_frente.jpg",
                 "name": "Frente"
-            },
-            {
-                "img": "images/albums/Peace_sells/peace_sells_frente-V2.jpg",
-                "name": "Frente V2"
             },
             {
                 "img": "images/albums/Peace_sells/peace_sells_frente-V3.jpg",
@@ -831,20 +535,6 @@
             {
                 "img": "images/albums/Peace_sells/peace_sells_fmd.jpg",
                 "name": "Peace Sells FMD"
-            },
-            {
-                "img": "images/fmd-edition-3d/peace/peace_3d_edition_v1.jpg",
-                "name": "Peace 3D",
-                "isNew": true,
-                "fmdBadge": "ORIGINAL FMD",
-                "fmdBadgeDescription": "Diseño exclusivo FMD desarrollado para destacar el concepto visual de esta etapa de Megadeth."
-            },
-            {
-                "img": "images/fmd-edition-3d/peace/peace_3d_edition_v2.jpg",
-                "name": "Peace 3D V2",
-                "isNew": true,
-                "fmdBadge": "ORIGINAL FMD",
-                "fmdBadgeDescription": "Diseño exclusivo FMD desarrollado para destacar el concepto visual de esta etapa de Megadeth."
             }
         ],
         "desc": "IcÃ³nica crÃ­tica sociopolÃ­tica plasmada en el sarcasmo de Vic Rattlehead frente a la ONU, envuelta en puro virtuosismo thrash.",
@@ -973,10 +663,6 @@
                 "name": "v2 Dorso"
             },
             {
-                "img": "images/albums/Rust_in_peace/rust_in_peace_lineup.jpg",
-                "name": "Lineup Frente"
-            },
-            {
                 "img": "images/albums/Rust_in_peace/rust_in_peace_lineup-dorso.jpg",
                 "name": "Lineup Dorso"
             },
@@ -1088,10 +774,6 @@
                 "isNew": true,
                 "fmdBadge": "ORIGINAL FMD",
                 "fmdBadgeDescription": "Diseño exclusivo FMD desarrollado para destacar el concepto visual de esta etapa de Megadeth."
-            },
-            {
-                "img": "images/albums/Countdown_to_extinction/vic_time_frente.jpg",
-                "name": "Vic Time Frente"
             },
             {
                 "img": "images/albums/Countdown_to_extinction/vic_time_dorso.jpg",
@@ -1629,12 +1311,8 @@
         "year": "2007",
         "name": "United Abominations",
         "tipoPrecio": "simple",
-        "img": "images/albums/United_Abominations/united_abominations.jpg",
+        "img": "images/albums/United_Abominations/united_vic_4horsemen.png",
         "variants": [
-            {
-                "img": "images/albums/United_Abominations/united_abominations.jpg",
-                "name": "Original"
-            },
             {
                 "img": "images/albums/United_Abominations/united_vic_4horsemen.png",
                 "name": "United Vic 4Horsemen"
@@ -1884,13 +1562,6 @@
                 "name": "Dystopia v2"
             },
             {
-                "img": "images/fmd-edition-3d/dystopia/dystopia_3d_edition_v1.jpg",
-                "name": "Dystopia v1 3D",
-                "isNew": true,
-                "fmdBadge": "ORIGINAL FMD",
-                "fmdBadgeDescription": "Creación FMD de autor con foco en impacto visual, espíritu thrash y lectura premium en prenda."
-            },
-            {
                 "img": "images/fmd-edition-3d/dystopia/dystopia_3d_edition_v2.jpg",
                 "name": "Dystopia v2 FMD 3D",
                 "isNew": true,
@@ -2043,16 +1714,23 @@
                 "name": "Vic Llamas Negro v2"
             },
             {
-                "img": "images/albums/Megadeth/vic_digital.jpg",
-                "name": "Vic Digital"
-            },
-            {
                 "img": "images/albums/Megadeth/vic_digital_v2.jpg",
                 "name": "Vic Digital v2"
             },
             {
                 "img": "images/albums/Megadeth/megadeth_2026_vic_llamas_v3.jpg",
-                "name": "Vic Llamas v3"
+                "name": "Vic Llamas V3",
+                "alt": "Remera negra Megadeth Vic Llamas V3",
+                "designId": "megadeth-vic-llamas-v3",
+                "color": "negro",
+                "preferredPreview": true
+            },
+            {
+                "img": "images/albums/Megadeth/megadeth_2026_vic_llamas_v3_blanca.jpg",
+                "name": "Vic Llamas V3",
+                "alt": "Remera blanca Megadeth Vic Llamas V3",
+                "designId": "megadeth-vic-llamas-v3",
+                "color": "blanco"
             },
             {
                 "img": "images/albums/Megadeth/dorso_fecha_argentina.jpg",
@@ -2061,14 +1739,6 @@
             {
                 "img": "images/albums/Megadeth/dorso_tour_argentina_black.jpg",
                 "name": "Dorso Tour Argentina Black"
-            },
-            {
-                "img": "images/fmd-edition-3d/megadeth_last_album/vic_llamas_3d_edition_frente.jpg",
-                "name": "VIC LLAMAS FMD EDITION Frente",
-                "role": "front",
-                "isNew": true,
-                "fmdBadge": "ORIGINAL FMD",
-                "fmdBadgeDescription": "Diseño exclusivo FMD desarrollado para destacar el concepto visual de esta etapa de Megadeth."
             },
             {
                 "img": "images/fmd-edition-3d/megadeth_last_album/vic_llamas_3d_edition_dorso.jpg",
@@ -2166,20 +1836,8 @@
         "year": "2025",
         "name": "Rusted Pieces",
         "tipoPrecio": "simple",
-        "img": "images/singles/rusted_pieces.jpg",
+        "img": "images/singles/rusted_pieces_darker.jpg",
         "variants": [
-            {
-                "img": "images/singles/rusted_pieces.jpg",
-                "name": "Original"
-            },
-            {
-                "img": "images/singles/rusted_pieces_artv1.jpg",
-                "name": "Atlas V1"
-            },
-            {
-                "img": "images/singles/rusted_pieces_artv2.jpg",
-                "name": "Atlas V2"
-            },
             {
                 "img": "images/singles/rusted_pieces_darker.jpg",
                 "name": "Darker"
@@ -2252,10 +1910,6 @@
                 "name": "Let There Be Shred Realista"
             },
             {
-                "img": "images/singles/let_there_v2.jpg",
-                "name": "Let There v2"
-            },
-            {
                 "img": "images/singles/fmd_edition_shred.jpg",
                 "name": "FMD Edition Shred"
             },
@@ -2276,16 +1930,8 @@
                 "name": "I Don't Care Original"
             },
             {
-                "img": "images/singles/i_dont_care_v1.jpg",
-                "name": "I Don't Care v1"
-            },
-            {
                 "img": "images/singles/i_dont_care_v2.jpg",
                 "name": "I Don't Care v2"
-            },
-            {
-                "img": "images/singles/i_dont_care_v3.jpg",
-                "name": "I Don't Care v3"
             },
             {
                 "img": "images/singles/frente-circular-idont-care-blanca.jpg",
@@ -3736,13 +3382,8 @@
         "priority": 99,
         "name": "Tour Argentina",
         "tipoPrecio": "simple",
-        "img": "images/tours/Tour_argentina/poster_tour_argentina.jpg",
+        "img": "images/tours/Tour_argentina/vic_bandera_logo_blanco.jpg",
         "variants": [
-            {
-                "img": "images/tours/Tour_argentina/poster_tour_argentina.jpg",
-                "name": "Poster",
-                "role": "front"
-            },
             {
                 "img": "images/tours/Tour_argentina/vic_bandera_logo_blanco.jpg",
                 "name": "Vic Bandera Blanco",
@@ -3989,26 +3630,11 @@
         "year": "2026",
         "name": "Vic Tour 2026",
         "tipoPrecio": "simple",
-        "img": "images/tours/Tour_2026/vic_tour_2026_v1.jpg",
+        "img": "images/tours/Tour_2026/vic_tour_2026_v3.jpg",
         "variants": [
-            {
-                "img": "images/tours/Tour_2026/vic_tour_2026_v1.jpg",
-                "name": "v1",
-                "role": "front"
-            },
-            {
-                "img": "images/tours/Tour_2026/vic_tour_2026_v2.jpg",
-                "name": "v2",
-                "role": "front"
-            },
             {
                 "img": "images/tours/Tour_2026/vic_tour_2026_v3.jpg",
                 "name": "v3",
-                "role": "front"
-            },
-            {
-                "img": "images/tours/Tour_2026/vic_tour_2026_v4.png",
-                "name": "v4",
                 "role": "front"
             },
             {
@@ -4090,25 +3716,8 @@
                 "role": "front"
             },
             {
-                "img": "images/vic_rattlehead/vic_my_last_blanco.jpg",
-                "name": "Blanco",
-                "role": "front",
-                "fmdBadge": "ORIGINAL FMD",
-                "fmdBadgeDescription": "Creación exclusiva FMD con Vic como protagonista, pensada para una presencia fuerte y de colección."
-            },
-            {
-                "img": "images/vic_rattlehead/vic_my_last_logo_rojo.jpg",
-                "name": "Logo Rojo",
-                "role": "front"
-            },
-            {
                 "img": "images/vic_rattlehead/vic_my_last_words_logo_gris.jpg",
                 "name": "Logo Gris",
-                "role": "front"
-            },
-            {
-                "img": "images/vic_rattlehead/vic_my_last_words_logo_negro.jpg",
-                "name": "Logo Negro",
                 "role": "front"
             }
         ],
@@ -4145,21 +3754,6 @@
             {
                 "img": "images/vic_rattlehead/kimb_40_edition_v1.jpg",
                 "name": "v1",
-                "role": "front"
-            },
-            {
-                "img": "images/vic_rattlehead/kimb_40_edition_v2.jpg",
-                "name": "v2",
-                "role": "front"
-            },
-            {
-                "img": "images/vic_rattlehead/kimb_40_edition_v3.jpg",
-                "name": "v3",
-                "role": "front"
-            },
-            {
-                "img": "images/vic_rattlehead/kimb_40_edition_v4.jpg",
-                "name": "v4",
                 "role": "front"
             }
         ],
@@ -4886,52 +4480,6 @@
         "megadethDesignType": "front_back_set",
         "isDesignDuplicateCandidate": false,
         "curationNotes": "Clasificación basada en metadata y revisión existente"
-    },
-    {
-        "id": 405,
-        "category": "Tour",
-        "year": "2026",
-        "name": "Vic Tour 2026",
-        "tipoPrecio": "simple",
-        "img": "images/tours/Tour_2026/vic_tour_2026_v4.png",
-        "desc": "Dorso Vic Tour en versión 2026.",
-        "band": "Megadeth",
-        "universe": [
-            "Megadeth Vault",
-            "Thrash Metal"
-        ],
-        "album": null,
-        "garments": [
-            "remera"
-        ],
-        "collections": [
-            "Megadeth Archive",
-            "Tour Archive"
-        ],
-        "campaigns": [
-            "Tour Archive"
-        ],
-        "commercialPriority": 62,
-        "visibilityTier": "catalog",
-        "legacyCategory": "Tour",
-        "tags": [
-            "Megadeth",
-            "Megadeth Vault",
-            "Thrash Metal",
-            "remera",
-            "Megadeth Archive",
-            "Tour Archive"
-        ],
-        "reviewStatus": "classified",
-        "designFamilyId": "megadeth-vic-tour",
-        "megadethSection": "vic_rattlehead",
-        "megadethAlbum": null,
-        "megadethEra": null,
-        "megadethDesignType": "tour",
-        "isDesignDuplicateCandidate": true,
-        "curationNotes": "Corrección curatorial confirmada por Fernando en Sprint 3.3",
-        "fmdBadge": "ORIGINAL FMD",
-        "fmdBadgeDescription": "Creación exclusiva FMD con Vic como protagonista, pensada para una presencia fuerte y de colección."
     },
     {
         "id": 406,
@@ -7085,6 +6633,46 @@
         "img": "images/metallica/hoodie_metallica_black_album.jpg",
         "variants": [
             {
+                "img": "images/metallica/remera_metallica_black_album_original.jpg",
+                "name": "Black Album Original - Remera",
+                "alt": "Remera Metallica Black Album Original con logo y serpiente",
+                "garmentCategory": "Metallica",
+                "designId": "metallica-black-album-original",
+                "designSlug": "black-album-original",
+                "preferredPreview": true,
+                "isNew": true
+            },
+            {
+                "img": "images/metallica/remera_metallica_black_album.jpg",
+                "name": "Black Album - Serpiente - Remera",
+                "alt": "Remera Metallica Black Album Serpiente con estampa frente y dorso",
+                "garmentCategory": "Metallica",
+                "designId": "metallica-black-album-serpiente",
+                "designSlug": "black-album-serpiente",
+                "preferredPreview": true,
+                "isNew": true
+            },
+            {
+                "img": "images/metallica/hoodie_metallica_black_album_v1.jpg",
+                "name": "Black Album - Serpiente - Hoodie",
+                "alt": "Hoodie Metallica Black Album Serpiente con estampa frente y dorso",
+                "garmentCategory": "Hoodies Otras Bandas",
+                "designId": "metallica-black-album-serpiente",
+                "designSlug": "black-album-serpiente",
+                "preferredPreview": true,
+                "isNew": true
+            },
+            {
+                "img": "images/metallica/buzo_metallica_black_album.jpg",
+                "name": "Black Album - Serpiente - Buzo cuello redondo",
+                "alt": "Buzo cuello redondo Metallica Black Album Serpiente con estampa frente y dorso",
+                "garmentCategory": "Buzo Cuello Redondo",
+                "designId": "metallica-black-album-serpiente",
+                "designSlug": "black-album-serpiente",
+                "preferredPreview": true,
+                "isNew": true
+            },
+            {
                 "img": "images/metallica/hoodie_metallica_black_album.jpg",
                 "name": "Black Album - Hoodie",
                 "garmentCategory": "Hoodies Otras Bandas"
@@ -7100,7 +6688,7 @@
                 "garmentCategory": "Hoodies Otras Bandas"
             }
         ],
-        "desc": "Metallica Black Album. Hoodies del clasico de 1991 y la era 1992, listos para campana de invierno.",
+        "desc": "Metallica Black Album de 1991, con diseños disponibles en remera, hoodie y buzo cuello redondo.",
         "band": "Metallica",
         "universe": [
             "Thrash Metal",
@@ -7108,7 +6696,9 @@
         ],
         "album": "Metallica Black Album",
         "garments": [
-            "hoodie"
+            "remera",
+            "hoodie",
+            "buzo_cuello_redondo"
         ],
         "collections": [
             "Metallica Albums",
@@ -7125,7 +6715,9 @@
             "Thrash Metal",
             "Heavy Metal Classics",
             "Metallica Black Album",
+            "remera",
             "hoodie",
+            "buzo_cuello_redondo",
             "Hoodies Otras Bandas",
             "Metallica Albums",
             "Invierno 2026"
@@ -7189,16 +6781,6 @@
             {
                 "img": "images/vic_rattlehead/anatomy_of_vic_v1.jpg",
                 "name": "v1",
-                "role": "front"
-            },
-            {
-                "img": "images/vic_rattlehead/anatomy_of_vic_v2.jpg",
-                "name": "v2",
-                "role": "front"
-            },
-            {
-                "img": "images/vic_rattlehead/anatomy_of_vic_v3.jpg",
-                "name": "v3",
                 "role": "front"
             }
         ],
@@ -10419,11 +10001,6 @@
                 "img": "images/vic_rattlehead/vic_sells.jpg",
                 "name": "v1",
                 "role": "front"
-            },
-            {
-                "img": "images/vic_rattlehead/vic_sells_v2.jpg",
-                "name": "v2",
-                "role": "front"
             }
         ],
         "desc": "Vic Sells - 2 variantes exclusivas de Vic Rattlehead.",
@@ -10462,65 +10039,6 @@
         "megadethSection": "vic_rattlehead",
         "megadethAlbum": "Peace Sells... but Who's Buying?",
         "megadethEra": "1986",
-        "megadethDesignType": "vic",
-        "isDesignDuplicateCandidate": false,
-        "curationNotes": "Clasificación basada en metadata y revisión existente",
-        "fmdBadge": "ORIGINAL FMD",
-        "fmdBadgeDescription": "Creación exclusiva FMD con Vic como protagonista, pensada para una presencia fuerte y de colección."
-    },
-    {
-        "id": 5030,
-        "category": "VicRattlehead",
-        "year": "2026",
-        "name": "Vic Symphony",
-        "tipoPrecio": "doble",
-        "img": "images/vic_rattlehead/vic_symphony.jpg",
-        "variants": [
-            {
-                "img": "images/vic_rattlehead/vic_symphony.jpg",
-                "name": "Frente",
-                "role": "front"
-            },
-            {
-                "img": "images/vic_rattlehead/vic_symphony_dorso.jpg",
-                "name": "Dorso",
-                "role": "back"
-            }
-        ],
-        "desc": "Vic Symphony - Frente y dorso en carrusel.",
-        "band": "Megadeth",
-        "collections": [
-            "Vic Legacy",
-            "Post Show",
-            "Megadeth Archive",
-            "Vic Rattlehead"
-        ],
-        "tags": [
-            "Megadeth",
-            "Megadeth Vault",
-            "Thrash Metal",
-            "remera",
-            "Megadeth Archive",
-            "Vic Rattlehead"
-        ],
-        "priority": 79,
-        "universe": [
-            "Megadeth Vault",
-            "Thrash Metal"
-        ],
-        "album": null,
-        "garments": [
-            "remera"
-        ],
-        "campaigns": [],
-        "commercialPriority": 45,
-        "visibilityTier": "archive",
-        "legacyCategory": "VicRattlehead",
-        "reviewStatus": "classified",
-        "designFamilyId": "megadeth-card-5030",
-        "megadethSection": "vic_rattlehead",
-        "megadethAlbum": null,
-        "megadethEra": null,
         "megadethDesignType": "vic",
         "isDesignDuplicateCandidate": false,
         "curationNotes": "Clasificación basada en metadata y revisión existente",
@@ -10848,52 +10366,6 @@
             "remera",
             "Archivo Maiden"
         ]
-    },
-    {
-        "id": 5050,
-        "category": "VicRattlehead",
-        "year": "Live",
-        "name": "Dave and Vic Live",
-        "tipoPrecio": "simple",
-        "img": "images/vic_rattlehead/dave_and_vic_live.jpg",
-        "desc": "Dave Mustaine junto a Vic Rattlehead en vivo.",
-        "band": "Megadeth",
-        "collections": [
-            "Vic Legacy",
-            "Megadeth Archive",
-            "Vic Rattlehead"
-        ],
-        "tags": [
-            "Megadeth",
-            "Megadeth Vault",
-            "Thrash Metal",
-            "remera",
-            "Megadeth Archive",
-            "Vic Rattlehead"
-        ],
-        "priority": 72,
-        "universe": [
-            "Megadeth Vault",
-            "Thrash Metal"
-        ],
-        "album": null,
-        "garments": [
-            "remera"
-        ],
-        "campaigns": [],
-        "commercialPriority": 45,
-        "visibilityTier": "archive",
-        "legacyCategory": "VicRattlehead",
-        "reviewStatus": "classified",
-        "designFamilyId": "megadeth-card-5050",
-        "megadethSection": "vic_rattlehead",
-        "megadethAlbum": null,
-        "megadethEra": null,
-        "megadethDesignType": "vic",
-        "isDesignDuplicateCandidate": false,
-        "curationNotes": "Clasificación basada en metadata y revisión existente",
-        "fmdBadge": "ORIGINAL FMD",
-        "fmdBadgeDescription": "Creación exclusiva FMD con Vic como protagonista, pensada para una presencia fuerte y de colección."
     },
     {
         "id": 5051,
@@ -11966,14 +11438,6 @@
             {
                 "img": "images/orígenes/frente_negra_v1.png",
                 "name": "Negra â€” Frente V1"
-            },
-            {
-                "img": "images/orígenes/frente_negra_v2.png",
-                "name": "Negra â€” Frente V2"
-            },
-            {
-                "img": "images/orígenes/frente_negra_v3.png",
-                "name": "Negra â€” Frente V3"
             },
             {
                 "img": "images/orígenes/frente_negra_fmd_edition.png",
@@ -14935,13 +14399,22 @@
         "desc": "Hermética En Concierto. Composición de frente y dorso mostrada.",
         "band": "Hermetica",
         "album": null,
-        "garments": ["remera"],
-        "collections": ["Hermetica Archive"],
+        "garments": [
+            "remera"
+        ],
+        "collections": [
+            "Hermetica Archive"
+        ],
         "campaigns": [],
         "commercialPriority": 88,
         "visibilityTier": "featured",
         "legacyCategory": "Bandas Sugeridas",
-        "tags": ["Hermetica", "Argentina Heavy", "En Concierto", "remera"]
+        "tags": [
+            "Hermetica",
+            "Argentina Heavy",
+            "En Concierto",
+            "remera"
+        ]
     },
     {
         "id": 7043,
@@ -14959,13 +14432,22 @@
         "desc": "Hermética Intérpretes. Composición de frente y dorso mostrada.",
         "band": "Hermetica",
         "album": null,
-        "garments": ["remera"],
-        "collections": ["Hermetica Archive"],
+        "garments": [
+            "remera"
+        ],
+        "collections": [
+            "Hermetica Archive"
+        ],
         "campaigns": [],
         "commercialPriority": 87,
         "visibilityTier": "featured",
         "legacyCategory": "Bandas Sugeridas",
-        "tags": ["Hermetica", "Argentina Heavy", "Interpretes", "remera"]
+        "tags": [
+            "Hermetica",
+            "Argentina Heavy",
+            "Interpretes",
+            "remera"
+        ]
     },
     {
         "id": 7221,
@@ -14992,13 +14474,24 @@
         "desc": "Formación de Hermética con el logo blanco de la banda.",
         "band": "Hermetica",
         "album": null,
-        "garments": ["remera"],
-        "collections": ["Hermetica Archive"],
+        "garments": [
+            "remera"
+        ],
+        "collections": [
+            "Hermetica Archive"
+        ],
         "campaigns": [],
         "commercialPriority": 92,
         "visibilityTier": "featured",
         "legacyCategory": "Bandas Sugeridas",
-        "tags": ["Hermetica", "Formación", "Argentina Heavy", "remera", "negro", "estampa frontal"]
+        "tags": [
+            "Hermetica",
+            "Formación",
+            "Argentina Heavy",
+            "remera",
+            "negro",
+            "estampa frontal"
+        ]
     },
     {
         "id": 7223,
@@ -15032,13 +14525,26 @@
         "desc": "Logo de Hermética y símbolo de la banda, disponible en remera negra o blanca.",
         "band": "Hermetica",
         "album": null,
-        "garments": ["remera"],
-        "collections": ["Hermetica Archive"],
+        "garments": [
+            "remera"
+        ],
+        "collections": [
+            "Hermetica Archive"
+        ],
         "campaigns": [],
         "commercialPriority": 93,
         "visibilityTier": "featured",
         "legacyCategory": "Bandas Sugeridas",
-        "tags": ["Hermetica", "Logo", "Símbolo", "Argentina Heavy", "remera", "negro", "blanco", "estampa frontal"]
+        "tags": [
+            "Hermetica",
+            "Logo",
+            "Símbolo",
+            "Argentina Heavy",
+            "remera",
+            "negro",
+            "blanco",
+            "estampa frontal"
+        ]
     },
     {
         "id": 7044,
@@ -15054,20 +14560,51 @@
         "isNew": true,
         "img": "images/banda_sugeridas/hermetica/remera_hermetica_banda_victimas.jpg",
         "variants": [
-            {"img": "images/banda_sugeridas/hermetica/remera_hermetica_banda_victimas.jpg", "name": "Víctimas del Vaciamiento Banda - Remera", "designId": "hermetica-victimas-del-vaciamiento-banda"},
-            {"img": "images/banda_sugeridas/hermetica/hoodie_hermetica_banda_victimas.jpg", "name": "Víctimas del Vaciamiento Banda - Hoodie", "designId": "hermetica-victimas-del-vaciamiento-banda", "garmentCategory": "Hoodies Otras Bandas"},
-            {"img": "images/banda_sugeridas/hermetica/buzo_hermetica_banda_victimas.jpg", "name": "Víctimas del Vaciamiento Banda - Buzo cuello redondo", "designId": "hermetica-victimas-del-vaciamiento-banda", "garmentCategory": "Buzo Cuello Redondo"}
+            {
+                "img": "images/banda_sugeridas/hermetica/remera_hermetica_banda_victimas.jpg",
+                "name": "Víctimas del Vaciamiento Banda - Remera",
+                "designId": "hermetica-victimas-del-vaciamiento-banda"
+            },
+            {
+                "img": "images/banda_sugeridas/hermetica/hoodie_hermetica_banda_victimas.jpg",
+                "name": "Víctimas del Vaciamiento Banda - Hoodie",
+                "designId": "hermetica-victimas-del-vaciamiento-banda",
+                "garmentCategory": "Hoodies Otras Bandas"
+            },
+            {
+                "img": "images/banda_sugeridas/hermetica/buzo_hermetica_banda_victimas.jpg",
+                "name": "Víctimas del Vaciamiento Banda - Buzo cuello redondo",
+                "designId": "hermetica-victimas-del-vaciamiento-banda",
+                "garmentCategory": "Buzo Cuello Redondo"
+            }
         ],
         "desc": "Hermética Víctimas del Vaciamiento con formación de la banda. Disponible en remera, hoodie y buzo cuello redondo.",
         "band": "Hermetica",
         "album": "Víctimas del Vaciamiento",
-        "garments": ["remera", "hoodie", "buzo_cuello_redondo"],
-        "collections": ["Hermetica Archive", "Víctimas del Vaciamiento"],
-        "campaigns": ["Invierno 2026"],
+        "garments": [
+            "remera",
+            "hoodie",
+            "buzo_cuello_redondo"
+        ],
+        "collections": [
+            "Hermetica Archive",
+            "Víctimas del Vaciamiento"
+        ],
+        "campaigns": [
+            "Invierno 2026"
+        ],
         "commercialPriority": 91,
         "visibilityTier": "hero",
         "legacyCategory": "Bandas Sugeridas",
-        "tags": ["Hermetica", "Argentina Heavy", "Víctimas del Vaciamiento", "Banda", "remera", "hoodie", "buzo_cuello_redondo"]
+        "tags": [
+            "Hermetica",
+            "Argentina Heavy",
+            "Víctimas del Vaciamiento",
+            "Banda",
+            "remera",
+            "hoodie",
+            "buzo_cuello_redondo"
+        ]
     },
     {
         "id": 7045,
@@ -15083,20 +14620,50 @@
         "isNew": true,
         "img": "images/banda_sugeridas/hermetica/remera_hermetica_victimas.jpg",
         "variants": [
-            {"img": "images/banda_sugeridas/hermetica/remera_hermetica_victimas.jpg", "name": "Víctimas del Vaciamiento - Remera", "designId": "hermetica-victimas-del-vaciamiento"},
-            {"img": "images/banda_sugeridas/hermetica/hoodie_hermetica_victimas.jpg", "name": "Víctimas del Vaciamiento - Hoodie", "designId": "hermetica-victimas-del-vaciamiento", "garmentCategory": "Hoodies Otras Bandas"},
-            {"img": "images/banda_sugeridas/hermetica/buzo_hermetica_victimas.jpg", "name": "Víctimas del Vaciamiento - Buzo cuello redondo", "designId": "hermetica-victimas-del-vaciamiento", "garmentCategory": "Buzo Cuello Redondo"}
+            {
+                "img": "images/banda_sugeridas/hermetica/remera_hermetica_victimas.jpg",
+                "name": "Víctimas del Vaciamiento - Remera",
+                "designId": "hermetica-victimas-del-vaciamiento"
+            },
+            {
+                "img": "images/banda_sugeridas/hermetica/hoodie_hermetica_victimas.jpg",
+                "name": "Víctimas del Vaciamiento - Hoodie",
+                "designId": "hermetica-victimas-del-vaciamiento",
+                "garmentCategory": "Hoodies Otras Bandas"
+            },
+            {
+                "img": "images/banda_sugeridas/hermetica/buzo_hermetica_victimas.jpg",
+                "name": "Víctimas del Vaciamiento - Buzo cuello redondo",
+                "designId": "hermetica-victimas-del-vaciamiento",
+                "garmentCategory": "Buzo Cuello Redondo"
+            }
         ],
         "desc": "Hermética Víctimas del Vaciamiento. Disponible en remera, hoodie y buzo cuello redondo.",
         "band": "Hermetica",
         "album": "Víctimas del Vaciamiento",
-        "garments": ["remera", "hoodie", "buzo_cuello_redondo"],
-        "collections": ["Hermetica Archive", "Víctimas del Vaciamiento"],
-        "campaigns": ["Invierno 2026"],
+        "garments": [
+            "remera",
+            "hoodie",
+            "buzo_cuello_redondo"
+        ],
+        "collections": [
+            "Hermetica Archive",
+            "Víctimas del Vaciamiento"
+        ],
+        "campaigns": [
+            "Invierno 2026"
+        ],
         "commercialPriority": 90,
         "visibilityTier": "hero",
         "legacyCategory": "Bandas Sugeridas",
-        "tags": ["Hermetica", "Argentina Heavy", "Víctimas del Vaciamiento", "remera", "hoodie", "buzo_cuello_redondo"]
+        "tags": [
+            "Hermetica",
+            "Argentina Heavy",
+            "Víctimas del Vaciamiento",
+            "remera",
+            "hoodie",
+            "buzo_cuello_redondo"
+        ]
     },
     {
         "id": 7046,
@@ -15112,22 +14679,74 @@
         "isNew": true,
         "img": "images/banda_sugeridas/ricardo_iorio/remera_v8_hermetica_almafuerte_iorio.jpg",
         "variants": [
-            {"img": "images/banda_sugeridas/ricardo_iorio/remera_v8_hermetica_almafuerte_iorio.jpg", "name": "V8 Hermética Almafuerte Iorio - Remera negra", "alt": "Remera negra V8 Hermética Almafuerte Ricardo Iorio", "designId": "v8-hermetica-almafuerte-iorio", "color": "negro"},
-            {"img": "images/banda_sugeridas/ricardo_iorio/remera_v8_hermetica_almafuerte_iorio_blanca.jpg", "name": "V8 Hermética Almafuerte Iorio - Remera blanca", "alt": "Remera blanca V8 Hermética Almafuerte Ricardo Iorio", "designId": "v8-hermetica-almafuerte-iorio", "color": "blanco"},
-            {"img": "images/banda_sugeridas/ricardo_iorio/hoodie_v8_hermetica_almafuerte_iorio.jpg", "name": "V8 Hermética Almafuerte Iorio - Hoodie negro", "alt": "Hoodie negro V8 Hermética Almafuerte Ricardo Iorio", "designId": "v8-hermetica-almafuerte-iorio", "garmentCategory": "Hoodies Otras Bandas", "color": "negro"},
-            {"img": "images/banda_sugeridas/ricardo_iorio/buzo_v8_hermetica_almafuerte_iorio.jpg", "name": "V8 Hermética Almafuerte Iorio - Buzo cuello redondo negro", "alt": "Buzo cuello redondo negro V8 Hermética Almafuerte Ricardo Iorio", "designId": "v8-hermetica-almafuerte-iorio", "garmentCategory": "Buzo Cuello Redondo", "color": "negro"},
-            {"img": "images/banda_sugeridas/ricardo_iorio/buzo_v8_hermetica_almafuerte_iorio_blanca.jpg", "name": "V8 Hermética Almafuerte Iorio - Buzo cuello redondo blanco", "alt": "Buzo cuello redondo blanco V8 Hermética Almafuerte Ricardo Iorio", "designId": "v8-hermetica-almafuerte-iorio", "garmentCategory": "Buzo Cuello Redondo", "color": "blanco"}
+            {
+                "img": "images/banda_sugeridas/ricardo_iorio/remera_v8_hermetica_almafuerte_iorio.jpg",
+                "name": "V8 Hermética Almafuerte Iorio - Remera negra",
+                "alt": "Remera negra V8 Hermética Almafuerte Ricardo Iorio",
+                "designId": "v8-hermetica-almafuerte-iorio",
+                "color": "negro"
+            },
+            {
+                "img": "images/banda_sugeridas/ricardo_iorio/remera_v8_hermetica_almafuerte_iorio_blanca.jpg",
+                "name": "V8 Hermética Almafuerte Iorio - Remera blanca",
+                "alt": "Remera blanca V8 Hermética Almafuerte Ricardo Iorio",
+                "designId": "v8-hermetica-almafuerte-iorio",
+                "color": "blanco"
+            },
+            {
+                "img": "images/banda_sugeridas/ricardo_iorio/hoodie_v8_hermetica_almafuerte_iorio.jpg",
+                "name": "V8 Hermética Almafuerte Iorio - Hoodie negro",
+                "alt": "Hoodie negro V8 Hermética Almafuerte Ricardo Iorio",
+                "designId": "v8-hermetica-almafuerte-iorio",
+                "garmentCategory": "Hoodies Otras Bandas",
+                "color": "negro"
+            },
+            {
+                "img": "images/banda_sugeridas/ricardo_iorio/buzo_v8_hermetica_almafuerte_iorio.jpg",
+                "name": "V8 Hermética Almafuerte Iorio - Buzo cuello redondo negro",
+                "alt": "Buzo cuello redondo negro V8 Hermética Almafuerte Ricardo Iorio",
+                "designId": "v8-hermetica-almafuerte-iorio",
+                "garmentCategory": "Buzo Cuello Redondo",
+                "color": "negro"
+            },
+            {
+                "img": "images/banda_sugeridas/ricardo_iorio/buzo_v8_hermetica_almafuerte_iorio_blanca.jpg",
+                "name": "V8 Hermética Almafuerte Iorio - Buzo cuello redondo blanco",
+                "alt": "Buzo cuello redondo blanco V8 Hermética Almafuerte Ricardo Iorio",
+                "designId": "v8-hermetica-almafuerte-iorio",
+                "garmentCategory": "Buzo Cuello Redondo",
+                "color": "blanco"
+            }
         ],
         "desc": "Homenaje a V8, Hermética, Almafuerte y Ricardo Iorio. Disponible en remera, hoodie y buzo cuello redondo.",
         "band": "Ricardo Iorio",
         "album": null,
-        "garments": ["remera", "hoodie", "buzo_cuello_redondo"],
-        "collections": ["Ricardo Iorio", "V8", "Almafuerte"],
-        "campaigns": ["Invierno 2026"],
+        "garments": [
+            "remera",
+            "hoodie",
+            "buzo_cuello_redondo"
+        ],
+        "collections": [
+            "Ricardo Iorio",
+            "V8",
+            "Almafuerte"
+        ],
+        "campaigns": [
+            "Invierno 2026"
+        ],
         "commercialPriority": 93,
         "visibilityTier": "hero",
         "legacyCategory": "Bandas Sugeridas",
-        "tags": ["Hermetica", "V8", "Almafuerte", "Ricardo Iorio", "Argentina Heavy", "remera", "hoodie", "buzo_cuello_redondo"]
+        "tags": [
+            "Hermetica",
+            "V8",
+            "Almafuerte",
+            "Ricardo Iorio",
+            "Argentina Heavy",
+            "remera",
+            "hoodie",
+            "buzo_cuello_redondo"
+        ]
     },
     {
         "id": 7041,
@@ -17465,13 +17084,24 @@
         "desc": "Diseño de Almafuerte con composición de frente y dorso mostrada.",
         "band": "Ricardo Iorio",
         "album": "Almafuerte",
-        "garments": ["remera"],
-        "collections": ["Ricardo Iorio", "Almafuerte"],
+        "garments": [
+            "remera"
+        ],
+        "collections": [
+            "Ricardo Iorio",
+            "Almafuerte"
+        ],
         "campaigns": [],
         "commercialPriority": 91,
         "visibilityTier": "featured",
         "legacyCategory": "Bandas Sugeridas",
-        "tags": ["Ricardo Iorio", "Almafuerte", "Argentina Heavy", "remera", "doble estampa"]
+        "tags": [
+            "Ricardo Iorio",
+            "Almafuerte",
+            "Argentina Heavy",
+            "remera",
+            "doble estampa"
+        ]
     },
     {
         "id": 7203,
@@ -17504,13 +17134,23 @@
         "desc": "Ricardo Iorio en vivo con identidad Metal Pesado Argentino. Composición de frente y dorso mostrada.",
         "band": "Ricardo Iorio",
         "album": null,
-        "garments": ["remera"],
-        "collections": ["Ricardo Iorio"],
+        "garments": [
+            "remera"
+        ],
+        "collections": [
+            "Ricardo Iorio"
+        ],
         "campaigns": [],
         "commercialPriority": 94,
         "visibilityTier": "hero",
         "legacyCategory": "Bandas Sugeridas",
-        "tags": ["Ricardo Iorio", "Metal Pesado Argentino", "Argentina Heavy", "remera", "doble estampa"]
+        "tags": [
+            "Ricardo Iorio",
+            "Metal Pesado Argentino",
+            "Argentina Heavy",
+            "remera",
+            "doble estampa"
+        ]
     },
     {
         "id": 7204,
@@ -17528,13 +17168,23 @@
         "desc": "Ricardo Iorio en vivo. Composición de frente y dorso mostrada.",
         "band": "Ricardo Iorio",
         "album": null,
-        "garments": ["remera"],
-        "collections": ["Ricardo Iorio"],
+        "garments": [
+            "remera"
+        ],
+        "collections": [
+            "Ricardo Iorio"
+        ],
         "campaigns": [],
         "commercialPriority": 92,
         "visibilityTier": "featured",
         "legacyCategory": "Bandas Sugeridas",
-        "tags": ["Ricardo Iorio", "En vivo", "Argentina Heavy", "remera", "doble estampa"]
+        "tags": [
+            "Ricardo Iorio",
+            "En vivo",
+            "Argentina Heavy",
+            "remera",
+            "doble estampa"
+        ]
     },
     {
         "id": 7205,
@@ -17568,13 +17218,25 @@
         "desc": "Ricardo Iorio en blanco y negro. Composición de frente y dorso disponible en remera y hoodie.",
         "band": "Ricardo Iorio",
         "album": null,
-        "garments": ["remera", "hoodie"],
-        "collections": ["Ricardo Iorio"],
+        "garments": [
+            "remera",
+            "hoodie"
+        ],
+        "collections": [
+            "Ricardo Iorio"
+        ],
         "campaigns": [],
         "commercialPriority": 89,
         "visibilityTier": "featured",
         "legacyCategory": "Bandas Sugeridas",
-        "tags": ["Ricardo Iorio", "Blanco y negro", "Argentina Heavy", "remera", "hoodie", "doble estampa"]
+        "tags": [
+            "Ricardo Iorio",
+            "Blanco y negro",
+            "Argentina Heavy",
+            "remera",
+            "hoodie",
+            "doble estampa"
+        ]
     },
     {
         "id": 7206,
@@ -17592,13 +17254,25 @@
         "desc": "V8 Tiempos Metálicos. Composición de frente y dorso mostrada.",
         "band": "Ricardo Iorio",
         "album": "Tiempos Metálicos",
-        "garments": ["remera"],
-        "collections": ["Ricardo Iorio", "V8"],
+        "garments": [
+            "remera"
+        ],
+        "collections": [
+            "Ricardo Iorio",
+            "V8"
+        ],
         "campaigns": [],
         "commercialPriority": 90,
         "visibilityTier": "featured",
         "legacyCategory": "Bandas Sugeridas",
-        "tags": ["Ricardo Iorio", "V8", "Tiempos Metálicos", "Argentina Heavy", "remera", "doble estampa"]
+        "tags": [
+            "Ricardo Iorio",
+            "V8",
+            "Tiempos Metálicos",
+            "Argentina Heavy",
+            "remera",
+            "doble estampa"
+        ]
     },
     {
         "id": 7207,
@@ -17616,13 +17290,24 @@
         "desc": "Ilustración de Ricardo Iorio al frente y logo Metal Pesado Argentino en el dorso.",
         "band": "Ricardo Iorio",
         "album": null,
-        "garments": ["remera"],
-        "collections": ["Ricardo Iorio"],
+        "garments": [
+            "remera"
+        ],
+        "collections": [
+            "Ricardo Iorio"
+        ],
         "campaigns": [],
         "commercialPriority": 93,
         "visibilityTier": "featured",
         "legacyCategory": "Bandas Sugeridas",
-        "tags": ["Ricardo Iorio", "Ilustración", "Metal Pesado Argentino", "Argentina Heavy", "remera", "doble estampa"]
+        "tags": [
+            "Ricardo Iorio",
+            "Ilustración",
+            "Metal Pesado Argentino",
+            "Argentina Heavy",
+            "remera",
+            "doble estampa"
+        ]
     },
     {
         "id": 7208,
@@ -17640,13 +17325,28 @@
         "desc": "Ricardo Iorio al frente y homenaje a V8, Hermética y Almafuerte en el dorso.",
         "band": "Ricardo Iorio",
         "album": null,
-        "garments": ["buzo_cuello_redondo"],
-        "collections": ["Ricardo Iorio", "V8", "Hermetica", "Almafuerte"],
+        "garments": [
+            "buzo_cuello_redondo"
+        ],
+        "collections": [
+            "Ricardo Iorio",
+            "V8",
+            "Hermetica",
+            "Almafuerte"
+        ],
         "campaigns": [],
         "commercialPriority": 94,
         "visibilityTier": "hero",
         "legacyCategory": "Bandas Sugeridas",
-        "tags": ["Ricardo Iorio", "V8", "Hermetica", "Almafuerte", "Argentina Heavy", "buzo_cuello_redondo", "doble estampa"]
+        "tags": [
+            "Ricardo Iorio",
+            "V8",
+            "Hermetica",
+            "Almafuerte",
+            "Argentina Heavy",
+            "buzo_cuello_redondo",
+            "doble estampa"
+        ]
     },
     {
         "id": 7209,
@@ -17664,13 +17364,25 @@
         "desc": "Almafuerte A Fondo Blanco.",
         "band": "Ricardo Iorio",
         "album": "A Fondo Blanco",
-        "garments": ["remera"],
-        "collections": ["Ricardo Iorio", "Almafuerte"],
+        "garments": [
+            "remera"
+        ],
+        "collections": [
+            "Ricardo Iorio",
+            "Almafuerte"
+        ],
         "campaigns": [],
         "commercialPriority": 94,
         "visibilityTier": "featured",
         "legacyCategory": "Bandas Sugeridas",
-        "tags": ["Ricardo Iorio", "Almafuerte", "A Fondo Blanco", "Argentina Heavy", "remera", "estampa frontal"]
+        "tags": [
+            "Ricardo Iorio",
+            "Almafuerte",
+            "A Fondo Blanco",
+            "Argentina Heavy",
+            "remera",
+            "estampa frontal"
+        ]
     },
     {
         "id": 7210,
@@ -17688,13 +17400,25 @@
         "desc": "Almafuerte Piedra Libre.",
         "band": "Ricardo Iorio",
         "album": "Piedra Libre",
-        "garments": ["remera"],
-        "collections": ["Ricardo Iorio", "Almafuerte"],
+        "garments": [
+            "remera"
+        ],
+        "collections": [
+            "Ricardo Iorio",
+            "Almafuerte"
+        ],
         "campaigns": [],
         "commercialPriority": 95,
         "visibilityTier": "hero",
         "legacyCategory": "Bandas Sugeridas",
-        "tags": ["Ricardo Iorio", "Almafuerte", "Piedra Libre", "Argentina Heavy", "remera", "estampa frontal"]
+        "tags": [
+            "Ricardo Iorio",
+            "Almafuerte",
+            "Piedra Libre",
+            "Argentina Heavy",
+            "remera",
+            "estampa frontal"
+        ]
     },
     {
         "id": 7211,
@@ -17712,13 +17436,25 @@
         "desc": "Almafuerte Toro y Pampa.",
         "band": "Ricardo Iorio",
         "album": "Toro y Pampa",
-        "garments": ["remera"],
-        "collections": ["Ricardo Iorio", "Almafuerte"],
+        "garments": [
+            "remera"
+        ],
+        "collections": [
+            "Ricardo Iorio",
+            "Almafuerte"
+        ],
         "campaigns": [],
         "commercialPriority": 93,
         "visibilityTier": "featured",
         "legacyCategory": "Bandas Sugeridas",
-        "tags": ["Ricardo Iorio", "Almafuerte", "Toro y Pampa", "Argentina Heavy", "remera", "estampa frontal"]
+        "tags": [
+            "Ricardo Iorio",
+            "Almafuerte",
+            "Toro y Pampa",
+            "Argentina Heavy",
+            "remera",
+            "estampa frontal"
+        ]
     },
     {
         "id": 7212,
@@ -17736,13 +17472,25 @@
         "desc": "Almafuerte Trillando la Fina.",
         "band": "Ricardo Iorio",
         "album": "Trillando la Fina",
-        "garments": ["remera"],
-        "collections": ["Ricardo Iorio", "Almafuerte"],
+        "garments": [
+            "remera"
+        ],
+        "collections": [
+            "Ricardo Iorio",
+            "Almafuerte"
+        ],
         "campaigns": [],
         "commercialPriority": 94,
         "visibilityTier": "featured",
         "legacyCategory": "Bandas Sugeridas",
-        "tags": ["Ricardo Iorio", "Almafuerte", "Trillando la Fina", "Argentina Heavy", "remera", "estampa frontal"]
+        "tags": [
+            "Ricardo Iorio",
+            "Almafuerte",
+            "Trillando la Fina",
+            "Argentina Heavy",
+            "remera",
+            "estampa frontal"
+        ]
     },
     {
         "id": 7213,
@@ -17760,13 +17508,23 @@
         "desc": "Ricardo Iorio Bueno, Malo y Feo.",
         "band": "Ricardo Iorio",
         "album": null,
-        "garments": ["remera"],
-        "collections": ["Ricardo Iorio"],
+        "garments": [
+            "remera"
+        ],
+        "collections": [
+            "Ricardo Iorio"
+        ],
         "campaigns": [],
         "commercialPriority": 96,
         "visibilityTier": "hero",
         "legacyCategory": "Bandas Sugeridas",
-        "tags": ["Ricardo Iorio", "Bueno Malo y Feo", "Argentina Heavy", "remera", "estampa frontal"]
+        "tags": [
+            "Ricardo Iorio",
+            "Bueno Malo y Feo",
+            "Argentina Heavy",
+            "remera",
+            "estampa frontal"
+        ]
     },
     {
         "id": 7214,
@@ -17799,13 +17557,27 @@
         "desc": "V8 Luchando por el Metal, disponible en negro o blanco.",
         "band": "Ricardo Iorio",
         "album": null,
-        "garments": ["remera"],
-        "collections": ["Ricardo Iorio", "V8"],
+        "garments": [
+            "remera"
+        ],
+        "collections": [
+            "Ricardo Iorio",
+            "V8"
+        ],
         "campaigns": [],
         "commercialPriority": 95,
         "visibilityTier": "hero",
         "legacyCategory": "Bandas Sugeridas",
-        "tags": ["Ricardo Iorio", "V8", "Luchando por el Metal", "Argentina Heavy", "remera", "negro", "blanco", "estampa frontal"]
+        "tags": [
+            "Ricardo Iorio",
+            "V8",
+            "Luchando por el Metal",
+            "Argentina Heavy",
+            "remera",
+            "negro",
+            "blanco",
+            "estampa frontal"
+        ]
     },
     {
         "id": 7215,
@@ -17823,13 +17595,25 @@
         "desc": "Almafuerte y Ricardo Iorio con identidad argentina y referencia a Malvinas.",
         "band": "Ricardo Iorio",
         "album": null,
-        "garments": ["remera"],
-        "collections": ["Ricardo Iorio", "Almafuerte"],
+        "garments": [
+            "remera"
+        ],
+        "collections": [
+            "Ricardo Iorio",
+            "Almafuerte"
+        ],
         "campaigns": [],
         "commercialPriority": 96,
         "visibilityTier": "hero",
         "legacyCategory": "Bandas Sugeridas",
-        "tags": ["Ricardo Iorio", "Almafuerte", "Malvinas", "Argentina Heavy", "remera", "estampa frontal"]
+        "tags": [
+            "Ricardo Iorio",
+            "Almafuerte",
+            "Malvinas",
+            "Argentina Heavy",
+            "remera",
+            "estampa frontal"
+        ]
     },
     {
         "id": 7216,
@@ -17856,13 +17640,26 @@
         "desc": "Arte del álbum homónimo de Almafuerte, publicado en 1995.",
         "band": "Ricardo Iorio",
         "album": "Almafuerte",
-        "garments": ["remera"],
-        "collections": ["Ricardo Iorio", "Almafuerte"],
+        "garments": [
+            "remera"
+        ],
+        "collections": [
+            "Ricardo Iorio",
+            "Almafuerte"
+        ],
         "campaigns": [],
         "commercialPriority": 94,
         "visibilityTier": "featured",
         "legacyCategory": "Bandas Sugeridas",
-        "tags": ["Ricardo Iorio", "Almafuerte", "Álbum homónimo", "Argentina Heavy", "remera", "negro", "estampa frontal"]
+        "tags": [
+            "Ricardo Iorio",
+            "Almafuerte",
+            "Álbum homónimo",
+            "Argentina Heavy",
+            "remera",
+            "negro",
+            "estampa frontal"
+        ]
     },
     {
         "id": 7217,
@@ -17889,13 +17686,25 @@
         "desc": "Ricardo Iorio cantando en vivo con la identidad Metal Pesado Argentino.",
         "band": "Ricardo Iorio",
         "album": null,
-        "garments": ["remera"],
-        "collections": ["Ricardo Iorio"],
+        "garments": [
+            "remera"
+        ],
+        "collections": [
+            "Ricardo Iorio"
+        ],
         "campaigns": [],
         "commercialPriority": 95,
         "visibilityTier": "featured",
         "legacyCategory": "Bandas Sugeridas",
-        "tags": ["Ricardo Iorio", "Metal Pesado Argentino", "En vivo", "Argentina Heavy", "remera", "negro", "estampa frontal"]
+        "tags": [
+            "Ricardo Iorio",
+            "Metal Pesado Argentino",
+            "En vivo",
+            "Argentina Heavy",
+            "remera",
+            "negro",
+            "estampa frontal"
+        ]
     },
     {
         "id": 7218,
@@ -17922,13 +17731,24 @@
         "desc": "Ricardo Iorio en vivo con la frase Unas Estrofas Más.",
         "band": "Ricardo Iorio",
         "album": null,
-        "garments": ["remera"],
-        "collections": ["Ricardo Iorio"],
+        "garments": [
+            "remera"
+        ],
+        "collections": [
+            "Ricardo Iorio"
+        ],
         "campaigns": [],
         "commercialPriority": 96,
         "visibilityTier": "featured",
         "legacyCategory": "Bandas Sugeridas",
-        "tags": ["Ricardo Iorio", "Unas Estrofas Más", "Argentina Heavy", "remera", "negro", "estampa frontal"]
+        "tags": [
+            "Ricardo Iorio",
+            "Unas Estrofas Más",
+            "Argentina Heavy",
+            "remera",
+            "negro",
+            "estampa frontal"
+        ]
     },
     {
         "id": 7219,
@@ -17955,13 +17775,25 @@
         "desc": "Ricardo Iorio cantando y tocando la guitarra en vivo.",
         "band": "Ricardo Iorio",
         "album": null,
-        "garments": ["remera"],
-        "collections": ["Ricardo Iorio"],
+        "garments": [
+            "remera"
+        ],
+        "collections": [
+            "Ricardo Iorio"
+        ],
         "campaigns": [],
         "commercialPriority": 95,
         "visibilityTier": "featured",
         "legacyCategory": "Bandas Sugeridas",
-        "tags": ["Ricardo Iorio", "En vivo", "Guitarra", "Argentina Heavy", "remera", "negro", "estampa frontal"]
+        "tags": [
+            "Ricardo Iorio",
+            "En vivo",
+            "Guitarra",
+            "Argentina Heavy",
+            "remera",
+            "negro",
+            "estampa frontal"
+        ]
     },
     {
         "id": 7220,
@@ -17988,13 +17820,25 @@
         "desc": "Ricardo Iorio con la frase Avivando la Llama de la Ley Natural.",
         "band": "Ricardo Iorio",
         "album": null,
-        "garments": ["remera"],
-        "collections": ["Ricardo Iorio"],
+        "garments": [
+            "remera"
+        ],
+        "collections": [
+            "Ricardo Iorio"
+        ],
         "campaigns": [],
         "commercialPriority": 97,
         "visibilityTier": "featured",
         "legacyCategory": "Bandas Sugeridas",
-        "tags": ["Ricardo Iorio", "Avivando la Llama", "Ley Natural", "Argentina Heavy", "remera", "negro", "estampa frontal"]
+        "tags": [
+            "Ricardo Iorio",
+            "Avivando la Llama",
+            "Ley Natural",
+            "Argentina Heavy",
+            "remera",
+            "negro",
+            "estampa frontal"
+        ]
     },
     {
         "id": 7222,
@@ -18021,13 +17865,27 @@
         "desc": "Almafuerte en vivo en Obras.",
         "band": "Ricardo Iorio",
         "album": null,
-        "garments": ["remera"],
-        "collections": ["Ricardo Iorio", "Almafuerte"],
+        "garments": [
+            "remera"
+        ],
+        "collections": [
+            "Ricardo Iorio",
+            "Almafuerte"
+        ],
         "campaigns": [],
         "commercialPriority": 96,
         "visibilityTier": "featured",
         "legacyCategory": "Bandas Sugeridas",
-        "tags": ["Ricardo Iorio", "Almafuerte", "En Obras", "En vivo", "Argentina Heavy", "remera", "negro", "estampa frontal"]
+        "tags": [
+            "Ricardo Iorio",
+            "Almafuerte",
+            "En Obras",
+            "En vivo",
+            "Argentina Heavy",
+            "remera",
+            "negro",
+            "estampa frontal"
+        ]
     },
     {
         "id": 7224,
@@ -18054,13 +17912,25 @@
         "desc": "Ricardo Iorio cantando en vivo con fotografía en blanco y negro.",
         "band": "Ricardo Iorio",
         "album": null,
-        "garments": ["remera"],
-        "collections": ["Ricardo Iorio"],
+        "garments": [
+            "remera"
+        ],
+        "collections": [
+            "Ricardo Iorio"
+        ],
         "campaigns": [],
         "commercialPriority": 98,
         "visibilityTier": "featured",
         "legacyCategory": "Bandas Sugeridas",
-        "tags": ["Ricardo Iorio", "En vivo", "Blanco y negro", "Argentina Heavy", "remera", "negro", "estampa frontal"]
+        "tags": [
+            "Ricardo Iorio",
+            "En vivo",
+            "Blanco y negro",
+            "Argentina Heavy",
+            "remera",
+            "negro",
+            "estampa frontal"
+        ]
     },
     {
         "id": 7225,
@@ -18087,13 +17957,25 @@
         "desc": "Ricardo Iorio cantando en vivo con la identidad Metal Pesado Argentino.",
         "band": "Ricardo Iorio",
         "album": null,
-        "garments": ["remera"],
-        "collections": ["Ricardo Iorio"],
+        "garments": [
+            "remera"
+        ],
+        "collections": [
+            "Ricardo Iorio"
+        ],
         "campaigns": [],
         "commercialPriority": 98,
         "visibilityTier": "featured",
         "legacyCategory": "Bandas Sugeridas",
-        "tags": ["Ricardo Iorio", "Metal Pesado Argentino", "En vivo", "Argentina Heavy", "remera", "negro", "estampa frontal"]
+        "tags": [
+            "Ricardo Iorio",
+            "Metal Pesado Argentino",
+            "En vivo",
+            "Argentina Heavy",
+            "remera",
+            "negro",
+            "estampa frontal"
+        ]
     },
     {
         "id": 7226,
@@ -18120,13 +18002,163 @@
         "desc": "Ricardo Iorio cantando en vivo con la cruz sobre su ropa.",
         "band": "Ricardo Iorio",
         "album": null,
-        "garments": ["remera"],
-        "collections": ["Ricardo Iorio"],
+        "garments": [
+            "remera"
+        ],
+        "collections": [
+            "Ricardo Iorio"
+        ],
         "campaigns": [],
         "commercialPriority": 98,
         "visibilityTier": "featured",
         "legacyCategory": "Bandas Sugeridas",
-        "tags": ["Ricardo Iorio", "En vivo", "Cruz", "Metal Pesado Argentino", "Argentina Heavy", "remera", "negro", "estampa frontal"]
+        "tags": [
+            "Ricardo Iorio",
+            "En vivo",
+            "Cruz",
+            "Metal Pesado Argentino",
+            "Argentina Heavy",
+            "remera",
+            "negro",
+            "estampa frontal"
+        ]
+    },
+    {
+        "id": 7227,
+        "category": "Pantera",
+        "year": null,
+        "name": "CFH: The Demos",
+        "designId": "pantera-cfh-the-demos",
+        "designSlug": "pantera-cfh-the-demos",
+        "publishedAt": "2026-08-12",
+        "tipoPrecio": "simple",
+        "defaultPrintMode": "frontal",
+        "isNew": true,
+        "img": "images/pantera/remera_cfh_demos.jpg",
+        "variants": [
+            {
+                "img": "images/pantera/remera_cfh_demos.jpg",
+                "name": "CFH: The Demos",
+                "alt": "Remera blanca Pantera CFH The Demos",
+                "designId": "pantera-cfh-the-demos",
+                "color": "blanco",
+                "preferredPreview": true
+            }
+        ],
+        "desc": "Pantera - Cowboys From Hell: The Demos.",
+        "band": "Pantera",
+        "album": "Cowboys from Hell",
+        "garments": [
+            "remera"
+        ],
+        "collections": [
+            "Pantera Archive",
+            "Cowboys from Hell"
+        ],
+        "campaigns": [],
+        "commercialPriority": 82,
+        "visibilityTier": "featured",
+        "legacyCategory": "Pantera",
+        "tags": [
+            "Pantera",
+            "Cowboys from Hell",
+            "CFH The Demos",
+            "Groove Metal",
+            "remera",
+            "blanco",
+            "estampa frontal"
+        ]
+    },
+    {
+        "id": 7228,
+        "category": "Pantera",
+        "year": null,
+        "name": "Pink From Hell",
+        "designId": "pantera-pink-from-hell",
+        "designSlug": "pantera-pink-from-hell",
+        "publishedAt": "2026-08-12",
+        "tipoPrecio": "simple",
+        "defaultPrintMode": "frontal",
+        "isNew": true,
+        "img": "images/pantera/remera_pantera_rosa.jpg",
+        "variants": [
+            {
+                "img": "images/pantera/remera_pantera_rosa.jpg",
+                "name": "Pink From Hell",
+                "alt": "Remera negra Pantera Pink From Hell",
+                "designId": "pantera-pink-from-hell",
+                "color": "negro",
+                "preferredPreview": true
+            }
+        ],
+        "desc": "Pantera - Pink From Hell.",
+        "band": "Pantera",
+        "album": null,
+        "garments": [
+            "remera"
+        ],
+        "collections": [
+            "Pantera Archive"
+        ],
+        "campaigns": [],
+        "commercialPriority": 82,
+        "visibilityTier": "featured",
+        "legacyCategory": "Pantera",
+        "tags": [
+            "Pantera",
+            "Pink From Hell",
+            "Groove Metal",
+            "remera",
+            "negro",
+            "estampa frontal"
+        ]
+    },
+    {
+        "id": 7229,
+        "category": "Pantera",
+        "year": null,
+        "name": "CFH Símbolo Rojo",
+        "designId": "pantera-cfh-simbolo-rojo",
+        "designSlug": "pantera-cfh-simbolo-rojo",
+        "publishedAt": "2026-08-12",
+        "tipoPrecio": "simple",
+        "defaultPrintMode": "frontal",
+        "isNew": true,
+        "img": "images/pantera/remera_pantera_rojo.jpg",
+        "variants": [
+            {
+                "img": "images/pantera/remera_pantera_rojo.jpg",
+                "name": "CFH Símbolo Rojo",
+                "alt": "Remera negra Pantera con símbolo CFH rojo",
+                "designId": "pantera-cfh-simbolo-rojo",
+                "color": "negro",
+                "preferredPreview": true
+            }
+        ],
+        "desc": "Pantera - símbolo CFH en rojo.",
+        "band": "Pantera",
+        "album": "Cowboys from Hell",
+        "garments": [
+            "remera"
+        ],
+        "collections": [
+            "Pantera Archive",
+            "Cowboys from Hell"
+        ],
+        "campaigns": [],
+        "commercialPriority": 82,
+        "visibilityTier": "featured",
+        "legacyCategory": "Pantera",
+        "tags": [
+            "Pantera",
+            "Cowboys from Hell",
+            "CFH",
+            "Símbolo rojo",
+            "Groove Metal",
+            "remera",
+            "negro",
+            "estampa frontal"
+        ]
     },
     {
         "id": 5090,

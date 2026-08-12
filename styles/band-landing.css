@@ -406,6 +406,53 @@
     margin: 80px auto 0;
 }
 
+.band-landing-all-designs {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 22px;
+    margin: 22px 0 14px;
+    padding: 18px 20px;
+    border: 1px solid rgba(30, 215, 96, 0.52);
+    border-radius: 14px;
+    background: linear-gradient(120deg, rgba(30, 215, 96, 0.13), rgba(12, 12, 13, 0.96) 58%);
+}
+
+.band-landing-all-designs > div {
+    display: grid;
+    gap: 3px;
+}
+
+.band-landing-all-designs > div span {
+    color: var(--magic-green);
+    font-size: 0.7rem;
+    font-weight: 900;
+    letter-spacing: 0.13em;
+}
+
+.band-landing-all-designs > div strong {
+    font-size: 0.92rem;
+    line-height: 1.4;
+}
+
+.band-landing-all-designs > button {
+    flex: 0 0 auto;
+    min-height: 48px;
+    padding: 11px 20px;
+    border: 0;
+    border-radius: 9px;
+    background: var(--magic-green);
+    color: #050505;
+    font-family: var(--font-body);
+    font-size: 0.82rem;
+    font-weight: 950;
+    cursor: pointer;
+}
+
+.band-landing-all-designs > button.active {
+    box-shadow: 0 0 0 3px rgba(30, 215, 96, 0.25);
+}
+
 .band-landing-collections {
     display: flex;
     flex-wrap: wrap;
@@ -818,6 +865,17 @@ body.band-landing-page[data-band="Argentina"] #modal .btn-add-cart {
     .band-landing-catalog {
         width: calc(100% - 16px);
         margin-top: 56px;
+    }
+
+    .band-landing-all-designs {
+        align-items: stretch;
+        flex-direction: column;
+        gap: 13px;
+        padding: 15px;
+    }
+
+    .band-landing-all-designs > button {
+        width: 100%;
     }
 
     .band-landing-collections {

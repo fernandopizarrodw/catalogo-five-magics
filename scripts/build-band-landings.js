@@ -54,6 +54,13 @@ function serializeInlineConfig(config) {
             : [],
         collections: Array.isArray(config.collections) ? config.collections : [],
         designOrder: Array.isArray(config.designOrder) ? config.designOrder : [],
+        prominentAllDesigns: config.prominentAllDesigns && typeof config.prominentAllDesigns === 'object'
+            ? config.prominentAllDesigns
+            : null,
+        retiredDesignIds: Array.isArray(config.retiredDesignIds) ? config.retiredDesignIds : [],
+        curatedDesignCategories: config.curatedDesignCategories && typeof config.curatedDesignCategories === 'object'
+            ? config.curatedDesignCategories
+            : {},
         sharedDesignIds: Array.isArray(config.sharedDesignIds) ? config.sharedDesignIds : [],
         sharedBands: Array.isArray(config.sharedBands) ? config.sharedBands : [],
         albumOrder: Array.isArray(config.albumOrder) ? config.albumOrder : []
@@ -232,8 +239,15 @@ ${config.showSizeGuide ? `
                 <div class="band-landing-design-note">Cada diseño puede pedirse en remera, hoodie o buzo. Elegí la prenda al abrirlo.</div>
             </div>
             <nav id="categoryNav" hidden aria-hidden="true"></nav>
+${config.prominentAllDesigns ? `            <div class="band-landing-all-designs">
+                <div>
+                    <span>${config.prominentAllDesigns.kicker || 'ARCHIVO COMPLETO'}</span>
+                    <strong>${config.prominentAllDesigns.copy || `Explorá todos los diseños de ${config.band}.`}</strong>
+                </div>
+                <button type="button" data-band-landing-collection="" onclick="selectBandLandingCollection('')">${config.prominentAllDesigns.label || 'VER TODOS LOS DISEÑOS'} <span data-collection-count=""></span></button>
+            </div>` : ''}
 ${Array.isArray(config.collections) && config.collections.length ? `            <div class="band-landing-collections" id="bandLandingCollections" aria-label="Explorar ${config.band} por colección">
-                <button type="button" class="band-landing-collection-btn${config.defaultCollection ? '' : ' active'}" data-band-landing-collection="" onclick="selectBandLandingCollection('')">${config.allCollectionLabel || 'TODOS'} <span data-collection-count=""></span></button>
+${config.prominentAllDesigns ? '' : `                <button type="button" class="band-landing-collection-btn${config.defaultCollection ? '' : ' active'}" data-band-landing-collection="" onclick="selectBandLandingCollection('')">${config.allCollectionLabel || 'TODOS'} <span data-collection-count=""></span></button>`}
 ${config.collections.map(collection => `                <button type="button" class="band-landing-collection-btn${config.defaultCollection === collection.id ? ' active' : ''}" data-band-landing-collection="${collection.id}" onclick="selectBandLandingCollection('${collection.id}')">${collection.label} <span data-collection-count="${collection.id}"></span></button>`).join('\n')}
             </div>` : ''}
             <div class="catalog-toolbar">

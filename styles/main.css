@@ -393,6 +393,12 @@
     background: var(--magic-green);
 }
 
+.catalog-design-badge.is-featured {
+    color: #090909;
+    background: #d6aa43;
+    border-color: #f1cb72;
+}
+
 .modal-order-summary {
     display: grid;
     gap: 5px;
