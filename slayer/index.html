@@ -37,7 +37,7 @@
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
         gtag('config', 'G-1H3XPM82ED');
-        window.FMD_BAND_LANDING = Object.freeze({"band":"Slayer","slug":"slayer","defaultGarment":"hoodie","usesShownComposition":true,"usesShownCompositionGarments":[],"collections":[],"designOrder":["slayer-show-no-mercy","slayer-show-no-mercy-v2","slayer-show-no-mercy-fmd","slayer-live-undead","slayer-hell-awaits","slayer-angel-of-death","slayer-reign-in-blood","slayer-reign-in-blood-3d","slayer-reign-in-blood-graphic","slayer-reign-in-blood-40th-anniversary","slayer-south-of-heaven","slayer-south-of-heaven-graphic","slayer-seasons-in-the-abyss","slayer-seasons-v1","slayer-seasons-in-the-abyss-v2","slayer-divine-intervention","slayer-diabolus-in-musica","slayer-remaster-fmd","slayer-god-hates-us-all","slayer-god-hates-us-all-v2","slayer-repentless","slayer-goat-tour","slayer-aguila","slayer-band","slayer-demonic-admat","slayer-logo","slayer-nation","slayer-skull","slayer-slayer-v1","slayer-slayer-v2","slayer-slayer-v3","slayer-slayer-v4","slayer-soldier-v2-graphic","slayer-soldiers","slayer-throne","slayer-v2-remera-negra"],"sharedDesignIds":[],"sharedBands":[],"albumOrder":[]});
+        window.FMD_BAND_LANDING = Object.freeze({"band":"Slayer","slug":"slayer","defaultGarment":"hoodie","defaultCollection":"","usesShownComposition":true,"usesShownCompositionGarments":[],"collections":[],"designOrder":["slayer-show-no-mercy","slayer-show-no-mercy-v2","slayer-show-no-mercy-fmd","slayer-live-undead","slayer-hell-awaits","slayer-angel-of-death","slayer-reign-in-blood","slayer-reign-in-blood-3d","slayer-reign-in-blood-graphic","slayer-reign-in-blood-40th-anniversary","slayer-south-of-heaven","slayer-south-of-heaven-graphic","slayer-seasons-in-the-abyss","slayer-seasons-v1","slayer-seasons-in-the-abyss-v2","slayer-divine-intervention","slayer-diabolus-in-musica","slayer-remaster-fmd","slayer-god-hates-us-all","slayer-god-hates-us-all-v2","slayer-repentless","slayer-goat-tour","slayer-aguila","slayer-band","slayer-demonic-admat","slayer-logo","slayer-nation","slayer-skull","slayer-slayer-v1","slayer-slayer-v2","slayer-slayer-v3","slayer-slayer-v4","slayer-soldier-v2-graphic","slayer-soldiers","slayer-throne","slayer-v2-remera-negra"],"sharedDesignIds":[],"sharedBands":[],"albumOrder":[]});
     </script>
 </head>
 <body class="band-landing-page" data-band="Slayer">
@@ -48,7 +48,7 @@
             <div class="header-actions">
                 <a href="/#catalogoPrincipal" class="btn-back-catalog">VER TODO FMD</a>
                 <a href="https://wa.me/541169667685?text=Hola%20FMD!%20Quiero%20hacer%20un%20pedido%20de%20Slayer." class="btn-wa-header" target="_blank" rel="noopener">
-                    <span>WhatsApp</span>
+                    <span>HACER PEDIDO</span>
                 </a>
             </div>
         </div>
@@ -84,8 +84,8 @@
 
         <section class="july-shipping-promo" aria-label="Beneficios FMD">
             <p>PROMO AGOSTO</p>
-            <strong>ENVÍO GRATIS <em>A TODO EL PAÍS</em></strong>
-            <span>Durante agosto · Desde 1 prenda · A punto de retiro Andreani</span>
+            <strong>ENVÍO GRATIS <em>A PUNTO ANDREANI</em></strong>
+            <span>Durante agosto · Desde 1 prenda</span>
             <b>3 PRENDAS O MÁS · 10% OFF + ENVÍO GRATIS A DOMICILIO</b>
         </section>
 
@@ -371,10 +371,15 @@
                         <p class="modal-delivery-note"><strong>Plazo estimado total: 3 a 7 días hábiles, según el destino.</strong> El retiro en Villa Martelli está disponible desde el tercer día hábil posterior a la compra.</p>
                     </div>
 
+                    <div class="modal-order-summary" id="modalOrderSummary" aria-live="polite">
+                        <span>Tu pedido:</span>
+                        <strong id="modalOrderSummaryText">Completá las opciones para continuar.</strong>
+                    </div>
+
                     <div class="modal-actions">
                         <div class="modal-actions-primary">
                             <button class="btn-buy-now btn-primary" id="btnBuyNow" onclick="addToCartAndOpenWhatsapp()">
-                                PEDIR ESTE DISE&Ntilde;O
+                                ENVIAR PEDIDO POR WHATSAPP
                             </button>
                             <button class="btn-add-cart btn-primary-alt" id="btnAddCart" onclick="addToCartFromModal()">
                                 AGREGAR AL CARRITO

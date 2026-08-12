@@ -47,6 +47,7 @@ function serializeInlineConfig(config) {
         band: config.band,
         slug: config.slug,
         defaultGarment: config.defaultGarment,
+        defaultCollection: config.defaultCollection || '',
         usesShownComposition: config.usesShownComposition,
         usesShownCompositionGarments: Array.isArray(config.usesShownCompositionGarments)
             ? config.usesShownCompositionGarments
@@ -140,7 +141,7 @@ function renderLanding(config, sharedCommerceMarkup) {
             <div class="header-actions">
                 <a href="/#catalogoPrincipal" class="btn-back-catalog">VER TODO FMD</a>
                 <a href="${whatsappUrl(`Hola FMD! Quiero hacer un pedido de ${config.band}.`)}" class="btn-wa-header" target="_blank" rel="noopener">
-                    <span>WhatsApp</span>
+                    <span>HACER PEDIDO</span>
                 </a>
             </div>
         </div>
@@ -180,8 +181,8 @@ ${config.relatedArchive ? `                <a class="band-landing-related-archiv
 
         <section class="july-shipping-promo" aria-label="Beneficios FMD">
             <p>PROMO AGOSTO</p>
-            <strong>ENVÍO GRATIS <em>A TODO EL PAÍS</em></strong>
-            <span>Durante agosto · Desde 1 prenda · A punto de retiro Andreani</span>
+            <strong>ENVÍO GRATIS <em>A PUNTO ANDREANI</em></strong>
+            <span>Durante agosto · Desde 1 prenda</span>
             <b>3 PRENDAS O MÁS · 10% OFF + ENVÍO GRATIS A DOMICILIO</b>
         </section>
 
@@ -232,8 +233,8 @@ ${config.showSizeGuide ? `
             </div>
             <nav id="categoryNav" hidden aria-hidden="true"></nav>
 ${Array.isArray(config.collections) && config.collections.length ? `            <div class="band-landing-collections" id="bandLandingCollections" aria-label="Explorar ${config.band} por colección">
-                <button type="button" class="band-landing-collection-btn active" data-band-landing-collection="" onclick="selectBandLandingCollection('')">TODOS <span data-collection-count=""></span></button>
-${config.collections.map(collection => `                <button type="button" class="band-landing-collection-btn" data-band-landing-collection="${collection.id}" onclick="selectBandLandingCollection('${collection.id}')">${collection.label} <span data-collection-count="${collection.id}"></span></button>`).join('\n')}
+                <button type="button" class="band-landing-collection-btn${config.defaultCollection ? '' : ' active'}" data-band-landing-collection="" onclick="selectBandLandingCollection('')">${config.allCollectionLabel || 'TODOS'} <span data-collection-count=""></span></button>
+${config.collections.map(collection => `                <button type="button" class="band-landing-collection-btn${config.defaultCollection === collection.id ? ' active' : ''}" data-band-landing-collection="${collection.id}" onclick="selectBandLandingCollection('${collection.id}')">${collection.label} <span data-collection-count="${collection.id}"></span></button>`).join('\n')}
             </div>` : ''}
             <div class="catalog-toolbar">
                 <button type="button" id="megadethBackBtn" hidden></button>

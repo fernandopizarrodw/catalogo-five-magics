@@ -37,7 +37,7 @@
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
         gtag('config', 'G-1H3XPM82ED');
-        window.FMD_BAND_LANDING = Object.freeze({"band":"Megadeth","slug":"megadeth","defaultGarment":"remera","usesShownComposition":false,"usesShownCompositionGarments":["hoodie","buzo_cuello_redondo"],"collections":[{"id":"albums","label":"ÁLBUMES","match":{"categories":["Album"]}},{"id":"vic","label":"VIC RATTLEHEAD","match":{"categories":["VicRattlehead"]}},{"id":"mustaine","label":"DAVE MUSTAINE","match":{"categories":["Dave Mustaine"]}},{"id":"tours","label":"TOURS","match":{"categories":["Tour"]}},{"id":"originals","label":"ORIGINALES FMD","match":{"badges":["ORIGINAL FMD"]}}],"designOrder":[],"sharedDesignIds":[],"sharedBands":[],"albumOrder":["Killing Is My Business... and Business Is Good!","Peace Sells... but Who's Buying?","So Far, So Good... So What!","Rust in Peace","Countdown to Extinction","Youthanasia","Hidden Treasures","Cryptic Writings","Risk","The World Needs a Hero","The System Has Failed","United Abominations","Endgame","TH1RT3EN","Super Collider","Dystopia","The Sick, the Dying... and the Dead!","Megadeth (2026)"]});
+        window.FMD_BAND_LANDING = Object.freeze({"band":"Megadeth","slug":"megadeth","defaultGarment":"remera","defaultCollection":"featured","usesShownComposition":false,"usesShownCompositionGarments":["hoodie","buzo_cuello_redondo"],"collections":[{"id":"featured","label":"DESTACADOS","match":{"visibilityTiers":["hero","featured"]}},{"id":"rust","label":"RUST IN PEACE","match":{"albums":["Rust in Peace"]}},{"id":"peace-sells","label":"PEACE SELLS","match":{"albums":["Peace Sells... but Who's Buying?"]}},{"id":"countdown","label":"COUNTDOWN","match":{"albums":["Countdown to Extinction"]}},{"id":"youthanasia","label":"YOUTHANASIA","match":{"albums":["Youthanasia"]}},{"id":"vic","label":"VIC RATTLEHEAD","match":{"categories":["VicRattlehead"]}},{"id":"members","label":"DAVE / MIEMBROS","match":{"categories":["Dave Mustaine","Musician"]}},{"id":"tours","label":"TOURS / CLÁSICOS","match":{"categories":["Tour","Orígenes"]}},{"id":"originals","label":"REIMAGINADOS FMD","match":{"badges":["ORIGINAL FMD"]}}],"designOrder":[],"sharedDesignIds":[],"sharedBands":[],"albumOrder":["Killing Is My Business... and Business Is Good!","Peace Sells... but Who's Buying?","So Far, So Good... So What!","Rust in Peace","Countdown to Extinction","Youthanasia","Hidden Treasures","Cryptic Writings","Risk","The World Needs a Hero","The System Has Failed","United Abominations","Endgame","TH1RT3EN","Super Collider","Dystopia","The Sick, the Dying... and the Dead!","Megadeth (2026)"]});
     </script>
 </head>
 <body class="band-landing-page" data-band="Megadeth">
@@ -48,7 +48,7 @@
             <div class="header-actions">
                 <a href="/#catalogoPrincipal" class="btn-back-catalog">VER TODO FMD</a>
                 <a href="https://wa.me/541169667685?text=Hola%20FMD!%20Quiero%20hacer%20un%20pedido%20de%20Megadeth." class="btn-wa-header" target="_blank" rel="noopener">
-                    <span>WhatsApp</span>
+                    <span>HACER PEDIDO</span>
                 </a>
             </div>
         </div>
@@ -84,8 +84,8 @@
 
         <section class="july-shipping-promo" aria-label="Beneficios FMD">
             <p>PROMO AGOSTO</p>
-            <strong>ENVÍO GRATIS <em>A TODO EL PAÍS</em></strong>
-            <span>Durante agosto · Desde 1 prenda · A punto de retiro Andreani</span>
+            <strong>ENVÍO GRATIS <em>A PUNTO ANDREANI</em></strong>
+            <span>Durante agosto · Desde 1 prenda</span>
             <b>3 PRENDAS O MÁS · 10% OFF + ENVÍO GRATIS A DOMICILIO</b>
         </section>
 
@@ -134,12 +134,16 @@
             </div>
             <nav id="categoryNav" hidden aria-hidden="true"></nav>
             <div class="band-landing-collections" id="bandLandingCollections" aria-label="Explorar Megadeth por colección">
-                <button type="button" class="band-landing-collection-btn active" data-band-landing-collection="" onclick="selectBandLandingCollection('')">TODOS <span data-collection-count=""></span></button>
-                <button type="button" class="band-landing-collection-btn" data-band-landing-collection="albums" onclick="selectBandLandingCollection('albums')">ÁLBUMES <span data-collection-count="albums"></span></button>
+                <button type="button" class="band-landing-collection-btn" data-band-landing-collection="" onclick="selectBandLandingCollection('')">VER TODOS <span data-collection-count=""></span></button>
+                <button type="button" class="band-landing-collection-btn active" data-band-landing-collection="featured" onclick="selectBandLandingCollection('featured')">DESTACADOS <span data-collection-count="featured"></span></button>
+                <button type="button" class="band-landing-collection-btn" data-band-landing-collection="rust" onclick="selectBandLandingCollection('rust')">RUST IN PEACE <span data-collection-count="rust"></span></button>
+                <button type="button" class="band-landing-collection-btn" data-band-landing-collection="peace-sells" onclick="selectBandLandingCollection('peace-sells')">PEACE SELLS <span data-collection-count="peace-sells"></span></button>
+                <button type="button" class="band-landing-collection-btn" data-band-landing-collection="countdown" onclick="selectBandLandingCollection('countdown')">COUNTDOWN <span data-collection-count="countdown"></span></button>
+                <button type="button" class="band-landing-collection-btn" data-band-landing-collection="youthanasia" onclick="selectBandLandingCollection('youthanasia')">YOUTHANASIA <span data-collection-count="youthanasia"></span></button>
                 <button type="button" class="band-landing-collection-btn" data-band-landing-collection="vic" onclick="selectBandLandingCollection('vic')">VIC RATTLEHEAD <span data-collection-count="vic"></span></button>
-                <button type="button" class="band-landing-collection-btn" data-band-landing-collection="mustaine" onclick="selectBandLandingCollection('mustaine')">DAVE MUSTAINE <span data-collection-count="mustaine"></span></button>
-                <button type="button" class="band-landing-collection-btn" data-band-landing-collection="tours" onclick="selectBandLandingCollection('tours')">TOURS <span data-collection-count="tours"></span></button>
-                <button type="button" class="band-landing-collection-btn" data-band-landing-collection="originals" onclick="selectBandLandingCollection('originals')">ORIGINALES FMD <span data-collection-count="originals"></span></button>
+                <button type="button" class="band-landing-collection-btn" data-band-landing-collection="members" onclick="selectBandLandingCollection('members')">DAVE / MIEMBROS <span data-collection-count="members"></span></button>
+                <button type="button" class="band-landing-collection-btn" data-band-landing-collection="tours" onclick="selectBandLandingCollection('tours')">TOURS / CLÁSICOS <span data-collection-count="tours"></span></button>
+                <button type="button" class="band-landing-collection-btn" data-band-landing-collection="originals" onclick="selectBandLandingCollection('originals')">REIMAGINADOS FMD <span data-collection-count="originals"></span></button>
             </div>
             <div class="catalog-toolbar">
                 <button type="button" id="megadethBackBtn" hidden></button>
@@ -378,10 +382,15 @@
                         <p class="modal-delivery-note"><strong>Plazo estimado total: 3 a 7 días hábiles, según el destino.</strong> El retiro en Villa Martelli está disponible desde el tercer día hábil posterior a la compra.</p>
                     </div>
 
+                    <div class="modal-order-summary" id="modalOrderSummary" aria-live="polite">
+                        <span>Tu pedido:</span>
+                        <strong id="modalOrderSummaryText">Completá las opciones para continuar.</strong>
+                    </div>
+
                     <div class="modal-actions">
                         <div class="modal-actions-primary">
                             <button class="btn-buy-now btn-primary" id="btnBuyNow" onclick="addToCartAndOpenWhatsapp()">
-                                PEDIR ESTE DISE&Ntilde;O
+                                ENVIAR PEDIDO POR WHATSAPP
                             </button>
                             <button class="btn-add-cart btn-primary-alt" id="btnAddCart" onclick="addToCartFromModal()">
                                 🛒 Guardar en carrito

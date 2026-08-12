@@ -130,6 +130,8 @@
             finalCopy: 'También hacemos diseños personalizados a partir de una tapa, imagen o idea.',
             whatsappMessage: 'Hola FMD! Quiero consultar por un diseño de Megadeth a partir de una tapa, imagen o idea.',
             defaultGarment: 'remera',
+            defaultCollection: 'featured',
+            allCollectionLabel: 'VER TODOS',
             usesShownComposition: false,
             usesShownCompositionGarments: ['hoodie', 'buzo_cuello_redondo'],
             albumOrder: [
@@ -158,11 +160,15 @@
                 { key: 'remera', title: 'REMERAS', price: 'Desde $37.000', image: '/images/albums/Rust_in_peace/rust_in_peace.jpg', alt: 'Remera Megadeth Rust in Peace' }
             ],
             collections: [
-                { id: 'albums', label: 'ÁLBUMES', match: { categories: ['Album'] } },
+                { id: 'featured', label: 'DESTACADOS', match: { visibilityTiers: ['hero', 'featured'] } },
+                { id: 'rust', label: 'RUST IN PEACE', match: { albums: ['Rust in Peace'] } },
+                { id: 'peace-sells', label: 'PEACE SELLS', match: { albums: ["Peace Sells... but Who's Buying?"] } },
+                { id: 'countdown', label: 'COUNTDOWN', match: { albums: ['Countdown to Extinction'] } },
+                { id: 'youthanasia', label: 'YOUTHANASIA', match: { albums: ['Youthanasia'] } },
                 { id: 'vic', label: 'VIC RATTLEHEAD', match: { categories: ['VicRattlehead'] } },
-                { id: 'mustaine', label: 'DAVE MUSTAINE', match: { categories: ['Dave Mustaine'] } },
-                { id: 'tours', label: 'TOURS', match: { categories: ['Tour'] } },
-                { id: 'originals', label: 'ORIGINALES FMD', match: { badges: ['ORIGINAL FMD'] } }
+                { id: 'members', label: 'DAVE / MIEMBROS', match: { categories: ['Dave Mustaine', 'Musician'] } },
+                { id: 'tours', label: 'TOURS / CLÁSICOS', match: { categories: ['Tour', 'Orígenes'] } },
+                { id: 'originals', label: 'REIMAGINADOS FMD', match: { badges: ['ORIGINAL FMD'] } }
             ]
         },
         {

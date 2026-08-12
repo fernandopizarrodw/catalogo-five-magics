@@ -393,6 +393,29 @@
     background: var(--magic-green);
 }
 
+.modal-order-summary {
+    display: grid;
+    gap: 5px;
+    padding: 13px 15px;
+    border: 1px solid rgba(57, 255, 20, .32);
+    border-radius: 10px;
+    background: rgba(57, 255, 20, .065);
+}
+
+.modal-order-summary span {
+    color: var(--magic-green);
+    font-size: .72rem;
+    font-weight: 900;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+}
+
+.modal-order-summary strong {
+    color: #fff;
+    font-size: .92rem;
+    line-height: 1.45;
+}
+
 .catalog-design-copy {
     display: flex;
     flex: 1;
