@@ -4621,6 +4621,27 @@ header {
     text-overflow: ellipsis;
 }
 
+/* Styles for collapsible Megadeth secondary content */
+.megadeth-collapse {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+.megadeth-collapse summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 14px 18px;
+    background: linear-gradient(90deg,#0b0b0b,#111);
+    color: #fff;
+    font-weight: 600;
+    border-radius: 8px;
+    margin: 12px 0;
+}
+.megadeth-collapse[open] summary::after { content: ' ▾'; }
+.megadeth-collapse summary::after { content: ' ▸'; float: right; }
+.megadeth-collapse summary::-webkit-details-marker { display:none; }
+.megadeth-collapse[open] { padding-bottom: 18px; }
+
 .featured-logo {
     width: 90%;
     max-height: 160px;
