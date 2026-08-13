@@ -6606,24 +6606,20 @@ function updateCountsUI(){
         const rhapsodyDesignCount = countDesignsByFilter('Rhapsody');
 
         // Destacados: badges
+        document.querySelectorAll('.featured-badge').forEach(badge => {
+            badge.textContent = '';
+        });
+
         const ftMegadethCard = document.querySelector('.featured-card[data-trigger="Album"]');
         if(ftMegadethCard){
-            const badge = ftMegadethCard.querySelector('.featured-badge');
-            if(badge) badge.textContent = `${megadethTotal} diseños`;
             const title = ftMegadethCard.querySelector('h3');
             if(title) title.textContent = 'Megadeth';
         }
-        const ftPantera = document.querySelector('.featured-card[data-trigger="Pantera"] .featured-badge');
-        if(ftPantera) ftPantera.textContent = `${byCategory['Pantera']||0} diseños`;
-        const ftIron = document.querySelector('.featured-card[data-trigger="Iron Maiden"] .featured-badge');
-        if(ftIron) ftIron.textContent = `${byCategory['Iron Maiden']||0} diseños`;
-        const ftMetal = document.querySelector('.featured-card[data-trigger="Metallica"] .featured-badge');
-        if(ftMetal) ftMetal.textContent = `${byCategory['Metallica']||0} diseños`;
 
-        // Navegación categorías: badges
+        // Navegación categorías: sin contadores engañosos en home
         const setNavBadge = (cat, val) => {
             const el = document.querySelector(`.cat-btn[data-cat="${cat}"] .badge`);
-            if(el) el.textContent = val;
+            if(el) el.textContent = '';
         };
         const toggleNavCategory = (cat, isVisible) => {
             const btn = document.querySelector(`.cat-btn[data-cat="${cat}"]`);
