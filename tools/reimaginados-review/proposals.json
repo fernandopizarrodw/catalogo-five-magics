@@ -1,0 +1,376 @@
+[
+  {
+    "label": "Vic Bandera Blanco",
+    "matches": [
+      {
+        "id": 40,
+        "name": "Tour Argentina",
+        "band": "Megadeth",
+        "collections": [
+          "Tour Argentina 2026",
+          "Edicion Argentina",
+          "Post Show",
+          "Megadeth Archive",
+          "Tour Archive"
+        ]
+      }
+    ],
+    "proposal": "Vic Legacy / Vic Rattlehead",
+    "reason": "contains \"vic\""
+  },
+  {
+    "label": "Vic Celeste y Blanco",
+    "matches": [
+      {
+        "id": 40,
+        "name": "Tour Argentina",
+        "band": "Megadeth",
+        "collections": [
+          "Tour Argentina 2026",
+          "Edicion Argentina",
+          "Post Show",
+          "Megadeth Archive",
+          "Tour Archive"
+        ]
+      }
+    ],
+    "proposal": "Vic Legacy / Vic Rattlehead",
+    "reason": "contains \"vic\""
+  },
+  {
+    "label": "Vic Tour 2026 v3",
+    "matches": [],
+    "proposal": "Vic Legacy / Vic Rattlehead",
+    "reason": "contains \"vic\""
+  },
+  {
+    "label": "Dave Final Show",
+    "matches": [
+      {
+        "id": 40,
+        "name": "Tour Argentina",
+        "band": "Megadeth",
+        "collections": [
+          "Tour Argentina 2026",
+          "Edicion Argentina",
+          "Post Show",
+          "Megadeth Archive",
+          "Tour Archive"
+        ]
+      }
+    ],
+    "proposal": "Dave Mustaine / Dave spotlight",
+    "reason": "contains \"dave\""
+  },
+  {
+    "label": "marty_dave",
+    "matches": [
+      {
+        "id": 300,
+        "name": "Marty & Dave",
+        "band": "Megadeth",
+        "collections": [
+          "Tour Live Set",
+          "Megadeth Archive",
+          "Tour Archive"
+        ]
+      }
+    ],
+    "proposal": "Dave Mustaine / Dave spotlight",
+    "reason": "contains \"dave\""
+  },
+  {
+    "label": "Realista",
+    "matches": [
+      {
+        "id": 1,
+        "name": "Killing Is my bussines",
+        "band": "Megadeth",
+        "collections": [
+          "Megadeth Albums",
+          "FMD Editions"
+        ]
+      },
+      {
+        "id": 246,
+        "name": "Singles Ultimo Disco",
+        "band": "Megadeth",
+        "collections": [
+          "Megadeth Archive",
+          "Megadeth Singles"
+        ]
+      },
+      {
+        "id": 39,
+        "name": "VIC GAUCHO ARGENTINO",
+        "band": "Megadeth",
+        "collections": [
+          "Tour Argentina 2026",
+          "Edicion Argentina",
+          "Megadeth Archive",
+          "Tour Archive"
+        ]
+      },
+      {
+        "id": 1061,
+        "name": "Master of Puppets",
+        "band": "Metallica",
+        "collections": [
+          "Metallica Albums",
+          "Hoodies Otras Bandas"
+        ]
+      }
+    ],
+    "proposal": "ASK",
+    "reason": ""
+  },
+  {
+    "label": "Argentina V1",
+    "matches": [
+      {
+        "id": 6014,
+        "name": "Dave Mustaine Argentina V1",
+        "band": "Megadeth",
+        "collections": [
+          "Tour Argentina 2026",
+          "Edicion Argentina",
+          "Post Show",
+          "Dave Mustaine Spotlight"
+        ]
+      },
+      {
+        "id": 7015,
+        "name": "Iron Maiden Eddie Argentina V1 FMD",
+        "band": "Iron Maiden",
+        "collections": [
+          "Eddie Argentina",
+          "Archivo Maiden"
+        ]
+      }
+    ],
+    "proposal": "ASK",
+    "reason": ""
+  },
+  {
+    "label": "Killing Time",
+    "matches": [
+      {
+        "id": 5022,
+        "name": "The Sick, The Dying... and The Dead",
+        "band": "Megadeth",
+        "collections": [
+          "Megadeth Archive",
+          "Megadeth Singles",
+          "The Sick, the Dying... and the Dead!"
+        ]
+      }
+    ],
+    "proposal": "Album: Killing Is My Business",
+    "reason": "heuristic match \"killing\""
+  },
+  {
+    "label": "Life in Hell",
+    "matches": [
+      {
+        "id": 5022,
+        "name": "The Sick, The Dying... and The Dead",
+        "band": "Megadeth",
+        "collections": [
+          "Megadeth Archive",
+          "Megadeth Singles",
+          "The Sick, the Dying... and the Dead!"
+        ]
+      }
+    ],
+    "proposal": "Band: Megadeth",
+    "reason": "only one matching product with band Megadeth"
+  },
+  {
+    "label": "Night Stalkers",
+    "matches": [
+      {
+        "id": 5022,
+        "name": "The Sick, The Dying... and The Dead",
+        "band": "Megadeth",
+        "collections": [
+          "Megadeth Archive",
+          "Megadeth Singles",
+          "The Sick, the Dying... and the Dead!"
+        ]
+      }
+    ],
+    "proposal": "Band: Megadeth",
+    "reason": "only one matching product with band Megadeth"
+  },
+  {
+    "label": "1992 V1",
+    "matches": [
+      {
+        "id": 2801,
+        "name": "Dave 1992 V1",
+        "band": "Megadeth",
+        "collections": [
+          "Dave Mustaine Spotlight",
+          "Megadeth Archive",
+          "Countdown to Extinction"
+        ]
+      }
+    ],
+    "proposal": "Band: Megadeth",
+    "reason": "only one matching product with band Megadeth"
+  },
+  {
+    "label": "92 Live",
+    "matches": [
+      {
+        "id": 2801,
+        "name": "Dave 1992 V1",
+        "band": "Megadeth",
+        "collections": [
+          "Dave Mustaine Spotlight",
+          "Megadeth Archive",
+          "Countdown to Extinction"
+        ]
+      }
+    ],
+    "proposal": "Band: Megadeth",
+    "reason": "only one matching product with band Megadeth"
+  },
+  {
+    "label": "92 Live Black",
+    "matches": [
+      {
+        "id": 2801,
+        "name": "Dave 1992 V1",
+        "band": "Megadeth",
+        "collections": [
+          "Dave Mustaine Spotlight",
+          "Megadeth Archive",
+          "Countdown to Extinction"
+        ]
+      }
+    ],
+    "proposal": "Band: Megadeth",
+    "reason": "only one matching product with band Megadeth"
+  },
+  {
+    "label": "Double Neck Jackson",
+    "matches": [
+      {
+        "id": 2801,
+        "name": "Dave 1992 V1",
+        "band": "Megadeth",
+        "collections": [
+          "Dave Mustaine Spotlight",
+          "Megadeth Archive",
+          "Countdown to Extinction"
+        ]
+      }
+    ],
+    "proposal": "Band: Megadeth",
+    "reason": "only one matching product with band Megadeth"
+  },
+  {
+    "label": "Hangar 18",
+    "matches": [
+      {
+        "id": 5053,
+        "name": "Hangar 18",
+        "band": "Megadeth",
+        "collections": [
+          "Megadeth Archive",
+          "Megadeth Singles",
+          "Rust in Peace"
+        ]
+      }
+    ],
+    "proposal": "Album: Rust in Peace",
+    "reason": "heuristic match \"hangar\""
+  },
+  {
+    "label": "BN 90s",
+    "matches": [
+      {
+        "id": 2802,
+        "name": "Dave 90s RIP Live",
+        "band": "Megadeth",
+        "collections": [
+          "Rust in Peace Era",
+          "Post Show",
+          "Dave Mustaine Spotlight",
+          "Megadeth Archive",
+          "Rust in Peace"
+        ]
+      }
+    ],
+    "proposal": "Band: Megadeth",
+    "reason": "only one matching product with band Megadeth"
+  },
+  {
+    "label": "Dave 90s RIP Live",
+    "matches": [
+      {
+        "id": 2802,
+        "name": "Dave 90s RIP Live",
+        "band": "Megadeth",
+        "collections": [
+          "Rust in Peace Era",
+          "Post Show",
+          "Dave Mustaine Spotlight",
+          "Megadeth Archive",
+          "Rust in Peace"
+        ]
+      }
+    ],
+    "proposal": "Dave Mustaine / Dave spotlight",
+    "reason": "contains \"dave\""
+  },
+  {
+    "label": "Dave and Vic Live",
+    "matches": [
+      {
+        "id": 2815,
+        "name": "Dave Vic RIP",
+        "band": "Megadeth",
+        "collections": [
+          "Dave Mustaine Spotlight",
+          "Megadeth Archive",
+          "Rust in Peace"
+        ]
+      }
+    ],
+    "proposal": "Vic Legacy / Vic Rattlehead",
+    "reason": "contains \"vic\""
+  },
+  {
+    "label": "Dave So Far Era V2",
+    "matches": [],
+    "proposal": "Dave Mustaine / Dave spotlight",
+    "reason": "contains \"dave\""
+  },
+  {
+    "label": "Vic Sells v1",
+    "matches": [],
+    "proposal": "Vic Legacy / Vic Rattlehead",
+    "reason": "contains \"vic\""
+  },
+  {
+    "label": "peace_sells_live",
+    "matches": [
+      {
+        "id": 301,
+        "name": "Peace Sells Live",
+        "band": "Megadeth",
+        "collections": [
+          "Tour Live Set",
+          "Post Show",
+          "Megadeth Archive",
+          "Tour Archive",
+          "Peace Sells... but Who's Buying?"
+        ]
+      }
+    ],
+    "proposal": "Album: Peace Sells",
+    "reason": "heuristic match \"peace\""
+  }
+]

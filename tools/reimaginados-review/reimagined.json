@@ -1,0 +1,26 @@
+[
+  {
+    "id": 18,
+    "name": "Hidden Treasures",
+    "band": "Megadeth",
+    "collections": [
+      "Megadeth Archive",
+      "Megadeth Albums",
+      "Hidden Treasures",
+      "FMD Editions"
+    ],
+    "tags": [
+      "Megadeth",
+      "Megadeth Vault",
+      "Thrash Metal",
+      "FMD Editions",
+      "Hidden Treasures",
+      "remera",
+      "Megadeth Archive",
+      "Megadeth Albums"
+    ],
+    "img": "images/fmd-edition-3d/hidden_treasures/hidden_treasures_fmd_edition.jpg",
+    "megadethSection": "albums",
+    "desc": "Hidden Treasures reimaginado por FMD con una lectura visual renovada del clásico de 1995."
+  }
+]
