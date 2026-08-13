@@ -7654,10 +7654,12 @@ header {
     box-shadow: 0 0 0 2px rgba(255, 77, 79, 0.16);
 }
 
-.btn-buy-now.is-validation-blocked {
+.btn-buy-now.is-validation-blocked,
+.btn-buy-now:disabled {
     opacity: 0.58;
     cursor: not-allowed;
     filter: grayscale(0.45);
+    pointer-events: none;
 }
 
 .modal-delivery-note {

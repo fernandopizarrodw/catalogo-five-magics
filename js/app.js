@@ -2510,7 +2510,8 @@ function updateModalWhatsappAvailability() {
     const blockedByPostalCode = isModalPostalCodeRequired() && !getModalPostalCode();
     button.classList.toggle('is-validation-blocked', blockedByPostalCode);
     button.setAttribute('aria-disabled', blockedByPostalCode ? 'true' : 'false');
-    button.title = blockedByPostalCode ? 'Ingresá el código postal para continuar.' : '';
+    button.disabled = blockedByPostalCode;
+    button.title = blockedByPostalCode ? 'Ingresá tu CP para buscar punto Andreani.' : '';
 }
 
 function updateDeliveryUI() {
@@ -2596,7 +2597,7 @@ function validateModalDeliveryBeforeWhatsapp() {
         delivery_method: selectedDeliveryMethod,
         validation_error: 'missing_postal_code'
     });
-    const postalMessage = 'Ingresá el código postal para elegir el punto Andreani que te quede más cómodo.';
+    const postalMessage = 'Ingresá tu CP para buscar punto Andreani y continuar.';
     showNotification(postalMessage, 2600);
     const field = document.getElementById('modalPostalField');
     const input = document.getElementById('modalPostalCode');
@@ -8469,7 +8470,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (heroCtaWhatsapp) {
         heroCtaWhatsapp.addEventListener('click', (e) => {
             e.preventDefault();
-            openWhatsapp('Hola FMD! Quiero hacer un pedido de sus diseños 🤘\n\nFormato: Buzo / Hoodie / Remera\nDiseño: ___\nBanda: ___\nTalle: ___\nColor: ___\nCódigo postal si necesito envío: ___\n\n¿Me confirmás precio final y envío?', 'hero_general');
+            openWhatsapp('Hola FMD! Quiero pedir un diseño personalizado.\n\nFormato: Buzo / Hoodie / Remera\nDiseño o referencia: ___\nBanda: ___\nTalle: ___\nColor: ___\nCódigo postal si necesito envío: ___\n\n¿Me confirmás precio final y envío?', 'hero_general');
         });
     }
 
