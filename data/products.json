@@ -1334,6 +1334,16 @@
                 "isNew": true,
                 "fmdBadge": "ORIGINAL FMD",
                 "fmdBadgeDescription": "Arte exclusivo FMD con impronta de colección, pensado para llevar la era del disco a una prenda con presencia."
+            },
+            {
+                "img": "images/albums/United_Abominations/united_fmd_v2.png",
+                "name": "United Abominations FMD",
+                "alt": "Remera negra Megadeth United Abominations FMD",
+                "designId": "megadeth-united-abominations-fmd",
+                "color": "negro",
+                "isNew": true,
+                "fmdBadge": "ORIGINAL FMD",
+                "fmdBadgeDescription": "Diseño FMD inspirado en United Abominations."
             }
         ],
         "desc": "CrÃ­tica feroz a la ONU y agresividad moderna con un rediseÃ±o cinematogrÃ¡fico de Vic Rattlehead.",
@@ -2743,6 +2753,16 @@
             {
                 "img": "images/musicians/Nick_Menza/nick_menza_rip_era.jpg",
                 "name": "RIP Era"
+            },
+            {
+                "img": "images/musicians/Nick_Menza/nick_menza.jpg",
+                "name": "Nick Menza Live",
+                "alt": "Remera negra Megadeth Nick Menza tocando en vivo",
+                "designId": "megadeth-nick-menza-live",
+                "color": "negro",
+                "isNew": true,
+                "fmdBadge": "ORIGINAL FMD",
+                "fmdBadgeDescription": "Diseño FMD dedicado a Nick Menza."
             },
             {
                 "img": "images/musicians/Nick_Menza/megadeth_logo_youthansia.jpg",
@@ -18159,6 +18179,62 @@
             "negro",
             "estampa frontal"
         ]
+    },
+    {
+        "id": 7230,
+        "category": "Singles",
+        "year": "1992",
+        "name": "Symphony of Destruction FMD",
+        "designId": "megadeth-symphony-of-destruction-fmd",
+        "designSlug": "megadeth-symphony-of-destruction-fmd",
+        "publishedAt": "2026-08-12",
+        "tipoPrecio": "simple",
+        "defaultPrintMode": "frontal",
+        "isNew": true,
+        "img": "images/vic_rattlehead/remera_vic_rattlehead_symphony_fmd.jpg",
+        "variants": [
+            {
+                "img": "images/vic_rattlehead/remera_vic_rattlehead_symphony_fmd.jpg",
+                "name": "Symphony of Destruction FMD",
+                "alt": "Remera negra Megadeth Symphony of Destruction FMD",
+                "designId": "megadeth-symphony-of-destruction-fmd",
+                "color": "negro",
+                "preferredPreview": true,
+                "isNew": true,
+                "fmdBadge": "ORIGINAL FMD",
+                "fmdBadgeDescription": "Diseño FMD inspirado en Symphony of Destruction."
+            }
+        ],
+        "desc": "Symphony of Destruction en una edición visual FMD.",
+        "band": "Megadeth",
+        "album": "Countdown to Extinction",
+        "garments": [
+            "remera"
+        ],
+        "collections": [
+            "Megadeth Archive",
+            "Megadeth Singles",
+            "Countdown to Extinction",
+            "FMD Editions"
+        ],
+        "campaigns": [],
+        "commercialPriority": 82,
+        "visibilityTier": "featured",
+        "legacyCategory": "Singles",
+        "tags": [
+            "Megadeth",
+            "Symphony of Destruction",
+            "Countdown to Extinction",
+            "Vic Rattlehead",
+            "Original FMD",
+            "remera",
+            "negro",
+            "estampa frontal"
+        ],
+        "megadethSection": "albums",
+        "megadethAlbum": "Countdown to Extinction",
+        "megadethEra": "1992",
+        "megadethDesignType": "original_fmd"
     },
     {
         "id": 5090,

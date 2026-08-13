@@ -2500,6 +2500,19 @@ function selectDeliveryMethod(method) {
     }
 }
 
+function isModalPostalCodeRequired() {
+    return selectedDeliveryMethod === 'retiro_andreani';
+}
+
+function updateModalWhatsappAvailability() {
+    const button = document.getElementById('btnBuyNow');
+    if (!button) return;
+    const blockedByPostalCode = isModalPostalCodeRequired() && !getModalPostalCode();
+    button.classList.toggle('is-validation-blocked', blockedByPostalCode);
+    button.setAttribute('aria-disabled', blockedByPostalCode ? 'true' : 'false');
+    button.title = blockedByPostalCode ? 'Ingresá el código postal para continuar.' : '';
+}
+
 function updateDeliveryUI() {
     document.querySelectorAll('[data-delivery]').forEach(button => {
         button.classList.toggle('active', button.dataset.delivery === selectedDeliveryMethod);
@@ -2514,9 +2527,25 @@ function updateDeliveryUI() {
     }
     const postalInput = document.getElementById('modalPostalCode');
     if (postalInput && !postalInput.dataset.summaryBound) {
-        postalInput.addEventListener('input', updateModalOrderSummary);
+        postalInput.addEventListener('input', () => {
+            const postalField = document.getElementById('modalPostalField');
+            if (getModalPostalCode()) {
+                postalField?.classList.remove('field-required-error');
+                postalInput.removeAttribute('aria-invalid');
+            }
+            updateModalOrderSummary();
+            updateModalWhatsappAvailability();
+        });
         postalInput.dataset.summaryBound = 'true';
     }
+    if (postalInput) {
+        postalInput.setAttribute('aria-required', isModalPostalCodeRequired() ? 'true' : 'false');
+        if (!isModalPostalCodeRequired()) {
+            postalField?.classList.remove('field-required-error');
+            postalInput.removeAttribute('aria-invalid');
+        }
+    }
+    updateModalWhatsappAvailability();
 }
 
 function getModalOrderSummaryParts() {
@@ -2559,7 +2588,7 @@ function validateModalDeliveryBeforeWhatsapp() {
         document.querySelector('#modalDeliveryBox button:not([disabled])')?.focus({ preventScroll: true });
         return false;
     }
-    if (selectedDeliveryMethod === 'taller') return true;
+    if (!isModalPostalCodeRequired()) return true;
     const cp = getModalPostalCode();
     if (cp) return true;
     trackCatalogEvent('modal_validation_error', {
@@ -2567,17 +2596,19 @@ function validateModalDeliveryBeforeWhatsapp() {
         delivery_method: selectedDeliveryMethod,
         validation_error: 'missing_postal_code'
     });
-    const postalMessage = selectedDeliveryMethod === 'retiro_andreani'
-        ? 'Ingresá el código postal para elegir el punto Andreani que te quede más cómodo.'
-        : 'Ingresá el código postal para coordinar el envío a domicilio.';
+    const postalMessage = 'Ingresá el código postal para elegir el punto Andreani que te quede más cómodo.';
     showNotification(postalMessage, 2600);
     const field = document.getElementById('modalPostalField');
     const input = document.getElementById('modalPostalCode');
     if (field) {
         field.classList.add('field-required-error');
-        setTimeout(() => field.classList.remove('field-required-error'), 2200);
+        field.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
-    if (input) input.focus();
+    if (input) {
+        input.setAttribute('aria-invalid', 'true');
+        setTimeout(() => input.focus({ preventScroll: true }), 250);
+    }
+    updateModalWhatsappAvailability();
     return false;
 }
 
@@ -5835,6 +5866,7 @@ function updateModalInfo() {
     if (modalWaBtn) {
         modalWaBtn.onclick = (e) => {
             e.preventDefault();
+            if (!validateModalDeliveryBeforeWhatsapp()) return;
             openWhatsapp(buildModalOrderWhatsappMessage(), 'modal_help');
         };
         modalWaBtn.href = '#';
