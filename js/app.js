@@ -6221,6 +6221,15 @@ function getCatalogDirectoryImage(product) {
     return product?.img || variants[0]?.img || variants[0]?.image || 'images/logo/MARCA DE AGUA.png';
 }
 
+const FEATURED_COLLECTION_ART = Object.freeze({
+    megadeth: { image: 'images/albums/Megadeth/megadeth_2026_vic_llamas_v3.jpg', alt: 'Diseño representativo de Megadeth' },
+    slayer: { image: 'images/slayer/remera_slayer_aguila.jpg', alt: 'Diseño representativo de Slayer' },
+    'iron maiden': { image: 'images/iron_maiden/IRON MAIDEN BY FMD/fmd_killers.jpg', alt: 'Killers FMD de Iron Maiden' },
+    'ricardo iorio': { image: 'images/banda_sugeridas/ricardo_iorio/remera_almafuerte_obras.jpg', alt: 'Almafuerte - En Obras' },
+    pantera: { image: 'images/pantera/remera_pantera_the_great_southern_trendkill.jpg', alt: 'Diseño representativo de Pantera' },
+    metallica: { image: 'images/metallica/metallica_master_of_puppets_realistic.jpg', alt: 'Master Realista de Metallica' }
+});
+
 function renderCatalogBandDirectory(products) {
     const groups = new Map();
     products.forEach(product => {
@@ -6231,7 +6240,7 @@ function renderCatalogBandDirectory(products) {
     groups.forEach(group => group.sort(compareProductsByVisibilityThenPriority));
 
     const findLabel = label => [...groups.keys()].find(groupLabel => normalizeText(groupLabel) === normalizeText(label));
-    const initialLabels = ['Megadeth', 'Slayer', 'Iron Maiden', 'Metallica', 'Ricardo Iorio', 'Hermética', 'Nightwish']
+    const initialLabels = ['Megadeth', 'Slayer', 'Iron Maiden', 'Ricardo Iorio', 'Pantera', 'Metallica']
         .map(findLabel)
         .filter(Boolean);
     const initialLabelKeys = new Set(initialLabels.map(normalizeText));
@@ -6266,6 +6275,23 @@ function renderCatalogBandDirectory(products) {
             </button>`;
     };
 
+    const renderFeaturedCollectionCard = label => {
+        const encodedFilter = encodeURIComponent(label);
+        const landingUrl = getBandLandingUrl(label);
+        const art = FEATURED_COLLECTION_ART[normalizeText(label)] || {};
+        const artMarkup = art.image
+            ? `<img src="${art.image}" alt="${art.alt || label}" loading="lazy" decoding="async">`
+            : `<span class="catalog-featured-collection-monogram" aria-hidden="true">${art.monogram || label.slice(0, 2)}</span>`;
+        const content = `
+            <span class="catalog-featured-collection-art">${artMarkup}</span>
+            <span class="catalog-featured-collection-name">${label}</span>`;
+
+        if (landingUrl) {
+            return `<a class="catalog-featured-collection-card" href="${landingUrl}" aria-label="Explorar la colección ${label}">${content}</a>`;
+        }
+        return `<button type="button" class="catalog-featured-collection-card" data-band-filter="${encodedFilter}" aria-label="Explorar la colección ${label}">${content}</button>`;
+    };
+
     const renderSection = (key, title, subtitle, labels, emphasis = '') => {
         if (!labels.length) return '';
         const isCollapsible = key === 'more';
@@ -6276,9 +6302,10 @@ function renderCatalogBandDirectory(products) {
                 <h2>${title}</h2>
                 ${subtitle ? `<p>${subtitle}</p>` : ''}
             </div>
-            <div class="catalog-band-directory-grid${isCollapsible && !isExpanded ? ' is-preview' : ''}"${isCollapsible ? ' id="catalogMoreBandsGrid"' : ''}>
-                ${labels.map(label => renderBandCard(label, emphasis)).join('')}
+            <div class="catalog-band-directory-grid${key === 'featured' ? ' catalog-featured-collections-grid' : ''}${isCollapsible && !isExpanded ? ' is-preview' : ''}"${isCollapsible ? ' id="catalogMoreBandsGrid"' : ''}>
+                ${labels.map(label => key === 'featured' ? renderFeaturedCollectionCard(label) : renderBandCard(label, emphasis)).join('')}
             </div>
+            ${key === 'featured' ? '<button type="button" class="catalog-featured-all-bands" id="catalogFeaturedAllBands">VER TODAS LAS BANDAS</button>' : ''}
             ${isCollapsible ? `<button type="button" class="catalog-more-bands-toggle" id="catalogMoreBandsToggle" aria-expanded="${isExpanded}" aria-controls="catalogMoreBandsGrid">${isExpanded ? 'OCULTAR BANDAS' : 'VER TODAS LAS BANDAS'}</button>` : ''}
         </section>`;
     };
@@ -6288,7 +6315,7 @@ function renderCatalogBandDirectory(products) {
     document.querySelector('.catalog-toolbar')?.classList.add('catalog-directory-active');
     document.getElementById('productsCount').textContent = 'ELEGÍ UNA BANDA PARA VER SUS DISEÑOS';
     productsGrid.innerHTML = [
-        renderSection('featured', 'ACCESOS DIRECTOS', '', initialLabels, 'is-primary'),
+        renderSection('featured', 'COLECCIONES DESTACADAS', 'Una selección de nuestras colecciones para empezar a explorar.', initialLabels, 'is-primary'),
         `<section class="home-news-section home-news-section-in-catalog" aria-labelledby="homeNewsTitle">
             <div class="home-simple-head">
                 <p>NOVEDADES FMD</p>
@@ -6305,6 +6332,12 @@ function renderCatalogBandDirectory(products) {
     });
     document.getElementById('catalogMoreBandsToggle')?.addEventListener('click', event => {
         setMoreBandsDirectoryExpanded(event.currentTarget.getAttribute('aria-expanded') !== 'true');
+    });
+    document.getElementById('catalogFeaturedAllBands')?.addEventListener('click', () => {
+        setMoreBandsDirectoryExpanded(true);
+        window.requestAnimationFrame(() => {
+            document.querySelector('[data-directory-section="more"]')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
     });
 
     ['megadethBackBtn', 'slayerBackBtn', 'maidenBackBtn'].forEach(id => {

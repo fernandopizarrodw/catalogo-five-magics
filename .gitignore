@@ -4,3 +4,6 @@ reports/analytics-chrome*.log
 reports/analytics-server*.log
 reports/modal-review-profile*/
 reports/megadeth-*-profile*/
+reports/featured-collections-chrome/
+reports/featured-*-profile*/
+reports/featured-collections-preview/

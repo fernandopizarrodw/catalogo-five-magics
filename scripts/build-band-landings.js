@@ -146,7 +146,7 @@ function renderLanding(config, sharedCommerceMarkup) {
         <div class="header-content">
             <a href="/#catalogoPrincipal" class="logo" aria-label="Volver al catálogo FMD">FIVE <span>MAGICS</span></a>
             <div class="header-actions">
-                <a href="/#catalogoPrincipal" class="btn-back-catalog">VER TODO FMD</a>
+                <a href="/#catalogoPrincipal" class="btn-back-catalog" aria-label="Explorar más bandas en el catálogo FMD">EXPLORAR MÁS BANDAS</a>
                 <a href="${whatsappUrl(`Hola FMD! Quiero hacer un pedido de ${config.band}.`)}" class="btn-wa-header" target="_blank" rel="noopener">
                     <span>HACER PEDIDO</span>
                 </a>

@@ -105,6 +105,13 @@
     letter-spacing: 0.025em;
 }
 
+body.band-landing-page[data-band="Ricardo Iorio"] .band-landing-hero h1 {
+    max-width: 760px;
+    font-size: clamp(3.8rem, 7vw, 5.4rem);
+    line-height: 0.9;
+    letter-spacing: 0.015em;
+}
+
 .band-landing-hero h2 {
     max-width: 620px;
     margin: 24px 0 12px;
@@ -784,6 +791,11 @@ body.band-landing-page[data-band="Argentina"] #modal .btn-add-cart {
 
     .band-landing-hero h1 {
         font-size: clamp(4.2rem, 23vw, 6.4rem);
+    }
+
+    body.band-landing-page[data-band="Ricardo Iorio"] .band-landing-hero h1 {
+        font-size: clamp(3rem, 15vw, 4.4rem);
+        line-height: 0.9;
     }
 
     .band-landing-hero h2 {
