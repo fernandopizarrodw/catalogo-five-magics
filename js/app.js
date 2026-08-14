@@ -174,16 +174,37 @@ function getBandLandingGarmentLabel(garment = bandLandingGarment) {
     return 'REMERAS';
 }
 
+function getBandLandingDesignAlbums(design) {
+    return (design?.sourceProductIds || [])
+        .map(id => db.find(product => Number(product.id) === Number(id)))
+        .map(product => normalizeText(product?.album || ''))
+        .filter(Boolean);
+}
+
 function matchesBandLandingCollection(design, collection) {
     if (!collection) return true;
     const designIds = (collection.match?.designIds || []).map(normalizeText);
     if (designIds.length) return designIds.includes(normalizeText(design?.designId));
     const collectionId = normalizeText(collection.id);
-    if ((design?.collectionIds || []).some(id => normalizeText(id) === collectionId)) return true;
 
     const curatedCategory = normalizeText(BAND_LANDING_CURATED_DESIGN_CATEGORIES[design?.designId]);
     const collectionCategory = normalizeText(collection.curatedCategory || collection.label);
-    if (curatedCategory && curatedCategory === collectionCategory) return true;
+    // La categoría curada es la ubicación editorial definitiva del diseño.
+    // Evita que las reglas automáticas vuelvan a mostrarlo en otra colección.
+    if (curatedCategory) return curatedCategory === collectionCategory;
+
+    const sourceAlbums = getBandLandingDesignAlbums(design);
+    const albumMatches = (collection.match?.albums || []).map(normalizeText);
+    if (albumMatches.length) return sourceAlbums.some(album => albumMatches.includes(album));
+
+    // Un diseño asociado a un disco vive en ese álbum, aunque también tenga badge FMD.
+    if (sourceAlbums.length) return false;
+
+    if ((design?.collectionIds || []).some(id => normalizeText(id) === collectionId)) return true;
+
+    const normalizedBadges = (design?.badges || []).map(normalizeText);
+    const isOriginalFmd = normalizedBadges.includes('original fmd');
+    if (isOriginalFmd && collectionId !== 'originals') return false;
 
     const bandMatches = (collection.match?.bands || []).map(normalizeText);
     if (bandMatches.includes(normalizeText(design?.band))) return true;
@@ -194,15 +215,7 @@ function matchesBandLandingCollection(design, collection) {
     }
 
     const badgeMatches = (collection.match?.badges || []).map(normalizeText);
-    if (badgeMatches.length > 0 && (design?.badges || []).some(badge => badgeMatches.includes(normalizeText(badge)))) return true;
-
-    const albumMatches = (collection.match?.albums || []).map(normalizeText);
-    if (albumMatches.length) {
-        const sourceAlbums = (design?.sourceProductIds || [])
-            .map(id => db.find(product => Number(product.id) === Number(id)))
-            .map(product => normalizeText(product?.album || ''));
-        if (sourceAlbums.some(album => albumMatches.includes(album))) return true;
-    }
+    if (badgeMatches.length > 0 && normalizedBadges.some(badge => badgeMatches.includes(badge))) return true;
 
     const tierMatches = (collection.match?.visibilityTiers || []).map(normalizeText);
     return tierMatches.includes(normalizeText(design?.visibilityTier));
@@ -8535,4 +8548,3 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Escuchar cambios en hash (si usuario navega directamente a #producto-123)
 window.addEventListener('hashchange', loadProductFromHash);
-

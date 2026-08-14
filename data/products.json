@@ -980,6 +980,7 @@
       {
         "img": "images/fmd-edition-3d/hidden_treasures/hidden_treasures_fmd_edition.jpg",
         "name": "Hidden Treasures FMD Edition",
+        "designId": "megadeth-hidden-treasures-fmd-edition",
         "isNew": true
       }
     ],
@@ -1138,6 +1139,7 @@
       {
         "img": "images/fmd-edition-3d/risk/risk_fmd_edition.jpg",
         "name": "Risk FMD Edition",
+        "designId": "megadeth-risk-fmd-edition",
         "isNew": true,
         "fmdBadge": "ORIGINAL FMD",
         "fmdBadgeDescription": "Arte exclusivo FMD con impronta de colección, pensado para llevar la era del disco a una prenda con presencia."
@@ -1145,6 +1147,7 @@
       {
         "img": "images/fmd-edition-3d/risk/risk_fmd_edition_v2.jpg",
         "name": "Risk FMD Edition V2",
+        "designId": "megadeth-risk-fmd-edition-v2",
         "isNew": true,
         "fmdBadge": "ORIGINAL FMD",
         "fmdBadgeDescription": "Arte exclusivo FMD con impronta de colección, pensado para llevar la era del disco a una prenda con presencia."
@@ -1582,6 +1585,7 @@
       {
         "img": "images/fmd-edition-3d/dystopia/dystopia_fmd_edition.jpg",
         "name": "Dystopia FMD Edition",
+        "designId": "megadeth-dystopia-fmd-edition",
         "isNew": true,
         "fmdBadge": "ORIGINAL FMD",
         "fmdBadgeDescription": "Creación FMD de autor con foco en impacto visual, espíritu thrash y lectura premium en prenda."
@@ -1863,7 +1867,8 @@
       },
       {
         "img": "images/singles/rusted_pieces_fmd_edition.png",
-        "name": "FMD Edition",
+        "name": "Rusted Pieces FMD Edition",
+        "designId": "megadeth-rusted-pieces-fmd-edition",
         "isNew": true
       }
     ],
@@ -11341,7 +11346,8 @@
     "variants": [
       {
         "img": "images/vic_rattlehead/vic_and_friends_fmd_edition.jpg",
-        "name": "FMD Edition",
+        "name": "Vic & Friends FMD Edition",
+        "designId": "megadeth-vic-and-friends-fmd-edition",
         "role": "front",
         "fmdBadge": "ORIGINAL FMD",
         "fmdBadgeDescription": "Creación exclusiva FMD con Vic como protagonista, pensada para una presencia fuerte y de colección."
