@@ -14851,6 +14851,85 @@
     ]
   },
   {
+    "id": 7231,
+    "category": "Iron Maiden",
+    "year": "2010",
+    "name": "Iron Maiden - The Final Frontier",
+    "designId": "iron-maiden-the-final-frontier",
+    "designSlug": "iron-maiden-the-final-frontier",
+    "tipoPrecio": "simple",
+    "defaultPrintMode": "frontal",
+    "isNew": true,
+    "img": "images/iron_maiden/remera_iron_maiden_the_final_frontier.jpg",
+    "variants": [
+      {
+        "img": "images/iron_maiden/remera_iron_maiden_the_final_frontier.jpg",
+        "name": "The Final Frontier - Remera",
+        "designId": "iron-maiden-the-final-frontier"
+      }
+    ],
+    "desc": "Diseño de Iron Maiden inspirado en The Final Frontier. Disponible para remera, hoodie y buzo cuello redondo.",
+    "publicSubtitle": "The Final Frontier · 2010",
+    "band": "Iron Maiden",
+    "album": "The Final Frontier",
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Archivo Maiden",
+      "The Final Frontier"
+    ],
+    "commercialPriority": 96,
+    "visibilityTier": "featured",
+    "legacyCategory": "Iron Maiden",
+    "tags": [
+      "Iron Maiden",
+      "The Final Frontier",
+      "Eddie",
+      "remera"
+    ]
+  },
+  {
+    "id": 7232,
+    "category": "Iron Maiden",
+    "year": "2026",
+    "name": "Iron Maiden - The Final Tour FMD",
+    "designId": "iron-maiden-the-final-tour-fmd",
+    "designSlug": "iron-maiden-the-final-tour-fmd",
+    "tipoPrecio": "simple",
+    "defaultPrintMode": "frontal",
+    "isNew": true,
+    "img": "images/iron_maiden/remera_iron_maiden_the_final_tour.jpg",
+    "variants": [
+      {
+        "img": "images/iron_maiden/remera_iron_maiden_the_final_tour.jpg",
+        "name": "The Final Tour FMD - Remera",
+        "designId": "iron-maiden-the-final-tour-fmd"
+      }
+    ],
+    "desc": "Diseño original FMD de Iron Maiden. Disponible para remera, hoodie y buzo cuello redondo.",
+    "publicSubtitle": "The Final Tour · Original FMD",
+    "band": "Iron Maiden",
+    "album": null,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Archivo Maiden",
+      "Originales FMD"
+    ],
+    "commercialPriority": 95,
+    "visibilityTier": "featured",
+    "legacyCategory": "Iron Maiden",
+    "tags": [
+      "Iron Maiden",
+      "The Final Tour",
+      "Original FMD",
+      "Eddie",
+      "remera"
+    ]
+  },
+  {
     "id": 7107,
     "category": "Slayer",
     "year": "2026",
