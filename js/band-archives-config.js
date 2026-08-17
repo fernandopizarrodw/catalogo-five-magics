@@ -491,6 +491,56 @@
             ]
         },
         {
+            output: 'tarja/index.html',
+            slug: 'tarja',
+            publishedAt: '2026-08-17',
+            band: 'Tarja Turunen',
+            displayName: 'TARJA TURUNEN',
+            title: 'Tarja Turunen: remeras, hoodies y buzos | Five Magics Designs',
+            description: 'Diseños de Tarja Turunen en remeras, hoodies y buzos hechos a pedido. Elegí prenda, estampa, talle y color.',
+            canonical: 'https://catalogo.fivemagicsdesigns.com/tarja/',
+            image: '/images/banda_sugeridas/tarja/hoodie_tarja_my_winter_storm.jpg',
+            imageUrl: 'https://catalogo.fivemagicsdesigns.com/images/banda_sugeridas/tarja/hoodie_tarja_my_winter_storm.jpg',
+            heroTitle: 'REMERAS, HOODIES Y BUZOS',
+            heroCopy: 'Explorá diseños de la carrera solista de Tarja Turunen. Elegí tu favorito y armá tu pedido.',
+            finalTitle: '¿BUSCABAS OTRO DISEÑO DE TARJA?',
+            finalCopy: 'También hacemos diseños personalizados a partir de una tapa, imagen o idea.',
+            whatsappMessage: 'Hola FMD! Quiero consultar por un diseño de Tarja Turunen a partir de una tapa, imagen o idea.',
+            defaultGarment: 'hoodie',
+            usesShownComposition: true,
+            showSizeGuide: true,
+            garments: [
+                { key: 'hoodie', title: 'HOODIES', price: 'Frontal $52.000 · Doble $59.000', image: '/images/banda_sugeridas/tarja/hoodie_tarja_my_winter_storm.jpg', alt: 'Hoodie Tarja Turunen My Winter Storm' },
+                { key: 'buzo_cuello_redondo', title: 'BUZOS', price: 'Frontal $50.000 · Doble $55.000', image: '/images/banda_sugeridas/tarja/buzo_tarja_my_winter_storm.jpg', alt: 'Buzo cuello redondo Tarja Turunen My Winter Storm' },
+                { key: 'remera', title: 'REMERAS', price: 'Frontal $37.000 · Doble $44.000', image: '/images/banda_sugeridas/tarja/remera_tarja_my_winter_storm.jpg', alt: 'Remera Tarja Turunen My Winter Storm' }
+            ]
+        },
+        {
+            output: 'epica/index.html',
+            slug: 'epica',
+            publishedAt: '2026-08-17',
+            band: 'Epica',
+            displayName: 'EPICA',
+            title: 'EPICA: remeras, hoodies y buzos | Five Magics Designs',
+            description: 'Diseños de EPICA en remeras, hoodies y buzos hechos a pedido. Elegí prenda, estampa, talle y color.',
+            canonical: 'https://catalogo.fivemagicsdesigns.com/epica/',
+            image: '/images/banda_sugeridas/epica/hoodie_epica_the_phantom_agony.jpg',
+            imageUrl: 'https://catalogo.fivemagicsdesigns.com/images/banda_sugeridas/epica/hoodie_epica_the_phantom_agony.jpg',
+            heroTitle: 'REMERAS, HOODIES Y BUZOS',
+            heroCopy: 'Explorá diseños de EPICA en remeras, hoodies y buzos. Elegí tu favorito y armá tu pedido.',
+            finalTitle: '¿BUSCABAS OTRO DISEÑO DE EPICA?',
+            finalCopy: 'También hacemos diseños personalizados a partir de una tapa, imagen o idea.',
+            whatsappMessage: 'Hola FMD! Quiero consultar por un diseño de EPICA a partir de una tapa, imagen o idea.',
+            defaultGarment: 'hoodie',
+            usesShownComposition: true,
+            showSizeGuide: true,
+            garments: [
+                { key: 'hoodie', title: 'HOODIES', price: 'Frontal $52.000 · Doble $59.000', image: '/images/banda_sugeridas/epica/hoodie_epica_the_phantom_agony.jpg', alt: 'Hoodie EPICA The Phantom Agony' },
+                { key: 'buzo_cuello_redondo', title: 'BUZOS', price: 'Frontal $50.000 · Doble $55.000', image: '/images/banda_sugeridas/epica/buzo_epica_quantum_enigma.jpg', alt: 'Buzo cuello redondo EPICA The Quantum Enigma' },
+                { key: 'remera', title: 'REMERAS', price: 'Frontal $37.000 · Doble $44.000', image: '/images/banda_sugeridas/epica/remera_epica_aspiral.jpg', alt: 'Remera EPICA Aspiral' }
+            ]
+        },
+        {
             output: 'argentina/index.html',
             slug: 'argentina',
             band: 'Argentina',
