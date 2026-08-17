@@ -2379,9 +2379,15 @@ function updateCatalogDesignReferenceNote() {
             ? 'buzo cuello redondo'
             : 'remera';
     note.classList.toggle('is-hidden', hasPreview);
-    note.textContent = hasPreview
-        ? ''
-        : `Vista de referencia. Adaptamos este diseño a ${garmentLabel}.`;
+    if (hasPreview) {
+        note.replaceChildren();
+        return;
+    }
+    const title = document.createElement('strong');
+    title.textContent = 'VISTA DE REFERENCIA';
+    const description = document.createElement('span');
+    description.textContent = `Este diseño se adapta a ${garmentLabel}. La imagen corresponde a otra prenda.`;
+    note.replaceChildren(title, description);
 }
 
 function selectCatalogDesignPreviewForGarment(modalGarment) {
