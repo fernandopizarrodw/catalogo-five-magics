@@ -83,16 +83,6 @@ function customizeSharedCommerceMarkup(config, markup) {
         .replace('<div class="spec-value">⚡ Algodón peinado</div>', '<div class="spec-value" id="modalSpecGarment">⚡ Remera clásica hombre</div>')
         .replace(/\s*<a href="#" class="btn-wa btn-wa-secondary" id="modalWaBtn">[\s\S]*?<\/a>/, '');
 
-    const helpLink = `
-
-                    <a href="#" class="btn-wa btn-wa-secondary band-landing-modal-help" id="modalWaBtn">
-                        ¿Tenés alguna duda? Consultanos
-                    </a>
-`;
-    output = output.replace(
-        '\n                    <details class="modal-advanced-panel" id="modalAdvancedPanel">',
-        `${helpLink}\n                    <details class="modal-advanced-panel" id="modalAdvancedPanel">`
-    );
     return output;
 }
 

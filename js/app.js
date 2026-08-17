@@ -2488,6 +2488,31 @@ const DELIVERY_LABELS = {
     taller: 'Retiro sin cargo en Villa Martelli'
 };
 
+const ORDER_CHECKOUT_STORAGE_KEY = 'fmd_order_checkout_v1';
+
+function loadOrderCheckoutState() {
+    try {
+        const parsed = JSON.parse(localStorage.getItem(ORDER_CHECKOUT_STORAGE_KEY) || '{}');
+        return parsed && typeof parsed === 'object' ? parsed : {};
+    } catch (error) {
+        return {};
+    }
+}
+
+function saveOrderCheckoutState() {
+    try {
+        localStorage.setItem(ORDER_CHECKOUT_STORAGE_KEY, JSON.stringify({
+            deliveryMethod: selectedDeliveryMethod || ''
+        }));
+    } catch (error) {
+        // El checkout sigue funcionando aunque el navegador bloquee storage.
+    }
+}
+
+selectedDeliveryMethod = DELIVERY_LABELS[loadOrderCheckoutState().deliveryMethod]
+    ? loadOrderCheckoutState().deliveryMethod
+    : '';
+
 function getModalAnalyticsContext() {
     if (!currentProduct) return {};
     return {
@@ -2502,64 +2527,23 @@ function getModalAnalyticsContext() {
 function selectDeliveryMethod(method) {
     const previousMethod = selectedDeliveryMethod;
     selectedDeliveryMethod = DELIVERY_LABELS[method] ? method : '';
-    clearSelectionError('modalDeliveryBox');
+    saveOrderCheckoutState();
     updateDeliveryUI();
-    updateModalOrderSummary();
+    const cartPreview = document.getElementById('cartPreviewModal');
+    if (cartPreview?.classList.contains('active')) renderCartPreview();
     if (selectedDeliveryMethod && selectedDeliveryMethod !== previousMethod) {
         trackCatalogEvent('delivery_select', {
-            ...getModalAnalyticsContext(),
-            delivery_method: selectedDeliveryMethod
+            delivery_method: selectedDeliveryMethod,
+            cart_items: cart?.getCart?.().length || 0
         });
     }
-}
-
-function isModalPostalCodeRequired() {
-    return selectedDeliveryMethod === 'retiro_andreani';
-}
-
-function updateModalWhatsappAvailability() {
-    const button = document.getElementById('btnBuyNow');
-    if (!button) return;
-    const blockedByPostalCode = isModalPostalCodeRequired() && !getModalPostalCode();
-    button.classList.toggle('is-validation-blocked', blockedByPostalCode);
-    button.setAttribute('aria-disabled', blockedByPostalCode ? 'true' : 'false');
-    button.disabled = blockedByPostalCode;
-    button.title = blockedByPostalCode ? 'Ingresá tu CP para buscar punto Andreani.' : '';
 }
 
 function updateDeliveryUI() {
-    document.querySelectorAll('[data-delivery]').forEach(button => {
+    document.querySelectorAll('[data-order-delivery]').forEach(button => {
         button.classList.toggle('active', button.dataset.delivery === selectedDeliveryMethod);
     });
-    const postalField = document.getElementById('modalPostalField');
-    if (postalField) postalField.classList.toggle('is-hidden', selectedDeliveryMethod === 'taller' || !selectedDeliveryMethod);
-    const postalHelp = postalField?.querySelector('small');
-    if (postalHelp) {
-        postalHelp.textContent = selectedDeliveryMethod === 'retiro_andreani'
-            ? 'Necesario para elegir el punto Andreani que te quede más cómodo.'
-            : 'Necesario para coordinar el envío a domicilio.';
-    }
-    const postalInput = document.getElementById('modalPostalCode');
-    if (postalInput && !postalInput.dataset.summaryBound) {
-        postalInput.addEventListener('input', () => {
-            const postalField = document.getElementById('modalPostalField');
-            if (getModalPostalCode()) {
-                postalField?.classList.remove('field-required-error');
-                postalInput.removeAttribute('aria-invalid');
-            }
-            updateModalOrderSummary();
-            updateModalWhatsappAvailability();
-        });
-        postalInput.dataset.summaryBound = 'true';
-    }
-    if (postalInput) {
-        postalInput.setAttribute('aria-required', isModalPostalCodeRequired() ? 'true' : 'false');
-        if (!isModalPostalCodeRequired()) {
-            postalField?.classList.remove('field-required-error');
-            postalInput.removeAttribute('aria-invalid');
-        }
-    }
-    updateModalWhatsappAvailability();
+    updateCheckoutWhatsappAvailability();
 }
 
 function getModalOrderSummaryParts() {
@@ -2570,60 +2554,14 @@ function getModalOrderSummaryParts() {
         : garmentType === 'hoodie' ? 'Hoodie' : 'Buzo cuello redondo';
     const print = selectedPrintMode === 'double' ? 'frente + dorso' : 'frente';
     const color = selectedColor === 'blanco' ? 'blanca' : selectedColor === 'negro' ? 'negra' : 'color pendiente';
-    const delivery = selectedDeliveryMethod === 'retiro_andreani'
-        ? 'punto Andreani gratis'
-        : selectedDeliveryMethod === 'domicilio'
-            ? 'Andreani a domicilio'
-            : selectedDeliveryMethod === 'taller'
-                ? 'retiro en Villa Martelli'
-                : 'entrega pendiente';
     const prices = resolveModalPriceConfig(currentProduct);
     const price = selectedPrintMode === 'double' ? prices.doble : prices.simple;
-    return [garment, print, selectedSize ? `talle ${selectedSize}` : 'talle pendiente', color, delivery, `$${price.toLocaleString('es-AR')}`];
+    return [garment, print, selectedSize ? `talle ${selectedSize}` : 'talle pendiente', color, `$${price.toLocaleString('es-AR')}`];
 }
 
 function updateModalOrderSummary() {
     const summary = document.getElementById('modalOrderSummaryText');
     if (summary) summary.textContent = getModalOrderSummaryParts().join(' · ');
-}
-
-function getModalPostalCode() {
-    return (document.getElementById('modalPostalCode')?.value || '').trim();
-}
-
-function validateModalDeliveryBeforeWhatsapp() {
-    if (!selectedDeliveryMethod) {
-        trackCatalogEvent('modal_validation_error', {
-            ...getModalAnalyticsContext(),
-            validation_error: 'missing_delivery'
-        });
-        showNotification('Elegí una forma de entrega para avanzar.', 2600);
-        markSelectionError('modalDeliveryBox');
-        document.querySelector('#modalDeliveryBox button:not([disabled])')?.focus({ preventScroll: true });
-        return false;
-    }
-    if (!isModalPostalCodeRequired()) return true;
-    const cp = getModalPostalCode();
-    if (cp) return true;
-    trackCatalogEvent('modal_validation_error', {
-        ...getModalAnalyticsContext(),
-        delivery_method: selectedDeliveryMethod,
-        validation_error: 'missing_postal_code'
-    });
-    const postalMessage = 'Ingresá tu CP para buscar punto Andreani y continuar.';
-    showNotification(postalMessage, 2600);
-    const field = document.getElementById('modalPostalField');
-    const input = document.getElementById('modalPostalCode');
-    if (field) {
-        field.classList.add('field-required-error');
-        field.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    }
-    if (input) {
-        input.setAttribute('aria-invalid', 'true');
-        setTimeout(() => input.focus({ preventScroll: true }), 250);
-    }
-    updateModalWhatsappAvailability();
-    return false;
 }
 
 function validateModalSelectionsBeforeWhatsapp() {
@@ -2920,8 +2858,38 @@ class CartSystem {
 
     // Cargar desde localStorage
     loadCart() {
-        const stored = localStorage.getItem('fmd_cart');
-        return stored ? JSON.parse(stored) : [];
+        try {
+            const stored = localStorage.getItem('fmd_cart');
+            const parsed = stored ? JSON.parse(stored) : [];
+            if (!Array.isArray(parsed)) return [];
+
+            let migrated = false;
+            const cartItems = parsed.map(rawItem => {
+                const item = rawItem && typeof rawItem === 'object' ? { ...rawItem } : {};
+                ['delivery', 'deliveryMethod', 'shippingMethod', 'postalCode', 'codigoPostal', 'cp'].forEach(key => {
+                    if (Object.prototype.hasOwnProperty.call(item, key)) {
+                        delete item[key];
+                        migrated = true;
+                    }
+                });
+                if (item.options && typeof item.options === 'object') {
+                    const options = { ...item.options };
+                    ['delivery', 'deliveryMethod', 'shippingMethod', 'postalCode', 'codigoPostal', 'cp'].forEach(key => {
+                        if (Object.prototype.hasOwnProperty.call(options, key)) {
+                            delete options[key];
+                            migrated = true;
+                        }
+                    });
+                    item.options = options;
+                }
+                return item;
+            });
+
+            if (migrated) localStorage.setItem('fmd_cart', JSON.stringify(cartItems));
+            return cartItems;
+        } catch (error) {
+            return [];
+        }
     }
 
     // Generar resumen para copiar
@@ -2936,6 +2904,7 @@ class CartSystem {
             return 1;
         };
         const sortedCart = [...this.cart].sort((a, b) => sortOrder(a) - sortOrder(b));
+        const itemPrices = calculateCartItemPrices(sortedCart);
 
         const codes = sortedCart.map((item, idx) => {
             if (item.isDouble && item.usesShownComposition) {
@@ -2983,6 +2952,14 @@ class CartSystem {
                 estampado = 'Estampa simple';
             }
 
+            const designHash = item.designId
+                ? `#diseno-${encodeURIComponent(item.designId)}`
+                : `#producto-${encodeURIComponent(item.id)}`;
+            const designLink = `${window.location.origin}/${designHash}`;
+            const personalization = item.customizationText
+                ? `• Personalización: ${item.customizationText}`
+                : '';
+
             return [
                 `${idx + 1}) ${item.productName}`,
                 `• Código: ${item.code}`,
@@ -2990,19 +2967,25 @@ class CartSystem {
                 `• Edad: ${edad}`,
                 `• Talle: ${talle}`,
                 `• Color: ${color}`,
-                `• Estampa: ${estampado}`
-            ].join('\n');
+                `• Estampa: ${estampado}`,
+                personalization,
+                `• Precio: $${Math.round(itemPrices[idx]).toLocaleString('es-AR')}`,
+                `• Link: ${designLink}`
+            ].filter(Boolean).join('\n');
         }).join('\n\n');
 
         const total = this.cart.length;
         const tipoConteo = total === 1 ? 'prenda' : 'prendas';
 
         const totals = calculateCartTotal();
-        const promoMsg = totals.promotion?.id && totals.promotion.id !== 'sin_promo'
-            ? `\n\nPROMO APLICADA:\n• ${totals.promotion.label}\n• ${totals.promotion.description}${totals.envioGratisPuntoAndreani ? '\n• Envío gratis a punto de retiro Andreani. A domicilio se abona la diferencia.' : '\n• Envío gratis a domicilio.'}\n• Precio del pedido: $${Math.round(totals.total).toLocaleString('es-AR')}`
-            : '';
+        const promoLabel = totals.promotion?.id && totals.promotion.id !== 'sin_promo'
+            ? totals.promotion.label
+            : 'Sin promoción';
+        const discountLine = totals.descuento > 0
+            ? `\n• Descuento: -$${Math.round(totals.descuento).toLocaleString('es-AR')}`
+            : '\n• Descuento: $0';
 
-        return `CÓDIGOS DEL PEDIDO:\n${codes}\n\nDETALLE DEL PEDIDO:\n\n${details}\n\nTOTAL: ${total} ${tipoConteo}${promoMsg}`;
+        return `CÓDIGOS DEL PEDIDO:\n${codes}\n\nDETALLE DEL PEDIDO:\n\n${details}\n\nRESUMEN DEL PEDIDO:\n• Cantidad: ${total} ${tipoConteo}\n• Subtotal: $${Math.round(totals.subtotal).toLocaleString('es-AR')}${discountLine}\n• Total de productos: $${Math.round(totals.total).toLocaleString('es-AR')}\n• Promoción: ${promoLabel}`;
     }
 
     generateConsultationSummary() {
@@ -4463,20 +4446,32 @@ function configureCatalogConversionModalLayout() {
     const actions = document.querySelector('.modal-actions');
     const orderSummary = document.getElementById('modalOrderSummary');
     const advanced = document.getElementById('modalAdvancedPanel');
+    const primaryAction = document.getElementById('btnBuyNow');
+    const secondaryAction = document.getElementById('btnAddCart');
+    const legacyHelpAction = document.getElementById('modalWaBtn');
 
-    if (!garment || !printMode || !dorso || !productOptions || !delivery || !price || !actions) return;
+    if (!garment || !printMode || !dorso || !productOptions || !price || !actions) return;
     garment.after(remeraVariant);
     remeraVariant.after(printMode);
     printMode.after(doubleNote);
     doubleNote.after(dorso);
     dorso.after(productOptions);
-    productOptions.after(delivery);
-    delivery.after(price);
+    productOptions.after(price);
+    if (delivery) delivery.remove();
     if (priceNote) price.after(priceNote);
     if (adaptable) (priceNote || price).after(adaptable);
     (adaptable || priceNote || price).after(orderSummary || actions);
     if (orderSummary) orderSummary.after(actions);
     if (advanced?.querySelector('summary')) advanced.querySelector('summary').textContent = 'Detalles del producto';
+    if (primaryAction) {
+        primaryAction.textContent = 'AGREGAR AL PEDIDO';
+        primaryAction.onclick = addToOrderAndOpenCart;
+    }
+    if (secondaryAction) {
+        secondaryAction.textContent = 'CONSULTAR ESTE DISEÑO';
+        secondaryAction.onclick = consultCurrentDesign;
+    }
+    legacyHelpAction?.remove();
     dorso.style.display = 'none';
 }
 
@@ -4924,9 +4919,6 @@ function openModal(id, variantIndex = undefined, scopedVariantIndexes = undefine
     selectedPrintMode = currentCatalogDesign
         ? (currentCatalogDesign.defaultPrintMode === 'double' ? 'double' : 'simple')
         : (isDoubleByDefault(currentProduct) ? 'double' : 'simple');
-    selectedDeliveryMethod = '';
-    const modalPostalCode = document.getElementById('modalPostalCode');
-    if (modalPostalCode) modalPostalCode.value = '';
     const availableModalGarments = getAvailableModalGarments(currentProduct);
     const activeVariantGarment = getVariantGarmentType(getModalImages()[currentSlide]);
     const preferredGarment = activeVariantGarment === 'hoodie'
@@ -5098,7 +5090,6 @@ function openModal(id, variantIndex = undefined, scopedVariantIndexes = undefine
         modalAdvancedPanel.open = false;
     }
 
-    updateDeliveryUI();
     if (currentCatalogDesign) selectCatalogDesignPreviewForGarment(selectedModalGarment);
     modal.classList.add('active');
     // Adjuntar listeners del carrusel una vez el modal está listo
@@ -5880,8 +5871,7 @@ function updateModalInfo() {
     if (modalWaBtn) {
         modalWaBtn.onclick = (e) => {
             e.preventDefault();
-            if (!validateModalDeliveryBeforeWhatsapp()) return;
-            openWhatsapp(buildModalOrderWhatsappMessage(), 'modal_help');
+            consultCurrentDesign();
         };
         modalWaBtn.href = '#';
     }
@@ -7089,6 +7079,7 @@ function clearShippingCustomerData() {
         if (input) input.value = '';
     });
 
+    updateCheckoutWhatsappAvailability();
     showNotification('Datos de envío limpiados', 1800);
 }
 
@@ -7110,9 +7101,14 @@ function hydrateAndBindShippingForm() {
             if (inputId === 'inputTelefono') {
                 input.value = normalizePhone(input.value);
             }
+            input.removeAttribute('aria-invalid');
+            input.closest('.cart-cp-field')?.classList.remove('field-required-error');
             saveShippingCustomerDataToStorage(getShippingCustomerData());
+            updateCheckoutWhatsappAvailability();
         });
     });
+
+    updateCheckoutWhatsappAvailability();
 }
 
 function getShippingCustomerData() {
@@ -7127,16 +7123,19 @@ function getShippingCustomerData() {
     return { nombre, apellido, telefono, direccion, cp, localidad, provincia };
 }
 
-function getMissingShippingFields(data) {
-    const missing = [];
-    if (!data.nombre) missing.push('nombre');
-    if (!data.apellido) missing.push('apellido');
-    if (!data.direccion) missing.push('direccion');
-    if (!isValidPostalCode(data.cp)) missing.push('cp');
-    if (!data.localidad) missing.push('localidad');
-    if (!data.provincia) missing.push('provincia');
-    if (!data.telefono) missing.push('telefono');
-    return missing;
+function getRequiredShippingFields(method = selectedDeliveryMethod) {
+    const common = ['nombre', 'apellido', 'telefono'];
+    if (method === 'domicilio') return [...common, 'direccion', 'cp', 'localidad', 'provincia'];
+    if (method === 'retiro_andreani') return [...common, 'cp', 'localidad', 'provincia'];
+    if (method === 'taller') return common;
+    return [];
+}
+
+function getMissingShippingFields(data, method = selectedDeliveryMethod) {
+    return getRequiredShippingFields(method).filter(field => {
+        if (field === 'cp') return !isValidPostalCode(data.cp);
+        return !data[field];
+    });
 }
 
 function focusFirstMissingShippingField(fieldKey) {
@@ -7144,7 +7143,11 @@ function focusFirstMissingShippingField(fieldKey) {
     if (!inputId) return;
     const input = document.getElementById(inputId);
     if (!input) return;
-    input.focus();
+    input.setAttribute('aria-invalid', 'true');
+    const field = input.closest('.cart-cp-field');
+    field?.classList.add('field-required-error');
+    field?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    setTimeout(() => input.focus({ preventScroll: true }), 250);
 }
 
 function getShippingFieldLabel(fieldKey) {
@@ -7171,15 +7174,36 @@ function buildCustomerDataForWhatsapp(data) {
     if (data.provincia) lines.push(`• Provincia: ${data.provincia}`);
 
     if (!lines.length) {
-        return '\n\n📦 DATOS DE ENVÍO:\n• A confirmar por WhatsApp';
+        return '\n\nDATOS DEL CLIENTE:\n• A confirmar por WhatsApp';
     }
 
-    return `\n\n📦 DATOS DE ENVÍO:\n${lines.join('\n')}`;
+    return `\n\nDATOS DEL CLIENTE:\n${lines.join('\n')}`;
+}
+
+function updateCheckoutWhatsappAvailability() {
+    const button = document.getElementById('btnConfirmCartWhatsapp');
+    if (!button) return;
+    const missingDelivery = !selectedDeliveryMethod;
+    const missingFields = selectedDeliveryMethod
+        ? getMissingShippingFields(getShippingCustomerData(), selectedDeliveryMethod)
+        : [];
+    const blocked = missingDelivery || missingFields.length > 0;
+    button.classList.toggle('is-validation-blocked', blocked);
+    button.setAttribute('aria-disabled', blocked ? 'true' : 'false');
+    button.title = missingDelivery
+        ? 'Elegí una forma de entrega.'
+        : missingFields.includes('cp')
+            ? 'Ingresá el código postal para continuar.'
+            : blocked
+                ? 'Completá los datos del pedido.'
+                : '';
 }
 
 function buildShippingContextForWhatsapp(postalCode = '', customerData = null) {
     if (selectedDeliveryMethod === 'taller') {
-        return '\n\n📦 ENTREGA:\n• Retiro sin cargo en Villa Martelli.\n• Disponible desde el tercer día hábil posterior a la compra.';
+        const deliveryContext = '\n\nENTREGA:\n• Retiro sin cargo en Villa Martelli.\n• Disponible desde el tercer día hábil posterior a la compra.';
+        const customerContext = customerData ? buildCustomerDataForWhatsapp(customerData) : '';
+        return `${deliveryContext}${customerContext}`;
     }
 
     const totals = calculateCartTotal();
@@ -7209,7 +7233,7 @@ function buildShippingContextForWhatsapp(postalCode = '', customerData = null) {
     }
     if (postalCode && !customerData) lines.push(`• Código postal: ${postalCode}`);
 
-    const deliveryContext = `\n\n📦 ENTREGA / PROMO:\n${lines.join('\n')}`;
+    const deliveryContext = `\n\nENTREGA / PROMO:\n${lines.join('\n')}`;
     const customerContext = customerData ? buildCustomerDataForWhatsapp(customerData) : '';
     return `${deliveryContext}${customerContext}`;
 }
@@ -7459,13 +7483,17 @@ function renderCartPreview() {
         const precio = itemPrices[idx];
         const edad = item.age === 'chico' ? 'Niño' : 'Adulto';
         const talle = item.size || 'Por confirmar';
-        const corte = item.age === 'chico'
-            ? 'Chicos'
-            : item.cut === 'oversize'
-                ? 'Remera oversize'
-                : item.cut === 'mujer'
-                    ? 'Remera corte mujer'
-                    : 'Remera clásica hombre';
+        const corte = item.publicGarmentLabel || (isBuzoRedondoItem(item)
+            ? 'Buzo cuello redondo oversize unisex'
+            : isHoodieItem(item)
+                ? 'Hoodie oversize unisex'
+                : item.age === 'chico'
+                    ? 'Remera niños'
+                    : item.cut === 'oversize'
+                        ? 'Remera oversize unisex'
+                        : item.cut === 'mujer'
+                            ? 'Remera clásica mujer'
+                            : 'Remera clásica hombre');
         const color = item.color === 'blanco' ? 'Blanca' : 'Negra';
         
         return `
@@ -7505,56 +7533,72 @@ function renderCartPreview() {
         shippingNote = `<div class="cart-preview-shipping-note">🎁 ${totals.promotion.label}.${extra}</div>`;
     }
 
-    const shippingForm = selectedDeliveryMethod === 'taller' ? `
-        <div class="cart-customer-fields compact cart-pickup-confirmation">
-            <p class="cart-customer-title">Retiro sin cargo en Villa Martelli</p>
-            <p class="cart-customer-hint">Disponible desde el tercer día hábil posterior a la compra. Coordinamos el retiro por WhatsApp.</p>
-        </div>` : `
-        <div class="cart-customer-fields ${totals.cantidad >= 2 ? 'compact' : ''}">
-            <p class="cart-customer-title">Datos para el envio (para finalizar tu pedido)</p>
-            <div class="cart-customer-grid">
-                <div class="cart-cp-field">
-                    <label for="inputNombre">Nombre</label>
-                    <input type="text" id="inputNombre" placeholder="Ej: Juan">
-                </div>
-                <div class="cart-cp-field">
-                    <label for="inputApellido">Apellido</label>
-                    <input type="text" id="inputApellido" placeholder="Ej: Pérez">
-                </div>
+    const deliverySelector = `
+        <div class="cart-customer-fields cart-delivery-checkout" id="cartDeliveryGroup">
+            <p class="cart-customer-title">Forma de entrega</p>
+            <div class="modal-delivery-options">
+                <button type="button" class="option-btn modal-delivery-btn ${selectedDeliveryMethod === 'retiro_andreani' ? 'active' : ''}" data-order-delivery data-delivery="retiro_andreani" onclick="selectDeliveryMethod('retiro_andreani')">Punto de retiro Andreani · GRATIS</button>
+                <button type="button" class="option-btn modal-delivery-btn ${selectedDeliveryMethod === 'domicilio' ? 'active' : ''}" data-order-delivery data-delivery="domicilio" onclick="selectDeliveryMethod('domicilio')">Envío Andreani a domicilio</button>
+                <button type="button" class="option-btn modal-delivery-btn ${selectedDeliveryMethod === 'taller' ? 'active' : ''}" data-order-delivery data-delivery="taller" onclick="selectDeliveryMethod('taller')">Retiro sin cargo en Villa Martelli</button>
             </div>
-            <div class="cart-customer-grid single">
-                <div class="cart-cp-field">
-                    <label for="inputTelefono">Teléfono</label>
-                    <input type="text" id="inputTelefono" placeholder="Ej: 11 1234 5678" inputmode="tel">
-                </div>
-            </div>
-            <div class="cart-customer-grid single">
-                <div class="cart-cp-field">
-                    <label for="inputDireccion">Dirección</label>
-                    <input type="text" id="inputDireccion" placeholder="Ej: Av. Corrientes 1234">
-                </div>
-            </div>
-            <div class="cart-customer-grid">
-                <div class="cart-cp-field">
-                    <label for="inputCP">Código postal</label>
-                    <input type="text" id="inputCP" placeholder="Ej: 1425" maxlength="8" inputmode="numeric" pattern="[0-9]{4,8}" oninput="this.value=this.value.replace(/[^0-9]/g,'').slice(0,8)">
-                </div>
-                <div class="cart-cp-field">
-                    <label for="inputLocalidad">Localidad</label>
-                    <input type="text" id="inputLocalidad" placeholder="Ej: CABA">
-                </div>
-            </div>
-            <div class="cart-customer-grid single">
-                <div class="cart-cp-field">
-                    <label for="inputProvincia">Provincia</label>
-                    <input type="text" id="inputProvincia" placeholder="Ej: Buenos Aires">
-                </div>
-            </div>
-            <div class="cart-customer-actions">
-                <button type="button" class="btn-clear-shipping" onclick="clearShippingCustomerData()">Limpiar datos de envío</button>
-            </div>
-            <p class="cart-customer-hint">Si querés cerrar rápido, completá todos los datos. Si tenés dudas, podés consultar primero por WhatsApp.</p>
+            <p class="cart-customer-hint">Elegí una opción para completar los datos necesarios del pedido.</p>
         </div>`;
+
+    const identityFields = `
+        <div class="cart-customer-grid">
+            <div class="cart-cp-field"><label for="inputNombre">Nombre</label><input type="text" id="inputNombre" placeholder="Ej: Juan" autocomplete="given-name"></div>
+            <div class="cart-cp-field"><label for="inputApellido">Apellido</label><input type="text" id="inputApellido" placeholder="Ej: Pérez" autocomplete="family-name"></div>
+        </div>
+        <div class="cart-customer-grid single">
+            <div class="cart-cp-field"><label for="inputTelefono">Teléfono</label><input type="text" id="inputTelefono" placeholder="Ej: 11 1234 5678" inputmode="tel" autocomplete="tel"></div>
+        </div>`;
+
+    let logisticsFields = '';
+    let customerHint = '';
+    if (selectedDeliveryMethod === 'domicilio') {
+        logisticsFields = `
+            <div class="cart-customer-grid single"><div class="cart-cp-field"><label for="inputDireccion">Dirección</label><input type="text" id="inputDireccion" placeholder="Ej: Av. Corrientes 1234" autocomplete="street-address"></div></div>
+            <div class="cart-customer-grid">
+                <div class="cart-cp-field"><label for="inputCP">Código postal</label><input type="text" id="inputCP" placeholder="Ej: 1425" maxlength="8" inputmode="numeric" autocomplete="postal-code"></div>
+                <div class="cart-cp-field"><label for="inputLocalidad">Localidad</label><input type="text" id="inputLocalidad" placeholder="Ej: CABA" autocomplete="address-level2"></div>
+            </div>
+            <div class="cart-customer-grid single"><div class="cart-cp-field"><label for="inputProvincia">Provincia</label><input type="text" id="inputProvincia" placeholder="Ej: Buenos Aires" autocomplete="address-level1"></div></div>`;
+        customerHint = totals.cantidad >= 3
+            ? 'Con 3 prendas o más tenés 10% OFF y envío gratis a domicilio.'
+            : 'El costo del envío a domicilio se confirma según el código postal.';
+    } else if (selectedDeliveryMethod === 'retiro_andreani') {
+        logisticsFields = `
+            <div class="cart-customer-grid">
+                <div class="cart-cp-field"><label for="inputCP">Código postal</label><input type="text" id="inputCP" placeholder="Ej: 1425" maxlength="8" inputmode="numeric" autocomplete="postal-code"><small>Obligatorio para elegir el punto Andreani.</small></div>
+                <div class="cart-cp-field"><label for="inputLocalidad">Localidad</label><input type="text" id="inputLocalidad" placeholder="Ej: CABA" autocomplete="address-level2"></div>
+            </div>
+            <div class="cart-customer-grid single"><div class="cart-cp-field"><label for="inputProvincia">Provincia</label><input type="text" id="inputProvincia" placeholder="Ej: Buenos Aires" autocomplete="address-level1"></div></div>`;
+        customerHint = 'Envío gratis a punto de retiro Andreani desde 1 prenda.';
+    } else if (selectedDeliveryMethod === 'taller') {
+        customerHint = 'Podés retirar desde el tercer día hábil posterior a la compra. Coordinamos por WhatsApp.';
+    }
+
+    const shippingForm = selectedDeliveryMethod ? `
+        <div class="cart-customer-fields ${totals.cantidad >= 2 ? 'compact' : ''}" id="cartCustomerData">
+            <p class="cart-customer-title">Datos del pedido</p>
+            ${identityFields}
+            ${logisticsFields}
+            <div class="cart-customer-actions"><button type="button" class="btn-clear-shipping" onclick="clearShippingCustomerData()">Limpiar datos</button></div>
+            <p class="cart-customer-hint">${customerHint}</p>
+        </div>` : `
+        <div class="cart-customer-fields compact" id="cartCustomerData">
+            <p class="cart-customer-hint">Elegí la forma de entrega para continuar.</p>
+        </div>`;
+
+    const shippingStatus = !selectedDeliveryMethod
+        ? 'Elegí una forma de entrega'
+        : selectedDeliveryMethod === 'taller'
+            ? '<span style="color:var(--magic-green);">RETIRO SIN CARGO ✓</span>'
+            : selectedDeliveryMethod === 'retiro_andreani'
+                ? '<span style="color:var(--magic-green);">GRATIS a punto Andreani ✓</span>'
+                : totals.cantidad >= 3
+                    ? '<span style="color:var(--magic-green);">GRATIS a domicilio ✓</span>'
+                    : 'A confirmar según código postal';
     
     footer.innerHTML = `
         <div class="cart-preview-summary">
@@ -7576,14 +7620,15 @@ function renderCartPreview() {
             ` : ''}
             <div class="cart-preview-summary-row">
                 <span>Envío</span>
-                <span class="value">${totals.envioGratis ? `<span style="color:var(--magic-green);">GRATIS${totals.envioGratisPuntoAndreani ? ' a punto Andreani' : ' a domicilio'} ✓</span>` : 'Según zona (se confirma por WhatsApp)'}</span>
+                <span class="value">${shippingStatus}</span>
             </div>
             <div class="cart-preview-summary-row total">
-                <span>Total${totals.envioGratis ? '' : ' (sin envío)'}</span>
+                <span>Total${selectedDeliveryMethod === 'domicilio' && totals.cantidad < 3 ? ' (sin envío)' : ''}</span>
                 <span class="value">$${totals.total.toLocaleString('es-AR')}</span>
             </div>
         </div>
         ${shippingNote}
+        ${deliverySelector}
         ${shippingForm}
         <div class="cart-preview-info" style="margin-top:12px;padding:12px;background:#0a0a0a;border:1px solid #222;border-radius:8px;font-size:0.8rem;color:#888;">
             <div style="margin-bottom:8px;">
@@ -7600,7 +7645,7 @@ function renderCartPreview() {
             <button class="btn-preview-continue" onclick="consultFirstViaWhatsapp()">
                 Consultar primero
             </button>
-            <button class="btn-preview-whatsapp" onclick="confirmAndSendWhatsapp()">
+            <button class="btn-preview-whatsapp" id="btnConfirmCartWhatsapp" onclick="confirmAndSendWhatsapp()">
                 <svg viewBox="0 0 24 24" fill="currentColor">
                     <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
                 </svg>
@@ -7623,25 +7668,32 @@ function removeAndRefreshPreview(index) {
 }
 
 function confirmAndSendWhatsapp() {
-    if (selectedDeliveryMethod === 'taller') {
-        closeCartPreview();
-        sendViaWhatsapp('', null);
+    if (!selectedDeliveryMethod) {
+        showNotification('Elegí una forma de entrega para continuar.', 3000);
+        const group = document.getElementById('cartDeliveryGroup');
+        group?.classList.add('field-required-error');
+        group?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        setTimeout(() => group?.querySelector('button')?.focus({ preventScroll: true }), 250);
         return;
     }
 
     const customerData = getShippingCustomerData();
-    const missing = getMissingShippingFields(customerData);
+    const missing = getMissingShippingFields(customerData, selectedDeliveryMethod);
 
     if (missing.length) {
         const labels = missing.map(getShippingFieldLabel).join(', ');
-        showNotification(`Completá los datos de envio: ${labels}.`, 3500);
+        const message = missing[0] === 'cp'
+            ? 'Ingresá un código postal válido para continuar.'
+            : `Completá los datos del pedido: ${labels}.`;
+        showNotification(message, 3500);
         focusFirstMissingShippingField(missing[0]);
+        updateCheckoutWhatsappAvailability();
         return;
     }
 
     saveShippingCustomerDataToStorage(customerData);
     closeCartPreview();
-    sendViaWhatsapp(customerData.cp, customerData);
+    sendViaWhatsapp(selectedDeliveryMethod === 'taller' ? '' : customerData.cp, customerData);
 }
 
 function consultFirstViaWhatsapp() {
@@ -7691,7 +7743,7 @@ function getSelectedBackLabelForWhatsapp() {
     return parts.length ? parts.join(' / ') : 'A definir por WhatsApp';
 }
 
-function buildModalOrderWhatsappMessage() {
+function buildModalConsultationWhatsappMessage() {
     if (!currentProduct) return buildWhatsappFallbackMessage();
 
     const images = getModalImages();
@@ -7701,72 +7753,25 @@ function buildModalOrderWhatsappMessage() {
     const displayName = currentCatalogDesign?.publicName || getProductDisplayName(currentProduct, variantName);
     const code = currentCatalogDesign?.orderCodeBase
         || cart.generateCode(currentProduct.id, activeVariantIndex, isDoubleSelectionActive(currentProduct));
-    const garmentType = getSelectedModalGarmentType();
-    const garment = MODAL_GARMENT_TYPE_LABELS[garmentType] || 'Prenda';
-    const garmentVariant = garmentType === 'remera'
-        ? (MODAL_REMERA_VARIANTS.find(item => item.id === getSelectedRemeraVariantId())?.label || 'A confirmar')
-        : garmentType === 'hoodie'
-            ? 'Canguro oversize unisex'
-            : 'Cuello redondo oversize unisex';
-    const prices = resolveModalPriceConfig(currentProduct);
-    const isDouble = isDoubleSelectionActive(currentProduct);
-    const price = isDouble ? prices.doble : prices.simple;
-    const color = selectedColor === 'blanco' ? 'Blanca' : selectedColor === 'negro' ? 'Negra' : 'A confirmar';
-    const size = selectedSize || 'A confirmar';
-    const usesShownComposition = isDouble && usesBandLandingShownComposition();
-    const printMode = usesShownComposition
-        ? 'Doble estampa (composición mostrada)'
-        : isDouble
-            ? 'Doble estampa'
-            : selectedPrintMode === 'simple'
-                ? 'Estampa frontal'
-                : 'A definir';
-    const backLine = isDouble && !usesShownComposition ? `\nDorso: ${getSelectedBackLabelForWhatsapp()}` : '';
-    const delivery = DELIVERY_LABELS[selectedDeliveryMethod] || 'A confirmar';
-    const postalCode = getModalPostalCode();
-    let deliveryLines;
-    let closingLine;
-    if (selectedDeliveryMethod === 'taller') {
-        deliveryLines = [
-            `Entrega: ${delivery}`,
-            'Retiro disponible: desde el tercer día hábil posterior a la compra'
-        ];
-        closingLine = '¿Me confirmás cómo avanzamos?';
-    } else if (selectedDeliveryMethod === 'retiro_andreani') {
-        deliveryLines = [
-            `Entrega: ${delivery}`,
-            `Código postal: ${postalCode}`,
-            'Envío: GRATIS (promo agosto)'
-        ];
-        closingLine = '¿Me confirmás el punto de retiro Andreani más conveniente y cómo avanzamos?';
-    } else {
-        deliveryLines = [
-            `Entrega: ${delivery}`,
-            `Código postal: ${postalCode}`
-        ];
-        closingLine = '¿Me confirmás el costo del envío a domicilio y cómo avanzamos?';
-    }
     const designHash = currentCatalogDesign?.designId
         ? `#diseno-${encodeURIComponent(currentCatalogDesign.designId)}`
         : `#producto-${encodeURIComponent(currentProduct.id)}`;
     const designLink = `${BASE_URL}${designHash}`;
 
     return [
-        'Hola FMD! Quiero pedir este diseño:',
+        'Hola FMD! Quiero consultar por este diseño:',
         '',
         `Diseño: ${displayName}`,
         `Código: ${code}`,
-        `Prenda: ${garment}`,
-        `Tipo/corte: ${garmentVariant}`,
-        `Talle: ${size}`,
-        `Color: ${color}`,
-        `Estampa: ${printMode}${backLine}`,
-        `Precio del producto: $${price.toLocaleString('es-AR')}`,
-        ...deliveryLines,
         `Link del diseño: ${designLink}`,
         '',
-        closingLine
+        '¿Me cuentan qué opciones tengo?'
     ].filter(Boolean).join('\n');
+}
+
+function consultCurrentDesign() {
+    if (!currentProduct) return;
+    openWhatsapp(buildModalConsultationWhatsappMessage(), 'modal_consultar_diseno');
 }
 
 function addToCartFromModal() {
@@ -7859,19 +7864,15 @@ function addToCartFromModal() {
     return success;
 }
 
-// Agregár al carrito y abrir WhatsApp directamente
+function addToOrderAndOpenCart() {
+    if (!addToCartFromModal()) return;
+    closeModal(false, false);
+    openCartPreview();
+}
+
+// Compatibilidad con botones guardados en HTML anterior.
 function addToCartAndOpenWhatsapp() {
-    if (!currentProduct) return;
-    trackCatalogEvent('modal_order_attempt', {
-        ...getModalAnalyticsContext(),
-        delivery_method: selectedDeliveryMethod || 'not_selected',
-        postal_code_provided: Boolean(getModalPostalCode()),
-        size_selected: Boolean(selectedSize),
-        color_selected: Boolean(selectedColor)
-    });
-    if (!validateModalSelectionsBeforeWhatsapp()) return;
-    if (!validateModalDeliveryBeforeWhatsapp()) return;
-    openWhatsapp(buildModalOrderWhatsappMessage(), 'modal_pedir_diseno');
+    addToOrderAndOpenCart();
 }
 
 // Función para actualizar el contador de productos
