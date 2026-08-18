@@ -491,6 +491,31 @@
             ]
         },
         {
+            output: 'ozzy/index.html',
+            slug: 'ozzy',
+            publishedAt: '2026-08-18',
+            band: 'Ozzy Osbourne',
+            displayName: 'OZZY OSBOURNE',
+            title: 'Ozzy Osbourne: remeras, hoodies y buzos | Five Magics Designs',
+            description: 'Diseños de Ozzy Osbourne en remeras, hoodies y buzos hechos a pedido. Elegí prenda, estampa, talle y color.',
+            canonical: 'https://catalogo.fivemagicsdesigns.com/ozzy/',
+            image: '/images/banda_sugeridas/ozzy/hoodie_ozzy_blizzard.jpg',
+            imageUrl: 'https://catalogo.fivemagicsdesigns.com/images/banda_sugeridas/ozzy/hoodie_ozzy_blizzard.jpg',
+            heroTitle: 'REMERAS, HOODIES Y BUZOS',
+            heroCopy: 'Explorá diseños de Ozzy Osbourne en remeras, hoodies y buzos. Elegí tu favorito y armá tu pedido.',
+            finalTitle: '¿BUSCABAS OTRO DISEÑO DE OZZY?',
+            finalCopy: 'También hacemos diseños personalizados a partir de una tapa, imagen o idea.',
+            whatsappMessage: 'Hola FMD! Quiero consultar por un diseño de Ozzy Osbourne a partir de una tapa, imagen o idea.',
+            defaultGarment: 'hoodie',
+            usesShownComposition: true,
+            showSizeGuide: true,
+            garments: [
+                { key: 'hoodie', title: 'HOODIES', price: 'Frontal $52.000 · Doble $59.000', image: '/images/banda_sugeridas/ozzy/hoodie_ozzy_blizzard.jpg', alt: 'Hoodie Ozzy Osbourne Blizzard of Ozz' },
+                { key: 'buzo_cuello_redondo', title: 'BUZOS', price: 'Frontal $50.000 · Doble $55.000', image: '/images/banda_sugeridas/ozzy/buzo_bark_at_the_moon.jpg', alt: 'Buzo cuello redondo Ozzy Osbourne Bark at the Moon' },
+                { key: 'remera', title: 'REMERAS', price: 'Frontal $37.000 · Doble $44.000', image: '/images/banda_sugeridas/ozzy/remera_ozzy_blizzard_of_ozz.jpg', alt: 'Remera Ozzy Osbourne Blizzard of Ozz' }
+            ]
+        },
+        {
             output: 'tarja/index.html',
             slug: 'tarja',
             publishedAt: '2026-08-17',
