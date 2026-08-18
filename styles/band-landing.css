@@ -508,10 +508,26 @@ body.band-landing-page[data-band="Ricardo Iorio"] .band-landing-hero h1 {
 
 .band-landing-design-note {
     max-width: 680px;
-    margin: 8px auto 0;
-    color: #b8b4bd;
+    margin: 12px auto 0;
+    padding: 12px 14px;
+    border: 1px solid rgba(57, 255, 20, 0.32);
+    border-radius: 10px;
+    background: rgba(57, 255, 20, 0.055);
+    color: #d0cdd4;
     font-size: 0.92rem;
     line-height: 1.5;
+}
+
+.band-landing-design-note strong,
+.band-landing-design-note span {
+    display: block;
+}
+
+.band-landing-design-note strong {
+    margin-bottom: 2px;
+    color: var(--magic-green);
+    font-size: 0.79rem;
+    letter-spacing: 0.065em;
 }
 
 .band-landing-page .catalog-toolbar {

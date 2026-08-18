@@ -2384,10 +2384,15 @@ function updateCatalogDesignReferenceNote() {
         return;
     }
     const title = document.createElement('strong');
-    title.textContent = 'VISTA DE REFERENCIA';
+    title.textContent = 'DISPONIBLE PARA PEDIR';
     const description = document.createElement('span');
-    description.textContent = `Este diseño se adapta a ${garmentLabel}. La imagen corresponde a otra prenda.`;
-    note.replaceChildren(title, description);
+    description.textContent = `Este diseño está disponible en ${garmentLabel}. Todavía no tenemos el mock de esta prenda; usamos la imagen disponible como referencia.`;
+    const consultation = document.createElement('button');
+    consultation.type = 'button';
+    consultation.className = 'modal-preview-reference-consult';
+    consultation.textContent = '¿Querés confirmar cómo quedaría? Consultanos por WhatsApp';
+    consultation.addEventListener('click', consultCurrentDesign);
+    note.replaceChildren(title, description, consultation);
 }
 
 function selectCatalogDesignPreviewForGarment(modalGarment) {
@@ -6083,7 +6088,12 @@ function updateBandLandingFinalMessage() {
     cta.textContent = 'PEDIR UN DISEÑO';
 }
 
+function setCatalogUniversalGarmentNoteVisible(visible) {
+    document.getElementById('catalogUniversalGarmentNote')?.classList.toggle('is-hidden', !visible);
+}
+
 function renderCatalogDesignResults(designs) {
+    setCatalogUniversalGarmentNoteVisible(!isBandLandingMode());
     updateBandLandingFinalMessage();
     const visibleDesigns = designs.slice(0, catalogVisibleLimit);
     productsGrid.classList.remove('catalog-band-directory', 'gallery-view');
@@ -6228,6 +6238,7 @@ const FEATURED_COLLECTION_ART = Object.freeze({
 });
 
 function renderCatalogBandDirectory(products) {
+    setCatalogUniversalGarmentNoteVisible(false);
     const groups = new Map();
     products.forEach(product => {
         const label = getCatalogBandLabel(product);
@@ -6353,6 +6364,7 @@ function renderFilteredProducts(filtered) {
         renderCatalogBandDirectory(filtered);
         return;
     }
+    setCatalogUniversalGarmentNoteVisible(true);
     productsGrid.classList.remove('catalog-band-directory');
     document.querySelector('.catalog-toolbar')?.classList.remove('catalog-directory-active');
     const visibleLimit = isMegadethView ? megadethVisibleLimit : catalogVisibleLimit;
