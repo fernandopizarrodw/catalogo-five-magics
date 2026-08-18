@@ -6222,6 +6222,7 @@ const FEATURED_COLLECTION_ART = Object.freeze({
     slayer: { image: 'images/slayer/remera_slayer_aguila.jpg', alt: 'Diseño representativo de Slayer' },
     'iron maiden': { image: 'images/iron_maiden/IRON MAIDEN BY FMD/fmd_killers.jpg', alt: 'Killers FMD de Iron Maiden' },
     'ricardo iorio': { image: 'images/banda_sugeridas/ricardo_iorio/remera_almafuerte_obras.jpg', alt: 'Almafuerte - En Obras' },
+    epica: { image: 'images/banda_sugeridas/epica/hoodie_epica_the_phantom_agony.jpg', alt: 'Hoodie EPICA The Phantom Agony' },
     pantera: { image: 'images/pantera/remera_pantera_the_great_southern_trendkill.jpg', alt: 'Diseño representativo de Pantera' },
     metallica: { image: 'images/metallica/metallica_master_of_puppets_realistic.jpg', alt: 'Master Realista de Metallica' }
 });
@@ -6236,7 +6237,7 @@ function renderCatalogBandDirectory(products) {
     groups.forEach(group => group.sort(compareProductsByVisibilityThenPriority));
 
     const findLabel = label => [...groups.keys()].find(groupLabel => normalizeText(groupLabel) === normalizeText(label));
-    const initialLabels = ['Megadeth', 'Slayer', 'Iron Maiden', 'Ricardo Iorio', 'Pantera', 'Metallica']
+    const initialLabels = ['Megadeth', 'Slayer', 'Iron Maiden', 'Ricardo Iorio', 'Epica', 'Metallica']
         .map(findLabel)
         .filter(Boolean);
     const initialLabelKeys = new Set(initialLabels.map(normalizeText));
