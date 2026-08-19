@@ -167,6 +167,13 @@
         "img": "images/fmd-edition-3d/vic_tour_2026/vic_warheads.jpg",
         "name": "Vic Warheads FMD",
         "isNew": true
+      },
+      {
+        "img": "images/fmd-edition-3d/vic_tour_2026/vic_fmd_edition.jpg",
+        "name": "Vic FMD Edition",
+        "isNew": true,
+        "fmdBadge": "ORIGINAL FMD",
+        "fmdBadgeDescription": "Creación exclusiva FMD con Vic como protagonista."
       }
     ],
     "desc": "Megadeth FMD Original - Colección de diseños originales FMD 2026.",
