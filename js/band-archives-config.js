@@ -516,6 +516,29 @@
             ]
         },
         {
+            output: 'helloween/index.html',
+            slug: 'helloween',
+            publishedAt: '2026-08-19',
+            band: 'Helloween',
+            displayName: 'HELLOWEEN',
+            title: 'Helloween: remeras, hoodies y buzos | Five Magics Designs',
+            description: 'Diseños de Helloween en remeras, hoodies y buzos hechos a pedido. Elegí prenda, estampa, talle y color.',
+            canonical: 'https://catalogo.fivemagicsdesigns.com/helloween/',
+            image: '/images/banda_sugeridas/helloween/helloween_40_tour.jpg',
+            imageUrl: 'https://catalogo.fivemagicsdesigns.com/images/banda_sugeridas/helloween/helloween_40_tour.jpg',
+            heroTitle: 'REMERAS, HOODIES Y BUZOS',
+            heroCopy: 'Explorá diseños de Helloween y elegí tu favorito para armar el pedido.',
+            finalTitle: '¿BUSCABAS OTRO DISEÑO DE HELLOWEEN?',
+            finalCopy: 'También hacemos diseños personalizados a partir de una tapa, imagen o idea.',
+            whatsappMessage: 'Hola FMD! Quiero consultar por un diseño de Helloween a partir de una tapa, imagen o idea.',
+            defaultGarment: 'remera',
+            usesShownComposition: false,
+            showSizeGuide: true,
+            garments: [
+                { key: 'remera', title: 'REMERAS', price: 'Frontal $37.000 · Doble $44.000', image: '/images/banda_sugeridas/helloween/helloween_40_tour.jpg', alt: 'Remera Helloween 40 Tour' }
+            ]
+        },
+        {
             output: 'tarja/index.html',
             slug: 'tarja',
             publishedAt: '2026-08-17',
