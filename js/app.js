@@ -2957,11 +2957,11 @@ class CartSystem {
             } else if (isBuzoRedondo) {
                 tipoPrenda = 'Buzo cuello redondo oversize unisex';
             } else if (isHoodie) {
-                tipoPrenda = 'Hoodie oversize unisex';
+                tipoPrenda = 'Hoodie canguro oversize unisex';
             } else if (item.cut === 'oversize') {
                 tipoPrenda = 'Remera oversize unisex';
             } else if (item.cut === 'mujer') {
-                tipoPrenda = 'Remera corte mujer';
+                tipoPrenda = 'Remera clásica mujer';
             } else {
                 tipoPrenda = 'Remera clásica hombre';
             }
@@ -2969,29 +2969,27 @@ class CartSystem {
             const estampado = item.isDouble ? 'Frente y dorso' : 'Solo frente';
             const additionalDetails = [];
             if (item.isDouble && !item.usesShownComposition && !item.backCode) {
-                additionalDetails.push('   Dorso a definir');
+                additionalDetails.push('Dorso a definir');
             } else if (item.isDouble && !item.usesShownComposition && item.backName) {
-                additionalDetails.push(`   Dorso: ${item.backName}`);
+                additionalDetails.push(`Dorso: ${item.backName}`);
             }
             if (item.customizationText) {
-                additionalDetails.push(`   Personalización: ${item.customizationText}`);
+                additionalDetails.push(`Personalización: ${item.customizationText}`);
             }
 
-            return [
-                `${idx + 1}. ${item.frontCode || item.code} — ${item.productName}`,
-                `   ${tipoPrenda} · ${color} · Talle ${talle} · ${estampado}`,
-                ...additionalDetails,
-                `   $${Math.round(itemPrices[idx]).toLocaleString('es-AR')}`
-            ].filter(Boolean).join('\n');
-        }).join('\n\n');
+            const options = [tipoPrenda, color, `Talle ${talle}`, estampado, ...additionalDetails]
+                .filter(Boolean)
+                .join(' · ');
+            return `${idx + 1}. ${item.frontCode || item.code} — ${item.productName} · ${options} · $${Math.round(itemPrices[idx]).toLocaleString('es-AR')}`;
+        }).join('\n');
 
         const total = this.cart.length;
         const totals = calculateCartTotal();
         const discountLine = totals.descuento > 0
-            ? `\n• Descuento aplicado (10% OFF): -$${Math.round(totals.descuento).toLocaleString('es-AR')}`
+            ? `\n10% OFF: -$${Math.round(totals.descuento).toLocaleString('es-AR')}`
             : '';
 
-        return `DETALLE DEL PEDIDO:\n\n${details}\n\nRESUMEN:\n• Cantidad de prendas: ${total}\n• Subtotal: $${Math.round(totals.subtotal).toLocaleString('es-AR')}${discountLine}\n• Total final: $${Math.round(totals.total).toLocaleString('es-AR')}`;
+        return `${details}\n\nRESUMEN\n${total} ${total === 1 ? 'prenda' : 'prendas'} · Subtotal: $${Math.round(totals.subtotal).toLocaleString('es-AR')}${discountLine}\nTotal: $${Math.round(totals.total).toLocaleString('es-AR')}`;
     }
 
     generateConsultationSummary() {
@@ -7162,7 +7160,7 @@ function getShippingCustomerData() {
 function getRequiredShippingFields(method = selectedDeliveryMethod) {
     const common = ['nombre', 'apellido', 'telefono'];
     if (method === 'domicilio') return [...common, 'direccion', 'cp', 'localidad', 'provincia'];
-    if (method === 'retiro_andreani') return ['nombre', 'cp'];
+    if (method === 'retiro_andreani') return ['nombre', 'cp', 'localidad'];
     if (method === 'taller') return common;
     return [];
 }
@@ -7202,30 +7200,32 @@ function getShippingFieldLabel(fieldKey) {
 function buildCustomerDataForWhatsapp(data) {
     if (selectedDeliveryMethod === 'retiro_andreani') {
         const lines = [];
-        if (data.nombre) lines.push(`• Nombre completo: ${data.nombre}`);
-        if (data.cp) lines.push(`• CP: ${data.cp}`);
+        if (data.nombre) lines.push(data.nombre);
+        const location = [data.cp ? `CP ${data.cp}` : '', data.localidad]
+            .filter(Boolean)
+            .join(' · ');
+        if (location) lines.push(location);
         return lines.length
-            ? `\n\nDATOS DEL CLIENTE:\n${lines.join('\n')}`
-            : '\n\nDATOS DEL CLIENTE:\n• A confirmar por WhatsApp';
+            ? `\n\nDATOS\n${lines.join('\n')}`
+            : '\n\nDATOS\nA confirmar por WhatsApp';
     }
 
     const lines = [];
     const fullName = [data.nombre, data.apellido].filter(Boolean).join(' ');
-    if (fullName) lines.push(`• Nombre y apellido: ${fullName}`);
-    if (data.telefono) lines.push(`• Teléfono: ${data.telefono}`);
+    if (fullName) lines.push(fullName);
     if (selectedDeliveryMethod === 'domicilio') {
         const location = [data.cp ? `CP ${data.cp}` : '', data.localidad, data.provincia]
             .filter(Boolean)
             .join(' · ');
-        if (location) lines.push(`• ${location}`);
-        if (data.direccion) lines.push(`• Dirección: ${data.direccion}`);
+        if (location) lines.push(location);
+        if (data.direccion) lines.push(`Dirección: ${data.direccion}`);
     }
 
     if (!lines.length) {
-        return '\n\nDATOS DEL CLIENTE:\n• A confirmar por WhatsApp';
+        return '\n\nDATOS\nA confirmar por WhatsApp';
     }
 
-    return `\n\nDATOS DEL CLIENTE:\n${lines.join('\n')}`;
+    return `\n\nDATOS\n${lines.join('\n')}`;
 }
 
 function updateCheckoutWhatsappAvailability() {
@@ -7254,17 +7254,15 @@ function buildShippingContextForWhatsapp(postalCode = '', customerData = null) {
     const totals = calculateCartTotal();
     let deliveryBenefit = '';
     if (selectedDeliveryMethod === 'retiro_andreani') {
-        deliveryBenefit = totals.cantidad >= 3
-            ? '10% OFF aplicado · Envío gratis a punto Andreani'
-            : 'Envío gratis a punto Andreani';
+        deliveryBenefit = 'Punto Andreani · Envío gratis';
     } else if (selectedDeliveryMethod === 'domicilio') {
         deliveryBenefit = totals.cantidad >= 3
-            ? '10% OFF aplicado · Envío gratis a domicilio'
-            : 'Envío a domicilio a cotizar según CP';
+            ? 'Domicilio · Envío gratis'
+            : 'Domicilio · Envío a cotizar según CP';
     } else if (selectedDeliveryMethod === 'taller') {
         deliveryBenefit = 'Retiro sin cargo en Villa Martelli';
     }
-    const deliveryContext = `\n\nENTREGA:\n• ${deliveryBenefit}`;
+    const deliveryContext = `\n\nENTREGA\n${deliveryBenefit}`;
     const customerContext = customerData ? buildCustomerDataForWhatsapp(customerData) : '';
     return `${deliveryContext}${customerContext}`;
 }
@@ -7597,8 +7595,9 @@ function renderCartPreview() {
             : 'El costo del envío a domicilio se confirma según el código postal.';
     } else if (selectedDeliveryMethod === 'retiro_andreani') {
         logisticsFields = `
-            <div class="cart-customer-grid single">
+            <div class="cart-customer-grid">
                 <div class="cart-cp-field"><label for="inputCP">Código postal</label><input type="text" id="inputCP" placeholder="Ej: 1425" maxlength="8" inputmode="numeric" autocomplete="postal-code"><small>Lo usamos para encontrar el punto Andreani más conveniente.</small></div>
+                <div class="cart-cp-field"><label for="inputLocalidad">Localidad</label><input type="text" id="inputLocalidad" placeholder="Ej: CABA" autocomplete="address-level2"></div>
             </div>`;
         customerHint = 'Envío gratis a punto de retiro Andreani desde 1 prenda.';
     } else if (selectedDeliveryMethod === 'taller') {
