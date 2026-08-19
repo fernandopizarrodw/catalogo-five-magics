@@ -2961,9 +2961,9 @@ class CartSystem {
             } else if (item.cut === 'oversize') {
                 tipoPrenda = 'Remera oversize unisex';
             } else if (item.cut === 'mujer') {
-                tipoPrenda = 'Remera clásica mujer';
+                tipoPrenda = 'Remera con corte clásico mujer';
             } else {
-                tipoPrenda = 'Remera clásica hombre';
+                tipoPrenda = 'Remera con corte clásico hombre';
             }
 
             const estampado = item.isDouble ? 'Frente y dorso' : 'Solo frente';
