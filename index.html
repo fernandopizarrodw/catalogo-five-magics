@@ -71,7 +71,7 @@
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
                     </svg>
-                    <span>HACER PEDIDO</span>
+                    <span>CONSULTAR</span>
                 </a>
             </div>
         </div>
@@ -81,22 +81,22 @@
     <div class="search-modal" id="searchModal">
         <div class="search-modal-content">
             <button class="search-modal-close" id="searchModalClose">✕</button>
-            <h2>Buscar Diseños</h2>
-            <input type="text" id="searchModalInput" placeholder="Ej: Rust, Peace, Vic, Mustaine..." autofocus>
+            <h2>BUSCAR EN EL CATÁLOGO</h2>
+            <input type="text" id="searchModalInput" placeholder="Ej: Megadeth, Hermética, Holy Land, Black Album..." autofocus>
             <div id="searchModalResults" class="search-modal-results"></div>
         </div>
     </div>
 
     <!-- Botón flotante del carrito -->
-    <button id="cartBtn" title="Ver carrito">
-        🛒 Ver carrito
+    <button id="cartBtn" title="Ver pedido">
+        🛒 Ver pedido
         <span class="cart-count">0</span>
     </button>
 
     <!-- Panel del carrito -->
     <div id="cartPanel">
         <div class="cart-panel-header">
-            <h2>🛒 Mi Carrito</h2>
+            <h2>🛒 Mi pedido</h2>
             <button class="cart-panel-close" id="cartPanelClose">✕</button>
         </div>
         <div id="cartList"></div>
@@ -110,14 +110,14 @@
             <h1 class="hero-brand">FIVE MAGICS DESIGNS</h1>
             <h2 class="hero-tagline">REMERAS, HOODIES Y BUZOS DE METAL</h2>
             <div class="hero-divider"></div>
-            <p class="hero-description">Eleg&iacute; tu banda, dise&ntilde;o y prenda. Tambi&eacute;n hacemos personalizados con el arte que quieras.</p>
+            <p class="hero-description">Eleg&iacute; la banda, el dise&ntilde;o y la prenda. Tambi&eacute;n armamos personalizados a partir de tu idea, tapa o imagen.</p>
             <p class="hero-promo-summary"><strong>ENV&Iacute;O GRATIS</strong> desde 1 prenda a punto Andreani &middot; 3 prendas o m&aacute;s: 10% OFF + env&iacute;o gratis a domicilio</p>
             <div class="hero-actions">
                 <a href="#catalogoPrincipal" class="hero-cta-btn" id="heroCtaBuzos" onclick="showFullCatalog(); return false;">EXPLORAR CAT&Aacute;LOGO</a>
                 <a href="https://wa.me/541169667685?text=Hola%20FMD%2C%20quiero%20pedir%20un%20dise%C3%B1o%20personalizado%20con%20mi%20idea%2C%20tapa%20o%20banda%2E" class="hero-cta-btn hero-cta-btn-secondary" id="heroCtaWhatsapp" target="_blank" rel="noopener">PEDIR DISEÑO PERSONALIZADO</a>
             </div>
             <div class="hero-proof">
-                <span class="hero-proof-priority">DTG PREMIUM &middot; NEGRO O BLANCO &middot; TODO A PEDIDO</span>
+                <span class="hero-proof-priority">IMPRESI&Oacute;N DTG &middot; NEGRO O BLANCO &middot; PRODUCCI&Oacute;N A PEDIDO</span>
             </div>
         </div>
 
@@ -128,8 +128,8 @@
         <div class="megadeth-archive-banner">
             <p class="megadeth-archive-kicker">ARCHIVO MEGADETH FMD</p>
             <h2 class="megadeth-archive-title">UNIVERSO MEGADETH</h2>
-            <p class="megadeth-archive-subtitle">Explorá el archivo completo por prenda y después filtrá por Álbumes, Vic, Dave, tours o miembros.</p>
-            <p class="megadeth-archive-note">Todos los diseños se producen a pedido. Podés elegir estampa simple o combinar frente y dorso.</p>
+            <p class="megadeth-archive-subtitle">Elegí la prenda y recorré el archivo por álbumes, Vic Rattlehead, Dave Mustaine, giras o integrantes.</p>
+            <p class="megadeth-archive-note">Podés elegir el diseño solo al frente o combinar frente y dorso.</p>
             <div class="megadeth-segment-filters" id="megadethSegmentFilters">
                 <button type="button" class="active" data-megadeth-segment="all" onclick="showMegadethSegment('all')">Todo</button>
                 <button type="button" data-megadeth-segment="albums" onclick="showMegadethSegment('albums')">Álbumes</button>
@@ -151,11 +151,11 @@
             <p class="slayer-archive-kicker">ARCHIVO SLAYER FMD</p>
             <h2 class="slayer-archive-title">SLAYER EN ARGENTINA 2026</h2>
             <p class="slayer-archive-subtitle">Primero elegí la prenda y después explorá todos los diseños disponibles.</p>
-            <p class="slayer-archive-availability">Todos los diseños son personalizables y están disponibles en remera, hoodie y buzo cuello redondo.</p>
-            <p class="slayer-archive-custom-note">Podés combinar libremente frentes y dorsos para armar tu propia prenda.</p>
+            <p class="slayer-archive-availability">Todos los diseños están disponibles en remera, hoodie y buzo cuello redondo.</p>
+            <p class="slayer-archive-custom-note">También podés modificar o combinar el dorso.</p>
             <div class="slayer-archive-actions">
-                <a href="#categoryNav" class="slayer-archive-btn" id="slayerCtaCollection">VER MÁS SLAYER</a>
-                <a href="https://wa.me/541169667685?text=Hola%20FMD%2C%20quiero%20ver%20la%20coleccion%20Slayer" class="slayer-archive-btn slayer-archive-btn-secondary" id="slayerCtaWhatsapp" target="_blank" rel="noopener">PEDIR POR WHATSAPP</a>
+                <a href="#categoryNav" class="slayer-archive-btn" id="slayerCtaCollection">VER COLECCIÓN SLAYER</a>
+                <a href="https://wa.me/541169667685?text=Hola%20FMD%2C%20quiero%20ver%20la%20coleccion%20Slayer" class="slayer-archive-btn slayer-archive-btn-secondary" id="slayerCtaWhatsapp" target="_blank" rel="noopener">CONSULTAR POR SLAYER</a>
             </div>
         </div>
         <div class="products-grid slayer-archive-grid" id="slayerArchiveGrid"></div>
@@ -168,8 +168,8 @@
             <p class="maiden-archive-subtitle">Elegí la prenda y explorá todos los diseños disponibles.</p>
             <p class="maiden-archive-availability">Explorá cada diseño y elegí la combinación de frente y dorso que más te guste.</p>
             <div class="maiden-archive-actions">
-                <a href="#categoryNav" class="maiden-archive-btn" id="maidenCtaCollection">VER COLECCION MAIDEN</a>
-                <a href="https://wa.me/541169667685?text=Hola%20FMD%2C%20quiero%20ver%20la%20coleccion%20Iron%20Maiden" class="maiden-archive-btn maiden-archive-btn-secondary" id="maidenCtaWhatsapp" target="_blank" rel="noopener">PEDIR POR WHATSAPP</a>
+                <a href="#categoryNav" class="maiden-archive-btn" id="maidenCtaCollection">VER COLECCIÓN IRON MAIDEN</a>
+                <a href="https://wa.me/541169667685?text=Hola%20FMD%2C%20quiero%20ver%20la%20coleccion%20Iron%20Maiden" class="maiden-archive-btn maiden-archive-btn-secondary" id="maidenCtaWhatsapp" target="_blank" rel="noopener">CONSULTAR POR IRON MAIDEN</a>
             </div>
         </div>
         <div class="products-grid maiden-archive-grid" id="maidenArchiveGrid"></div>
@@ -180,10 +180,10 @@
             <p class="epica-archive-kicker">ARCHIVO EPICA FMD</p>
             <h2 class="epica-archive-title">EPICA ARGENTINA 2027</h2>
             <p class="epica-archive-subtitle">Elegí la prenda y explorá los diseños disponibles para remera, hoodie y buzo cuello redondo.</p>
-            <p class="epica-archive-availability">Si no encontrás el diseño que buscás, también hacemos personalizados con la imagen o arte que quieras.</p>
+            <p class="epica-archive-availability">Si no encontrás el diseño que buscás, podemos prepararlo a partir de la imagen que quieras.</p>
             <div class="epica-archive-actions">
                 <a href="#catalogoPrincipal" class="epica-archive-btn" id="epicaCtaCollection" onclick="showAllEpica(); return false;">VER TODO EPICA</a>
-                <a href="https://wa.me/541169667685?text=Hola%20FMD%2C%20quiero%20ver%20los%20dise%C3%B1os%20de%20Epica%20Argentina%202027" class="epica-archive-btn epica-archive-btn-secondary" id="epicaCtaWhatsapp" target="_blank" rel="noopener">PEDIR POR WHATSAPP</a>
+                <a href="https://wa.me/541169667685?text=Hola%20FMD%2C%20quiero%20ver%20los%20dise%C3%B1os%20de%20Epica%20Argentina%202027" class="epica-archive-btn epica-archive-btn-secondary" id="epicaCtaWhatsapp" target="_blank" rel="noopener">CONSULTAR POR EPICA</a>
             </div>
         </div>
         <div class="products-grid epica-archive-grid" id="epicaArchiveGrid"></div>
@@ -195,8 +195,8 @@
             <h2 class="hoodies-title">BUZO CUELLO REDONDO<br>CORTE AMPLIO UNISEX</h2>
             <p class="hoodies-subtitle">Sin capucha · Sin bolsillo · Estampa DTG · Negro</p>
             <div class="hoodies-prices">
-                <span class="price-tag">Simple: <strong>$50.000</strong></span>
-                <span class="price-tag price-tag-double">Doble estampa: <strong>$55.000</strong></span>
+                <span class="price-tag">Solo frente: <strong>$50.000</strong></span>
+                <span class="price-tag price-tag-double">Frente y dorso: <strong>$55.000</strong></span>
                 <span class="price-tag">Personalizado: <strong>+$5.000</strong></span>
             </div>
             <div class="featured-note featured-note-buzo">
@@ -214,11 +214,11 @@
             <h2 class="hoodies-title">HOODIES MEGADETH<br>ARCHIVO FMD 2026</h2>
             <p class="hoodies-subtitle">Canguro oversize unisex · Algodón frizado · Estampa DTG · Diseños FMD</p>
             <div class="hoodies-prices">
-                <span class="price-tag">Simple: <strong>$52.000</strong></span>
-                <span class="price-tag">Doble estampa: <strong>$59.000</strong></span>
+                <span class="price-tag">Solo frente: <strong>$52.000</strong></span>
+                <span class="price-tag">Frente y dorso: <strong>$59.000</strong></span>
             </div>
             <div class="featured-note featured-note-hoodie">
-                🎸 Diseños exclusivos FMD del universo Megadeth. Disponible para todo el país.
+                🎸 Diseños FMD dedicados a Megadeth. Envíos a todo el país.
             </div>
         </div>
 
@@ -227,7 +227,7 @@
             <img src="images/hoddies_fmd/guitarra_argentina.png" alt="Hoodie Guitarra Argentina" loading="lazy" decoding="async" fetchpriority="low">
             <div class="hoodie-spotlight-content">
                 <h3>Hoodie Guitarra Argentina</h3>
-                <p>Edición 2026 · Doble estampa · Canguro oversize premium</p>
+                <p>Edición 2026 · Frente y dorso · Hoodie canguro de corte amplio</p>
                 <strong>$59.000</strong>
             </div>
         </div>
@@ -241,9 +241,9 @@
                 <img id="fmdSpotlightImage" src="images/fmd-edition-3d/killing/killing_final_3d_edition.jpg" alt="Spotlight FMD" decoding="async">
             </button>
             <div class="fmd-spotlight-copy">
-                <p class="fmd-spotlight-kicker">JOYAS OCULTAS FMD</p>
-                <h2 class="fmd-spotlight-title" id="fmdSpotlightTitle">JOYAS OCULTAS FMD</h2>
-                <p class="fmd-spotlight-desc" id="fmdSpotlightDesc">Un pantallazo automatizado de Álbumes reimaginados y Originales FMD.</p>
+                <p class="fmd-spotlight-kicker">SELECCIÓN FMD</p>
+                <h2 class="fmd-spotlight-title" id="fmdSpotlightTitle">JOYAS OCULTAS</h2>
+                <p class="fmd-spotlight-desc" id="fmdSpotlightDesc">Una selección de portadas reimaginadas y diseños originales FMD.</p>
                 <div class="fmd-spotlight-meta">
                     <span id="fmdSpotlightType">Álbumes FMD</span>
                     <span id="fmdSpotlightCounter">1 / 1</span>
@@ -258,16 +258,16 @@
     <section class="fmd-edition-3d-showcase home-secondary-archive" id="fmdEdition3d">
         <div class="fmd3d-shell">
             <div class="fmd3d-copy">
-                <p class="fmd3d-kicker">FMD EDITIONS · DESTACADOS</p>
-                <h2 class="fmd3d-title">Álbumes reimaginados por FMD</h2>
-                <p class="fmd3d-desc">Versiones 3D, portadas alternativas y piezas cinematográficas inspiradas en el universo Megadeth.</p>
+                <p class="fmd3d-kicker">EDICIONES ESPECIALES FMD</p>
+                <h2 class="fmd3d-title">PORTADAS Y VERSIONES FMD</h2>
+                <p class="fmd3d-desc">Nuevas versiones 3D, portadas alternativas y diseños creados por FMD para distintas eras de Megadeth.</p>
                 <div class="fmd3d-pills">
-                    <span>Drop 2026</span>
-                    <span>FMD Reimagined</span>
-                    <span>Ediciones 3D</span>
+                    <span>PORTADAS ALTERNATIVAS</span>
+                    <span>EDICIONES 3D</span>
+                    <span>ARTE ORIGINAL FMD</span>
                 </div>
                 <div class="fmd3d-cta-row">
-                    <a href="#fmdEdition3dGrid" class="fmd3d-cta" onclick="scrollToSection('fmdEdition3dGrid'); return false;">Explorar ediciones</a>
+                    <a href="#fmdEdition3dGrid" class="fmd3d-cta" onclick="scrollToSection('fmdEdition3dGrid'); return false;">VER EDICIONES</a>
                 </div>
             </div>
 
@@ -277,7 +277,7 @@
                     <div class="fmd3d-group-carousel">
                         <div class="fmd3d-group-track">
                             <button type="button" class="fmd3d-group-slide" onclick="openModal(6026,0,[0,1]); return false;"><img src="images/fmd-edition-3d/killing/killing_final_3d_edition.jpg" alt="1985 KIMB Edición 3D" loading="lazy" decoding="async"><span>Edición 3D</span></button>
-                            <button type="button" class="fmd3d-group-slide" onclick="openModal(6026,1,[0,1]); return false;"><img src="images/fmd-edition-3d/killing/killing_retro_3d_edition.jpg" alt="1985 KIMB Reimagined Retro" loading="lazy" decoding="async"><span>Reimagined Retro</span></button>
+                            <button type="button" class="fmd3d-group-slide" onclick="openModal(6026,1,[0,1]); return false;"><img src="images/fmd-edition-3d/killing/killing_retro_3d_edition.jpg" alt="1985 KIMB versión retro FMD" loading="lazy" decoding="async"><span>Versión retro FMD</span></button>
                         </div>
                         <button type="button" class="fmd3d-nav prev" onclick="fmd3dMove(this,-1)">‹</button>
                         <button type="button" class="fmd3d-nav next" onclick="fmd3dMove(this,1)">›</button>
@@ -289,7 +289,7 @@
                     <div class="fmd3d-group-head"><strong>1986 · Peace Sells</strong><span>2 versiones</span></div>
                     <div class="fmd3d-group-carousel">
                         <div class="fmd3d-group-track">
-                            <button type="button" class="fmd3d-group-slide" onclick="openModal(6027,0,[0,1]); return false;"><img src="images/fmd-edition-3d/peace/peace_3d_edition_v1.jpg" alt="1986 Peace Sells Reimagined" loading="lazy" decoding="async"><span>Reimagined</span></button>
+                            <button type="button" class="fmd3d-group-slide" onclick="openModal(6027,0,[0,1]); return false;"><img src="images/fmd-edition-3d/peace/peace_3d_edition_v1.jpg" alt="1986 Peace Sells versión FMD" loading="lazy" decoding="async"><span>Versión FMD</span></button>
                             <button type="button" class="fmd3d-group-slide" onclick="openModal(6027,1,[0,1]); return false;"><img src="images/fmd-edition-3d/peace/peace_3d_edition_v2.jpg" alt="1986 Peace Sells Edición 3D" loading="lazy" decoding="async"><span>Edición 3D</span></button>
                         </div>
                         <button type="button" class="fmd3d-nav prev" onclick="fmd3dMove(this,-1)">‹</button>
@@ -307,12 +307,12 @@
                     </div>
                 </article>
 
-                <article class="fmd3d-group" data-index="0" data-tags="Frente / Dorso">
-                    <div class="fmd3d-group-head"><strong>1990 · Rust in Peace</strong><span>Frente / Dorso</span></div>
+                <article class="fmd3d-group" data-index="0" data-tags="Frente y dorso">
+                    <div class="fmd3d-group-head"><strong>1990 · Rust in Peace</strong><span>Frente y dorso</span></div>
                     <div class="fmd3d-group-carousel">
                         <div class="fmd3d-group-track">
-                            <button type="button" class="fmd3d-group-slide" onclick="openModal(4,8,[8,9]); return false;"><img src="images/fmd-edition-3d/rust/rust_in_peace_3d_edition_frente.jpg" alt="1990 Rust in Peace Reimagined" loading="lazy" decoding="async"><span>Reimagined</span></button>
-                            <button type="button" class="fmd3d-group-slide" onclick="openModal(4,9,[8,9]); return false;"><img src="images/fmd-edition-3d/rust/rust_in_peace_3d_edition_dorso.jpg" alt="1990 Rust in Peace Original FMD" loading="lazy" decoding="async"><span>Original FMD</span></button>
+                            <button type="button" class="fmd3d-group-slide" onclick="openModal(4,8,[8,9]); return false;"><img src="images/fmd-edition-3d/rust/rust_in_peace_3d_edition_frente.jpg" alt="1990 Rust in Peace versión FMD" loading="lazy" decoding="async"><span>Versión FMD</span></button>
+                            <button type="button" class="fmd3d-group-slide" onclick="openModal(4,9,[8,9]); return false;"><img src="images/fmd-edition-3d/rust/rust_in_peace_3d_edition_dorso.jpg" alt="1990 Rust in Peace arte original FMD" loading="lazy" decoding="async"><span>Arte original FMD</span></button>
                         </div>
                         <button type="button" class="fmd3d-nav prev" onclick="fmd3dMove(this,-1)">‹</button>
                         <button type="button" class="fmd3d-nav next" onclick="fmd3dMove(this,1)">›</button>
@@ -322,13 +322,13 @@
 
                 <article class="fmd3d-group" data-index="0" data-tags="2 versiones">
                     <div class="fmd3d-group-head"><strong>1992 · Countdown</strong><span>2 versiones</span></div>
-                    <div class="fmd3d-group-carousel"><div class="fmd3d-group-track"><button type="button" class="fmd3d-group-slide" onclick="openModal(5,6,[6,10]); return false;"><img src="images/fmd-edition-3d/countdown/countdown_3d_edition.jpg" alt="1992 Countdown Edición 3D" loading="lazy" decoding="async"><span>Edición 3D</span></button><button type="button" class="fmd3d-group-slide" onclick="openModal(5,10,[6,10]); return false;"><img src="images/fmd-edition-3d/countdown/vic_cte_fmd_edition.jpg" alt="1992 Countdown Vic CTE FMD Edition" loading="lazy" decoding="async"><span>FMD Edition</span></button></div><button type="button" class="fmd3d-nav prev" onclick="fmd3dMove(this,-1)">‹</button><button type="button" class="fmd3d-nav next" onclick="fmd3dMove(this,1)">›</button></div>
+                    <div class="fmd3d-group-carousel"><div class="fmd3d-group-track"><button type="button" class="fmd3d-group-slide" onclick="openModal(5,6,[6,10]); return false;"><img src="images/fmd-edition-3d/countdown/countdown_3d_edition.jpg" alt="1992 Countdown Edición 3D" loading="lazy" decoding="async"><span>Edición 3D</span></button><button type="button" class="fmd3d-group-slide" onclick="openModal(5,10,[6,10]); return false;"><img src="images/fmd-edition-3d/countdown/vic_cte_fmd_edition.jpg" alt="1992 Countdown Vic CTE versión FMD" loading="lazy" decoding="async"><span>Versión FMD</span></button></div><button type="button" class="fmd3d-nav prev" onclick="fmd3dMove(this,-1)">‹</button><button type="button" class="fmd3d-nav next" onclick="fmd3dMove(this,1)">›</button></div>
                     <div class="fmd3d-dots"><button type="button" class="active" onclick="fmd3dGo(this,0)"></button><button type="button" onclick="fmd3dGo(this,1)"></button></div>
                 </article>
 
-                <article class="fmd3d-group single" data-index="0" data-tags="Reimagined">
-                    <div class="fmd3d-group-head"><strong>1995 · Hidden Treasures</strong><span>Reimagined</span></div>
-                    <div class="fmd3d-group-carousel"><div class="fmd3d-group-track"><button type="button" class="fmd3d-group-slide" onclick="openModal(18,0,[0]); return false;"><img src="images/fmd-edition-3d/hidden_treasures/hidden_treasures_fmd_edition.jpg" alt="1995 Hidden Treasures FMD Edition" loading="lazy" decoding="async"><span>Reimagined</span></button></div></div>
+                <article class="fmd3d-group single" data-index="0" data-tags="Versión FMD">
+                    <div class="fmd3d-group-head"><strong>1995 · Hidden Treasures</strong><span>Versión FMD</span></div>
+                    <div class="fmd3d-group-carousel"><div class="fmd3d-group-track"><button type="button" class="fmd3d-group-slide" onclick="openModal(18,0,[0]); return false;"><img src="images/fmd-edition-3d/hidden_treasures/hidden_treasures_fmd_edition.jpg" alt="1995 Hidden Treasures edición FMD" loading="lazy" decoding="async"><span>Versión FMD</span></button></div></div>
                 </article>
 
                 <article class="fmd3d-group single" data-index="0" data-tags="Edición 3D">
@@ -340,8 +340,8 @@
                     <div class="fmd3d-group-head"><strong>1999 · Risk</strong><span>2 versiones</span></div>
                     <div class="fmd3d-group-carousel">
                         <div class="fmd3d-group-track">
-                            <button type="button" class="fmd3d-group-slide" onclick="openModal(9,2,[2,3]); return false;"><img src="images/fmd-edition-3d/risk/risk_fmd_edition.jpg" alt="1999 Risk FMD Edition" loading="lazy" decoding="async"><span>Edición FMD</span></button>
-                            <button type="button" class="fmd3d-group-slide" onclick="openModal(9,3,[2,3]); return false;"><img src="images/fmd-edition-3d/risk/risk_fmd_edition_v2.jpg" alt="1999 Risk FMD Edition V2" loading="lazy" decoding="async"><span>Edición FMD</span></button>
+                            <button type="button" class="fmd3d-group-slide" onclick="openModal(9,2,[2,3]); return false;"><img src="images/fmd-edition-3d/risk/risk_fmd_edition.jpg" alt="1999 Risk versión FMD" loading="lazy" decoding="async"><span>Versión FMD</span></button>
+                            <button type="button" class="fmd3d-group-slide" onclick="openModal(9,3,[2,3]); return false;"><img src="images/fmd-edition-3d/risk/risk_fmd_edition_v2.jpg" alt="1999 Risk versión FMD 2" loading="lazy" decoding="async"><span>Versión FMD</span></button>
                         </div>
                         <button type="button" class="fmd3d-nav prev" onclick="fmd3dMove(this,-1)">‹</button>
                         <button type="button" class="fmd3d-nav next" onclick="fmd3dMove(this,1)">›</button>
@@ -349,14 +349,14 @@
                     <div class="fmd3d-dots"><button type="button" class="active" onclick="fmd3dGo(this,0)"></button><button type="button" onclick="fmd3dGo(this,1)"></button></div>
                 </article>
 
-                <article class="fmd3d-group single" data-index="0" data-tags="Reimagined">
-                    <div class="fmd3d-group-head"><strong>2001 · TWNAH</strong><span>Reimagined</span></div>
-                    <div class="fmd3d-group-carousel"><div class="fmd3d-group-track"><button type="button" class="fmd3d-group-slide" onclick="openModal(10,1); return false;"><img src="images/fmd-edition-3d/world_needs/the_world_needs_a_hero_3d_edition.jpg" alt="2001 TWNAH Reimagined" loading="lazy" decoding="async"><span>Reimagined</span></button></div></div>
+                <article class="fmd3d-group single" data-index="0" data-tags="Versión FMD">
+                    <div class="fmd3d-group-head"><strong>2001 · TWNAH</strong><span>Versión FMD</span></div>
+                    <div class="fmd3d-group-carousel"><div class="fmd3d-group-track"><button type="button" class="fmd3d-group-slide" onclick="openModal(10,1); return false;"><img src="images/fmd-edition-3d/world_needs/the_world_needs_a_hero_3d_edition.jpg" alt="2001 TWNAH versión FMD" loading="lazy" decoding="async"><span>Versión FMD</span></button></div></div>
                 </article>
 
-                <article class="fmd3d-group single" data-index="0" data-tags="Edición FMD">
-                    <div class="fmd3d-group-head"><strong>2004 · The System</strong><span>Edición FMD</span></div>
-                    <div class="fmd3d-group-carousel"><div class="fmd3d-group-track"><button type="button" class="fmd3d-group-slide" onclick="openModal(11,1,[1]); return false;"><img src="images/fmd-edition-3d/system/the_system_fmd_edition.jpg" alt="2004 The System FMD Edition" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='images/albums/TSHF/the_system_has_failed.jpg';"><span>Edición FMD</span></button></div></div>
+                <article class="fmd3d-group single" data-index="0" data-tags="Versión FMD">
+                    <div class="fmd3d-group-head"><strong>2004 · The System</strong><span>Versión FMD</span></div>
+                    <div class="fmd3d-group-carousel"><div class="fmd3d-group-track"><button type="button" class="fmd3d-group-slide" onclick="openModal(11,1,[1]); return false;"><img src="images/fmd-edition-3d/system/the_system_fmd_edition.jpg" alt="2004 The System versión FMD" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='images/albums/TSHF/the_system_has_failed.jpg';"><span>Versión FMD</span></button></div></div>
                 </article>
 
                 <article class="fmd3d-group" data-index="0" data-tags="2 versiones">
@@ -376,9 +376,9 @@
                     <div class="fmd3d-group-head"><strong>2011 · TH1RT3EN</strong><span>3 versiones</span></div>
                     <div class="fmd3d-group-carousel">
                         <div class="fmd3d-group-track">
-                            <button type="button" class="fmd3d-group-slide" onclick="openModal(14,1,[1,2,3]); return false;"><img src="images/fmd-edition-3d/thirteen/13_3d_fmd_edition_v1.jpg" alt="2011 TH1RT3EN Reimagined" loading="lazy" decoding="async"><span>Reimagined</span></button>
+                            <button type="button" class="fmd3d-group-slide" onclick="openModal(14,1,[1,2,3]); return false;"><img src="images/fmd-edition-3d/thirteen/13_3d_fmd_edition_v1.jpg" alt="2011 TH1RT3EN versión FMD" loading="lazy" decoding="async"><span>Versión FMD</span></button>
                             <button type="button" class="fmd3d-group-slide" onclick="openModal(14,2,[1,2,3]); return false;"><img src="images/fmd-edition-3d/thirteen/13_3d_fmd_edition_v2.jpg" alt="2011 TH1RT3EN Edición 3D" loading="lazy" decoding="async"><span>Edición 3D</span></button>
-                            <button type="button" class="fmd3d-group-slide" onclick="openModal(14,3,[1,2,3]); return false;"><img src="images/fmd-edition-3d/thirteen/13_fmd_edition.jpg" alt="2011 TH1RT3EN FMD Edition" loading="lazy" decoding="async"><span>FMD Edition</span></button>
+                            <button type="button" class="fmd3d-group-slide" onclick="openModal(14,3,[1,2,3]); return false;"><img src="images/fmd-edition-3d/thirteen/13_fmd_edition.jpg" alt="2011 TH1RT3EN versión FMD" loading="lazy" decoding="async"><span>Versión FMD</span></button>
                         </div>
                         <button type="button" class="fmd3d-nav prev" onclick="fmd3dMove(this,-1)">‹</button>
                         <button type="button" class="fmd3d-nav next" onclick="fmd3dMove(this,1)">›</button>
@@ -386,9 +386,9 @@
                     <div class="fmd3d-dots"><button type="button" class="active" onclick="fmd3dGo(this,0)"></button><button type="button" onclick="fmd3dGo(this,1)"></button><button type="button" onclick="fmd3dGo(this,2)"></button></div>
                 </article>
 
-                <article class="fmd3d-group single" data-index="0" data-tags="Reimagined">
-                    <div class="fmd3d-group-head"><strong>2013 · Super Collider</strong><span>Reimagined</span></div>
-                    <div class="fmd3d-group-carousel"><div class="fmd3d-group-track"><button type="button" class="fmd3d-group-slide" onclick="openModal(15,1); return false;"><img src="images/fmd-edition-3d/supercollider/supercollider_3d_edition.jpg" alt="2013 Super Collider Reimagined" loading="lazy" decoding="async"><span>Reimagined</span></button></div></div>
+                <article class="fmd3d-group single" data-index="0" data-tags="Versión FMD">
+                    <div class="fmd3d-group-head"><strong>2013 · Super Collider</strong><span>Versión FMD</span></div>
+                    <div class="fmd3d-group-carousel"><div class="fmd3d-group-track"><button type="button" class="fmd3d-group-slide" onclick="openModal(15,1); return false;"><img src="images/fmd-edition-3d/supercollider/supercollider_3d_edition.jpg" alt="2013 Super Collider versión FMD" loading="lazy" decoding="async"><span>Versión FMD</span></button></div></div>
                 </article>
 
                 <article class="fmd3d-group" data-index="0" data-tags="3 versiones">
@@ -397,7 +397,7 @@
                         <div class="fmd3d-group-track">
                             <button type="button" class="fmd3d-group-slide" onclick="openModal(7,2,[2,3,4]); return false;"><img src="images/fmd-edition-3d/dystopia/dystopia_3d_edition_v1.jpg" alt="2016 Dystopia Edición 3D V1" loading="lazy" decoding="async"><span>Edición 3D</span></button>
                             <button type="button" class="fmd3d-group-slide" onclick="openModal(7,3,[2,3,4]); return false;"><img src="images/fmd-edition-3d/dystopia/dystopia_3d_edition_v2.jpg" alt="2016 Dystopia Edición 3D V2" loading="lazy" decoding="async"><span>Edición 3D</span></button>
-                            <button type="button" class="fmd3d-group-slide" onclick="openModal(7,4,[2,3,4]); return false;"><img src="images/fmd-edition-3d/dystopia/dystopia_fmd_edition.jpg" alt="2016 Dystopia FMD Edition" loading="lazy" decoding="async"><span>FMD Edition</span></button>
+                            <button type="button" class="fmd3d-group-slide" onclick="openModal(7,4,[2,3,4]); return false;"><img src="images/fmd-edition-3d/dystopia/dystopia_fmd_edition.jpg" alt="2016 Dystopia versión FMD" loading="lazy" decoding="async"><span>Versión FMD</span></button>
                         </div>
                         <button type="button" class="fmd3d-nav prev" onclick="fmd3dMove(this,-1)">‹</button>
                         <button type="button" class="fmd3d-nav next" onclick="fmd3dMove(this,1)">›</button>
@@ -410,7 +410,7 @@
                     <div class="fmd3d-group-carousel">
                         <div class="fmd3d-group-track">
                             <button type="button" class="fmd3d-group-slide" onclick="openModal(16,1,[1,2]); return false;"><img src="images/fmd-edition-3d/sick/the_sick_fmd_3d.jpg" alt="2022 The Sick Edición 3D" loading="lazy" decoding="async"><span>Edición 3D</span></button>
-                            <button type="button" class="fmd3d-group-slide" onclick="openModal(16,2,[1,2]); return false;"><img src="images/fmd-edition-3d/sick/vic_the_sick_fmd_3d.jpg" alt="2022 The Sick Reimagined" loading="lazy" decoding="async"><span>Reimagined</span></button>
+                            <button type="button" class="fmd3d-group-slide" onclick="openModal(16,2,[1,2]); return false;"><img src="images/fmd-edition-3d/sick/vic_the_sick_fmd_3d.jpg" alt="2022 The Sick versión FMD" loading="lazy" decoding="async"><span>Versión FMD</span></button>
                         </div>
                         <button type="button" class="fmd3d-nav prev" onclick="fmd3dMove(this,-1)">‹</button>
                         <button type="button" class="fmd3d-nav next" onclick="fmd3dMove(this,1)">›</button>
@@ -418,12 +418,12 @@
                     <div class="fmd3d-dots"><button type="button" class="active" onclick="fmd3dGo(this,0)"></button><button type="button" onclick="fmd3dGo(this,1)"></button></div>
                 </article>
 
-                <article class="fmd3d-group" data-index="0" data-tags="Frente / Dorso">
-                    <div class="fmd3d-group-head"><strong>2026 · Vic Llamas</strong><span>Frente / Dorso</span></div>
+                <article class="fmd3d-group" data-index="0" data-tags="Frente y dorso">
+                    <div class="fmd3d-group-head"><strong>2026 · Vic Llamas</strong><span>Frente y dorso</span></div>
                     <div class="fmd3d-group-carousel">
                         <div class="fmd3d-group-track">
                             <button type="button" class="fmd3d-group-slide" onclick="openModal(17,9,[9,10]); return false;"><img src="images/fmd-edition-3d/megadeth_last_album/vic_llamas_3d_edition_frente.jpg" alt="2026 Vic Llamas Edición 3D" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='images/albums/Megadeth/vic_llamas_blanca.jpg';"><span>Edición 3D</span></button>
-                            <button type="button" class="fmd3d-group-slide" onclick="openModal(17,10,[9,10]); return false;"><img src="images/fmd-edition-3d/megadeth_last_album/vic_llamas_3d_edition_dorso.jpg" alt="2026 Vic Llamas Original FMD" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='images/albums/Megadeth/vic_llamas_blanca.jpg';"><span>Original FMD</span></button>
+                            <button type="button" class="fmd3d-group-slide" onclick="openModal(17,10,[9,10]); return false;"><img src="images/fmd-edition-3d/megadeth_last_album/vic_llamas_3d_edition_dorso.jpg" alt="2026 Vic Llamas arte original FMD" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='images/albums/Megadeth/vic_llamas_blanca.jpg';"><span>Arte original FMD</span></button>
                         </div>
                         <button type="button" class="fmd3d-nav prev" onclick="fmd3dMove(this,-1)">‹</button>
                         <button type="button" class="fmd3d-nav next" onclick="fmd3dMove(this,1)">›</button>
@@ -440,8 +440,8 @@
     <section class="fmd-originals-showcase home-secondary-archive" id="fmdOriginals">
         <div class="fmd-originals-head">
             <p class="fmd-originals-kicker">NUEVOS LANZAMIENTOS FMD</p>
-            <h2 class="fmd-originals-title">Re-ediciones y Originales FMD</h2>
-            <p class="fmd-originals-desc">Diseños nuevos fuera del circuito de Álbumes oficiales: piezas originales, re-ediciones y variantes especiales de autor.</p>
+            <h2 class="fmd-originals-title">REEDICIONES Y DISEÑOS ORIGINALES FMD</h2>
+            <p class="fmd-originals-desc">Diseños creados por FMD más allá de las portadas oficiales: artes originales, reediciones y nuevas versiones.</p>
             <div class="fmd-originals-pills">
                 <span>Arte original</span>
                 <span>Ediciones exclusivas</span>
@@ -456,11 +456,11 @@
             <article class="fmd-originals-group is-open">
                 <div class="fmd-originals-group-head">
                     <strong>2026 · Megadeth FMD Original</strong>
-                    <span>Original FMD</span>
+                    <span>Arte original FMD</span>
                 </div>
                 <div class="fmd-originals-group-body">
                     <button type="button" class="fmd-originals-media" onclick="openModal(6028,0,[0]); return false;">
-                        <img src="images/fmd-edition-3d/vic_tour_2026/vic_silent_fmd_edition.jpg" alt="2026 Vic Silent FMD Edition" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='images/vic_rattlehead/vic_silent_fmd.png';">
+                        <img src="images/fmd-edition-3d/vic_tour_2026/vic_silent_fmd_edition.jpg" alt="2026 Vic Silent arte original FMD" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='images/vic_rattlehead/vic_silent_fmd.png';">
                         <em>Ver diseño</em>
                     </button>
                 </div>
@@ -469,11 +469,11 @@
             <article class="fmd-originals-group">
                 <div class="fmd-originals-group-head">
                     <strong>2026 · Vic Alien</strong>
-                    <span>Original FMD</span>
+                    <span>Arte original FMD</span>
                 </div>
                 <div class="fmd-originals-group-body">
                     <button type="button" class="fmd-originals-media" onclick="openModal(6028,1,[1]); return false;">
-                        <img src="images/fmd-edition-3d/vic_tour_2026/vic_alien_fmd_edition.jpg" alt="2026 Vic Alien FMD Edition" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='images/vic_rattlehead/vic_silent_fmd.png';">
+                        <img src="images/fmd-edition-3d/vic_tour_2026/vic_alien_fmd_edition.jpg" alt="2026 Vic Alien arte original FMD" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='images/vic_rattlehead/vic_silent_fmd.png';">
                         <em>Ver diseño</em>
                     </button>
                 </div>
@@ -482,11 +482,11 @@
             <article class="fmd-originals-group">
                 <div class="fmd-originals-group-head">
                     <strong>2026 · Vic Forever</strong>
-                    <span>Original FMD</span>
+                    <span>Arte original FMD</span>
                 </div>
                 <div class="fmd-originals-group-body">
                     <button type="button" class="fmd-originals-media" onclick="openModal(6028,2,[2]); return false;">
-                        <img src="images/fmd-edition-3d/vic_tour_2026/vic_forever_fmd_edition.jpg" alt="2026 Vic Forever FMD Edition" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='images/vic_rattlehead/vic_silent_fmd.png';">
+                        <img src="images/fmd-edition-3d/vic_tour_2026/vic_forever_fmd_edition.jpg" alt="2026 Vic Forever arte original FMD" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='images/vic_rattlehead/vic_silent_fmd.png';">
                         <em>Ver diseño</em>
                     </button>
                 </div>
@@ -495,11 +495,11 @@
             <article class="fmd-originals-group">
                 <div class="fmd-originals-group-head">
                     <strong>2026 · Mary Jane</strong>
-                    <span>Re-edición FMD</span>
+                    <span>Reedición FMD</span>
                 </div>
                 <div class="fmd-originals-group-body">
                     <button type="button" class="fmd-originals-media" onclick="openModal(6028,3,[3]); return false;">
-                        <img src="images/fmd-edition-3d/vic_tour_2026/mary_jane_fmd_edition.jpg" alt="2026 Mary Jane FMD Edition" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='images/vic_rattlehead/vic_silent_fmd.png';">
+                        <img src="images/fmd-edition-3d/vic_tour_2026/mary_jane_fmd_edition.jpg" alt="2026 Mary Jane reedición FMD" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='images/vic_rattlehead/vic_silent_fmd.png';">
                         <em>Ver diseño</em>
                     </button>
                 </div>
@@ -508,11 +508,11 @@
             <article class="fmd-originals-group">
                 <div class="fmd-originals-group-head">
                     <strong>2026 · Arsenal</strong>
-                    <span>Re-edición FMD</span>
+                    <span>Reedición FMD</span>
                 </div>
                 <div class="fmd-originals-group-body">
                     <button type="button" class="fmd-originals-media" onclick="openModal(6028,4,[4]); return false;">
-                        <img src="images/fmd-edition-3d/vic_tour_2026/arsenal_fmd_edition.jpg" alt="2026 Arsenal FMD Edition" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='images/vic_rattlehead/vic_silent_fmd.png';">
+                        <img src="images/fmd-edition-3d/vic_tour_2026/arsenal_fmd_edition.jpg" alt="2026 Arsenal reedición FMD" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='images/vic_rattlehead/vic_silent_fmd.png';">
                         <em>Ver diseño</em>
                     </button>
                 </div>
@@ -521,11 +521,11 @@
             <article class="fmd-originals-group">
                 <div class="fmd-originals-group-head">
                     <strong>2026 · Vic Punk</strong>
-                    <span>Original FMD</span>
+                    <span>Arte original FMD</span>
                 </div>
                 <div class="fmd-originals-group-body">
                     <button type="button" class="fmd-originals-media" onclick="openModal(6028,5,[5]); return false;">
-                        <img src="images/fmd-edition-3d/vic_tour_2026/vic_punk_fmd_edition.jpg" alt="2026 Vic Punk FMD Edition" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='images/vic_rattlehead/vic_silent_fmd.png';">
+                        <img src="images/fmd-edition-3d/vic_tour_2026/vic_punk_fmd_edition.jpg" alt="2026 Vic Punk arte original FMD" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='images/vic_rattlehead/vic_silent_fmd.png';">
                         <em>Ver diseño</em>
                     </button>
                 </div>
@@ -534,11 +534,11 @@
             <article class="fmd-originals-group">
                 <div class="fmd-originals-group-head">
                     <strong>2026 · Vic Political</strong>
-                    <span>Original FMD</span>
+                    <span>Arte original FMD</span>
                 </div>
                 <div class="fmd-originals-group-body">
                     <button type="button" class="fmd-originals-media" onclick="openModal(6028,6,[6]); return false;">
-                        <img src="images/fmd-edition-3d/vic_tour_2026/vic_political.jpg" alt="2026 Vic Political FMD Edition" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='images/vic_rattlehead/vic_silent_fmd.png';">
+                        <img src="images/fmd-edition-3d/vic_tour_2026/vic_political.jpg" alt="2026 Vic Political arte original FMD" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='images/vic_rattlehead/vic_silent_fmd.png';">
                         <em>Ver diseño</em>
                     </button>
                 </div>
@@ -547,11 +547,11 @@
             <article class="fmd-originals-group">
                 <div class="fmd-originals-group-head">
                     <strong>2026 · Vic Victory</strong>
-                    <span>Original FMD</span>
+                    <span>Arte original FMD</span>
                 </div>
                 <div class="fmd-originals-group-body">
                     <button type="button" class="fmd-originals-media" onclick="openModal(6028,7,[7]); return false;">
-                        <img src="images/fmd-edition-3d/vic_tour_2026/vic_victory.jpg" alt="2026 Vic Victory FMD Edition" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='images/vic_rattlehead/vic_silent_fmd.png';">
+                        <img src="images/fmd-edition-3d/vic_tour_2026/vic_victory.jpg" alt="2026 Vic Victory arte original FMD" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='images/vic_rattlehead/vic_silent_fmd.png';">
                         <em>Ver diseño</em>
                     </button>
                 </div>
@@ -560,11 +560,11 @@
             <article class="fmd-originals-group">
                 <div class="fmd-originals-group-head">
                     <strong>2026 · Vic Symphony</strong>
-                    <span>Original FMD</span>
+                    <span>Arte original FMD</span>
                 </div>
                 <div class="fmd-originals-group-body">
                     <button type="button" class="fmd-originals-media" onclick="openModal(6028,8,[8]); return false;">
-                        <img src="images/fmd-edition-3d/vic_tour_2026/vic_symphony_fmd_edition.jpg" alt="2026 Vic Symphony FMD Edition" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='images/vic_rattlehead/vic_silent_fmd.png';">
+                        <img src="images/fmd-edition-3d/vic_tour_2026/vic_symphony_fmd_edition.jpg" alt="2026 Vic Symphony arte original FMD" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='images/vic_rattlehead/vic_silent_fmd.png';">
                         <em>Ver diseño</em>
                     </button>
                 </div>
@@ -573,11 +573,11 @@
             <article class="fmd-originals-group">
                 <div class="fmd-originals-group-head">
                     <strong>2026 · Vic Warheads</strong>
-                    <span>Original FMD</span>
+                    <span>Arte original FMD</span>
                 </div>
                 <div class="fmd-originals-group-body">
                     <button type="button" class="fmd-originals-media" onclick="openModal(6028,9,[9]); return false;">
-                        <img src="images/fmd-edition-3d/vic_tour_2026/vic_warheads.jpg" alt="2026 Vic Warheads FMD Edition" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='images/vic_rattlehead/vic_silent_fmd.png';">
+                        <img src="images/fmd-edition-3d/vic_tour_2026/vic_warheads.jpg" alt="2026 Vic Warheads arte original FMD" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='images/vic_rattlehead/vic_silent_fmd.png';">
                         <em>Ver diseño</em>
                     </button>
                 </div>
@@ -588,28 +588,29 @@
     <section class="reimagined-hero home-secondary-archive" id="reimaginedRip">
         <div class="reimagined-shell">
             <div class="reimagined-stage">
-                <a href="#" class="reimagined-main" onclick="openImageModal('images/albums/Rust_in_peace/rust in peace - re-imaginado/full_art.jpg','Rust in Peace / Hangar 18 Reimagined'); return false;">
-                <img src="images/albums/Rust_in_peace/rust in peace - re-imaginado/full_art.jpg" alt="Rust in Peace / Hangar 18 Reimagined full art HD" loading="lazy" decoding="async">
+                <a href="#catalogoPrincipal" class="reimagined-main" onclick="openCatalogDesign('cd-megadeth-rust-in-peace--rust-in-peace-fmd'); return false;">
+                <img src="images/albums/Rust_in_peace/rust in peace - re-imaginado/full_art.jpg" alt="Rust in Peace / Hangar 18 - arte FMD" loading="lazy" decoding="async">
                 </a>
 
                 <div class="reimagined-mini-grid">
-                    <a href="#" class="reimagined-mini" onclick="openImageModal('images/albums/Rust_in_peace/rust in peace - re-imaginado/rip_fmd_frente.jpg','RIP Reimagined Frente'); return false;"><img src="images/albums/Rust_in_peace/rust in peace - re-imaginado/rip_fmd_frente.jpg" alt="RIP Reimagined Frente" loading="lazy" decoding="async"></a>
-                    <a href="#" class="reimagined-mini" onclick="openImageModal('images/albums/Rust_in_peace/rust in peace - re-imaginado/rip_fmd_dorso_v2.jpg','RIP Reimagined Dorso V2'); return false;"><img src="images/albums/Rust_in_peace/rust in peace - re-imaginado/rip_fmd_dorso_v2.jpg" alt="RIP Reimagined Dorso V2" loading="lazy" decoding="async"></a>
-                    <a href="#" class="reimagined-mini" onclick="openImageModal('images/albums/Rust_in_peace/rust in peace - re-imaginado/rip_fmd_hoodies_models.jpg','RIP Reimagined Hoodies Models'); return false;"><img src="images/albums/Rust_in_peace/rust in peace - re-imaginado/rip_fmd_hoodies_models.jpg" alt="RIP Reimagined Hoodies Models" loading="lazy" decoding="async"></a>
+                    <a href="#" class="reimagined-mini" onclick="openImageModal('images/albums/Rust_in_peace/rust in peace - re-imaginado/rip_fmd_frente.jpg','RIP Versión FMD - Frente'); return false;"><img src="images/albums/Rust_in_peace/rust in peace - re-imaginado/rip_fmd_frente.jpg" alt="RIP versión FMD - frente" loading="lazy" decoding="async"></a>
+                    <a href="#" class="reimagined-mini" onclick="openImageModal('images/albums/Rust_in_peace/rust in peace - re-imaginado/rip_fmd_dorso_v2.jpg','RIP Versión FMD - Dorso V2'); return false;"><img src="images/albums/Rust_in_peace/rust in peace - re-imaginado/rip_fmd_dorso_v2.jpg" alt="RIP versión FMD - dorso V2" loading="lazy" decoding="async"></a>
+                    <a href="#" class="reimagined-mini" onclick="openImageModal('images/albums/Rust_in_peace/rust in peace - re-imaginado/rip_fmd_hoodies_models.jpg','RIP Versión FMD - Hoodies'); return false;"><img src="images/albums/Rust_in_peace/rust in peace - re-imaginado/rip_fmd_hoodies_models.jpg" alt="RIP versión FMD en hoodies" loading="lazy" decoding="async"></a>
                 </div>
             </div>
 
             <div class="reimagined-copy">
                 <p class="reimagined-kicker">VERSIÓN FMD · RUST IN PEACE / HANGAR 18</p>
                 <h2 class="reimagined-title">Rust in Peace / Hangar 18</h2>
-                <p class="reimagined-desc">Una reinterpretación FMD del universo de Rust in Peace y la historia de Hangar 18.</p>
+                <p class="reimagined-desc">Nuestra versión de Rust in Peace y Hangar 18, desarrollada como un diseño completo para frente y dorso.</p>
                 <div class="reimagined-pills">
-                    <span>Nueva edición</span>
-                    <span>Edición FMD</span>
-                    <span>Arte exclusivo</span>
+                    <span>FRENTE Y DORSO</span>
+                    <span>ARTE FMD</span>
+                    <span>DISPONIBLE EN TODAS LAS PRENDAS</span>
                 </div>
                 <div class="reimagined-cta-row">
-                    <a href="https://wa.me/541169667685?text=Hola%20FMD%2C%20quiero%20reservar%20el%20drop%20Rust%20in%20Peace%20Reimagined" class="reimagined-cta" target="_blank" rel="noopener" onclick="openWhatsapp('Hola FMD! Quiero reservar el drop Rust in Peace / Hangar 18 Reimagined 🔵\n\nPrenda: ___\nTalle: ___\nColor: ___\nCódigo postal si necesitás envío: ___', 'reimagined_rip'); return false;">RESERVAR ESTE DROP POR WHATSAPP</a>
+                    <a href="#catalogoPrincipal" class="reimagined-cta" onclick="openCatalogDesign('cd-megadeth-rust-in-peace--rust-in-peace-fmd'); return false;">VER DISEÑO Y ARMAR PEDIDO</a>
+                    <a href="https://wa.me/541169667685?text=Hola%20FMD%2C%20quiero%20consultar%20por%20Rust%20in%20Peace%20%2F%20Hangar%2018" class="reimagined-cta reimagined-cta-secondary" target="_blank" rel="noopener" onclick="openWhatsapp('Hola FMD! Quiero consultar por el diseño Rust in Peace / Hangar 18.', 'reimagined_rip'); return false;">CONSULTAR ESTE DISEÑO</a>
                 </div>
             </div>
         </div>
@@ -617,9 +618,9 @@
         <details class="reimagined-more">
             <summary>Ver colección completa</summary>
             <div class="reimagined-more-grid">
-                <a href="#" onclick="openImageModal('images/albums/Rust_in_peace/rust in peace - re-imaginado/rip_fmd_combo.jpg','RIP Reimagined Combo'); return false;"><img src="images/albums/Rust_in_peace/rust in peace - re-imaginado/rip_fmd_combo.jpg" alt="RIP Reimagined Combo" loading="lazy" decoding="async"></a>
-                <a href="#" onclick="openImageModal('images/albums/Rust_in_peace/rust in peace - re-imaginado/rip_fmd_dorso.jpg','RIP Reimagined Dorso'); return false;"><img src="images/albums/Rust_in_peace/rust in peace - re-imaginado/rip_fmd_dorso.jpg" alt="RIP Reimagined Dorso" loading="lazy" decoding="async"></a>
-                <a href="#" onclick="openImageModal('images/albums/Rust_in_peace/rust in peace - re-imaginado/rip_fmd_hoodies.jpg','RIP Reimagined Hoodies'); return false;"><img src="images/albums/Rust_in_peace/rust in peace - re-imaginado/rip_fmd_hoodies.jpg" alt="RIP Reimagined Hoodies" loading="lazy" decoding="async"></a>
+                <a href="#" onclick="openImageModal('images/albums/Rust_in_peace/rust in peace - re-imaginado/rip_fmd_combo.jpg','RIP Versión FMD - Composición'); return false;"><img src="images/albums/Rust_in_peace/rust in peace - re-imaginado/rip_fmd_combo.jpg" alt="RIP versión FMD - composición" loading="lazy" decoding="async"></a>
+                <a href="#" onclick="openImageModal('images/albums/Rust_in_peace/rust in peace - re-imaginado/rip_fmd_dorso.jpg','RIP Versión FMD - Dorso'); return false;"><img src="images/albums/Rust_in_peace/rust in peace - re-imaginado/rip_fmd_dorso.jpg" alt="RIP versión FMD - dorso" loading="lazy" decoding="async"></a>
+                <a href="#" onclick="openImageModal('images/albums/Rust_in_peace/rust in peace - re-imaginado/rip_fmd_hoodies.jpg','RIP Versión FMD - Hoodies'); return false;"><img src="images/albums/Rust_in_peace/rust in peace - re-imaginado/rip_fmd_hoodies.jpg" alt="RIP versión FMD en hoodies" loading="lazy" decoding="async"></a>
             </div>
         </details>
     </section>
@@ -628,9 +629,9 @@
         <div class="decision-boost-shell">
             <div class="decision-boost-copy">
                 <strong>🎸 COLECCIÓN MEGADETH - EDICIÓN ARGENTINA 2026</strong>
-                <p>Diseños exclusivos conmemorativos de Megadeth en Argentina. <strong>Plazo estimado total: 3 a 7 días hábiles, según el destino.</strong> Envíos por Andreani a todo el país.</p>
+                <p>Diseños dedicados a Megadeth en Argentina 2026. <strong>Plazo estimado total: 3 a 7 días hábiles, según el destino.</strong> Envíos por Andreani a todo el país.</p>
             </div>
-            <a href="https://wa.me/541169667685?text=Hola%20FMD%2C%20quiero%20encargar%20una%20prenda%20de%20Megadeth" class="decision-boost-btn" onclick="openWhatsapp('Hola FMD! Quiero pedir una prenda de la colección Megadeth 🤘\n\nDiseño: ___\nTalle: A confirmar\nColor: A confirmar\nEntrega: A confirmar\n\n¿Me indicás cómo avanzamos?', 'decision_bar'); return false;">ENCARGAR AHORA</a>
+            <a href="/megadeth/" class="decision-boost-btn">VER COLECCIÓN MEGADETH</a>
         </div>
     </section>
 
@@ -640,7 +641,7 @@
                 <strong>📦 ENVÍO A TODO EL PAÍS</strong>
                 <p>Despachamos por <strong>Andreani</strong> a domicilio o punto de retiro Andreani cercano.<br><strong>Plazo estimado total: 3 a 7 días hábiles, según el destino.</strong> <strong>Desde 1 prenda: punto Andreani gratis durante agosto; desde 3 prendas: 10% OFF + domicilio gratis.</strong></p>
             </div>
-            <a href="https://wa.me/541169667685?text=Hola%20FMD%2C%20quiero%20encargar%20una%20prenda%20de%20Megadeth" class="logistica-show-btn" onclick="openWhatsapp('Hola FMD! Quiero pedir una prenda de la colección Megadeth 🤘\n\nDiseño: ___\nTalle: A confirmar\nColor: A confirmar\nEntrega: A confirmar\n\n¿Me indicás cómo avanzamos?', 'retiro_tecnopolis'); return false;">ENCARGAR AHORA</a>
+            <a href="/megadeth/" class="logistica-show-btn">VER COLECCIÓN MEGADETH</a>
         </div>
     </section>
 
@@ -648,7 +649,7 @@
     <section class="megadeth-destacados home-secondary-archive" id="megadeth-destacados">
         <div class="megadeth-destacados-header">
             <h2 class="megadeth-title">DISEÑOS DESTACADOS MEGADETH</h2>
-            <p class="megadeth-subtitle">Los más pedidos de la colección conmemorativa en Argentina</p>
+            <p class="megadeth-subtitle">Una selección de diseños de la colección Argentina 2026.</p>
         </div>
         <div class="megadeth-destacados-grid" id="megadethDestacadosGrid">
             <!-- Se genera con JS -->
@@ -663,13 +664,14 @@
         <div class="cart-info-content">
             <div class="cart-info-icon">🛒</div>
             <div class="cart-info-text">
-                <h3>Elegí tus diseños</h3>
-                <p>Tocá <strong>"🛒 Agregár al Carrito"</strong> en cada remera que te guste, juntá todos los que quieras y luego enviá el pedido completo por WhatsApp en un solo mensaje.</p>
+                <h3>ARMÁ TU PEDIDO</h3>
+                <p>Configurá cada prenda, tocá <strong>"Agregar al pedido"</strong> y revisá todo junto antes de enviarlo por WhatsApp.</p>
             </div>
             <div class="cart-info-steps">
-                <div class="step-badge">1ï¸ Elegí</div>
-                <div class="step-badge">2ï¸ Agregá</div>
-                <div class="step-badge">3ï¸ Envía</div>
+                <div class="step-badge">1. ELEGÍ</div>
+                <div class="step-badge">2. CONFIGURÁ</div>
+                <div class="step-badge">3. REVISÁ</div>
+                <div class="step-badge">4. ENVIÁ</div>
             </div>
         </div>
     </section>
@@ -681,7 +683,7 @@
             <span class="promo-mini-separator">|</span>
             <span class="promo-mini-item"><span class="promo-mini-icon">🔥</span> 3 prendas o más: <strong class="promo-mini-accent-green">10% OFF + domicilio gratis</strong></span>
             <span class="promo-mini-separator">|</span>
-            <span class="promo-mini-item"><span class="promo-mini-icon">🧥</span> Hoodies dobles <strong class="promo-mini-accent-price">$59.000</strong></span>
+            <span class="promo-mini-item"><span class="promo-mini-icon">🧥</span> Hoodies con frente y dorso <strong class="promo-mini-accent-price">$59.000</strong></span>
             <span class="promo-mini-separator">|</span>
             <span class="promo-mini-item"><span class="promo-mini-icon promo-mini-icon-green">🧒</span> Para los más chicos <strong class="promo-mini-accent-green">$32.000</strong></span>
         </div>
@@ -696,7 +698,7 @@
             <div class="collection-header">
                 <div class="collection-info">
                     <h3>Álbumes Megadeth</h3>
-                    <p>Discografía completa 1985-2026 · 17 Álbumes</p>
+                    <p>Diseños de la discografía 1985-2026.</p>
                 </div>
             </div>
             <div class="collection-grid" id="gridAlbum"></div>
@@ -718,7 +720,7 @@
             <div class="collection-header">
                 <div class="collection-info">
                     <h3>Vic Rattlehead</h3>
-                    <p>La mascota más icónica del thrash metal</p>
+                    <p>Diseños dedicados a distintas eras de Vic Rattlehead.</p>
                 </div>
             </div>
             <div class="collection-grid" id="gridVic"></div>
@@ -741,7 +743,7 @@
                 <div class="collection-info">
                     <span class="collection-badge collection-badge-fire">🔥 TOURS</span>
                     <h3>Tours</h3>
-                    <p>Diseños promocionales tours + lives</p>
+                    <p>Giras, recitales y ediciones en vivo.</p>
                 </div>
             </div>
             <div class="collection-grid" id="gridTour"></div>
@@ -752,7 +754,7 @@
             <div class="collection-header">
                 <div class="collection-info">
                     <h3>Hoodies Megadeth</h3>
-                    <p>Canguro oversize premium · Algodón frizado</p>
+                    <p>Hoodie canguro · Corte amplio unisex · Algodón frizado</p>
                 </div>
             </div>
             <div class="collection-grid" id="gridHoodies"></div>
@@ -762,9 +764,9 @@
     <!-- UNIVERSO MEGADETH -->
     <section class="mgx-showcase home-secondary-archive" id="mgxShowcase">
         <div class="mgx-head">
-            <p class="mgx-kicker">Coleccion oficial Five Magics</p>
-            <h2 class="mgx-title">Universo Megadeth</h2>
-            <p class="mgx-copy">Explora frentes y dorsos, elegi tu combinacion y encargalo en minutos por WhatsApp.</p>
+            <p class="mgx-kicker">ARCHIVO MEGADETH FMD</p>
+            <h2 class="mgx-title">MEGADETH</h2>
+            <p class="mgx-copy">Explorá frentes y dorsos, elegí tu combinación y agregala al pedido.</p>
         </div>
 
         <div class="mgx-controls">
@@ -776,9 +778,9 @@
                     <button class="mgx-chip" data-prenda="hoodie">Hoodies</button>
                 </div>
                 <div class="mgx-chip-group" id="mgxEstampaFilter">
-                    <button class="mgx-chip active" data-estampa="all">Simple + Doble</button>
-                    <button class="mgx-chip" data-estampa="simple">Simple</button>
-                    <button class="mgx-chip" data-estampa="doble">Doble</button>
+                    <button class="mgx-chip active" data-estampa="all">Solo frente + Frente y dorso</button>
+                    <button class="mgx-chip" data-estampa="simple">Solo frente</button>
+                    <button class="mgx-chip" data-estampa="doble">Frente y dorso</button>
                 </div>
             </div>
         </div>
@@ -797,7 +799,7 @@
                     <img src="images/logos/pantera-logo.png" alt="Pantera Logo" class="featured-logo">
                 </div>
                 <h3>Pantera</h3>
-                <p>Tributo a la era Dimebag Darrell</p>
+                <p>Diseños de Pantera, Dimebag Darrell y sus discos esenciales.</p>
                 <button class="btn-explore">Ver colección →</button>
             </div>
 
@@ -808,7 +810,7 @@
                     <img src="images/logos/iron-maiden-logo.png" alt="Iron Maiden Logo" class="featured-logo">
                 </div>
                 <h3>Iron Maiden</h3>
-                <p>Legado del heavy metal inglés. Eddie en acción</p>
+                <p>Diseños de Iron Maiden, Eddie y sus álbumes clásicos.</p>
                 <button class="btn-explore">Ver colección →</button>
             </div>
 
@@ -819,7 +821,7 @@
                     <img src="images/logos/metallica-logo.png" alt="Metallica Logo" class="featured-logo">
                 </div>
                 <h3>Metallica</h3>
-                <p>Desde Kill 'Em All hasta Justice</p>
+                <p>Diseños de Metallica, sus discos clásicos y distintas épocas.</p>
                 <button class="btn-explore">Ver colección →</button>
             </div>
 
@@ -830,7 +832,7 @@
                     <img src="images/logos/avenged-sevenfold-logo.jpg" alt="Avenged Sevenfold Logo" class="featured-logo">
                 </div>
                 <h3>Avenged Sevenfold</h3>
-                <p>Colección especial y opciones de dorso personalizados</p>
+                <p>Diseños de Avenged Sevenfold para elegir y personalizar.</p>
                 <button class="btn-explore">Ver colección →</button>
             </div>
 
@@ -889,7 +891,7 @@
                 <div class="nav-group">
                     <div class="nav-group-head">
                         <h3 class="nav-group-title">Otras bandas</h3>
-                        <p class="nav-group-copy">Clásicos y nuevas entradas del catálogo. Ideal para explorar sin entrar al archivo grande.</p>
+                        <p class="nav-group-copy">Más bandas y colecciones para seguir recorriendo el catálogo.</p>
                     </div>
                     <div class="nav-group-buttons">
                         <button class="cat-btn" data-cat="Pantera" data-count="">
@@ -918,7 +920,7 @@
                 <div class="nav-group nav-group-featured">
                     <div class="nav-group-head">
                         <h3 class="nav-group-title">Especiales FMD</h3>
-                        <p class="nav-group-copy">Hoodies, buzos y pedidos personalizados para armar tu prenda a medida.</p>
+                        <p class="nav-group-copy">Hoodies, buzos y personalizados para configurar tu prenda como quieras.</p>
                     </div>
                     <div class="nav-group-buttons">
                         <button class="cat-btn cat-btn-hoodie" data-cat="Hoodies Otras Bandas" data-count="">
@@ -996,7 +998,7 @@
                     <button class="filter-pill" data-filter="Slayer">Slayer</button>
                     <button class="filter-pill" data-filter="Epica">EPICA</button>
                     <button class="filter-pill" data-filter="Rhapsody">RHAPSODY</button>
-                    <button class="filter-pill" data-filter="Personalizados">Pedidos Especiales</button>
+                    <button class="filter-pill" data-filter="Personalizados">Personalizados</button>
                 </div>
             </div>
         </div>
@@ -1027,8 +1029,8 @@
     <!-- Productos -->
     <section class="products-section">
         <div class="catalog-universal-garment-note is-hidden" id="catalogUniversalGarmentNote">
-            <strong>TODOS LOS DISEÑOS, EN LA PRENDA QUE QUIERAS</strong>
-            <span>Elegí remera, hoodie o buzo dentro de cada diseño. Si todavía no tenemos el mock de esa prenda, usamos la imagen disponible como referencia.</span>
+            <strong>TU DISEÑO, TU PRENDA</strong>
+            <span>Remeras, hoodies y buzos con diseño solo al frente o frente y dorso.</span>
         </div>
         <div class="products-grid" id="productsGrid">
             <!-- Se genera con JS -->
@@ -1235,14 +1237,14 @@
                 <span class="step-num">2</span>
                 <div class="step-content">
                     <h4>Configurá tu prenda</h4>
-                    <p>Elegí prenda, estampa, talle, color y forma de entrega.</p>
+                    <p>Elegí modelo, corte, talle, color y tipo de estampa.</p>
                 </div>
             </div>
             <div class="step-item">
                 <span class="step-num">3</span>
                 <div class="step-content">
-                    <h4>Revisá el total</h4>
-                    <p>El carrito aplica automáticamente la mejor promoción disponible.</p>
+                    <h4>Revisá tu pedido</h4>
+                    <p>En el resumen del pedido elegí la entrega y completá tus datos. La mejor promoción se aplica automáticamente.</p>
                 </div>
             </div>
             <div class="step-item">
@@ -1254,11 +1256,8 @@
             </div>
                 </div>
 
-                <a href="https://wa.me/541169667685?text=Hola%20FMD%2C%20quiero%20hacer%20un%20pedido" class="btn-cta-main" onclick="openWhatsapp('Hola FMD! Quiero hacer un pedido. ¿Me indicás cómo avanzamos?', 'como_comprar'); return false;">
-            <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
-                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
-            </svg>
-                    CONSULTAR POR WHATSAPP
+                <a href="#catalogoPrincipal" class="btn-cta-main" onclick="showFullCatalog(); return false;">
+                    EXPLORAR CATÁLOGO
                 </a>
             </div>
         </details>
@@ -1268,25 +1267,25 @@
             <div class="faq-item bg-card">
                 <details>
                     <summary>Producción y tiempos</summary>
-                    <div class="faq-content">Trabajamos ON DEMAND (sin stock). Plazo estimado total: 3 a 7 días hábiles, según el destino. Como cada prenda se realiza a pedido, revisá talle y color antes de confirmar.</div>
+                    <div class="faq-content">Trabajamos a pedido, no con stock. Plazo estimado total: 3 a 7 días hábiles, según el destino. Como cada prenda se realiza especialmente para vos, revisá talle y color antes de confirmar.</div>
                 </details>
             </div>
             <div class="faq-item bg-card">
                 <details>
                     <summary>Producto (tela y corte)</summary>
-                    <div class="faq-content">Tela: Algodón peinado 24/1 premium. Cortes: clásica hombre, clásica mujer y oversize unisex.</div>
+                    <div class="faq-content">Las remeras son de algodón peinado 24/1. Podés elegir corte clásico de hombre, clásico de mujer u oversize unisex.</div>
                 </details>
             </div>
             <div class="faq-item bg-card">
                 <details>
                     <summary>Estampa DTG</summary>
-                    <div class="faq-content">Estampa DTG Premium (impresión directa sobre tela con tintas base agua). Alta definición, sin tacto plástico.</div>
+                    <div class="faq-content">Imprimimos directamente sobre la tela con tintas base agua. La estampa conserva el detalle y no deja tacto plástico.</div>
                 </details>
             </div>
             <div class="faq-item bg-card">
                 <details>
                     <summary>Cómo buscar</summary>
-                    <div class="faq-content">Usá la lupita y buscá: Rust, Peace, Vic, Mustaine o el nombre del álbum.</div>
+                    <div class="faq-content">Usá la lupa para buscar por banda, álbum, canción, personaje o nombre del diseño.</div>
                 </details>
             </div>
             <div class="faq-item bg-card">
@@ -1297,14 +1296,20 @@
             </div>
             <div class="faq-item bg-card">
                 <details>
-                    <summary>Envíos (Andreani + tracking)</summary>
-                    <div class="faq-content">Durante agosto, desde 1 prenda tenés envío gratis a un punto de retiro Andreani en todo el país. Desde 3 prendas, tenés 10% OFF y envío gratis a domicilio. Te pasamos el tracking apenas despacha.</div>
+                    <summary>Envíos por Andreani y seguimiento</summary>
+                    <div class="faq-content">Durante agosto, desde 1 prenda tenés envío gratis a un punto de retiro Andreani en todo el país. Desde 3 prendas, tenés 10% OFF y envío gratis a domicilio. Te pasamos el seguimiento apenas despacha.</div>
                 </details>
             </div>
             <div class="faq-item bg-card">
                 <details>
-                    <summary>Medios de pago + personalizados</summary>
-                    <div class="faq-content">Transferencia o MercadoPago. ¿Querés tu diseño? Mandanos la imagen en buena calidad y lo preparamos para DTG pro. ¿Tenés una imagen vieja o de baja calidad? No hay problema. En Five Magics Designs reconstruimos diseños para impresión profesional.</div>
+                    <summary>Medios de pago</summary>
+                    <div class="faq-content">Podés pagar por transferencia o Mercado Pago. También aceptamos tarjeta de crédito con recargo.</div>
+                </details>
+            </div>
+            <div class="faq-item bg-card">
+                <details>
+                    <summary>Diseños personalizados</summary>
+                    <div class="faq-content">Mandanos tu idea o imagen y la preparamos para impresión DTG. Si el archivo es viejo o tiene baja calidad, podemos reconstruirlo para lograr un resultado limpio y definido.</div>
                 </details>
             </div>
         </div>
@@ -1315,7 +1320,7 @@
         <div class="footer-logo">FIVE <span>MAGICS</span></div>
 
         <div class="social-links">
-            <a href="https://wa.me/541169667685?text=Hola%20FMD%2C%20quiero%20reservar%20mi%20remera" class="social-link whatsapp" title="WhatsApp" onclick="openWhatsapp('', 'footer_whatsapp'); return false;">
+            <a href="https://wa.me/541169667685?text=Hola%20FMD%2C%20quiero%20hacer%20una%20consulta%20sobre%20el%20cat%C3%A1logo." class="social-link whatsapp" title="WhatsApp" onclick="openWhatsapp('Hola FMD, quiero hacer una consulta sobre el catálogo.', 'footer_whatsapp'); return false;">
                 <svg viewBox="0 0 24 24">
                     <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
                 </svg>
@@ -1333,7 +1338,7 @@
         </div>
 
         <div class="footer-info footer-info-compact">
-            <p class="footer-info-line">📦 <strong>ENVÍOS:</strong> Andreani a domicilio o punto de retiro en todo el país. Retiro sin cargo en Villa Martelli desde el tercer día hábil posterior a la compra. Plazo estimado total: 3 a 7 días hábiles, según el destino.</p>
+            <p class="footer-info-line">📦 <strong>ENVÍOS:</strong> Andreani a domicilio o punto de retiro en todo el país. Retiro sin cargo en Villa Martelli desde el tercer día hábil después de confirmar el pedido. Plazo estimado total: 3 a 7 días hábiles, según el destino.</p>
             <p>💳 <strong>PAGO:</strong> Transferencia o Mercado Pago. Tarjeta de crédito disponible con recargo.</p>
         </div>
 
@@ -1344,11 +1349,11 @@
     </footer>
 
     <!-- FAB WhatsApp -->
-    <a href="https://wa.me/541169667685?text=Hola%20FMD%2C%20quiero%20hacer%20un%20pedido%20personalizado%20con%20mi%20idea%20o%20dise%C3%B1o%20que%20tengan%20en%20mente." class="fab-wa" aria-label="Pedir por WhatsApp" onclick="openWhatsapp('Hola FMD! Quiero hacer un pedido personalizado. ¿Me indicás cómo avanzamos?', 'sticky_whatsapp'); return false;">
+    <a href="https://wa.me/541169667685?text=Hola%20FMD%2C%20quiero%20consultar%20por%20una%20idea%20o%20dise%C3%B1o%20que%20tengo%20en%20mente." class="fab-wa" aria-label="Consultar por WhatsApp" onclick="openWhatsapp('Hola FMD! Quiero consultar por una idea o diseño que tengo en mente.', 'sticky_whatsapp'); return false;">
         <svg viewBox="0 0 24 24">
             <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
         </svg>
-        <span>Pedir por WhatsApp</span>
+        <span>Consultar por WhatsApp</span>
     </a>
 
     <!-- Zoom Overlay -->
@@ -1383,7 +1388,7 @@
                     <div class="carousel-indicators" id="carouselDots"></div>
                     <div class="modal-preview-reference-note is-hidden" id="modalPreviewReferenceNote" aria-live="polite"></div>
                 </div>
-                <div class="variant-name" id="variantName">Original Art</div>
+                <div class="variant-name" id="variantName">Arte original</div>
                 <div class="album-garment-filter is-hidden" id="albumGarmentFilter"></div>
 
                 <!-- Info -->
@@ -1471,9 +1476,9 @@
                         <div class="option-group" id="cutGroup">
                             <span class="option-label">Corte:</span>
                             <div class="option-buttons" id="cutSelector">
-                                <button type="button" class="option-btn active" data-cut="clasica" onclick="selectCut('clasica')">Clásica</button>
-                                <button type="button" class="option-btn" data-cut="mujer" onclick="selectCut('mujer')">Mujer</button>
-                                <button type="button" class="option-btn" id="btnOversize" data-cut="oversize" onclick="selectCut('oversize')">Oversize</button>
+                                <button type="button" class="option-btn active" data-cut="clasica" onclick="selectCut('clasica')">Clásica hombre</button>
+                                <button type="button" class="option-btn" data-cut="mujer" onclick="selectCut('mujer')">Clásica mujer</button>
+                                <button type="button" class="option-btn" id="btnOversize" data-cut="oversize" onclick="selectCut('oversize')">Oversize unisex</button>
                             </div>
                         </div>
                         
@@ -1496,11 +1501,11 @@
                         <div class="print-mode-options">
                             <button type="button" class="print-mode-btn" data-print-mode="simple" onclick="selectPrintMode('simple')">
                                 <strong>Solo frente</strong>
-                                <span id="printModeSimplePrice">Estampa simple</span>
+                                <span id="printModeSimplePrice">$37.000</span>
                             </button>
                             <button type="button" class="print-mode-btn print-mode-btn-double" data-print-mode="double" onclick="selectPrintMode('double')">
-                                <strong>Frente + dorso</strong>
-                                <span id="printModeDoublePrice">Doble estampa</span>
+                                <strong>Frente y dorso</strong>
+                                <span id="printModeDoublePrice">$44.000</span>
                             </button>
                         </div>
                         <div class="print-mode-help" id="printModeHelp"></div>
@@ -1515,7 +1520,7 @@
                     <div class="double-selection-status is-hidden" id="doubleSelectionStatus"></div>
 
                     <div class="modal-adaptable-note">
-                        ¿Querés este diseño en otra prenda o con otro dorso? Lo adaptamos por WhatsApp.
+                        Todos los diseños están disponibles en remera, hoodie y buzo. También podés personalizar las estampas.
                     </div>
 
                     <div class="modal-order-summary" id="modalOrderSummary" aria-live="polite">
@@ -1542,7 +1547,7 @@
                         <div class="modal-advanced-content">
                             <div class="upsell-dorso" id="upsellDorso">
                                 <div class="upsell-row">
-                                    <div class="upsell-prices is-hidden">Solo frente: <strong id="modalPrecioSimple">-</strong> · Frente + Dorso: <strong id="modalPrecioDoble">-</strong></div>
+                                    <div class="upsell-prices is-hidden">Solo frente: <strong id="modalPrecioSimple">-</strong> · Frente y dorso: <strong id="modalPrecioDoble">-</strong></div>
                                     <div class="dorso-help-box">Elegí una imagen de dorso, escribí una idea o dejalo a confirmar por WhatsApp.</div>
                                     
                                     <div id="dorsoVariantsSection" class="dorso-section-hidden">
@@ -1551,7 +1556,7 @@
                                     </div>
                                     
                                     <div id="dorsoCustomSection" class="dorso-section-block">
-                                        <div class="dorso-muted-label">Elegí un dorso rápido o escribí tu idea:</div>
+                                        <div class="dorso-muted-label">Elegí una opción de dorso o contanos tu idea:</div>
                                         <div class="chips-row" id="chipsRow">
                                             <div class="chip" data-val="Logo blanco" onclick="toggleChip(this)">Logo blanco</div>
                                             <div class="chip" data-val="Frase personalizada" onclick="toggleChip(this)">Frase personalizada</div>
@@ -1575,7 +1580,7 @@
                             </div>
 
                             <div class="badge-doble is-hidden" id="badgeDoble">
-                                🔥 DOBLE ESTAMPA (Frente + Espalda)
+                                FRENTE Y DORSO
                             </div>
 
                             <div class="specs-grid">
@@ -1595,7 +1600,7 @@
 
                             <div class="modal-actions-secondary">
                                 <button class="btn-share btn-view-cart" id="btnViewCart">
-                                    🛒 Ver carrito (<span id="modalCartCount">0</span>)
+                                    🛒 Ver pedido (<span id="modalCartCount">0</span>)
                                 </button>
                                 <button class="btn-share btn-share-wa" id="btnShareWa">
                                     📢 Compartir
@@ -1604,13 +1609,13 @@
 
                             <!-- Productos relacionados -->
                             <div class="related-products is-hidden" id="relatedProducts">
-                                <h4>Más del archivo FMD Editions ☢️</h4>
+                                <h4>MÁS DISEÑOS DE ESTA COLECCIÓN</h4>
                                 <div class="related-grid" id="relatedGrid"></div>
                             </div>
 
                             <div class="modal-actions modal-actions-mt">
                                 <button class="btn-share btn-doble" id="btnDobleAction">
-                                    🔥 Doble estampa
+                                    ELEGIR FRENTE Y DORSO
                                 </button>
                             </div>
 

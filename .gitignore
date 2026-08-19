@@ -7,3 +7,12 @@ reports/megadeth-*-profile*/
 reports/featured-collections-chrome/
 reports/featured-*-profile*/
 reports/featured-collections-preview/
+
+# Material interno: conservar localmente, nunca publicar en GitHub Pages.
+backups/
+reports/
+tools/
+CATALOGO FIVE MAGICS/
+.remote_index.html
+backup.txt
+CATALOGO_COMPACTO_GPT.json

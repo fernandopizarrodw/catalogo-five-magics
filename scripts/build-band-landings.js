@@ -76,7 +76,7 @@ function customizeSharedCommerceMarkup(config, markup) {
     if (!config.usesShownComposition) return markup;
 
     let output = markup
-        .replace('🛒 Guardar en carrito', 'AGREGAR AL CARRITO')
+        .replace('🛒 Guardar en carrito', 'AGREGAR AL PEDIDO')
         .replace('<summary>Dorso y personalización</summary>', '<summary>Detalles del producto</summary>')
         .replace('<div class="spec-value">☢️ DTG Premium</div>', '<div class="spec-value" id="modalSpecPrint">☢️ DTG Premium</div>')
         .replace('<div class="spec-value">🖤 Sin tacto plástico</div>', '<div class="spec-value" id="modalSpecFabric">🖤 Algodón peinado</div>')
@@ -137,21 +137,21 @@ function renderLanding(config, sharedCommerceMarkup) {
             <a href="/#catalogoPrincipal" class="logo" aria-label="Volver al catálogo FMD">FIVE <span>MAGICS</span></a>
             <div class="header-actions">
                 <a href="/#catalogoPrincipal" class="btn-back-catalog" aria-label="Explorar más bandas en el catálogo FMD">EXPLORAR MÁS BANDAS</a>
-                <a href="${whatsappUrl(`Hola FMD! Quiero hacer un pedido de ${config.band}.`)}" class="btn-wa-header" target="_blank" rel="noopener">
-                    <span>HACER PEDIDO</span>
+                <a href="${whatsappUrl(`Hola FMD! Quiero consultar por los diseños de ${config.band}.`)}" class="btn-wa-header" target="_blank" rel="noopener">
+                    <span>CONSULTAR</span>
                 </a>
             </div>
         </div>
     </header>
 
-    <button id="cartBtn" title="Ver carrito">
-        Ver carrito
+    <button id="cartBtn" title="Ver pedido">
+        Ver pedido
         <span class="cart-count">0</span>
     </button>
     <div id="cartPanel">
         <div class="cart-panel-header">
-            <h2>Mi carrito</h2>
-            <button class="cart-panel-close" id="cartPanelClose" aria-label="Cerrar carrito">&times;</button>
+            <h2>Mi pedido</h2>
+            <button class="cart-panel-close" id="cartPanelClose" aria-label="Cerrar pedido">&times;</button>
         </div>
         <div id="cartList"></div>
         <div id="cartSummary"></div>
@@ -227,8 +227,8 @@ ${config.showSizeGuide ? `
                 <p>ARCHIVO FMD</p>
                 <h2 id="bandCatalogTitle">DISEÑOS DE ${config.displayName}</h2>
                 <div class="band-landing-design-note">
-                    <strong>TODOS LOS DISEÑOS, EN LA PRENDA QUE QUIERAS</strong>
-                    <span>Elegí remera, hoodie o buzo dentro de cada diseño. Si todavía no tenemos el mock de esa prenda, usamos la imagen disponible como referencia.</span>
+                    <strong>TU DISEÑO, TU PRENDA</strong>
+                    <span>Remeras, hoodies y buzos con diseño solo al frente o frente y dorso.</span>
                 </div>
             </div>
             <nav id="categoryNav" hidden aria-hidden="true"></nav>

@@ -966,6 +966,9 @@
 
 .reimagined-cta-row {
     margin-top: 14px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
 }
 
 .reimagined-cta {
@@ -982,6 +985,13 @@
     font-size: 0.9rem;
     font-family: var(--font-title);
     letter-spacing: 0.6px;
+}
+
+.reimagined-cta-secondary {
+    color: #cfe9ff;
+    background: transparent;
+    border-color: rgba(160, 214, 255, 0.42);
+    box-shadow: none;
 }
 
 .reimagined-stage {

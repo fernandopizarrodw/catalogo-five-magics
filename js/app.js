@@ -271,7 +271,7 @@ const MAIDEN_ARCHIVE_GROUPS = [
     { title: 'Iron Maiden clásico', meta: 'Diseños FMD', productIds: [308, 6004, 7011] },
     { title: 'The Number of the Beast / 666', meta: 'Dos clásicos de Iron Maiden', productIds: [5038, 6005] },
     { title: 'Killers', meta: 'Versiones FMD', productIds: [7023, 6006, 7024, 6007] },
-    { title: 'Live After Death', meta: 'Frente + dorso', productIds: [7025, 7012] },
+    { title: 'Live After Death', meta: 'Frente y dorso', productIds: [7025, 7012] },
     { title: 'Tour 2026', meta: 'Edicion tour FMD', productIds: [7029, 7013] },
     { title: 'Powerslave', meta: 'Archivo FMD', productIds: [7026, 7030] }
 ];
@@ -836,7 +836,7 @@ function initFmdSpotlight() {
     };
 
     document.querySelectorAll('#fmdEdition3dGrid .fmd3d-group').forEach(group => {
-        const groupTitle = group.querySelector('.fmd3d-group-head strong')?.textContent?.trim() || 'FMD Edition';
+        const groupTitle = group.querySelector('.fmd3d-group-head strong')?.textContent?.trim() || 'Edición FMD';
         const groupType = group.querySelector('.fmd3d-group-head span')?.textContent?.trim() || 'Albumes FMD';
 
         group.querySelectorAll('.fmd3d-group-slide').forEach(slide => {
@@ -858,8 +858,8 @@ function initFmdSpotlight() {
     });
 
     document.querySelectorAll('#fmdOriginalsGrid .fmd-originals-group').forEach(group => {
-        const groupTitle = group.querySelector('.fmd-originals-group-head strong')?.textContent?.trim() || 'Original FMD';
-        const groupType = group.querySelector('.fmd-originals-group-head span')?.textContent?.trim() || 'Original FMD';
+        const groupTitle = group.querySelector('.fmd-originals-group-head strong')?.textContent?.trim() || 'Arte original FMD';
+        const groupType = group.querySelector('.fmd-originals-group-head span')?.textContent?.trim() || 'Arte original FMD';
         const media = group.querySelector('.fmd-originals-media');
         const img = media?.querySelector('img');
         const args = parseOpenModalArgs(media?.getAttribute('onclick'));
@@ -869,7 +869,7 @@ function initFmdSpotlight() {
             section: 'Originales FMD',
             title: groupTitle,
             type: groupType,
-            label: 'Original FMD',
+            label: 'Arte original FMD',
             img: img.getAttribute('src') || '',
             alt: img.getAttribute('alt') || groupTitle,
             ...args
@@ -889,13 +889,13 @@ function initFmdSpotlight() {
                     const variantImg = String(variant?.img || '');
                     if (!variantImg.includes(vicTourPath)) return;
 
-                    const variantName = String(variant?.name || product?.name || 'Original FMD').trim();
+                    const variantName = String(variant?.name || product?.name || 'Arte original FMD').trim();
                     const year = String(product?.year || '2026').trim();
                     pushSpotlightItem({
                         section: 'Originales FMD',
                         title: `${year} · ${variantName.replace(/\s+FMD(?:\s+Edition)?$/i, '').trim()}`,
-                        type: 'Original FMD',
-                        label: 'Drop 2026',
+                        type: 'Arte original FMD',
+                        label: 'Lanzamientos 2026',
                         img: variantImg,
                         alt: `${year} ${variantName}`,
                         id: productId,
@@ -909,13 +909,13 @@ function initFmdSpotlight() {
             const baseImg = String(product?.img || '');
             if (!baseImg.includes(vicTourPath)) return;
 
-            const baseName = String(product?.name || 'Original FMD').trim();
+            const baseName = String(product?.name || 'Arte original FMD').trim();
             const year = String(product?.year || '2026').trim();
             pushSpotlightItem({
                 section: 'Originales FMD',
                 title: `${year} · ${baseName.replace(/\s+FMD(?:\s+Edition)?$/i, '').trim()}`,
-                type: 'Original FMD',
-                label: 'Drop 2026',
+                type: 'Arte original FMD',
+                label: 'Lanzamientos 2026',
                 img: baseImg,
                 alt: `${year} ${baseName}`,
                 id: productId,
@@ -1424,7 +1424,7 @@ function formatHomeOuterwearPrices(garmentType) {
     const label = isBuzo ? 'Buzo' : 'Hoodie';
     return `<div class="dual-prices">
         <div class="price-line"><span class="price-amount">$${tabla.simple.toLocaleString('es-AR')}</span><span class="price-label">${label} estampa frontal</span></div>
-        <div class="price-line"><span class="price-amount">$${tabla.doble.toLocaleString('es-AR')}</span><span class="price-label">${label} doble estampa</span></div>
+        <div class="price-line"><span class="price-amount">$${tabla.doble.toLocaleString('es-AR')}</span><span class="price-label">${label} con frente y dorso</span></div>
     </div>`;
 }
 
@@ -1605,14 +1605,42 @@ function getProductPriority(product) {
     return Number.isFinite(priority) ? priority : 0;
 }
 
+function getPublicBadgeLabel(label = '') {
+    const value = String(label || '').trim();
+    const normalized = normalizeText(value);
+    if (normalized === 'doble estampa') return 'FRENTE Y DORSO';
+    if (normalized === 'original fmd') return 'ARTE ORIGINAL FMD';
+    if (normalized === 'fmd edition' || normalized === 'fmd editions') return 'VERSIÓN FMD';
+    if (normalized === 're-edicion fmd' || normalized === 'reedicion fmd') return 'REEDICIÓN FMD';
+    if (normalized === 'reimagined') return 'VERSIÓN FMD';
+    if (normalized === 'reimagined retro') return 'VERSIÓN RETRO FMD';
+    if (normalized === 'drop 2026') return 'LANZAMIENTOS 2026';
+    if (normalized === 'key art hd') return 'ARTE PRINCIPAL';
+    return value;
+}
+
+function getPublicCommerceText(text = '') {
+    return String(text || '')
+        .replace(/Reimagined\s+Retro/gi, 'Versión retro FMD')
+        .replace(/Reimagined/gi, 'Versión FMD')
+        .replace(/Re-edición\s+FMD/gi, 'Reedición FMD')
+        .replace(/FMD\s+Editions?/gi, 'Versión FMD')
+        .replace(/Diseño\s+Original\s+FMD/gi, 'Arte original FMD')
+        .replace(/Original\s+FMD/gi, 'Arte original FMD')
+        .replace(/Simple\s*\+\s*Doble/gi, 'Solo frente o frente y dorso')
+        .replace(/Estampa\s+simple/gi, 'Solo frente')
+        .replace(/Doble\s+estampa/gi, 'Frente y dorso')
+        .replace(/Frente\s*\/\s*Dorso/gi, 'Frente y dorso');
+}
+
 function getFmdBadgeData(product, variantIndex = undefined) {
     const numericVariantIndex = Number(variantIndex);
     const variant = Number.isFinite(numericVariantIndex) ? product?.variants?.[numericVariantIndex] : null;
     const badge = variant?.fmdBadge || product?.fmdBadge;
     if (!badge) return null;
     return {
-        label: badge,
-        description: variant?.fmdBadgeDescription || product?.fmdBadgeDescription || 'Creación exclusiva FMD con identidad propia y presencia fuerte en prenda.'
+        label: getPublicBadgeLabel(badge),
+        description: 'Diseño creado por FMD.'
     };
 }
 
@@ -2235,7 +2263,7 @@ const MODAL_REMERA_VARIANTS = [
     { id: 'hombre_clasica', label: 'Clásica hombre', garment: 'remera_clasica', age: 'adulto', cut: 'clasica' },
     { id: 'mujer_clasica', label: 'Clásica mujer', garment: 'mujer', age: 'adulto', cut: 'mujer' },
     { id: 'oversize_unisex', label: 'Oversize unisex', garment: 'oversize', age: 'adulto', cut: 'oversize' },
-    { id: 'nino', label: 'Niño', garment: 'remera_clasica', age: 'chico', cut: 'clasica' }
+    { id: 'nino', label: 'Niños', garment: 'remera_clasica', age: 'chico', cut: 'clasica' }
 ];
 
 function getAvailableModalGarmentTypes(available = getAvailableModalGarments(currentProduct)) {
@@ -2384,9 +2412,9 @@ function updateCatalogDesignReferenceNote() {
         return;
     }
     const title = document.createElement('strong');
-    title.textContent = 'DISPONIBLE PARA PEDIR';
+    title.textContent = `DISPONIBLE EN ${garmentLabel.toUpperCase()}`;
     const description = document.createElement('span');
-    description.textContent = `Este diseño está disponible en ${garmentLabel}. Todavía no tenemos el mock de esta prenda; usamos la imagen disponible como referencia.`;
+    description.textContent = 'Podés personalizar la ubicación y combinación de estampas.';
     const consultation = document.createElement('button');
     consultation.type = 'button';
     consultation.className = 'modal-preview-reference-consult';
@@ -2563,7 +2591,7 @@ function getModalOrderSummaryParts() {
     const garment = garmentType === 'remera'
         ? (MODAL_REMERA_VARIANTS.find(item => item.id === getSelectedRemeraVariantId())?.label || 'Remera')
         : garmentType === 'hoodie' ? 'Hoodie' : 'Buzo cuello redondo';
-    const print = selectedPrintMode === 'double' ? 'frente + dorso' : 'frente';
+    const print = selectedPrintMode === 'double' ? 'frente y dorso' : 'solo frente';
     const color = selectedColor === 'blanco' ? 'blanca' : selectedColor === 'negro' ? 'negra' : 'color pendiente';
     const prices = resolveModalPriceConfig(currentProduct);
     const price = selectedPrintMode === 'double' ? prices.doble : prices.simple;
@@ -2592,7 +2620,7 @@ function validateModalSelectionsBeforeWhatsapp() {
         {
             valid: selectedPrintMode === 'simple' || selectedPrintMode === 'double',
             group: 'printModeSelector',
-            message: 'Elegí estampa frontal o doble.'
+            message: 'Elegí solo frente o frente y dorso.'
         },
         {
             valid: Boolean(selectedSize),
@@ -2905,7 +2933,7 @@ class CartSystem {
 
     // Generar resumen para copiar
     generateSummary() {
-        if (this.cart.length === 0) return 'Carrito vacío';
+        if (this.cart.length === 0) return 'Pedido vacío';
 
         // Ordenar productos: adulto primero, luego niño; dentro de adulto, hoodie/remera
         const sortOrder = item => {
@@ -2954,13 +2982,13 @@ class CartSystem {
 
             let estampado;
             if (item.isDouble && item.usesShownComposition) {
-                estampado = 'Doble estampa (composición mostrada)';
+                estampado = 'Frente y dorso (composición mostrada)';
             } else if (item.isDouble && item.backCode) {
-                estampado = `Doble estampa (frente ${item.frontCode} + dorso ${item.backCode})`;
+                estampado = `Frente y dorso (${item.frontCode} + ${item.backCode})`;
             } else if (item.isDouble) {
-                estampado = `Doble estampa (dorso a definir)`;
+                estampado = 'Frente y dorso (dorso a definir)';
             } else {
-                estampado = 'Estampa simple';
+                estampado = 'Solo frente';
             }
 
             const designHash = item.designId
@@ -3000,7 +3028,7 @@ class CartSystem {
     }
 
     generateConsultationSummary() {
-        if (this.cart.length === 0) return 'Carrito vacio';
+        if (this.cart.length === 0) return 'Pedido vacío';
 
         const itemPrices = calculateCartItemPrices(this.cart);
         return this.cart.map((item, idx) => {
@@ -3036,7 +3064,7 @@ class CartSystem {
 * Prenda: ${garment}
 * Talle: ${item.size || 'A confirmar'}
 * Color: ${color}
-* Estampa: ${item.isDouble ? 'Doble estampa' : 'Estampa simple'}
+* Estampa: ${item.isDouble ? 'Frente y dorso' : 'Solo frente'}
 ${designLines}
 * Precio estimado: $${price}${warning}`;
         }).join('\n\n');
@@ -3077,7 +3105,7 @@ ${designLines}
         if (!cartList) return;
 
         if (this.cart.length === 0) {
-            cartList.innerHTML = '<p style="text-align:center;color:var(--text-muted);padding:20px;">Carrito vacío</p>';
+            cartList.innerHTML = '<p style="text-align:center;color:var(--text-muted);padding:20px;">Tu pedido está vacío</p>';
             if (cartSummary) cartSummary.style.display = 'none';
             return;
         }
@@ -3099,7 +3127,7 @@ ${designLines}
                     <div class="cart-item-code">${item.code}</div>
                     <div class="cart-item-name">${item.productName}</div>
                     ${item.variantName && item.variantName !== item.productName ? `<div class="cart-item-variant">${item.variantName}</div>` : ''}
-                    ${item.isDouble ? '<div class="cart-item-double">Doble estampa</div>' : ''}
+                    ${item.isDouble ? '<div class="cart-item-double">Frente y dorso</div>' : ''}
                     <div class="cart-item-options">${edad} · T${talle} · ${corte} · ${color}</div>
                 </div>
                 <button class="cart-item-remove" onclick="cart.removeFromCart(${idx})">✕</button>
@@ -3111,7 +3139,7 @@ ${designLines}
             cartSummary.innerHTML = `
                 <div class="cart-summary-content">
                     <button onclick="openCartPreview()" class="btn-send-whatsapp" style="background: var(--magic-green); color: #000;">
-                        👁ï¸ Ver pedido completo
+                        Ver pedido completo
                     </button>
                     <button onclick="openCartPreview()" class="btn-send-whatsapp">
                         <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
@@ -3120,7 +3148,7 @@ ${designLines}
                         Revisar y enviar pedido
                     </button>
                     <button onclick="cart.clearCart()" class="btn-clear-cart">
-                        🗑ï¸ Vaciar carrito
+                        Vaciar pedido
                     </button>
                 </div>
             `;
@@ -3257,7 +3285,7 @@ function renderLatestReleases(limit = 5) {
                     <div class="product-price-row">
                         ${
                             isDorsoIdea
-                            ? `<span class="product-envio" style="color:var(--magic-green);border:1px solid rgba(57,255,20,.25);">Solo doble estampa</span>`
+                            ? `<span class="product-envio" style="color:var(--magic-green);border:1px solid rgba(57,255,20,.25);">Frente y dorso</span>`
                             : formatPreciosDual(card)
                         }
                     </div>
@@ -3384,7 +3412,29 @@ function initializeCatalogDesigns() {
             explicitDesignIds,
             resolveDesignId: getCatalogDesignResolverId
         })
-        .filter(design => design?.front?.image && !RETIRED_CATALOG_DESIGN_IDS.has(design.designId));
+        .filter(design => design?.front?.image && !RETIRED_CATALOG_DESIGN_IDS.has(design.designId))
+        .map(design => {
+            const cleanPreview = preview => preview ? {
+                ...preview,
+                name: getPublicCommerceText(preview.name || ''),
+                alt: getPublicCommerceText(preview.alt || '')
+            } : preview;
+            const previewsByGarment = Object.fromEntries(
+                Object.entries(design.previewsByGarment || {}).map(([garment, previews]) => [
+                    garment,
+                    (previews || []).map(cleanPreview)
+                ])
+            );
+            return {
+                ...design,
+                publicName: getPublicCommerceText(design.publicName),
+                publicSubtitle: getPublicCommerceText(design.publicSubtitle || ''),
+                front: cleanPreview(design.front),
+                otherFronts: (design.otherFronts || []).map(cleanPreview),
+                backOptions: (design.backOptions || []).map(cleanPreview),
+                previewsByGarment
+            };
+        });
     catalogDesignById = new Map(catalogDesigns.map(design => [design.designId, design]));
     catalogHistoricalBacks = collectCatalogHistoricalBacks();
 
@@ -3569,7 +3619,7 @@ function getMaidenArchiveMeta(product) {
     if (text.includes('eddie')) return 'Eddie Iconico';
     if (text.includes('powerslave')) return 'Powerslave FMD';
     if (text.includes('fear')) return 'Fear Of The Dark';
-    if (product?.tipoPrecio === 'doble') return 'Doble estampa';
+    if (product?.tipoPrecio === 'doble') return 'Frente y dorso';
     return 'Clasico remasterizado';
 }
 
@@ -3621,8 +3671,8 @@ function renderMaidenArchiveGridLegacy() {
                 ? `<div>$${PRECIOS.simple.toLocaleString('es-AR')}</div><div>$${PRECIOS.doble.toLocaleString('es-AR')}</div>`
                 : `<div>$${getMaidenArchivePrice(product).toLocaleString('es-AR')}</div>`;
             const priceMode = isDualOptionCard
-                ? 'Estampa frontal<br>Doble estampa'
-                : (product?.tipoPrecio === 'doble' ? 'Doble estampa' : 'Simple frente');
+                ? 'Solo frente<br>Frente y dorso'
+                : (product?.tipoPrecio === 'doble' ? 'Frente y dorso' : 'Solo frente');
             const isLastCard = index === highlights.length - 1;
             const cardAction = isLastCard ? 'goToMaidenCollection()' : `openModal(${product.id})`;
             const ctaMarkup = isLastCard
@@ -3689,7 +3739,7 @@ function renderMaidenArchiveGridGroupedLegacy() {
                     <img src="${product.img}" alt="${group.title} - ${garmentLabel}" loading="lazy" decoding="async">
                     <span class="maiden-design-slide-footer">
                         <strong>$${price}</strong>
-                        <small>${product.tipoPrecio === 'doble' ? 'Doble estampa' : 'Estampa simple'}</small>
+                        <small>${product.tipoPrecio === 'doble' ? 'Frente y dorso' : 'Solo frente'}</small>
                     </span>
                 </button>`;
             }).join('');
@@ -3771,7 +3821,7 @@ function renderHoodiesGrid() {
                     <img src="${product.img}" class="product-img" loading="lazy">
                     <div class="product-info">
                         <div class="product-name">${product.name}</div>
-                        <div class="product-meta">${product.year} · Doble estampa</div>
+                        <div class="product-meta">${product.year} · Frente y dorso</div>
                         <div class="product-price-row">
                             <span class="product-price hoodie-price">$${precio.toLocaleString('es-AR')}</span>
                         </div>
@@ -3785,7 +3835,7 @@ function renderHoodiesGrid() {
                     <img src="${product.img}" class="product-img" loading="lazy">
                     <div class="product-info">
                         <div class="product-name">${product.name}</div>
-                        <div class="product-meta">${product.year} · Doble estampa</div>
+                        <div class="product-meta">${product.year} · Frente y dorso</div>
                         <div class="product-price-row">
                             <span class="product-price hoodie-price">$${precio.toLocaleString('es-AR')}</span>
                         </div>
@@ -3828,7 +3878,7 @@ function renderBuzosRedondoGrid() {
                     <img src="${product.img}" class="product-img" loading="lazy">
                     <div class="product-info">
                         <div class="product-name">${product.name}</div>
-                        <div class="product-meta">${product.year || ''} · Doble estampa</div>
+                        <div class="product-meta">${product.year || ''} · Frente y dorso</div>
                         <div class="product-price-row">
                             <span class="product-price hoodie-price">$${precio.toLocaleString('es-AR')}</span>
                         </div>
@@ -3844,7 +3894,7 @@ function renderBuzosRedondoGrid() {
                     <img src="${product.img}" class="product-img" loading="lazy">
                     <div class="product-info">
                         <div class="product-name">${product.name}</div>
-                        <div class="product-meta">${product.year || ''} · Doble estampa</div>
+                        <div class="product-meta">${product.year || ''} · Frente y dorso</div>
                         <div class="product-price-row">
                             <span class="product-price hoodie-price">$${precio.toLocaleString('es-AR')}</span>
                         </div>
@@ -3887,25 +3937,25 @@ function formatPreciosDual(product = null) {
         if (slayerGarment === 'hoodie') {
             return `<div class="dual-prices">
         <div class="price-line"><span class="price-amount">$52.000</span><span class="price-label">Hoodie estampa frontal</span></div>
-        <div class="price-line"><span class="price-amount">$59.000</span><span class="price-label">Hoodie doble estampa</span></div>
+        <div class="price-line"><span class="price-amount">$59.000</span><span class="price-label">Hoodie con frente y dorso</span></div>
     </div>`;
         }
         if (slayerGarment === 'buzo') {
             return `<div class="dual-prices">
         <div class="price-line"><span class="price-amount">$50.000</span><span class="price-label">Buzo estampa frontal</span></div>
-        <div class="price-line"><span class="price-amount">$55.000</span><span class="price-label">Buzo doble estampa</span></div>
+        <div class="price-line"><span class="price-amount">$55.000</span><span class="price-label">Buzo con frente y dorso</span></div>
     </div>`;
         }
         if (slayerGarment === 'remera') {
             return `<div class="dual-prices">
         <div class="price-line"><span class="price-amount">$37.000</span><span class="price-label">Remera estampa frontal</span></div>
-        <div class="price-line"><span class="price-amount">$44.000</span><span class="price-label">Remera doble estampa</span></div>
+        <div class="price-line"><span class="price-amount">$44.000</span><span class="price-label">Remera con frente y dorso</span></div>
     </div>`;
         }
         return `<div class="dual-prices">
-        <div class="price-line"><span class="price-amount">$44.000</span><span class="price-label">Remera doble estampa</span></div>
-        <div class="price-line"><span class="price-amount">$59.000</span><span class="price-label">Hoodie doble estampa</span></div>
-        <div class="price-line"><span class="price-amount">$55.000</span><span class="price-label">Buzo doble estampa</span></div>
+        <div class="price-line"><span class="price-amount">$44.000</span><span class="price-label">Remera con frente y dorso</span></div>
+        <div class="price-line"><span class="price-amount">$59.000</span><span class="price-label">Hoodie con frente y dorso</span></div>
+        <div class="price-line"><span class="price-amount">$55.000</span><span class="price-label">Buzo con frente y dorso</span></div>
     </div>`;
     }
     const isHoodie = product && (product.matchedGarment === 'hoodie' || product.category === 'Hoodies FMD' || product.category === 'Hoodies Otras Bandas');
@@ -3915,13 +3965,13 @@ function formatPreciosDual(product = null) {
     const pDoble = '$' + tabla.doble.toLocaleString('es-AR');
     if (isBuzoRedondo) {
         return `<div class="dual-prices dual-prices-buzo">
-        <div class="price-line price-line-primary"><span class="price-amount">${pDoble}</span><span class="price-label">Doble estampa</span></div>
+        <div class="price-line price-line-primary"><span class="price-amount">${pDoble}</span><span class="price-label">Frente y dorso</span></div>
         <div class="price-line"><span class="price-amount">${pSimple}</span><span class="price-label">Solo frente opcional</span></div>
     </div>`;
     }
     return `<div class="dual-prices">
         <div class="price-line"><span class="price-amount">${pSimple}</span><span class="price-label">Estampa frontal</span></div>
-        <div class="price-line"><span class="price-amount">${pDoble}</span><span class="price-label">Doble estampa</span></div>
+        <div class="price-line"><span class="price-amount">${pDoble}</span><span class="price-label">Frente y dorso</span></div>
     </div>`;
 }
 
@@ -4056,8 +4106,8 @@ function toggleChip(el){
 
 function buildDobleMessage(){
     const base = currentProduct
-        ? `Hola FMD, quiero DOBLE ESTAMPA de: ${currentCatalogDesign?.publicName || currentProduct.name}`
-        : `Hola FMD, quiero DOBLE ESTAMPA`;
+        ? `Hola FMD, quiero consultar por frente y dorso de: ${currentCatalogDesign?.publicName || currentProduct.name}`
+        : 'Hola FMD, quiero consultar por una opción con frente y dorso';
 
     const images = currentProduct ? getModalImages() : [];
     const variant = images?.[currentSlide]?.name ? `\nVariante: ${images[currentSlide].name}` : '';
@@ -4764,7 +4814,7 @@ function catalogDesignRefToModalImage(ref) {
 
 function renderModalDesignBadge(sourceIndex) {
     if (!currentCatalogDesign) return renderFmdBadge(currentProduct, sourceIndex, 'carousel-fmd-original-badge');
-    const badge = currentCatalogDesign.badges?.[0];
+    const badge = getPublicBadgeLabel(currentCatalogDesign.badges?.[0]);
     return badge ? `<span class="fmd-original-badge carousel-fmd-original-badge">${badge}</span>` : '';
 }
 
@@ -5769,7 +5819,7 @@ function stripGarmentPrefixFromName(name) {
 }
 
 function cleanPublicText(text = '') {
-    return String(text || '')
+    return getPublicCommerceText(String(text || ''))
         .replace(/Killing\s+Is\s+my\s+Bussines/gi, 'Killing Is My Business')
         .replace(/Killing\s+Is\s+my\s+bussines/gi, 'Killing Is My Business')
         .replace(/Killing\s+is\s+My\s+Business/gi, 'Killing Is My Business');
@@ -5860,10 +5910,10 @@ function updateModalInfo() {
         ? modalMetaLabel
         : formatCategoryMeta(currentProduct.year, modalMetaLabel);
     const fmdBadge = currentCatalogDesign?.badges?.length
-        ? { label: currentCatalogDesign.badges[0], description: currentCatalogDesign.badgeDescriptions?.[0] || '' }
+        ? { label: getPublicBadgeLabel(currentCatalogDesign.badges[0]), description: 'Diseño creado por FMD.' }
         : getFmdBadgeData(currentProduct, activeVariantIndex);
     const modalDesc = document.getElementById('modalDesc');
-    modalDesc.innerHTML = `${fmdBadge ? `<span class="fmd-original-badge modal-fmd-original-badge">${fmdBadge.label}</span><span class="modal-fmd-original-copy">${fmdBadge.description}</span>` : ''}${currentProduct.desc || ''}`;
+    modalDesc.innerHTML = `${fmdBadge ? `<span class="fmd-original-badge modal-fmd-original-badge">${fmdBadge.label}</span><span class="modal-fmd-original-copy">${fmdBadge.description}</span>` : ''}${getPublicCommerceText(currentProduct.desc || '')}`;
     modalDesc.classList.toggle('is-hidden', Boolean(currentCatalogDesign));
     updateModalSizeRange();
     
@@ -6116,10 +6166,10 @@ function renderCatalogDesignResults(designs) {
         ].filter(Boolean);
         const price = (isBandLandingMode() ? getBandLandingDesignStartingPrice(design) : getCatalogDesignStartingPrice(design)).toLocaleString('es-AR');
         const priceText = !isBandLandingMode() && design.catalogPriceText
-            ? design.catalogPriceText
+            ? getPublicCommerceText(design.catalogPriceText)
             : `Desde $${price}`;
         const initialGarment = isBandLandingMode() ? getBandLandingModalGarment() : '';
-        const explicitBadges = (design.badges || []).map(label => ({ label, className: '' }));
+        const explicitBadges = (design.badges || []).map(label => ({ label: getPublicBadgeLabel(label), className: '' }));
         const activeLandingCollection = BAND_LANDING_COLLECTIONS.find(collection => collection.id === bandLandingCollection);
         const explicitFeaturedIds = new Set((activeLandingCollection?.match?.designIds || []).map(String));
         const commercialBadges = [
@@ -6141,7 +6191,7 @@ function renderCatalogDesignResults(designs) {
                 <span class="catalog-design-copy">
                     <span class="catalog-design-band">${design.band}</span>
                     <strong>${design.publicName}</strong>
-                    ${design.publicSubtitle ? `<span class="catalog-design-subtitle">${design.publicSubtitle}</span>` : ''}
+                    ${design.publicSubtitle ? `<span class="catalog-design-subtitle">${getPublicCommerceText(design.publicSubtitle)}</span>` : ''}
                     ${garmentLabels.length ? `<span class="catalog-design-garments"><b>Disponible en:</b> ${garmentLabels.join(' · ')}</span>` : ''}
                     <span class="catalog-design-price">${priceText}</span>
                     <span class="catalog-design-cta">VER DISEÑO</span>
@@ -6433,7 +6483,7 @@ function renderFilteredProducts(filtered) {
                 <div class="product-price-row">
                     ${
                         isDorsoIdea
-                        ? `<span class="product-envio" style="color:var(--magic-green);border:1px solid rgba(57,255,20,.25);">Solo doble estampa</span>`
+                        ? `<span class="product-envio" style="color:var(--magic-green);border:1px solid rgba(57,255,20,.25);">Frente y dorso</span>`
                         : formatPreciosDual(p)
                     }
                 </div>
@@ -6588,7 +6638,7 @@ function updateShareLinks() {
     const productUrl = `https://catalogo.fivemagicsdesigns.com/#producto-${currentProduct.id}`;
     const productImage = images[currentSlide]?.img || currentProduct.img;
     const year = currentProduct.year ? ` (${currentProduct.year})` : '';
-    const desc = currentProduct.desc ? currentProduct.desc.substring(0, 100) : 'Diseño exclusivo premium';
+    const desc = currentProduct.desc ? getPublicCommerceText(currentProduct.desc).substring(0, 100) : 'Diseño exclusivo premium';
     
     document.querySelector('meta[property="og:title"]').setAttribute('content', `${displayName} - Five Magics Designs`);
     document.querySelector('meta[property="og:description"]').setAttribute('content', `${displayName}${year} • ${getCategoryLabel(currentProduct.category)}\n${desc}...`);
@@ -6611,7 +6661,7 @@ const CATEGORY_LABELS = {
     'Dave Mustaine': 'Dave Mustaine',
     'Dorsales': 'Dorsos para combinar',
     'Musician': 'Miembros Megadeth',
-    'Personalizados': 'Pedidos Especiales',
+    'Personalizados': 'Personalizados',
     'Singles': 'Singles Especiales',
     'Tour': 'Tours',
     'VicRattlehead': 'Vic Rattlehead',
@@ -6735,7 +6785,7 @@ function updateCountsUI(){
         setPill('Tour', getCategoryLabel('Tour'));
         setPill('Dorsales', getCategoryLabel('Dorsales'));
         setPill('VicRattlehead', 'Vic Rattlehead');
-        setPill('Personalizados', 'Pedidos Especiales');
+        setPill('Personalizados', 'Personalizados');
         togglePill('Orígenes', origenesCount > 0);
 
         if (origenesCount === 0 && currentCategory === 'Orígenes') {
@@ -7274,7 +7324,7 @@ function sendViaWhatsapp(postalCode = '', customerData = null) {
                 : selectedDeliveryMethod === 'domicilio'
                     ? '¿Me confirmás el costo del envío a domicilio y cómo avanzamos?'
                     : '¿Me confirmás la forma de entrega y cómo avanzamos?';
-    const message = `Hola FMD!\n\nQuiero encargar este pedido:\n\n${summary}${shippingContext}\n\n${closing}`;
+    const message = `Hola FMD!\n\nQuiero hacer este pedido:\n\n${summary}${shippingContext}\n\n${closing}`;
     openWhatsapp(message, 'cart_confirmar_pedido');
 }
 
@@ -7481,7 +7531,7 @@ function renderCartPreview() {
                 <svg viewBox="0 0 24 24" fill="currentColor">
                     <path d="M17 18c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2zM7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zm0-3l1.1-2h7.45c.75 0 1.41-.41 1.75-1.03L21.7 4H5.21l-.94-2H1v2h2l3.6 7.59L3.62 17H19v-2H7z"/>
                 </svg>
-                <h3>Tu carrito está vacío</h3>
+                <h3>Tu pedido está vacío</h3>
                 <p>Agregá diseños para continuar</p>
             </div>
         `;
@@ -7524,7 +7574,7 @@ function renderCartPreview() {
                     <div class="cart-preview-item-name">${item.productName}</div>
                     ${item.variantName && item.variantName !== item.productName ? 
                         `<div class="cart-preview-item-variant">${item.variantName}</div>` : ''}
-                    ${item.isDouble ? '<span class="cart-preview-item-double">🔥 Doble estampa</span>' : ''}
+                    ${item.isDouble ? '<span class="cart-preview-item-double">Frente y dorso</span>' : ''}
                     <div class="cart-preview-item-options">
                         <span class="cart-preview-option-tag">👤 ${edad}</span>
                         <span class="cart-preview-option-tag">📐 ${talle}</span>
@@ -7875,8 +7925,8 @@ function addToCartFromModal() {
         const msg = options.usesShownComposition
             ? '✓ Agregado con la composición mostrada'
             : isDouble && (selectedBackIndex >= 0 || selectedCatalogBackRef)
-            ? '✓ Agregado con frente + dorso' 
-            : (isDouble ? '✓ Agregado (dorso a definir)' : '✓ Agregado al carrito');
+            ? '✓ Agregado con frente y dorso'
+            : (isDouble ? '✓ Agregado (dorso a definir)' : '✓ Agregado al pedido');
         showNotification(msg, 2000);
     }
     
@@ -8548,7 +8598,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (maidenCtaWhatsapp) {
         maidenCtaWhatsapp.addEventListener('click', (e) => {
             e.preventDefault();
-            openWhatsapp('Hola FMD! Quiero encargar un diseño de Iron Maiden.\n\nFormato: Remera / Hoodie / Buzo\nDiseño: ___\nTalle: ___\nColor: ___\nCódigo postal si necesito envío: ___\n\n¿Me confirmás precio final y envío?', 'maiden_archive');
+            openWhatsapp('Hola FMD! Quiero pedir un diseño de Iron Maiden.\n\nFormato: Remera / Hoodie / Buzo\nDiseño: ___\nTalle: ___\nColor: ___\nCódigo postal si necesito envío: ___\n\n¿Me confirmás precio final y envío?', 'maiden_archive');
         });
     }
 
@@ -8564,7 +8614,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (slayerCtaWhatsapp) {
         slayerCtaWhatsapp.addEventListener('click', (e) => {
             e.preventDefault();
-            openWhatsapp('Hola FMD! Quiero encargar un diseño de Slayer.\n\nFormato: Remera / Hoodie / Buzo cuello redondo\nDiseño: ___\nTalle: ___\nColor: ___\nCódigo postal si necesito envío: ___\n\n¿Me confirmás precio final y envío?', 'slayer_archive');
+            openWhatsapp('Hola FMD! Quiero pedir un diseño de Slayer.\n\nFormato: Remera / Hoodie / Buzo cuello redondo\nDiseño: ___\nTalle: ___\nColor: ___\nCódigo postal si necesito envío: ___\n\n¿Me confirmás precio final y envío?', 'slayer_archive');
         });
     }
 

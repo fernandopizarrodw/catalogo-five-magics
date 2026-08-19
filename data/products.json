@@ -5500,7 +5500,7 @@
     "name": "Almafuerte En Vida",
     "tipoPrecio": "simple",
     "img": "images/personalizado/almafuerte_en_vida.jpg",
-    "desc": "Mockup Almafuerte En Vida.",
+    "desc": "Almafuerte En Vida.",
     "band": "Almafuerte",
     "universe": [
       "Argentina Heavy",
@@ -5532,7 +5532,7 @@
     "name": "Amon Amarth",
     "tipoPrecio": "simple",
     "img": "images/personalizado/amon_amarth.jpg",
-    "desc": "Mockup Amon Amarth.",
+    "desc": "Amon Amarth.",
     "band": "Amon Amarth",
     "universe": [
       "Modern Metal",
@@ -5564,7 +5564,7 @@
     "name": "Aphex Twin",
     "tipoPrecio": "simple",
     "img": "images/personalizado/aphex_twin.jpg",
-    "desc": "Mockup Aphex Twin.",
+    "desc": "Aphex Twin.",
     "band": "Aphex Twin",
     "universe": [
       "Custom Archive"
@@ -5594,7 +5594,7 @@
     "name": "Bifrost Argentina",
     "tipoPrecio": "simple",
     "img": "images/personalizado/bifrost_argentina.jpg",
-    "desc": "Mockup Bifrost Argentina.",
+    "desc": "Bifrost Argentina.",
     "band": null,
     "universe": [
       "Custom Archive"
@@ -5625,7 +5625,7 @@
     "name": "Calavera Guitar",
     "tipoPrecio": "simple",
     "img": "images/personalizado/calavera_guitar.jpg",
-    "desc": "Mockup Calavera Guitar.",
+    "desc": "Calavera Guitar.",
     "band": null,
     "universe": [
       "Custom Archive"
@@ -5656,7 +5656,7 @@
     "name": "Diego Maradona",
     "tipoPrecio": "simple",
     "img": "images/personalizado/diego_maradona.jpg",
-    "desc": "Mockup Diego Maradona.",
+    "desc": "Diego Maradona.",
     "band": null,
     "universe": [
       "Custom Archive"
@@ -5729,7 +5729,7 @@
     "name": "Flema",
     "tipoPrecio": "simple",
     "img": "images/personalizado/flema.jpg",
-    "desc": "Mockup Flema.",
+    "desc": "Flema.",
     "band": "Flema",
     "universe": [
       "Custom Archive"
@@ -5759,7 +5759,7 @@
     "name": "Guitarrista Blues",
     "tipoPrecio": "simple",
     "img": "images/personalizado/guitarrista_blues.jpg",
-    "desc": "Mockup Guitarrista Blues.",
+    "desc": "Guitarrista Blues.",
     "band": null,
     "universe": [
       "Custom Archive"
@@ -5800,7 +5800,7 @@
         "name": "Jason Becker TH"
       }
     ],
-    "desc": "Mockup Jason Becker con variante TH.",
+    "desc": "Jason Becker con opción TH.",
     "band": "Jason Becker",
     "universe": [
       "Heavy Metal Classics",
@@ -5842,7 +5842,7 @@
         "name": "Dream Theater Dorso"
       }
     ],
-    "desc": "Mockup personalizado: John Petrucci con variante Dream Theater Dorso.",
+    "desc": "John Petrucci con opción de dorso Dream Theater.",
     "band": "Dream Theater",
     "universe": [
       "Modern Metal",
@@ -5874,7 +5874,7 @@
     "name": "Judas Priest",
     "tipoPrecio": "simple",
     "img": "images/personalizado/judas_priest.jpg",
-    "desc": "Mockup Judas Priest.",
+    "desc": "Judas Priest.",
     "band": "Judas Priest",
     "universe": [
       "Heavy Metal Classics",
@@ -5906,7 +5906,7 @@
     "name": "Kurt Nirvana",
     "tipoPrecio": "simple",
     "img": "images/personalizado/kurt_nirvana.jpg",
-    "desc": "Mockup especial: Kurt Cobain (Nirvana).",
+    "desc": "Kurt Cobain (Nirvana).",
     "band": "Nirvana",
     "universe": [
       "Rock Legends",
@@ -5938,7 +5938,7 @@
     "name": "Lemmy Stone Deaf Forever",
     "tipoPrecio": "simple",
     "img": "images/personalizado/lemmy_stone_deaf_forever.jpg",
-    "desc": "Mockup Lemmy Stone Deaf Forever.",
+    "desc": "Lemmy Stone Deaf Forever.",
     "band": "Motorhead",
     "universe": [
       "Heavy Metal Classics",
@@ -5982,7 +5982,7 @@
         "name": "Dorso"
       }
     ],
-    "desc": "Mockup M'era Luna - Frente y dorso en un mismo producto.",
+    "desc": "M'era Luna con estampa de frente y dorso.",
     "band": null,
     "universe": [
       "Custom Archive"
@@ -6013,7 +6013,7 @@
     "name": "Motorhead",
     "tipoPrecio": "simple",
     "img": "images/personalizado/motorhead.jpg",
-    "desc": "Mockup Motorhead.",
+    "desc": "Motorhead.",
     "band": "Motorhead",
     "universe": [
       "Heavy Metal Classics",
@@ -6047,7 +6047,7 @@
     "name": "Primal Fear",
     "tipoPrecio": "simple",
     "img": "images/personalizado/primal_fear.jpg",
-    "desc": "Mockup Primal Fear.",
+    "desc": "Primal Fear.",
     "band": "Primal Fear",
     "universe": [
       "Heavy Metal Classics",
@@ -6079,7 +6079,7 @@
     "name": "Saltatio Mortis",
     "tipoPrecio": "simple",
     "img": "images/personalizado/saltatio_mortis.jpg",
-    "desc": "Mockup Saltatio Mortis.",
+    "desc": "Saltatio Mortis.",
     "band": "Saltatio Mortis",
     "universe": [
       "Modern Metal",
@@ -6111,7 +6111,7 @@
     "name": "Slinka Mascota",
     "tipoPrecio": "simple",
     "img": "images/personalizado/slinka_mascota.jpg",
-    "desc": "Mockup Slinka Mascota.",
+    "desc": "Slinka Mascota.",
     "band": null,
     "universe": [
       "Custom Archive"
@@ -6142,7 +6142,7 @@
     "name": "Stranger Things Original",
     "tipoPrecio": "simple",
     "img": "images/personalizado/stragers_things_original.jpg",
-    "desc": "Mockup Stranger Things Original.",
+    "desc": "Stranger Things Original.",
     "band": null,
     "universe": [
       "Custom Archive"
@@ -6173,7 +6173,7 @@
     "name": "Symphony X",
     "tipoPrecio": "simple",
     "img": "images/personalizado/symphony_x.jpg",
-    "desc": "Mockup Symphony X.",
+    "desc": "Symphony X.",
     "band": "Symphony X",
     "universe": [
       "Modern Metal",
@@ -6205,7 +6205,7 @@
     "name": "The Ramones",
     "tipoPrecio": "simple",
     "img": "images/personalizado/the_ramones.jpg",
-    "desc": "Mockup The Ramones.",
+    "desc": "The Ramones.",
     "band": "Ramones",
     "universe": [
       "Rock Legends",
@@ -6247,7 +6247,7 @@
         "name": "Dorso"
       }
     ],
-    "desc": "Mockup WASP con variante de dorso.",
+    "desc": "WASP con opción de dorso.",
     "band": "WASP",
     "universe": [
       "Heavy Metal Classics",
@@ -6289,7 +6289,7 @@
         "name": "Dorso v2"
       }
     ],
-    "desc": "Mockup WASP v2 con variante de dorso.",
+    "desc": "WASP V2 con opción de dorso.",
     "band": "WASP",
     "universe": [
       "Heavy Metal Classics",
@@ -6321,7 +6321,7 @@
     "name": "Wintersun",
     "tipoPrecio": "simple",
     "img": "images/personalizado/wintersun.jpg",
-    "desc": "Mockup Wintersun.",
+    "desc": "Wintersun.",
     "band": "Wintersun",
     "universe": [
       "Modern Metal",
@@ -14915,7 +14915,7 @@
       }
     ],
     "desc": "Diseño original FMD de Iron Maiden. Disponible para remera, hoodie y buzo cuello redondo.",
-    "publicSubtitle": "The Final Tour · Original FMD",
+    "publicSubtitle": "The Final Tour · Arte original FMD",
     "band": "Iron Maiden",
     "album": null,
     "garments": [
