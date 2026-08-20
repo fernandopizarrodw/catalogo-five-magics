@@ -5158,6 +5158,10 @@
         "name": "Frente"
       },
       {
+        "img": "images/pantera/pantera_tour_2000_frente_dorso.jpg",
+        "name": "Tour 2000 - Frente y dorso"
+      },
+      {
         "img": "images/pantera/pantera_tour_2000_dorso.jpg",
         "name": "Dorso"
       }
@@ -18284,6 +18288,52 @@
       "Cowboys from Hell",
       "CFH",
       "Símbolo rojo",
+      "Groove Metal",
+      "remera",
+      "negro",
+      "estampa frontal"
+    ]
+  },
+  {
+    "id": 7233,
+    "category": "Pantera",
+    "year": "1994",
+    "name": "Live From Donington '94",
+    "designId": "pantera-live-from-donington-94",
+    "designSlug": "pantera-live-from-donington-94",
+    "publishedAt": "2026-08-20",
+    "tipoPrecio": "simple",
+    "defaultPrintMode": "frontal",
+    "isNew": true,
+    "img": "images/pantera/remera_pantera_donington.jpg",
+    "variants": [
+      {
+        "img": "images/pantera/remera_pantera_donington.jpg",
+        "name": "Live From Donington '94",
+        "alt": "Remera negra Pantera Live From Donington 1994",
+        "designId": "pantera-live-from-donington-94",
+        "color": "negro",
+        "preferredPreview": true
+      }
+    ],
+    "desc": "Pantera - Live From Donington '94.",
+    "band": "Pantera",
+    "album": null,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Pantera Archive",
+      "Live"
+    ],
+    "campaigns": [],
+    "commercialPriority": 84,
+    "visibilityTier": "featured",
+    "legacyCategory": "Pantera",
+    "tags": [
+      "Pantera",
+      "Live From Donington",
+      "1994",
       "Groove Metal",
       "remera",
       "negro",

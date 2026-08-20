@@ -539,6 +539,36 @@
             ]
         },
         {
+            output: 'pantera/index.html',
+            slug: 'pantera',
+            publishedAt: '2026-08-20',
+            band: 'Pantera',
+            displayName: 'PANTERA',
+            title: 'Pantera: remeras, hoodies y buzos | Five Magics Designs',
+            description: 'Diseños de Pantera en remeras, hoodies y buzos hechos a pedido. Elegí prenda, estampa, talle y color.',
+            canonical: 'https://catalogo.fivemagicsdesigns.com/pantera/',
+            image: '/images/pantera/remera_pantera_donington.jpg',
+            imageUrl: 'https://catalogo.fivemagicsdesigns.com/images/pantera/remera_pantera_donington.jpg',
+            heroTitle: 'REMERAS, HOODIES Y BUZOS',
+            heroCopy: 'Explorá diseños de Pantera y elegí tu favorito para armar el pedido.',
+            finalTitle: '¿BUSCABAS OTRO DISEÑO DE PANTERA?',
+            finalCopy: 'También hacemos diseños personalizados a partir de una tapa, imagen o idea.',
+            whatsappMessage: 'Hola FMD! Quiero consultar por un diseño de Pantera a partir de una tapa, imagen o idea.',
+            defaultGarment: 'remera',
+            usesShownComposition: false,
+            showSizeGuide: true,
+            designOrder: [
+                'pantera-live-from-donington-94',
+                'pantera-cfh-simbolo-rojo',
+                'pantera-cfh-the-demos',
+                'pantera-pink-from-hell'
+            ],
+            garments: [
+                { key: 'remera', title: 'REMERAS', price: 'Frontal $37.000 · Doble $44.000', image: '/images/pantera/remera_pantera_donington.jpg', alt: 'Remera Pantera Live From Donington 1994' },
+                { key: 'hoodie', title: 'HOODIES', price: 'Frontal $52.000 · Doble $59.000', image: '/images/pantera/hoodie_pantera_the_great_southern_trendkill.jpg', alt: 'Hoodie Pantera The Great Southern Trendkill' }
+            ]
+        },
+        {
             output: 'tarja/index.html',
             slug: 'tarja',
             publishedAt: '2026-08-17',
