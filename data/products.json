@@ -7593,6 +7593,11 @@
     "img": "images/banda_sugeridas/helloween/helloween_40_tour.jpg",
     "variants": [
       {
+        "img": "images/banda_sugeridas/helloween/remera_helloween_bs_as.jpg",
+        "name": "Helloween Buenos Aires 2026 - Remera",
+        "garmentCategory": "Bandas Sugeridas"
+      },
+      {
         "img": "images/banda_sugeridas/helloween/helloween_40_tour.jpg",
         "name": "Helloween 40 Tour - Remera",
         "garmentCategory": "Bandas Sugeridas"
