@@ -2965,6 +2965,8 @@ class CartSystem {
             } else {
                 tipoPrenda = 'Remera con corte clásico hombre';
             }
+            if (tipoPrenda === 'Remera clásica hombre') tipoPrenda = 'Remera con corte clásico hombre';
+            if (tipoPrenda === 'Remera clásica mujer') tipoPrenda = 'Remera con corte clásico mujer';
 
             const estampado = item.isDouble ? 'Frente y dorso' : 'Solo frente';
             const additionalDetails = [];
@@ -7161,7 +7163,7 @@ function getRequiredShippingFields(method = selectedDeliveryMethod) {
     const common = ['nombre', 'apellido', 'telefono'];
     if (method === 'domicilio') return [...common, 'direccion', 'cp', 'localidad', 'provincia'];
     if (method === 'retiro_andreani') return ['nombre', 'cp', 'localidad'];
-    if (method === 'taller') return common;
+    if (method === 'taller') return ['nombre'];
     return [];
 }
 
@@ -7186,7 +7188,7 @@ function focusFirstMissingShippingField(fieldKey) {
 
 function getShippingFieldLabel(fieldKey) {
     const labels = {
-        nombre: 'Nombre',
+        nombre: selectedDeliveryMethod === 'taller' ? 'Nombre y apellido' : 'Nombre',
         apellido: 'Apellido',
         direccion: 'Direccion',
         cp: 'Codigo postal',
@@ -7207,6 +7209,12 @@ function buildCustomerDataForWhatsapp(data) {
         if (location) lines.push(location);
         return lines.length
             ? `\n\nDATOS\n${lines.join('\n')}`
+            : '\n\nDATOS\nA confirmar por WhatsApp';
+    }
+
+    if (selectedDeliveryMethod === 'taller') {
+        return data.nombre
+            ? `\n\nDATOS\n${data.nombre}`
             : '\n\nDATOS\nA confirmar por WhatsApp';
     }
 
@@ -7260,7 +7268,7 @@ function buildShippingContextForWhatsapp(postalCode = '', customerData = null) {
             ? 'Domicilio · Envío gratis'
             : 'Domicilio · Envío a cotizar según CP';
     } else if (selectedDeliveryMethod === 'taller') {
-        deliveryBenefit = 'Retiro sin cargo en Villa Martelli';
+        deliveryBenefit = 'Retiro sin cargo en Villa Martelli · Zona Tecnópolis\nLunes a viernes de 10 a 16 h';
     }
     const deliveryContext = `\n\nENTREGA\n${deliveryBenefit}`;
     const customerContext = customerData ? buildCustomerDataForWhatsapp(customerData) : '';
@@ -7578,7 +7586,11 @@ function renderCartPreview() {
         ? `<div class="cart-customer-grid single">
             <div class="cart-cp-field"><label for="inputNombre">Nombre completo</label><input type="text" id="inputNombre" placeholder="Ej: Juan Pérez" autocomplete="name"></div>
         </div>`
-        : standardIdentityFields;
+        : selectedDeliveryMethod === 'taller'
+            ? `<div class="cart-customer-grid single">
+                <div class="cart-cp-field"><label for="inputNombre">Nombre y apellido</label><input type="text" id="inputNombre" placeholder="Ej: Juan Pérez" autocomplete="name"></div>
+            </div>`
+            : standardIdentityFields;
 
     let logisticsFields = '';
     let customerHint = '';
@@ -7601,7 +7613,7 @@ function renderCartPreview() {
             </div>`;
         customerHint = 'Envío gratis a punto de retiro Andreani desde 1 prenda.';
     } else if (selectedDeliveryMethod === 'taller') {
-        customerHint = 'Podés retirar desde el tercer día hábil posterior a la compra. Coordinamos por WhatsApp.';
+        customerHint = 'Villa Martelli, zona Tecnópolis · Lunes a viernes de 10 a 16 h. La dirección se coordina por WhatsApp.';
     }
 
     const shippingForm = selectedDeliveryMethod ? `
