@@ -278,8 +278,8 @@
             title: 'Iron Maiden: remeras, hoodies y buzos | Five Magics Designs',
             description: 'Diseños de Iron Maiden en remeras, hoodies y buzos hechos a pedido. Elegí solo frente o frente y dorso, talle, color y forma de entrega.',
             canonical: 'https://catalogo.fivemagicsdesigns.com/iron-maiden/',
-            image: '/images/iron_maiden/remera_iron_maiden_eddie_gaucho_argentino.jpg',
-            imageUrl: 'https://catalogo.fivemagicsdesigns.com/images/iron_maiden/remera_iron_maiden_eddie_gaucho_argentino.jpg',
+            image: '/images/iron_maiden/maiden_live_after_death.jpg',
+            imageUrl: 'https://catalogo.fivemagicsdesigns.com/images/iron_maiden/maiden_live_after_death.jpg',
             heroTitle: 'REMERAS, HOODIES Y BUZOS',
             heroCopy: 'Explorá álbumes, giras y distintas eras de Eddie. Elegí tu favorito y armá tu pedido.',
             finalTitle: '¿BUSCABAS OTRO DISEÑO DE IRON MAIDEN?',
@@ -330,9 +330,9 @@
                 'cd-iron-maiden-empire--p308'
             ],
             garments: [
-                { key: 'hoodie', title: 'HOODIES', price: 'Desde $52.000', image: '/images/iron_maiden/hoodie_iron_maiden_eddie_gaucho_argentino.jpg', alt: 'Hoodie Iron Maiden Eddie Gaucho Argentino FMD' },
-                { key: 'buzo_cuello_redondo', title: 'BUZOS', price: 'Frontal $50.000 · Doble $55.000', image: '/images/iron_maiden/buzo_iron_maiden_eddie_gaucho_argentino.jpg', alt: 'Buzo cuello redondo Iron Maiden Eddie Gaucho Argentino FMD' },
-                { key: 'remera', title: 'REMERAS', price: 'Desde $37.000', image: '/images/iron_maiden/remera_iron_maiden_eddie_gaucho_argentino.jpg', alt: 'Remera Iron Maiden Eddie Gaucho Argentino FMD' }
+                { key: 'hoodie', title: 'HOODIES', price: 'Desde $52.000', image: '/images/hoddies_fmd/hoodies_otras_bandas/iron_maiden_killers_v1.jpg', alt: 'Hoodie Iron Maiden Killers' },
+                { key: 'buzo_cuello_redondo', title: 'BUZOS', price: 'Frontal $50.000 · Doble $55.000', image: '/images/buzos cuello redondo/iron_maiden_original_fmd.jpg', alt: 'Buzo cuello redondo Iron Maiden Powerslave' },
+                { key: 'remera', title: 'REMERAS', price: 'Desde $37.000', image: '/images/iron_maiden/iron_maiden_fear_v1.jpg', alt: 'Remera Iron Maiden The Number of the Beast' }
             ]
         },
         {
