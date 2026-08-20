@@ -18341,6 +18341,98 @@
     ]
   },
   {
+    "id": 7234,
+    "category": "Pantera",
+    "year": null,
+    "name": "Dimebag Darrell Guitar Black",
+    "designId": "pantera-dimebag-darrell-guitar-black",
+    "designSlug": "pantera-dimebag-darrell-guitar-black",
+    "publishedAt": "2026-08-20",
+    "tipoPrecio": "simple",
+    "defaultPrintMode": "frontal",
+    "isNew": true,
+    "img": "images/pantera/dimebag_darrell_guitar_black.jpg",
+    "variants": [
+      {
+        "img": "images/pantera/dimebag_darrell_guitar_black.jpg",
+        "name": "Dimebag Darrell Guitar Black",
+        "alt": "Remera negra Pantera Dimebag Darrell con guitarra",
+        "designId": "pantera-dimebag-darrell-guitar-black",
+        "color": "negro",
+        "preferredPreview": true
+      }
+    ],
+    "desc": "Pantera - homenaje a Dimebag Darrell con guitarra.",
+    "band": "Pantera",
+    "album": null,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Pantera Archive",
+      "Dimebag Darrell"
+    ],
+    "campaigns": [],
+    "commercialPriority": 86,
+    "visibilityTier": "featured",
+    "legacyCategory": "Pantera",
+    "tags": [
+      "Pantera",
+      "Dimebag Darrell",
+      "Guitarra",
+      "Groove Metal",
+      "remera",
+      "negro",
+      "estampa frontal"
+    ]
+  },
+  {
+    "id": 7235,
+    "category": "Pantera",
+    "year": null,
+    "name": "Dimebag Darrell Legend",
+    "designId": "pantera-dimebag-darrell-legend",
+    "designSlug": "pantera-dimebag-darrell-legend",
+    "publishedAt": "2026-08-20",
+    "tipoPrecio": "simple",
+    "defaultPrintMode": "frontal",
+    "isNew": true,
+    "img": "images/pantera/dimebag_darrell_legend.jpg",
+    "variants": [
+      {
+        "img": "images/pantera/dimebag_darrell_legend.jpg",
+        "name": "Dimebag Darrell Legend",
+        "alt": "Remera negra Pantera Dimebag Darrell Legend",
+        "designId": "pantera-dimebag-darrell-legend",
+        "color": "negro",
+        "preferredPreview": true
+      }
+    ],
+    "desc": "Pantera - homenaje a Dimebag Darrell.",
+    "band": "Pantera",
+    "album": null,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Pantera Archive",
+      "Dimebag Darrell"
+    ],
+    "campaigns": [],
+    "commercialPriority": 85,
+    "visibilityTier": "featured",
+    "legacyCategory": "Pantera",
+    "tags": [
+      "Pantera",
+      "Dimebag Darrell",
+      "Homenaje",
+      "Groove Metal",
+      "remera",
+      "negro",
+      "estampa frontal"
+    ]
+  },
+  {
     "id": 7230,
     "category": "Singles",
     "year": "1992",

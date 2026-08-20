@@ -558,6 +558,8 @@
             usesShownComposition: false,
             showSizeGuide: true,
             designOrder: [
+                'pantera-dimebag-darrell-guitar-black',
+                'pantera-dimebag-darrell-legend',
                 'pantera-live-from-donington-94',
                 'pantera-cfh-simbolo-rojo',
                 'pantera-cfh-the-demos',
