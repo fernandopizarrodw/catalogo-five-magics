@@ -535,12 +535,16 @@
             usesShownComposition: false,
             showSizeGuide: true,
             designOrder: [
+                'helloween-40-tour',
                 'helloween-40-years-anniversary-tour-v1',
                 'helloween-40-years-anniversary-tour-v2',
                 'helloween-40-years-anniversary-tour-v3',
                 'helloween-40-years',
                 'helloween-pumpkin-logo',
+                'helloween-pumpkin-wizard',
                 'helloween-keeper-of-the-seven-keys-part-i',
+                'helloween-keeper-of-the-seven-keys-part-ii',
+                'helloween-better-than-raw',
                 'helloween-dr-stein',
                 'helloween-the-time-of-the-oath',
                 'helloween-the-dark-ride',
@@ -550,6 +554,8 @@
                 'helloween-into-the-sun'
             ],
             garments: [
+                { key: 'hoodie', title: 'HOODIES', price: 'Frontal $52.000 · Doble $59.000', image: '/images/banda_sugeridas/helloween/hoodie_helloween_tour_40.jpg', alt: 'Hoodie Helloween 40 Years Anniversary Tour' },
+                { key: 'buzo_cuello_redondo', title: 'BUZOS', price: 'Frontal $50.000 · Doble $55.000', image: '/images/banda_sugeridas/helloween/buzo_helloween_keeper_I.jpg', alt: 'Buzo cuello redondo Helloween Keeper of the Seven Keys Part I' },
                 { key: 'remera', title: 'REMERAS', price: 'Frontal $37.000 · Doble $44.000', image: '/images/banda_sugeridas/helloween/helloween_40_tour.jpg', alt: 'Remera Helloween 40 Tour' }
             ]
         },

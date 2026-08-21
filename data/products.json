@@ -7603,12 +7603,17 @@
       },
       {
         "img": "images/banda_sugeridas/helloween/helloween_40_tour.jpg",
-        "name": "Helloween 40 Tour - Remera",
-        "garmentCategory": "Bandas Sugeridas"
+        "name": "Helloween 40 Years Anniversary Tour - Remera",
+        "designId": "helloween-40-tour",
+        "role": "front",
+        "garmentCategory": "Bandas Sugeridas",
+        "defaultPrintMode": "double"
       },
       {
         "img": "images/banda_sugeridas/helloween/dorso_helloween_40_tour.jpg",
-        "name": "Helloween 40 Tour Dorso - Remera",
+        "name": "Dorso Helloween 40 Years Anniversary Tour",
+        "role": "back",
+        "backTargetDesignId": "helloween-40-tour",
         "garmentCategory": "Bandas Sugeridas"
       },
       {
@@ -7628,8 +7633,11 @@
       },
       {
         "img": "images/banda_sugeridas/helloween/remera_helloween_keepers_II.jpg",
-        "name": "Helloween Keepers II - Remera",
-        "garmentCategory": "Bandas Sugeridas"
+        "name": "Helloween Keeper of the Seven Keys Part II - Remera",
+        "designId": "helloween-keeper-of-the-seven-keys-part-ii",
+        "role": "front",
+        "garmentCategory": "Bandas Sugeridas",
+        "defaultPrintMode": "double"
       },
       {
         "img": "images/banda_sugeridas/helloween/remera_helloween_2021.jpg",
@@ -7648,8 +7656,11 @@
       },
       {
         "img": "images/banda_sugeridas/helloween/remera_helloween_better.jpg",
-        "name": "Helloween Better - Remera",
-        "garmentCategory": "Bandas Sugeridas"
+        "name": "Helloween Better Than Raw - Remera",
+        "designId": "helloween-better-than-raw",
+        "role": "front",
+        "garmentCategory": "Bandas Sugeridas",
+        "defaultPrintMode": "double"
       },
       {
         "img": "images/banda_sugeridas/helloween/remera_helloween.jpg",
@@ -7883,16 +7894,182 @@
         "color": "negro",
         "preferredPreview": true,
         "isNew": true
+      },
+      {
+        "img": "images/banda_sugeridas/helloween/buzo_helloween_better.jpg",
+        "name": "Helloween Better Than Raw - Buzo cuello redondo",
+        "alt": "Buzo cuello redondo negro Helloween Better Than Raw frente y dorso",
+        "designId": "helloween-better-than-raw",
+        "role": "front",
+        "garmentCategory": "Buzo Cuello Redondo",
+        "color": "negro",
+        "preferredPreview": true,
+        "defaultPrintMode": "double",
+        "isNew": true
+      },
+      {
+        "img": "images/banda_sugeridas/helloween/hoodies_helloween_better.jpg",
+        "name": "Helloween Better Than Raw - Hoodie",
+        "alt": "Hoodie negro Helloween Better Than Raw frente y dorso",
+        "designId": "helloween-better-than-raw",
+        "role": "front",
+        "garmentCategory": "Hoodies Otras Bandas",
+        "color": "negro",
+        "preferredPreview": true,
+        "defaultPrintMode": "double",
+        "isNew": true
+      },
+      {
+        "img": "images/banda_sugeridas/helloween/remera_helloween_better.jpg",
+        "name": "Dorso Helloween Better Than Raw",
+        "alt": "Dorso Helloween Better Than Raw",
+        "role": "back",
+        "backTargetDesignId": "helloween-better-than-raw",
+        "garmentCategory": "Bandas Sugeridas"
+      },
+      {
+        "img": "images/banda_sugeridas/helloween/buzo_helloween_helloween.jpg",
+        "name": "Helloween Pumpkin Logo - Buzo cuello redondo",
+        "alt": "Buzo cuello redondo negro Helloween Pumpkin Logo frente y dorso",
+        "designId": "helloween-pumpkin-logo",
+        "role": "front",
+        "garmentCategory": "Buzo Cuello Redondo",
+        "color": "negro",
+        "preferredPreview": true,
+        "defaultPrintMode": "double",
+        "isNew": true
+      },
+      {
+        "img": "images/banda_sugeridas/helloween/buzo_helloween_helloween.jpg",
+        "name": "Dorso Helloween Pumpkin Logo",
+        "alt": "Dorso Helloween Pumpkin Logo",
+        "role": "back",
+        "backTargetDesignId": "helloween-pumpkin-logo",
+        "garmentCategory": "Buzo Cuello Redondo"
+      },
+      {
+        "img": "images/banda_sugeridas/helloween/buzo_helloween_keeper_I.jpg",
+        "name": "Helloween Keeper of the Seven Keys Part I - Buzo cuello redondo",
+        "alt": "Buzo cuello redondo negro Helloween Keeper of the Seven Keys Part I frente y dorso",
+        "designId": "helloween-keeper-of-the-seven-keys-part-i",
+        "role": "front",
+        "garmentCategory": "Buzo Cuello Redondo",
+        "color": "negro",
+        "preferredPreview": true,
+        "defaultPrintMode": "double",
+        "isNew": true
+      },
+      {
+        "img": "images/banda_sugeridas/helloween/hoodie_helloween_keeper_I.jpg",
+        "name": "Helloween Keeper of the Seven Keys Part I - Hoodie",
+        "alt": "Hoodie negro Helloween Keeper of the Seven Keys Part I frente y dorso",
+        "designId": "helloween-keeper-of-the-seven-keys-part-i",
+        "role": "front",
+        "garmentCategory": "Hoodies Otras Bandas",
+        "color": "negro",
+        "preferredPreview": true,
+        "defaultPrintMode": "double",
+        "isNew": true
+      },
+      {
+        "img": "images/banda_sugeridas/helloween/buzo_helloween_keeper_II.jpg",
+        "name": "Helloween Keeper of the Seven Keys Part II - Buzo cuello redondo",
+        "alt": "Buzo cuello redondo negro Helloween Keeper of the Seven Keys Part II frente y dorso",
+        "designId": "helloween-keeper-of-the-seven-keys-part-ii",
+        "role": "front",
+        "garmentCategory": "Buzo Cuello Redondo",
+        "color": "negro",
+        "preferredPreview": true,
+        "defaultPrintMode": "double",
+        "isNew": true
+      },
+      {
+        "img": "images/banda_sugeridas/helloween/hoodie_helloween_keeper_II.jpg",
+        "name": "Helloween Keeper of the Seven Keys Part II - Hoodie",
+        "alt": "Hoodie negro Helloween Keeper of the Seven Keys Part II frente y dorso",
+        "designId": "helloween-keeper-of-the-seven-keys-part-ii",
+        "role": "front",
+        "garmentCategory": "Hoodies Otras Bandas",
+        "color": "negro",
+        "preferredPreview": true,
+        "defaultPrintMode": "double",
+        "isNew": true
+      },
+      {
+        "img": "images/banda_sugeridas/helloween/remera_helloween_keepers_II.jpg",
+        "name": "Dorso Helloween Keeper of the Seven Keys Part II",
+        "alt": "Dorso Helloween Keeper of the Seven Keys Part II",
+        "role": "back",
+        "backTargetDesignId": "helloween-keeper-of-the-seven-keys-part-ii",
+        "garmentCategory": "Bandas Sugeridas"
+      },
+      {
+        "img": "images/banda_sugeridas/helloween/buzo_helloween_time.jpg",
+        "name": "Helloween The Time of the Oath - Buzo cuello redondo",
+        "alt": "Buzo cuello redondo negro Helloween The Time of the Oath frente y dorso",
+        "designId": "helloween-the-time-of-the-oath",
+        "role": "front",
+        "garmentCategory": "Buzo Cuello Redondo",
+        "color": "negro",
+        "preferredPreview": true,
+        "defaultPrintMode": "double",
+        "isNew": true
+      },
+      {
+        "img": "images/banda_sugeridas/helloween/buzo_helloween_tour_40.jpg",
+        "name": "Helloween 40 Years Anniversary Tour - Buzo cuello redondo",
+        "alt": "Buzo cuello redondo negro Helloween 40 Years Anniversary Tour frente y dorso",
+        "designId": "helloween-40-tour",
+        "role": "front",
+        "garmentCategory": "Buzo Cuello Redondo",
+        "color": "negro",
+        "preferredPreview": true,
+        "defaultPrintMode": "double",
+        "isNew": true
+      },
+      {
+        "img": "images/banda_sugeridas/helloween/hoodie_helloween_tour_40.jpg",
+        "name": "Helloween 40 Years Anniversary Tour - Hoodie",
+        "alt": "Hoodie negro Helloween 40 Years Anniversary Tour frente y dorso",
+        "designId": "helloween-40-tour",
+        "role": "front",
+        "garmentCategory": "Hoodies Otras Bandas",
+        "color": "negro",
+        "preferredPreview": true,
+        "defaultPrintMode": "double",
+        "isNew": true
+      },
+      {
+        "img": "images/banda_sugeridas/helloween/hoodie_helloween_helloween.jpg",
+        "name": "Helloween Pumpkin Wizard - Hoodie",
+        "alt": "Hoodie negro Helloween Pumpkin Wizard frente y dorso",
+        "designId": "helloween-pumpkin-wizard",
+        "role": "front",
+        "garmentCategory": "Hoodies Otras Bandas",
+        "color": "negro",
+        "preferredPreview": true,
+        "defaultPrintMode": "double",
+        "isNew": true
+      },
+      {
+        "img": "images/banda_sugeridas/helloween/hoodie_helloween_helloween.jpg",
+        "name": "Dorso Helloween Pumpkin Wizard",
+        "alt": "Dorso Helloween Pumpkin Wizard",
+        "role": "back",
+        "backTargetDesignId": "helloween-pumpkin-wizard",
+        "garmentCategory": "Hoodies Otras Bandas"
       }
     ],
-    "desc": "Seleccion ampliada de Helloween para el archivo de mas bandas. Formato rapido en remera con estampa frontal para medir demanda.",
+    "desc": "Selección de diseños de Helloween disponibles en remeras, hoodies y buzos.",
     "band": "Helloween",
     "universe": [
       "Heavy Metal Classics"
     ],
     "album": null,
     "garments": [
-      "remera"
+      "remera",
+      "hoodie",
+      "buzo_cuello_redondo"
     ],
     "collections": [
       "Helloween Archive",
@@ -7906,6 +8083,8 @@
       "Helloween",
       "Heavy Metal Classics",
       "remera",
+      "hoodie",
+      "buzo_cuello_redondo",
       "Helloween Archive",
       "Mas bandas"
     ]
