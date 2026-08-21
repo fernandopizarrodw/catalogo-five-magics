@@ -6272,7 +6272,7 @@ const FEATURED_COLLECTION_ART = Object.freeze({
     'iron maiden': { image: 'images/iron_maiden/IRON MAIDEN BY FMD/fmd_killers.jpg', alt: 'Killers FMD de Iron Maiden' },
     'ricardo iorio': { image: 'images/banda_sugeridas/ricardo_iorio/remera_almafuerte_obras.jpg', alt: 'Almafuerte - En Obras' },
     epica: { image: 'images/banda_sugeridas/epica/hoodie_epica_the_phantom_agony.jpg', alt: 'Hoodie EPICA The Phantom Agony' },
-    helloween: { image: 'images/banda_sugeridas/helloween/hoodie_helloween_tour_40.jpg', alt: 'Helloween 40 Years Anniversary Tour' },
+    helloween: { image: 'images/banda_sugeridas/helloween/remera_helloween.jpg', alt: 'Remera Helloween Pumpkin Logo' },
     pantera: { image: 'images/pantera/remera_pantera_the_great_southern_trendkill.jpg', alt: 'Diseño representativo de Pantera' },
     metallica: { image: 'images/metallica/metallica_master_of_puppets_realistic.jpg', alt: 'Master Realista de Metallica' }
 });
