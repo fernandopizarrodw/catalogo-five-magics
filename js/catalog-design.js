@@ -214,7 +214,8 @@
             garment: getGarment(variant, product),
             role: isBackVariant(variant) ? 'back' : 'front',
             preferredPreview: variant?.preferredPreview === true,
-            color: String(variant?.color || '').trim()
+            color: String(variant?.color || '').trim(),
+            defaultPrintMode: String(variant?.defaultPrintMode || product?.defaultPrintMode || '').trim()
         };
     }
 

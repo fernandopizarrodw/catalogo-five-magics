@@ -6004,6 +6004,32 @@ function getBandLandingDesignStartingPrice(design) {
     return getCatalogDesignStartingPrice(design);
 }
 
+function getCatalogDesignCardPriceText(design, preview) {
+    if (!isBandLandingMode() && design?.catalogPriceText) {
+        return getPublicCommerceText(design.catalogPriceText);
+    }
+
+    const printMode = normalizeText(preview?.defaultPrintMode || design?.defaultPrintMode || '');
+    const isDoubleComposition = printMode === 'double' || printMode === 'doble';
+    if (!isDoubleComposition) {
+        const startingPrice = (isBandLandingMode()
+            ? getBandLandingDesignStartingPrice(design)
+            : getCatalogDesignStartingPrice(design)).toLocaleString('es-AR');
+        return `Desde $${startingPrice}`;
+    }
+
+    const garment = isBandLandingMode() && bandLandingGarment
+        ? bandLandingGarment
+        : preview?.garment || 'remera';
+    const personalizedExtra = design?.isPersonalized ? PERSONALIZADO_EXTRA : 0;
+    const doublePrice = garment === 'hoodie'
+        ? PRECIOS_HOODIES.doble
+        : garment === 'buzo_cuello_redondo'
+            ? PRECIOS_BUZO_REDONDO.doble
+            : PRECIOS.doble;
+    return `Frente y dorso $${(doublePrice + personalizedExtra).toLocaleString('es-AR')}`;
+}
+
 function getBandLandingDesignPreview(design) {
     if (!isBandLandingMode() || !bandLandingGarment) return design?.front || null;
     const previews = design?.previewsByGarment?.[bandLandingGarment] || [];
@@ -6131,10 +6157,7 @@ function renderCatalogDesignResults(designs) {
             [...availableGarments].some(garment => garment.includes('hoodie')) ? 'Hoodie' : '',
             [...availableGarments].some(garment => garment.includes('buzo')) ? 'Buzo' : ''
         ].filter(Boolean);
-        const price = (isBandLandingMode() ? getBandLandingDesignStartingPrice(design) : getCatalogDesignStartingPrice(design)).toLocaleString('es-AR');
-        const priceText = !isBandLandingMode() && design.catalogPriceText
-            ? getPublicCommerceText(design.catalogPriceText)
-            : `Desde $${price}`;
+        const priceText = getCatalogDesignCardPriceText(design, preview);
         const initialGarment = isBandLandingMode() ? getBandLandingModalGarment() : '';
         const explicitBadges = (design.badges || []).map(label => ({ label: getPublicBadgeLabel(label), className: '' }));
         const activeLandingCollection = BAND_LANDING_COLLECTIONS.find(collection => collection.id === bandLandingCollection);
@@ -6143,8 +6166,7 @@ function renderCatalogDesignResults(designs) {
             isBandLandingMode() && bandLandingCollection === 'featured' && explicitFeaturedIds.has(String(design.designId))
                 ? { label: 'Destacado FMD', className: 'is-featured' }
                 : null,
-            design.isNew ? { label: 'Nuevo', className: 'is-new' } : null,
-            design.defaultPrintMode === 'double' ? { label: 'Doble recomendado', className: '' } : null
+            design.isNew ? { label: 'Nuevo', className: 'is-new' } : null
         ].filter(Boolean);
         const cardBadges = [...commercialBadges, ...explicitBadges]
             .filter((badge, index, all) => all.findIndex(item => normalizeText(item.label) === normalizeText(badge.label)) === index)
