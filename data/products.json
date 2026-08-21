@@ -7650,6 +7650,239 @@
         "img": "images/banda_sugeridas/helloween/remera_helloween_better.jpg",
         "name": "Helloween Better - Remera",
         "garmentCategory": "Bandas Sugeridas"
+      },
+      {
+        "img": "images/banda_sugeridas/helloween/remera_helloween.jpg",
+        "name": "Helloween Pumpkin Logo",
+        "alt": "Remera negra Helloween Pumpkin Logo",
+        "designId": "helloween-pumpkin-logo",
+        "role": "front",
+        "garmentCategory": "Bandas Sugeridas",
+        "color": "negro",
+        "preferredPreview": true,
+        "isNew": true
+      },
+      {
+        "img": "images/banda_sugeridas/helloween/remera_helloween_40.jpg",
+        "name": "Helloween 40 Years",
+        "alt": "Remera negra Helloween 40 Years",
+        "designId": "helloween-40-years",
+        "role": "front",
+        "garmentCategory": "Bandas Sugeridas",
+        "color": "negro",
+        "preferredPreview": true,
+        "isNew": true
+      },
+      {
+        "img": "images/banda_sugeridas/helloween/remera_helloween_tour.jpg",
+        "name": "Helloween 40 Years Anniversary Tour V1",
+        "alt": "Remera negra Helloween 40 Years Anniversary Tour V1 frente y dorso",
+        "designId": "helloween-40-years-anniversary-tour-v1",
+        "role": "front",
+        "garmentCategory": "Bandas Sugeridas",
+        "color": "negro",
+        "preferredPreview": true,
+        "defaultPrintMode": "double",
+        "isNew": true
+      },
+      {
+        "img": "images/banda_sugeridas/helloween/remera_helloween_tour.jpg",
+        "name": "Dorso Tour Latinoamérica 2026",
+        "alt": "Dorso Helloween 40 Years Anniversary Tour Latinoamérica 2026",
+        "role": "back",
+        "backTargetDesignId": "helloween-40-years-anniversary-tour-v1",
+        "garmentCategory": "Bandas Sugeridas"
+      },
+      {
+        "img": "images/banda_sugeridas/helloween/remera_helloween_tour_2.jpg",
+        "name": "Helloween 40 Years Anniversary Tour V2",
+        "alt": "Remera negra Helloween 40 Years Anniversary Tour V2 frente y dorso",
+        "designId": "helloween-40-years-anniversary-tour-v2",
+        "role": "front",
+        "garmentCategory": "Bandas Sugeridas",
+        "color": "negro",
+        "preferredPreview": true,
+        "defaultPrintMode": "double",
+        "isNew": true
+      },
+      {
+        "img": "images/banda_sugeridas/helloween/remera_helloween_tour_2.jpg",
+        "name": "Dorso Tour Latinoamérica 2026",
+        "alt": "Dorso Helloween 40 Years Anniversary Tour Latinoamérica 2026",
+        "role": "back",
+        "backTargetDesignId": "helloween-40-years-anniversary-tour-v2",
+        "garmentCategory": "Bandas Sugeridas"
+      },
+      {
+        "img": "images/banda_sugeridas/helloween/remera_helloween_tour_3.jpg",
+        "name": "Helloween 40 Years Anniversary Tour V3",
+        "alt": "Remera negra Helloween 40 Years Anniversary Tour V3 frente y dorso",
+        "designId": "helloween-40-years-anniversary-tour-v3",
+        "role": "front",
+        "garmentCategory": "Bandas Sugeridas",
+        "color": "negro",
+        "preferredPreview": true,
+        "defaultPrintMode": "double",
+        "isNew": true
+      },
+      {
+        "img": "images/banda_sugeridas/helloween/remera_helloween_tour_3.jpg",
+        "name": "Dorso Tour Latinoamérica 2026",
+        "alt": "Dorso Helloween 40 Years Anniversary Tour Latinoamérica 2026",
+        "role": "back",
+        "backTargetDesignId": "helloween-40-years-anniversary-tour-v3",
+        "garmentCategory": "Bandas Sugeridas"
+      },
+      {
+        "img": "images/banda_sugeridas/helloween/remera_helloween_dr_stein.jpg",
+        "name": "Helloween Dr. Stein",
+        "alt": "Remera negra Helloween Dr. Stein frente y dorso",
+        "designId": "helloween-dr-stein",
+        "role": "front",
+        "garmentCategory": "Bandas Sugeridas",
+        "color": "negro",
+        "preferredPreview": true,
+        "defaultPrintMode": "double",
+        "isNew": true
+      },
+      {
+        "img": "images/banda_sugeridas/helloween/remera_helloween_dr_stein.jpg",
+        "name": "Dorso Dr. Stein",
+        "alt": "Dorso Helloween Dr. Stein",
+        "role": "back",
+        "backTargetDesignId": "helloween-dr-stein",
+        "garmentCategory": "Bandas Sugeridas"
+      },
+      {
+        "img": "images/banda_sugeridas/helloween/remera_helloween_keeper_I.jpg",
+        "name": "Helloween Keeper of the Seven Keys Part I",
+        "alt": "Remera negra Helloween Keeper of the Seven Keys Part I frente y dorso",
+        "designId": "helloween-keeper-of-the-seven-keys-part-i",
+        "role": "front",
+        "garmentCategory": "Bandas Sugeridas",
+        "color": "negro",
+        "preferredPreview": true,
+        "defaultPrintMode": "double",
+        "isNew": true
+      },
+      {
+        "img": "images/banda_sugeridas/helloween/remera_helloween_keeper_I.jpg",
+        "name": "Dorso Keeper of the Seven Keys Part I",
+        "alt": "Dorso Helloween Keeper of the Seven Keys Part I",
+        "role": "back",
+        "backTargetDesignId": "helloween-keeper-of-the-seven-keys-part-i",
+        "garmentCategory": "Bandas Sugeridas"
+      },
+      {
+        "img": "images/banda_sugeridas/helloween/remera_helloween_pumpkins_united.jpg",
+        "name": "Helloween Pumpkins United",
+        "alt": "Remera negra Helloween Pumpkins United frente y dorso",
+        "designId": "helloween-pumpkins-united",
+        "role": "front",
+        "garmentCategory": "Bandas Sugeridas",
+        "color": "negro",
+        "preferredPreview": true,
+        "defaultPrintMode": "double",
+        "isNew": true
+      },
+      {
+        "img": "images/banda_sugeridas/helloween/remera_helloween_pumpkins_united.jpg",
+        "name": "Dorso Pumpkins United",
+        "alt": "Dorso Helloween Pumpkins United",
+        "role": "back",
+        "backTargetDesignId": "helloween-pumpkins-united",
+        "garmentCategory": "Bandas Sugeridas"
+      },
+      {
+        "img": "images/banda_sugeridas/helloween/remera_helloween_time.jpg",
+        "name": "Helloween The Time of the Oath",
+        "alt": "Remera negra Helloween The Time of the Oath frente y dorso",
+        "designId": "helloween-the-time-of-the-oath",
+        "role": "front",
+        "garmentCategory": "Bandas Sugeridas",
+        "color": "negro",
+        "preferredPreview": true,
+        "defaultPrintMode": "double",
+        "isNew": true
+      },
+      {
+        "img": "images/banda_sugeridas/helloween/remera_helloween_time.jpg",
+        "name": "Dorso The Time of the Oath",
+        "alt": "Dorso Helloween The Time of the Oath",
+        "role": "back",
+        "backTargetDesignId": "helloween-the-time-of-the-oath",
+        "garmentCategory": "Bandas Sugeridas"
+      },
+      {
+        "img": "images/banda_sugeridas/helloween/remera_helloween_the_dark_ride.jpg",
+        "name": "Helloween The Dark Ride",
+        "alt": "Remera negra Helloween The Dark Ride frente y dorso",
+        "designId": "helloween-the-dark-ride",
+        "role": "front",
+        "garmentCategory": "Bandas Sugeridas",
+        "color": "negro",
+        "preferredPreview": true,
+        "defaultPrintMode": "double",
+        "isNew": true
+      },
+      {
+        "img": "images/banda_sugeridas/helloween/remera_helloween_the_dark_ride.jpg",
+        "name": "Dorso The Dark Ride",
+        "alt": "Dorso Helloween The Dark Ride",
+        "role": "back",
+        "backTargetDesignId": "helloween-the-dark-ride",
+        "garmentCategory": "Bandas Sugeridas"
+      },
+      {
+        "img": "images/banda_sugeridas/helloween/remera_helloween_gambling.jpg",
+        "name": "Helloween Gambling with the Devil",
+        "alt": "Remera negra Helloween Gambling with the Devil frente y dorso",
+        "designId": "helloween-gambling-with-the-devil",
+        "role": "front",
+        "garmentCategory": "Bandas Sugeridas",
+        "color": "negro",
+        "preferredPreview": true,
+        "defaultPrintMode": "double",
+        "isNew": true
+      },
+      {
+        "img": "images/banda_sugeridas/helloween/remera_helloween_gambling.jpg",
+        "name": "Dorso Gambling with the Devil",
+        "alt": "Dorso Helloween Gambling with the Devil",
+        "role": "back",
+        "backTargetDesignId": "helloween-gambling-with-the-devil",
+        "garmentCategory": "Bandas Sugeridas"
+      },
+      {
+        "img": "images/banda_sugeridas/helloween/remera_helloween_7_sinners.jpg",
+        "name": "Helloween 7 Sinners",
+        "alt": "Remera negra Helloween 7 Sinners frente y dorso",
+        "designId": "helloween-7-sinners",
+        "role": "front",
+        "garmentCategory": "Bandas Sugeridas",
+        "color": "negro",
+        "preferredPreview": true,
+        "defaultPrintMode": "double",
+        "isNew": true
+      },
+      {
+        "img": "images/banda_sugeridas/helloween/remera_helloween_7_sinners.jpg",
+        "name": "Dorso 7 Sinners",
+        "alt": "Dorso Helloween 7 Sinners",
+        "role": "back",
+        "backTargetDesignId": "helloween-7-sinners",
+        "garmentCategory": "Bandas Sugeridas"
+      },
+      {
+        "img": "images/banda_sugeridas/helloween/remera_helloween_into_the_sun.jpg",
+        "name": "Helloween Into the Sun",
+        "alt": "Remera negra Helloween Into the Sun",
+        "designId": "helloween-into-the-sun",
+        "role": "front",
+        "garmentCategory": "Bandas Sugeridas",
+        "color": "negro",
+        "preferredPreview": true,
+        "isNew": true
       }
     ],
     "desc": "Seleccion ampliada de Helloween para el archivo de mas bandas. Formato rapido en remera con estampa frontal para medir demanda.",

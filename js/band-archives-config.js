@@ -534,6 +534,21 @@
             defaultGarment: 'remera',
             usesShownComposition: false,
             showSizeGuide: true,
+            designOrder: [
+                'helloween-40-years-anniversary-tour-v1',
+                'helloween-40-years-anniversary-tour-v2',
+                'helloween-40-years-anniversary-tour-v3',
+                'helloween-40-years',
+                'helloween-pumpkin-logo',
+                'helloween-keeper-of-the-seven-keys-part-i',
+                'helloween-dr-stein',
+                'helloween-the-time-of-the-oath',
+                'helloween-the-dark-ride',
+                'helloween-gambling-with-the-devil',
+                'helloween-7-sinners',
+                'helloween-pumpkins-united',
+                'helloween-into-the-sun'
+            ],
             garments: [
                 { key: 'remera', title: 'REMERAS', price: 'Frontal $37.000 · Doble $44.000', image: '/images/banda_sugeridas/helloween/helloween_40_tour.jpg', alt: 'Remera Helloween 40 Tour' }
             ]
