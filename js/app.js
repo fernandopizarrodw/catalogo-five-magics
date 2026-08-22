@@ -4482,9 +4482,9 @@ function configureCatalogConversionModalLayout() {
     garment.after(remeraVariant);
     remeraVariant.after(printMode);
     printMode.after(doubleNote);
-    doubleNote.after(dorso);
-    dorso.after(productOptions);
-    productOptions.after(price);
+    doubleNote.after(productOptions);
+    productOptions.after(dorso);
+    dorso.after(price);
     if (delivery) delivery.remove();
     if (priceNote) price.after(priceNote);
     if (adaptable) (priceNote || price).after(adaptable);
@@ -6272,7 +6272,11 @@ const FEATURED_COLLECTION_ART = Object.freeze({
     'iron maiden': { image: 'images/iron_maiden/IRON MAIDEN BY FMD/fmd_killers.jpg', alt: 'Killers FMD de Iron Maiden' },
     'ricardo iorio': { image: 'images/banda_sugeridas/ricardo_iorio/remera_almafuerte_obras.jpg', alt: 'Almafuerte - En Obras' },
     epica: { image: 'images/banda_sugeridas/epica/hoodie_epica_the_phantom_agony.jpg', alt: 'Hoodie EPICA The Phantom Agony' },
-    helloween: { image: 'images/banda_sugeridas/helloween/remera_helloween.jpg', alt: 'Remera Helloween Pumpkin Logo' },
+    helloween: {
+        image: 'images/banda_sugeridas/helloween/remera_helloween.jpg',
+        alt: 'Remera Helloween Pumpkin Logo',
+        badge: 'SHOW ARGENTINA · 13 SEP'
+    },
     pantera: { image: 'images/pantera/remera_pantera_the_great_southern_trendkill.jpg', alt: 'Diseño representativo de Pantera' },
     metallica: { image: 'images/metallica/metallica_master_of_puppets_realistic.jpg', alt: 'Master Realista de Metallica' }
 });
@@ -6328,7 +6332,7 @@ function renderCatalogBandDirectory(products) {
         const landingUrl = getBandLandingUrl(label);
         const art = FEATURED_COLLECTION_ART[normalizeText(label)] || {};
         const artMarkup = art.image
-            ? `<img src="${art.image}" alt="${art.alt || label}" loading="lazy" decoding="async">`
+            ? `${art.badge ? `<span class="catalog-featured-collection-badge">${art.badge}</span>` : ''}<img src="${art.image}" alt="${art.alt || label}" loading="lazy" decoding="async">`
             : `<span class="catalog-featured-collection-monogram" aria-hidden="true">${art.monogram || label.slice(0, 2)}</span>`;
         const content = `
             <span class="catalog-featured-collection-art">${artMarkup}</span>

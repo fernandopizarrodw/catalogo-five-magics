@@ -6688,6 +6688,23 @@ header {
         #050605;
 }
 
+.catalog-featured-collection-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 2;
+    padding: 6px 9px;
+    border: 1px solid rgba(255, 190, 42, 0.72);
+    border-radius: 999px;
+    background: rgba(7, 7, 7, 0.88);
+    color: #ffd36a;
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    line-height: 1;
+    white-space: nowrap;
+}
+
 .catalog-featured-collection-art img {
     display: block;
     width: 100%;
@@ -6934,6 +6951,13 @@ header {
         min-height: 44px;
         padding: 9px 10px;
         font-size: 0.82rem;
+    }
+
+    .catalog-featured-collection-badge {
+        top: 7px;
+        left: 7px;
+        padding: 5px 7px;
+        font-size: 0.56rem;
     }
 }
 
