@@ -647,6 +647,42 @@
             ]
         },
         {
+            output: 'dream-theater/index.html',
+            slug: 'dream-theater',
+            publishedAt: '2026-08-23',
+            band: 'Dream Theater',
+            displayName: 'DREAM THEATER',
+            title: 'Dream Theater: remeras, hoodies y buzos | Five Magics Designs',
+            description: 'Diseños de Dream Theater en remeras, hoodies y buzos hechos a pedido. Elegí prenda, estampa, talle y color.',
+            canonical: 'https://catalogo.fivemagicsdesigns.com/dream-theater/',
+            image: '/images/banda_sugeridas/dream_theater/hoodie_dream_theater_images_and_words.jpg',
+            imageUrl: 'https://catalogo.fivemagicsdesigns.com/images/banda_sugeridas/dream_theater/hoodie_dream_theater_images_and_words.jpg',
+            heroTitle: 'REMERAS, HOODIES Y BUZOS',
+            heroCopy: 'Explorá diseños de Dream Theater y elegí tu favorito para armar el pedido.',
+            finalTitle: '¿BUSCABAS OTRO DISEÑO DE DREAM THEATER?',
+            finalCopy: 'También hacemos diseños personalizados a partir de una tapa, imagen o idea.',
+            whatsappMessage: 'Hola FMD! Quiero consultar por un diseño de Dream Theater a partir de una tapa, imagen o idea.',
+            defaultGarment: 'hoodie',
+            usesShownComposition: true,
+            showSizeGuide: true,
+            designOrder: [
+                'dream-theater-images-and-words',
+                'dream-theater-awake',
+                'dream-theater-scenes-from-a-memory',
+                'dream-theater-six-degrees',
+                'dream-theater-train-of-thought',
+                'dream-theater-octavarium',
+                'dream-theater-black-clouds',
+                'dream-theater-parasomnia',
+                'dream-theater-logo'
+            ],
+            garments: [
+                { key: 'hoodie', title: 'HOODIES', price: 'Frontal $52.000 · Doble $59.000', image: '/images/banda_sugeridas/dream_theater/hoodie_dream_theater_images_and_words.jpg', alt: 'Hoodie Dream Theater Images and Words' },
+                { key: 'buzo_cuello_redondo', title: 'BUZOS', price: 'Frontal $50.000 · Doble $55.000', image: '/images/banda_sugeridas/dream_theater/buzo_dream_theater_images_and_words.jpg', alt: 'Buzo cuello redondo Dream Theater Images and Words' },
+                { key: 'remera', title: 'REMERAS', price: 'Frontal $37.000 · Doble $44.000', image: '/images/banda_sugeridas/dream_theater/remera_dream_theater_images_and_words.jpg', alt: 'Remera Dream Theater Images and Words' }
+            ]
+        },
+        {
             output: 'argentina/index.html',
             slug: 'argentina',
             band: 'Argentina',

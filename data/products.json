@@ -7377,78 +7377,330 @@
     "year": "2026",
     "name": "Dream Theater",
     "tipoPrecio": "simple",
-    "img": "images/banda_sugeridas/dream_theater/dream_theater_parasomnia_frente.jpg",
+    "img": "images/banda_sugeridas/dream_theater/remera_dream_theater_images_and_words.jpg",
     "variants": [
       {
-        "img": "images/banda_sugeridas/dream_theater/dream_theater_parasomnia_frente.jpg",
-        "name": "Dream Theater Parasomnia Frente - Remera",
-        "garmentCategory": "Bandas Sugeridas"
-      },
-      {
-        "img": "images/banda_sugeridas/dream_theater/dream_theater_parasomnia_dorso.jpg",
-        "name": "Dream Theater Parasomnia Dorso - Remera",
-        "garmentCategory": "Bandas Sugeridas"
-      },
-      {
-        "img": "images/banda_sugeridas/dream_theater/hoodie_dream_theater_awake.jpg",
-        "name": "Dream Theater Awake - Hoodie",
-        "garmentCategory": "Hoodies Otras Bandas"
-      },
-      {
-        "img": "images/banda_sugeridas/dream_theater/hoodie_dream_theater_black_clouds.jpg",
-        "name": "Dream Theater Black Clouds - Hoodie",
-        "garmentCategory": "Hoodies Otras Bandas"
+        "img": "images/banda_sugeridas/dream_theater/remera_dream_theater_images_and_words.jpg",
+        "name": "Images and Words",
+        "alt": "Remera negra Dream Theater Images and Words frente y dorso",
+        "designId": "dream-theater-images-and-words",
+        "role": "front",
+        "garmentCategory": "Bandas Sugeridas",
+        "color": "negro",
+        "preferredPreview": true,
+        "defaultPrintMode": "double",
+        "isNew": true
       },
       {
         "img": "images/banda_sugeridas/dream_theater/hoodie_dream_theater_images_and_words.jpg",
-        "name": "Dream Theater Images And Words - Hoodie",
-        "garmentCategory": "Hoodies Otras Bandas"
+        "name": "Images and Words - Hoodie",
+        "alt": "Hoodie negro Dream Theater Images and Words frente y dorso",
+        "designId": "dream-theater-images-and-words",
+        "role": "front",
+        "garmentCategory": "Hoodies Otras Bandas",
+        "color": "negro",
+        "preferredPreview": true,
+        "defaultPrintMode": "double",
+        "isNew": true
+      },
+      {
+        "img": "images/banda_sugeridas/dream_theater/buzo_dream_theater_images_and_words.jpg",
+        "name": "Images and Words - Buzo cuello redondo",
+        "alt": "Buzo cuello redondo negro Dream Theater Images and Words frente y dorso",
+        "designId": "dream-theater-images-and-words",
+        "role": "front",
+        "garmentCategory": "Buzo Cuello Redondo",
+        "color": "negro",
+        "preferredPreview": true,
+        "defaultPrintMode": "double",
+        "isNew": true
+      },
+      {
+        "img": "images/banda_sugeridas/dream_theater/remera_dream_theater_awake.jpg",
+        "name": "Awake",
+        "alt": "Remera negra Dream Theater Awake frente y dorso",
+        "designId": "dream-theater-awake",
+        "role": "front",
+        "garmentCategory": "Bandas Sugeridas",
+        "color": "negro",
+        "preferredPreview": true,
+        "defaultPrintMode": "double",
+        "isNew": true
+      },
+      {
+        "img": "images/banda_sugeridas/dream_theater/hoodie_dream_theater_awake.jpg",
+        "name": "Awake - Hoodie",
+        "alt": "Hoodie negro Dream Theater Awake frente y dorso",
+        "designId": "dream-theater-awake",
+        "role": "front",
+        "garmentCategory": "Hoodies Otras Bandas",
+        "color": "negro",
+        "preferredPreview": true,
+        "defaultPrintMode": "double",
+        "isNew": true
+      },
+      {
+        "img": "images/banda_sugeridas/dream_theater/buzo_dream_theater_awake.jpg",
+        "name": "Awake - Buzo cuello redondo",
+        "alt": "Buzo cuello redondo negro Dream Theater Awake frente y dorso",
+        "designId": "dream-theater-awake",
+        "role": "front",
+        "garmentCategory": "Buzo Cuello Redondo",
+        "color": "negro",
+        "preferredPreview": true,
+        "defaultPrintMode": "double",
+        "isNew": true
+      },
+      {
+        "img": "images/banda_sugeridas/dream_theater/remera_dream_theater_scenes.jpg",
+        "name": "Scenes from a Memory",
+        "alt": "Remera negra Dream Theater Scenes from a Memory frente y dorso",
+        "designId": "dream-theater-scenes-from-a-memory",
+        "role": "front",
+        "garmentCategory": "Bandas Sugeridas",
+        "color": "negro",
+        "preferredPreview": true,
+        "defaultPrintMode": "double",
+        "isNew": true
+      },
+      {
+        "img": "images/banda_sugeridas/dream_theater/hoodie_dream_theater_scenes.jpg",
+        "name": "Scenes from a Memory - Hoodie",
+        "alt": "Hoodie negro Dream Theater Scenes from a Memory frente y dorso",
+        "designId": "dream-theater-scenes-from-a-memory",
+        "role": "front",
+        "garmentCategory": "Hoodies Otras Bandas",
+        "color": "negro",
+        "preferredPreview": true,
+        "defaultPrintMode": "double",
+        "isNew": true
+      },
+      {
+        "img": "images/banda_sugeridas/dream_theater/buzo_dream_theater_scenes.jpg",
+        "name": "Scenes from a Memory - Buzo cuello redondo",
+        "alt": "Buzo cuello redondo negro Dream Theater Scenes from a Memory frente y dorso",
+        "designId": "dream-theater-scenes-from-a-memory",
+        "role": "front",
+        "garmentCategory": "Buzo Cuello Redondo",
+        "color": "negro",
+        "preferredPreview": true,
+        "defaultPrintMode": "double",
+        "isNew": true
+      },
+      {
+        "img": "images/banda_sugeridas/dream_theater/remera_dream_theater_six_degrees.jpg",
+        "name": "Six Degrees of Inner Turbulence",
+        "alt": "Remera negra Dream Theater Six Degrees of Inner Turbulence frente y dorso",
+        "designId": "dream-theater-six-degrees",
+        "role": "front",
+        "garmentCategory": "Bandas Sugeridas",
+        "color": "negro",
+        "preferredPreview": true,
+        "defaultPrintMode": "double",
+        "isNew": true
+      },
+      {
+        "img": "images/banda_sugeridas/dream_theater/hoodie_dream_theater_six_degrees.jpg",
+        "name": "Six Degrees of Inner Turbulence - Hoodie",
+        "alt": "Hoodie negro Dream Theater Six Degrees of Inner Turbulence frente y dorso",
+        "designId": "dream-theater-six-degrees",
+        "role": "front",
+        "garmentCategory": "Hoodies Otras Bandas",
+        "color": "negro",
+        "preferredPreview": true,
+        "defaultPrintMode": "double",
+        "isNew": true
+      },
+      {
+        "img": "images/banda_sugeridas/dream_theater/buzo_dream_theater_six_degrees.jpg",
+        "name": "Six Degrees of Inner Turbulence - Buzo cuello redondo",
+        "alt": "Buzo cuello redondo negro Dream Theater Six Degrees of Inner Turbulence frente y dorso",
+        "designId": "dream-theater-six-degrees",
+        "role": "front",
+        "garmentCategory": "Buzo Cuello Redondo",
+        "color": "negro",
+        "preferredPreview": true,
+        "defaultPrintMode": "double",
+        "isNew": true
+      },
+      {
+        "img": "images/banda_sugeridas/dream_theater/remera_dream_theater_train_of_thought.jpg",
+        "name": "Train of Thought",
+        "alt": "Remera negra Dream Theater Train of Thought frente y dorso",
+        "designId": "dream-theater-train-of-thought",
+        "role": "front",
+        "garmentCategory": "Bandas Sugeridas",
+        "color": "negro",
+        "preferredPreview": true,
+        "defaultPrintMode": "double",
+        "isNew": true
+      },
+      {
+        "img": "images/banda_sugeridas/dream_theater/hoodie_dream_theater_train_of_thought.jpg",
+        "name": "Train of Thought - Hoodie",
+        "alt": "Hoodie negro Dream Theater Train of Thought frente y dorso",
+        "designId": "dream-theater-train-of-thought",
+        "role": "front",
+        "garmentCategory": "Hoodies Otras Bandas",
+        "color": "negro",
+        "preferredPreview": true,
+        "defaultPrintMode": "double",
+        "isNew": true
+      },
+      {
+        "img": "images/banda_sugeridas/dream_theater/buzo_dream_theater_train_of_thought.jpg",
+        "name": "Train of Thought - Buzo cuello redondo",
+        "alt": "Buzo cuello redondo negro Dream Theater Train of Thought frente y dorso",
+        "designId": "dream-theater-train-of-thought",
+        "role": "front",
+        "garmentCategory": "Buzo Cuello Redondo",
+        "color": "negro",
+        "preferredPreview": true,
+        "defaultPrintMode": "double",
+        "isNew": true
+      },
+      {
+        "img": "images/banda_sugeridas/dream_theater/remera_dream_theater_octavarium.jpg",
+        "name": "Octavarium",
+        "alt": "Remera negra Dream Theater Octavarium frente y dorso",
+        "designId": "dream-theater-octavarium",
+        "role": "front",
+        "garmentCategory": "Bandas Sugeridas",
+        "color": "negro",
+        "preferredPreview": true,
+        "defaultPrintMode": "double",
+        "isNew": true
+      },
+      {
+        "img": "images/banda_sugeridas/dream_theater/hoodie_dream_theater_octavarium.jpg",
+        "name": "Octavarium - Hoodie",
+        "alt": "Hoodie negro Dream Theater Octavarium frente y dorso",
+        "designId": "dream-theater-octavarium",
+        "role": "front",
+        "garmentCategory": "Hoodies Otras Bandas",
+        "color": "negro",
+        "preferredPreview": true,
+        "defaultPrintMode": "double",
+        "isNew": true
+      },
+      {
+        "img": "images/banda_sugeridas/dream_theater/buzo_dream_theater_octavarium.jpg",
+        "name": "Octavarium - Buzo cuello redondo",
+        "alt": "Buzo cuello redondo negro Dream Theater Octavarium frente y dorso",
+        "designId": "dream-theater-octavarium",
+        "role": "front",
+        "garmentCategory": "Buzo Cuello Redondo",
+        "color": "negro",
+        "preferredPreview": true,
+        "defaultPrintMode": "double",
+        "isNew": true
+      },
+      {
+        "img": "images/banda_sugeridas/dream_theater/remera_dream_theater_black_clouds.jpg",
+        "name": "Black Clouds",
+        "alt": "Remera negra Dream Theater Black Clouds frente y dorso",
+        "designId": "dream-theater-black-clouds",
+        "role": "front",
+        "garmentCategory": "Bandas Sugeridas",
+        "color": "negro",
+        "preferredPreview": true,
+        "defaultPrintMode": "double",
+        "isNew": true
+      },
+      {
+        "img": "images/banda_sugeridas/dream_theater/hoodie_dream_theater_black_clouds.jpg",
+        "name": "Black Clouds - Hoodie",
+        "alt": "Hoodie negro Dream Theater Black Clouds frente y dorso",
+        "designId": "dream-theater-black-clouds",
+        "role": "front",
+        "garmentCategory": "Hoodies Otras Bandas",
+        "color": "negro",
+        "preferredPreview": true,
+        "defaultPrintMode": "double",
+        "isNew": true
+      },
+      {
+        "img": "images/banda_sugeridas/dream_theater/buzo_dream_theater_black_clouds.jpg",
+        "name": "Black Clouds - Buzo cuello redondo",
+        "alt": "Buzo cuello redondo negro Dream Theater Black Clouds frente y dorso",
+        "designId": "dream-theater-black-clouds",
+        "role": "front",
+        "garmentCategory": "Buzo Cuello Redondo",
+        "color": "negro",
+        "preferredPreview": true,
+        "defaultPrintMode": "double",
+        "isNew": true
+      },
+      {
+        "img": "images/banda_sugeridas/dream_theater/remera_dream_theater_parasomnia.jpg",
+        "name": "Parasomnia",
+        "alt": "Remera negra Dream Theater Parasomnia frente y dorso",
+        "designId": "dream-theater-parasomnia",
+        "role": "front",
+        "garmentCategory": "Bandas Sugeridas",
+        "color": "negro",
+        "preferredPreview": true,
+        "defaultPrintMode": "double",
+        "isNew": true
+      },
+      {
+        "img": "images/banda_sugeridas/dream_theater/hoodie_dream_theater_parasomnia.jpg",
+        "name": "Parasomnia - Hoodie",
+        "alt": "Hoodie negro Dream Theater Parasomnia frente y dorso",
+        "designId": "dream-theater-parasomnia",
+        "role": "front",
+        "garmentCategory": "Hoodies Otras Bandas",
+        "color": "negro",
+        "preferredPreview": true,
+        "defaultPrintMode": "double",
+        "isNew": true
+      },
+      {
+        "img": "images/banda_sugeridas/dream_theater/dream_theater_parasomnia_dorso.jpg",
+        "name": "Dorso alternativo Parasomnia",
+        "alt": "Dorso alternativo Dream Theater Parasomnia",
+        "role": "back",
+        "backTargetDesignId": "dream-theater-parasomnia",
+        "garmentCategory": "Bandas Sugeridas"
+      },
+      {
+        "img": "images/banda_sugeridas/dream_theater/remera_dream_theater_logo.jpg",
+        "name": "Dream Theater Logo",
+        "alt": "Remera negra Dream Theater Logo frente y dorso",
+        "designId": "dream-theater-logo",
+        "role": "front",
+        "garmentCategory": "Bandas Sugeridas",
+        "color": "negro",
+        "preferredPreview": true,
+        "defaultPrintMode": "double",
+        "isNew": true
       },
       {
         "img": "images/banda_sugeridas/dream_theater/hoodie_dream_theater_logo.jpg",
         "name": "Dream Theater Logo - Hoodie",
-        "garmentCategory": "Hoodies Otras Bandas"
-      },
-      {
-        "img": "images/banda_sugeridas/dream_theater/hoodie_dream_theater_octavarium.jpg",
-        "name": "Dream Theater Octavarium - Hoodie",
-        "garmentCategory": "Hoodies Otras Bandas"
-      },
-      {
-        "img": "images/banda_sugeridas/dream_theater/hoodie_dream_theater_parasomnia.jpg",
-        "name": "Dream Theater Parasomnia - Hoodie",
-        "garmentCategory": "Hoodies Otras Bandas"
-      },
-      {
-        "img": "images/banda_sugeridas/dream_theater/hoodie_dream_theater_scenes.jpg",
-        "name": "Dream Theater Scenes - Hoodie",
-        "garmentCategory": "Hoodies Otras Bandas"
-      },
-      {
-        "img": "images/banda_sugeridas/dream_theater/hoodie_dream_theater_six_degrees.jpg",
-        "name": "Dream Theater Six Degrees - Hoodie",
-        "garmentCategory": "Hoodies Otras Bandas"
-      },
-      {
-        "img": "images/banda_sugeridas/dream_theater/hoodie_dream_theater_train_of_thought.jpg",
-        "name": "Dream Theater Train Of Thought - Hoodie",
-        "garmentCategory": "Hoodies Otras Bandas"
+        "alt": "Hoodie negro Dream Theater Logo frente y dorso",
+        "designId": "dream-theater-logo",
+        "role": "front",
+        "garmentCategory": "Hoodies Otras Bandas",
+        "color": "negro",
+        "preferredPreview": true,
+        "defaultPrintMode": "double",
+        "isNew": true
       }
     ],
-    "desc": "Seleccion ampliada de Dream Theater con remeras y hoodies. Archivo de mas bandas para pedidos a demanda.",
+    "desc": "Diseños de Dream Theater disponibles en remeras, hoodies y buzos.",
     "band": "Dream Theater",
     "universe": [
       "Modern Metal"
     ],
-    "album": "Parasomnia",
+    "album": null,
     "garments": [
       "remera",
-      "hoodie"
+      "hoodie",
+      "buzo_cuello_redondo"
     ],
     "collections": [
       "Dream Theater Archive",
-      "Parasomnia",
-      "Hoodies Otras Bandas",
       "Mas bandas"
     ],
     "campaigns": [],
@@ -7458,11 +7710,10 @@
     "tags": [
       "Dream Theater",
       "Modern Metal",
-      "Parasomnia",
       "remera",
       "Dream Theater Archive",
       "hoodie",
-      "Hoodies Otras Bandas",
+      "buzo_cuello_redondo",
       "Mas bandas"
     ]
   },
