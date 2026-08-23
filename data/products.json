@@ -8147,6 +8147,30 @@
         "isNew": true
       },
       {
+        "img": "images/banda_sugeridas/helloween/remera_helloween_tour_pumpkins.jpg",
+        "name": "Helloween 40 Years Anniversary Tour - Buenos Aires",
+        "alt": "Remera negra Helloween 40 Years Anniversary Tour Buenos Aires 13 de septiembre",
+        "designId": "helloween-40-years-tour-buenos-aires",
+        "role": "front",
+        "garmentCategory": "Bandas Sugeridas",
+        "color": "negro",
+        "preferredPreview": true,
+        "defaultPrintMode": "simple",
+        "isNew": true
+      },
+      {
+        "img": "images/banda_sugeridas/helloween/remera_helloween_pumpkins_united_single.jpg",
+        "name": "Helloween Pumpkins United - Seven Pumpkins",
+        "alt": "Remera negra Helloween Pumpkins United Seven Pumpkins",
+        "designId": "helloween-pumpkins-united-seven-pumpkins",
+        "role": "front",
+        "garmentCategory": "Bandas Sugeridas",
+        "color": "negro",
+        "preferredPreview": true,
+        "defaultPrintMode": "simple",
+        "isNew": true
+      },
+      {
         "img": "images/banda_sugeridas/helloween/buzo_helloween_better.jpg",
         "name": "Helloween Better Than Raw - Buzo cuello redondo",
         "alt": "Buzo cuello redondo negro Helloween Better Than Raw frente y dorso",
@@ -19204,6 +19228,89 @@
       "hoodie",
       "Manowar Archive",
       "Invierno 2026"
+    ]
+  },
+  {
+    "id": 5092,
+    "category": "Bandas Sugeridas",
+    "year": "",
+    "name": "Sonata Arctica",
+    "tipoPrecio": "simple",
+    "isNew": true,
+    "img": "images/banda_sugeridas/sonata_artica/remera_sonata_artica_ecliptica.jpg",
+    "variants": [
+      {
+        "img": "images/banda_sugeridas/sonata_artica/remera_sonata_artica_ecliptica.jpg",
+        "name": "Sonata Arctica Ecliptica",
+        "alt": "Remera negra Sonata Arctica Ecliptica frente y dorso",
+        "designId": "sonata-arctica-ecliptica",
+        "role": "front",
+        "garmentCategory": "Bandas Sugeridas",
+        "color": "negro",
+        "preferredPreview": true,
+        "defaultPrintMode": "double",
+        "isNew": true
+      },
+      {
+        "img": "images/banda_sugeridas/sonata_artica/remera_sonata_artica_silence.jpg",
+        "name": "Sonata Arctica Silence",
+        "alt": "Remera negra Sonata Arctica Silence frente y dorso",
+        "designId": "sonata-arctica-silence",
+        "role": "front",
+        "garmentCategory": "Bandas Sugeridas",
+        "color": "negro",
+        "preferredPreview": true,
+        "defaultPrintMode": "double",
+        "isNew": true
+      },
+      {
+        "img": "images/banda_sugeridas/sonata_artica/remera_sonata_artica_winterheart's.jpg",
+        "name": "Sonata Arctica Winterheart's Guild",
+        "alt": "Remera negra Sonata Arctica Winterheart's Guild frente y dorso",
+        "designId": "sonata-arctica-winterhearts-guild",
+        "role": "front",
+        "garmentCategory": "Bandas Sugeridas",
+        "color": "negro",
+        "preferredPreview": true,
+        "defaultPrintMode": "double",
+        "isNew": true
+      },
+      {
+        "img": "images/banda_sugeridas/sonata_artica/remera_sonata_artica_reckoning.jpg",
+        "name": "Sonata Arctica Reckoning Night",
+        "alt": "Remera negra Sonata Arctica Reckoning Night frente y dorso",
+        "designId": "sonata-arctica-reckoning-night",
+        "role": "front",
+        "garmentCategory": "Bandas Sugeridas",
+        "color": "negro",
+        "preferredPreview": true,
+        "defaultPrintMode": "double",
+        "isNew": true
+      }
+    ],
+    "desc": "Diseños de Sonata Arctica disponibles en remeras, hoodies y buzos.",
+    "band": "Sonata Arctica",
+    "universe": [
+      "Power Metal"
+    ],
+    "album": null,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Sonata Arctica Archive",
+      "Mas bandas"
+    ],
+    "campaigns": [],
+    "commercialPriority": 75,
+    "visibilityTier": "catalog",
+    "legacyCategory": "Bandas Sugeridas",
+    "tags": [
+      "Sonata Arctica",
+      "Power Metal",
+      "remera",
+      "Sonata Arctica Archive",
+      "Mas bandas"
     ]
   }
 ]

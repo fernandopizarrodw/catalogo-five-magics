@@ -535,6 +535,8 @@
             usesShownComposition: false,
             showSizeGuide: true,
             designOrder: [
+                'helloween-40-years-tour-buenos-aires',
+                'helloween-pumpkins-united-seven-pumpkins',
                 'helloween-40-tour',
                 'helloween-40-years-anniversary-tour-v1',
                 'helloween-40-years-anniversary-tour-v2',
