@@ -19312,5 +19312,138 @@
       "Sonata Arctica Archive",
       "Mas bandas"
     ]
+  },
+  {
+    "id": 5093,
+    "category": "Bandas Sugeridas",
+    "year": "",
+    "name": "Opeth",
+    "tipoPrecio": "simple",
+    "isNew": true,
+    "img": "images/banda_sugeridas/opeth/remera_opeth_blackwater.jpg",
+    "variants": [
+      {
+        "img": "images/banda_sugeridas/opeth/remera_opeth_blackwater.jpg",
+        "name": "Opeth Blackwater Park",
+        "alt": "Remera negra Opeth Blackwater Park frente y dorso",
+        "designId": "opeth-blackwater-park",
+        "role": "front",
+        "garmentCategory": "Bandas Sugeridas",
+        "color": "negro",
+        "preferredPreview": true,
+        "defaultPrintMode": "double",
+        "isNew": true
+      },
+      {
+        "img": "images/banda_sugeridas/opeth/remera_opeth_ghost.jpg",
+        "name": "Opeth Ghost Reveries",
+        "alt": "Remera negra Opeth Ghost Reveries frente y dorso",
+        "designId": "opeth-ghost-reveries",
+        "role": "front",
+        "garmentCategory": "Bandas Sugeridas",
+        "color": "negro",
+        "preferredPreview": true,
+        "defaultPrintMode": "double",
+        "isNew": true
+      },
+      {
+        "img": "images/banda_sugeridas/opeth/remera_opeth_still_life.jpg",
+        "name": "Opeth Still Life V1",
+        "alt": "Remera negra Opeth Still Life V1 frente y dorso",
+        "designId": "opeth-still-life-v1",
+        "role": "front",
+        "garmentCategory": "Bandas Sugeridas",
+        "color": "negro",
+        "preferredPreview": true,
+        "defaultPrintMode": "double",
+        "isNew": true
+      },
+      {
+        "img": "images/banda_sugeridas/opeth/remera_opeth_still_life_2.jpg",
+        "name": "Opeth Still Life V2",
+        "alt": "Remera negra Opeth Still Life V2 frente y dorso",
+        "designId": "opeth-still-life-v2",
+        "role": "front",
+        "garmentCategory": "Bandas Sugeridas",
+        "color": "negro",
+        "preferredPreview": true,
+        "defaultPrintMode": "double",
+        "isNew": true
+      },
+      {
+        "img": "images/banda_sugeridas/opeth/remera_opeth_mago.jpg",
+        "name": "Opeth Mago",
+        "alt": "Remera negra Opeth Mago frente y dorso",
+        "designId": "opeth-mago",
+        "role": "front",
+        "garmentCategory": "Bandas Sugeridas",
+        "color": "negro",
+        "preferredPreview": true,
+        "defaultPrintMode": "double",
+        "isNew": true
+      },
+      {
+        "img": "images/banda_sugeridas/opeth/remera_opeth_sorceress.jpg",
+        "name": "Opeth Sorceress",
+        "alt": "Remera negra Opeth Sorceress frente y dorso",
+        "designId": "opeth-sorceress",
+        "role": "front",
+        "garmentCategory": "Bandas Sugeridas",
+        "color": "negro",
+        "preferredPreview": true,
+        "defaultPrintMode": "double",
+        "isNew": true
+      },
+      {
+        "img": "images/banda_sugeridas/opeth/remera_opeth_gramophone.jpg",
+        "name": "Opeth Gramophone",
+        "alt": "Remera negra Opeth Gramophone frente y dorso",
+        "designId": "opeth-gramophone",
+        "role": "front",
+        "garmentCategory": "Bandas Sugeridas",
+        "color": "negro",
+        "preferredPreview": true,
+        "defaultPrintMode": "double",
+        "isNew": true
+      },
+      {
+        "img": "images/banda_sugeridas/opeth/remera_opeth_heritage_skull.jpg",
+        "name": "Opeth Heritage Skull",
+        "alt": "Remera negra Opeth Heritage Skull frente y dorso",
+        "designId": "opeth-heritage-skull",
+        "role": "front",
+        "garmentCategory": "Bandas Sugeridas",
+        "color": "negro",
+        "preferredPreview": true,
+        "defaultPrintMode": "double",
+        "isNew": true
+      }
+    ],
+    "desc": "Diseños de Opeth disponibles en remeras, hoodies y buzos.",
+    "band": "Opeth",
+    "universe": [
+      "Progressive Metal",
+      "Extreme Metal"
+    ],
+    "album": null,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Opeth Archive",
+      "Mas bandas"
+    ],
+    "campaigns": [],
+    "commercialPriority": 75,
+    "visibilityTier": "catalog",
+    "legacyCategory": "Bandas Sugeridas",
+    "tags": [
+      "Opeth",
+      "Progressive Metal",
+      "Extreme Metal",
+      "remera",
+      "Opeth Archive",
+      "Mas bandas"
+    ]
   }
 ]
