@@ -83,9 +83,9 @@
         </section>
 
         <section class="july-shipping-promo" aria-label="Beneficios FMD">
-            <p>PROMO AGOSTO</p>
+            <p id="helloweenPromoTitle">PROMO AGOSTO</p>
             <strong>ENVÍO GRATIS <em>A PUNTO ANDREANI</em></strong>
-            <span>Durante agosto · Desde 1 prenda</span>
+            <span id="helloweenPromoPeriod">Durante agosto · Desde 1 prenda</span>
             <b>3 PRENDAS O MÁS · 10% OFF + ENVÍO GRATIS A DOMICILIO</b>
         </section>
 
@@ -448,9 +448,6 @@
                                 <div class="spec-item">
                                     <div class="spec-value">⚡ Algodón peinado</div>
                                 </div>
-                                <div class="spec-item">
-                                    <div class="spec-value" id="modalSizeRange">📏 S a 2XL</div>
-                                </div>
                             </div>
 
                             <div class="modal-actions-secondary">
@@ -498,6 +495,17 @@
         </div>
     </div>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const preShowPromoStartArgentina = Date.parse('2026-08-31T00:00:00-03:00');
+            if (Date.now() < preShowPromoStartArgentina) return;
+
+            const title = document.getElementById('helloweenPromoTitle');
+            const period = document.getElementById('helloweenPromoPeriod');
+            if (title) title.textContent = 'PROMO PREVIA AL SHOW';
+            if (period) period.textContent = 'Envío gratis a punto Andreani desde 1 prenda';
+        });
+    </script>
     <script src="/js/band-archives-config.js" defer></script>
     <script src="/js/catalog-design.js" defer></script>
     <script src="/js/app.js" defer></script>
