@@ -72,9 +72,9 @@
             <div class="band-landing-hero-copy">
                 <p class="band-landing-brand">FIVE MAGICS DESIGNS</p>
                 <h1 id="bandLandingTitle">HELLOWEEN</h1>
-                <h2>REMERAS, HOODIES Y BUZOS</h2>
-                <p>Explorá diseños de Helloween y elegí tu favorito para armar el pedido.</p>
-                <a class="band-landing-primary-cta" href="#catalogoPrincipal">VER DISEÑOS</a>
+                <h2>COLECCIÓN ESPECIAL HELLOWEEN 40 YEARS</h2>
+                <p><strong>Más de 20 diseños disponibles</strong><br>Remeras desde $37.000 · Envío gratis a punto Andreani desde 1 prenda<br><strong>Pedila con tiempo para el show del 13/9</strong></p>
+                <a class="band-landing-primary-cta" href="#catalogoPrincipal">VER LOS +20 DISEÑOS</a>
 
             </div>
             <div class="band-landing-hero-art">
@@ -124,29 +124,6 @@
                 </button>
             </div>
         </section>
-
-        <details class="band-landing-size-guide" id="tablaDeMedidas">
-            <summary>
-                <span>CONSULTÁ LA TABLA DE MEDIDAS</span>
-                <small>Compará las medidas antes de elegir el talle</small>
-            </summary>
-            <div class="band-landing-size-guide-body">
-                <div class="band-landing-size-guide-tabs" aria-label="Elegir tabla de medidas">
-                    <button type="button" class="active" data-landing-size-guide="hombre" onclick="selectLandingSizeGuide('hombre')">Remera hombre</button>
-                    <button type="button" data-landing-size-guide="mujer" onclick="selectLandingSizeGuide('mujer')">Remera mujer</button>
-                    <button type="button" data-landing-size-guide="oversize" onclick="selectLandingSizeGuide('oversize')">Oversize</button>
-                    <button type="button" data-landing-size-guide="ninos" onclick="selectLandingSizeGuide('ninos')">Niños</button>
-                    <button type="button" data-landing-size-guide="hoodies" onclick="selectLandingSizeGuide('hoodies')">Hoodie</button>
-                    <button type="button" data-landing-size-guide="buzo-redondo" onclick="selectLandingSizeGuide('buzo-redondo')">Buzo</button>
-                </div>
-                <div class="band-landing-size-guide-content">
-                    <h3 id="landingSizeGuideTitle">Tabla de medidas</h3>
-                    <p id="landingSizeGuideCopy"></p>
-                    <div id="landingSizeGuideTable"></div>
-                    <p class="band-landing-size-guide-note">Medí una prenda similar extendida sobre una superficie plana. Las medidas pueden variar hasta un 5%.</p>
-                </div>
-            </div>
-        </details>
 
         <section class="band-landing-catalog" aria-labelledby="bandCatalogTitle">
             <div class="band-landing-section-head">
@@ -198,6 +175,29 @@
                 </div>
             </section>
         </section>
+
+        <details class="band-landing-size-guide" id="tablaDeMedidas">
+            <summary>
+                <span>CONSULTÁ LA TABLA DE MEDIDAS</span>
+                <small>Compará las medidas antes de elegir el talle</small>
+            </summary>
+            <div class="band-landing-size-guide-body">
+                <div class="band-landing-size-guide-tabs" aria-label="Elegir tabla de medidas">
+                    <button type="button" class="active" data-landing-size-guide="hombre" onclick="selectLandingSizeGuide('hombre')">Remera hombre</button>
+                    <button type="button" data-landing-size-guide="mujer" onclick="selectLandingSizeGuide('mujer')">Remera mujer</button>
+                    <button type="button" data-landing-size-guide="oversize" onclick="selectLandingSizeGuide('oversize')">Oversize</button>
+                    <button type="button" data-landing-size-guide="ninos" onclick="selectLandingSizeGuide('ninos')">Niños</button>
+                    <button type="button" data-landing-size-guide="hoodies" onclick="selectLandingSizeGuide('hoodies')">Hoodie</button>
+                    <button type="button" data-landing-size-guide="buzo-redondo" onclick="selectLandingSizeGuide('buzo-redondo')">Buzo</button>
+                </div>
+                <div class="band-landing-size-guide-content">
+                    <h3 id="landingSizeGuideTitle">Tabla de medidas</h3>
+                    <p id="landingSizeGuideCopy"></p>
+                    <div id="landingSizeGuideTable"></div>
+                    <p class="band-landing-size-guide-note">Medí una prenda similar extendida sobre una superficie plana. Las medidas pueden variar hasta un 5%.</p>
+                </div>
+            </div>
+        </details>
 
         <section class="band-landing-custom" id="bandLandingFinal" aria-labelledby="bandCustomTitle">
             <p id="bandLandingFinalKicker">PERSONALIZADOS FMD</p>
@@ -252,13 +252,13 @@
                         <span id="breadcrumbCategory">Categoría</span> → <span id="breadcrumbProduct">Producto</span>
                     </div>
 
-                    <h2 class="modal-product-name" id="modalName">Nombre</h2>
+                    <h2 class="modal-product-name" id="modalName"></h2>
                     <div class="product-code-chip" id="productCodeChip">
-                        <span id="displayCode">CODE_001</span>
+                        <span id="displayCode"></span>
                         <button class="code-copy-btn" onclick="copyProductCode()" title="Copiar código">📋</button>
                     </div>
-                    <div class="modal-product-meta" id="modalMeta">1985 · Album</div>
-                    <p class="modal-product-desc is-hidden" id="modalDesc">Descripción...</p>
+                    <div class="modal-product-meta" id="modalMeta"></div>
+                    <p class="modal-product-desc is-hidden" id="modalDesc"></p>
                     <div class="modal-quick-guide is-hidden"></div>
                     <div class="modal-size-guide-panel is-hidden" id="modalSizeGuidePanel">
                         <div class="modal-size-guide-head">
