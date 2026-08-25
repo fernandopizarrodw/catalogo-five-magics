@@ -19286,6 +19286,66 @@
         "preferredPreview": true,
         "defaultPrintMode": "double",
         "isNew": true
+      },
+      {
+        "img": "images/banda_sugeridas/sonata_artica/remera_sonata_artica_30th_argentina.jpg",
+        "name": "Sonata Arctica 30th Anniversary Tour Buenos Aires 2026",
+        "alt": "Remera negra Sonata Arctica 30th Anniversary Tour Buenos Aires 2026 con estampa frontal",
+        "designId": "sonata-arctica-30th-anniversary-tour-buenos-aires",
+        "role": "front",
+        "garmentCategory": "Bandas Sugeridas",
+        "color": "negro",
+        "preferredPreview": true,
+        "defaultPrintMode": "simple",
+        "isNew": true
+      },
+      {
+        "img": "images/banda_sugeridas/sonata_artica/remera_sonata_artica_days.jpg",
+        "name": "Sonata Arctica The Days of Grays",
+        "alt": "Remera negra Sonata Arctica The Days of Grays con estampa frontal",
+        "designId": "sonata-arctica-the-days-of-grays",
+        "role": "front",
+        "garmentCategory": "Bandas Sugeridas",
+        "color": "negro",
+        "preferredPreview": true,
+        "defaultPrintMode": "simple",
+        "isNew": true
+      },
+      {
+        "img": "images/banda_sugeridas/sonata_artica/remera_sonata_artica_pariah's.jpg",
+        "name": "Sonata Arctica Pariah's Child",
+        "alt": "Remera negra Sonata Arctica Pariah's Child con estampa frontal",
+        "designId": "sonata-arctica-pariahs-child",
+        "role": "front",
+        "garmentCategory": "Bandas Sugeridas",
+        "color": "negro",
+        "preferredPreview": true,
+        "defaultPrintMode": "simple",
+        "isNew": true
+      },
+      {
+        "img": "images/banda_sugeridas/sonata_artica/remera_sonata_artica_stones.jpg",
+        "name": "Sonata Arctica Stones Grow Her Name",
+        "alt": "Remera negra Sonata Arctica Stones Grow Her Name con estampa frontal",
+        "designId": "sonata-arctica-stones-grow-her-name",
+        "role": "front",
+        "garmentCategory": "Bandas Sugeridas",
+        "color": "negro",
+        "preferredPreview": true,
+        "defaultPrintMode": "simple",
+        "isNew": true
+      },
+      {
+        "img": "images/banda_sugeridas/sonata_artica/remera_sonata_artica_unia.jpg",
+        "name": "Sonata Arctica Unia",
+        "alt": "Remera negra Sonata Arctica Unia con estampa frontal",
+        "designId": "sonata-arctica-unia",
+        "role": "front",
+        "garmentCategory": "Bandas Sugeridas",
+        "color": "negro",
+        "preferredPreview": true,
+        "defaultPrintMode": "simple",
+        "isNew": true
       }
     ],
     "desc": "Diseños de Sonata Arctica disponibles en remeras, hoodies y buzos.",
