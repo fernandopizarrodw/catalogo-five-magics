@@ -63,7 +63,10 @@ function serializeInlineConfig(config) {
             : {},
         sharedDesignIds: Array.isArray(config.sharedDesignIds) ? config.sharedDesignIds : [],
         sharedBands: Array.isArray(config.sharedBands) ? config.sharedBands : [],
-        albumOrder: Array.isArray(config.albumOrder) ? config.albumOrder : []
+        albumOrder: Array.isArray(config.albumOrder) ? config.albumOrder : [],
+        showcase: config.showcase && typeof config.showcase === 'object'
+            ? config.showcase
+            : null
     })
         .replace(/</g, '\\u003c');
 }
@@ -182,6 +185,17 @@ ${config.relatedArchive ? `                <a class="band-landing-related-archiv
             <span>Durante agosto · Desde 1 prenda</span>
             <b>3 PRENDAS O MÁS · 10% OFF + ENVÍO GRATIS A DOMICILIO</b>
         </section>
+${config.showcase ? `
+        <section class="band-design-showcase" id="bandDesignShowcase" aria-labelledby="bandDesignShowcaseTitle">
+            <div class="band-design-showcase-head">
+                <h2 id="bandDesignShowcaseTitle">${config.showcase.title}</h2>
+                <p>${config.showcase.copy}</p>
+            </div>
+            <div class="band-design-showcase-viewport" id="bandDesignShowcaseViewport" aria-live="off">
+                <div class="band-design-showcase-track" id="bandDesignShowcaseTrack"></div>
+            </div>
+            <button type="button" class="band-design-showcase-cta" onclick="openBandShowcaseCollection()">${config.showcase.ctaLabel}</button>
+        </section>` : ''}
 
         <section class="band-landing-garment-selector" id="catalogoPrincipal" aria-label="Elegir prenda ${config.band}">
             <div class="band-landing-garment-grid" role="tablist" aria-label="Prendas disponibles">

@@ -72,6 +72,12 @@ const BAND_LANDING_ALBUM_ORDER = Array.isArray(BAND_LANDING_CONFIG?.albumOrder)
 const BAND_LANDING_ALBUM_ORDER_INDEX = new Map(
     BAND_LANDING_ALBUM_ORDER.map((album, index) => [normalizeText(album), index])
 );
+const BAND_LANDING_ARCHIVE_CONFIG = BAND_ARCHIVE_CONFIGS.find(config =>
+    normalizeText(config?.band) === normalizeText(BAND_LANDING_BAND)
+);
+const BAND_LANDING_SHOWCASE = BAND_LANDING_CONFIG?.showcase
+    || BAND_LANDING_ARCHIVE_CONFIG?.showcase
+    || null;
 const BAND_LANDING_GARMENTS = new Set(['remera', 'hoodie', 'buzo_cuello_redondo']);
 const configuredBandLandingGarment = String(BAND_LANDING_CONFIG?.defaultGarment || '').trim();
 const requestedBandLandingGarment = typeof window !== 'undefined'
@@ -3411,6 +3417,127 @@ function initializeCatalogDesigns() {
     }
 }
 
+let bandShowcaseCollectionMode = false;
+
+function getBandShowcaseVariantMap() {
+    const campaign = String(BAND_LANDING_SHOWCASE?.campaignPreview || '');
+    const variants = db.flatMap(product => (product.variants || []).map((variant, variantIndex) => ({
+        product,
+        variant,
+        variantIndex
+    })));
+    return new Map(variants
+        .filter(({ variant }) => variant.campaignPreview === campaign && variant.designId)
+        .map(({ variant }) => [variant.designId, variant]));
+}
+
+function setBandShowcasePaused(reason, paused) {
+    const track = document.getElementById('bandDesignShowcaseTrack');
+    if (!track) return;
+    const reasons = new Set(String(track.dataset.pauseReasons || '').split(',').filter(Boolean));
+    if (paused) reasons.add(reason);
+    else reasons.delete(reason);
+    track.dataset.pauseReasons = [...reasons].join(',');
+    track.classList.toggle('is-paused', reasons.size > 0);
+}
+
+function openBandShowcaseDesign(designId) {
+    setBandShowcasePaused('modal', true);
+    bandShowcaseCollectionMode = true;
+    openCatalogDesign(designId, 'remera');
+    selectPrintMode('simple');
+}
+
+window.openBandShowcaseDesign = openBandShowcaseDesign;
+
+function openBandShowcaseCollection() {
+    bandShowcaseCollectionMode = true;
+    const search = document.getElementById('searchInput');
+    if (search) search.value = '';
+    if (bandLandingCollection) selectBandLandingCollection('');
+    selectBandLandingGarment('remera');
+}
+
+window.openBandShowcaseCollection = openBandShowcaseCollection;
+
+function renderBandDesignShowcase() {
+    const section = document.getElementById('bandDesignShowcase');
+    const viewport = document.getElementById('bandDesignShowcaseViewport');
+    const track = document.getElementById('bandDesignShowcaseTrack');
+    const order = Array.isArray(BAND_LANDING_SHOWCASE?.order) ? BAND_LANDING_SHOWCASE.order : [];
+    if (!section || !viewport || !track || !order.length || track.dataset.rendered === 'true') return;
+
+    const variants = getBandShowcaseVariantMap();
+    const items = order.map(designId => ({
+        designId,
+        design: catalogDesignById.get(designId),
+        variant: variants.get(designId)
+    })).filter(item => item.design && item.variant?.img);
+
+    if (!items.length) {
+        section.hidden = true;
+        return;
+    }
+
+    const buildSet = (interactive, copyIndex) => {
+        const set = document.createElement('div');
+        set.className = 'band-design-showcase-set';
+        if (!interactive) set.setAttribute('aria-hidden', 'true');
+        items.forEach((item, index) => {
+            const card = document.createElement(interactive ? 'button' : 'div');
+            card.className = 'band-design-showcase-card';
+            if (interactive) {
+                card.type = 'button';
+                card.dataset.designId = item.designId;
+                card.setAttribute('aria-label', `Ver remera Helloween — ${item.design.publicName}`);
+                card.addEventListener('click', () => openBandShowcaseDesign(item.designId));
+            }
+            const image = document.createElement('img');
+            const previewImage = item.variant.campaignThumbnail || item.variant.img;
+            image.src = `/${previewImage.replace(/^\/+/, '')}`;
+            image.alt = interactive ? (item.variant.alt || `Remera Helloween ${item.design.publicName}`) : '';
+            image.decoding = 'async';
+            image.loading = copyIndex === 0 && index < 6 ? 'eager' : 'lazy';
+            card.appendChild(image);
+            set.appendChild(card);
+        });
+        return set;
+    };
+
+    track.style.setProperty('--showcase-duration', `${Number(BAND_LANDING_SHOWCASE.durationSeconds) || 60}s`);
+    track.append(buildSet(true, 0), buildSet(false, 1));
+    track.dataset.rendered = 'true';
+    track.dataset.itemCount = String(items.length);
+
+    let touchResumeTimer = 0;
+    viewport.addEventListener('touchstart', () => {
+        clearTimeout(touchResumeTimer);
+        setBandShowcasePaused('touch', true);
+    }, { passive: true });
+    viewport.addEventListener('touchend', () => {
+        clearTimeout(touchResumeTimer);
+        touchResumeTimer = window.setTimeout(() => setBandShowcasePaused('touch', false), 1500);
+    }, { passive: true });
+
+    if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver(([entry]) => {
+            setBandShowcasePaused('offscreen', !entry.isIntersecting);
+        }, { threshold: 0.08 });
+        observer.observe(section);
+    }
+    document.addEventListener('visibilitychange', () => {
+        setBandShowcasePaused('hidden', document.hidden);
+    });
+    const modalObserver = new MutationObserver(() => {
+        if (modal.classList.contains('active')) {
+            setBandShowcasePaused('modal', true);
+            return;
+        }
+        window.setTimeout(() => setBandShowcasePaused('modal', false), 1500);
+    });
+    modalObserver.observe(modal, { attributes: true, attributeFilter: ['class'] });
+}
+
 // Cargar productos desde JSON
 async function loadProducts() {
     try {
@@ -3423,6 +3550,7 @@ async function loadProducts() {
         updateCountsUI();
         if (ENABLE_UNIVERSE_SHOWCASES) renderUniverseShowcases();
         filterProducts(); // Renderizar después de cargar
+        renderBandDesignShowcase();
         renderHomeNews();
         loadProductFromHash(); // Abrir producto desde URL hash si existe
         loadCategoryFromURL();  // Ir a categoría desde ?cat= si existe
@@ -4796,6 +4924,9 @@ function openCatalogDesign(designId, initialGarment = '') {
         initial_garment: requestedGarment || undefined
     });
     openModal(design.front.productId, design.front.variantIndex, undefined, 'catalog_design', designId, requestedGarment);
+    if (bandShowcaseCollectionMode && normalizeText(BAND_LANDING_BAND) === 'helloween') {
+        selectPrintMode('simple');
+    }
 }
 
 window.openCatalogDesign = openCatalogDesign;
