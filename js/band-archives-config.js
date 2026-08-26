@@ -530,7 +530,7 @@
             heroCopy: 'Explorá diseños de Helloween y elegí tu favorito para armar el pedido.',
             finalTitle: '¿BUSCABAS OTRO DISEÑO DE HELLOWEEN?',
             finalCopy: 'También hacemos diseños personalizados a partir de una tapa, imagen o idea.',
-            whatsappMessage: 'Hola FMD! Quiero consultar por un diseño de Helloween a partir de una tapa, imagen o idea.',
+            whatsappMessage: 'Hola FMD! Estoy buscando un diseño de Helloween que no encontré en la colección. ¿Puedo enviarles una imagen o contarles la idea?',
             defaultGarment: 'remera',
             usesShownComposition: false,
             showSizeGuide: true,
