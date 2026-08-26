@@ -2997,7 +2997,11 @@ class CartSystem {
             ? `\n10% OFF: -$${Math.round(totals.descuento).toLocaleString('es-AR')}`
             : '';
 
-        return `${details}\n\nRESUMEN\n${total} ${total === 1 ? 'prenda' : 'prendas'} · Subtotal: $${Math.round(totals.subtotal).toLocaleString('es-AR')}${discountLine}\nTotal: $${Math.round(totals.total).toLocaleString('es-AR')}`;
+        if (total === 1) {
+            return `${details}\n\nTOTAL: $${Math.round(totals.total).toLocaleString('es-AR')}`;
+        }
+
+        return `${details}\n\nRESUMEN\n${total} prendas · Subtotal: $${Math.round(totals.subtotal).toLocaleString('es-AR')}${discountLine}\nTotal: $${Math.round(totals.total).toLocaleString('es-AR')}`;
     }
 
     generateConsultationSummary() {
@@ -7372,8 +7376,8 @@ function buildCustomerDataForWhatsapp(data) {
 
     if (selectedDeliveryMethod === 'taller') {
         return data.nombre
-            ? `\n\nDATOS\n${data.nombre}`
-            : '\n\nDATOS\nA confirmar por WhatsApp';
+            ? `\n\n${data.nombre}`
+            : '\n\nNombre a confirmar por WhatsApp';
     }
 
     const lines = [];
@@ -7419,6 +7423,7 @@ function updateCheckoutWhatsappAvailability() {
 function buildShippingContextForWhatsapp(postalCode = '', customerData = null) {
     const totals = calculateCartTotal();
     let deliveryBenefit = '';
+    let deliveryHeading = 'ENTREGA';
     if (selectedDeliveryMethod === 'retiro_andreani') {
         deliveryBenefit = 'Punto Andreani · Envío gratis';
     } else if (selectedDeliveryMethod === 'domicilio') {
@@ -7426,9 +7431,10 @@ function buildShippingContextForWhatsapp(postalCode = '', customerData = null) {
             ? 'Domicilio · Envío gratis'
             : 'Domicilio · Envío a cotizar según CP';
     } else if (selectedDeliveryMethod === 'taller') {
-        deliveryBenefit = 'Retiro sin cargo en Villa Martelli · Zona Tecnópolis\nLunes a viernes de 10 a 16 h';
+        deliveryHeading = 'RETIRO';
+        deliveryBenefit = 'Villa Martelli · Zona Tecnópolis\nLunes a viernes de 10 a 16 h';
     }
-    const deliveryContext = `\n\nENTREGA\n${deliveryBenefit}`;
+    const deliveryContext = `\n\n${deliveryHeading}\n${deliveryBenefit}`;
     const customerContext = customerData ? buildCustomerDataForWhatsapp(customerData) : '';
     return `${deliveryContext}${customerContext}`;
 }
@@ -7437,7 +7443,7 @@ function sendViaWhatsapp(postalCode = '', customerData = null) {
     const summary = cart.generateSummary();
     const shippingContext = buildShippingContextForWhatsapp(postalCode, customerData);
     const closing = selectedDeliveryMethod === 'taller'
-        ? '¿Me confirmás cuándo estaría disponible para retirar y cómo seguimos con el pago?'
+        ? '¿Me confirmás el pedido y cómo seguimos con el pago?'
         : selectedDeliveryMethod === 'retiro_andreani'
             ? '¿Me indicás el punto Andreani más conveniente y cómo seguimos?'
             : selectedDeliveryMethod === 'domicilio'
