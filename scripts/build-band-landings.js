@@ -167,7 +167,8 @@ function renderLanding(config, sharedCommerceMarkup) {
                 <h1 id="bandLandingTitle">${config.displayName}</h1>
                 <h2>${config.heroTitle}</h2>
                 <p>${config.heroCopy}</p>
-                <a class="band-landing-primary-cta" href="#catalogoPrincipal">VER DISEÑOS</a>
+${config.heroQualityLine ? `                <p class="band-landing-quality-line">${config.heroQualityLine}</p>` : ''}
+                <a class="band-landing-primary-cta" href="#catalogoPrincipal">${config.heroCtaLabel || 'VER DISEÑOS'}</a>
 ${config.relatedArchive ? `                <a class="band-landing-related-archive" href="${config.relatedArchive.href}" aria-label="${config.relatedArchive.label}: ${config.relatedArchive.title}">
                     <span>${config.relatedArchive.label}</span>
                     <strong>${config.relatedArchive.title}</strong>
