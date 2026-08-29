@@ -2958,7 +2958,9 @@ class CartSystem {
             const talle = item.size;
             const color = item.color === 'blanco' ? 'Blanca' : 'Negra';
             let tipoPrenda;
-            if (item.publicGarmentLabel) {
+            if (item.age === 'chico') {
+                tipoPrenda = 'Remera infantil';
+            } else if (item.publicGarmentLabel) {
                 tipoPrenda = item.publicGarmentLabel;
             } else if (isBuzoRedondo) {
                 tipoPrenda = 'Buzo cuello redondo oversize unisex';
@@ -3011,7 +3013,9 @@ class CartSystem {
         return this.cart.map((item, idx) => {
             const isHoodie = isHoodieItem(item);
             const isBuzoRedondo = isBuzoRedondoItem(item);
-            const garment = item.publicGarmentLabel || (isBuzoRedondo
+            const garment = item.age === 'chico'
+                ? 'Remera infantil'
+                : item.publicGarmentLabel || (isBuzoRedondo
                 ? 'Buzo cuello redondo oversize unisex'
                 : isHoodie
                     ? 'Hoodie oversize unisex'
