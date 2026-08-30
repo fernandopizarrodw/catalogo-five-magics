@@ -8899,6 +8899,45 @@
         "campaignPreview": "helloween-show-2026",
         "campaignThumbnail": "images/banda_sugeridas/helloween/show_2026_verticales/thumbs/remera_helloween_43_keeper_II.jpg",
         "isNew": true
+      },
+      {
+        "img": "images/banda_sugeridas/helloween/show_2026_verticales/remera_helloween_44_Helloween_master_of_keys.jpg",
+        "name": "Helloween Master of Keys",
+        "alt": "Remera negra Helloween Master of Keys con estampa frontal",
+        "designId": "helloween-master-of-keys",
+        "role": "front",
+        "garmentCategory": "Bandas Sugeridas",
+        "color": "negro",
+        "defaultPrintMode": "simple",
+        "campaignPreview": "helloween-show-2026",
+        "campaignThumbnail": "images/banda_sugeridas/helloween/show_2026_verticales/thumbs/remera_helloween_44_Helloween_master_of_keys.jpg",
+        "isNew": true
+      },
+      {
+        "img": "images/banda_sugeridas/helloween/show_2026_verticales/remera_helloween_45_tracks.jpg",
+        "name": "Helloween 40 Years: The Tracks",
+        "alt": "Remera negra Helloween 40 Years The Tracks con estampa frontal",
+        "designId": "helloween-40-years-the-tracks",
+        "role": "front",
+        "garmentCategory": "Bandas Sugeridas",
+        "color": "negro",
+        "defaultPrintMode": "simple",
+        "campaignPreview": "helloween-show-2026",
+        "campaignThumbnail": "images/banda_sugeridas/helloween/show_2026_verticales/thumbs/remera_helloween_45_tracks.jpg",
+        "isNew": true
+      },
+      {
+        "img": "images/banda_sugeridas/helloween/show_2026_verticales/remera_helloween_46_logo_tour_official.jpg",
+        "name": "Helloween 40 Years Anniversary Tour - Latin America 2026",
+        "alt": "Remera negra Helloween 40 Years Anniversary Tour Latin America 2026 con estampa frontal",
+        "designId": "helloween-40-years-tour-latin-america-2026",
+        "role": "front",
+        "garmentCategory": "Bandas Sugeridas",
+        "color": "negro",
+        "defaultPrintMode": "simple",
+        "campaignPreview": "helloween-show-2026",
+        "campaignThumbnail": "images/banda_sugeridas/helloween/show_2026_verticales/thumbs/remera_helloween_46_logo_tour_official.jpg",
+        "isNew": true
       }
     ],
     "desc": "Selección de diseños de Helloween disponibles en remeras, hoodies y buzos.",
