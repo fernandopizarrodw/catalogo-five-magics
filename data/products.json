@@ -8964,6 +8964,19 @@
         "campaignPreview": "helloween-show-2026",
         "campaignThumbnail": "images/banda_sugeridas/helloween/show_2026_verticales/thumbs/remera_helloween_dr_stein_fmd_edition.jpg",
         "isNew": true
+      },
+      {
+        "img": "images/banda_sugeridas/helloween/show_2026_verticales/remera_helloween_tour_keepers.jpg",
+        "name": "Helloween Keeper of the Seven Keys Part I - Arte original FMD",
+        "alt": "Remera negra Helloween Keeper of the Seven Keys Part I con arte original FMD y estampa frontal",
+        "designId": "helloween-keeper-of-the-seven-keys-part-i-arte-original-fmd",
+        "role": "front",
+        "garmentCategory": "Bandas Sugeridas",
+        "color": "negro",
+        "defaultPrintMode": "simple",
+        "campaignPreview": "helloween-show-2026",
+        "campaignThumbnail": "images/banda_sugeridas/helloween/show_2026_verticales/thumbs/remera_helloween_tour_keepers.jpg",
+        "isNew": true
       }
     ],
     "desc": "Selección de diseños de Helloween disponibles en remeras, hoodies y buzos.",
