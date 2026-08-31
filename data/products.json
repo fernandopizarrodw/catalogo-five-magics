@@ -8938,6 +8938,32 @@
         "campaignPreview": "helloween-show-2026",
         "campaignThumbnail": "images/banda_sugeridas/helloween/show_2026_verticales/thumbs/remera_helloween_46_logo_tour_official.jpg",
         "isNew": true
+      },
+      {
+        "img": "images/banda_sugeridas/helloween/show_2026_verticales/remera_helloween_47_united_forces.jpg",
+        "name": "Helloween United Forces",
+        "alt": "Remera negra Helloween United Forces con estampa frontal",
+        "designId": "helloween-united-forces",
+        "role": "front",
+        "garmentCategory": "Bandas Sugeridas",
+        "color": "negro",
+        "defaultPrintMode": "simple",
+        "campaignPreview": "helloween-show-2026",
+        "campaignThumbnail": "images/banda_sugeridas/helloween/show_2026_verticales/thumbs/remera_helloween_47_united_forces.jpg",
+        "isNew": true
+      },
+      {
+        "img": "images/banda_sugeridas/helloween/show_2026_verticales/remera_helloween_dr_stein_fmd_edition.jpg",
+        "name": "Helloween Dr. Stein - Arte original FMD",
+        "alt": "Remera negra Helloween Dr. Stein con arte original FMD y estampa frontal",
+        "designId": "helloween-dr-stein-arte-original-fmd",
+        "role": "front",
+        "garmentCategory": "Bandas Sugeridas",
+        "color": "negro",
+        "defaultPrintMode": "simple",
+        "campaignPreview": "helloween-show-2026",
+        "campaignThumbnail": "images/banda_sugeridas/helloween/show_2026_verticales/thumbs/remera_helloween_dr_stein_fmd_edition.jpg",
+        "isNew": true
       }
     ],
     "desc": "Selección de diseños de Helloween disponibles en remeras, hoodies y buzos.",
