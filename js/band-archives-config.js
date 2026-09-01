@@ -527,7 +527,7 @@
             image: '/images/banda_sugeridas/helloween/helloween_40_tour.jpg',
             imageUrl: 'https://catalogo.fivemagicsdesigns.com/images/banda_sugeridas/helloween/helloween_40_tour.jpg',
             heroTitle: 'COLECCIÓN ESPECIAL HELLOWEEN 40 YEARS',
-            heroCopy: '<strong>Más de 40 diseños disponibles</strong><br>Remeras desde $37.000 · Envío gratis a punto Andreani desde 1 prenda<br><strong>Pedila con tiempo para el show del 13/9</strong>',
+            heroCopy: '<strong>Más de 40 diseños disponibles</strong><br>Remeras desde $37.000 · Punto Andreani $5.000 con 1 prenda y gratis con 2<br><strong>Pedila con tiempo para el show del 13/9</strong>',
             heroCtaLabel: 'VER LAS +40 REMERAS',
             heroQualityLine: 'DTG PREMIUM · ALGODÓN PEINADO · SIN TACTO PLÁSTICO',
             finalTitle: '¿BUSCABAS OTRO DISEÑO DE HELLOWEEN?',

@@ -2998,9 +2998,13 @@ class CartSystem {
         const discountLine = totals.descuento > 0
             ? `\n10% OFF: -$${Math.round(totals.descuento).toLocaleString('es-AR')}`
             : '';
+        const shippingLine = totals.envio > 0
+            ? `\nEnvío a punto Andreani: $${Math.round(totals.envio).toLocaleString('es-AR')}`
+            : '';
 
         if (total === 1) {
-            return `${details}\n\nTOTAL: $${Math.round(totals.total).toLocaleString('es-AR')}`;
+            if (!shippingLine) return `${details}\n\nTOTAL: $${Math.round(totals.total).toLocaleString('es-AR')}`;
+            return `${details}\n\nRESUMEN\n1 prenda · Subtotal: $${Math.round(totals.subtotal).toLocaleString('es-AR')}${shippingLine}\nTotal: $${Math.round(totals.total).toLocaleString('es-AR')}`;
         }
 
         return `${details}\n\nRESUMEN\n${total} prendas · Subtotal: $${Math.round(totals.subtotal).toLocaleString('es-AR')}${discountLine}\nTotal: $${Math.round(totals.total).toLocaleString('es-AR')}`;
@@ -7429,7 +7433,9 @@ function buildShippingContextForWhatsapp(postalCode = '', customerData = null) {
     let deliveryBenefit = '';
     let deliveryHeading = 'ENTREGA';
     if (selectedDeliveryMethod === 'retiro_andreani') {
-        deliveryBenefit = 'Punto Andreani · Envío gratis';
+        deliveryBenefit = totals.cantidad === 1
+            ? 'Punto Andreani · Envío $5.000'
+            : 'Punto Andreani · Envío gratis';
     } else if (selectedDeliveryMethod === 'domicilio') {
         deliveryBenefit = totals.cantidad >= 3
             ? 'Domicilio · Envío gratis'
@@ -7586,35 +7592,55 @@ function calculateDiscountableSubtotal(items) {
     return Math.max(0, calculateCartSubtotal(items) - calculateCustomExtraSubtotal(items));
 }
 
-function calculateWinterPromotion(items) {
+const ANDREANI_POINT_SINGLE_PRICE = 5000;
+
+function calculateWinterPromotion(items, deliveryMethod = selectedDeliveryMethod) {
     const quantity = items.length;
     const rawSubtotal = calculateCartSubtotal(items);
     const discountableSubtotal = calculateDiscountableSubtotal(items);
 
     if (quantity >= 3) {
         const discount = discountableSubtotal * 0.10;
+        const deliveryBenefit = deliveryMethod === 'retiro_andreani'
+            ? 'envío gratis a punto Andreani'
+            : deliveryMethod === 'taller'
+                ? 'retiro sin cargo en Villa Martelli'
+                : 'envío gratis a domicilio';
         return {
             id: 'general_3_plus',
-            label: '3 prendas o más: 10% OFF + envío gratis a domicilio',
+            label: `3 prendas o más: 10% OFF + ${deliveryBenefit}`,
             description: 'Los diseños personalizados tienen un adicional de $5.000 por diseño. Ese adicional no recibe descuentos promocionales.',
             subtotal: rawSubtotal,
             descuento: discount,
             total: rawSubtotal - discount,
             envioGratis: true,
-            envioGratisPuntoAndreani: false
+            envioGratisPuntoAndreani: deliveryMethod === 'retiro_andreani'
         };
     }
 
-    if (quantity >= 1) {
+    if (quantity === 2 && deliveryMethod === 'retiro_andreani') {
         return {
-            id: 'agosto_desde_una_prenda',
-            label: 'Promo agosto: envío gratis a punto de retiro Andreani',
-            description: 'Beneficio vigente desde una prenda. Elegí el punto de retiro Andreani que te quede más cómodo.',
+            id: 'septiembre_dos_prendas',
+            label: '2 prendas: envío gratis a punto Andreani',
+            description: 'Elegí el punto de retiro Andreani que te quede más cómodo.',
             subtotal: rawSubtotal,
             descuento: 0,
             total: rawSubtotal,
             envioGratis: true,
             envioGratisPuntoAndreani: true
+        };
+    }
+
+    if (quantity === 1 && deliveryMethod === 'retiro_andreani') {
+        return {
+            id: 'septiembre_una_prenda',
+            label: '1 prenda: envío a punto Andreani por $5.000',
+            description: 'Elegí el punto de retiro Andreani que te quede más cómodo.',
+            subtotal: rawSubtotal,
+            descuento: 0,
+            total: rawSubtotal,
+            envioGratis: false,
+            envioGratisPuntoAndreani: false
         };
     }
 
@@ -7634,14 +7660,17 @@ function calculateCartTotal() {
     const items = cart.getCart();
     const cantidad = items.length;
     const promotion = calculateWinterPromotion(items);
+    const shippingCost = selectedDeliveryMethod === 'retiro_andreani' && cantidad === 1
+        ? ANDREANI_POINT_SINGLE_PRICE
+        : 0;
 
     return {
         subtotal: promotion.subtotal,
-        envio: 0, // No sumamos envío fijo, es dinámico
+        envio: shippingCost,
         envioGratis: promotion.envioGratis,
         envioGratisPuntoAndreani: promotion.envioGratisPuntoAndreani,
         descuento: promotion.descuento,
-        total: promotion.total, // Total SIN envío a domicilio
+        total: promotion.total + shippingCost,
         cantidad,
         promotion
     };
@@ -7725,17 +7754,18 @@ function renderCartPreview() {
     // Renderizar footer con resumen
     let shippingNote = '';
     if (totals.promotion?.id && totals.promotion.id !== 'sin_promo') {
-        const extra = totals.envioGratisPuntoAndreani
-            ? ' Envío gratis a punto Andreani; a domicilio se abona diferencia.'
-            : ' Envío gratis a domicilio.';
-        shippingNote = `<div class="cart-preview-shipping-note">🎁 ${totals.promotion.label}.${extra}</div>`;
+        shippingNote = `<div class="cart-preview-shipping-note">🎁 ${totals.promotion.label}</div>`;
     }
+
+    const pointDeliveryLabel = totals.cantidad === 1
+        ? 'Punto de retiro Andreani · $5.000'
+        : 'Punto de retiro Andreani · GRATIS';
 
     const deliverySelector = `
         <div class="cart-customer-fields cart-delivery-checkout" id="cartDeliveryGroup">
             <p class="cart-customer-title">Forma de entrega</p>
             <div class="modal-delivery-options">
-                <button type="button" class="option-btn modal-delivery-btn ${selectedDeliveryMethod === 'retiro_andreani' ? 'active' : ''}" data-order-delivery data-delivery="retiro_andreani" onclick="selectDeliveryMethod('retiro_andreani')">Punto de retiro Andreani · GRATIS</button>
+                <button type="button" class="option-btn modal-delivery-btn ${selectedDeliveryMethod === 'retiro_andreani' ? 'active' : ''}" data-order-delivery data-delivery="retiro_andreani" onclick="selectDeliveryMethod('retiro_andreani')">${pointDeliveryLabel}</button>
                 <button type="button" class="option-btn modal-delivery-btn ${selectedDeliveryMethod === 'domicilio' ? 'active' : ''}" data-order-delivery data-delivery="domicilio" onclick="selectDeliveryMethod('domicilio')">Envío Andreani a domicilio</button>
                 <button type="button" class="option-btn modal-delivery-btn ${selectedDeliveryMethod === 'taller' ? 'active' : ''}" data-order-delivery data-delivery="taller" onclick="selectDeliveryMethod('taller')">Retiro sin cargo en Villa Martelli</button>
             </div>
@@ -7779,7 +7809,9 @@ function renderCartPreview() {
                 <div class="cart-cp-field"><label for="inputCP">Código postal</label><input type="text" id="inputCP" placeholder="Ej: 1425" maxlength="8" inputmode="numeric" autocomplete="postal-code"><small>Lo usamos para encontrar el punto Andreani más conveniente.</small></div>
                 <div class="cart-cp-field"><label for="inputLocalidad">Localidad</label><input type="text" id="inputLocalidad" placeholder="Ej: CABA" autocomplete="address-level2"></div>
             </div>`;
-        customerHint = 'Envío gratis a punto de retiro Andreani desde 1 prenda.';
+        customerHint = totals.cantidad === 1
+            ? 'Con 1 prenda, el envío a punto Andreani cuesta $5.000.'
+            : 'Con 2 prendas o más, el envío a punto Andreani es gratis.';
     } else if (selectedDeliveryMethod === 'taller') {
         customerHint = 'Villa Martelli, zona Tecnópolis · Lunes a viernes de 10 a 16 h. La dirección se coordina por WhatsApp.';
     }
@@ -7801,7 +7833,9 @@ function renderCartPreview() {
         : selectedDeliveryMethod === 'taller'
             ? '<span style="color:var(--magic-green);">RETIRO SIN CARGO ✓</span>'
             : selectedDeliveryMethod === 'retiro_andreani'
-                ? '<span style="color:var(--magic-green);">GRATIS a punto Andreani ✓</span>'
+                ? totals.cantidad === 1
+                    ? '<span>$5.000 a punto Andreani</span>'
+                    : '<span style="color:var(--magic-green);">GRATIS a punto Andreani ✓</span>'
                 : totals.cantidad >= 3
                     ? '<span style="color:var(--magic-green);">GRATIS a domicilio ✓</span>'
                     : 'A confirmar según código postal';
@@ -7838,7 +7872,7 @@ function renderCartPreview() {
         ${shippingForm}
         <div class="cart-preview-info" style="margin-top:12px;padding:12px;background:#0a0a0a;border:1px solid #222;border-radius:8px;font-size:0.8rem;color:#888;">
             <div style="margin-bottom:8px;">
-                <span style="color:#39ff14;">📦 PROMO AGOSTO:</span> Desde 1 prenda: envío gratis a punto de retiro Andreani. Desde 3 prendas: 10% OFF + envío gratis a domicilio.
+                <span style="color:#39ff14;">📦 PROMO SEPTIEMBRE:</span> 1 prenda: punto Andreani $5.000. 2 prendas: punto Andreani gratis. 3 prendas o más: 10% OFF + envío gratis a domicilio.
             </div>
             <div>
                 <span style="color:#39ff14;">💳 PAGO:</span> Transferencia o MercadoPago. Tarjeta de crédito disponible con recargo.
