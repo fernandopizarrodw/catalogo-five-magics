@@ -181,10 +181,10 @@ ${config.relatedArchive ? `                <a class="band-landing-related-archiv
         </section>
 
         <section class="july-shipping-promo" aria-label="Beneficios FMD">
-            <p>PROMO SEPTIEMBRE</p>
-            <strong>ENVÍOS <em>POR ANDREANI</em></strong>
-            <span>1 PRENDA · PUNTO ANDREANI $5.000</span>
-            <b>2 PRENDAS · PUNTO GRATIS · 3 O MÁS · 10% OFF + DOMICILIO GRATIS</b>
+            <p>${config.promoKicker || 'PROMO SEPTIEMBRE'}</p>
+            <strong>${config.promoTitle || 'ENVÍOS <em>POR ANDREANI</em>'}</strong>
+            <span>${config.promoPrimary || '1 PRENDA · PUNTO ANDREANI $5.000'}</span>
+            <b>${config.promoSecondary || '2 PRENDAS · PUNTO GRATIS · 3 O MÁS · 10% OFF + DOMICILIO GRATIS'}</b>
         </section>
 ${config.showcase ? `
         <section class="band-design-showcase" id="bandDesignShowcase" aria-labelledby="bandDesignShowcaseTitle">

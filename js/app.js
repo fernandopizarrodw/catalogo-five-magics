@@ -119,15 +119,28 @@ function isBandLandingMode() {
 }
 
 function usesBandLandingShownComposition() {
-    if (currentCatalogDesign?.usesShownComposition === true || currentProduct?.usesShownComposition === true) return true;
-    if (!isBandLandingMode()) return false;
-    if (BAND_LANDING_CONFIG?.usesShownComposition === true) return true;
     const garment = selectedModalGarment === 'buzo'
         ? 'buzo_cuello_redondo'
         : selectedModalGarment === 'hoodie'
             ? 'hoodie'
             : 'remera';
+    if (currentProduct?.usesShownComposition === true || currentCatalogDesign?.usesShownComposition === true) return true;
+    if (currentCatalogDesign?.usesShownCompositionGarments?.includes(garment)) return true;
+    if (!isBandLandingMode()) return false;
+    if (BAND_LANDING_CONFIG?.usesShownComposition === true) return true;
     return BAND_LANDING_SHOWN_COMPOSITION_GARMENTS.has(garment);
+}
+
+function cartItemUsesShownComposition(item) {
+    if (item?.usesShownComposition) return true;
+    const design = catalogDesignById.get(item?.designId);
+    if (design?.usesShownComposition) return true;
+    const garment = isHoodieItem(item)
+        ? 'hoodie'
+        : isBuzoRedondoItem(item)
+            ? 'buzo_cuello_redondo'
+            : 'remera';
+    return design?.usesShownCompositionGarments?.includes(garment) === true;
 }
 
 function isCatalogDesignInScope(design) {
@@ -2977,10 +2990,11 @@ class CartSystem {
             if (tipoPrenda === 'Remera clásica mujer') tipoPrenda = 'Remera con corte clásico mujer';
 
             const estampado = item.isDouble ? 'Frente y dorso' : 'Solo frente';
+            const usesShownComposition = cartItemUsesShownComposition(item);
             const additionalDetails = [];
-            if (item.isDouble && !item.usesShownComposition && !item.backCode) {
+            if (item.isDouble && !usesShownComposition && !item.backCode) {
                 additionalDetails.push('Dorso a definir');
-            } else if (item.isDouble && !item.usesShownComposition && item.backName) {
+            } else if (item.isDouble && !usesShownComposition && item.backName) {
                 additionalDetails.push(`Dorso: ${item.backName}`);
             }
             if (item.customizationText) {
@@ -3036,7 +3050,7 @@ class CartSystem {
             const warning = bothAreBacks
                 ? '\n* Importante: los dos diseños elegidos están identificados como dorso. Necesito confirmar cuál usar al frente.'
                 : '';
-            const designLines = item.isDouble && item.usesShownComposition
+            const designLines = item.isDouble && cartItemUsesShownComposition(item)
                 ? `* Diseño: ${item.frontName || item.frontCode}\n* Composición: propuesta mostrada`
                 : item.isDouble && item.backCode
                 ? `* Diseño 1: ${item.frontName || item.frontCode} (${item.frontCode})\n* Diseño 2: ${item.backName || item.backCode} (${item.backCode})`
@@ -7433,7 +7447,7 @@ function buildShippingContextForWhatsapp(postalCode = '', customerData = null) {
     let deliveryBenefit = '';
     let deliveryHeading = 'ENTREGA';
     if (selectedDeliveryMethod === 'retiro_andreani') {
-        deliveryBenefit = totals.cantidad === 1
+        deliveryBenefit = totals.envio > 0
             ? 'Punto Andreani · Envío $5.000'
             : 'Punto Andreani · Envío gratis';
     } else if (selectedDeliveryMethod === 'domicilio') {
@@ -7593,6 +7607,21 @@ function calculateDiscountableSubtotal(items) {
 }
 
 const ANDREANI_POINT_SINGLE_PRICE = 5000;
+const HELLOWEEN_POINT_PROMO_END = Date.parse('2026-09-04T00:00:00-03:00');
+
+function isHelloweenCartItem(item) {
+    const designId = String(item?.designId || '').trim().toLowerCase();
+    if (designId.startsWith('helloween-')) return true;
+
+    const product = db.find(entry => Number(entry?.id) === Number(item?.id));
+    return normalizeText(product?.band || product?.name || '').includes('helloween');
+}
+
+function hasActiveHelloweenPointPromo(items, now = Date.now()) {
+    return now < HELLOWEEN_POINT_PROMO_END
+        && items.length === 1
+        && isHelloweenCartItem(items[0]);
+}
 
 function calculateWinterPromotion(items, deliveryMethod = selectedDeliveryMethod) {
     const quantity = items.length;
@@ -7632,6 +7661,18 @@ function calculateWinterPromotion(items, deliveryMethod = selectedDeliveryMethod
     }
 
     if (quantity === 1 && deliveryMethod === 'retiro_andreani') {
+        if (hasActiveHelloweenPointPromo(items)) {
+            return {
+                id: 'helloween_pre_show_point',
+                label: 'Helloween: envío gratis a punto Andreani hasta el 3/9',
+                description: 'Beneficio especial de la colección Helloween.',
+                subtotal: rawSubtotal,
+                descuento: 0,
+                total: rawSubtotal,
+                envioGratis: true,
+                envioGratisPuntoAndreani: true
+            };
+        }
         return {
             id: 'septiembre_una_prenda',
             label: '1 prenda: envío a punto Andreani por $5.000',
@@ -7660,7 +7701,9 @@ function calculateCartTotal() {
     const items = cart.getCart();
     const cantidad = items.length;
     const promotion = calculateWinterPromotion(items);
-    const shippingCost = selectedDeliveryMethod === 'retiro_andreani' && cantidad === 1
+    const shippingCost = selectedDeliveryMethod === 'retiro_andreani'
+        && cantidad === 1
+        && !promotion.envioGratisPuntoAndreani
         ? ANDREANI_POINT_SINGLE_PRICE
         : 0;
 
@@ -7809,9 +7852,11 @@ function renderCartPreview() {
                 <div class="cart-cp-field"><label for="inputCP">Código postal</label><input type="text" id="inputCP" placeholder="Ej: 1425" maxlength="8" inputmode="numeric" autocomplete="postal-code"><small>Lo usamos para encontrar el punto Andreani más conveniente.</small></div>
                 <div class="cart-cp-field"><label for="inputLocalidad">Localidad</label><input type="text" id="inputLocalidad" placeholder="Ej: CABA" autocomplete="address-level2"></div>
             </div>`;
-        customerHint = totals.cantidad === 1
+        customerHint = totals.envio > 0
             ? 'Con 1 prenda, el envío a punto Andreani cuesta $5.000.'
-            : 'Con 2 prendas o más, el envío a punto Andreani es gratis.';
+            : totals.promotion?.id === 'helloween_pre_show_point'
+                ? 'Beneficio Helloween: envío gratis a punto Andreani hasta el 3/9.'
+                : 'Con 2 prendas o más, el envío a punto Andreani es gratis.';
     } else if (selectedDeliveryMethod === 'taller') {
         customerHint = 'Villa Martelli, zona Tecnópolis · Lunes a viernes de 10 a 16 h. La dirección se coordina por WhatsApp.';
     }
@@ -7833,7 +7878,7 @@ function renderCartPreview() {
         : selectedDeliveryMethod === 'taller'
             ? '<span style="color:var(--magic-green);">RETIRO SIN CARGO ✓</span>'
             : selectedDeliveryMethod === 'retiro_andreani'
-                ? totals.cantidad === 1
+                ? totals.envio > 0
                     ? '<span>$5.000 a punto Andreani</span>'
                     : '<span style="color:var(--magic-green);">GRATIS a punto Andreani ✓</span>'
                 : totals.cantidad >= 3
@@ -7873,6 +7918,7 @@ function renderCartPreview() {
         <div class="cart-preview-info" style="margin-top:12px;padding:12px;background:#0a0a0a;border:1px solid #222;border-radius:8px;font-size:0.8rem;color:#888;">
             <div style="margin-bottom:8px;">
                 <span style="color:#39ff14;">📦 PROMO SEPTIEMBRE:</span> 1 prenda: punto Andreani $5.000. 2 prendas: punto Andreani gratis. 3 prendas o más: 10% OFF + envío gratis a domicilio.
+                ${totals.promotion?.id === 'helloween_pre_show_point' ? '<br><span style="color:#39ff14;">HELLOWEEN:</span> punto Andreani gratis desde 1 prenda hasta el 3/9.' : ''}
             </div>
             <div>
                 <span style="color:#39ff14;">💳 PAGO:</span> Transferencia o MercadoPago. Tarjeta de crédito disponible con recargo.

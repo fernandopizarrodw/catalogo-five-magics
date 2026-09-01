@@ -271,7 +271,8 @@
                     catalogStartingPrice: Number(variant?.catalogStartingPrice ?? product?.catalogStartingPrice) || 0,
                     catalogPriceText: String(variant?.catalogPriceText || product?.catalogPriceText || '').trim(),
                     defaultPrintMode: variant?.defaultPrintMode || product?.defaultPrintMode || '',
-                    usesShownComposition: variant?.usesShownComposition === true || product?.usesShownComposition === true,
+                    usesShownComposition: product?.usesShownComposition === true,
+                    usesShownCompositionGarments: [],
                     visibilityTier: product?.visibilityTier || 'catalog',
                     commercialPriority: Number(product?.commercialPriority ?? product?.priority ?? 0) || 0,
                     identitySource: embeddedDesignId
@@ -332,6 +333,9 @@
                     group.badgeDescriptions.push(variant?.fmdBadgeDescription || product?.fmdBadgeDescription);
                 }
                 group.isNew = group.isNew || Boolean(variant?.isNew || product?.isNew);
+                if (variant?.usesShownComposition === true) {
+                    group.usesShownCompositionGarments.push(source.garment);
+                }
                 group.commercialPriority = Math.max(
                     group.commercialPriority,
                     Number(product?.commercialPriority ?? product?.priority ?? 0) || 0
@@ -366,6 +370,7 @@
                 catalogPriceText: group.catalogPriceText,
                 defaultPrintMode: group.defaultPrintMode,
                 usesShownComposition: group.usesShownComposition,
+                usesShownCompositionGarments: unique(group.usesShownCompositionGarments),
                 visibilityTier: group.visibilityTier,
                 commercialPriority: group.commercialPriority,
                 year: sourceProduct?.year || '',
