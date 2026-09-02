@@ -3443,6 +3443,20 @@ function initializeCatalogDesigns() {
     }
 }
 
+function ensureProductionTrackingStrip() {
+    if (!isBandLandingMode() || document.querySelector('.production-tracking-strip')) return;
+    const promo = document.querySelector('.july-shipping-promo');
+    if (!promo) return;
+
+    const strip = document.createElement('section');
+    strip.className = 'production-tracking-strip';
+    strip.setAttribute('aria-label', 'Producción y seguimiento');
+    strip.innerHTML = `
+        <strong><span>PRODUCCIÓN</span> 48 A 72 H HÁBILES</strong>
+        <p>Una vez despachado, te enviamos el enlace de seguimiento. Plazo total estimado: 3 a 7 días hábiles según destino.</p>`;
+    promo.insertAdjacentElement('afterend', strip);
+}
+
 let bandShowcaseCollectionMode = false;
 
 function getBandShowcaseVariantMap() {
@@ -8796,6 +8810,7 @@ function initMegadethShowcase() {
 
 // Inicializar
 document.addEventListener('DOMContentLoaded', () => {
+    ensureProductionTrackingStrip();
     renderLandingSizeGuide('hombre');
 
     if (isBandLandingMode()) {

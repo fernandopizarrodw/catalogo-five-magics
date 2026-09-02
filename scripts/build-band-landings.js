@@ -186,6 +186,10 @@ ${config.relatedArchive ? `                <a class="band-landing-related-archiv
             <span>${config.promoPrimary || '1 PRENDA · PUNTO ANDREANI $5.000'}</span>
             <b>${config.promoSecondary || '2 PRENDAS · PUNTO GRATIS · 3 O MÁS · 10% OFF + DOMICILIO GRATIS'}</b>
         </section>
+        <section class="production-tracking-strip" aria-label="Producción y seguimiento">
+            <strong><span>PRODUCCIÓN</span> 48 A 72 H HÁBILES</strong>
+            <p>Una vez despachado, te enviamos el enlace de seguimiento. Plazo total estimado: 3 a 7 días hábiles según destino.</p>
+        </section>
 ${config.showcase ? `
         <section class="band-design-showcase" id="bandDesignShowcase" aria-labelledby="bandDesignShowcaseTitle">
             <div class="band-design-showcase-head">
