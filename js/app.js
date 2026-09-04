@@ -7621,21 +7621,6 @@ function calculateDiscountableSubtotal(items) {
 }
 
 const ANDREANI_POINT_SINGLE_PRICE = 5000;
-const HELLOWEEN_POINT_PROMO_END = Date.parse('2026-09-04T00:00:00-03:00');
-
-function isHelloweenCartItem(item) {
-    const designId = String(item?.designId || '').trim().toLowerCase();
-    if (designId.startsWith('helloween-')) return true;
-
-    const product = db.find(entry => Number(entry?.id) === Number(item?.id));
-    return normalizeText(product?.band || product?.name || '').includes('helloween');
-}
-
-function hasActiveHelloweenPointPromo(items, now = Date.now()) {
-    return now < HELLOWEEN_POINT_PROMO_END
-        && items.length === 1
-        && isHelloweenCartItem(items[0]);
-}
 
 function calculateWinterPromotion(items, deliveryMethod = selectedDeliveryMethod) {
     const quantity = items.length;
@@ -7675,18 +7660,6 @@ function calculateWinterPromotion(items, deliveryMethod = selectedDeliveryMethod
     }
 
     if (quantity === 1 && deliveryMethod === 'retiro_andreani') {
-        if (hasActiveHelloweenPointPromo(items)) {
-            return {
-                id: 'helloween_pre_show_point',
-                label: 'Helloween: envío gratis a punto Andreani hasta el 3/9',
-                description: 'Beneficio especial de la colección Helloween.',
-                subtotal: rawSubtotal,
-                descuento: 0,
-                total: rawSubtotal,
-                envioGratis: true,
-                envioGratisPuntoAndreani: true
-            };
-        }
         return {
             id: 'septiembre_una_prenda',
             label: '1 prenda: envío a punto Andreani por $5.000',
@@ -7868,9 +7841,7 @@ function renderCartPreview() {
             </div>`;
         customerHint = totals.envio > 0
             ? 'Con 1 prenda, el envío a punto Andreani cuesta $5.000.'
-            : totals.promotion?.id === 'helloween_pre_show_point'
-                ? 'Beneficio Helloween: envío gratis a punto Andreani hasta el 3/9.'
-                : 'Con 2 prendas o más, el envío a punto Andreani es gratis.';
+            : 'Con 2 prendas o más, el envío a punto Andreani es gratis.';
     } else if (selectedDeliveryMethod === 'taller') {
         customerHint = 'Villa Martelli, zona Tecnópolis · Lunes a viernes de 10 a 16 h. La dirección se coordina por WhatsApp.';
     }
@@ -7932,7 +7903,6 @@ function renderCartPreview() {
         <div class="cart-preview-info" style="margin-top:12px;padding:12px;background:#0a0a0a;border:1px solid #222;border-radius:8px;font-size:0.8rem;color:#888;">
             <div style="margin-bottom:8px;">
                 <span style="color:#39ff14;">📦 PROMO SEPTIEMBRE:</span> 1 prenda: punto Andreani $5.000. 2 prendas: punto Andreani gratis. 3 prendas o más: 10% OFF + envío gratis a domicilio.
-                ${totals.promotion?.id === 'helloween_pre_show_point' ? '<br><span style="color:#39ff14;">HELLOWEEN:</span> punto Andreani gratis desde 1 prenda hasta el 3/9.' : ''}
             </div>
             <div>
                 <span style="color:#39ff14;">💳 PAGO:</span> Transferencia o MercadoPago. Tarjeta de crédito disponible con recargo.
