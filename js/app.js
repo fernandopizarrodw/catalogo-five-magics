@@ -4863,7 +4863,7 @@ function renderModalSizeGuide(tabName) {
         <thead><tr><th>Talle</th><th>Ancho axila a axila</th><th>Largo</th></tr></thead>
         <tbody>${guide.rows.map(row => `<tr><td>${row[0]}</td><td>${row[1]}</td><td>${row[2]}</td></tr>`).join('')}</tbody>
     </table>
-    <p class="size-selection-policy size-selection-policy-table">Revisá las medidas antes de elegir. Cada prenda se realiza a pedido y no admite cambios por talle.</p>`;
+    <p class="size-selection-policy size-selection-policy-table">Queremos que te quede perfecta: compará las medidas antes de elegir el talle. Como preparamos cada prenda especialmente para vos, no realizamos cambios por talle.</p>`;
     panel.classList.remove('is-hidden');
     panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }
