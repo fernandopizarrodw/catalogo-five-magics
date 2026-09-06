@@ -6315,10 +6315,10 @@ function renderCatalogDesignResults(designs) {
     productsGrid.classList.add('catalog-design-grid');
     document.querySelector('.catalog-toolbar')?.classList.remove('catalog-directory-active');
 
-    let heading = 'DISEÑOS DISPONIBLES';
+    let heading = `${designs.length} DISEÑOS DISPONIBLES`;
     if (currentSearch) heading = `${designs.length} RESULTADOS`;
-    else if (isBandLandingMode() && bandLandingGarment) heading = `${getBandLandingGarmentLabel()} ${BAND_LANDING_BAND.toUpperCase()}`;
-    else if (currentCategory) heading = `DISEÑOS ${String(currentCategory).toUpperCase()}`;
+    else if (isBandLandingMode() && bandLandingGarment) heading = `${designs.length} DISEÑOS · ${getBandLandingGarmentLabel()} ${BAND_LANDING_BAND.toUpperCase()}`;
+    else if (currentCategory) heading = `${designs.length} DISEÑOS · ${String(currentCategory).toUpperCase()}`;
     document.getElementById('productsCount').textContent = heading;
 
     productsGrid.innerHTML = visibleDesigns.map(design => {
@@ -6369,7 +6369,13 @@ function renderCatalogDesignResults(designs) {
     const loadMoreStatus = document.getElementById('catalogLoadMoreStatus');
     const hasMore = visibleDesigns.length < designs.length;
     if (loadMore) loadMore.hidden = !hasMore;
-    if (loadMoreStatus) loadMoreStatus.textContent = hasMore ? 'HAY MÁS DISEÑOS DISPONIBLES' : '';
+    if (loadMoreStatus) loadMoreStatus.textContent = hasMore
+        ? `MOSTRANDO ${visibleDesigns.length} DE ${designs.length} DISEÑOS`
+        : '';
+    const loadMoreButton = loadMore?.querySelector('button');
+    if (loadMoreButton && hasMore) {
+        loadMoreButton.textContent = `VER MÁS DISEÑOS (${designs.length - visibleDesigns.length} RESTANTES)`;
+    }
 }
 
 function filterProducts() {
@@ -6661,7 +6667,13 @@ function renderFilteredProducts(filtered) {
     if (loadMore && loadMoreStatus) {
         const hasMore = visibleProducts.length < totalFiltered;
         loadMore.hidden = !hasMore;
-        loadMoreStatus.textContent = hasMore ? 'HAY MÁS DISEÑOS DISPONIBLES' : '';
+        loadMoreStatus.textContent = hasMore
+            ? `MOSTRANDO ${visibleProducts.length} DE ${totalFiltered} DISEÑOS`
+            : '';
+        const loadMoreButton = loadMore.querySelector('button');
+        if (loadMoreButton && hasMore) {
+            loadMoreButton.textContent = `VER MÁS DISEÑOS (${totalFiltered - visibleProducts.length} RESTANTES)`;
+        }
     }
     setView(currentView);
 }
