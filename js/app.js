@@ -6454,7 +6454,7 @@ const FEATURED_COLLECTION_ART = Object.freeze({
     'ricardo iorio': { image: 'images/banda_sugeridas/ricardo_iorio/remera_almafuerte_obras.jpg', alt: 'Almafuerte - En Obras' },
     epica: { image: 'images/banda_sugeridas/epica/hoodie_epica_the_phantom_agony.jpg', alt: 'Hoodie EPICA The Phantom Agony' },
     helloween: {
-        image: 'images/banda_sugeridas/helloween/remera_helloween.jpg',
+        image: 'images/banda_sugeridas/helloween/show_2026_verticales/remera_helloween_07_logo.jpg',
         alt: 'Remera Helloween Pumpkin Logo',
         badge: 'SHOW ARGENTINA · 13 SEP'
     },
