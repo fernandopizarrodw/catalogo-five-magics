@@ -8957,6 +8957,19 @@
         "isNew": true
       },
       {
+        "img": "images/banda_sugeridas/helloween/show_2026_verticales/remera_helloween_pumpkin_bsas_fmd_edition.jpg",
+        "name": "Helloween Pumpkin Buenos Aires - Edición FMD",
+        "alt": "Remera negra Helloween Pumpkin Buenos Aires Edición FMD con estampa frontal",
+        "designId": "helloween-pumpkin-buenos-aires-edicion-fmd",
+        "role": "front",
+        "garmentCategory": "Bandas Sugeridas",
+        "color": "negro",
+        "defaultPrintMode": "simple",
+        "campaignPreview": "helloween-show-2026",
+        "campaignThumbnail": "images/banda_sugeridas/helloween/show_2026_verticales/thumbs/remera_helloween_pumpkin_bsas_fmd_edition.jpg",
+        "isNew": true
+      },
+      {
         "img": "images/banda_sugeridas/helloween/show_2026_verticales/remera_helloween_dr_stein_fmd_edition.jpg",
         "name": "Helloween Dr. Stein - Arte original FMD",
         "alt": "Remera negra Helloween Dr. Stein con arte original FMD y estampa frontal",

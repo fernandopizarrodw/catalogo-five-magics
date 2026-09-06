@@ -527,7 +527,7 @@
             image: '/images/banda_sugeridas/helloween/helloween_40_tour.jpg',
             imageUrl: 'https://catalogo.fivemagicsdesigns.com/images/banda_sugeridas/helloween/helloween_40_tour.jpg',
             heroTitle: 'COLECCIÓN ESPECIAL HELLOWEEN 40 YEARS',
-            heroCopy: '<strong>+50 diseños disponibles</strong><br>Remeras desde $37.000 · Envío a punto Andreani por $5.000 con 1 prenda y gratis con 2<br><strong>SHOW 13/9 · ÚLTIMOS PEDIDOS</strong><br>Consultanos opciones de entrega según tu zona.',
+            heroCopy: '<strong>+50 diseños disponibles</strong><br>Remeras desde $37.000 · Envío a sucursal Andreani por $5.000 con 1 prenda y gratis con 2<br><strong>SHOW 13/9 · ÚLTIMOS PEDIDOS</strong><br>Consultanos opciones de entrega según tu zona.',
             heroCtaLabel: 'VER LOS +50 DISEÑOS',
             heroQualityLine: 'DTG PREMIUM · ALGODÓN PEINADO · SIN TACTO PLÁSTICO',
             productionNotice: 'Si la querés para el show del 13/9, consultanos antes de realizar el pedido para confirmar la mejor opción de entrega según tu localidad.',
@@ -546,6 +546,7 @@
                 ctaLabel: 'VER LOS +50 DISEÑOS',
                 durationSeconds: 60,
                 order: [
+                    'helloween-pumpkin-buenos-aires-edicion-fmd',
                     'helloween-40-years-tour-buenos-aires',
                     'helloween-keeper-of-the-seven-keys-part-i',
                     'helloween-better-than-raw',
@@ -592,6 +593,7 @@
                 ]
             },
             designOrder: [
+                'helloween-pumpkin-buenos-aires-edicion-fmd',
                 'helloween-40-years-tour-buenos-aires',
                 'helloween-buenos-aires-2026',
                 'helloween-40-tour',
@@ -649,6 +651,7 @@
             ],
             collections: [
                 { id: 'show-2026', label: 'SHOW 2026', match: { designIds: [
+                    'helloween-pumpkin-buenos-aires-edicion-fmd',
                     'helloween-40-years-tour-buenos-aires',
                     'helloween-buenos-aires-2026',
                     'helloween-40-tour',
