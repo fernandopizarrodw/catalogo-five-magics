@@ -544,7 +544,7 @@
                 title: '+50 DISEÑOS HELLOWEEN',
                 copy: 'Tocá un diseño para verlo en detalle.',
                 ctaLabel: 'VER LOS +50 DISEÑOS',
-                durationSeconds: 60,
+                durationSeconds: 72,
                 order: [
                     'helloween-pumpkin-buenos-aires-edicion-fmd',
                     'helloween-40-years-tour-buenos-aires',
