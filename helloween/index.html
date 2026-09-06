@@ -89,6 +89,10 @@
             <span>1 PRENDA · PUNTO ANDREANI $5.000</span>
             <b>2 PRENDAS · PUNTO GRATIS · 3 O MÁS · 10% OFF + DOMICILIO GRATIS</b>
         </section>
+        <section class="production-tracking-strip" aria-label="Producción y seguimiento">
+            <strong><span>PRODUCCIÓN</span> 48 A 72 H HÁBILES</strong>
+            <p>Una vez despachado, te enviamos el enlace de seguimiento. Plazo total estimado: 3 a 7 días hábiles según destino.</p>
+        </section>
 
         <section class="band-design-showcase" id="bandDesignShowcase" aria-labelledby="bandDesignShowcaseTitle">
             <div class="band-design-showcase-head">
@@ -136,6 +140,30 @@
                 </button>
             </div>
         </section>
+
+        <details class="band-landing-size-guide" id="tablaDeMedidas">
+            <summary>
+                <span>CONSULTÁ LA TABLA DE MEDIDAS</span>
+                <small>Compará las medidas antes de elegir el talle</small>
+            </summary>
+            <div class="band-landing-size-guide-body">
+                <div class="band-landing-size-guide-tabs" aria-label="Elegir tabla de medidas">
+                    <button type="button" class="active" data-landing-size-guide="hombre" onclick="selectLandingSizeGuide('hombre')">Remera hombre</button>
+                    <button type="button" data-landing-size-guide="mujer" onclick="selectLandingSizeGuide('mujer')">Remera mujer</button>
+                    <button type="button" data-landing-size-guide="oversize" onclick="selectLandingSizeGuide('oversize')">Oversize</button>
+                    <button type="button" data-landing-size-guide="ninos" onclick="selectLandingSizeGuide('ninos')">Niños</button>
+                    <button type="button" data-landing-size-guide="hoodies" onclick="selectLandingSizeGuide('hoodies')">Hoodie</button>
+                    <button type="button" data-landing-size-guide="buzo-redondo" onclick="selectLandingSizeGuide('buzo-redondo')">Buzo</button>
+                </div>
+                <div class="band-landing-size-guide-content">
+                    <h3 id="landingSizeGuideTitle">Tabla de medidas</h3>
+                    <p id="landingSizeGuideCopy"></p>
+                    <div id="landingSizeGuideTable"></div>
+                    <p class="band-landing-size-guide-note">Medí una prenda similar extendida sobre una superficie plana. Las medidas pueden variar hasta un 5%.</p>
+                    <p class="size-selection-policy size-selection-policy-table">Revisá las medidas antes de elegir. Cada prenda se realiza a pedido y no admite cambios por talle.</p>
+                </div>
+            </div>
+        </details>
 
         <section class="band-landing-catalog" aria-labelledby="bandCatalogTitle">
             <div class="band-landing-section-head">
@@ -196,29 +224,6 @@
                 </div>
             </section>
         </section>
-
-        <details class="band-landing-size-guide" id="tablaDeMedidas">
-            <summary>
-                <span>CONSULTÁ LA TABLA DE MEDIDAS</span>
-                <small>Compará las medidas antes de elegir el talle</small>
-            </summary>
-            <div class="band-landing-size-guide-body">
-                <div class="band-landing-size-guide-tabs" aria-label="Elegir tabla de medidas">
-                    <button type="button" class="active" data-landing-size-guide="hombre" onclick="selectLandingSizeGuide('hombre')">Remera hombre</button>
-                    <button type="button" data-landing-size-guide="mujer" onclick="selectLandingSizeGuide('mujer')">Remera mujer</button>
-                    <button type="button" data-landing-size-guide="oversize" onclick="selectLandingSizeGuide('oversize')">Oversize</button>
-                    <button type="button" data-landing-size-guide="ninos" onclick="selectLandingSizeGuide('ninos')">Niños</button>
-                    <button type="button" data-landing-size-guide="hoodies" onclick="selectLandingSizeGuide('hoodies')">Hoodie</button>
-                    <button type="button" data-landing-size-guide="buzo-redondo" onclick="selectLandingSizeGuide('buzo-redondo')">Buzo</button>
-                </div>
-                <div class="band-landing-size-guide-content">
-                    <h3 id="landingSizeGuideTitle">Tabla de medidas</h3>
-                    <p id="landingSizeGuideCopy"></p>
-                    <div id="landingSizeGuideTable"></div>
-                    <p class="band-landing-size-guide-note">Medí una prenda similar extendida sobre una superficie plana. Las medidas pueden variar hasta un 5%.</p>
-                </div>
-            </div>
-        </details>
 
         <section class="band-landing-custom" id="bandLandingFinal" aria-labelledby="bandCustomTitle">
             <p id="bandLandingFinalKicker">PERSONALIZADOS FMD</p>
@@ -346,6 +351,7 @@
                                 <button type="button" class="option-btn" data-size="14" onclick="selectSize('14')">14</button>
                                 <button type="button" class="option-btn" data-size="16" onclick="selectSize('16')">16</button>
                             </div>
+                            <p class="size-selection-policy">Revisá las medidas antes de elegir. Cada prenda se realiza a pedido y no admite cambios por talle.</p>
                         </div>
 
                         <!-- Selector de Corte -->
@@ -468,6 +474,9 @@
                                 </div>
                                 <div class="spec-item">
                                     <div class="spec-value">⚡ Algodón peinado</div>
+                                </div>
+                                <div class="spec-item">
+                                    <div class="spec-value" id="modalSizeRange">📏 S a 2XL</div>
                                 </div>
                             </div>
 

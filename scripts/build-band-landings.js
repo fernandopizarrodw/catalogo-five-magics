@@ -237,6 +237,7 @@ ${config.showSizeGuide ? `
                     <p id="landingSizeGuideCopy"></p>
                     <div id="landingSizeGuideTable"></div>
                     <p class="band-landing-size-guide-note">Medí una prenda similar extendida sobre una superficie plana. Las medidas pueden variar hasta un 5%.</p>
+                    <p class="size-selection-policy size-selection-policy-table">Revisá las medidas antes de elegir. Cada prenda se realiza a pedido y no admite cambios por talle.</p>
                 </div>
             </div>
         </details>` : ''}

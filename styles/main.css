@@ -8293,6 +8293,21 @@ header {
     background: rgba(57, 255, 20, 0.14);
 }
 
+.size-selection-policy {
+    margin: 8px 0 0;
+    color: #d8d5dc;
+    font-size: 0.78rem;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+.size-selection-policy-table {
+    padding: 9px 11px;
+    border-left: 3px solid var(--magic-green);
+    border-radius: 0 6px 6px 0;
+    background: rgba(57, 255, 20, 0.07);
+}
+
 .option-buttons {
     display: flex;
     gap: 6px;
