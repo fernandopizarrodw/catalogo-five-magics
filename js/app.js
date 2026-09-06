@@ -3453,7 +3453,10 @@ function ensureProductionTrackingStrip() {
     strip.setAttribute('aria-label', 'Producción y seguimiento');
     strip.innerHTML = `
         <strong><span>PRODUCCIÓN</span> 48 A 72 H HÁBILES</strong>
-        <p>Una vez despachado, te enviamos el enlace de seguimiento. Plazo total estimado: 3 a 7 días hábiles según destino.</p>`;
+        <p>Una vez despachado, te enviamos el enlace de seguimiento. Plazo total estimado: 3 a 7 días hábiles según destino.</p>
+        ${BAND_LANDING_CONFIG?.productionNotice
+            ? `<p class="production-tracking-alert">${BAND_LANDING_CONFIG.productionNotice}</p>`
+            : ''}`;
     promo.insertAdjacentElement('afterend', strip);
 }
 

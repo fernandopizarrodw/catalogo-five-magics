@@ -2660,6 +2660,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
     gap: 18px;
     text-align: left;
 }
@@ -2681,6 +2682,15 @@ body {
     color: rgba(255, 255, 255, 0.76);
     font-size: 0.82rem;
     line-height: 1.4;
+}
+
+.production-tracking-strip .production-tracking-alert {
+    flex: 0 0 100%;
+    padding-top: 9px;
+    border-top: 1px solid rgba(255, 200, 87, 0.2);
+    color: #fff1c5;
+    font-weight: 700;
+    text-align: center;
 }
 
 .winter-promos-head {

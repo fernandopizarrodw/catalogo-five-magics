@@ -64,6 +64,7 @@ function serializeInlineConfig(config) {
         sharedDesignIds: Array.isArray(config.sharedDesignIds) ? config.sharedDesignIds : [],
         sharedBands: Array.isArray(config.sharedBands) ? config.sharedBands : [],
         albumOrder: Array.isArray(config.albumOrder) ? config.albumOrder : [],
+        productionNotice: String(config.productionNotice || ''),
         showcase: config.showcase && typeof config.showcase === 'object'
             ? config.showcase
             : null
@@ -195,6 +196,7 @@ ${config.relatedArchive ? `                <a class="band-landing-related-archiv
         <section class="production-tracking-strip" aria-label="Producción y seguimiento">
             <strong><span>PRODUCCIÓN</span> 48 A 72 H HÁBILES</strong>
             <p>Una vez despachado, te enviamos el enlace de seguimiento. Plazo total estimado: 3 a 7 días hábiles según destino.</p>
+${config.productionNotice ? `            <p class="production-tracking-alert">${config.productionNotice}</p>` : ''}
         </section>
 ${config.showcase ? `
         <section class="band-design-showcase" id="bandDesignShowcase" aria-labelledby="bandDesignShowcaseTitle">
