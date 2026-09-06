@@ -7918,7 +7918,7 @@ function renderCartPreview() {
         ${shippingForm}
         <div class="cart-preview-info" style="margin-top:12px;padding:12px;background:#0a0a0a;border:1px solid #222;border-radius:8px;font-size:0.8rem;color:#888;">
             <div style="margin-bottom:8px;">
-                <span style="color:#39ff14;">📦 PROMO SEPTIEMBRE:</span> 1 prenda: punto Andreani $5.000. 2 prendas: punto Andreani gratis. 3 prendas o más: 10% OFF + envío gratis a domicilio.
+                <span style="color:#39ff14;">📦 PROMO SEPTIEMBRE:</span> 1 prenda: envío a punto Andreani por $5.000. 2 prendas: envío gratis a punto Andreani. 3 prendas o más: 10% OFF + envío gratis a domicilio.
             </div>
             <div>
                 <span style="color:#39ff14;">💳 PAGO:</span> Transferencia o MercadoPago. Tarjeta de crédito disponible con recargo.

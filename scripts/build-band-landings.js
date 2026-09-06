@@ -190,8 +190,8 @@ ${config.relatedArchive ? `                <a class="band-landing-related-archiv
         <section class="july-shipping-promo" aria-label="Beneficios FMD">
             <p>${config.promoKicker || 'PROMO SEPTIEMBRE'}</p>
             <strong>${config.promoTitle || 'ENVÍOS <em>POR ANDREANI</em>'}</strong>
-            <span>${config.promoPrimary || '1 PRENDA · PUNTO ANDREANI $5.000'}</span>
-            <b>${config.promoSecondary || '2 PRENDAS · PUNTO GRATIS · 3 O MÁS · 10% OFF + DOMICILIO GRATIS'}</b>
+            <span>${config.promoPrimary || '1 PRENDA · ENVÍO A PUNTO ANDREANI POR $5.000'}</span>
+            <b>${config.promoSecondary || '2 PRENDAS · ENVÍO GRATIS A PUNTO ANDREANI · 3 O MÁS · 10% OFF + ENVÍO GRATIS A DOMICILIO'}</b>
         </section>
         <section class="production-tracking-strip" aria-label="Producción y seguimiento">
             <strong><span>PRODUCCIÓN</span> 48 A 72 H HÁBILES</strong>
