@@ -547,6 +547,7 @@
                 durationSeconds: 72,
                 order: [
                     'helloween-pumpkin-buenos-aires-edicion-fmd',
+                    'helloween-keeper-of-the-seven-keys-parts-i-ii-arte-original-fmd',
                     'helloween-40-years-tour-buenos-aires',
                     'helloween-keeper-of-the-seven-keys-part-i',
                     'helloween-better-than-raw',
@@ -594,6 +595,7 @@
             },
             designOrder: [
                 'helloween-pumpkin-buenos-aires-edicion-fmd',
+                'helloween-keeper-of-the-seven-keys-parts-i-ii-arte-original-fmd',
                 'helloween-40-years-tour-buenos-aires',
                 'helloween-buenos-aires-2026',
                 'helloween-40-tour',
@@ -666,6 +668,7 @@
                 { id: 'era-1985-1989', label: '1985-1989', match: { designIds: [
                     'helloween-walls-of-jericho',
                     'helloween-keeper-of-the-seven-keys-part-i',
+                    'helloween-keeper-of-the-seven-keys-parts-i-ii-arte-original-fmd',
                     'helloween-keepers',
                     'helloween-keeper-of-the-seven-keys-part-i-arte-original-fmd',
                     'helloween-future-world',
