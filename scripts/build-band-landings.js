@@ -171,7 +171,7 @@ function renderLanding(config, sharedCommerceMarkup) {
         <section class="band-landing-hero" aria-labelledby="bandLandingTitle">
             <div class="band-landing-hero-copy">
                 <p class="band-landing-brand">FIVE MAGICS DESIGNS</p>
-                <h1 id="bandLandingTitle">${config.displayName}</h1>
+                <h1 id="bandLandingTitle">${config.heroDisplayName || config.displayName}</h1>
                 <h2>${config.heroTitle}</h2>
                 <p>${config.heroCopy}</p>
 ${config.heroQualityLine ? `                <p class="band-landing-quality-line">${config.heroQualityLine}</p>` : ''}
@@ -187,16 +187,17 @@ ${config.relatedArchive ? `                <a class="band-landing-related-archiv
             </div>
         </section>
 
-        <section class="july-shipping-promo" aria-label="Beneficios FMD">
+${config.hideShippingPromo ? '' : `        <section class="july-shipping-promo" aria-label="Beneficios FMD">
             <p>${config.promoKicker || 'PROMO SEPTIEMBRE'}</p>
             <strong>${config.promoTitle || 'ENVÍOS <em>POR ANDREANI</em>'}</strong>
             <span>${config.promoPrimary || '1 PRENDA · ENVÍO A SUCURSAL ANDREANI POR $5.000'}</span>
             <b>${config.promoSecondary || '2 PRENDAS · ENVÍO GRATIS A SUCURSAL ANDREANI · 3 O MÁS · 10% OFF + ENVÍO GRATIS A DOMICILIO'}</b>
-        </section>
+        </section>`}
         <section class="production-tracking-strip" aria-label="Producción y seguimiento">
-            <strong><span>PRODUCCIÓN</span> 48 A 72 H HÁBILES</strong>
-            <p>Una vez despachado, te enviamos el enlace de seguimiento. Plazo total estimado: 3 a 7 días hábiles según destino.</p>
-${config.productionNotice ? `            <p class="production-tracking-alert">${config.productionNotice}</p>` : ''}
+            <strong>${config.productionTitle || '<span>PRODUCCIÓN</span> 48 A 72 H HÁBILES'}</strong>
+            <p>${config.productionCopy || 'Una vez despachado, te enviamos el enlace de seguimiento. Plazo total estimado: 3 a 7 días hábiles según destino.'}</p>
+${config.productionNotice ? `            <p class="production-tracking-alert">${config.productionNotice}</p>` : ''}${config.productionCta ? `
+            <a class="production-tracking-cta" href="${config.productionCta.href}" target="_blank" rel="noopener">${config.productionCta.label}</a>` : ''}
         </section>
 ${config.showcase ? `
         <section class="band-design-showcase" id="bandDesignShowcase" aria-labelledby="bandDesignShowcaseTitle">
