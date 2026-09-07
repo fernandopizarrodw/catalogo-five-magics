@@ -542,7 +542,7 @@
             finalCopy: 'También hacemos diseños personalizados a partir de una tapa, imagen o idea.',
             whatsappMessage: 'Hola FMD! Estoy buscando un diseño de Helloween que no encontré en la colección. ¿Puedo enviarles una imagen o contarles la idea?',
             defaultGarment: 'remera',
-            defaultCollection: 'show-2026',
+            defaultCollection: '',
             allCollectionLabel: 'VER TODOS',
             usesShownComposition: false,
             showSizeGuide: true,
@@ -553,6 +553,8 @@
                 ctaLabel: 'VER LOS +50 DISEÑOS',
                 durationSeconds: 72,
                 order: [
+                    'helloween-angel-demonio',
+                    'helloween-eagle-fly-free',
                     'helloween-pumpkin-buenos-aires-edicion-fmd',
                     'helloween-keeper-of-the-seven-keys-parts-i-ii-arte-original-fmd',
                     'helloween-drunk-pumpkin-arte-original-fmd',
@@ -605,6 +607,8 @@
                 ]
             },
             designOrder: [
+                'helloween-angel-demonio',
+                'helloween-eagle-fly-free',
                 'helloween-pumpkin-buenos-aires-edicion-fmd',
                 'helloween-keeper-of-the-seven-keys-parts-i-ii-arte-original-fmd',
                 'helloween-drunk-pumpkin-arte-original-fmd',
@@ -689,6 +693,7 @@
                     'helloween-future-world',
                     'helloween-future-world-pumpkin-guitarist',
                     'helloween-keeper-of-the-seven-keys-part-ii',
+                    'helloween-eagle-fly-free',
                     'helloween-dr-stein',
                     'helloween-dr-stein-arte-original-fmd',
                     'helloween-march-of-time',
@@ -724,6 +729,7 @@
                     'helloween-united-forces'
                 ] } },
                 { id: 'iconos', label: 'CLASICOS E ICONOS', match: { designIds: [
+                    'helloween-angel-demonio',
                     'helloween-established-1984',
                     'helloween-pumpkin-logo',
                     'helloween-pumpkin-wizard',

@@ -8385,6 +8385,28 @@
         "isNew": true
       },
       {
+        "img": "images/banda_sugeridas/helloween/remera_helloween_mago_march.jpg",
+        "name": "Helloween March of Time",
+        "alt": "Remera negra Helloween March of Time frente y dorso",
+        "designId": "helloween-march-of-time",
+        "role": "front",
+        "garmentCategory": "Bandas Sugeridas",
+        "color": "negro",
+        "preferredPreview": true,
+        "usesShownComposition": true,
+        "defaultPrintMode": "double",
+        "isNew": true
+      },
+      {
+        "img": "images/banda_sugeridas/helloween/remera_helloween_mago_march.jpg",
+        "name": "Dorso March of Time",
+        "alt": "Dorso Helloween March of Time",
+        "role": "back",
+        "backTargetDesignId": "helloween-march-of-time",
+        "garmentCategory": "Bandas Sugeridas",
+        "isNew": true
+      },
+      {
         "img": "images/banda_sugeridas/helloween/show_2026_verticales/remera_helloween_04_better.jpg",
         "name": "Helloween Better Than Raw",
         "alt": "Remera negra Helloween Better Than Raw con estampa frontal",
@@ -9066,6 +9088,32 @@
         "defaultPrintMode": "simple",
         "campaignPreview": "helloween-show-2026",
         "campaignThumbnail": "images/banda_sugeridas/helloween/show_2026_verticales/thumbs/remera_helloween_51_rock_fmd.jpg",
+        "isNew": true
+      },
+      {
+        "img": "images/banda_sugeridas/helloween/show_2026_verticales/remera_helloween_57_eagle_fly_free.jpg",
+        "name": "Helloween Eagle Fly Free",
+        "alt": "Remera negra Helloween Eagle Fly Free con estampa frontal",
+        "designId": "helloween-eagle-fly-free",
+        "role": "front",
+        "garmentCategory": "Bandas Sugeridas",
+        "color": "negro",
+        "defaultPrintMode": "simple",
+        "campaignPreview": "helloween-show-2026",
+        "campaignThumbnail": "images/banda_sugeridas/helloween/show_2026_verticales/thumbs/remera_helloween_57_eagle_fly_free.jpg",
+        "isNew": true
+      },
+      {
+        "img": "images/banda_sugeridas/helloween/show_2026_verticales/remera_helloween_58_angel_demonio.jpg",
+        "name": "Helloween Ángel Demonio",
+        "alt": "Remera negra Helloween Ángel Demonio con estampa frontal",
+        "designId": "helloween-angel-demonio",
+        "role": "front",
+        "garmentCategory": "Bandas Sugeridas",
+        "color": "negro",
+        "defaultPrintMode": "simple",
+        "campaignPreview": "helloween-show-2026",
+        "campaignThumbnail": "images/banda_sugeridas/helloween/show_2026_verticales/thumbs/remera_helloween_58_angel_demonio.jpg",
         "isNew": true
       }
     ],
