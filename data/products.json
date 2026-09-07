@@ -8957,7 +8957,7 @@
         "isNew": true
       },
       {
-        "img": "images/banda_sugeridas/helloween/show_2026_verticales/remera_helloween_pumpkin_bsas_fmd_edition.jpg",
+        "img": "images/banda_sugeridas/helloween/show_2026_verticales/remera_helloween_55_pumpkin_bsas_fmd_edition.jpg",
         "name": "Helloween Pumpkin Buenos Aires - Edición FMD",
         "alt": "Remera negra Helloween Pumpkin Buenos Aires Edición FMD con estampa frontal",
         "designId": "helloween-pumpkin-buenos-aires-edicion-fmd",
@@ -8966,11 +8966,11 @@
         "color": "negro",
         "defaultPrintMode": "simple",
         "campaignPreview": "helloween-show-2026",
-        "campaignThumbnail": "images/banda_sugeridas/helloween/show_2026_verticales/thumbs/remera_helloween_pumpkin_bsas_fmd_edition.jpg",
+        "campaignThumbnail": "images/banda_sugeridas/helloween/show_2026_verticales/thumbs/remera_helloween_55_pumpkin_bsas_fmd_edition.jpg",
         "isNew": true
       },
       {
-        "img": "images/banda_sugeridas/helloween/show_2026_verticales/remera_helloween_dr_stein_fmd_edition.jpg",
+        "img": "images/banda_sugeridas/helloween/show_2026_verticales/remera_helloween_52_dr_stein_fmd_edition.jpg",
         "name": "Helloween Dr. Stein - Arte original FMD",
         "alt": "Remera negra Helloween Dr. Stein con arte original FMD y estampa frontal",
         "designId": "helloween-dr-stein-arte-original-fmd",
@@ -8979,11 +8979,11 @@
         "color": "negro",
         "defaultPrintMode": "simple",
         "campaignPreview": "helloween-show-2026",
-        "campaignThumbnail": "images/banda_sugeridas/helloween/show_2026_verticales/thumbs/remera_helloween_dr_stein_fmd_edition.jpg",
+        "campaignThumbnail": "images/banda_sugeridas/helloween/show_2026_verticales/thumbs/remera_helloween_52_dr_stein_fmd_edition.jpg",
         "isNew": true
       },
       {
-        "img": "images/banda_sugeridas/helloween/show_2026_verticales/remera_helloween_tour_keepers.jpg",
+        "img": "images/banda_sugeridas/helloween/show_2026_verticales/remera_helloween_56_tour_keepers.jpg",
         "name": "Helloween Keeper of the Seven Keys Part I - Arte original FMD",
         "alt": "Remera negra Helloween Keeper of the Seven Keys Part I con arte original FMD y estampa frontal",
         "designId": "helloween-keeper-of-the-seven-keys-part-i-arte-original-fmd",
@@ -8992,11 +8992,11 @@
         "color": "negro",
         "defaultPrintMode": "simple",
         "campaignPreview": "helloween-show-2026",
-        "campaignThumbnail": "images/banda_sugeridas/helloween/show_2026_verticales/thumbs/remera_helloween_tour_keepers.jpg",
+        "campaignThumbnail": "images/banda_sugeridas/helloween/show_2026_verticales/thumbs/remera_helloween_56_tour_keepers.jpg",
         "isNew": true
       },
       {
-        "img": "images/banda_sugeridas/helloween/show_2026_verticales/remera_helloween_keeper_I_II.jpg",
+        "img": "images/banda_sugeridas/helloween/show_2026_verticales/remera_helloween_53_keeper_I_II.jpg",
         "name": "Helloween Keeper of the Seven Keys Part I & II - Arte original FMD",
         "alt": "Remera negra Helloween Keeper of the Seven Keys Part I y II con arte original FMD y estampa frontal",
         "designId": "helloween-keeper-of-the-seven-keys-parts-i-ii-arte-original-fmd",
@@ -9005,7 +9005,67 @@
         "color": "negro",
         "defaultPrintMode": "simple",
         "campaignPreview": "helloween-show-2026",
-        "campaignThumbnail": "images/banda_sugeridas/helloween/show_2026_verticales/thumbs/remera_helloween_keeper_I_II.jpg",
+        "campaignThumbnail": "images/banda_sugeridas/helloween/show_2026_verticales/thumbs/remera_helloween_53_keeper_I_II.jpg",
+        "isNew": true
+      },
+      {
+        "img": "images/banda_sugeridas/helloween/show_2026_verticales/remera_helloween_54_keeper_I_II_dorso.jpg",
+        "name": "Dorso Keeper of the Seven Keys Part I & II",
+        "alt": "Dorso Helloween Keeper of the Seven Keys Part I y II",
+        "role": "back",
+        "backTargetDesignId": "helloween-keeper-of-the-seven-keys-parts-i-ii-arte-original-fmd",
+        "garmentCategory": "Bandas Sugeridas"
+      },
+      {
+        "img": "images/banda_sugeridas/helloween/show_2026_verticales/remera_helloween_48_drunk_pumpkin_fmd.jpg",
+        "name": "Helloween Drunk Pumpkin - Arte original FMD",
+        "alt": "Remera negra Helloween Drunk Pumpkin con arte original FMD y estampa frontal",
+        "designId": "helloween-drunk-pumpkin-arte-original-fmd",
+        "role": "front",
+        "garmentCategory": "Bandas Sugeridas",
+        "color": "negro",
+        "defaultPrintMode": "simple",
+        "campaignPreview": "helloween-show-2026",
+        "campaignThumbnail": "images/banda_sugeridas/helloween/show_2026_verticales/thumbs/remera_helloween_48_drunk_pumpkin_fmd.jpg",
+        "isNew": true
+      },
+      {
+        "img": "images/banda_sugeridas/helloween/show_2026_verticales/remera_helloween_49_universe_fmd.jpg",
+        "name": "Helloween Universe - Arte original FMD",
+        "alt": "Remera negra Helloween Universe con arte original FMD y estampa frontal",
+        "designId": "helloween-universe-arte-original-fmd",
+        "role": "front",
+        "garmentCategory": "Bandas Sugeridas",
+        "color": "negro",
+        "defaultPrintMode": "simple",
+        "campaignPreview": "helloween-show-2026",
+        "campaignThumbnail": "images/banda_sugeridas/helloween/show_2026_verticales/thumbs/remera_helloween_49_universe_fmd.jpg",
+        "isNew": true
+      },
+      {
+        "img": "images/banda_sugeridas/helloween/show_2026_verticales/remera_helloween_50_future_world.jpg",
+        "name": "Helloween Future World - Pumpkin Guitarist",
+        "alt": "Remera negra Helloween Future World Pumpkin Guitarist con estampa frontal",
+        "designId": "helloween-future-world-pumpkin-guitarist",
+        "role": "front",
+        "garmentCategory": "Bandas Sugeridas",
+        "color": "negro",
+        "defaultPrintMode": "simple",
+        "campaignPreview": "helloween-show-2026",
+        "campaignThumbnail": "images/banda_sugeridas/helloween/show_2026_verticales/thumbs/remera_helloween_50_future_world.jpg",
+        "isNew": true
+      },
+      {
+        "img": "images/banda_sugeridas/helloween/show_2026_verticales/remera_helloween_51_rock_fmd.jpg",
+        "name": "Helloween Savage Pumpkins - Arte original FMD",
+        "alt": "Remera negra Helloween Savage Pumpkins con arte original FMD y estampa frontal",
+        "designId": "helloween-savage-pumpkins-arte-original-fmd",
+        "role": "front",
+        "garmentCategory": "Bandas Sugeridas",
+        "color": "negro",
+        "defaultPrintMode": "simple",
+        "campaignPreview": "helloween-show-2026",
+        "campaignThumbnail": "images/banda_sugeridas/helloween/show_2026_verticales/thumbs/remera_helloween_51_rock_fmd.jpg",
         "isNew": true
       }
     ],

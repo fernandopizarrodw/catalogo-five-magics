@@ -548,6 +548,10 @@
                 order: [
                     'helloween-pumpkin-buenos-aires-edicion-fmd',
                     'helloween-keeper-of-the-seven-keys-parts-i-ii-arte-original-fmd',
+                    'helloween-drunk-pumpkin-arte-original-fmd',
+                    'helloween-universe-arte-original-fmd',
+                    'helloween-future-world-pumpkin-guitarist',
+                    'helloween-savage-pumpkins-arte-original-fmd',
                     'helloween-40-years-tour-buenos-aires',
                     'helloween-keeper-of-the-seven-keys-part-i',
                     'helloween-better-than-raw',
@@ -596,6 +600,10 @@
             designOrder: [
                 'helloween-pumpkin-buenos-aires-edicion-fmd',
                 'helloween-keeper-of-the-seven-keys-parts-i-ii-arte-original-fmd',
+                'helloween-drunk-pumpkin-arte-original-fmd',
+                'helloween-universe-arte-original-fmd',
+                'helloween-future-world-pumpkin-guitarist',
+                'helloween-savage-pumpkins-arte-original-fmd',
                 'helloween-40-years-tour-buenos-aires',
                 'helloween-buenos-aires-2026',
                 'helloween-40-tour',
@@ -672,6 +680,7 @@
                     'helloween-keepers',
                     'helloween-keeper-of-the-seven-keys-part-i-arte-original-fmd',
                     'helloween-future-world',
+                    'helloween-future-world-pumpkin-guitarist',
                     'helloween-keeper-of-the-seven-keys-part-ii',
                     'helloween-dr-stein',
                     'helloween-dr-stein-arte-original-fmd',
@@ -713,14 +722,17 @@
                     'helloween-pumpkin-wizard',
                     'helloween-angel-pumpkin',
                     'helloween-drunk-pumpkin',
+                    'helloween-drunk-pumpkin-arte-original-fmd',
                     'helloween-fire-pumpkin',
                     'helloween-skull-pumpkin',
                     'helloween-pumpkin-guitarist',
                     'helloween-pumpkin-rocker',
                     'helloween-savage-pumpkins',
+                    'helloween-savage-pumpkins-arte-original-fmd',
                     'helloween-keeper-of-time',
                     'helloween-master-of-keys',
-                    'helloween-universe'
+                    'helloween-universe',
+                    'helloween-universe-arte-original-fmd'
                 ] } }
             ],
             garments: [
