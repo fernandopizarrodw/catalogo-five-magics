@@ -878,6 +878,43 @@
             ]
         },
         {
+            output: 'sonata-arctica/index.html',
+            slug: 'sonata-arctica',
+            publishedAt: '2026-09-07',
+            band: 'Sonata Arctica',
+            displayName: 'SONATA ARCTICA',
+            heroDisplayName: 'SONATA ARCTICA · 30TH ANNIVERSARY TOUR',
+            title: 'Sonata Arctica: remeras, hoodies y buzos | Five Magics Designs',
+            description: 'Diseños de Sonata Arctica en remeras, hoodies y buzos hechos a pedido. Colección especial 30th Anniversary Tour 2026.',
+            canonical: 'https://catalogo.fivemagicsdesigns.com/sonata-arctica/',
+            image: '/images/banda_sugeridas/sonata_artica/remera_sonata_artica_30th_argentina.jpg',
+            imageUrl: 'https://catalogo.fivemagicsdesigns.com/images/banda_sugeridas/sonata_artica/remera_sonata_artica_30th_argentina.jpg',
+            heroTitle: 'BUENOS AIRES · 29 DE SEPTIEMBRE DE 2026',
+            heroCopy: '<strong>9 diseños disponibles</strong><br>Elegí tu favorito y armá el pedido en remera, hoodie o buzo.',
+            heroCtaLabel: 'VER DISEÑOS',
+            heroQualityLine: 'DTG PREMIUM · ALGODÓN PEINADO · SIN TACTO PLÁSTICO',
+            finalTitle: '¿BUSCABAS OTRO DISEÑO DE SONATA ARCTICA?',
+            finalCopy: 'También hacemos diseños personalizados a partir de una tapa, imagen o idea.',
+            whatsappMessage: 'Hola FMD! Estoy buscando un diseño de Sonata Arctica que no encontré en la colección. ¿Puedo enviarles una imagen o contarles la idea?',
+            defaultGarment: 'remera',
+            usesShownComposition: false,
+            showSizeGuide: true,
+            designOrder: [
+                'sonata-arctica-30th-anniversary-tour-buenos-aires',
+                'sonata-arctica-ecliptica',
+                'sonata-arctica-silence',
+                'sonata-arctica-winterhearts-guild',
+                'sonata-arctica-reckoning-night',
+                'sonata-arctica-unia',
+                'sonata-arctica-the-days-of-grays',
+                'sonata-arctica-stones-grow-her-name',
+                'sonata-arctica-pariahs-child'
+            ],
+            garments: [
+                { key: 'remera', title: 'REMERAS', price: 'Frontal $37.000 · Doble $44.000', image: '/images/banda_sugeridas/sonata_artica/remera_sonata_artica_30th_argentina.jpg', alt: 'Remera Sonata Arctica 30th Anniversary Tour Buenos Aires 2026' }
+            ]
+        },
+        {
             output: 'argentina/index.html',
             slug: 'argentina',
             band: 'Argentina',
