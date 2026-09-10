@@ -20193,6 +20193,42 @@
         "preferredPreview": true,
         "defaultPrintMode": "simple",
         "isNew": true
+      },
+      {
+        "img": "images/banda_sugeridas/sonata_artica/remera_sonata_artica_30th_argentina_doble.jpg",
+        "name": "Sonata Arctica 30th Anniversary Tour Buenos Aires 2026",
+        "alt": "Remera negra Sonata Arctica 30th Anniversary Tour Buenos Aires 2026 frente y dorso",
+        "designId": "sonata-arctica-30th-anniversary-tour-buenos-aires",
+        "role": "front",
+        "garmentCategory": "Bandas Sugeridas",
+        "color": "negro",
+        "usesShownComposition": true,
+        "defaultPrintMode": "double",
+        "isNew": true
+      },
+      {
+        "img": "images/banda_sugeridas/sonata_artica/remera_sonata_artica_30th_argentina_band_solo.jpg",
+        "name": "Sonata Arctica 30th Anniversary Tour - Banda Buenos Aires 2026",
+        "alt": "Remera negra Sonata Arctica 30th Anniversary Tour con la banda en Buenos Aires 2026",
+        "designId": "sonata-arctica-30th-anniversary-tour-banda-buenos-aires",
+        "role": "front",
+        "garmentCategory": "Bandas Sugeridas",
+        "color": "negro",
+        "preferredPreview": true,
+        "defaultPrintMode": "simple",
+        "isNew": true
+      },
+      {
+        "img": "images/banda_sugeridas/sonata_artica/remera_sonata_artica_30th_argentina_band.jpg",
+        "name": "Sonata Arctica 30th Anniversary Tour - Banda Buenos Aires 2026",
+        "alt": "Remera negra Sonata Arctica 30th Anniversary Tour con la banda frente y dorso",
+        "designId": "sonata-arctica-30th-anniversary-tour-banda-buenos-aires",
+        "role": "front",
+        "garmentCategory": "Bandas Sugeridas",
+        "color": "negro",
+        "usesShownComposition": true,
+        "defaultPrintMode": "double",
+        "isNew": true
       }
     ],
     "desc": "Diseños de Sonata Arctica disponibles en remeras, hoodies y buzos.",

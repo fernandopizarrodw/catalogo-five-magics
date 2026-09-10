@@ -887,10 +887,10 @@
             title: 'Sonata Arctica: remeras, hoodies y buzos | Five Magics Designs',
             description: 'Diseños de Sonata Arctica en remeras, hoodies y buzos hechos a pedido. Colección especial 30th Anniversary Tour 2026.',
             canonical: 'https://catalogo.fivemagicsdesigns.com/sonata-arctica/',
-            image: '/images/banda_sugeridas/sonata_artica/remera_sonata_artica_30th_argentina.jpg',
-            imageUrl: 'https://catalogo.fivemagicsdesigns.com/images/banda_sugeridas/sonata_artica/remera_sonata_artica_30th_argentina.jpg',
+            image: '/images/banda_sugeridas/sonata_artica/remera_sonata_artica_30th_argentina_band_solo.jpg',
+            imageUrl: 'https://catalogo.fivemagicsdesigns.com/images/banda_sugeridas/sonata_artica/remera_sonata_artica_30th_argentina_band_solo.jpg',
             heroTitle: 'BUENOS AIRES · 29 DE SEPTIEMBRE DE 2026',
-            heroCopy: '<strong>9 diseños disponibles</strong><br>Elegí tu favorito y armá el pedido en remera, hoodie o buzo.',
+            heroCopy: '<strong>10 diseños disponibles</strong><br>Elegí tu favorito y armá el pedido en remera, hoodie o buzo.',
             heroCtaLabel: 'VER DISEÑOS',
             heroQualityLine: 'DTG PREMIUM · ALGODÓN PEINADO · SIN TACTO PLÁSTICO',
             finalTitle: '¿BUSCABAS OTRO DISEÑO DE SONATA ARCTICA?',
@@ -900,6 +900,7 @@
             usesShownComposition: false,
             showSizeGuide: true,
             designOrder: [
+                'sonata-arctica-30th-anniversary-tour-banda-buenos-aires',
                 'sonata-arctica-30th-anniversary-tour-buenos-aires',
                 'sonata-arctica-ecliptica',
                 'sonata-arctica-silence',
@@ -911,7 +912,7 @@
                 'sonata-arctica-pariahs-child'
             ],
             garments: [
-                { key: 'remera', title: 'REMERAS', price: 'Frontal $37.000 · Doble $44.000', image: '/images/banda_sugeridas/sonata_artica/remera_sonata_artica_30th_argentina.jpg', alt: 'Remera Sonata Arctica 30th Anniversary Tour Buenos Aires 2026' }
+                { key: 'remera', title: 'REMERAS', price: 'Frontal $37.000 · Doble $44.000', image: '/images/banda_sugeridas/sonata_artica/remera_sonata_artica_30th_argentina_band_solo.jpg', alt: 'Remera Sonata Arctica 30th Anniversary Tour con la banda en Buenos Aires 2026' }
             ]
         },
         {
