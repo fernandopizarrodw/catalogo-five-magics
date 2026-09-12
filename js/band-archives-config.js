@@ -530,6 +530,24 @@
             heroCopy: '<strong>Más de 50 diseños disponibles</strong><br>Explorá clásicos, álbumes y ediciones FMD. Elegí tu favorito y armá el pedido.',
             heroCtaLabel: 'VER TODOS LOS DISEÑOS',
             heroQualityLine: 'DTG PREMIUM · ALGODÓN PEINADO · SIN TACTO PLÁSTICO',
+            postShow: {
+                activateAt: '2026-09-13T22:00:00-03:00',
+                title: 'TREMENDO SHOW DE HELLOWEEN EN BUENOS AIRES 🎃🔥',
+                subtitle: 'Llevate un recuerdo para siempre',
+                highlight: '+50 diseños personalizables disponibles',
+                copy: '40 Years · Keeper · Eagle Fly Free · Buenos Aires 2026 · clásicos · diseños originales FMD',
+                ctaLabel: 'VER COLECCIÓN',
+                featured: {
+                    designId: 'helloween-eagle-fly-free',
+                    title: 'EAGLE FLY FREE',
+                    copy: 'Si cantaste Eagle Fly Free a todo pulmón, esta remera es para vos.',
+                    secondary: 'Uno de los momentos más impactantes del show, llevado a un diseño FMD.',
+                    note: 'Disponible con estampa frontal o con dorso conmemorativo Buenos Aires 2026.',
+                    ctaLabel: 'VER EAGLE FLY FREE',
+                    frontImage: '/images/banda_sugeridas/helloween/show_2026_verticales/remera_helloween_57_eagle_fly_free.jpg',
+                    backImage: '/images/banda_sugeridas/helloween/show_2026_verticales/remera_helloween_59_eagle_fly_free_dorso.jpg'
+                }
+            },
             finalTitle: '¿BUSCABAS OTRO DISEÑO DE HELLOWEEN?',
             finalCopy: 'También hacemos diseños personalizados a partir de una tapa, imagen o idea.',
             whatsappMessage: 'Hola FMD! Estoy buscando un diseño de Helloween que no encontré en la colección. ¿Puedo enviarles una imagen o contarles la idea?',

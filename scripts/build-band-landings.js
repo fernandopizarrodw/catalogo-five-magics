@@ -93,6 +93,10 @@ function customizeSharedCommerceMarkup(config, markup) {
 function renderLanding(config, sharedCommerceMarkup) {
     const commerceMarkup = customizeSharedCommerceMarkup(config, sharedCommerceMarkup);
     const collections = Array.isArray(config.collections) ? config.collections : [];
+    const postShow = config.postShow && typeof config.postShow === 'object' ? config.postShow : null;
+    const postShowFeatured = postShow?.featured && typeof postShow.featured === 'object'
+        ? postShow.featured
+        : null;
     const completeArchive = config.prominentAllDesigns || (collections.length ? {
         kicker: 'CATÁLOGO COMPLETO',
         label: 'VER TODOS LOS DISEÑOS',
@@ -138,6 +142,9 @@ function renderLanding(config, sharedCommerceMarkup) {
         gtag('js', new Date());
         gtag('config', 'G-1H3XPM82ED');
         window.FMD_BAND_LANDING = Object.freeze(${serializeInlineConfig(config)});
+${postShow ? `        if (Date.now() >= Date.parse(${JSON.stringify(postShow.activateAt)})) {
+            document.documentElement.classList.add('fmd-post-show-active');
+        }` : ''}
     </script>
 </head>
 <body class="band-landing-page" data-band="${config.band}">
@@ -168,7 +175,7 @@ function renderLanding(config, sharedCommerceMarkup) {
     </div>
 
     <main>
-        <section class="band-landing-hero" aria-labelledby="bandLandingTitle">
+        <section class="band-landing-hero${postShow ? ' band-landing-pre-show' : ''}" aria-labelledby="bandLandingTitle">
             <div class="band-landing-hero-copy">
                 <p class="band-landing-brand">FIVE MAGICS DESIGNS</p>
                 <h1 id="bandLandingTitle">${config.heroDisplayName || config.displayName}</h1>
@@ -186,6 +193,40 @@ ${config.relatedArchive ? `                <a class="band-landing-related-archiv
                 <img src="${config.image}" alt="Diseño ${config.band} disponible en Five Magics Designs" width="1200" height="1200">
             </div>
         </section>
+${postShow ? `
+        <section class="band-landing-hero helloween-post-show-hero" aria-labelledby="helloweenPostShowTitle" aria-hidden="true">
+            <div class="band-landing-hero-copy">
+                <p class="band-landing-brand">FIVE MAGICS DESIGNS</p>
+                <h1 id="helloweenPostShowTitle">${postShow.title}</h1>
+                <h2>${postShow.subtitle}</h2>
+                <p><strong>${postShow.highlight}</strong><br>${postShow.copy}</p>
+                <a class="band-landing-primary-cta" href="#catalogoPrincipal">${postShow.ctaLabel}</a>
+            </div>
+            <div class="band-landing-hero-art">
+                <img src="${config.image}" alt="Colección Helloween post-show en Five Magics Designs" width="1200" height="1200">
+            </div>
+        </section>` : ''}
+${postShowFeatured ? `
+        <section class="helloween-post-show-featured" aria-labelledby="helloweenFeaturedTitle" aria-hidden="true">
+            <div class="helloween-post-show-featured-media">
+                <figure>
+                    <img src="${postShowFeatured.frontImage}" alt="Eagle Fly Free, estampa frontal" loading="eager" decoding="async">
+                    <figcaption>FRENTE</figcaption>
+                </figure>
+                <figure>
+                    <img src="${postShowFeatured.backImage}" alt="Eagle Fly Free, dorso conmemorativo Buenos Aires 2026" loading="eager" decoding="async">
+                    <figcaption>DORSO CONMEMORATIVO</figcaption>
+                </figure>
+            </div>
+            <div class="helloween-post-show-featured-copy">
+                <p class="band-landing-brand">DESTACADO POST-SHOW</p>
+                <h2 id="helloweenFeaturedTitle">${postShowFeatured.title}</h2>
+                <strong>${postShowFeatured.copy}</strong>
+                <p>${postShowFeatured.secondary}</p>
+                <small>${postShowFeatured.note}</small>
+                <button type="button" onclick="openCatalogDesign('${postShowFeatured.designId}', 'remera')">${postShowFeatured.ctaLabel}</button>
+            </div>
+        </section>` : ''}
 
 ${config.hideShippingPromo ? '' : `        <section class="july-shipping-promo" aria-label="Beneficios FMD">
             <p>${config.promoKicker || 'PROMO SEPTIEMBRE'}</p>
@@ -326,6 +367,23 @@ ${collections.map(collection => `                <button type="button" class="ba
 
 ${commerceMarkup}
 
+${postShow ? `    <script>
+        (() => {
+            const activationTime = Date.parse(${JSON.stringify(postShow.activateAt)});
+            const syncPostShowState = () => {
+                const active = Date.now() >= activationTime;
+                document.documentElement.classList.toggle('fmd-post-show-active', active);
+                document.querySelector('.band-landing-pre-show')?.setAttribute('aria-hidden', String(active));
+                document.querySelector('.helloween-post-show-hero')?.setAttribute('aria-hidden', String(!active));
+                document.querySelector('.helloween-post-show-featured')?.setAttribute('aria-hidden', String(!active));
+                if (!active) {
+                    window.setTimeout(syncPostShowState, Math.min(activationTime - Date.now(), 2147483647));
+                }
+            };
+            syncPostShowState();
+        })();
+    </script>
+` : ''}    <script src="/js/band-archives-config.js" defer></script>
     <script src="/js/band-archives-config.js" defer></script>
     <script src="/js/catalog-design.js" defer></script>
     <script src="/js/app.js" defer></script>
