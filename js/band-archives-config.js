@@ -540,6 +540,7 @@
                 href: 'https://www.instagram.com/fivemagicsdesigns/'
             },
             moveShippingAfterShowcase: true,
+            modalBackCarouselDesignIds: ['helloween-eagle-fly-free'],
             postShow: {
                 activateAt: '2026-09-14T00:30:00-03:00',
                 title: 'TREMENDO SHOW DE HELLOWEEN EN BUENOS AIRES 🎃🔥',

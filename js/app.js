@@ -5028,7 +5028,12 @@ function openModal(id, variantIndex = undefined, scopedVariantIndexes = undefine
     const autoHighlightSlide = hasSpecificVariant ? -1 : getAutoHighlightSlideIndex(currentProduct, images);
 
     if (currentCatalogDesign) {
-        const designRefs = getCatalogDesignFrontRefs(currentCatalogDesign);
+        const showBacksInCarousel = Array.isArray(BAND_LANDING_CONFIG.modalBackCarouselDesignIds)
+            && BAND_LANDING_CONFIG.modalBackCarouselDesignIds.includes(currentCatalogDesign.designId);
+        const designRefs = [
+            ...getCatalogDesignFrontRefs(currentCatalogDesign),
+            ...(showBacksInCarousel ? currentCatalogDesign.backOptions || [] : [])
+        ];
         currentModalSourceRefs = [...designRefs];
         currentModalImages = designRefs.map(catalogDesignRefToModalImage);
         currentModalSourceIndexes = designRefs.map(ref => (

@@ -65,6 +65,9 @@ function serializeInlineConfig(config) {
         sharedBands: Array.isArray(config.sharedBands) ? config.sharedBands : [],
         albumOrder: Array.isArray(config.albumOrder) ? config.albumOrder : [],
         productionNotice: String(config.productionNotice || ''),
+        modalBackCarouselDesignIds: Array.isArray(config.modalBackCarouselDesignIds)
+            ? config.modalBackCarouselDesignIds
+            : [],
         showcase: config.showcase && typeof config.showcase === 'object'
             ? config.showcase
             : null
