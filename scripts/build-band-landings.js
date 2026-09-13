@@ -222,7 +222,7 @@ ${postShow ? `
             </div>
         </section>` : ''}
 ${postShowFeatured ? `
-        <section class="helloween-post-show-featured" aria-labelledby="helloweenFeaturedTitle" aria-hidden="true">
+        <section class="helloween-post-show-featured" aria-labelledby="helloweenFeaturedTitle">
             <div class="helloween-post-show-featured-media">
                 <figure>
                     <img src="${postShowFeatured.frontImage}" alt="Eagle Fly Free, estampa frontal" loading="eager" decoding="async">
@@ -230,14 +230,13 @@ ${postShowFeatured ? `
                 </figure>
                 <figure>
                     <img src="${postShowFeatured.backImage}" alt="Eagle Fly Free, dorso conmemorativo Buenos Aires 2026" loading="eager" decoding="async">
-                    <figcaption>DORSO CONMEMORATIVO</figcaption>
+                    <figcaption>DORSO BUENOS AIRES 2026</figcaption>
                 </figure>
             </div>
             <div class="helloween-post-show-featured-copy">
-                <p class="band-landing-brand">DESTACADO POST-SHOW</p>
                 <h2 id="helloweenFeaturedTitle">${postShowFeatured.title}</h2>
+                <p class="band-landing-brand">${postShowFeatured.kicker}</p>
                 <strong>${postShowFeatured.copy}</strong>
-                <p>${postShowFeatured.secondary}</p>
                 <small>${postShowFeatured.note}</small>
                 <button type="button" onclick="openCatalogDesign('${postShowFeatured.designId}', 'remera')">${postShowFeatured.ctaLabel}</button>
             </div>
@@ -392,7 +391,6 @@ ${postShow ? `    <script>
                 document.documentElement.classList.toggle('fmd-post-show-active', active);
                 document.querySelector('.band-landing-pre-show')?.setAttribute('aria-hidden', String(active));
                 document.querySelector('.helloween-post-show-hero')?.setAttribute('aria-hidden', String(!active));
-                document.querySelector('.helloween-post-show-featured')?.setAttribute('aria-hidden', String(!active));
                 if (!active) {
                     window.setTimeout(syncPostShowState, Math.min(activationTime - Date.now(), 2147483647));
                 }

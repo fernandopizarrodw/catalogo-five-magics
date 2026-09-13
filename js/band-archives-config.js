@@ -532,7 +532,7 @@
             heroQualityLine: 'DTG PREMIUM · ALGODÓN PEINADO · SIN TACTO PLÁSTICO',
             eventDay: {
                 startsAt: '2026-09-13T00:00:00-03:00',
-                endsAt: '2026-09-13T23:30:00-03:00',
+                endsAt: '2026-09-14T00:30:00-03:00',
                 label: 'HOY · HELLOWEEN 40 YEARS · BUENOS AIRES 🎃'
             },
             instagram: {
@@ -541,7 +541,7 @@
             },
             moveShippingAfterShowcase: true,
             postShow: {
-                activateAt: '2026-09-13T23:30:00-03:00',
+                activateAt: '2026-09-14T00:30:00-03:00',
                 title: 'TREMENDO SHOW DE HELLOWEEN EN BUENOS AIRES 🎃🔥',
                 subtitle: 'Llevate un recuerdo para siempre',
                 highlight: '+50 diseños personalizables disponibles',
@@ -550,9 +550,9 @@
                 featured: {
                     designId: 'helloween-eagle-fly-free',
                     title: 'EAGLE FLY FREE',
-                    copy: 'Si cantaste Eagle Fly Free a todo pulmón, esta remera es para vos.',
-                    secondary: 'Uno de los momentos más impactantes del show, llevado a un diseño FMD.',
-                    note: 'Disponible con estampa frontal o con dorso conmemorativo Buenos Aires 2026.',
+                    kicker: 'DISEÑO ORIGINAL FMD',
+                    copy: 'Uno de los grandes himnos de Keeper of the Seven Keys Part II, llevado a un diseño original Five Magics.',
+                    note: 'Disponible con estampa frontal o frente + dorso conmemorativo Buenos Aires 2026.',
                     ctaLabel: 'VER EAGLE FLY FREE',
                     frontImage: '/images/banda_sugeridas/helloween/show_2026_verticales/remera_helloween_57_eagle_fly_free.jpg',
                     backImage: '/images/banda_sugeridas/helloween/show_2026_verticales/remera_helloween_59_eagle_fly_free_dorso.jpg'
