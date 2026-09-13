@@ -2683,6 +2683,315 @@
     "fmdBadgeDescription": "Creacion exclusiva FMD con identidad argentina y espiritu Megadeth, pensada para fans que quieren una pieza distinta."
   },
   {
+    "id": 6032,
+    "designId": "megadeth-dave-mustaine-marty-friedman",
+    "category": "Dave Mustaine",
+    "year": "1990-1992",
+    "name": "Dave Mustaine y Marty Friedman",
+    "tipoPrecio": "simple",
+    "img": "images/musicians/Dave_Mustaine/dave_marty.jpg",
+    "variants": [
+      {
+        "img": "images/musicians/Dave_Mustaine/dave_marty.jpg",
+        "name": "Dave Mustaine y Marty Friedman",
+        "role": "front"
+      }
+    ],
+    "desc": "Dave Mustaine y Marty Friedman juntos en vivo durante la formación clásica de Megadeth.",
+    "band": "Megadeth",
+    "collections": [
+      "Dave Mustaine Spotlight",
+      "Megadeth Archive"
+    ],
+    "tags": [
+      "Megadeth",
+      "Dave Mustaine",
+      "Marty Friedman",
+      "Thrash Metal",
+      "remera"
+    ],
+    "priority": 92,
+    "universe": [
+      "Megadeth Vault",
+      "Thrash Metal"
+    ],
+    "album": null,
+    "garments": [
+      "remera"
+    ],
+    "campaigns": [],
+    "commercialPriority": 75,
+    "visibilityTier": "catalog",
+    "legacyCategory": "Dave Mustaine",
+    "reviewStatus": "classified",
+    "designFamilyId": "megadeth-card-6032",
+    "megadethSection": "dave_mustaine",
+    "megadethAlbum": null,
+    "megadethEra": "1990-1992",
+    "megadethDesignType": "dave",
+    "isDesignDuplicateCandidate": false,
+    "curationNotes": "Identidad confirmada por el nombre del archivo y el arte visible.",
+    "isNew": true
+  },
+  {
+    "id": 6033,
+    "designId": "megadeth-dave-mustaine-1985",
+    "category": "Dave Mustaine",
+    "year": "1985",
+    "name": "Dave Mustaine 1985",
+    "tipoPrecio": "simple",
+    "img": "images/musicians/Dave_Mustaine/dave_mustaine_1985.jpg",
+    "variants": [
+      {
+        "img": "images/musicians/Dave_Mustaine/dave_mustaine_1985.jpg",
+        "name": "Dave Mustaine 1985",
+        "role": "front"
+      }
+    ],
+    "desc": "Dave Mustaine en la primera era de Megadeth.",
+    "band": "Megadeth",
+    "collections": [
+      "Dave Mustaine Spotlight",
+      "Megadeth Archive",
+      "Killing Is My Business... and Business Is Good!"
+    ],
+    "tags": [
+      "Megadeth",
+      "Dave Mustaine",
+      "Killing Is My Business... and Business Is Good!",
+      "1985",
+      "remera"
+    ],
+    "priority": 94,
+    "universe": [
+      "Megadeth Vault",
+      "Thrash Metal"
+    ],
+    "album": "Killing Is My Business... and Business Is Good!",
+    "garments": [
+      "remera"
+    ],
+    "campaigns": [],
+    "commercialPriority": 78,
+    "visibilityTier": "catalog",
+    "legacyCategory": "Dave Mustaine",
+    "reviewStatus": "classified",
+    "designFamilyId": "megadeth-card-6033",
+    "megadethSection": "dave_mustaine",
+    "megadethAlbum": "Killing Is My Business... and Business Is Good!",
+    "megadethEra": "1985",
+    "megadethDesignType": "dave",
+    "isDesignDuplicateCandidate": false,
+    "curationNotes": "Clasificación basada en el nombre del archivo y la era representada.",
+    "isNew": true
+  },
+  {
+    "id": 6034,
+    "designId": "megadeth-mustaine",
+    "category": "Dave Mustaine",
+    "year": "En vivo",
+    "name": "Mustaine",
+    "tipoPrecio": "simple",
+    "img": "images/musicians/Dave_Mustaine/dave_mustaine_book.jpg",
+    "variants": [
+      {
+        "img": "images/musicians/Dave_Mustaine/dave_mustaine_book.jpg",
+        "name": "Mustaine",
+        "role": "front"
+      }
+    ],
+    "desc": "Dave Mustaine en vivo, con su guitarra como protagonista.",
+    "band": "Megadeth",
+    "collections": [
+      "Dave Mustaine Spotlight",
+      "Megadeth Archive"
+    ],
+    "tags": [
+      "Megadeth",
+      "Dave Mustaine",
+      "En vivo",
+      "remera"
+    ],
+    "priority": 91,
+    "universe": [
+      "Megadeth Vault",
+      "Thrash Metal"
+    ],
+    "album": null,
+    "garments": [
+      "remera"
+    ],
+    "campaigns": [],
+    "commercialPriority": 74,
+    "visibilityTier": "catalog",
+    "legacyCategory": "Dave Mustaine",
+    "reviewStatus": "classified",
+    "designFamilyId": "megadeth-card-6034",
+    "megadethSection": "dave_mustaine",
+    "megadethAlbum": null,
+    "megadethEra": null,
+    "megadethDesignType": "dave",
+    "isDesignDuplicateCandidate": false,
+    "curationNotes": "Nombre público tomado del texto visible en el diseño.",
+    "isNew": true
+  },
+  {
+    "id": 6035,
+    "designId": "megadeth-dave-mustaine-countdown-era",
+    "category": "Dave Mustaine",
+    "year": "1992",
+    "name": "Dave Mustaine - Countdown Era",
+    "tipoPrecio": "simple",
+    "img": "images/musicians/Dave_Mustaine/dave_mustaine_countdown_bootleg_photo.jpg",
+    "variants": [
+      {
+        "img": "images/musicians/Dave_Mustaine/dave_mustaine_countdown_bootleg_photo.jpg",
+        "name": "Dave Mustaine - Countdown Era",
+        "role": "front"
+      }
+    ],
+    "desc": "Retrato de Dave Mustaine inspirado en la era Countdown to Extinction.",
+    "band": "Megadeth",
+    "collections": [
+      "Dave Mustaine Spotlight",
+      "Megadeth Archive",
+      "Countdown to Extinction"
+    ],
+    "tags": [
+      "Megadeth",
+      "Dave Mustaine",
+      "Countdown to Extinction",
+      "1992",
+      "remera"
+    ],
+    "priority": 94,
+    "universe": [
+      "Megadeth Vault",
+      "Thrash Metal"
+    ],
+    "album": "Countdown to Extinction",
+    "garments": [
+      "remera"
+    ],
+    "campaigns": [],
+    "commercialPriority": 78,
+    "visibilityTier": "catalog",
+    "legacyCategory": "Dave Mustaine",
+    "reviewStatus": "classified",
+    "designFamilyId": "megadeth-card-6035",
+    "megadethSection": "dave_mustaine",
+    "megadethAlbum": "Countdown to Extinction",
+    "megadethEra": "1992",
+    "megadethDesignType": "dave",
+    "isDesignDuplicateCandidate": false,
+    "curationNotes": "Clasificación basada en el nombre del archivo y la era representada.",
+    "isNew": true
+  },
+  {
+    "id": 6036,
+    "designId": "megadeth-dave-mustaine-first-show",
+    "category": "Dave Mustaine",
+    "year": "1984",
+    "name": "Dave Mustaine - First Megadeth Show",
+    "tipoPrecio": "simple",
+    "img": "images/musicians/Dave_Mustaine/dave_mustaine_first_megadeth_show.jpg",
+    "variants": [
+      {
+        "img": "images/musicians/Dave_Mustaine/dave_mustaine_first_megadeth_show.jpg",
+        "name": "Dave Mustaine - First Megadeth Show",
+        "role": "front"
+      }
+    ],
+    "desc": "Dave Mustaine en los comienzos de Megadeth.",
+    "band": "Megadeth",
+    "collections": [
+      "Dave Mustaine Spotlight",
+      "Megadeth Archive",
+      "Killing Is My Business... and Business Is Good!"
+    ],
+    "tags": [
+      "Megadeth",
+      "Dave Mustaine",
+      "Primer show",
+      "Killing Is My Business... and Business Is Good!",
+      "remera"
+    ],
+    "priority": 95,
+    "universe": [
+      "Megadeth Vault",
+      "Thrash Metal"
+    ],
+    "album": "Killing Is My Business... and Business Is Good!",
+    "garments": [
+      "remera"
+    ],
+    "campaigns": [],
+    "commercialPriority": 80,
+    "visibilityTier": "catalog",
+    "legacyCategory": "Dave Mustaine",
+    "reviewStatus": "classified",
+    "designFamilyId": "megadeth-card-6036",
+    "megadethSection": "dave_mustaine",
+    "megadethAlbum": "Killing Is My Business... and Business Is Good!",
+    "megadethEra": "1984",
+    "megadethDesignType": "dave",
+    "isDesignDuplicateCandidate": false,
+    "curationNotes": "Identidad tomada del nombre descriptivo del archivo.",
+    "isNew": true
+  },
+  {
+    "id": 6037,
+    "designId": "megadeth-dave-mustaine-youthanasia-era",
+    "category": "Dave Mustaine",
+    "year": "1994",
+    "name": "Dave Mustaine - Youthanasia Era",
+    "tipoPrecio": "simple",
+    "img": "images/musicians/Dave_Mustaine/dave_mustaine_youthanasia_bootleg_photo.jpg",
+    "variants": [
+      {
+        "img": "images/musicians/Dave_Mustaine/dave_mustaine_youthanasia_bootleg_photo.jpg",
+        "name": "Dave Mustaine - Youthanasia Era",
+        "role": "front"
+      }
+    ],
+    "desc": "Retrato de Dave Mustaine inspirado en la era Youthanasia.",
+    "band": "Megadeth",
+    "collections": [
+      "Dave Mustaine Spotlight",
+      "Megadeth Archive",
+      "Youthanasia"
+    ],
+    "tags": [
+      "Megadeth",
+      "Dave Mustaine",
+      "Youthanasia",
+      "1994",
+      "remera"
+    ],
+    "priority": 94,
+    "universe": [
+      "Megadeth Vault",
+      "Thrash Metal"
+    ],
+    "album": "Youthanasia",
+    "garments": [
+      "remera"
+    ],
+    "campaigns": [],
+    "commercialPriority": 78,
+    "visibilityTier": "catalog",
+    "legacyCategory": "Dave Mustaine",
+    "reviewStatus": "classified",
+    "designFamilyId": "megadeth-card-6037",
+    "megadethSection": "dave_mustaine",
+    "megadethAlbum": "Youthanasia",
+    "megadethEra": "1994",
+    "megadethDesignType": "dave",
+    "isDesignDuplicateCandidate": false,
+    "curationNotes": "Clasificación basada en el nombre del archivo y la era representada.",
+    "isNew": true
+  },
+  {
     "id": 29,
     "category": "Musician",
     "year": "Leyenda",
