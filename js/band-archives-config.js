@@ -532,7 +532,7 @@
             heroQualityLine: 'DTG PREMIUM · ALGODÓN PEINADO · SIN TACTO PLÁSTICO',
             eventDay: {
                 startsAt: '2026-09-13T00:00:00-03:00',
-                endsAt: '2026-09-13T22:00:00-03:00',
+                endsAt: '2026-09-13T23:30:00-03:00',
                 label: 'HOY · HELLOWEEN 40 YEARS · BUENOS AIRES 🎃'
             },
             instagram: {
@@ -541,7 +541,7 @@
             },
             moveShippingAfterShowcase: true,
             postShow: {
-                activateAt: '2026-09-13T22:00:00-03:00',
+                activateAt: '2026-09-13T23:30:00-03:00',
                 title: 'TREMENDO SHOW DE HELLOWEEN EN BUENOS AIRES 🎃🔥',
                 subtitle: 'Llevate un recuerdo para siempre',
                 highlight: '+50 diseños personalizables disponibles',
