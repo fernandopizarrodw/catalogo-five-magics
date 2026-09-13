@@ -552,7 +552,7 @@
                     designId: 'helloween-eagle-fly-free',
                     title: 'EAGLE FLY FREE',
                     kicker: 'DISEÑO ORIGINAL FMD',
-                    copy: 'Uno de los grandes himnos de Keeper of the Seven Keys Part II, llevado a un diseño original Five Magics.',
+                    copy: 'Cuando se apaga el último acorde, el águila sigue volando. Una pieza creada para que ese momento siga con vos.',
                     note: 'Disponible con estampa frontal o frente + dorso conmemorativo Buenos Aires 2026.',
                     ctaLabel: 'VER EAGLE FLY FREE',
                     frontImage: '/images/banda_sugeridas/helloween/show_2026_verticales/remera_helloween_57_eagle_fly_free.jpg',
