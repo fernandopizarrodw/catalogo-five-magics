@@ -68,6 +68,10 @@ function serializeInlineConfig(config) {
         modalBackCarouselDesignIds: Array.isArray(config.modalBackCarouselDesignIds)
             ? config.modalBackCarouselDesignIds
             : [],
+        suppressNewBadges: config.suppressNewBadges === true,
+        editorialBadges: config.editorialBadges && typeof config.editorialBadges === 'object'
+            ? config.editorialBadges
+            : {},
         showcase: config.showcase && typeof config.showcase === 'object'
             ? config.showcase
             : null
@@ -217,7 +221,7 @@ ${postShow ? `
                 <p class="band-landing-brand">FIVE MAGICS DESIGNS</p>
                 <h1 id="helloweenPostShowTitle">${postShow.title}</h1>
                 <h2>${postShow.subtitle}</h2>
-                <p><strong>${postShow.highlight}</strong><br>${postShow.copy}</p>
+                <p><strong data-band-design-count-copy>${postShow.highlight}</strong><br>${postShow.copy}</p>
                 <a class="band-landing-primary-cta" href="#catalogoPrincipal">${postShow.ctaLabel}</a>
             </div>
             <div class="band-landing-hero-art">
@@ -375,7 +379,7 @@ ${instagram ? `        <section class="band-landing-instagram" aria-label="Insta
             <p id="bandLandingFinalKicker">PERSONALIZADOS FMD</p>
             <h2 id="bandCustomTitle">${config.finalTitle}</h2>
             <div id="bandLandingFinalCopy">${config.finalCopy}</div>
-            <a id="bandLandingFinalCta" href="${whatsappUrl(config.whatsappMessage)}" target="_blank" rel="noopener">CONSULTAR POR WHATSAPP</a>
+            <a id="bandLandingFinalCta" href="${whatsappUrl(config.whatsappMessage)}" target="_blank" rel="noopener">${config.finalCtaLabel || 'CONSULTAR POR WHATSAPP'}</a>
         </section>
     </main>
 

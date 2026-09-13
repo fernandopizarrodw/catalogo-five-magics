@@ -1628,7 +1628,7 @@ function getPublicBadgeLabel(label = '') {
     const value = String(label || '').trim();
     const normalized = normalizeText(value);
     if (normalized === 'doble estampa') return 'FRENTE Y DORSO';
-    if (normalized === 'original fmd') return 'ARTE ORIGINAL FMD';
+    if (normalized === 'original fmd' || normalized === 'arte original fmd') return 'ORIGINAL FMD';
     if (normalized === 'fmd edition' || normalized === 'fmd editions') return 'VERSIÓN FMD';
     if (normalized === 're-edicion fmd' || normalized === 'reedicion fmd') return 'REEDICIÓN FMD';
     if (normalized === 'reimagined') return 'VERSIÓN FMD';
@@ -1644,8 +1644,8 @@ function getPublicCommerceText(text = '') {
         .replace(/Reimagined/gi, 'Versión FMD')
         .replace(/Re-edición\s+FMD/gi, 'Reedición FMD')
         .replace(/FMD\s+Editions?/gi, 'Versión FMD')
-        .replace(/Diseño\s+Original\s+FMD/gi, 'Arte original FMD')
-        .replace(/Original\s+FMD/gi, 'Arte original FMD')
+        .replace(/(?:Diseño|Arte)\s+Original\s+FMD/gi, 'Original FMD')
+        .replace(/\s+-\s+Original\s+FMD/gi, ' · Original FMD')
         .replace(/Simple\s*\+\s*Doble/gi, 'Solo frente o frente y dorso')
         .replace(/Estampa\s+simple/gi, 'Solo frente')
         .replace(/Doble\s+estampa/gi, 'Frente y dorso')
@@ -3437,6 +3437,13 @@ function initializeCatalogDesigns() {
         });
     catalogDesignById = new Map(catalogDesigns.map(design => [design.designId, design]));
     catalogHistoricalBacks = collectCatalogHistoricalBacks();
+
+    if (isBandLandingMode()) {
+        const designCount = catalogDesigns.filter(isCatalogDesignInScope).length;
+        document.querySelectorAll('[data-band-design-count-copy]').forEach(element => {
+            element.textContent = element.textContent.replace('{count}', String(designCount));
+        });
+    }
 
     const validationErrors = window.FMDCatalogDesign.validateCatalogDesigns(catalogDesigns);
     if (validationErrors.length) {
@@ -6340,14 +6347,19 @@ function renderCatalogDesignResults(designs) {
         ].filter(Boolean);
         const priceText = getCatalogDesignCardPriceText(design, preview);
         const initialGarment = isBandLandingMode() ? getBandLandingModalGarment() : '';
-        const explicitBadges = (design.badges || []).map(label => ({ label: getPublicBadgeLabel(label), className: '' }));
+        const editorialBadge = BAND_LANDING_CONFIG?.editorialBadges?.[design.designId];
+        const explicitBadges = [editorialBadge, ...(design.badges || [])]
+            .filter(Boolean)
+            .map(label => ({ label: getPublicBadgeLabel(label), className: '' }));
         const activeLandingCollection = BAND_LANDING_COLLECTIONS.find(collection => collection.id === bandLandingCollection);
         const explicitFeaturedIds = new Set((activeLandingCollection?.match?.designIds || []).map(String));
         const commercialBadges = [
             isBandLandingMode() && bandLandingCollection === 'featured' && explicitFeaturedIds.has(String(design.designId))
                 ? { label: 'Destacado FMD', className: 'is-featured' }
                 : null,
-            design.isNew ? { label: 'Nuevo', className: 'is-new' } : null
+            design.isNew && BAND_LANDING_CONFIG?.suppressNewBadges !== true
+                ? { label: 'Nuevo', className: 'is-new' }
+                : null
         ].filter(Boolean);
         const cardBadges = [...commercialBadges, ...explicitBadges]
             .filter((badge, index, all) => all.findIndex(item => normalizeText(item.label) === normalizeText(badge.label)) === index)
