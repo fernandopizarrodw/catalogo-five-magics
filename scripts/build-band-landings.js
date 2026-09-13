@@ -97,6 +97,14 @@ function renderLanding(config, sharedCommerceMarkup) {
     const postShowFeatured = postShow?.featured && typeof postShow.featured === 'object'
         ? postShow.featured
         : null;
+    const eventDay = config.eventDay && typeof config.eventDay === 'object' ? config.eventDay : null;
+    const instagram = config.instagram && typeof config.instagram === 'object' ? config.instagram : null;
+    const shippingPromoMarkup = config.hideShippingPromo ? '' : `        <section class="july-shipping-promo" aria-label="Beneficios FMD">
+            <p>${config.promoKicker || 'PROMO SEPTIEMBRE'}</p>
+            <strong>${config.promoTitle || 'ENVÍOS <em>POR ANDREANI</em>'}</strong>
+            <span>${config.promoPrimary || '1 PRENDA · ENVÍO A SUCURSAL ANDREANI POR $5.000'}</span>
+            <b>${config.promoSecondary || '2 PRENDAS · ENVÍO GRATIS A SUCURSAL ANDREANI · 3 O MÁS · 10% OFF + ENVÍO GRATIS A DOMICILIO'}</b>
+        </section>`;
     const completeArchive = config.prominentAllDesigns || (collections.length ? {
         kicker: 'CATÁLOGO COMPLETO',
         label: 'VER TODOS LOS DISEÑOS',
@@ -145,6 +153,9 @@ function renderLanding(config, sharedCommerceMarkup) {
 ${postShow ? `        if (Date.now() >= Date.parse(${JSON.stringify(postShow.activateAt)})) {
             document.documentElement.classList.add('fmd-post-show-active');
         }` : ''}
+${eventDay ? `        if (Date.now() >= Date.parse(${JSON.stringify(eventDay.startsAt)}) && Date.now() < Date.parse(${JSON.stringify(eventDay.endsAt)})) {
+            document.documentElement.classList.add('fmd-event-day-active');
+        }` : ''}
     </script>
 </head>
 <body class="band-landing-page" data-band="${config.band}">
@@ -154,6 +165,9 @@ ${postShow ? `        if (Date.now() >= Date.parse(${JSON.stringify(postShow.act
             <a href="/#catalogoPrincipal" class="logo" aria-label="Volver al catálogo FMD">FIVE <span>MAGICS</span></a>
             <div class="header-actions">
                 <a href="/#catalogoPrincipal" class="btn-back-catalog" aria-label="Explorar más bandas en el catálogo FMD">EXPLORAR MÁS BANDAS</a>
+${instagram ? `                <a href="${instagram.href}" class="band-landing-instagram-header" target="_blank" rel="noopener" aria-label="Ver ${instagram.handle} en Instagram">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.4" cy="6.6" r="1"></circle></svg>
+                </a>` : ''}
                 <a href="${whatsappUrl(`Hola FMD! Quiero consultar por los diseños de ${config.band}.`)}" class="btn-wa-header" target="_blank" rel="noopener">
                     <span>CONSULTAR</span>
                 </a>
@@ -180,6 +194,7 @@ ${postShow ? `        if (Date.now() >= Date.parse(${JSON.stringify(postShow.act
                 <p class="band-landing-brand">FIVE MAGICS DESIGNS</p>
                 <h1 id="bandLandingTitle">${config.heroDisplayName || config.displayName}</h1>
                 <h2>${config.heroTitle}</h2>
+${eventDay ? `                <p class="helloween-event-day-line">${eventDay.label}</p>` : ''}
                 <p>${config.heroCopy}</p>
 ${config.heroQualityLine ? `                <p class="band-landing-quality-line">${config.heroQualityLine}</p>` : ''}
                 <a class="band-landing-primary-cta" href="#catalogoPrincipal">${config.heroCtaLabel || 'VER DISEÑOS'}</a>
@@ -228,12 +243,7 @@ ${postShowFeatured ? `
             </div>
         </section>` : ''}
 
-${config.hideShippingPromo ? '' : `        <section class="july-shipping-promo" aria-label="Beneficios FMD">
-            <p>${config.promoKicker || 'PROMO SEPTIEMBRE'}</p>
-            <strong>${config.promoTitle || 'ENVÍOS <em>POR ANDREANI</em>'}</strong>
-            <span>${config.promoPrimary || '1 PRENDA · ENVÍO A SUCURSAL ANDREANI POR $5.000'}</span>
-            <b>${config.promoSecondary || '2 PRENDAS · ENVÍO GRATIS A SUCURSAL ANDREANI · 3 O MÁS · 10% OFF + ENVÍO GRATIS A DOMICILIO'}</b>
-        </section>`}
+${config.moveShippingAfterShowcase ? '' : shippingPromoMarkup}
         <section class="production-tracking-strip" aria-label="Producción y seguimiento">
             <strong>${config.productionTitle || '<span>PRODUCCIÓN</span> 48 A 72 H HÁBILES'}</strong>
             <p>${config.productionCopy || 'Una vez despachado, te enviamos el enlace de seguimiento. Plazo total estimado: 3 a 7 días hábiles según destino.'}</p>
@@ -251,6 +261,7 @@ ${config.showcase ? `
             </div>
             <button type="button" class="band-design-showcase-cta" onclick="openBandShowcaseCollection()">${config.showcase.ctaLabel}</button>
         </section>` : ''}
+${config.moveShippingAfterShowcase ? shippingPromoMarkup : ''}
 
         <section class="band-landing-garment-selector" id="catalogoPrincipal" aria-label="Elegir prenda ${config.band}">
             <div class="band-landing-garment-grid" role="tablist" aria-label="Prendas disponibles">
@@ -352,7 +363,13 @@ ${collections.map(collection => `                <button type="button" class="ba
             </section>
         </section>
 
-        <section class="band-landing-custom" id="bandLandingFinal" aria-labelledby="bandCustomTitle">
+${instagram ? `        <section class="band-landing-instagram" aria-label="Instagram de Five Magics Designs">
+            <p>SEGUINOS EN INSTAGRAM</p>
+            <strong>${instagram.handle}</strong>
+            <a href="${instagram.href}" target="_blank" rel="noopener">VER INSTAGRAM</a>
+        </section>
+
+` : ''}        <section class="band-landing-custom" id="bandLandingFinal" aria-labelledby="bandCustomTitle">
             <p id="bandLandingFinalKicker">PERSONALIZADOS FMD</p>
             <h2 id="bandCustomTitle">${config.finalTitle}</h2>
             <div id="bandLandingFinalCopy">${config.finalCopy}</div>
@@ -381,6 +398,20 @@ ${postShow ? `    <script>
                 }
             };
             syncPostShowState();
+        })();
+    </script>
+` : ''}${eventDay ? `    <script>
+        (() => {
+            const startsAt = Date.parse(${JSON.stringify(eventDay.startsAt)});
+            const endsAt = Date.parse(${JSON.stringify(eventDay.endsAt)});
+            const syncEventDayState = () => {
+                const now = Date.now();
+                document.documentElement.classList.toggle('fmd-event-day-active', now >= startsAt && now < endsAt);
+                if (now < endsAt) {
+                    window.setTimeout(syncEventDayState, Math.min((now < startsAt ? startsAt : endsAt) - now, 2147483647));
+                }
+            };
+            syncEventDayState();
         })();
     </script>
 ` : ''}    <script src="/js/band-archives-config.js" defer></script>

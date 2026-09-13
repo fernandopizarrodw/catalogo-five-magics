@@ -530,6 +530,16 @@
             heroCopy: '<strong>Más de 50 diseños disponibles</strong><br>Explorá clásicos, álbumes y ediciones FMD. Elegí tu favorito y armá el pedido.',
             heroCtaLabel: 'VER TODOS LOS DISEÑOS',
             heroQualityLine: 'DTG PREMIUM · ALGODÓN PEINADO · SIN TACTO PLÁSTICO',
+            eventDay: {
+                startsAt: '2026-09-13T00:00:00-03:00',
+                endsAt: '2026-09-13T22:00:00-03:00',
+                label: 'HOY · HELLOWEEN 40 YEARS · BUENOS AIRES 🎃'
+            },
+            instagram: {
+                handle: '@fivemagicsdesigns',
+                href: 'https://www.instagram.com/fivemagicsdesigns/'
+            },
+            moveShippingAfterShowcase: true,
             postShow: {
                 activateAt: '2026-09-13T22:00:00-03:00',
                 title: 'TREMENDO SHOW DE HELLOWEEN EN BUENOS AIRES 🎃🔥',

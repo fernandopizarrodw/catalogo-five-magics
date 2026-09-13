@@ -41,6 +41,9 @@
         if (Date.now() >= Date.parse("2026-09-13T22:00:00-03:00")) {
             document.documentElement.classList.add('fmd-post-show-active');
         }
+        if (Date.now() >= Date.parse("2026-09-13T00:00:00-03:00") && Date.now() < Date.parse("2026-09-13T22:00:00-03:00")) {
+            document.documentElement.classList.add('fmd-event-day-active');
+        }
     </script>
 </head>
 <body class="band-landing-page" data-band="Helloween">
@@ -50,6 +53,9 @@
             <a href="/#catalogoPrincipal" class="logo" aria-label="Volver al catálogo FMD">FIVE <span>MAGICS</span></a>
             <div class="header-actions">
                 <a href="/#catalogoPrincipal" class="btn-back-catalog" aria-label="Explorar más bandas en el catálogo FMD">EXPLORAR MÁS BANDAS</a>
+                <a href="https://www.instagram.com/fivemagicsdesigns/" class="band-landing-instagram-header" target="_blank" rel="noopener" aria-label="Ver @fivemagicsdesigns en Instagram">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.4" cy="6.6" r="1"></circle></svg>
+                </a>
                 <a href="https://wa.me/541169667685?text=Hola%20FMD!%20Quiero%20consultar%20por%20los%20dise%C3%B1os%20de%20Helloween." class="btn-wa-header" target="_blank" rel="noopener">
                     <span>CONSULTAR</span>
                 </a>
@@ -76,6 +82,7 @@
                 <p class="band-landing-brand">FIVE MAGICS DESIGNS</p>
                 <h1 id="bandLandingTitle">HELLOWEEN</h1>
                 <h2>REMERAS, HOODIES Y BUZOS</h2>
+                <p class="helloween-event-day-line">HOY · HELLOWEEN 40 YEARS · BUENOS AIRES 🎃</p>
                 <p><strong>Más de 50 diseños disponibles</strong><br>Explorá clásicos, álbumes y ediciones FMD. Elegí tu favorito y armá el pedido.</p>
                 <p class="band-landing-quality-line">DTG PREMIUM · ALGODÓN PEINADO · SIN TACTO PLÁSTICO</p>
                 <a class="band-landing-primary-cta" href="#catalogoPrincipal">VER TODOS LOS DISEÑOS</a>
@@ -120,12 +127,7 @@
             </div>
         </section>
 
-        <section class="july-shipping-promo" aria-label="Beneficios FMD">
-            <p>PROMO SEPTIEMBRE</p>
-            <strong>ENVÍOS <em>POR ANDREANI</em></strong>
-            <span>1 PRENDA · ENVÍO A SUCURSAL ANDREANI POR $5.000</span>
-            <b>2 PRENDAS · ENVÍO GRATIS A SUCURSAL ANDREANI · 3 O MÁS · 10% OFF + ENVÍO GRATIS A DOMICILIO</b>
-        </section>
+
         <section class="production-tracking-strip" aria-label="Producción y seguimiento">
             <strong><span>PRODUCCIÓN</span> 48 A 72 H HÁBILES</strong>
             <p>Una vez despachado, te enviamos el enlace de seguimiento. Plazo total estimado: 3 a 7 días hábiles según destino.</p>
@@ -141,6 +143,12 @@
                 <div class="band-design-showcase-track" id="bandDesignShowcaseTrack"></div>
             </div>
             <button type="button" class="band-design-showcase-cta" onclick="openBandShowcaseCollection()">VER TODOS LOS DISEÑOS</button>
+        </section>
+        <section class="july-shipping-promo" aria-label="Beneficios FMD">
+            <p>PROMO SEPTIEMBRE</p>
+            <strong>ENVÍOS <em>POR ANDREANI</em></strong>
+            <span>1 PRENDA · ENVÍO A SUCURSAL ANDREANI POR $5.000</span>
+            <b>2 PRENDAS · ENVÍO GRATIS A SUCURSAL ANDREANI · 3 O MÁS · 10% OFF + ENVÍO GRATIS A DOMICILIO</b>
         </section>
 
         <section class="band-landing-garment-selector" id="catalogoPrincipal" aria-label="Elegir prenda Helloween">
@@ -267,6 +275,12 @@
                     <button type="button" onclick="loadMoreCatalogDesigns()">VER MÁS DISEÑOS</button>
                 </div>
             </section>
+        </section>
+
+        <section class="band-landing-instagram" aria-label="Instagram de Five Magics Designs">
+            <p>SEGUINOS EN INSTAGRAM</p>
+            <strong>@fivemagicsdesigns</strong>
+            <a href="https://www.instagram.com/fivemagicsdesigns/" target="_blank" rel="noopener">VER INSTAGRAM</a>
         </section>
 
         <section class="band-landing-custom" id="bandLandingFinal" aria-labelledby="bandCustomTitle">
@@ -583,6 +597,20 @@
                 }
             };
             syncPostShowState();
+        })();
+    </script>
+    <script>
+        (() => {
+            const startsAt = Date.parse("2026-09-13T00:00:00-03:00");
+            const endsAt = Date.parse("2026-09-13T22:00:00-03:00");
+            const syncEventDayState = () => {
+                const now = Date.now();
+                document.documentElement.classList.toggle('fmd-event-day-active', now >= startsAt && now < endsAt);
+                if (now < endsAt) {
+                    window.setTimeout(syncEventDayState, Math.min((now < startsAt ? startsAt : endsAt) - now, 2147483647));
+                }
+            };
+            syncEventDayState();
         })();
     </script>
     <script src="/js/band-archives-config.js" defer></script>
