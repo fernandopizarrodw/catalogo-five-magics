@@ -566,7 +566,7 @@
                 'helloween-savage-pumpkins-arte-original-fmd': 'ORIGINAL FMD'
             },
             postShow: {
-                activateAt: '2026-09-14T00:30:00-03:00',
+                activateAt: '2026-09-13T23:00:00-03:00',
                 title: 'HELLOWEEN 40 YEARS · BUENOS AIRES 🎃',
                 subtitle: 'Una noche para llevar puesta.',
                 highlight: '{count} diseños para elegir y personalizar',
