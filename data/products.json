@@ -9438,6 +9438,18 @@
         "img": "images/banda_sugeridas/helloween/remera_helloween_giants_merch.jpg"
       },
       {
+        "img": "images/banda_sugeridas/helloween/remera_helloween_giants_and_monsters.jpg",
+        "name": "Helloween Giants & Monsters - Pumpkins",
+        "alt": "Remera negra Helloween Giants & Monsters Pumpkins frente y dorso",
+        "designId": "helloween-giants-and-monsters-pumpkins",
+        "role": "front",
+        "garmentCategory": "Bandas Sugeridas",
+        "color": "negro",
+        "usesShownComposition": true,
+        "defaultPrintMode": "double",
+        "isNew": true
+      },
+      {
         "img": "images/banda_sugeridas/helloween/remera_helloween_tour_merch.jpg",
         "name": "Helloween 40 Years Anniversary Tour - Merch",
         "alt": "Remera negra Helloween 40 Years Anniversary Tour frente y dorso",
@@ -9511,6 +9523,19 @@
         "defaultPrintMode": "simple",
         "campaignPreview": "helloween-show-2026",
         "campaignThumbnail": "images/banda_sugeridas/helloween/show_2026_verticales/thumbs/remera_helloween_63_box.jpg",
+        "isNew": true
+      },
+      {
+        "img": "images/banda_sugeridas/helloween/show_2026_verticales/remera_helloween_64_keeper_united.jpg",
+        "name": "Helloween Keeper United",
+        "alt": "Remera negra Helloween Keeper United con estampa frontal",
+        "designId": "helloween-keeper-united",
+        "role": "front",
+        "garmentCategory": "Bandas Sugeridas",
+        "color": "negro",
+        "defaultPrintMode": "simple",
+        "campaignPreview": "helloween-show-2026",
+        "campaignThumbnail": "images/banda_sugeridas/helloween/show_2026_verticales/thumbs/remera_helloween_64_keeper_united.jpg",
         "isNew": true
       },
       {

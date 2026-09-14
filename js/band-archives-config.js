@@ -609,6 +609,7 @@
                     'helloween-pumpkins-united-iconos',
                     'helloween-i-want-out',
                     'helloween-pumpkin-boxer',
+                    'helloween-keeper-united',
                     'helloween-drunk-pumpkin-arte-original-fmd',
                     'helloween-universe-arte-original-fmd',
                     'helloween-future-world-pumpkin-guitarist',
@@ -668,6 +669,8 @@
                 'helloween-pumpkins-united-iconos',
                 'helloween-i-want-out',
                 'helloween-pumpkin-boxer',
+                'helloween-keeper-united',
+                'helloween-giants-and-monsters-pumpkins',
                 'helloween-giants-and-monsters-buenos-aires',
                 'helloween-40-years-tour-merch',
                 'helloween-40-years-tour-circular',
@@ -766,6 +769,7 @@
                     'helloween-keeper-of-the-seven-keys-part-ii',
                     'helloween-eagle-fly-free',
                     'helloween-i-want-out',
+                    'helloween-keeper-united',
                     'helloween-dr-stein',
                     'helloween-dr-stein-arte-original-fmd',
                     'helloween-march-of-time',
@@ -800,7 +804,8 @@
                     'helloween-into-the-sun',
                     'helloween-into-the-sun-v2',
                     'helloween-united-forces',
-                    'helloween-giants-and-monsters-buenos-aires'
+                    'helloween-giants-and-monsters-buenos-aires',
+                    'helloween-giants-and-monsters-pumpkins'
                 ] } },
                 { id: 'iconos', label: 'CLASICOS E ICONOS', match: { designIds: [
                     'helloween-angel-demonio',
