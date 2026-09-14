@@ -555,6 +555,9 @@
                 'helloween-40-years-the-tracks': 'TOUR 2026',
                 'helloween-40th-anniversary-logo': 'TOUR 2026',
                 'helloween-40-years': 'TOUR 2026',
+                'helloween-giants-and-monsters-buenos-aires': 'EDICIÓN BUENOS AIRES',
+                'helloween-40-years-tour-merch': 'TOUR 2026',
+                'helloween-40-years-tour-circular': 'TOUR 2026',
                 'helloween-dr-stein-arte-original-fmd': 'ORIGINAL FMD',
                 'helloween-keeper-of-the-seven-keys-part-i-arte-original-fmd': 'ORIGINAL FMD',
                 'helloween-keeper-of-the-seven-keys-parts-i-ii-arte-original-fmd': 'ORIGINAL FMD',
@@ -602,6 +605,10 @@
                     'helloween-angel-demonio',
                     'helloween-keeper-of-the-seven-keys-parts-i-ii-arte-original-fmd',
                     'helloween-dr-stein-arte-original-fmd',
+                    'helloween-dr-stein-40-years',
+                    'helloween-pumpkins-united-iconos',
+                    'helloween-i-want-out',
+                    'helloween-pumpkin-boxer',
                     'helloween-drunk-pumpkin-arte-original-fmd',
                     'helloween-universe-arte-original-fmd',
                     'helloween-future-world-pumpkin-guitarist',
@@ -657,6 +664,13 @@
                 'helloween-angel-demonio',
                 'helloween-keeper-of-the-seven-keys-parts-i-ii-arte-original-fmd',
                 'helloween-dr-stein-arte-original-fmd',
+                'helloween-dr-stein-40-years',
+                'helloween-pumpkins-united-iconos',
+                'helloween-i-want-out',
+                'helloween-pumpkin-boxer',
+                'helloween-giants-and-monsters-buenos-aires',
+                'helloween-40-years-tour-merch',
+                'helloween-40-years-tour-circular',
                 'helloween-drunk-pumpkin-arte-original-fmd',
                 'helloween-universe-arte-original-fmd',
                 'helloween-future-world-pumpkin-guitarist',
@@ -727,7 +741,11 @@
                     'helloween-40-years-tour-latin-america-2026',
                     'helloween-40-years-the-tracks',
                     'helloween-40th-anniversary-logo',
-                    'helloween-40-years'
+                    'helloween-40-years',
+                    'helloween-giants-and-monsters-buenos-aires',
+                    'helloween-40-years-tour-merch',
+                    'helloween-40-years-tour-circular',
+                    'helloween-dr-stein-40-years'
                 ] } },
                 { id: 'originales-fmd', label: 'ORIGINALES FMD', match: { designIds: [
                     'helloween-dr-stein-arte-original-fmd',
@@ -747,6 +765,7 @@
                     'helloween-future-world-pumpkin-guitarist',
                     'helloween-keeper-of-the-seven-keys-part-ii',
                     'helloween-eagle-fly-free',
+                    'helloween-i-want-out',
                     'helloween-dr-stein',
                     'helloween-dr-stein-arte-original-fmd',
                     'helloween-march-of-time',
@@ -772,14 +791,16 @@
                     'helloween-pumpkins-united-seven-pumpkins',
                     'helloween-pumpkins-united-tour-2017-2018-v1',
                     'helloween-pumpkins-united-tour-2017-2018-v2',
-                    'helloween-united-alive'
+                    'helloween-united-alive',
+                    'helloween-pumpkins-united-iconos'
                 ] } },
                 { id: 'actuales', label: 'ACTUALES', match: { designIds: [
                     'helloween-helloween-2021',
                     'helloween-giants-and-monsters',
                     'helloween-into-the-sun',
                     'helloween-into-the-sun-v2',
-                    'helloween-united-forces'
+                    'helloween-united-forces',
+                    'helloween-giants-and-monsters-buenos-aires'
                 ] } },
                 { id: 'iconos', label: 'CLASICOS E ICONOS', match: { designIds: [
                     'helloween-angel-demonio',
@@ -793,6 +814,7 @@
                     'helloween-skull-pumpkin',
                     'helloween-pumpkin-guitarist',
                     'helloween-pumpkin-rocker',
+                    'helloween-pumpkin-boxer',
                     'helloween-savage-pumpkins',
                     'helloween-savage-pumpkins-arte-original-fmd',
                     'helloween-keeper-of-time',
