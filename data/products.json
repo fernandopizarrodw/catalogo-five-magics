@@ -8523,6 +8523,18 @@
         "garmentCategory": "Bandas Sugeridas"
       },
       {
+        "img": "images/banda_sugeridas/helloween/remera_helloween_better_than_raw_doble.jpg",
+        "name": "Helloween Better Than Raw - Frente y dorso",
+        "alt": "Remera negra Helloween Better Than Raw frente y dorso",
+        "designId": "helloween-better-than-raw",
+        "role": "front",
+        "garmentCategory": "Bandas Sugeridas",
+        "color": "negro",
+        "usesShownComposition": true,
+        "defaultPrintMode": "double",
+        "isNew": true
+      },
+      {
         "img": "images/banda_sugeridas/helloween/buzo_helloween_helloween.jpg",
         "name": "Helloween Pumpkin Logo - Buzo cuello redondo",
         "alt": "Buzo cuello redondo negro Helloween Pumpkin Logo frente y dorso",
