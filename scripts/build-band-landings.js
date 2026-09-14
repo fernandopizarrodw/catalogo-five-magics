@@ -104,6 +104,14 @@ function renderLanding(config, sharedCommerceMarkup) {
     const postShowFeatured = postShow?.featured && typeof postShow.featured === 'object'
         ? postShow.featured
         : null;
+    const postShowFeaturedImages = Array.isArray(postShowFeatured?.images) && postShowFeatured.images.length
+        ? postShowFeatured.images
+        : postShowFeatured
+            ? [
+                { src: postShowFeatured.frontImage, alt: 'Eagle Fly Free, estampa frontal', label: 'FRENTE' },
+                { src: postShowFeatured.backImage, alt: 'Eagle Fly Free, dorso conmemorativo Buenos Aires 2026', label: 'DORSO BUENOS AIRES 2026' }
+            ]
+            : [];
     const eventDay = config.eventDay && typeof config.eventDay === 'object' ? config.eventDay : null;
     const instagram = config.instagram && typeof config.instagram === 'object' ? config.instagram : null;
     const shippingPromoMarkup = config.hideShippingPromo ? '' : `        <section class="july-shipping-promo" aria-label="Beneficios FMD">
@@ -231,14 +239,10 @@ ${postShow ? `
 ${postShowFeatured ? `
         <section class="helloween-post-show-featured" aria-labelledby="helloweenFeaturedTitle">
             <div class="helloween-post-show-featured-media">
-                <figure>
-                    <img src="${postShowFeatured.frontImage}" alt="Eagle Fly Free, estampa frontal" loading="eager" decoding="async">
-                    <figcaption>FRENTE</figcaption>
-                </figure>
-                <figure>
-                    <img src="${postShowFeatured.backImage}" alt="Eagle Fly Free, dorso conmemorativo Buenos Aires 2026" loading="eager" decoding="async">
-                    <figcaption>DORSO BUENOS AIRES 2026</figcaption>
-                </figure>
+${postShowFeaturedImages.map(image => `                <figure>
+                    <img src="${image.src}" alt="${image.alt}" loading="eager" decoding="async">
+                    <figcaption>${image.label}</figcaption>
+                </figure>`).join('\n')}
             </div>
             <div class="helloween-post-show-featured-copy">
                 <h2 id="helloweenFeaturedTitle">${postShowFeatured.title}</h2>

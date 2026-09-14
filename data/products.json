@@ -9412,16 +9412,32 @@
         "isNew": true
       },
       {
-        "img": "images/banda_sugeridas/helloween/show_2026_verticales/remera_helloween_57_eagle_fly_free.jpg",
+        "img": "images/banda_sugeridas/helloween/eagle_fly_free_especial/Frente Azul Keeper II.jpg",
         "name": "Helloween Eagle Fly Free",
-        "alt": "Remera negra Helloween Eagle Fly Free con estampa frontal",
+        "selectionLabel": "Frente Azul Keeper II",
+        "alt": "Remera negra Helloween Eagle Fly Free Azul Keeper II",
+        "designId": "helloween-eagle-fly-free",
+        "role": "front",
+        "garmentCategory": "Bandas Sugeridas",
+        "color": "negro",
+        "defaultPrintMode": "simple",
+        "preferredPreview": true,
+        "campaignPreview": "helloween-show-2026",
+        "campaignThumbnail": "images/banda_sugeridas/helloween/eagle_fly_free_especial/azul + fecha tour.jpg",
+        "isNew": true
+      },
+      {
+        "img": "images/banda_sugeridas/helloween/eagle_fly_free_especial/Frente Fuego Show.jpg",
+        "name": "Helloween Eagle Fly Free",
+        "selectionLabel": "Frente Fuego Show",
+        "alt": "Remera negra Helloween Eagle Fly Free Fuego Show",
         "designId": "helloween-eagle-fly-free",
         "role": "front",
         "garmentCategory": "Bandas Sugeridas",
         "color": "negro",
         "defaultPrintMode": "simple",
         "campaignPreview": "helloween-show-2026",
-        "campaignThumbnail": "images/banda_sugeridas/helloween/show_2026_verticales/thumbs/remera_helloween_57_eagle_fly_free.jpg",
+        "campaignThumbnail": "images/banda_sugeridas/helloween/eagle_fly_free_especial/fuego + set list.jpg",
         "isNew": true
       },
       {
@@ -9616,9 +9632,18 @@
         "isNew": true
       },
       {
-        "img": "images/banda_sugeridas/helloween/show_2026_verticales/remera_helloween_59_eagle_fly_free_dorso.jpg",
-        "name": "Dorso conmemorativo Eagle Fly Free - Buenos Aires 2026",
-        "alt": "Dorso conmemorativo Helloween Eagle Fly Free Buenos Aires 2026",
+        "img": "images/banda_sugeridas/helloween/eagle_fly_free_especial/Dorso 40 Years + Fecha.jpg",
+        "name": "Dorso 40 Years + Buenos Aires 2026",
+        "alt": "Dorso Helloween 40 Years con fecha Buenos Aires 2026",
+        "role": "back",
+        "backTargetDesignId": "helloween-eagle-fly-free",
+        "garmentCategory": "Bandas Sugeridas",
+        "isNew": true
+      },
+      {
+        "img": "images/banda_sugeridas/helloween/eagle_fly_free_especial/Dorso Setlist + Fecha.jpg",
+        "name": "Dorso Setlist Movistar + Buenos Aires 2026",
+        "alt": "Dorso Helloween con setlist del Movistar y fecha Buenos Aires 2026",
         "role": "back",
         "backTargetDesignId": "helloween-eagle-fly-free",
         "garmentCategory": "Bandas Sugeridas",

@@ -576,11 +576,31 @@
                     designId: 'helloween-eagle-fly-free',
                     title: 'EAGLE FLY FREE',
                     kicker: 'DISEÑO ORIGINAL FMD',
-                    copy: 'Cuando se apaga el último acorde, el águila sigue volando. Una pieza creada para que ese momento siga con vos.',
-                    note: 'Disponible con estampa frontal o frente + dorso conmemorativo Buenos Aires 2026.',
+                    copy: 'El águila que sobrevoló el show en Buenos Aires, ahora en dos versiones para elegir.',
+                    note: 'Elegí Azul Keeper II o Fuego Show y combinalo con el dorso 40 Years o Setlist Buenos Aires 2026.',
                     ctaLabel: 'VER EAGLE FLY FREE',
-                    frontImage: '/images/banda_sugeridas/helloween/show_2026_verticales/remera_helloween_57_eagle_fly_free.jpg',
-                    backImage: '/images/banda_sugeridas/helloween/show_2026_verticales/remera_helloween_59_eagle_fly_free_dorso.jpg'
+                    images: [
+                        {
+                            src: '/images/banda_sugeridas/helloween/eagle_fly_free_especial/azul + fecha tour.jpg',
+                            alt: 'Eagle Fly Free Azul Keeper II con dorso 40 Years Buenos Aires 2026',
+                            label: 'AZUL KEEPER II + 40 YEARS'
+                        },
+                        {
+                            src: '/images/banda_sugeridas/helloween/eagle_fly_free_especial/azul + set list.jpg',
+                            alt: 'Eagle Fly Free Azul Keeper II con dorso Setlist Buenos Aires 2026',
+                            label: 'AZUL KEEPER II + SETLIST'
+                        },
+                        {
+                            src: '/images/banda_sugeridas/helloween/eagle_fly_free_especial/fuego + fecha tour.jpg',
+                            alt: 'Eagle Fly Free Fuego Show con dorso 40 Years Buenos Aires 2026',
+                            label: 'FUEGO SHOW + 40 YEARS'
+                        },
+                        {
+                            src: '/images/banda_sugeridas/helloween/eagle_fly_free_especial/fuego + set list.jpg',
+                            alt: 'Eagle Fly Free Fuego Show con dorso Setlist Buenos Aires 2026',
+                            label: 'FUEGO SHOW + SETLIST'
+                        }
+                    ]
                 }
             },
             finalTitle: 'NO ENCONTRASTE EL DISEÑO QUE BUSCABAS',

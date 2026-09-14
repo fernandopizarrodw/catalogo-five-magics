@@ -359,6 +359,7 @@ let catalogDesignById = new Map();
 let catalogHistoricalBacks = [];
 let currentCatalogDesign = null;
 let selectedCatalogBackRef = null;
+let selectedCatalogFrontRef = null;
 let selectedAge = 'adulto';
 let selectedSize = '';
 let selectedCut = 'clasica';
@@ -2833,7 +2834,7 @@ class CartSystem {
 
         // Código del frente
         const frontCode = options.orderCodeBase || this.generateCode(productId, variantIndex);
-        let frontName = options.designName || (product.variants && product.variants[variantIndex]
+        let frontName = options.frontName || options.designName || (product.variants && product.variants[variantIndex]
             ? product.variants[variantIndex].name
             : product.name);
         const slayerGarmentLabel = product.category === 'Slayer' ? getSlayerPreferredGarmentLabel() : '';
@@ -2992,6 +2993,9 @@ class CartSystem {
             const estampado = item.isDouble ? 'Frente y dorso' : 'Solo frente';
             const usesShownComposition = cartItemUsesShownComposition(item);
             const additionalDetails = [];
+            if (item.frontName && normalizeText(item.frontName) !== normalizeText(item.productName)) {
+                additionalDetails.push(`Frente: ${item.frontName.replace(/^Frente\s+/i, '')}`);
+            }
             if (item.isDouble && !usesShownComposition && !item.backCode) {
                 additionalDetails.push('Dorso a definir');
             } else if (item.isDouble && !usesShownComposition && item.backName) {
@@ -4747,7 +4751,9 @@ function getModalImages() {
 }
 
 function getActiveVariantIndex() {
-    if (currentCatalogDesign?.front) return currentCatalogDesign.front.variantIndex;
+    if (currentCatalogDesign?.front) {
+        return selectedCatalogFrontRef?.variantIndex ?? currentCatalogDesign.front.variantIndex;
+    }
     if (!Array.isArray(currentModalSourceIndexes) || !currentModalSourceIndexes.length) {
         return currentSlide;
     }
@@ -4991,6 +4997,7 @@ function openModal(id, variantIndex = undefined, scopedVariantIndexes = undefine
     currentCatalogDesign = catalogDesignId ? catalogDesignById.get(catalogDesignId) || null : null;
     modal.classList.toggle('catalog-design-modal', Boolean(currentCatalogDesign));
     selectedCatalogBackRef = null;
+    selectedCatalogFrontRef = currentCatalogDesign?.front || null;
     const canonicalProductId = currentCatalogDesign?.front?.productId ?? id;
     const product = db.find(p => p.id === canonicalProductId);
     if (!product || !isPublicProduct(product)) return;
@@ -5396,6 +5403,7 @@ function closeModal(fromHistory = false, shouldRestorePosition = true) {
     currentCatalogDesign = null;
     modal.classList.remove('catalog-design-modal');
     selectedCatalogBackRef = null;
+    selectedCatalogFrontRef = null;
     if (!fromHistory && /^#(?:producto|diseno)-/i.test(window.location.hash)) {
         history.replaceState(
             { catalog: true, category: currentCategory || null },
@@ -5866,6 +5874,8 @@ function onCarouselScroll() {
     
     if (newSlide !== currentSlide && newSlide >= 0 && newSlide <= maxSlide) {
         currentSlide = newSlide;
+        const activeCatalogRef = currentModalSourceRefs[newSlide];
+        if (activeCatalogRef?.role === 'front') selectedCatalogFrontRef = activeCatalogRef;
         resetModalImageZoom();
         updateModalInfo();
     }
@@ -5889,6 +5899,8 @@ function goToSlide(index, smooth = true) {
     // Asegurar que el índice está dentro del rango válido
     const validIndex = Math.max(0, Math.min(index, images.length - 1));
     currentSlide = validIndex;
+    const activeCatalogRef = currentModalSourceRefs[validIndex];
+    if (activeCatalogRef?.role === 'front') selectedCatalogFrontRef = activeCatalogRef;
     resetModalImageZoom();
     
     // Calcular la posición de scroll
@@ -6042,6 +6054,9 @@ function updateModalInfo() {
     const activeVariantIndex = getActiveVariantIndex();
     const activeVariantName = images?.[currentSlide]?.name?.trim() || '';
     let displayName = currentCatalogDesign?.publicName || getProductDisplayName(currentProduct, activeVariantName);
+    if (currentCatalogDesign && selectedCatalogFrontRef?.selectionLabel) {
+        displayName = `${currentCatalogDesign.publicName} · ${selectedCatalogFrontRef.selectionLabel}`;
+    }
     const slayerGarmentLabel = currentProduct.category === 'Slayer' ? getSlayerPreferredGarmentLabel() : '';
     if (slayerGarmentLabel && !activeVariantName) displayName = `${cleanPublicText(currentProduct.name)} - ${slayerGarmentLabel}`;
     document.getElementById('modalName').textContent = displayName;
@@ -8145,6 +8160,7 @@ function addToCartFromModal() {
         customizationText: (document.getElementById('dorsoCustomInput')?.value || '').trim(),
         publicGarmentLabel: usesBandLandingShownComposition() ? getModalGarmentLabel(currentProduct) : '',
         designName: currentCatalogDesign?.publicName || '',
+        frontName: selectedCatalogFrontRef?.selectionLabel || '',
         orderCodeBase: currentCatalogDesign?.orderCodeBase || '',
         usesShownComposition: isDouble && usesBandLandingShownComposition(),
         backName: selectedCatalogBackRef?.label || '',
