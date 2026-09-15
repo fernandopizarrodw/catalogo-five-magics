@@ -368,6 +368,10 @@ let selectedBackIndex = -1; // índice del dorso seleccionado para doble estampa
 let selectedPrintMode = 'simple';
 let selectedModalGarment = 'remera_clasica';
 let selectedDeliveryMethod = '';
+const CATALOG_DESIGNS_WITH_REQUIRED_BACK = new Set([
+    'helloween-eagle-fly-free',
+    'helloween-pumpkin-buenos-aires-edicion-fmd'
+]);
 let fmdSpotlightTimer = null;
 let fmdSpotlightPaused = false;
 let fmdSpotlightTouchResume = null;
@@ -1896,14 +1900,31 @@ function getSearchResults(query, sourceProducts = db, useGlobalCodeLookup = fals
 }
 
 function openExactCodeMatch(query, afterOpen) {
+    const codeData = parseProductCode(query);
     if (ENABLE_CATALOG_DESIGN_RENDER && catalogDesigns.length) {
         const normalizedCode = normalizeText(query).replace(/\s+/g, '');
-        const design = catalogDesigns.find(item => (
+        let design = catalogDesigns.find(item => (
             isCatalogDesignInScope(item)
             && normalizeText(item.orderCodeBase).replace(/\s+/g, '') === normalizedCode
         ));
+        let matchedGarment = '';
+        if (!design && codeData && Number.isFinite(codeData.variantIndex)) {
+            design = catalogDesigns.find(item => {
+                if (!isCatalogDesignInScope(item)) return false;
+                const refs = [
+                    ...Object.values(item.previewsByGarment || {}).flat(),
+                    ...(item.backOptions || [])
+                ];
+                const matchedRef = refs.find(ref => (
+                    Number(ref.productId) === Number(codeData.id)
+                    && Number(ref.variantIndex) === Number(codeData.variantIndex)
+                ));
+                if (matchedRef?.role === 'front') matchedGarment = matchedRef.garment || '';
+                return Boolean(matchedRef);
+            });
+        }
         if (design) {
-            openCatalogDesign(design.designId);
+            openCatalogDesign(design.designId, matchedGarment);
             if (typeof afterOpen === 'function') afterOpen(design);
             return true;
         }
@@ -1911,8 +1932,6 @@ function openExactCodeMatch(query, afterOpen) {
     const results = getSearchResults(query, db.filter(isProductInCatalogScope), false);
     if (!results.length) return false;
 
-    const normalized = String(query || '').trim().toLowerCase();
-    const codeData = parseProductCode(normalized);
     const firstMatch = results[0];
 
     if (!codeData || !firstMatch || firstMatch.id !== codeData.id) {
@@ -2712,6 +2731,9 @@ function updatePrintModeUI() {
         doubleNote.classList.toggle('is-hidden', !isDouble);
     }
     if (dorsoPanel) dorsoPanel.style.display = isDouble && !usesShownComposition ? 'block' : 'none';
+    if (isDouble && dorsoPanel && !usesShownComposition) {
+        renderDorsoSelector();
+    }
 }
 
 function selectPrintMode(mode) {
@@ -4339,6 +4361,7 @@ function getDorsoVariants(product) {
 function getCatalogDesignBackChoices() {
     if (!currentCatalogDesign) return [];
     const specific = (currentCatalogDesign.backOptions || []).map(ref => ({ ...ref, backType: 'Recomendado' }));
+    if (CATALOG_DESIGNS_WITH_REQUIRED_BACK.has(currentCatalogDesign.designId)) return specific;
     const specificImages = new Set(specific.map(ref => ref.image));
     const historical = catalogHistoricalBacks
         .filter(ref => normalizeText(ref.band) === normalizeText(currentCatalogDesign.band))
@@ -4358,12 +4381,32 @@ function selectCatalogDesignBack(productId, variantIndex) {
     selectedCatalogBackRef = isSame ? null : choice;
     selectedBackIndex = -1;
     if (selectedCatalogBackRef) selectedPrintMode = 'double';
+    clearSelectionError('dorsoVariantsSection');
     renderDorsoSelector();
     updateModalPrices();
     updateDobleWaLink();
 }
 
 window.selectCatalogDesignBack = selectCatalogDesignBack;
+
+function consultCatalogBackChoice() {
+    if (!currentCatalogDesign) return;
+    const front = selectedCatalogFrontRef?.selectionLabel || selectedCatalogFrontRef?.label || currentCatalogDesign.publicName;
+    const backs = (currentCatalogDesign.backOptions || []).map(ref => `- ${ref.label}`).join('\n');
+    const message = [
+        'Hola FMD! Necesito ayuda para elegir el dorso:',
+        '',
+        `Diseño: ${currentCatalogDesign.publicName}`,
+        `Frente: ${front.replace(/^Frente\s+/i, '')}`,
+        'Quiero pedirlo con frente y dorso. Estoy eligiendo entre:',
+        backs,
+        '',
+        '¿Me ayudan a elegir la mejor opción?'
+    ].filter(Boolean).join('\n');
+    openWhatsapp(message, 'modal_consultar_dorso');
+}
+
+window.consultCatalogBackChoice = consultCatalogBackChoice;
 
 // Renderizar selector de dorso con variantes disponibles
 function renderDorsoSelector() {
@@ -4383,16 +4426,18 @@ function renderDorsoSelector() {
                 && Number(selectedCatalogBackRef.productId) === Number(ref.productId)
                 && Number(selectedCatalogBackRef.variantIndex) === Number(ref.variantIndex);
             return `<button type="button" class="dorso-variant-item catalog-design-dorso${selected ? ' selected' : ''}"
+                    aria-pressed="${selected ? 'true' : 'false'}"
                     onclick="selectCatalogDesignBack(${ref.productId}, ${ref.variantIndex})">
+                <span class="catalog-design-dorso-state">${selected ? 'DORSO ELEGIDO' : 'ELEGIR ESTE DORSO'}</span>
                 <img src="${ref.image}" alt="${ref.label}">
-                <span><strong>${ref.label}</strong><small>${ref.backType}</small></span>
+                <span><strong>${ref.label}</strong><small>Opci&oacute;n de dorso</small></span>
             </button>`;
         };
         variantsSection.style.display = choices.length ? 'block' : 'none';
-        customSection.style.display = 'block';
+        customSection.style.display = choices.length ? 'none' : 'block';
         variantsGrid.classList.add('catalog-design-dorso-grid');
         variantsGrid.innerHTML = `
-            ${recommended.length ? `<div class="catalog-design-dorso-recommended"><p>Dorsos recomendados para este diseño</p><div>${recommended.map(renderChoice).join('')}</div></div>` : ''}
+            ${recommended.length ? `<div class="catalog-design-dorso-recommended"><p><b>2. ELEG&Iacute; EL DORSO</b><span>Seleccion&aacute; una opci&oacute;n para completar la prenda.</span></p><div>${recommended.map(renderChoice).join('')}</div><button type="button" class="catalog-design-dorso-help" onclick="consultCatalogBackChoice()">&iquest;NECESIT&Aacute;S AYUDA PARA ELEGIR? CONSULTANOS</button></div>` : ''}
             ${historical.length ? `<details class="catalog-design-dorso-archive"><summary>VER OTROS DORSOS DE ${currentCatalogDesign.band.toUpperCase()}</summary><div>${historical.map(renderChoice).join('')}</div></details>` : ''}
         `;
         if (summarySection) {
@@ -4660,6 +4705,8 @@ function configureCatalogConversionModalLayout() {
     const primaryAction = document.getElementById('btnBuyNow');
     const secondaryAction = document.getElementById('btnAddCart');
     const legacyHelpAction = document.getElementById('modalWaBtn');
+    const dorsoHelp = dorso?.querySelector('.dorso-help-box');
+    const dorsoLabel = dorso?.querySelector('.dorso-label-green');
 
     if (!garment || !printMode || !dorso || !productOptions || !price || !actions) return;
     garment.after(remeraVariant);
@@ -4682,6 +4729,8 @@ function configureCatalogConversionModalLayout() {
         secondaryAction.textContent = 'CONSULTAR ESTE DISEÑO';
         secondaryAction.onclick = consultCurrentDesign;
     }
+    if (dorsoHelp) dorsoHelp.textContent = 'La opción elegida se imprime en la espalda de la prenda.';
+    if (dorsoLabel) dorsoLabel.hidden = true;
     legacyHelpAction?.remove();
     dorso.style.display = 'none';
 }
@@ -5042,12 +5091,9 @@ function openModal(id, variantIndex = undefined, scopedVariantIndexes = undefine
     const autoHighlightSlide = hasSpecificVariant ? -1 : getAutoHighlightSlideIndex(currentProduct, images);
 
     if (currentCatalogDesign) {
-        const showBacksInCarousel = Array.isArray(BAND_LANDING_CONFIG.modalBackCarouselDesignIds)
-            && BAND_LANDING_CONFIG.modalBackCarouselDesignIds.includes(currentCatalogDesign.designId);
-        const designRefs = [
-            ...getCatalogDesignFrontRefs(currentCatalogDesign),
-            ...(showBacksInCarousel ? currentCatalogDesign.backOptions || [] : [])
-        ];
+        // El carrusel presenta frentes/prendas. Los dorsos se eligen una sola vez
+        // en el selector de estampa para no confundir vista previa con selección.
+        const designRefs = getCatalogDesignFrontRefs(currentCatalogDesign);
         currentModalSourceRefs = [...designRefs];
         currentModalImages = designRefs.map(catalogDesignRefToModalImage);
         currentModalSourceIndexes = designRefs.map(ref => (
@@ -6738,6 +6784,12 @@ searchInput.addEventListener('input', (e) => {
     currentSearch = e.target.value.toLowerCase().trim();
     resetCatalogPagination();
     searchClear.classList.toggle('visible', currentSearch.length > 0);
+    const codeData = parseProductCode(currentSearch);
+    if (e.inputType === 'insertFromPaste' && Number.isFinite(codeData?.variantIndex)) {
+        setTimeout(() => {
+            if (openExactCodeMatch(searchInput.value)) searchInput.blur();
+        }, 0);
+    }
     filterProducts();
     queueCatalogSearchEvent(currentSearch);
 });
@@ -8145,6 +8197,13 @@ function addToCartFromModal() {
     
     // Determinar si es doble estampa basándose en el dorso seleccionado
     const isDouble = isDoubleSelectionActive(currentProduct);
+    const hasDefinedCatalogBacks = Boolean(currentCatalogDesign?.backOptions?.length);
+    if (isDouble && hasDefinedCatalogBacks && !selectedCatalogBackRef) {
+        showNotification('Elegí un dorso o consultanos por WhatsApp.', 2600);
+        markSelectionError('dorsoVariantsSection');
+        document.querySelector('#dorsoVariantsSection button')?.focus({ preventScroll: true });
+        return false;
+    }
     const isCustom = isPersonalizedSelection(currentProduct);
     const variantIndex = getActiveVariantIndex();
     

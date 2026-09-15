@@ -112,6 +112,14 @@ function renderLanding(config, sharedCommerceMarkup) {
                 { src: postShowFeatured.backImage, alt: 'Eagle Fly Free, dorso conmemorativo Buenos Aires 2026', label: 'DORSO BUENOS AIRES 2026' }
             ]
             : [];
+    const postShowFeaturedGroups = Array.isArray(postShowFeatured?.groups)
+        ? postShowFeatured.groups.filter(group => Array.isArray(group.images) && group.images.length)
+        : [];
+    const postShowFeaturedCtas = Array.isArray(postShowFeatured?.ctas) && postShowFeatured.ctas.length
+        ? postShowFeatured.ctas
+        : postShowFeatured
+            ? [{ designId: postShowFeatured.designId, label: postShowFeatured.ctaLabel }]
+            : [];
     const eventDay = config.eventDay && typeof config.eventDay === 'object' ? config.eventDay : null;
     const instagram = config.instagram && typeof config.instagram === 'object' ? config.instagram : null;
     const shippingPromoMarkup = config.hideShippingPromo ? '' : `        <section class="july-shipping-promo" aria-label="Beneficios FMD">
@@ -238,18 +246,29 @@ ${postShow ? `
         </section>` : ''}
 ${postShowFeatured ? `
         <section class="helloween-post-show-featured" aria-labelledby="helloweenFeaturedTitle">
-            <div class="helloween-post-show-featured-media">
+            <div class="helloween-post-show-featured-media${postShowFeaturedGroups.length ? ' has-option-groups' : ''}">
+${postShowFeaturedGroups.length ? postShowFeaturedGroups.map(group => `                <section class="helloween-featured-option-group">
+                    <h3>${group.title}</h3>
+                    <div class="helloween-featured-option-grid">
+${group.images.map(image => `                        <figure>
+                            <img src="${image.src}" alt="${image.alt}" loading="eager" decoding="async">
+                            <figcaption>${image.label}</figcaption>
+                        </figure>`).join('\n')}
+                    </div>
+                </section>`).join('\n') : `
 ${postShowFeaturedImages.map(image => `                <figure>
                     <img src="${image.src}" alt="${image.alt}" loading="eager" decoding="async">
                     <figcaption>${image.label}</figcaption>
-                </figure>`).join('\n')}
+                </figure>`).join('\n')}`}
             </div>
             <div class="helloween-post-show-featured-copy">
                 <h2 id="helloweenFeaturedTitle">${postShowFeatured.title}</h2>
                 <p class="band-landing-brand">${postShowFeatured.kicker}</p>
                 <strong>${postShowFeatured.copy}</strong>
                 <small>${postShowFeatured.note}</small>
-                <button type="button" onclick="openCatalogDesign('${postShowFeatured.designId}', 'remera')">${postShowFeatured.ctaLabel}</button>
+                <div class="helloween-featured-actions">
+${postShowFeaturedCtas.map(cta => `                    <button type="button" onclick="openCatalogDesign('${cta.designId}', 'remera')">${cta.label}</button>`).join('\n')}
+                </div>
             </div>
         </section>` : ''}
 

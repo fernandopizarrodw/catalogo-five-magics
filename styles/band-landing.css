@@ -222,6 +222,32 @@ body[data-band="Helloween"] .helloween-post-show-featured {
     gap: 12px;
 }
 
+.helloween-post-show-featured-media.has-option-groups {
+    display: block;
+}
+
+.helloween-featured-option-group + .helloween-featured-option-group {
+    margin-top: 18px;
+}
+
+.helloween-featured-option-group h3 {
+    margin: 0 0 9px;
+    color: #ffbd54;
+    font-family: "Oswald", sans-serif;
+    font-size: 0.82rem;
+    letter-spacing: 0.11em;
+}
+
+.helloween-featured-option-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.helloween-featured-option-group:nth-child(2) .helloween-featured-option-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
 .helloween-post-show-featured-media figure {
     margin: 0;
     overflow: hidden;
@@ -292,6 +318,11 @@ body[data-band="Helloween"] .helloween-post-show-featured {
 .helloween-post-show-featured-copy button:hover,
 .helloween-post-show-featured-copy button:focus-visible {
     background: #ff5a39;
+}
+
+.helloween-featured-actions {
+    display: grid;
+    gap: 9px;
 }
 
 .band-design-showcase {
@@ -1446,6 +1477,25 @@ body.band-landing-page[data-band="Argentina"] #modal .btn-add-cart {
         scroll-snap-type: x mandatory;
         scrollbar-width: thin;
         overscroll-behavior-inline: contain;
+    }
+
+    .helloween-post-show-featured-media.has-option-groups {
+        display: block;
+        overflow: visible;
+    }
+
+    .helloween-featured-option-grid,
+    .helloween-featured-option-group:nth-child(2) .helloween-featured-option-grid {
+        display: flex;
+        gap: 9px;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: thin;
+    }
+
+    .helloween-featured-option-grid figure {
+        flex: 0 0 78%;
+        scroll-snap-align: start;
     }
 
     .helloween-post-show-featured-media figure {

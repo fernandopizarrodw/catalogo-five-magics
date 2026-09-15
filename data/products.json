@@ -9641,11 +9641,29 @@
         "isNew": true
       },
       {
-        "img": "images/banda_sugeridas/helloween/eagle_fly_free_especial/Dorso Setlist + Fecha.jpg",
-        "name": "Dorso Setlist Movistar + Buenos Aires 2026",
-        "alt": "Dorso Helloween con setlist del Movistar y fecha Buenos Aires 2026",
+        "img": "images/banda_sugeridas/helloween/show_2026_verticales/remera_helloween_65_set_list_40years_dorso.jpg",
+        "name": "Dorso Setlist completo - Buenos Aires 2026",
+        "alt": "Dorso Helloween 40 Years con setlist completo del show en Buenos Aires 2026",
         "role": "back",
         "backTargetDesignId": "helloween-eagle-fly-free",
+        "garmentCategory": "Bandas Sugeridas",
+        "isNew": true
+      },
+      {
+        "img": "images/banda_sugeridas/helloween/eagle_fly_free_especial/Dorso 40 Years + Fecha.jpg",
+        "name": "Dorso 40 Years + Buenos Aires 2026",
+        "alt": "Dorso Helloween 40 Years con fecha Buenos Aires 2026",
+        "role": "back",
+        "backTargetDesignId": "helloween-pumpkin-buenos-aires-edicion-fmd",
+        "garmentCategory": "Bandas Sugeridas",
+        "isNew": true
+      },
+      {
+        "img": "images/banda_sugeridas/helloween/show_2026_verticales/remera_helloween_65_set_list_40years_dorso.jpg",
+        "name": "Dorso Setlist completo - Buenos Aires 2026",
+        "alt": "Dorso Helloween 40 Years con setlist completo del show en Buenos Aires 2026",
+        "role": "back",
+        "backTargetDesignId": "helloween-pumpkin-buenos-aires-edicion-fmd",
         "garmentCategory": "Bandas Sugeridas",
         "isNew": true
       }

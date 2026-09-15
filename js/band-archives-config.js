@@ -540,7 +540,10 @@
                 href: 'https://www.instagram.com/fivemagicsdesigns/'
             },
             moveShippingAfterShowcase: true,
-            modalBackCarouselDesignIds: ['helloween-eagle-fly-free'],
+            modalBackCarouselDesignIds: [
+                'helloween-eagle-fly-free',
+                'helloween-pumpkin-buenos-aires-edicion-fmd'
+            ],
             suppressNewBadges: true,
             editorialBadges: {
                 'helloween-eagle-fly-free': 'EDICIÓN BUENOS AIRES',
@@ -573,32 +576,55 @@
                 copy: 'Eagle Fly Free · Keeper · Dr. Stein · 40 Years · Buenos Aires 2026 · originales FMD',
                 ctaLabel: 'VER LA COLECCIÓN',
                 featured: {
-                    designId: 'helloween-eagle-fly-free',
-                    title: 'EAGLE FLY FREE',
-                    kicker: 'DISEÑO ORIGINAL FMD',
-                    copy: 'El águila que sobrevoló el show en Buenos Aires, ahora en dos versiones para elegir.',
-                    note: 'Elegí Azul Keeper II o Fuego Show y combinalo con el dorso 40 Years o Setlist Buenos Aires 2026.',
-                    ctaLabel: 'VER EAGLE FLY FREE',
-                    images: [
+                    title: 'HELLOWEEN BUENOS AIRES 2026',
+                    kicker: 'ELEGÍ TU FRENTE Y TU DORSO',
+                    copy: 'Tres frentes destacados para llevarte un recuerdo del show.',
+                    note: 'Elegí uno de los frentes. Podés pedirlo solo o combinarlo con cualquiera de los dos dorsos conmemorativos.',
+                    groups: [
                         {
-                            src: '/images/banda_sugeridas/helloween/eagle_fly_free_especial/azul + fecha tour.jpg',
-                            alt: 'Eagle Fly Free Azul Keeper II con dorso 40 Years Buenos Aires 2026',
-                            label: 'AZUL KEEPER II + 40 YEARS'
+                            title: '1. ELEGÍ EL FRENTE',
+                            images: [
+                                {
+                                    src: '/images/banda_sugeridas/helloween/eagle_fly_free_especial/Frente Azul Keeper II.jpg',
+                                    alt: 'Frente Eagle Fly Free Azul Keeper II',
+                                    label: 'EAGLE · AZUL KEEPER II'
+                                },
+                                {
+                                    src: '/images/banda_sugeridas/helloween/eagle_fly_free_especial/Frente Fuego Show.jpg',
+                                    alt: 'Frente Eagle Fly Free Fuego Show',
+                                    label: 'EAGLE · FUEGO SHOW'
+                                },
+                                {
+                                    src: '/images/banda_sugeridas/helloween/show_2026_verticales/remera_helloween_55_pumpkin_bsas_fmd_edition.jpg',
+                                    alt: 'Frente Pumpkin Buenos Aires',
+                                    label: 'PUMPKIN BUENOS AIRES'
+                                }
+                            ]
                         },
                         {
-                            src: '/images/banda_sugeridas/helloween/eagle_fly_free_especial/azul + set list.jpg',
-                            alt: 'Eagle Fly Free Azul Keeper II con dorso Setlist Buenos Aires 2026',
-                            label: 'AZUL KEEPER II + SETLIST'
+                            title: '2. ELEGÍ EL DORSO',
+                            images: [
+                                {
+                                    src: '/images/banda_sugeridas/helloween/eagle_fly_free_especial/Dorso 40 Years + Fecha.jpg',
+                                    alt: 'Dorso 40 Years con fecha Buenos Aires 2026',
+                                    label: '40 YEARS + FECHA'
+                                },
+                                {
+                                    src: '/images/banda_sugeridas/helloween/show_2026_verticales/remera_helloween_65_set_list_40years_dorso.jpg',
+                                    alt: 'Dorso con setlist completo del show en Buenos Aires 2026',
+                                    label: 'SETLIST COMPLETO + FECHA'
+                                }
+                            ]
+                        }
+                    ],
+                    ctas: [
+                        {
+                            designId: 'helloween-eagle-fly-free',
+                            label: 'VER EAGLE FLY FREE'
                         },
                         {
-                            src: '/images/banda_sugeridas/helloween/eagle_fly_free_especial/fuego + fecha tour.jpg',
-                            alt: 'Eagle Fly Free Fuego Show con dorso 40 Years Buenos Aires 2026',
-                            label: 'FUEGO SHOW + 40 YEARS'
-                        },
-                        {
-                            src: '/images/banda_sugeridas/helloween/eagle_fly_free_especial/fuego + set list.jpg',
-                            alt: 'Eagle Fly Free Fuego Show con dorso Setlist Buenos Aires 2026',
-                            label: 'FUEGO SHOW + SETLIST'
+                            designId: 'helloween-pumpkin-buenos-aires-edicion-fmd',
+                            label: 'VER PUMPKIN BUENOS AIRES'
                         }
                     ]
                 }

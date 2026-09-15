@@ -562,8 +562,20 @@
 .catalog-design-dorso-recommended > p {
     margin: 0 0 8px;
     color: var(--magic-green);
-    font-size: .78rem;
+    font-size: .82rem;
     font-weight: 800;
+}
+
+.catalog-design-dorso-recommended > p b,
+.catalog-design-dorso-recommended > p span {
+    display: block;
+}
+
+.catalog-design-dorso-recommended > p span {
+    margin-top: 3px;
+    color: #ddd;
+    font-size: .76rem;
+    font-weight: 600;
 }
 
 .catalog-design-dorso-recommended > div,
@@ -571,6 +583,26 @@
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 8px;
+}
+
+.catalog-design-dorso-help {
+    width: 100%;
+    min-height: 42px;
+    margin-top: 10px;
+    padding: 9px 12px;
+    border: 1px solid var(--magic-green);
+    border-radius: 7px;
+    background: rgba(57, 255, 20, 0.07);
+    color: var(--magic-green);
+    font: 800 0.72rem/1.3 "Oswald", sans-serif;
+    letter-spacing: 0.04em;
+    cursor: pointer;
+}
+
+.catalog-design-dorso-help:hover,
+.catalog-design-dorso-help:focus-visible {
+    background: var(--magic-green);
+    color: #050505;
 }
 
 .catalog-design-dorso-archive {
@@ -593,6 +625,7 @@
 }
 
 .catalog-design-dorso {
+    position: relative;
     width: 100%;
     overflow: hidden;
     padding: 0;
@@ -605,7 +638,23 @@
 
 .catalog-design-dorso.selected {
     border-color: var(--magic-green);
-    box-shadow: 0 0 0 1px var(--magic-green);
+    box-shadow: 0 0 0 2px var(--magic-green);
+}
+
+.catalog-design-dorso-state {
+    display: block;
+    padding: 6px 5px !important;
+    background: #202020;
+    color: #ddd;
+    font-size: .61rem;
+    font-weight: 900;
+    letter-spacing: .035em;
+    text-align: center !important;
+}
+
+.catalog-design-dorso.selected .catalog-design-dorso-state {
+    background: var(--magic-green);
+    color: #050505;
 }
 
 .catalog-design-dorso img {
