@@ -716,10 +716,6 @@
                 'helloween-i-want-out',
                 'helloween-pumpkin-boxer',
                 'helloween-keeper-united',
-                'helloween-giants-and-monsters-pumpkins',
-                'helloween-giants-and-monsters-buenos-aires',
-                'helloween-40-years-tour-merch',
-                'helloween-40-years-tour-circular',
                 'helloween-drunk-pumpkin-arte-original-fmd',
                 'helloween-universe-arte-original-fmd',
                 'helloween-future-world-pumpkin-guitarist',
@@ -775,7 +771,11 @@
                 'helloween-savage-pumpkins',
                 'helloween-keeper-of-time',
                 'helloween-master-of-keys',
-                'helloween-universe'
+                'helloween-universe',
+                'helloween-giants-and-monsters-pumpkins',
+                'helloween-giants-and-monsters-buenos-aires',
+                'helloween-40-years-tour-merch',
+                'helloween-40-years-tour-circular'
             ],
             collections: [
                 { id: 'show-2026', label: 'SHOW 2026', match: { designIds: [

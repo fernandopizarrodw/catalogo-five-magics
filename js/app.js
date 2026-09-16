@@ -2467,17 +2467,22 @@ function selectCatalogDesignPreviewForGarment(modalGarment) {
     const garment = getCatalogDesignGarmentKey(modalGarment);
     const previews = currentCatalogDesign.previewsByGarment?.[garment] || [];
     const selectedColorKey = normalizeText(selectedColor);
-    let preview = previews.find(item => selectedColorKey && normalizeText(item.color) === selectedColorKey)
-        || previews.find(item => item.preferredPreview)
-        || previews[0];
+    const preferCleanFront = normalizeText(currentCatalogDesign.band) === 'helloween';
+    let preview = preferCleanFront
+        ? chooseCleanCatalogPreview(previews, selectedColorKey)
+        : previews.find(item => selectedColorKey && normalizeText(item.color) === selectedColorKey)
+            || previews.find(item => item.preferredPreview)
+            || previews[0];
     if (!preview) {
         const fallbackGarments = ['remera', 'hoodie', 'buzo_cuello_redondo'];
         const fallbackPreviews = fallbackGarments
             .flatMap(key => currentCatalogDesign.previewsByGarment?.[key] || []);
-        preview = fallbackPreviews.find(item => selectedColorKey && normalizeText(item.color) === selectedColorKey)
-            || fallbackPreviews.find(item => item.preferredPreview)
-            || fallbackPreviews[0]
-            || currentCatalogDesign.front;
+        preview = preferCleanFront
+            ? chooseCleanCatalogPreview(fallbackPreviews, selectedColorKey) || currentCatalogDesign.front
+            : fallbackPreviews.find(item => selectedColorKey && normalizeText(item.color) === selectedColorKey)
+                || fallbackPreviews.find(item => item.preferredPreview)
+                || fallbackPreviews[0]
+                || currentCatalogDesign.front;
     }
     if (preview) {
         const slideIndex = currentModalSourceRefs.findIndex(ref => (
@@ -5186,7 +5191,9 @@ function openModal(id, variantIndex = undefined, scopedVariantIndexes = undefine
     selectedColor = '';
     selectedBackIndex = -1; // Reset dorso seleccionado
     selectedPrintMode = currentCatalogDesign
-        ? (currentCatalogDesign.defaultPrintMode === 'double' ? 'double' : 'simple')
+        ? (normalizeText(currentCatalogDesign.band) === 'helloween'
+            ? 'simple'
+            : (currentCatalogDesign.defaultPrintMode === 'double' ? 'double' : 'simple'))
         : (isDoubleByDefault(currentProduct) ? 'double' : 'simple');
     const availableModalGarments = getAvailableModalGarments(currentProduct);
     const activeVariantGarment = getVariantGarmentType(getModalImages()[currentSlide]);
@@ -6279,9 +6286,34 @@ function getCatalogDesignCardPriceText(design, preview) {
     return `Frente y dorso $${(doublePrice + personalizedExtra).toLocaleString('es-AR')}`;
 }
 
+function isSimpleFrontPreview(preview) {
+    const printMode = normalizeText(preview?.defaultPrintMode || '');
+    const presentation = normalizeText(`${preview?.label || ''} ${preview?.name || ''} ${preview?.alt || ''} ${preview?.image || ''}`);
+    return printMode !== 'double'
+        && printMode !== 'doble'
+        && !presentation.includes('frente y dorso')
+        && !presentation.includes('doble estampa');
+}
+
+function chooseCleanCatalogPreview(previews, colorKey = '') {
+    const candidates = Array.isArray(previews) ? previews : [];
+    const colorMatches = colorKey
+        ? candidates.filter(item => normalizeText(item.color) === colorKey)
+        : candidates;
+    const pool = colorMatches.length ? colorMatches : candidates;
+    return pool.find(item => item.preferredPreview && isSimpleFrontPreview(item))
+        || pool.find(isSimpleFrontPreview)
+        || pool.find(item => item.preferredPreview)
+        || pool[0]
+        || null;
+}
+
 function getBandLandingDesignPreview(design) {
     if (!isBandLandingMode() || !bandLandingGarment) return design?.front || null;
     const previews = design?.previewsByGarment?.[bandLandingGarment] || [];
+    if (normalizeText(BAND_LANDING_BAND) === 'helloween') {
+        return chooseCleanCatalogPreview(previews) || design?.front || null;
+    }
     return previews.find(item => item.preferredPreview) || previews[0] || null;
 }
 
