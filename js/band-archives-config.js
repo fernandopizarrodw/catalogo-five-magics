@@ -545,7 +545,11 @@
                 'helloween-pumpkin-buenos-aires-edicion-fmd'
             ],
             suppressNewBadges: true,
+            cardImageOverrides: {
+                'helloween-keeper-i-setlist-buenos-aires-2026': '/images/banda_sugeridas/helloween/helloween_keepers_I_+_dorso_tour.jpg'
+            },
             editorialBadges: {
+                'helloween-keeper-i-setlist-buenos-aires-2026': 'EDICIÓN BUENOS AIRES',
                 'helloween-eagle-fly-free': 'EDICIÓN BUENOS AIRES',
                 'helloween-pumpkin-buenos-aires-edicion-fmd': 'EDICIÓN BUENOS AIRES',
                 'helloween-40-years-tour-buenos-aires': 'EDICIÓN BUENOS AIRES',
@@ -707,6 +711,7 @@
             designOrder: [
                 'helloween-eagle-fly-free',
                 'helloween-pumpkin-buenos-aires-edicion-fmd',
+                'helloween-keeper-i-setlist-buenos-aires-2026',
                 'helloween-40-years-tour-buenos-aires',
                 'helloween-angel-demonio',
                 'helloween-keeper-of-the-seven-keys-parts-i-ii-arte-original-fmd',
@@ -781,6 +786,7 @@
                 { id: 'show-2026', label: 'SHOW 2026', match: { designIds: [
                     'helloween-eagle-fly-free',
                     'helloween-pumpkin-buenos-aires-edicion-fmd',
+                    'helloween-keeper-i-setlist-buenos-aires-2026',
                     'helloween-40-years-tour-buenos-aires',
                     'helloween-buenos-aires-2026',
                     'helloween-40-tour',
@@ -807,6 +813,7 @@
                 { id: 'era-1985-1989', label: '1985-1989', match: { designIds: [
                     'helloween-walls-of-jericho',
                     'helloween-keeper-of-the-seven-keys-part-i',
+                    'helloween-keeper-i-setlist-buenos-aires-2026',
                     'helloween-keeper-of-the-seven-keys-parts-i-ii-arte-original-fmd',
                     'helloween-keepers',
                     'helloween-keeper-of-the-seven-keys-part-i-arte-original-fmd',

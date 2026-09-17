@@ -69,6 +69,9 @@ function serializeInlineConfig(config) {
             ? config.modalBackCarouselDesignIds
             : [],
         suppressNewBadges: config.suppressNewBadges === true,
+        cardImageOverrides: config.cardImageOverrides && typeof config.cardImageOverrides === 'object'
+            ? config.cardImageOverrides
+            : {},
         editorialBadges: config.editorialBadges && typeof config.editorialBadges === 'object'
             ? config.editorialBadges
             : {},
@@ -125,8 +128,11 @@ function renderLanding(config, sharedCommerceMarkup) {
     const shippingPromoMarkup = config.hideShippingPromo ? '' : `        <section class="july-shipping-promo" aria-label="Beneficios FMD">
             <p>${config.promoKicker || 'PROMO SEPTIEMBRE'}</p>
             <strong>${config.promoTitle || 'ENVÍOS <em>POR ANDREANI</em>'}</strong>
-            <span>${config.promoPrimary || '1 PRENDA · ENVÍO A SUCURSAL ANDREANI POR $5.000'}</span>
-            <b>${config.promoSecondary || '2 PRENDAS · ENVÍO GRATIS A SUCURSAL ANDREANI · 3 O MÁS · 10% OFF + ENVÍO GRATIS A DOMICILIO'}</b>
+            <div class="shipping-promo-options">
+                <span><b>1 PRENDA</b><em>Sucursal $5.000</em><em>Domicilio $8.000</em></span>
+                <span><b>2 PRENDAS</b><em>Sucursal gratis</em><em>Domicilio $5.000</em></span>
+                <span class="is-best"><b>3 PRENDAS O MÁS · 10% OFF</b><em>Sucursal gratis</em><em>Domicilio gratis</em></span>
+            </div>
         </section>`;
     const completeArchive = config.prominentAllDesigns || (collections.length ? {
         kicker: 'CATÁLOGO COMPLETO',

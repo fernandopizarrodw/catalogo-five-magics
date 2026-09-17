@@ -3044,7 +3044,7 @@ class CartSystem {
             ? `\n10% OFF: -$${Math.round(totals.descuento).toLocaleString('es-AR')}`
             : '';
         const shippingLine = totals.envio > 0
-            ? `\nEnvío a sucursal Andreani: $${Math.round(totals.envio).toLocaleString('es-AR')}`
+            ? `\nEnvío ${selectedDeliveryMethod === 'domicilio' ? 'a domicilio' : 'a sucursal Andreani'}: $${Math.round(totals.envio).toLocaleString('es-AR')}`
             : '';
 
         if (total === 1) {
@@ -3052,7 +3052,7 @@ class CartSystem {
             return `${details}\n\nRESUMEN\n1 prenda · Subtotal: $${Math.round(totals.subtotal).toLocaleString('es-AR')}${shippingLine}\nTotal: $${Math.round(totals.total).toLocaleString('es-AR')}`;
         }
 
-        return `${details}\n\nRESUMEN\n${total} prendas · Subtotal: $${Math.round(totals.subtotal).toLocaleString('es-AR')}${discountLine}\nTotal: $${Math.round(totals.total).toLocaleString('es-AR')}`;
+        return `${details}\n\nRESUMEN\n${total} prendas · Subtotal: $${Math.round(totals.subtotal).toLocaleString('es-AR')}${discountLine}${shippingLine}\nTotal: $${Math.round(totals.total).toLocaleString('es-AR')}`;
     }
 
     generateConsultationSummary() {
@@ -5036,7 +5036,9 @@ function openCatalogDesign(designId, initialGarment = '') {
         initial_garment: requestedGarment || undefined
     });
     openModal(design.front.productId, design.front.variantIndex, undefined, 'catalog_design', designId, requestedGarment);
-    if (bandShowcaseCollectionMode && normalizeText(BAND_LANDING_BAND) === 'helloween') {
+    if (bandShowcaseCollectionMode
+        && normalizeText(BAND_LANDING_BAND) === 'helloween'
+        && designId !== 'helloween-keeper-i-setlist-buenos-aires-2026') {
         selectPrintMode('simple');
     }
 }
@@ -5190,11 +5192,15 @@ function openModal(id, variantIndex = undefined, scopedVariantIndexes = undefine
     selectedCut = '';
     selectedColor = '';
     selectedBackIndex = -1; // Reset dorso seleccionado
+    const isKeeperSetlistCombination = currentCatalogDesign?.designId === 'helloween-keeper-i-setlist-buenos-aires-2026';
     selectedPrintMode = currentCatalogDesign
         ? (normalizeText(currentCatalogDesign.band) === 'helloween'
-            ? 'simple'
+            ? (isKeeperSetlistCombination ? 'double' : 'simple')
             : (currentCatalogDesign.defaultPrintMode === 'double' ? 'double' : 'simple'))
         : (isDoubleByDefault(currentProduct) ? 'double' : 'simple');
+    if (isKeeperSetlistCombination && currentCatalogDesign.backOptions?.length === 1) {
+        selectedCatalogBackRef = currentCatalogDesign.backOptions[0];
+    }
     const availableModalGarments = getAvailableModalGarments(currentProduct);
     const activeVariantGarment = getVariantGarmentType(getModalImages()[currentSlide]);
     const preferredGarment = activeVariantGarment === 'hoodie'
@@ -6432,6 +6438,7 @@ function renderCatalogDesignResults(designs) {
 
     productsGrid.innerHTML = visibleDesigns.map(design => {
         const preview = getBandLandingDesignPreview(design) || design.front;
+        const cardImage = BAND_LANDING_CONFIG?.cardImageOverrides?.[design.designId] || preview.image;
         const availableGarments = new Set((design.availableGarments || []).map(garment => normalizeText(garment)));
         const garmentLabels = [
             [...availableGarments].some(garment => garment.includes('remera')) ? 'Remera' : '',
@@ -6461,7 +6468,7 @@ function renderCatalogDesignResults(designs) {
             <button type="button" class="catalog-design-card-main" onclick="openCatalogDesign('${design.designId}', '${initialGarment}')" aria-label="Ver diseño ${design.publicName}">
                 <span class="catalog-design-media">
                     ${cardBadges.length ? `<span class="catalog-design-badges">${cardBadges.map(badge => `<span class="catalog-design-badge ${badge.className}">${badge.label}</span>`).join('')}</span>` : ''}
-                    <img src="${preview.image}" alt="${preview.alt || `${design.publicName} - ${design.band}`}" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='images/logo/MARCA DE AGUA.png';">
+                    <img src="${cardImage}" alt="${preview.alt || `${design.publicName} - ${design.band}`}" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='images/logo/MARCA DE AGUA.png';">
                 </span>
                 <span class="catalog-design-copy">
                     <span class="catalog-design-band">${design.band}</span>
@@ -7595,12 +7602,12 @@ function buildShippingContextForWhatsapp(postalCode = '', customerData = null) {
     let deliveryHeading = 'ENTREGA';
     if (selectedDeliveryMethod === 'retiro_andreani') {
         deliveryBenefit = totals.envio > 0
-            ? 'Sucursal Andreani · Envío $5.000'
+            ? 'Sucursal Andreani'
             : 'Sucursal Andreani · Envío gratis';
     } else if (selectedDeliveryMethod === 'domicilio') {
-        deliveryBenefit = totals.cantidad >= 3
-            ? 'Domicilio · Envío gratis'
-            : 'Domicilio · Envío a cotizar según CP';
+        deliveryBenefit = totals.envio > 0
+            ? 'Domicilio'
+            : 'Domicilio · Envío gratis';
     } else if (selectedDeliveryMethod === 'taller') {
         deliveryHeading = 'RETIRO';
         deliveryBenefit = 'Villa Martelli · Zona Tecnópolis\nLunes a viernes de 10 a 16 h';
@@ -7754,6 +7761,8 @@ function calculateDiscountableSubtotal(items) {
 }
 
 const ANDREANI_POINT_SINGLE_PRICE = 5000;
+const ANDREANI_HOME_SINGLE_PRICE = 8000;
+const ANDREANI_HOME_TWO_PRICE = 5000;
 
 function calculateWinterPromotion(items, deliveryMethod = selectedDeliveryMethod) {
     const quantity = items.length;
@@ -7821,11 +7830,13 @@ function calculateCartTotal() {
     const items = cart.getCart();
     const cantidad = items.length;
     const promotion = calculateWinterPromotion(items);
-    const shippingCost = selectedDeliveryMethod === 'retiro_andreani'
-        && cantidad === 1
-        && !promotion.envioGratisPuntoAndreani
+    const shippingCost = selectedDeliveryMethod === 'retiro_andreani' && cantidad === 1
         ? ANDREANI_POINT_SINGLE_PRICE
-        : 0;
+        : selectedDeliveryMethod === 'domicilio' && cantidad === 1
+            ? ANDREANI_HOME_SINGLE_PRICE
+            : selectedDeliveryMethod === 'domicilio' && cantidad === 2
+                ? ANDREANI_HOME_TWO_PRICE
+                : 0;
 
     return {
         subtotal: promotion.subtotal,
@@ -7915,21 +7926,21 @@ function renderCartPreview() {
     const totals = calculateCartTotal();
     
     // Renderizar footer con resumen
-    let shippingNote = '';
-    if (totals.promotion?.id && totals.promotion.id !== 'sin_promo') {
-        shippingNote = `<div class="cart-preview-shipping-note">🎁 ${totals.promotion.label}</div>`;
-    }
-
     const pointDeliveryLabel = totals.cantidad === 1
         ? 'Sucursal Andreani · $5.000'
-        : 'Sucursal Andreani · ENVÍO GRATIS';
+        : 'Sucursal Andreani · GRATIS';
+    const homeDeliveryLabel = totals.cantidad >= 3
+        ? 'Domicilio · GRATIS'
+        : totals.cantidad === 2
+            ? 'Domicilio · $5.000'
+            : 'Domicilio · $8.000';
 
     const deliverySelector = `
         <div class="cart-customer-fields cart-delivery-checkout" id="cartDeliveryGroup">
             <p class="cart-customer-title">Forma de entrega</p>
             <div class="modal-delivery-options">
                 <button type="button" class="option-btn modal-delivery-btn ${selectedDeliveryMethod === 'retiro_andreani' ? 'active' : ''}" data-order-delivery data-delivery="retiro_andreani" onclick="selectDeliveryMethod('retiro_andreani')">${pointDeliveryLabel}</button>
-                <button type="button" class="option-btn modal-delivery-btn ${selectedDeliveryMethod === 'domicilio' ? 'active' : ''}" data-order-delivery data-delivery="domicilio" onclick="selectDeliveryMethod('domicilio')">Envío Andreani a domicilio</button>
+                <button type="button" class="option-btn modal-delivery-btn ${selectedDeliveryMethod === 'domicilio' ? 'active' : ''}" data-order-delivery data-delivery="domicilio" onclick="selectDeliveryMethod('domicilio')">${homeDeliveryLabel}</button>
                 <button type="button" class="option-btn modal-delivery-btn ${selectedDeliveryMethod === 'taller' ? 'active' : ''}" data-order-delivery data-delivery="taller" onclick="selectDeliveryMethod('taller')">Retiro sin cargo en Villa Martelli</button>
             </div>
             <p class="cart-customer-hint">Elegí una opción para completar los datos necesarios del pedido.</p>
@@ -7965,7 +7976,9 @@ function renderCartPreview() {
             <div class="cart-customer-grid single"><div class="cart-cp-field"><label for="inputProvincia">Provincia</label><input type="text" id="inputProvincia" placeholder="Ej: Buenos Aires" autocomplete="address-level1"></div></div>`;
         customerHint = totals.cantidad >= 3
             ? 'Con 3 prendas o más tenés 10% OFF y envío gratis a domicilio.'
-            : 'El costo del envío a domicilio se confirma según el código postal.';
+            : totals.cantidad === 2
+                ? 'Con 2 prendas, el envío a domicilio cuesta $5.000.'
+                : 'Con 1 prenda, el envío a domicilio cuesta $8.000.';
     } else if (selectedDeliveryMethod === 'retiro_andreani') {
         logisticsFields = `
             <div class="cart-customer-grid">
@@ -7999,9 +8012,9 @@ function renderCartPreview() {
                 ? totals.envio > 0
                     ? '<span>Envío a sucursal Andreani: $5.000</span>'
                     : '<span style="color:var(--magic-green);">ENVÍO GRATIS A SUCURSAL ANDREANI ✓</span>'
-                : totals.cantidad >= 3
-                    ? '<span style="color:var(--magic-green);">GRATIS a domicilio ✓</span>'
-                    : 'A confirmar según código postal';
+                : totals.envio > 0
+                    ? `<span>Envío a domicilio: $${totals.envio.toLocaleString('es-AR')}</span>`
+                    : '<span style="color:var(--magic-green);">ENVÍO GRATIS A DOMICILIO ✓</span>';
     
     footer.innerHTML = `
         <div class="cart-preview-summary">
@@ -8015,27 +8028,20 @@ function renderCartPreview() {
                     <span class="value" style="color: var(--magic-green);">-$${totals.descuento.toLocaleString('es-AR')}</span>
                 </div>
             ` : ''}
-            ${totals.promotion?.id && totals.promotion.id !== 'sin_promo' ? `
-                <div class="cart-preview-summary-row">
-                    <span>Promo aplicada</span>
-                    <span class="value" style="color: var(--magic-green);">${totals.promotion.label}</span>
-                </div>
-            ` : ''}
             <div class="cart-preview-summary-row">
                 <span>Envío</span>
                 <span class="value">${shippingStatus}</span>
             </div>
             <div class="cart-preview-summary-row total">
-                <span>Total${selectedDeliveryMethod === 'domicilio' && totals.cantidad < 3 ? ' (sin envío)' : ''}</span>
+                <span>Total</span>
                 <span class="value">$${totals.total.toLocaleString('es-AR')}</span>
             </div>
         </div>
-        ${shippingNote}
         ${deliverySelector}
         ${shippingForm}
         <div class="cart-preview-info" style="margin-top:12px;padding:12px;background:#0a0a0a;border:1px solid #222;border-radius:8px;font-size:0.8rem;color:#888;">
             <div style="margin-bottom:8px;">
-                <span style="color:#39ff14;">📦 PROMO SEPTIEMBRE:</span> 1 prenda: envío a sucursal Andreani por $5.000. 2 prendas: envío gratis a sucursal Andreani. 3 prendas o más: 10% OFF + envío gratis a domicilio.
+                <span style="color:#39ff14;">📦 PROMO SEPTIEMBRE:</span> 1 prenda: sucursal $5.000 o domicilio $8.000. 2 prendas: sucursal gratis o domicilio $5.000. 3 prendas o más: 10% OFF y envío gratis a sucursal o domicilio.
             </div>
             <div>
                 <span style="color:#39ff14;">💳 PAGO:</span> Transferencia o MercadoPago. Tarjeta de crédito disponible con recargo.

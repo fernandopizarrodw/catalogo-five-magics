@@ -9666,6 +9666,28 @@
         "backTargetDesignId": "helloween-pumpkin-buenos-aires-edicion-fmd",
         "garmentCategory": "Bandas Sugeridas",
         "isNew": true
+      },
+      {
+        "img": "images/banda_sugeridas/helloween/show_2026_verticales/remera_helloween_18_keeper_I.jpg",
+        "name": "Keeper Part I + Setlist Buenos Aires 2026",
+        "selectionLabel": "Keeper of the Seven Keys Part I",
+        "alt": "Frente Helloween Keeper of the Seven Keys Part I",
+        "designId": "helloween-keeper-i-setlist-buenos-aires-2026",
+        "role": "front",
+        "garmentCategory": "Bandas Sugeridas",
+        "color": "negro",
+        "preferredPreview": true,
+        "defaultPrintMode": "double",
+        "isNew": true
+      },
+      {
+        "img": "images/banda_sugeridas/helloween/show_2026_verticales/remera_helloween_65_set_list_40years_dorso.jpg",
+        "name": "Dorso Setlist Buenos Aires 2026",
+        "alt": "Keeper Part I con dorso setlist del show en Buenos Aires 2026",
+        "role": "back",
+        "backTargetDesignId": "helloween-keeper-i-setlist-buenos-aires-2026",
+        "garmentCategory": "Bandas Sugeridas",
+        "isNew": true
       }
     ],
     "desc": "Selección de diseños de Helloween disponibles en remeras, hoodies y buzos.",
