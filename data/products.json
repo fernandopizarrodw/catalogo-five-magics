@@ -8170,7 +8170,7 @@
         "defaultPrintMode": "double"
       },
       {
-        "img": "images/banda_sugeridas/helloween/dorso_helloween_40_tour.jpg",
+        "img": "images/banda_sugeridas/helloween/dorso/dorso_helloween_40_tour.jpg",
         "name": "Dorso Helloween 40 Years Anniversary Tour",
         "role": "back",
         "backTargetDesignId": "helloween-40-tour",
@@ -8265,9 +8265,9 @@
         "isNew": true
       },
       {
-        "img": "images/banda_sugeridas/helloween/remera_helloween_tour.jpg",
-        "name": "Dorso Tour Latinoamérica 2026 - Logo naranja",
-        "alt": "Dorso Helloween Tour Latinoamérica 2026 con logo naranja",
+        "img": "images/banda_sugeridas/helloween/dorso/dorso_tour.jpg",
+        "name": "Dorso Tour Latinoamérica 2026",
+        "alt": "Dorso Helloween Tour Latinoamérica 2026",
         "role": "back",
         "backTargetDesignId": "helloween-40-years-anniversary-tour-v1",
         "garmentCategory": "Bandas Sugeridas"
@@ -8286,7 +8286,7 @@
         "isNew": true
       },
       {
-        "img": "images/banda_sugeridas/helloween/remera_helloween_tour_2.jpg",
+        "img": "images/banda_sugeridas/helloween/dorso/dorso_tour_logo_dorado.jpg",
         "name": "Dorso Tour Latinoamérica 2026 - Logo amarillo",
         "alt": "Dorso Helloween Tour Latinoamérica 2026 con logo amarillo",
         "role": "back",
@@ -8307,9 +8307,9 @@
         "isNew": true
       },
       {
-        "img": "images/banda_sugeridas/helloween/remera_helloween_tour_3.jpg",
-        "name": "Dorso Tour Latinoamérica 2026 - Logo dorado",
-        "alt": "Dorso Helloween Tour Latinoamérica 2026 con logo dorado",
+        "img": "images/banda_sugeridas/helloween/dorso/dorso_tour.jpg",
+        "name": "Dorso Tour Latinoamérica 2026",
+        "alt": "Dorso Helloween Tour Latinoamérica 2026",
         "role": "back",
         "backTargetDesignId": "helloween-40-years-anniversary-tour-v3",
         "garmentCategory": "Bandas Sugeridas"
@@ -8327,7 +8327,7 @@
         "isNew": true
       },
       {
-        "img": "images/banda_sugeridas/helloween/remera_helloween_dr_stein.jpg",
+        "img": "images/banda_sugeridas/helloween/dorso/dorso_dr_stein.jpg",
         "name": "Dorso Dr. Stein",
         "alt": "Dorso Helloween Dr. Stein",
         "role": "back",
@@ -8347,7 +8347,7 @@
         "isNew": true
       },
       {
-        "img": "images/banda_sugeridas/helloween/remera_helloween_keeper_I.jpg",
+        "img": "images/banda_sugeridas/helloween/dorso/dorso_keeper_I.jpg",
         "name": "Dorso Keeper of the Seven Keys Part I",
         "alt": "Dorso Helloween Keeper of the Seven Keys Part I",
         "role": "back",
@@ -8387,7 +8387,7 @@
         "isNew": true
       },
       {
-        "img": "images/banda_sugeridas/helloween/remera_helloween_time.jpg",
+        "img": "images/banda_sugeridas/helloween/dorso/dorso_time_of_the_oath.jpg",
         "name": "Dorso The Time of the Oath",
         "alt": "Dorso Helloween The Time of the Oath",
         "role": "back",
@@ -8515,7 +8515,7 @@
         "isNew": true
       },
       {
-        "img": "images/banda_sugeridas/helloween/remera_helloween_better.jpg",
+        "img": "images/banda_sugeridas/helloween/dorso/dorso_better_than_raw.jpg",
         "name": "Dorso Helloween Better Than Raw",
         "alt": "Dorso Helloween Better Than Raw",
         "role": "back",
@@ -8547,7 +8547,7 @@
         "isNew": true
       },
       {
-        "img": "images/banda_sugeridas/helloween/buzo_helloween_helloween.jpg",
+        "img": "images/banda_sugeridas/helloween/dorso/dorso_pumpkin_logo.jpg",
         "name": "Dorso Helloween Pumpkin Logo",
         "alt": "Dorso Helloween Pumpkin Logo",
         "role": "back",
@@ -8603,7 +8603,7 @@
         "isNew": true
       },
       {
-        "img": "images/banda_sugeridas/helloween/remera_helloween_keepers_II.jpg",
+        "img": "images/banda_sugeridas/helloween/dorso/dorso_keeper_II.jpg",
         "name": "Dorso Helloween Keeper of the Seven Keys Part II",
         "alt": "Dorso Helloween Keeper of the Seven Keys Part II",
         "role": "back",
@@ -8719,7 +8719,7 @@
         "isNew": true
       },
       {
-        "img": "images/banda_sugeridas/helloween/remera_helloween_mago_march.jpg",
+        "img": "images/banda_sugeridas/helloween/dorso/dorso_march_of_time.jpg",
         "name": "Dorso March of Time",
         "alt": "Dorso Helloween March of Time",
         "role": "back",
@@ -9632,7 +9632,7 @@
         "isNew": true
       },
       {
-        "img": "images/banda_sugeridas/helloween/eagle_fly_free_especial/Dorso 40 Years + Fecha.jpg",
+        "img": "images/banda_sugeridas/helloween/dorso/dorso_tour_flayer.jpg",
         "name": "Dorso 40 Years + Buenos Aires 2026",
         "alt": "Dorso Helloween 40 Years con fecha Buenos Aires 2026",
         "role": "back",
@@ -9641,7 +9641,7 @@
         "isNew": true
       },
       {
-        "img": "images/banda_sugeridas/helloween/show_2026_verticales/remera_helloween_65_set_list_40years_dorso.jpg",
+        "img": "images/banda_sugeridas/helloween/dorso/remera_helloween_65_set_list_40years_dorso.jpg",
         "name": "Dorso Setlist completo - Buenos Aires 2026",
         "alt": "Dorso Helloween 40 Years con setlist completo del show en Buenos Aires 2026",
         "role": "back",
@@ -9650,7 +9650,7 @@
         "isNew": true
       },
       {
-        "img": "images/banda_sugeridas/helloween/eagle_fly_free_especial/Dorso 40 Years + Fecha.jpg",
+        "img": "images/banda_sugeridas/helloween/dorso/dorso_tour_flayer.jpg",
         "name": "Dorso 40 Years + Buenos Aires 2026",
         "alt": "Dorso Helloween 40 Years con fecha Buenos Aires 2026",
         "role": "back",
@@ -9659,7 +9659,7 @@
         "isNew": true
       },
       {
-        "img": "images/banda_sugeridas/helloween/show_2026_verticales/remera_helloween_65_set_list_40years_dorso.jpg",
+        "img": "images/banda_sugeridas/helloween/dorso/remera_helloween_65_set_list_40years_dorso.jpg",
         "name": "Dorso Setlist completo - Buenos Aires 2026",
         "alt": "Dorso Helloween 40 Years con setlist completo del show en Buenos Aires 2026",
         "role": "back",
@@ -9681,7 +9681,7 @@
         "isNew": true
       },
       {
-        "img": "images/banda_sugeridas/helloween/show_2026_verticales/remera_helloween_65_set_list_40years_dorso.jpg",
+        "img": "images/banda_sugeridas/helloween/dorso/remera_helloween_65_set_list_40years_dorso.jpg",
         "name": "Dorso Setlist Buenos Aires 2026",
         "alt": "Keeper Part I con dorso setlist del show en Buenos Aires 2026",
         "role": "back",
@@ -20736,6 +20736,18 @@
         "color": "negro",
         "usesShownComposition": true,
         "defaultPrintMode": "double",
+        "isNew": true
+      },
+      {
+        "img": "images/banda_sugeridas/sonata_artica/remera_sonata_artica_wolf_and_raven.jpg",
+        "name": "Sonata Arctica Wolf & Raven",
+        "alt": "Remera negra Sonata Arctica Wolf & Raven con estampa frontal",
+        "designId": "sonata-arctica-wolf-and-raven",
+        "role": "front",
+        "garmentCategory": "Bandas Sugeridas",
+        "color": "negro",
+        "preferredPreview": true,
+        "defaultPrintMode": "simple",
         "isNew": true
       }
     ],

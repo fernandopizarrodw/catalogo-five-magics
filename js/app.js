@@ -2733,7 +2733,7 @@ function updatePrintModeUI() {
     if (help) help.textContent = '';
     if (doubleNote) {
         doubleNote.textContent = 'Todos los diseños son personalizables. Si querés cambiar, agregar o quitar estampas, lo coordinamos por WhatsApp antes de producir tu pedido.';
-        doubleNote.classList.toggle('is-hidden', !isDouble);
+        doubleNote.classList.add('is-hidden');
     }
     if (dorsoPanel) dorsoPanel.style.display = isDouble && !usesShownComposition ? 'block' : 'none';
     if (isDouble && dorsoPanel && !usesShownComposition) {
@@ -4703,7 +4703,7 @@ function configureCatalogConversionModalLayout() {
     const delivery = document.getElementById('modalDeliveryBox');
     const price = document.getElementById('modalPrice');
     const priceNote = document.querySelector('.modal-price-note');
-    const adaptable = document.querySelector('.modal-adaptable-note');
+    const septemberPromo = document.querySelector('.modal-september-promo');
     const actions = document.querySelector('.modal-actions');
     const orderSummary = document.getElementById('modalOrderSummary');
     const advanced = document.getElementById('modalAdvancedPanel');
@@ -4722,8 +4722,8 @@ function configureCatalogConversionModalLayout() {
     dorso.after(price);
     if (delivery) delivery.remove();
     if (priceNote) price.after(priceNote);
-    if (adaptable) (priceNote || price).after(adaptable);
-    (adaptable || priceNote || price).after(orderSummary || actions);
+    if (septemberPromo) (priceNote || price).after(septemberPromo);
+    (septemberPromo || priceNote || price).after(orderSummary || actions);
     if (orderSummary) orderSummary.after(actions);
     if (advanced?.querySelector('summary')) advanced.querySelector('summary').textContent = 'Detalles del producto';
     if (primaryAction) {
@@ -4734,7 +4734,7 @@ function configureCatalogConversionModalLayout() {
         secondaryAction.textContent = 'CONSULTAR ESTE DISEÑO';
         secondaryAction.onclick = consultCurrentDesign;
     }
-    if (dorsoHelp) dorsoHelp.textContent = 'La opción elegida se imprime en la espalda de la prenda.';
+    if (dorsoHelp) dorsoHelp.innerHTML = '<strong>ELEGÍ EL DORSO</strong><span>Seleccioná una opción para completar la prenda. También podés dejarlo a confirmar por WhatsApp.</span>';
     if (dorsoLabel) dorsoLabel.hidden = true;
     legacyHelpAction?.remove();
     dorso.style.display = 'none';

@@ -659,9 +659,10 @@
 
 .catalog-design-dorso img {
     width: 100%;
-    aspect-ratio: 1 / 1;
+    aspect-ratio: 4 / 5;
     display: block;
-    object-fit: cover;
+    object-fit: contain;
+    background: #080808;
 }
 
 .catalog-design-dorso > span {
@@ -2709,12 +2710,14 @@ body {
 
 .shipping-promo-options span {
     min-width: 0;
-    padding: 11px 9px;
+    min-height: 118px;
+    padding: 18px 15px;
     border: 1px solid rgba(255, 255, 255, .14);
     border-radius: 12px;
     background: rgba(0, 0, 0, .32);
     display: grid;
-    gap: 3px;
+    align-content: center;
+    gap: 7px;
     color: #fff;
 }
 
@@ -2731,18 +2734,19 @@ body {
 
 .shipping-promo-options span b {
     color: var(--fmd-yellow);
-    font-size: .82rem;
+    font-size: clamp(.98rem, 1.8vw, 1.2rem);
 }
 
 .shipping-promo-options span em {
     color: #ddd;
-    font-size: .78rem;
+    font-size: clamp(.88rem, 1.5vw, 1rem);
     font-weight: 650;
 }
 
 .shipping-promo-options .is-best {
-    border-color: rgba(57, 255, 20, .55);
-    background: rgba(57, 255, 20, .08);
+    border: 2px solid rgba(57, 255, 20, .72);
+    background: linear-gradient(145deg, rgba(57, 255, 20, .15), rgba(57, 255, 20, .06));
+    box-shadow: 0 0 28px rgba(57, 255, 20, .12);
 }
 
 .shipping-promo-options .is-best b {
@@ -8037,6 +8041,33 @@ header {
     line-height: 1.35;
 }
 
+.modal-september-promo {
+    display: grid;
+    gap: 3px;
+    margin: 12px 0;
+    padding: 11px 13px;
+    border: 1px solid rgba(57, 255, 20, 0.48);
+    border-radius: 10px;
+    background: linear-gradient(135deg, rgba(57, 255, 20, 0.13), rgba(57, 255, 20, 0.035));
+}
+
+.modal-september-promo > strong {
+    color: var(--magic-green);
+    font-family: var(--font-title);
+    font-size: 0.9rem;
+    letter-spacing: 0.08em;
+}
+
+.modal-september-promo span {
+    color: rgba(255, 255, 255, 0.88);
+    font-size: 0.78rem;
+    line-height: 1.35;
+}
+
+.modal-september-promo span b {
+    color: #fff;
+}
+
 .modal-delivery-options {
     display: grid;
     gap: 8px;
@@ -8581,6 +8612,19 @@ header {
     font-size: 0.88rem;
     line-height: 1.45;
     color: var(--text-muted);
+}
+
+.dorso-help-box strong,
+.dorso-help-box span {
+    display: block;
+}
+
+.dorso-help-box strong {
+    margin-bottom: 3px;
+    color: var(--magic-green);
+    font-family: var(--font-title);
+    font-size: 0.92rem;
+    letter-spacing: 0.06em;
 }
 
 .dorso-section-hidden {
@@ -12935,7 +12979,7 @@ footer p {
     }
     
     .modal .carousel-slide img {
-        max-height: 48vh;
+        max-height: 36vh;
     }
 
     .variant-name {

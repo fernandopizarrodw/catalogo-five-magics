@@ -539,7 +539,7 @@
                 handle: '@fivemagicsdesigns',
                 href: 'https://www.instagram.com/fivemagicsdesigns/'
             },
-            moveShippingAfterShowcase: true,
+            moveShippingAfterShowcase: false,
             modalBackCarouselDesignIds: [
                 'helloween-eagle-fly-free',
                 'helloween-pumpkin-buenos-aires-edicion-fmd'
@@ -1023,7 +1023,7 @@
             image: '/images/banda_sugeridas/sonata_artica/remera_sonata_artica_30th_argentina_band_solo.jpg',
             imageUrl: 'https://catalogo.fivemagicsdesigns.com/images/banda_sugeridas/sonata_artica/remera_sonata_artica_30th_argentina_band_solo.jpg',
             heroTitle: 'BUENOS AIRES · 29 DE SEPTIEMBRE DE 2026',
-            heroCopy: '<strong>10 diseños disponibles</strong><br>Elegí tu favorito y armá el pedido en remera, hoodie o buzo.',
+            heroCopy: '<strong>11 diseños disponibles</strong><br>Elegí tu favorito y armá el pedido en remera, hoodie o buzo.',
             heroCtaLabel: 'VER DISEÑOS',
             heroQualityLine: 'DTG PREMIUM · ALGODÓN PEINADO · SIN TACTO PLÁSTICO',
             finalTitle: '¿BUSCABAS OTRO DISEÑO DE SONATA ARCTICA?',
@@ -1035,6 +1035,7 @@
             designOrder: [
                 'sonata-arctica-30th-anniversary-tour-banda-buenos-aires',
                 'sonata-arctica-30th-anniversary-tour-buenos-aires',
+                'sonata-arctica-wolf-and-raven',
                 'sonata-arctica-ecliptica',
                 'sonata-arctica-silence',
                 'sonata-arctica-winterhearts-guild',
