@@ -381,6 +381,16 @@ let selectedPrintMode = 'simple';
 let selectedModalGarment = 'remera_clasica';
 let selectedDeliveryMethod = '';
 const CATALOG_DESIGNS_WITH_REQUIRED_BACK = new Set([
+    'peace-sells-anniversary-edition',
+    'peace-sells-portada-clasica',
+    'peace-sells-vic-en-llamas',
+    'peace-sells-circular',
+    'peace-sells-formacion-clasica',
+    'peace-sells-arte-clasico',
+    'peace-sells-40th-anniversary',
+    'peace-sells-vic-violeta',
+    'peace-sells-vic-naranja',
+    'peace-sells-vic-rojo',
     'helloween-eagle-fly-free',
     'helloween-pumpkin-buenos-aires-edicion-fmd'
 ]);
