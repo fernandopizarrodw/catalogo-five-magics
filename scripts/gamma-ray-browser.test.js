@@ -60,8 +60,9 @@ async function main() {
                 band: document.getElementById('productsCount').textContent
             };
         })()`);
-        assert.equal(catalog.cards, 9, JSON.stringify(catalog));
-        assert.equal(new Set(catalog.names).size, 9, JSON.stringify(catalog.names));
+        assert.equal(catalog.cards, 10, JSON.stringify(catalog));
+        assert.equal(new Set(catalog.names).size, 10, JSON.stringify(catalog.names));
+        assert(catalog.names.includes('Born With a Hammer'), JSON.stringify(catalog.names));
         assert.equal(catalog.missing.length, 0, JSON.stringify(catalog.missing));
         assert(catalog.modalOpen, 'El primer diseño no abre el modal');
         assert(catalog.bands.every(band => band === 'Gamma Ray'), JSON.stringify(catalog.bands));
@@ -73,7 +74,12 @@ async function main() {
         })()`);
         assert.equal(related.href, '/?banda=Gamma%20Ray#catalogoPrincipal');
         assert(related.text.includes('GAMMA RAY') && related.text.includes('KAI HANSEN'), JSON.stringify(related));
-        console.log('Gamma Ray: 9 diseños, imágenes, modal y acceso desde Helloween correctos');
+        const shared = await evaluate(`(() => ({
+            card: Boolean(document.querySelector('.catalog-design-card[data-design-id="kai-hansen-born-with-a-hammer"]')),
+            showcase: Boolean(document.querySelector('.band-design-showcase-card[data-design-id="kai-hansen-born-with-a-hammer"]'))
+        }))()`);
+        assert(shared.card && shared.showcase, JSON.stringify(shared));
+        console.log('Gamma Ray: 10 diseños; Born With a Hammer compartido con Helloween');
     } finally {
         socket.close();
     }

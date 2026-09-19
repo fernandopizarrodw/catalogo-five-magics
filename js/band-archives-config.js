@@ -545,6 +545,7 @@
                 href: 'https://www.instagram.com/fivemagicsdesigns/'
             },
             moveShippingAfterShowcase: false,
+            sharedDesignIds: ['kai-hansen-born-with-a-hammer'],
             finishedGarments: [
                 { src: '/images/banda_sugeridas/helloween/grillas_prendas_reales/prendas-terminadas-01.jpg', alt: 'Cuatro remeras terminadas de Helloween: Pumpkin Buenos Aires, Eagle Fly Free, setlist del show y Keeper Buenos Aires' },
                 { src: '/images/banda_sugeridas/helloween/grillas_prendas_reales/prendas-terminadas-02.jpg', alt: 'Cuatro remeras terminadas de Helloween con estampas de Keeper y Live in the U.K.' },
@@ -561,6 +562,7 @@
                 'helloween-keeper-i-setlist-buenos-aires-2026': '/images/banda_sugeridas/helloween/helloween_keepers_I_+_dorso_tour.jpg'
             },
             editorialBadges: {
+                'kai-hansen-born-with-a-hammer': 'BONUS TRACK · ESTRENO',
                 'helloween-keeper-i-setlist-buenos-aires-2026': 'EDICIÓN BUENOS AIRES',
                 'helloween-eagle-fly-free': 'EDICIÓN BUENOS AIRES',
                 'helloween-pumpkin-buenos-aires-edicion-fmd': 'EDICIÓN BUENOS AIRES',
@@ -661,6 +663,7 @@
                 ctaLabel: 'VER TODOS LOS DISEÑOS',
                 durationSeconds: 72,
                 order: [
+                    'kai-hansen-born-with-a-hammer',
                     'helloween-eagle-fly-free',
                     'helloween-pumpkin-buenos-aires-edicion-fmd',
                     'helloween-40-years-tour-buenos-aires',
@@ -721,6 +724,7 @@
                 ]
             },
             designOrder: [
+                'kai-hansen-born-with-a-hammer',
                 'helloween-eagle-fly-free',
                 'helloween-pumpkin-buenos-aires-edicion-fmd',
                 'helloween-keeper-i-setlist-buenos-aires-2026',

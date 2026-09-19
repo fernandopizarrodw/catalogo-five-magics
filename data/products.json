@@ -21331,6 +21331,62 @@
     ]
   },
   {
+    "id": 5095,
+    "category": "Bandas Sugeridas",
+    "year": "2026",
+    "name": "Kai Hansen",
+    "tipoPrecio": "simple",
+    "isNew": true,
+    "img": "images/banda_sugeridas/kai_hansen/remera_kai_hansen_born.jpg",
+    "variants": [
+      {
+        "img": "images/banda_sugeridas/kai_hansen/remera_kai_hansen_born.jpg",
+        "name": "Kai Hansen - Born With a Hammer",
+        "alt": "Remera negra Kai Hansen Born With a Hammer con estampa frontal",
+        "designId": "kai-hansen-born-with-a-hammer",
+        "role": "front",
+        "garmentCategory": "Bandas Sugeridas",
+        "color": "negro",
+        "preferredPreview": true,
+        "defaultPrintMode": "simple",
+        "isNew": true,
+        "campaignPreview": "helloween-show-2026",
+        "badges": [
+          "BONUS TRACK",
+          "ESTRENO 2026"
+        ]
+      }
+    ],
+    "desc": "Born With a Hammer, el nuevo álbum solista de Kai Hansen.",
+    "band": "Gamma Ray",
+    "universe": [
+      "Power Metal"
+    ],
+    "album": "Born With a Hammer",
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Gamma Ray Archive",
+      "Helloween Archive",
+      "Mas bandas"
+    ],
+    "campaigns": [],
+    "commercialPriority": 92,
+    "visibilityTier": "featured",
+    "legacyCategory": "Bandas Sugeridas",
+    "tags": [
+      "Kai Hansen",
+      "Gamma Ray",
+      "Helloween",
+      "Born With a Hammer",
+      "Power Metal",
+      "remera",
+      "Bonus Track",
+      "Estreno 2026"
+    ]
+  },
+  {
     "id": 5093,
     "category": "Bandas Sugeridas",
     "year": "",
