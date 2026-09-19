@@ -520,6 +520,11 @@
             slug: 'helloween',
             publishedAt: '2026-08-19',
             band: 'Helloween',
+            relatedArchive: {
+                href: '/?banda=Gamma%20Ray#catalogoPrincipal',
+                label: 'TAMBIÉN TE PUEDE GUSTAR',
+                title: 'GAMMA RAY · KAI HANSEN'
+            },
             displayName: 'HELLOWEEN',
             title: 'Helloween: remeras, hoodies y buzos | Five Magics Designs',
             description: 'Diseños de Helloween en remeras, hoodies y buzos hechos a pedido. Elegí prenda, estampa, talle y color.',

@@ -8428,6 +8428,11 @@ function loadProductFromHash() {
 function loadCategoryFromURL() {
     if (isBandLandingMode()) return;
     const params = new URLSearchParams(window.location.search);
+    const band = String(params.get('banda') || '').trim();
+    if (band && catalogDesignBandExists(band)) {
+        openBandAccess(band);
+        return;
+    }
     const cat = params.get('cat');
     if (!cat) return;
     // Buscar coincidencia flexible (case-insensitive, ignorando espacios/guiones)

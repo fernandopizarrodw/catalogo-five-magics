@@ -20777,6 +20777,150 @@
     ]
   },
   {
+    "id": 5094,
+    "category": "Bandas Sugeridas",
+    "year": "",
+    "name": "Gamma Ray",
+    "tipoPrecio": "simple",
+    "isNew": true,
+    "img": "images/banda_sugeridas/gamma_ray/remera_gamma_ray_to_the_metal.jpg",
+    "variants": [
+      {
+        "img": "images/banda_sugeridas/gamma_ray/remera_gamma_ray_to_the_metal.jpg",
+        "name": "Gamma Ray To the Metal!",
+        "alt": "Remera negra Gamma Ray To the Metal! con estampa frontal",
+        "designId": "gamma-ray-to-the-metal",
+        "role": "front",
+        "garmentCategory": "Bandas Sugeridas",
+        "color": "negro",
+        "preferredPreview": true,
+        "defaultPrintMode": "simple",
+        "isNew": true
+      },
+      {
+        "img": "images/banda_sugeridas/gamma_ray/remera_gamma_ray_somewhere.jpg",
+        "name": "Gamma Ray Somewhere Out in Space",
+        "alt": "Remera negra Gamma Ray Somewhere Out in Space con estampa frontal",
+        "designId": "gamma-ray-somewhere-out-in-space",
+        "role": "front",
+        "garmentCategory": "Bandas Sugeridas",
+        "color": "negro",
+        "preferredPreview": true,
+        "defaultPrintMode": "simple",
+        "isNew": true
+      },
+      {
+        "img": "images/banda_sugeridas/gamma_ray/remera_gamma_ray_power_plant.jpg",
+        "name": "Gamma Ray Power Plant",
+        "alt": "Remera negra Gamma Ray Power Plant con estampa frontal",
+        "designId": "gamma-ray-power-plant",
+        "role": "front",
+        "garmentCategory": "Bandas Sugeridas",
+        "color": "negro",
+        "preferredPreview": true,
+        "defaultPrintMode": "simple",
+        "isNew": true
+      },
+      {
+        "img": "images/banda_sugeridas/gamma_ray/remera_gamma_ray_master.jpg",
+        "name": "Gamma Ray Master of Confusion",
+        "alt": "Remera negra Gamma Ray Master of Confusion con estampa frontal",
+        "designId": "gamma-ray-master-of-confusion",
+        "role": "front",
+        "garmentCategory": "Bandas Sugeridas",
+        "color": "negro",
+        "preferredPreview": true,
+        "defaultPrintMode": "simple",
+        "isNew": true
+      },
+      {
+        "img": "images/banda_sugeridas/gamma_ray/remera_gamma_ray_majestic.jpg",
+        "name": "Gamma Ray Majestic",
+        "alt": "Remera negra Gamma Ray Majestic con estampa frontal",
+        "designId": "gamma-ray-majestic",
+        "role": "front",
+        "garmentCategory": "Bandas Sugeridas",
+        "color": "negro",
+        "preferredPreview": true,
+        "defaultPrintMode": "simple",
+        "isNew": true
+      },
+      {
+        "img": "images/banda_sugeridas/gamma_ray/remera_gamma_ray_land.jpg",
+        "name": "Gamma Ray Land of the Free",
+        "alt": "Remera negra Gamma Ray Land of the Free con estampa frontal",
+        "designId": "gamma-ray-land-of-the-free",
+        "role": "front",
+        "garmentCategory": "Bandas Sugeridas",
+        "color": "negro",
+        "preferredPreview": true,
+        "defaultPrintMode": "simple",
+        "isNew": true
+      },
+      {
+        "img": "images/banda_sugeridas/gamma_ray/remera_gamma_ray_fangface.jpg",
+        "name": "Gamma Ray Fangface",
+        "alt": "Remera negra Gamma Ray Fangface con estampa frontal",
+        "designId": "gamma-ray-fangface",
+        "role": "front",
+        "garmentCategory": "Bandas Sugeridas",
+        "color": "negro",
+        "preferredPreview": true,
+        "defaultPrintMode": "simple",
+        "isNew": true
+      },
+      {
+        "img": "images/banda_sugeridas/gamma_ray/remera_gamma_ray_cheers_to_the_metal.jpg",
+        "name": "Gamma Ray Cheers to the Metal",
+        "alt": "Remera negra Gamma Ray Cheers to the Metal con estampa frontal",
+        "designId": "gamma-ray-cheers-to-the-metal",
+        "role": "front",
+        "garmentCategory": "Bandas Sugeridas",
+        "color": "negro",
+        "preferredPreview": true,
+        "defaultPrintMode": "simple",
+        "isNew": true
+      },
+      {
+        "img": "images/banda_sugeridas/gamma_ray/remera_gamma_no_world_order.jpg",
+        "name": "Gamma Ray No World Order!",
+        "alt": "Remera negra Gamma Ray No World Order! con estampa frontal",
+        "designId": "gamma-ray-no-world-order",
+        "role": "front",
+        "garmentCategory": "Bandas Sugeridas",
+        "color": "negro",
+        "preferredPreview": true,
+        "defaultPrintMode": "simple",
+        "isNew": true
+      }
+    ],
+    "desc": "Diseños de Gamma Ray disponibles en remeras, hoodies y buzos.",
+    "band": "Gamma Ray",
+    "universe": [
+      "Power Metal"
+    ],
+    "album": null,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Gamma Ray Archive",
+      "Mas bandas"
+    ],
+    "campaigns": [],
+    "commercialPriority": 76,
+    "visibilityTier": "catalog",
+    "legacyCategory": "Bandas Sugeridas",
+    "tags": [
+      "Gamma Ray",
+      "Kai Hansen",
+      "Power Metal",
+      "remera",
+      "Gamma Ray Archive",
+      "Mas bandas"
+    ]
+  },
+  {
     "id": 5093,
     "category": "Bandas Sugeridas",
     "year": "",
