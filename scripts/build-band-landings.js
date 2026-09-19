@@ -100,6 +100,86 @@ function customizeSharedCommerceMarkup(config, markup) {
     return output;
 }
 
+function renderGarmentSelector(config) {
+    return `        <section class="band-landing-garment-selector" id="catalogoPrincipal" aria-label="Elegir prenda ${config.band}">
+            <div class="band-landing-garment-grid" role="tablist" aria-label="Prendas disponibles">
+${config.garments.map((garment, index) => `
+                <button type="button" class="band-landing-garment-card${garment.key === config.defaultGarment ? ' active' : ''}" data-band-landing-garment="${garment.key}" role="tab" aria-selected="${garment.key === config.defaultGarment ? 'true' : 'false'}" onclick="selectBandLandingGarment('${garment.key}')">
+                    <span class="band-landing-garment-media">
+                        <img src="${garment.image}" alt="${garment.alt}" loading="${index === 0 ? 'eager' : 'lazy'}" decoding="async">
+                    </span>
+                    <span class="band-landing-garment-copy">
+                        <strong>${garment.title}</strong>
+                        <span>${garment.price}</span>
+                        <span class="band-landing-garment-cta">VER DISEÑOS</span>
+                    </span>
+                </button>`).join('')}
+            </div>
+        </section>`;
+}
+
+function renderCatalogSection(config, collections, completeArchive) {
+    return `        <section class="band-landing-catalog" aria-labelledby="bandCatalogTitle">
+            <div class="band-landing-section-head">
+                <p>ARCHIVO FMD</p>
+                <h2 id="bandCatalogTitle">DISEÑOS DE ${config.displayName}</h2>
+                <div class="band-landing-design-note">
+                    <strong>TU DISEÑO, TU PRENDA</strong>
+                    <span>Remeras, hoodies y buzos con diseño solo al frente o frente y dorso.</span>
+                </div>
+            </div>
+            <nav id="categoryNav" hidden aria-hidden="true"></nav>
+${completeArchive ? `            <div class="band-landing-all-designs">
+                <div>
+                    <span>${completeArchive.kicker || 'CATÁLOGO COMPLETO'}</span>
+                    <strong>${completeArchive.copy || `Explorá todos los diseños de ${config.band}.`}</strong>
+                </div>
+                <button type="button" data-band-landing-collection="" onclick="selectBandLandingCollection('')">${completeArchive.label || 'VER TODOS LOS DISEÑOS'} <span data-collection-count=""></span></button>
+            </div>` : ''}
+${collections.length ? `            <div class="band-landing-collections" id="bandLandingCollections" aria-label="Explorar ${config.band} por colección">
+${!completeArchive || config.band === 'Helloween' ? `                <button type="button" class="band-landing-collection-btn${config.defaultCollection ? '' : ' active'}" data-band-landing-collection="" onclick="selectBandLandingCollection('')">${config.allCollectionLabel || 'TODOS'} <span data-collection-count=""></span></button>` : ''}
+${collections.map(collection => `                <button type="button" class="band-landing-collection-btn${config.defaultCollection === collection.id ? ' active' : ''}" data-band-landing-collection="${collection.id}" onclick="selectBandLandingCollection('${collection.id}')">${collection.label} <span data-collection-count="${collection.id}"></span></button>`).join('\n')}
+            </div>` : ''}
+            <div class="catalog-toolbar">
+                <button type="button" id="megadethBackBtn" hidden></button>
+                <button type="button" id="slayerBackBtn" hidden></button>
+                <button type="button" id="maidenBackBtn" hidden></button>
+                <div class="search-box">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="M21 21l-4.35-4.35"></path>
+                    </svg>
+                    <input type="text" id="searchInput" placeholder="Buscar un diseño de ${config.band}..." aria-label="Buscar diseños de ${config.band}">
+                    <button class="search-clear" id="searchClear" aria-label="Limpiar búsqueda">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18" aria-hidden="true">
+                            <path d="M18 6L6 18M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div class="band-filters band-landing-hidden-controls" aria-hidden="true">
+                    <button type="button" id="filterToggle" tabindex="-1">Filtros</button>
+                    <div id="filterDropdown"></div>
+                </div>
+                <div class="toolbar-row">
+                    <span class="products-count" id="productsCount">DISEÑOS ${config.displayName}</span>
+                    <div class="view-toggle band-landing-hidden-controls" aria-hidden="true">
+                        <button type="button" class="view-btn active" id="viewGrid" tabindex="-1">Grilla</button>
+                        <button type="button" class="view-btn" id="viewGallery" tabindex="-1">Lista</button>
+                    </div>
+                </div>
+                <div class="search-results-info" id="searchResultsInfo"></div>
+            </div>
+
+            <section class="products-section" aria-live="polite">
+                <div class="products-grid" id="productsGrid"></div>
+                <div class="catalog-load-more" id="catalogLoadMore" hidden>
+                    <p id="catalogLoadMoreStatus"></p>
+                    <button type="button" onclick="loadMoreCatalogDesigns()">VER MÁS DISEÑOS</button>
+                </div>
+            </section>
+        </section>`;
+}
+
 function renderLanding(config, sharedCommerceMarkup) {
     const commerceMarkup = customizeSharedCommerceMarkup(config, sharedCommerceMarkup);
     const collections = Array.isArray(config.collections) ? config.collections : [];
@@ -125,6 +205,7 @@ function renderLanding(config, sharedCommerceMarkup) {
             : [];
     const eventDay = config.eventDay && typeof config.eventDay === 'object' ? config.eventDay : null;
     const instagram = config.instagram && typeof config.instagram === 'object' ? config.instagram : null;
+    const finishedGarments = Array.isArray(config.finishedGarments) ? config.finishedGarments : [];
     const shippingPromoMarkup = config.hideShippingPromo ? '' : `        <section class="july-shipping-promo purchase-volume-promo" aria-label="Promoción por cantidad">
             <p>${config.promoKicker || 'PROMO SEPTIEMBRE'}</p>
             <strong>${config.promoTitle || 'SUMÁ PRENDAS <em>Y APROVECHÁ EL ENVÍO</em>'}</strong>
@@ -139,6 +220,20 @@ function renderLanding(config, sharedCommerceMarkup) {
         label: 'VER TODOS LOS DISEÑOS',
         copy: `Explorá todos los diseños de ${config.band}.`
     } : null);
+    const garmentSelectorMarkup = renderGarmentSelector(config);
+    const catalogMarkup = renderCatalogSection(config, collections, completeArchive);
+    const catalogFirst = config.band === 'Helloween';
+    const showcaseMarkup = config.showcase ? `
+        <section class="band-design-showcase" id="bandDesignShowcase" aria-labelledby="bandDesignShowcaseTitle">
+            <div class="band-design-showcase-head">
+                <h2 id="bandDesignShowcaseTitle">${config.showcase.title}</h2>
+                <p>${config.showcase.copy}</p>
+            </div>
+            <div class="band-design-showcase-viewport" id="bandDesignShowcaseViewport" aria-live="off">
+                <div class="band-design-showcase-track" id="bandDesignShowcaseTrack"></div>
+            </div>
+            <button type="button" class="band-design-showcase-cta" onclick="openBandShowcaseCollection()">${config.showcase.ctaLabel}</button>
+        </section>` : '';
     return `<!DOCTYPE html>
 <html lang="es">
 <head>
@@ -197,8 +292,9 @@ ${eventDay ? `        if (Date.now() >= Date.parse(${JSON.stringify(eventDay.sta
 ${instagram ? `                <a href="${instagram.href}" class="band-landing-instagram-header" target="_blank" rel="noopener" aria-label="Ver ${instagram.handle} en Instagram">
                     <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.4" cy="6.6" r="1"></circle></svg>
                 </a>` : ''}
-                <a href="${whatsappUrl(`Hola FMD! Quiero consultar por los diseños de ${config.band}.`)}" class="btn-wa-header" target="_blank" rel="noopener">
-                    <span>CONSULTAR</span>
+                <a href="${whatsappUrl(`Hola FMD! Quiero consultar por los diseños de ${config.band}.`)}" class="btn-wa-header" target="_blank" rel="noopener"${catalogFirst ? ' aria-label="Consultar por WhatsApp"' : ''}>
+${catalogFirst ? `                    <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
+` : ''}                    <span>CONSULTAR</span>
                 </a>
             </div>
         </div>
@@ -218,6 +314,7 @@ ${instagram ? `                <a href="${instagram.href}" class="band-landing-i
     </div>
 
     <main>
+${catalogFirst ? showcaseMarkup : ''}
         <section class="band-landing-hero${postShow ? ' band-landing-pre-show' : ''}" aria-labelledby="bandLandingTitle">
             <div class="band-landing-hero-copy">
                 <p class="band-landing-brand">FIVE MAGICS DESIGNS</p>
@@ -250,7 +347,8 @@ ${postShow ? `
                 <img src="${config.image}" alt="Colección Helloween post-show en Five Magics Designs" width="1200" height="1200">
             </div>
         </section>` : ''}
-${postShowFeatured ? `
+${catalogFirst ? `${garmentSelectorMarkup}
+${catalogMarkup}` : ''}${postShowFeatured ? `
         <section class="helloween-post-show-featured" aria-labelledby="helloweenFeaturedTitle">
             <div class="helloween-post-show-featured-media${postShowFeaturedGroups.length ? ' has-option-groups' : ''}">
 ${postShowFeaturedGroups.length ? postShowFeaturedGroups.map(group => `                <section class="helloween-featured-option-group">
@@ -260,6 +358,11 @@ ${group.images.map(image => `                        <figure>
                             <img src="${image.src}" alt="${image.alt}" loading="eager" decoding="async">
                             <figcaption>${image.label}</figcaption>
                         </figure>`).join('\n')}
+                    </div>
+                    <div class="helloween-featured-option-controls" aria-label="Navegar opciones">
+                        <button type="button" data-option-prev aria-label="Opción anterior">&#8249;</button>
+                        <output aria-live="polite">1 / ${group.images.length}</output>
+                        <button type="button" data-option-next aria-label="Opción siguiente">&#8250;</button>
                     </div>
                 </section>`).join('\n') : `
 ${postShowFeaturedImages.map(image => `                <figure>
@@ -285,34 +388,30 @@ ${config.moveShippingAfterShowcase ? '' : shippingPromoMarkup}
 ${config.productionNotice ? `            <p class="production-tracking-alert">${config.productionNotice}</p>` : ''}${config.productionCta ? `
             <a class="production-tracking-cta" href="${config.productionCta.href}" target="_blank" rel="noopener">${config.productionCta.label}</a>` : ''}
         </section>
-${config.showcase ? `
-        <section class="band-design-showcase" id="bandDesignShowcase" aria-labelledby="bandDesignShowcaseTitle">
-            <div class="band-design-showcase-head">
-                <h2 id="bandDesignShowcaseTitle">${config.showcase.title}</h2>
-                <p>${config.showcase.copy}</p>
+${finishedGarments.length ? `        <section class="finished-garments" aria-labelledby="finishedGarmentsTitle">
+            <div class="finished-garments-head">
+                <p>PRENDAS TERMINADAS</p>
+                <h2 id="finishedGarmentsTitle">ASÍ QUEDAN IMPRESAS</h2>
+                <span>Fotos de prendas producidas por FMD, con impresión DTG directa sobre la tela.</span>
             </div>
-            <div class="band-design-showcase-viewport" id="bandDesignShowcaseViewport" aria-live="off">
-                <div class="band-design-showcase-track" id="bandDesignShowcaseTrack"></div>
+            <div class="finished-garments-controls">
+                <button type="button" data-finished-prev aria-label="Foto anterior">&#8249;</button>
+                <output data-finished-counter aria-live="polite">1 / ${finishedGarments.length}</output>
+                <button type="button" data-finished-next aria-label="Foto siguiente">&#8250;</button>
             </div>
-            <button type="button" class="band-design-showcase-cta" onclick="openBandShowcaseCollection()">${config.showcase.ctaLabel}</button>
+            <div class="finished-garments-track" data-finished-track tabindex="0" aria-label="Fotografías de prendas terminadas; desplazá para ver más">
+${finishedGarments.map((photo, index) => `                <button type="button" class="finished-garments-slide" data-finished-open="${index}" aria-label="Ampliar fotografía ${index + 1} de ${finishedGarments.length}">
+                    <img src="${photo.src}" alt="${photo.alt}" width="1122" height="1402" loading="lazy" decoding="async">
+                </button>`).join('\n')}
+            </div>
+            <div class="finished-garments-footer">
+                <p>Estas son algunas de las prendas que ya salieron del taller.</p>
+                <a href="#bandCatalogTitle">VER LOS 75 DISEÑOS</a>
+            </div>
         </section>` : ''}
+${catalogFirst ? '' : showcaseMarkup}
 ${config.moveShippingAfterShowcase ? shippingPromoMarkup : ''}
-
-        <section class="band-landing-garment-selector" id="catalogoPrincipal" aria-label="Elegir prenda ${config.band}">
-            <div class="band-landing-garment-grid" role="tablist" aria-label="Prendas disponibles">
-${config.garments.map((garment, index) => `
-                <button type="button" class="band-landing-garment-card${garment.key === config.defaultGarment ? ' active' : ''}" data-band-landing-garment="${garment.key}" role="tab" aria-selected="${garment.key === config.defaultGarment ? 'true' : 'false'}" onclick="selectBandLandingGarment('${garment.key}')">
-                    <span class="band-landing-garment-media">
-                        <img src="${garment.image}" alt="${garment.alt}" loading="${index === 0 ? 'eager' : 'lazy'}" decoding="async">
-                    </span>
-                    <span class="band-landing-garment-copy">
-                        <strong>${garment.title}</strong>
-                        <span>${garment.price}</span>
-                        <span class="band-landing-garment-cta">VER DISEÑOS</span>
-                    </span>
-                </button>`).join('')}
-            </div>
-        </section>
+${catalogFirst ? '' : garmentSelectorMarkup}
 ${config.showSizeGuide ? `
         <details class="band-landing-size-guide" id="tablaDeMedidas">
             <summary>
@@ -338,65 +437,7 @@ ${config.showSizeGuide ? `
             </div>
         </details>` : ''}
 
-        <section class="band-landing-catalog" aria-labelledby="bandCatalogTitle">
-            <div class="band-landing-section-head">
-                <p>ARCHIVO FMD</p>
-                <h2 id="bandCatalogTitle">DISEÑOS DE ${config.displayName}</h2>
-                <div class="band-landing-design-note">
-                    <strong>TU DISEÑO, TU PRENDA</strong>
-                    <span>Remeras, hoodies y buzos con diseño solo al frente o frente y dorso.</span>
-                </div>
-            </div>
-            <nav id="categoryNav" hidden aria-hidden="true"></nav>
-${completeArchive ? `            <div class="band-landing-all-designs">
-                <div>
-                    <span>${completeArchive.kicker || 'CATÁLOGO COMPLETO'}</span>
-                    <strong>${completeArchive.copy || `Explorá todos los diseños de ${config.band}.`}</strong>
-                </div>
-                <button type="button" data-band-landing-collection="" onclick="selectBandLandingCollection('')">${completeArchive.label || 'VER TODOS LOS DISEÑOS'} <span data-collection-count=""></span></button>
-            </div>` : ''}
-${collections.length ? `            <div class="band-landing-collections" id="bandLandingCollections" aria-label="Explorar ${config.band} por colección">
-${completeArchive ? '' : `                <button type="button" class="band-landing-collection-btn${config.defaultCollection ? '' : ' active'}" data-band-landing-collection="" onclick="selectBandLandingCollection('')">${config.allCollectionLabel || 'TODOS'} <span data-collection-count=""></span></button>`}
-${collections.map(collection => `                <button type="button" class="band-landing-collection-btn${config.defaultCollection === collection.id ? ' active' : ''}" data-band-landing-collection="${collection.id}" onclick="selectBandLandingCollection('${collection.id}')">${collection.label} <span data-collection-count="${collection.id}"></span></button>`).join('\n')}
-            </div>` : ''}
-            <div class="catalog-toolbar">
-                <button type="button" id="megadethBackBtn" hidden></button>
-                <button type="button" id="slayerBackBtn" hidden></button>
-                <button type="button" id="maidenBackBtn" hidden></button>
-                <div class="search-box">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                        <circle cx="11" cy="11" r="8"></circle>
-                        <path d="M21 21l-4.35-4.35"></path>
-                    </svg>
-                    <input type="text" id="searchInput" placeholder="Buscar un diseño de ${config.band}..." aria-label="Buscar diseños de ${config.band}">
-                    <button class="search-clear" id="searchClear" aria-label="Limpiar búsqueda">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18" aria-hidden="true">
-                            <path d="M18 6L6 18M6 6l12 12"></path>
-                        </svg>
-                    </button>
-                </div>
-                <div class="band-filters band-landing-hidden-controls" aria-hidden="true">
-                    <button type="button" id="filterToggle" tabindex="-1">Filtros</button>
-                    <div id="filterDropdown"></div>
-                </div>
-                <div class="toolbar-row">
-                    <span class="products-count" id="productsCount">DISEÑOS ${config.displayName}</span>
-                    <div class="view-toggle band-landing-hidden-controls" aria-hidden="true">
-                        <button type="button" class="view-btn active" id="viewGrid" tabindex="-1">Grilla</button>
-                        <button type="button" class="view-btn" id="viewGallery" tabindex="-1">Lista</button>
-                    </div>
-                </div>
-                <div class="search-results-info" id="searchResultsInfo"></div>
-            </div>
-
-            <section class="products-section" aria-live="polite">
-                <div class="products-grid" id="productsGrid"></div>
-                <div class="catalog-load-more" id="catalogLoadMore" hidden>
-                    <p id="catalogLoadMoreStatus"></p>
-                    <button type="button" onclick="loadMoreCatalogDesigns()">VER MÁS DISEÑOS</button>
-                </div>
-            </section>
-        </section>
+${catalogFirst ? '' : catalogMarkup}
 
 ${instagram ? `        <section class="band-landing-instagram" aria-label="Instagram de Five Magics Designs">
             <p>SEGUINOS EN INSTAGRAM</p>
@@ -416,7 +457,11 @@ ${instagram ? `        <section class="band-landing-instagram" aria-label="Insta
         <button class="image-modal-close" type="button" aria-label="Cerrar imagen" onclick="closeImageModal()">&times;</button>
         <img id="imageModalImg" src="" alt="">
     </div>
-
+${finishedGarments.length ? `    <dialog class="finished-garments-lightbox" id="finishedGarmentsLightbox" aria-label="Fotografía ampliada de prendas terminadas">
+        <button type="button" data-finished-close aria-label="Cerrar fotografía">&times;</button>
+        <img alt="" width="1122" height="1402">
+    </dialog>
+    <script src="/js/finished-garments.js" defer></script>` : ''}
 ${commerceMarkup}
 
 ${postShow ? `    <script>

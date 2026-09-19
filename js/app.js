@@ -83,8 +83,10 @@ const configuredBandLandingGarment = String(BAND_LANDING_CONFIG?.defaultGarment 
 const requestedBandLandingGarment = typeof window !== 'undefined'
     ? String(new URLSearchParams(window.location.search).get('prenda') || '').trim()
     : '';
+let bandLandingOuterwear = BAND_LANDING_BAND === 'Helloween' && requestedBandLandingGarment === 'abrigos';
 let bandLandingGarment = BAND_LANDING_GARMENTS.has(requestedBandLandingGarment)
     ? requestedBandLandingGarment
+    : bandLandingOuterwear ? ''
     : BAND_LANDING_GARMENTS.has(configuredBandLandingGarment)
         ? configuredBandLandingGarment
     : (BAND_LANDING_BAND ? 'remera' : '');
@@ -255,6 +257,15 @@ function selectBandLandingCollection(collectionId = '') {
     if (!isBandLandingMode()) return;
     const nextId = String(collectionId || '');
     if (nextId && !BAND_LANDING_COLLECTIONS.some(collection => collection.id === nextId)) return;
+    if (bandLandingOuterwear && !nextId) {
+        bandLandingOuterwear = false;
+        bandLandingGarment = 'remera';
+        document.querySelectorAll('[data-band-landing-garment]').forEach(button => {
+            const isActive = button.dataset.bandLandingGarment === bandLandingGarment;
+            button.classList.toggle('active', isActive);
+            button.setAttribute('aria-selected', String(isActive));
+        });
+    }
     bandLandingCollection = nextId;
     trackCatalogEvent('archive_filter_collection', {
         band: BAND_LANDING_BAND,
@@ -273,6 +284,7 @@ window.selectBandLandingCollection = selectBandLandingCollection;
 
 function selectBandLandingGarment(garment) {
     if (!isBandLandingMode() || !BAND_LANDING_GARMENTS.has(garment)) return;
+    bandLandingOuterwear = false;
     bandLandingGarment = garment;
     document.querySelectorAll('[data-band-landing-garment]').forEach(button => {
         const isActive = button.dataset.bandLandingGarment === garment;
@@ -6256,17 +6268,17 @@ function getCatalogDesignStartingPrice(design) {
     return design?.isPersonalized ? PRECIOS.simple_personalizado : PRECIOS.simple;
 }
 
-function getBandLandingDesignStartingPrice(design) {
-    if (bandLandingGarment === 'hoodie') {
+function getBandLandingDesignStartingPrice(design, garment = bandLandingGarment) {
+    if (garment === 'hoodie') {
         return PRECIOS_HOODIES.simple + (design?.isPersonalized ? PERSONALIZADO_EXTRA : 0);
     }
-    if (bandLandingGarment === 'buzo_cuello_redondo') {
+    if (garment === 'buzo_cuello_redondo') {
         return PRECIOS_BUZO_REDONDO.simple + (design?.isPersonalized ? PERSONALIZADO_EXTRA : 0);
     }
     return getCatalogDesignStartingPrice(design);
 }
 
-function getCatalogDesignCardPriceText(design, preview) {
+function getCatalogDesignCardPriceText(design, preview, selectedGarment = bandLandingGarment) {
     if (!isBandLandingMode() && design?.catalogPriceText) {
         return getPublicCommerceText(design.catalogPriceText);
     }
@@ -6275,13 +6287,13 @@ function getCatalogDesignCardPriceText(design, preview) {
     const isDoubleComposition = printMode === 'double' || printMode === 'doble';
     if (!isDoubleComposition) {
         const startingPrice = (isBandLandingMode()
-            ? getBandLandingDesignStartingPrice(design)
+            ? getBandLandingDesignStartingPrice(design, selectedGarment)
             : getCatalogDesignStartingPrice(design)).toLocaleString('es-AR');
         return `Desde $${startingPrice}`;
     }
 
-    const garment = isBandLandingMode() && bandLandingGarment
-        ? bandLandingGarment
+    const garment = isBandLandingMode() && selectedGarment
+        ? selectedGarment
         : preview?.garment || 'remera';
     const personalizedExtra = design?.isPersonalized ? PERSONALIZADO_EXTRA : 0;
     const doublePrice = garment === 'hoodie'
@@ -6314,9 +6326,9 @@ function chooseCleanCatalogPreview(previews, colorKey = '') {
         || null;
 }
 
-function getBandLandingDesignPreview(design) {
-    if (!isBandLandingMode() || !bandLandingGarment) return design?.front || null;
-    const previews = design?.previewsByGarment?.[bandLandingGarment] || [];
+function getBandLandingDesignPreview(design, garment = bandLandingGarment) {
+    if (!isBandLandingMode() || !garment) return design?.front || null;
+    const previews = design?.previewsByGarment?.[garment] || [];
     if (normalizeText(BAND_LANDING_BAND) === 'helloween') {
         return chooseCleanCatalogPreview(previews) || design?.front || null;
     }
@@ -6360,6 +6372,10 @@ function getCatalogDesignResults() {
     if (isBandLandingMode() && bandLandingGarment) {
         scopedDesigns = scopedDesigns.filter(design => Boolean(getBandLandingDesignPreview(design)));
     }
+    if (bandLandingOuterwear) {
+        scopedDesigns = scopedDesigns.filter(design => ['hoodie', 'buzo_cuello_redondo']
+            .some(garment => (design?.previewsByGarment?.[garment] || []).length));
+    }
     updateBandLandingCollectionCounts(scopedDesigns);
     if (isBandLandingMode() && bandLandingCollection) {
         const collection = BAND_LANDING_COLLECTIONS.find(item => item.id === bandLandingCollection);
@@ -6379,7 +6395,7 @@ function getCatalogDesignResults() {
     }
 
     if (!designs) return null;
-    return designs.sort((a, b) => {
+    designs.sort((a, b) => {
         if (isBandLandingMode() && BAND_LANDING_DESIGN_ORDER_INDEX.size) {
             const fallbackOrder = Number.MAX_SAFE_INTEGER;
             const archiveOrderDiff = (BAND_LANDING_DESIGN_ORDER_INDEX.get(a.designId) ?? fallbackOrder)
@@ -6396,6 +6412,11 @@ function getCatalogDesignResults() {
         if (priorityDiff) return priorityDiff;
         return a.publicName.localeCompare(b.publicName, 'es', { sensitivity: 'base' });
     });
+    return bandLandingOuterwear
+        ? designs.flatMap(design => ['hoodie', 'buzo_cuello_redondo']
+            .filter(garment => (design?.previewsByGarment?.[garment] || []).length)
+            .map(displayGarment => ({ ...design, displayGarment })))
+        : designs;
 }
 
 function updateBandLandingFinalMessage() {
@@ -6432,12 +6453,14 @@ function renderCatalogDesignResults(designs) {
 
     let heading = `${designs.length} DISEÑOS DISPONIBLES`;
     if (currentSearch) heading = `${designs.length} RESULTADOS`;
+    else if (bandLandingOuterwear) heading = `${designs.length} OPCIONES · HOODIES Y BUZOS HELLOWEEN`;
     else if (isBandLandingMode() && bandLandingGarment) heading = `${designs.length} DISEÑOS · ${getBandLandingGarmentLabel()} ${BAND_LANDING_BAND.toUpperCase()}`;
     else if (currentCategory) heading = `${designs.length} DISEÑOS · ${String(currentCategory).toUpperCase()}`;
     document.getElementById('productsCount').textContent = heading;
 
     productsGrid.innerHTML = visibleDesigns.map(design => {
-        const preview = getBandLandingDesignPreview(design) || design.front;
+        const cardGarment = design.displayGarment || bandLandingGarment;
+        const preview = getBandLandingDesignPreview(design, cardGarment) || design.front;
         const cardImage = BAND_LANDING_CONFIG?.cardImageOverrides?.[design.designId] || preview.image;
         const availableGarments = new Set((design.availableGarments || []).map(garment => normalizeText(garment)));
         const garmentLabels = [
@@ -6445,8 +6468,8 @@ function renderCatalogDesignResults(designs) {
             [...availableGarments].some(garment => garment.includes('hoodie')) ? 'Hoodie' : '',
             [...availableGarments].some(garment => garment.includes('buzo')) ? 'Buzo' : ''
         ].filter(Boolean);
-        const priceText = getCatalogDesignCardPriceText(design, preview);
-        const initialGarment = isBandLandingMode() ? getBandLandingModalGarment() : '';
+        const priceText = getCatalogDesignCardPriceText(design, preview, cardGarment);
+        const initialGarment = isBandLandingMode() ? getBandLandingModalGarment(cardGarment) : '';
         const editorialBadge = BAND_LANDING_CONFIG?.editorialBadges?.[design.designId];
         const explicitBadges = [editorialBadge, ...(design.badges || [])]
             .filter(Boolean)
@@ -6465,7 +6488,7 @@ function renderCatalogDesignResults(designs) {
             .filter((badge, index, all) => all.findIndex(item => normalizeText(item.label) === normalizeText(badge.label)) === index)
             .slice(0, 2);
         return `<article class="catalog-design-card" data-design-id="${design.designId}">
-            <button type="button" class="catalog-design-card-main" onclick="openCatalogDesign('${design.designId}', '${initialGarment}')" aria-label="Ver diseño ${design.publicName}">
+            <button type="button" class="catalog-design-card-main" onclick="openCatalogDesign('${design.designId}', '${initialGarment}')" aria-label="Ver diseño ${design.publicName}${design.displayGarment ? ` en ${design.displayGarment === 'hoodie' ? 'hoodie' : 'buzo'}` : ''}">
                 <span class="catalog-design-media">
                     ${cardBadges.length ? `<span class="catalog-design-badges">${cardBadges.map(badge => `<span class="catalog-design-badge ${badge.className}">${badge.label}</span>`).join('')}</span>` : ''}
                     <img src="${cardImage}" alt="${preview.alt || `${design.publicName} - ${design.band}`}" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='images/logo/MARCA DE AGUA.png';">
@@ -6474,7 +6497,7 @@ function renderCatalogDesignResults(designs) {
                     <span class="catalog-design-band">${design.band}</span>
                     <strong>${design.publicName}</strong>
                     ${design.publicSubtitle ? `<span class="catalog-design-subtitle">${getPublicCommerceText(design.publicSubtitle)}</span>` : ''}
-                    ${garmentLabels.length ? `<span class="catalog-design-garments"><b>Disponible en:</b> ${garmentLabels.join(' · ')}</span>` : ''}
+                    ${design.displayGarment ? `<span class="catalog-design-garments"><b>Prenda:</b> ${design.displayGarment === 'hoodie' ? 'Hoodie' : 'Buzo'}</span>` : garmentLabels.length ? `<span class="catalog-design-garments"><b>Disponible en:</b> ${garmentLabels.join(' · ')}</span>` : ''}
                     <span class="catalog-design-price">${priceText}</span>
                     <span class="catalog-design-cta">VER DISEÑO</span>
                 </span>
@@ -6491,11 +6514,11 @@ function renderCatalogDesignResults(designs) {
     const hasMore = visibleDesigns.length < designs.length;
     if (loadMore) loadMore.hidden = !hasMore;
     if (loadMoreStatus) loadMoreStatus.textContent = hasMore
-        ? `MOSTRANDO ${visibleDesigns.length} DE ${designs.length} DISEÑOS`
+        ? `MOSTRANDO ${visibleDesigns.length} DE ${designs.length} ${bandLandingOuterwear ? 'OPCIONES' : 'DISEÑOS'}`
         : '';
     const loadMoreButton = loadMore?.querySelector('button');
     if (loadMoreButton && hasMore) {
-        loadMoreButton.textContent = `VER MÁS DISEÑOS (${designs.length - visibleDesigns.length} RESTANTES)`;
+        loadMoreButton.textContent = `VER MÁS ${bandLandingOuterwear ? 'OPCIONES' : 'DISEÑOS'} (${designs.length - visibleDesigns.length} RESTANTES)`;
     }
 }
 
@@ -8929,6 +8952,13 @@ function initMegadethShowcase() {
 document.addEventListener('DOMContentLoaded', () => {
     ensureProductionTrackingStrip();
     renderLandingSizeGuide('hombre');
+
+    if (bandLandingOuterwear) {
+        document.querySelectorAll('[data-band-landing-garment]').forEach(button => {
+            button.classList.remove('active');
+            button.setAttribute('aria-selected', 'false');
+        });
+    }
 
     if (isBandLandingMode()) {
         trackCatalogEvent('archive_view', {

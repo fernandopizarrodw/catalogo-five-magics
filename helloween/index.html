@@ -56,7 +56,8 @@
                 <a href="https://www.instagram.com/fivemagicsdesigns/" class="band-landing-instagram-header" target="_blank" rel="noopener" aria-label="Ver @fivemagicsdesigns en Instagram">
                     <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.4" cy="6.6" r="1"></circle></svg>
                 </a>
-                <a href="https://wa.me/541169667685?text=Hola%20FMD!%20Quiero%20consultar%20por%20los%20dise%C3%B1os%20de%20Helloween." class="btn-wa-header" target="_blank" rel="noopener">
+                <a href="https://wa.me/541169667685?text=Hola%20FMD!%20Quiero%20consultar%20por%20los%20dise%C3%B1os%20de%20Helloween." class="btn-wa-header" target="_blank" rel="noopener" aria-label="Consultar por WhatsApp">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
                     <span>CONSULTAR</span>
                 </a>
             </div>
@@ -77,6 +78,17 @@
     </div>
 
     <main>
+
+        <section class="band-design-showcase" id="bandDesignShowcase" aria-labelledby="bandDesignShowcaseTitle">
+            <div class="band-design-showcase-head">
+                <h2 id="bandDesignShowcaseTitle">DISEÑOS DESTACADOS</h2>
+                <p>Clásicos, tour y originales FMD. Tocá uno para verlo en detalle.</p>
+            </div>
+            <div class="band-design-showcase-viewport" id="bandDesignShowcaseViewport" aria-live="off">
+                <div class="band-design-showcase-track" id="bandDesignShowcaseTrack"></div>
+            </div>
+            <button type="button" class="band-design-showcase-cta" onclick="openBandShowcaseCollection()">VER TODOS LOS DISEÑOS</button>
+        </section>
         <section class="band-landing-hero band-landing-pre-show" aria-labelledby="bandLandingTitle">
             <div class="band-landing-hero-copy">
                 <p class="band-landing-brand">FIVE MAGICS DESIGNS</p>
@@ -105,79 +117,6 @@
                 <img src="/images/banda_sugeridas/helloween/helloween_40_tour.jpg" alt="Colección Helloween post-show en Five Magics Designs" width="1200" height="1200">
             </div>
         </section>
-
-        <section class="helloween-post-show-featured" aria-labelledby="helloweenFeaturedTitle">
-            <div class="helloween-post-show-featured-media has-option-groups">
-                <section class="helloween-featured-option-group">
-                    <h3>1. ELEGÍ EL FRENTE</h3>
-                    <div class="helloween-featured-option-grid">
-                        <figure>
-                            <img src="/images/banda_sugeridas/helloween/eagle_fly_free_especial/Frente Azul Keeper II.jpg" alt="Frente Eagle Fly Free Azul Keeper II" loading="eager" decoding="async">
-                            <figcaption>EAGLE · AZUL KEEPER II</figcaption>
-                        </figure>
-                        <figure>
-                            <img src="/images/banda_sugeridas/helloween/eagle_fly_free_especial/Frente Fuego Show.jpg" alt="Frente Eagle Fly Free Fuego Show" loading="eager" decoding="async">
-                            <figcaption>EAGLE · FUEGO SHOW</figcaption>
-                        </figure>
-                        <figure>
-                            <img src="/images/banda_sugeridas/helloween/show_2026_verticales/remera_helloween_55_pumpkin_bsas_fmd_edition.jpg" alt="Frente Pumpkin Buenos Aires" loading="eager" decoding="async">
-                            <figcaption>PUMPKIN BUENOS AIRES</figcaption>
-                        </figure>
-                    </div>
-                </section>
-                <section class="helloween-featured-option-group">
-                    <h3>2. ELEGÍ EL DORSO</h3>
-                    <div class="helloween-featured-option-grid">
-                        <figure>
-                            <img src="/images/banda_sugeridas/helloween/eagle_fly_free_especial/Dorso 40 Years + Fecha.jpg" alt="Dorso 40 Years con fecha Buenos Aires 2026" loading="eager" decoding="async">
-                            <figcaption>40 YEARS + FECHA</figcaption>
-                        </figure>
-                        <figure>
-                            <img src="/images/banda_sugeridas/helloween/show_2026_verticales/remera_helloween_65_set_list_40years_dorso.jpg" alt="Dorso con setlist completo del show en Buenos Aires 2026" loading="eager" decoding="async">
-                            <figcaption>SETLIST COMPLETO + FECHA</figcaption>
-                        </figure>
-                    </div>
-                </section>
-            </div>
-            <div class="helloween-post-show-featured-copy">
-                <h2 id="helloweenFeaturedTitle">HELLOWEEN BUENOS AIRES 2026</h2>
-                <p class="band-landing-brand">ELEGÍ TU FRENTE Y TU DORSO</p>
-                <strong>Tres frentes destacados para llevarte un recuerdo del show.</strong>
-                <small>Elegí uno de los frentes. Podés pedirlo solo o combinarlo con cualquiera de los dos dorsos conmemorativos.</small>
-                <div class="helloween-featured-actions">
-                    <button type="button" onclick="openCatalogDesign('helloween-eagle-fly-free', 'remera')">VER EAGLE FLY FREE</button>
-                    <button type="button" onclick="openCatalogDesign('helloween-pumpkin-buenos-aires-edicion-fmd', 'remera')">VER PUMPKIN BUENOS AIRES</button>
-                </div>
-            </div>
-        </section>
-
-        <section class="july-shipping-promo purchase-volume-promo" aria-label="Promoción por cantidad">
-            <p>PROMO SEPTIEMBRE</p>
-            <strong>SUMÁ PRENDAS <em>Y APROVECHÁ EL ENVÍO</em></strong>
-            <div class="shipping-promo-options">
-                <span><b>1 PRENDA</b><em>Envío a sucursal Andreani: $5.000</em><em>Envío a domicilio: $8.000</em></span>
-                <span><b>2 PRENDAS</b><em>Envío gratis a sucursal Andreani</em><em>Envío a domicilio: $5.000</em></span>
-                <span class="is-best"><b>3 PRENDAS O MÁS · 10% OFF</b><em>Envío gratis a sucursal Andreani</em><em>Envío gratis a domicilio</em></span>
-            </div>
-        </section>
-        <section class="production-tracking-strip" aria-label="Producción y seguimiento">
-            <strong><span>PRODUCCIÓN</span> 48 A 72 H HÁBILES</strong>
-            <p>Una vez despachado, te enviamos el enlace de seguimiento. Plazo total estimado: 3 a 7 días hábiles según destino.</p>
-
-        </section>
-
-        <section class="band-design-showcase" id="bandDesignShowcase" aria-labelledby="bandDesignShowcaseTitle">
-            <div class="band-design-showcase-head">
-                <h2 id="bandDesignShowcaseTitle">DISEÑOS DESTACADOS</h2>
-                <p>Clásicos, tour y originales FMD. Tocá uno para verlo en detalle.</p>
-            </div>
-            <div class="band-design-showcase-viewport" id="bandDesignShowcaseViewport" aria-live="off">
-                <div class="band-design-showcase-track" id="bandDesignShowcaseTrack"></div>
-            </div>
-            <button type="button" class="band-design-showcase-cta" onclick="openBandShowcaseCollection()">VER TODOS LOS DISEÑOS</button>
-        </section>
-
-
         <section class="band-landing-garment-selector" id="catalogoPrincipal" aria-label="Elegir prenda Helloween">
             <div class="band-landing-garment-grid" role="tablist" aria-label="Prendas disponibles">
 
@@ -213,31 +152,6 @@
                 </button>
             </div>
         </section>
-
-        <details class="band-landing-size-guide" id="tablaDeMedidas">
-            <summary>
-                <span>CONSULTÁ LA TABLA DE MEDIDAS</span>
-                <small>Compará las medidas antes de elegir el talle</small>
-            </summary>
-            <div class="band-landing-size-guide-body">
-                <div class="band-landing-size-guide-tabs" aria-label="Elegir tabla de medidas">
-                    <button type="button" class="active" data-landing-size-guide="hombre" onclick="selectLandingSizeGuide('hombre')">Remera hombre</button>
-                    <button type="button" data-landing-size-guide="mujer" onclick="selectLandingSizeGuide('mujer')">Remera mujer</button>
-                    <button type="button" data-landing-size-guide="oversize" onclick="selectLandingSizeGuide('oversize')">Oversize</button>
-                    <button type="button" data-landing-size-guide="ninos" onclick="selectLandingSizeGuide('ninos')">Niños</button>
-                    <button type="button" data-landing-size-guide="hoodies" onclick="selectLandingSizeGuide('hoodies')">Hoodie</button>
-                    <button type="button" data-landing-size-guide="buzo-redondo" onclick="selectLandingSizeGuide('buzo-redondo')">Buzo</button>
-                </div>
-                <div class="band-landing-size-guide-content">
-                    <h3 id="landingSizeGuideTitle">Tabla de medidas</h3>
-                    <p id="landingSizeGuideCopy"></p>
-                    <div id="landingSizeGuideTable"></div>
-                    <p class="band-landing-size-guide-note">Medí una prenda similar extendida sobre una superficie plana. Las medidas pueden variar hasta un 5%.</p>
-                    <p class="size-selection-policy size-selection-policy-table">Queremos que te quede perfecta: compará las medidas antes de elegir el talle. Como preparamos cada prenda especialmente para vos, no realizamos cambios por talle.</p>
-                </div>
-            </div>
-        </details>
-
         <section class="band-landing-catalog" aria-labelledby="bandCatalogTitle">
             <div class="band-landing-section-head">
                 <p>ARCHIVO FMD</p>
@@ -256,7 +170,7 @@
                 <button type="button" data-band-landing-collection="" onclick="selectBandLandingCollection('')">VER TODOS LOS DISEÑOS <span data-collection-count=""></span></button>
             </div>
             <div class="band-landing-collections" id="bandLandingCollections" aria-label="Explorar Helloween por colección">
-
+                <button type="button" class="band-landing-collection-btn active" data-band-landing-collection="" onclick="selectBandLandingCollection('')">VER TODOS <span data-collection-count=""></span></button>
                 <button type="button" class="band-landing-collection-btn" data-band-landing-collection="show-2026" onclick="selectBandLandingCollection('show-2026')">SHOW 2026 <span data-collection-count="show-2026"></span></button>
                 <button type="button" class="band-landing-collection-btn" data-band-landing-collection="originales-fmd" onclick="selectBandLandingCollection('originales-fmd')">ORIGINALES FMD <span data-collection-count="originales-fmd"></span></button>
                 <button type="button" class="band-landing-collection-btn" data-band-landing-collection="era-1985-1989" onclick="selectBandLandingCollection('era-1985-1989')">1985-1989 <span data-collection-count="era-1985-1989"></span></button>
@@ -304,6 +218,137 @@
                 </div>
             </section>
         </section>
+        <section class="helloween-post-show-featured" aria-labelledby="helloweenFeaturedTitle">
+            <div class="helloween-post-show-featured-media has-option-groups">
+                <section class="helloween-featured-option-group">
+                    <h3>1. ELEGÍ EL FRENTE</h3>
+                    <div class="helloween-featured-option-grid">
+                        <figure>
+                            <img src="/images/banda_sugeridas/helloween/eagle_fly_free_especial/Frente Azul Keeper II.jpg" alt="Frente Eagle Fly Free Azul Keeper II" loading="eager" decoding="async">
+                            <figcaption>EAGLE · AZUL KEEPER II</figcaption>
+                        </figure>
+                        <figure>
+                            <img src="/images/banda_sugeridas/helloween/eagle_fly_free_especial/Frente Fuego Show.jpg" alt="Frente Eagle Fly Free Fuego Show" loading="eager" decoding="async">
+                            <figcaption>EAGLE · FUEGO SHOW</figcaption>
+                        </figure>
+                        <figure>
+                            <img src="/images/banda_sugeridas/helloween/show_2026_verticales/remera_helloween_55_pumpkin_bsas_fmd_edition.jpg" alt="Frente Pumpkin Buenos Aires" loading="eager" decoding="async">
+                            <figcaption>PUMPKIN BUENOS AIRES</figcaption>
+                        </figure>
+                    </div>
+                    <div class="helloween-featured-option-controls" aria-label="Navegar opciones">
+                        <button type="button" data-option-prev aria-label="Opción anterior">&#8249;</button>
+                        <output aria-live="polite">1 / 3</output>
+                        <button type="button" data-option-next aria-label="Opción siguiente">&#8250;</button>
+                    </div>
+                </section>
+                <section class="helloween-featured-option-group">
+                    <h3>2. ELEGÍ EL DORSO</h3>
+                    <div class="helloween-featured-option-grid">
+                        <figure>
+                            <img src="/images/banda_sugeridas/helloween/eagle_fly_free_especial/Dorso 40 Years + Fecha.jpg" alt="Dorso 40 Years con fecha Buenos Aires 2026" loading="eager" decoding="async">
+                            <figcaption>40 YEARS + FECHA</figcaption>
+                        </figure>
+                        <figure>
+                            <img src="/images/banda_sugeridas/helloween/show_2026_verticales/remera_helloween_65_set_list_40years_dorso.jpg" alt="Dorso con setlist completo del show en Buenos Aires 2026" loading="eager" decoding="async">
+                            <figcaption>SETLIST COMPLETO + FECHA</figcaption>
+                        </figure>
+                    </div>
+                    <div class="helloween-featured-option-controls" aria-label="Navegar opciones">
+                        <button type="button" data-option-prev aria-label="Opción anterior">&#8249;</button>
+                        <output aria-live="polite">1 / 2</output>
+                        <button type="button" data-option-next aria-label="Opción siguiente">&#8250;</button>
+                    </div>
+                </section>
+            </div>
+            <div class="helloween-post-show-featured-copy">
+                <h2 id="helloweenFeaturedTitle">HELLOWEEN BUENOS AIRES 2026</h2>
+                <p class="band-landing-brand">ELEGÍ TU FRENTE Y TU DORSO</p>
+                <strong>Tres frentes destacados para llevarte un recuerdo del show.</strong>
+                <small>Elegí uno de los frentes. Podés pedirlo solo o combinarlo con cualquiera de los dos dorsos conmemorativos.</small>
+                <div class="helloween-featured-actions">
+                    <button type="button" onclick="openCatalogDesign('helloween-eagle-fly-free', 'remera')">VER EAGLE FLY FREE</button>
+                    <button type="button" onclick="openCatalogDesign('helloween-pumpkin-buenos-aires-edicion-fmd', 'remera')">VER PUMPKIN BUENOS AIRES</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="july-shipping-promo purchase-volume-promo" aria-label="Promoción por cantidad">
+            <p>PROMO SEPTIEMBRE</p>
+            <strong>SUMÁ PRENDAS <em>Y APROVECHÁ EL ENVÍO</em></strong>
+            <div class="shipping-promo-options">
+                <span><b>1 PRENDA</b><em>Envío a sucursal Andreani: $5.000</em><em>Envío a domicilio: $8.000</em></span>
+                <span><b>2 PRENDAS</b><em>Envío gratis a sucursal Andreani</em><em>Envío a domicilio: $5.000</em></span>
+                <span class="is-best"><b>3 PRENDAS O MÁS · 10% OFF</b><em>Envío gratis a sucursal Andreani</em><em>Envío gratis a domicilio</em></span>
+            </div>
+        </section>
+        <section class="production-tracking-strip" aria-label="Producción y seguimiento">
+            <strong><span>PRODUCCIÓN</span> 48 A 72 H HÁBILES</strong>
+            <p>Una vez despachado, te enviamos el enlace de seguimiento. Plazo total estimado: 3 a 7 días hábiles según destino.</p>
+
+        </section>
+        <section class="finished-garments" aria-labelledby="finishedGarmentsTitle">
+            <div class="finished-garments-head">
+                <p>PRENDAS TERMINADAS</p>
+                <h2 id="finishedGarmentsTitle">ASÍ QUEDAN IMPRESAS</h2>
+                <span>Fotos de prendas producidas por FMD, con impresión DTG directa sobre la tela.</span>
+            </div>
+            <div class="finished-garments-controls">
+                <button type="button" data-finished-prev aria-label="Foto anterior">&#8249;</button>
+                <output data-finished-counter aria-live="polite">1 / 5</output>
+                <button type="button" data-finished-next aria-label="Foto siguiente">&#8250;</button>
+            </div>
+            <div class="finished-garments-track" data-finished-track tabindex="0" aria-label="Fotografías de prendas terminadas; desplazá para ver más">
+                <button type="button" class="finished-garments-slide" data-finished-open="0" aria-label="Ampliar fotografía 1 de 5">
+                    <img src="/images/banda_sugeridas/helloween/grillas_prendas_reales/prendas-terminadas-01.jpg" alt="Cuatro remeras terminadas de Helloween: Pumpkin Buenos Aires, Eagle Fly Free, setlist del show y Keeper Buenos Aires" width="1122" height="1402" loading="lazy" decoding="async">
+                </button>
+                <button type="button" class="finished-garments-slide" data-finished-open="1" aria-label="Ampliar fotografía 2 de 5">
+                    <img src="/images/banda_sugeridas/helloween/grillas_prendas_reales/prendas-terminadas-02.jpg" alt="Cuatro remeras terminadas de Helloween con estampas de Keeper y Live in the U.K." width="1122" height="1402" loading="lazy" decoding="async">
+                </button>
+                <button type="button" class="finished-garments-slide" data-finished-open="2" aria-label="Ampliar fotografía 3 de 5">
+                    <img src="/images/banda_sugeridas/helloween/grillas_prendas_reales/prendas-terminadas-03.jpg" alt="Cuatro remeras terminadas de Helloween con estampas de The Time of the Oath, Gambling with the Devil, Dr. Stein y Better Than Raw" width="1122" height="1402" loading="lazy" decoding="async">
+                </button>
+                <button type="button" class="finished-garments-slide" data-finished-open="3" aria-label="Ampliar fotografía 4 de 5">
+                    <img src="/images/banda_sugeridas/helloween/grillas_prendas_reales/prendas-terminadas-04.jpg" alt="Cuatro remeras terminadas de Helloween con estampas de Drunk Pumpkin, Savage Pumpkins, Universe y Walls of Jericho" width="1122" height="1402" loading="lazy" decoding="async">
+                </button>
+                <button type="button" class="finished-garments-slide" data-finished-open="4" aria-label="Ampliar fotografía 5 de 5">
+                    <img src="/images/banda_sugeridas/helloween/grillas_prendas_reales/prendas-terminadas-05.jpg" alt="Cuatro remeras terminadas de Helloween con estampas de Buenos Aires, Dr. Stein y Better Than Raw" width="1122" height="1402" loading="lazy" decoding="async">
+                </button>
+            </div>
+            <div class="finished-garments-footer">
+                <p>Estas son algunas de las prendas que ya salieron del taller.</p>
+                <a href="#bandCatalogTitle">VER LOS 75 DISEÑOS</a>
+            </div>
+        </section>
+
+
+
+
+        <details class="band-landing-size-guide" id="tablaDeMedidas">
+            <summary>
+                <span>CONSULTÁ LA TABLA DE MEDIDAS</span>
+                <small>Compará las medidas antes de elegir el talle</small>
+            </summary>
+            <div class="band-landing-size-guide-body">
+                <div class="band-landing-size-guide-tabs" aria-label="Elegir tabla de medidas">
+                    <button type="button" class="active" data-landing-size-guide="hombre" onclick="selectLandingSizeGuide('hombre')">Remera hombre</button>
+                    <button type="button" data-landing-size-guide="mujer" onclick="selectLandingSizeGuide('mujer')">Remera mujer</button>
+                    <button type="button" data-landing-size-guide="oversize" onclick="selectLandingSizeGuide('oversize')">Oversize</button>
+                    <button type="button" data-landing-size-guide="ninos" onclick="selectLandingSizeGuide('ninos')">Niños</button>
+                    <button type="button" data-landing-size-guide="hoodies" onclick="selectLandingSizeGuide('hoodies')">Hoodie</button>
+                    <button type="button" data-landing-size-guide="buzo-redondo" onclick="selectLandingSizeGuide('buzo-redondo')">Buzo</button>
+                </div>
+                <div class="band-landing-size-guide-content">
+                    <h3 id="landingSizeGuideTitle">Tabla de medidas</h3>
+                    <p id="landingSizeGuideCopy"></p>
+                    <div id="landingSizeGuideTable"></div>
+                    <p class="band-landing-size-guide-note">Medí una prenda similar extendida sobre una superficie plana. Las medidas pueden variar hasta un 5%.</p>
+                    <p class="size-selection-policy size-selection-policy-table">Queremos que te quede perfecta: compará las medidas antes de elegir el talle. Como preparamos cada prenda especialmente para vos, no realizamos cambios por talle.</p>
+                </div>
+            </div>
+        </details>
+
+
 
         <section class="band-landing-instagram" aria-label="Instagram de Five Magics Designs">
             <p>SEGUINOS EN INSTAGRAM</p>
@@ -323,7 +368,11 @@
         <button class="image-modal-close" type="button" aria-label="Cerrar imagen" onclick="closeImageModal()">&times;</button>
         <img id="imageModalImg" src="" alt="">
     </div>
-
+    <dialog class="finished-garments-lightbox" id="finishedGarmentsLightbox" aria-label="Fotografía ampliada de prendas terminadas">
+        <button type="button" data-finished-close aria-label="Cerrar fotografía">&times;</button>
+        <img alt="" width="1122" height="1402">
+    </dialog>
+    <script src="/js/finished-garments.js" defer></script>
 <div class="zoom-overlay" id="zoomOverlay">
         <button class="zoom-close" id="zoomClose">
             <svg viewBox="0 0 24 24" fill="none" stroke-width="2">

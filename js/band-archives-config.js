@@ -540,6 +540,13 @@
                 href: 'https://www.instagram.com/fivemagicsdesigns/'
             },
             moveShippingAfterShowcase: false,
+            finishedGarments: [
+                { src: '/images/banda_sugeridas/helloween/grillas_prendas_reales/prendas-terminadas-01.jpg', alt: 'Cuatro remeras terminadas de Helloween: Pumpkin Buenos Aires, Eagle Fly Free, setlist del show y Keeper Buenos Aires' },
+                { src: '/images/banda_sugeridas/helloween/grillas_prendas_reales/prendas-terminadas-02.jpg', alt: 'Cuatro remeras terminadas de Helloween con estampas de Keeper y Live in the U.K.' },
+                { src: '/images/banda_sugeridas/helloween/grillas_prendas_reales/prendas-terminadas-03.jpg', alt: 'Cuatro remeras terminadas de Helloween con estampas de The Time of the Oath, Gambling with the Devil, Dr. Stein y Better Than Raw' },
+                { src: '/images/banda_sugeridas/helloween/grillas_prendas_reales/prendas-terminadas-04.jpg', alt: 'Cuatro remeras terminadas de Helloween con estampas de Drunk Pumpkin, Savage Pumpkins, Universe y Walls of Jericho' },
+                { src: '/images/banda_sugeridas/helloween/grillas_prendas_reales/prendas-terminadas-05.jpg', alt: 'Cuatro remeras terminadas de Helloween con estampas de Buenos Aires, Dr. Stein y Better Than Raw' }
+            ],
             modalBackCarouselDesignIds: [
                 'helloween-eagle-fly-free',
                 'helloween-pumpkin-buenos-aires-edicion-fmd'

@@ -100,6 +100,31 @@ body[data-band="Helloween"] .july-shipping-promo strong {
     font-size: clamp(1.8rem, 4.6vw, 3rem);
 }
 
+@media (max-width: 760px) {
+    body[data-band="Helloween"] .july-shipping-promo {
+        width: calc(100% - 20px);
+        padding-inline: 14px;
+    }
+
+    body[data-band="Helloween"] .shipping-promo-options {
+        width: 100%;
+    }
+
+    body[data-band="Helloween"] .shipping-promo-options span {
+        max-width: none;
+        min-height: 0;
+        padding: 16px;
+        grid-template-columns: 1fr;
+        gap: 8px;
+        text-align: center;
+    }
+
+    body[data-band="Helloween"] .shipping-promo-options span b,
+    body[data-band="Helloween"] .shipping-promo-options span em {
+        max-width: none;
+    }
+}
+
 .band-landing-instagram {
     width: min(820px, calc(100% - 32px));
     margin: 42px auto 0;
@@ -248,6 +273,8 @@ body[data-band="Helloween"] .helloween-post-show-featured {
     grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
+.helloween-featured-option-controls { display: none; }
+
 .helloween-post-show-featured-media figure {
     margin: 0;
     overflow: hidden;
@@ -323,6 +350,135 @@ body[data-band="Helloween"] .helloween-post-show-featured {
 .helloween-featured-actions {
     display: grid;
     gap: 9px;
+}
+
+.finished-garments {
+    width: min(1180px, calc(100% - 32px));
+    margin: 24px auto 0;
+    padding: 25px 0 27px;
+    overflow: hidden;
+    border: 1px solid rgba(142, 104, 216, .36);
+    border-radius: 22px;
+    background: #100e14;
+}
+
+.finished-garments-head, .finished-garments-footer {
+    padding: 0 24px;
+    text-align: center;
+}
+
+.finished-garments-head p {
+    margin: 0 0 7px;
+    color: #ff9d61;
+    font: 700 .78rem "Oswald", sans-serif;
+    letter-spacing: .14em;
+}
+
+.finished-garments-head h2 {
+    margin: 0;
+    color: #fff;
+    font: 400 clamp(2rem, 4.8vw, 3.5rem)/1 "Bebas Neue", sans-serif;
+}
+
+.finished-garments-head span, .finished-garments-footer p {
+    display: block;
+    margin: 8px 0 0;
+    color: #d2cdd6;
+    font: 400 .94rem/1.5 "Inter", sans-serif;
+}
+
+.finished-garments-controls {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 12px;
+    padding: 14px 24px 10px;
+    color: #fff;
+}
+
+.finished-garments-controls button {
+    width: 36px;
+    height: 36px;
+    border: 1px solid rgba(255, 157, 97, .55);
+    border-radius: 50%;
+    background: #1b1720;
+    color: #fff;
+    font-size: 1.4rem;
+    cursor: pointer;
+}
+
+.finished-garments-controls output { min-width: 42px; text-align: center; font: 700 .8rem "Inter", sans-serif; }
+
+.finished-garments-track {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    overscroll-behavior-x: contain;
+    padding: 0 24px 12px;
+    scrollbar-color: #8867a7 #17131b;
+}
+
+.finished-garments-slide {
+    flex: 0 0 calc((100% - 84px) / 2.25);
+    padding: 0;
+    overflow: hidden;
+    scroll-snap-align: start;
+    border: 1px solid rgba(255, 255, 255, .14);
+    border-radius: 12px;
+    background: #090909;
+    cursor: zoom-in;
+}
+
+.finished-garments-slide img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1122 / 1402;
+    object-fit: contain;
+}
+
+.finished-garments-footer p { margin: 16px 0 13px; }
+.finished-garments-footer a {
+    display: inline-block;
+    padding: 11px 22px;
+    border: 1px solid #ff814d;
+    border-radius: 8px;
+    color: #fff;
+    background: #4b231d;
+    font: 700 .88rem "Oswald", sans-serif;
+    letter-spacing: .06em;
+    text-decoration: none;
+}
+
+.finished-garments-lightbox {
+    max-width: min(96vw, 900px);
+    max-height: 96vh;
+    padding: 12px;
+    border: 1px solid #806494;
+    border-radius: 12px;
+    background: #0b090d;
+    color: #fff;
+}
+
+.finished-garments-lightbox::backdrop { background: rgba(0, 0, 0, .9); }
+.finished-garments-lightbox img { display: block; max-width: 100%; max-height: calc(96vh - 70px); width: auto; height: auto; margin: auto; object-fit: contain; }
+.finished-garments-lightbox button { display: block; margin: 0 0 8px auto; border: 0; background: transparent; color: #fff; font-size: 2rem; cursor: pointer; }
+.finished-garments-slide:focus-visible, .finished-garments-controls button:focus-visible, .finished-garments-footer a:focus-visible, .finished-garments-lightbox button:focus-visible { outline: 3px solid #ff9d61; outline-offset: 2px; }
+
+@media (max-width: 700px) {
+    .finished-garments { width: calc(100% - 20px); margin-top: 14px; padding: 20px 0; border-radius: 18px; }
+    .finished-garments-head, .finished-garments-footer { padding: 0 12px; }
+    .finished-garments-head h2 { font-size: clamp(1.8rem, 9vw, 2.45rem); }
+    .finished-garments-head span, .finished-garments-footer p { font-size: .84rem; }
+    .finished-garments-controls { padding-inline: 12px; }
+    .finished-garments-track.is-carousel { gap: 0; padding: 0 12px 12px; overflow-x: hidden; scroll-snap-type: none; touch-action: pan-y; scrollbar-width: none; }
+    .finished-garments-track.is-carousel::-webkit-scrollbar { display: none; }
+    .finished-garments-track.is-carousel .finished-garments-slide { flex: 0 0 100%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .finished-garments-track { scroll-behavior: auto; }
 }
 
 .band-design-showcase {
@@ -478,6 +634,13 @@ body.band-landing-page[data-band="Helloween"] .band-landing-hero h1 {
     max-width: 720px;
     font-size: clamp(2.2rem, 3.8vw, 3.4rem);
     line-height: 1;
+}
+
+body.band-landing-page[data-band="Helloween"] .btn-wa-header svg {
+    width: 20px;
+    height: 20px;
+    flex: 0 0 20px;
+    fill: currentColor;
 }
 
 body.band-landing-page[data-band="Helloween"] .production-tracking-strip {
@@ -1269,7 +1432,53 @@ body.band-landing-page[data-band="Argentina"] #modal .btn-add-cart {
     }
 
     body.band-landing-page[data-band="Helloween"] .band-landing-hero-art {
-        min-height: 250px;
+        min-height: 0;
+        height: 230px;
+    }
+
+    body.band-landing-page[data-band="Helloween"] .band-landing-hero-art img {
+        object-fit: contain;
+    }
+
+    body.band-landing-page[data-band="Helloween"] .band-landing-garment-selector {
+        margin-top: 14px;
+    }
+
+    body.band-landing-page[data-band="Helloween"] .band-landing-garment-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 7px;
+    }
+
+    body.band-landing-page[data-band="Helloween"] .band-landing-garment-card {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 54px;
+        padding: 8px 4px;
+    }
+
+    body.band-landing-page[data-band="Helloween"] .band-landing-garment-media,
+    body.band-landing-page[data-band="Helloween"] .band-landing-garment-copy > span {
+        display: none;
+    }
+
+    body.band-landing-page[data-band="Helloween"] .band-landing-garment-copy {
+        display: block;
+        padding: 0;
+        text-align: center;
+    }
+
+    body.band-landing-page[data-band="Helloween"] .band-landing-garment-copy strong {
+        font-size: 1.2rem;
+    }
+
+    body.band-landing-page[data-band="Helloween"] .band-landing-catalog {
+        margin-top: 20px;
+    }
+
+    body.band-landing-page[data-band="Helloween"] .band-landing-all-designs,
+    body.band-landing-page[data-band="Helloween"] .band-landing-design-note {
+        display: none;
     }
 
     .band-landing-hero h2 {
@@ -1457,9 +1666,10 @@ body.band-landing-page[data-band="Argentina"] #modal .btn-add-cart {
         padding: 18px;
     }
 
-    body[data-band="Helloween"] .helloween-post-show-hero h1 {
-        font-size: clamp(2.45rem, 11vw, 4rem);
-        line-height: 0.96;
+    body.band-landing-page[data-band="Helloween"] .helloween-post-show-hero h1 {
+        font-size: clamp(1.8rem, 7.5vw, 2.45rem);
+        line-height: 1.02;
+        overflow-wrap: normal;
     }
 }
 
@@ -1496,6 +1706,36 @@ body.band-landing-page[data-band="Argentina"] #modal .btn-add-cart {
     .helloween-featured-option-grid figure {
         flex: 0 0 78%;
         scroll-snap-align: start;
+    }
+
+    .helloween-featured-option-grid.is-carousel,
+    .helloween-featured-option-group:nth-child(2) .helloween-featured-option-grid.is-carousel {
+        gap: 0;
+        overflow-x: hidden;
+        scroll-snap-type: none;
+        touch-action: pan-y;
+        scrollbar-width: none;
+    }
+
+    .helloween-featured-option-grid.is-carousel::-webkit-scrollbar { display: none; }
+    .helloween-featured-option-grid.is-carousel figure { flex: 0 0 100%; }
+    .helloween-featured-option-grid.is-carousel + .helloween-featured-option-controls {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+        margin-top: 9px;
+        color: #fff;
+        font: 700 .8rem "Inter", sans-serif;
+    }
+    .helloween-featured-option-controls button {
+        width: 36px;
+        height: 36px;
+        border: 1px solid rgba(255, 189, 84, .55);
+        border-radius: 50%;
+        background: #1b1720;
+        color: #fff;
+        font-size: 1.4rem;
     }
 
     .helloween-post-show-featured-media figure {
