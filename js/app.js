@@ -3016,6 +3016,9 @@ class CartSystem {
 
         // Detalles compactos de cada producto.
         const details = sortedCart.map((item, idx) => {
+            const productName = item.designId === 'helloween-keeper-i-setlist-buenos-aires-2026'
+                ? 'Keeper of the Seven Keys Part I'
+                : item.productName;
             const isHoodie = item.category === 'Hoodies FMD' || item.category === 'Hoodies Otras Bandas';
             const isBuzoRedondo = item.category === 'Buzo Cuello Redondo';
             const talle = item.size;
@@ -3042,7 +3045,7 @@ class CartSystem {
             const estampado = item.isDouble ? 'Frente y dorso' : 'Solo frente';
             const usesShownComposition = cartItemUsesShownComposition(item);
             const additionalDetails = [];
-            if (item.frontName && normalizeText(item.frontName) !== normalizeText(item.productName)) {
+            if (item.frontName && normalizeText(item.frontName) !== normalizeText(productName)) {
                 additionalDetails.push(`Frente: ${item.frontName.replace(/^Frente\s+/i, '')}`);
             }
             if (item.isDouble && !usesShownComposition && !item.backCode) {
@@ -3057,7 +3060,7 @@ class CartSystem {
             const options = [tipoPrenda, color, `Talle ${talle}`, estampado, ...additionalDetails]
                 .filter(Boolean)
                 .join(' · ');
-            return `${idx + 1}. ${item.frontCode || item.code} — ${item.productName} · ${options} · $${Math.round(itemPrices[idx]).toLocaleString('es-AR')}`;
+            return `${idx + 1}. ${item.frontCode || item.code} — ${productName} · ${options} · $${Math.round(itemPrices[idx]).toLocaleString('es-AR')}`;
         }).join('\n');
 
         const total = this.cart.length;
