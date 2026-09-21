@@ -324,6 +324,7 @@ ${eventDay ? `                <p class="helloween-event-day-line">${eventDay.lab
                 <p>${config.heroCopy}</p>
 ${config.heroQualityLine ? `                <p class="band-landing-quality-line">${config.heroQualityLine}</p>` : ''}
                 <a class="band-landing-primary-cta" href="#catalogoPrincipal">${config.heroCtaLabel || 'VER DISEÑOS'}</a>
+${config.heroNotice ? `                <p class="band-landing-hero-notice">${config.heroNotice}</p>` : ''}
 ${config.relatedArchive ? `                <a class="band-landing-related-archive" href="${config.relatedArchive.href}" aria-label="${config.relatedArchive.label}: ${config.relatedArchive.title}">
                     <span>${config.relatedArchive.label}</span>
                     <strong>${config.relatedArchive.title}</strong>

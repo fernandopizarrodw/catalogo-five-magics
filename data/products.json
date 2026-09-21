@@ -21017,6 +21017,17 @@
         "isNew": true
       },
       {
+        "img": "images/banda_sugeridas/sonata_artica/remera_sonata_artica_ecliptica_frente.jpg",
+        "name": "Sonata Arctica Ecliptica",
+        "alt": "Remera negra Sonata Arctica Ecliptica con estampa frontal",
+        "designId": "sonata-arctica-ecliptica",
+        "role": "front",
+        "garmentCategory": "Bandas Sugeridas",
+        "color": "negro",
+        "defaultPrintMode": "simple",
+        "isNew": true
+      },
+      {
         "img": "images/banda_sugeridas/sonata_artica/remera_sonata_artica_silence.jpg",
         "name": "Sonata Arctica Silence",
         "alt": "Remera negra Sonata Arctica Silence frente y dorso",
@@ -21158,6 +21169,62 @@
         "color": "negro",
         "preferredPreview": true,
         "defaultPrintMode": "simple",
+        "isNew": true
+      },
+      {
+        "img": "images/banda_sugeridas/sonata_artica/remera_sonata_artica_for_the_sake.jpg",
+        "name": "Sonata Arctica For the Sake of Revenge",
+        "alt": "Remera negra Sonata Arctica For the Sake of Revenge con estampa frontal",
+        "designId": "sonata-arctica-for-the-sake-of-revenge",
+        "role": "front",
+        "garmentCategory": "Bandas Sugeridas",
+        "color": "negro",
+        "defaultPrintMode": "simple",
+        "isNew": true
+      },
+      {
+        "img": "images/banda_sugeridas/sonata_artica/remera_sonata_artica_takatalvi.jpg",
+        "name": "Sonata Arctica Takatalvi",
+        "alt": "Remera negra Sonata Arctica Takatalvi con estampa frontal",
+        "designId": "sonata-arctica-takatalvi",
+        "role": "front",
+        "garmentCategory": "Bandas Sugeridas",
+        "color": "negro",
+        "defaultPrintMode": "simple",
+        "isNew": true
+      },
+      {
+        "img": "images/banda_sugeridas/sonata_artica/remera_sonata_artica_the_collection.jpg",
+        "name": "Sonata Arctica The Collection",
+        "alt": "Remera negra Sonata Arctica The Collection con estampa frontal",
+        "designId": "sonata-arctica-the-collection",
+        "role": "front",
+        "garmentCategory": "Bandas Sugeridas",
+        "color": "negro",
+        "defaultPrintMode": "simple",
+        "isNew": true
+      },
+      {
+        "img": "images/banda_sugeridas/sonata_artica/remera_sonata_artica_the_last_amazing_grays.jpg",
+        "name": "Sonata Arctica The Last Amazing Grays",
+        "alt": "Remera negra Sonata Arctica The Last Amazing Grays con estampa frontal",
+        "designId": "sonata-arctica-the-last-amazing-grays",
+        "role": "front",
+        "garmentCategory": "Bandas Sugeridas",
+        "color": "negro",
+        "defaultPrintMode": "simple",
+        "isNew": true
+      },
+      {
+        "img": "images/banda_sugeridas/sonata_artica/remera_sonata_artica_wolf_and_raven_fmd_edition.jpg",
+        "name": "Sonata Arctica Wolf & Raven - Edición FMD",
+        "alt": "Remera negra Sonata Arctica Wolf & Raven Edición FMD con estampa frontal",
+        "designId": "sonata-arctica-wolf-and-raven-edicion-fmd",
+        "role": "front",
+        "garmentCategory": "Bandas Sugeridas",
+        "color": "negro",
+        "defaultPrintMode": "simple",
+        "fmdBadge": "EDICIÓN FMD",
         "isNew": true
       }
     ],
