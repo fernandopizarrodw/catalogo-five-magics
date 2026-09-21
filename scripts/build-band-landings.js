@@ -101,6 +101,8 @@ function customizeSharedCommerceMarkup(config, markup) {
 }
 
 function renderGarmentSelector(config) {
+    if (config.showGarmentSelector === false) return '';
+
     return `        <section class="band-landing-garment-selector" id="catalogoPrincipal" aria-label="Elegir prenda ${config.band}">
             <div class="band-landing-garment-grid" role="tablist" aria-label="Prendas disponibles">
 ${config.garments.map((garment, index) => `
@@ -119,7 +121,7 @@ ${config.garments.map((garment, index) => `
 }
 
 function renderCatalogSection(config, collections, completeArchive) {
-    return `        <section class="band-landing-catalog" aria-labelledby="bandCatalogTitle">
+    return `        <section class="band-landing-catalog"${config.showGarmentSelector === false ? ' id="catalogoPrincipal"' : ''} aria-labelledby="bandCatalogTitle">
             <div class="band-landing-section-head">
                 <p>ARCHIVO FMD</p>
                 <h2 id="bandCatalogTitle">DISEÑOS DE ${config.displayName}</h2>

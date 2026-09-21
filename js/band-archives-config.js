@@ -1039,7 +1039,7 @@
             image: '/images/banda_sugeridas/sonata_artica/remera_sonata_artica_30th_argentina_band_solo.jpg',
             imageUrl: 'https://catalogo.fivemagicsdesigns.com/images/banda_sugeridas/sonata_artica/remera_sonata_artica_30th_argentina_band_solo.jpg',
             heroTitle: '29 SEPTIEMBRE · TEATRO FLORES · BUENOS AIRES',
-            heroCopy: '<strong>16 diseños disponibles</strong><br>Elegí tu favorito y armá el pedido en remera, hoodie o buzo.',
+            heroCopy: '<strong>16 diseños disponibles</strong><br>Elegí tu favorita y armá tu pedido.',
             heroCtaLabel: 'VER DISEÑOS',
             heroNotice: 'Si la querés para el show, consultanos antes de comprar para confirmar entrega.',
             heroQualityLine: 'DTG PREMIUM · ALGODÓN PEINADO · SIN TACTO PLÁSTICO',
@@ -1047,6 +1047,7 @@
             finalCopy: 'También hacemos diseños personalizados a partir de una tapa, imagen o idea.',
             whatsappMessage: 'Hola FMD! Estoy buscando un diseño de Sonata Arctica que no encontré en la colección. ¿Puedo enviarles una imagen o contarles la idea?',
             defaultGarment: 'remera',
+            showGarmentSelector: false,
             usesShownComposition: false,
             showSizeGuide: true,
             designOrder: [
