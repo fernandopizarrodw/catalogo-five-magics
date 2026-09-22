@@ -225,6 +225,7 @@ function renderLanding(config, sharedCommerceMarkup) {
     const garmentSelectorMarkup = renderGarmentSelector(config);
     const catalogMarkup = renderCatalogSection(config, collections, completeArchive);
     const catalogFirst = config.band === 'Helloween';
+    const showcaseFirst = catalogFirst || config.showcaseFirst === true;
     const showcaseMarkup = config.showcase ? `
         <section class="band-design-showcase" id="bandDesignShowcase" aria-labelledby="bandDesignShowcaseTitle">
             <div class="band-design-showcase-head">
@@ -316,7 +317,7 @@ ${catalogFirst ? `                    <svg viewBox="0 0 24 24" aria-hidden="true
     </div>
 
     <main>
-${catalogFirst ? showcaseMarkup : ''}
+${showcaseFirst ? showcaseMarkup : ''}
         <section class="band-landing-hero${postShow ? ' band-landing-pre-show' : ''}" aria-labelledby="bandLandingTitle">
             <div class="band-landing-hero-copy">
                 <p class="band-landing-brand">FIVE MAGICS DESIGNS</p>
@@ -412,7 +413,7 @@ ${finishedGarments.map((photo, index) => `                <button type="button" 
                 <a href="#bandCatalogTitle">VER LOS 75 DISEÑOS</a>
             </div>
         </section>` : ''}
-${catalogFirst ? '' : showcaseMarkup}
+${showcaseFirst ? '' : showcaseMarkup}
 ${config.moveShippingAfterShowcase ? shippingPromoMarkup : ''}
 ${catalogFirst ? '' : garmentSelectorMarkup}
 ${config.showSizeGuide ? `

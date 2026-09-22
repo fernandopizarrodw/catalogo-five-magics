@@ -276,12 +276,13 @@
             band: 'Iron Maiden',
             displayName: 'IRON MAIDEN',
             title: 'Iron Maiden: remeras, hoodies y buzos | Five Magics Designs',
-            description: 'Diseños de Iron Maiden en remeras, hoodies y buzos hechos a pedido. Elegí solo frente o frente y dorso, talle, color y forma de entrega.',
+            description: 'Colección Iron Maiden Run For Your Lives 2026. Diseños inspirados en los primeros nueve discos, de 1980 a 1992, en remeras, hoodies y buzos.',
             canonical: 'https://catalogo.fivemagicsdesigns.com/iron-maiden/',
             image: '/images/iron_maiden/maiden_live_after_death.jpg',
             imageUrl: 'https://catalogo.fivemagicsdesigns.com/images/iron_maiden/maiden_live_after_death.jpg',
-            heroTitle: 'REMERAS, HOODIES Y BUZOS',
-            heroCopy: 'Explorá álbumes, giras y distintas eras de Eddie. Elegí tu favorito y armá tu pedido.',
+            heroTitle: 'RUN FOR YOUR LIVES · 50 AÑOS',
+            heroCopy: '<strong>LOS PRIMEROS NUEVE DISCOS. UNA GIRA HISTÓRICA.</strong><br>Diseños inspirados en la era clásica de Iron Maiden, de 1980 a 1992.',
+            heroCtaLabel: 'VER LA COLECCIÓN',
             finalTitle: '¿BUSCABAS OTRO DISEÑO DE IRON MAIDEN?',
             finalCopy: 'También hacemos diseños personalizados a partir de una tapa, imagen o idea.',
             whatsappMessage: 'Hola FMD! Quiero consultar por un diseño de Iron Maiden a partir de una tapa, imagen o idea.',
@@ -296,6 +297,15 @@
             designOrder: [
                 'iron-maiden-run-for-your-lives-2026-oficial',
                 'cd-iron-maiden-eddie-gaucho-argentino--p7040',
+                'iron-maiden-1980-run-for-your-lives',
+                'iron-maiden-killers-1981-run-for-your-lives',
+                'iron-maiden-number-of-the-beast-1982-run-for-your-lives',
+                'iron-maiden-piece-of-mind-1983-run-for-your-lives',
+                'iron-maiden-powerslave-1984-run-for-your-lives',
+                'iron-maiden-somewhere-in-time-1986-run-for-your-lives',
+                'iron-maiden-seventh-son-1988-run-for-your-lives',
+                'iron-maiden-no-prayer-1990-run-for-your-lives',
+                'iron-maiden-fear-of-the-dark-1992-run-for-your-lives',
                 'iron-maiden-iron-maiden-classic',
                 'iron-maiden-burning-ambition-edicion-fmd',
                 'cd-iron-maiden-killers--p5036',
@@ -337,10 +347,29 @@
                 'cd-iron-maiden-eddie-v3--p409',
                 'cd-iron-maiden-eddie-v4--p5125'
             ],
+            showcaseFirst: true,
+            showcase: {
+                campaignPreview: 'iron-maiden-nine-albums-tour',
+                title: '9 DISCOS · 1 TOUR',
+                copy: 'La historia que recorre Run For Your Lives: de Iron Maiden a Fear of the Dark. Tocá un diseño para verlo.',
+                ctaLabel: 'VER TODOS LOS DISEÑOS',
+                durationSeconds: 42,
+                order: [
+                    'iron-maiden-1980-run-for-your-lives',
+                    'iron-maiden-killers-1981-run-for-your-lives',
+                    'iron-maiden-number-of-the-beast-1982-run-for-your-lives',
+                    'iron-maiden-piece-of-mind-1983-run-for-your-lives',
+                    'iron-maiden-powerslave-1984-run-for-your-lives',
+                    'iron-maiden-somewhere-in-time-1986-run-for-your-lives',
+                    'iron-maiden-seventh-son-1988-run-for-your-lives',
+                    'iron-maiden-no-prayer-1990-run-for-your-lives',
+                    'iron-maiden-fear-of-the-dark-1992-run-for-your-lives'
+                ]
+            },
             garments: [
                 { key: 'hoodie', title: 'HOODIES', price: 'Desde $52.000', image: '/images/hoddies_fmd/hoodies_otras_bandas/iron_maiden_killers_v1.jpg', alt: 'Hoodie Iron Maiden Killers' },
                 { key: 'buzo_cuello_redondo', title: 'BUZOS', price: 'Frontal $50.000 · Doble $55.000', image: '/images/buzos cuello redondo/iron_maiden_original_fmd.jpg', alt: 'Buzo cuello redondo Iron Maiden Powerslave' },
-                { key: 'remera', title: 'REMERAS', price: 'Desde $37.000', image: '/images/iron_maiden/iron_maiden_fear_v1.jpg', alt: 'Remera Iron Maiden The Number of the Beast' }
+                { key: 'remera', title: 'REMERAS', price: 'Desde $37.000', image: '/images/iron_maiden/9 discos 1 tour/iron_maiden_fear_v1.jpg', alt: 'Remera Iron Maiden The Number of the Beast' }
             ]
         },
         {

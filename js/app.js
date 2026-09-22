@@ -3596,13 +3596,13 @@ function renderBandDesignShowcase() {
             if (interactive) {
                 card.type = 'button';
                 card.dataset.designId = item.designId;
-                card.setAttribute('aria-label', `Ver remera Helloween — ${item.design.publicName}`);
+                card.setAttribute('aria-label', `Ver remera ${BAND_LANDING_CONFIG?.band || 'FMD'} — ${item.design.publicName}`);
                 card.addEventListener('click', () => openBandShowcaseDesign(item.designId));
             }
             const image = document.createElement('img');
             const previewImage = item.variant.campaignThumbnail || item.variant.img;
             image.src = `/${previewImage.replace(/^\/+/, '')}`;
-            image.alt = interactive ? (item.variant.alt || `Remera Helloween ${item.design.publicName}`) : '';
+            image.alt = interactive ? (item.variant.alt || `Remera ${BAND_LANDING_CONFIG?.band || 'FMD'} ${item.design.publicName}`) : '';
             image.decoding = 'async';
             image.loading = copyIndex === 0 && index < 6 ? 'eager' : 'lazy';
             card.appendChild(image);
@@ -6604,7 +6604,7 @@ function getCatalogDirectoryImage(product) {
 const FEATURED_COLLECTION_ART = Object.freeze({
     megadeth: { image: 'images/albums/Megadeth/megadeth_2026_vic_llamas_v3.jpg', alt: 'Diseño representativo de Megadeth' },
     slayer: { image: 'images/slayer/remera_slayer_aguila.jpg', alt: 'Diseño representativo de Slayer' },
-    'iron maiden': { image: 'images/iron_maiden/IRON MAIDEN BY FMD/fmd_killers.jpg', alt: 'Killers FMD de Iron Maiden' },
+    'iron maiden': { image: 'images/iron_maiden/remera_iron_maiden_run_oficial.jpg', alt: 'Run For Your Lives World Tour 2026 de Iron Maiden' },
     'ricardo iorio': { image: 'images/banda_sugeridas/ricardo_iorio/remera_almafuerte_obras.jpg', alt: 'Almafuerte - En Obras' },
     epica: { image: 'images/banda_sugeridas/epica/hoodie_epica_the_phantom_agony.jpg', alt: 'Hoodie EPICA The Phantom Agony' },
     helloween: {
