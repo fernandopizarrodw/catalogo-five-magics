@@ -3935,7 +3935,7 @@
         "name": "Original"
       },
       {
-        "img": "images/iron_maiden/dorso_maiden_life.jpg",
+        "img": "images/iron_maiden/dorsos opcionales/dorso_maiden_life.jpg",
         "name": "Dorso"
       }
     ],
@@ -3980,6 +3980,18 @@
       {
         "img": "images/iron_maiden/iron_maiden_empire.jpg",
         "name": "Empire"
+      },
+      {
+        "img": "images/iron_maiden/dorsos opcionales/iron_maiden_dorso.jpg",
+        "name": "Dorso Iron Maiden clásico",
+        "selectionLabel": "Dorso Iron Maiden clásico",
+        "role": "back"
+      },
+      {
+        "img": "images/iron_maiden/dorsos opcionales/dorso_logo_rojo.jpg",
+        "name": "Dorso logo Iron Maiden rojo",
+        "selectionLabel": "Dorso logo Iron Maiden rojo",
+        "role": "back"
       }
     ],
     "desc": "DiseÃ±o clÃ¡sico de Iron Maiden con variante Empire.",
@@ -12596,28 +12608,36 @@
   {
     "id": 5032,
     "category": "Iron Maiden",
-    "year": "2026",
-    "name": "Iron Maiden Book",
+    "year": "1992",
+    "name": "Iron Maiden - Fear of the Dark",
     "tipoPrecio": "simple",
-    "img": "images/iron_maiden/iron_maiden_book.jpg",
+    "img": "images/iron_maiden/iron_maiden_fear.jpg",
     "variants": [
       {
-        "img": "images/iron_maiden/iron_maiden_book.jpg",
-        "name": "The Book of Souls"
+        "img": "images/iron_maiden/iron_maiden_fear.jpg",
+        "name": "Fear of the Dark",
+        "designId": "iron-maiden-fear-of-the-dark-classic",
+        "role": "front"
+      },
+      {
+        "img": "images/iron_maiden/dorsos opcionales/iron_maiden_fear_dorso.jpg",
+        "name": "Dorso Fear of the Dark",
+        "selectionLabel": "Dorso Fear of the Dark",
+        "role": "back"
       }
     ],
-    "desc": "Iron Maiden Book - DiseÃ±o de la banda clÃ¡sica.",
+    "desc": "Diseño de Iron Maiden inspirado en Fear of the Dark.",
     "band": "Iron Maiden",
     "universe": [
       "Heavy Metal Classics"
     ],
-    "album": "The Book of Souls",
+    "album": "Fear of the Dark",
     "garments": [
       "remera"
     ],
     "collections": [
       "Archivo Maiden",
-      "The Book of Souls"
+      "Fear of the Dark"
     ],
     "campaigns": [],
     "commercialPriority": 68,
@@ -12625,11 +12645,13 @@
     "legacyCategory": "Iron Maiden",
     "tags": [
       "Iron Maiden",
-      "Heavy Metal Classics",
-      "The Book of Souls",
+      "Fear of the Dark",
       "remera",
       "Archivo Maiden"
-    ]
+    ],
+    "designId": "iron-maiden-fear-of-the-dark-classic",
+    "designSlug": "iron-maiden-fear-of-the-dark-classic",
+    "defaultPrintMode": "frontal"
   },
   {
     "id": 5033,
@@ -12758,7 +12780,7 @@
         "name": "Frente"
       },
       {
-        "img": "images/iron_maiden/iron_maiden_killers_dorso.jpg",
+        "img": "images/iron_maiden/dorsos opcionales/iron_maiden_killers_dorso.jpg",
         "name": "Dorso"
       }
     ],
@@ -12838,11 +12860,7 @@
         "name": "The Number of the Beast V1"
       },
       {
-        "img": "images/iron_maiden/iron_maiden_fear_v2.jpg",
-        "name": "The Number of the Beast V2"
-      },
-      {
-        "img": "images/iron_maiden/dorso_666.jpg",
+        "img": "images/iron_maiden/dorsos opcionales/dorso_666.jpg",
         "name": "Dorso 666"
       }
     ],
@@ -16024,7 +16042,7 @@
     "tipoPrecio": "simple",
     "isNew": true,
     "priority": 165,
-    "img": "images/iron_maiden/IRON MAIDEN BY FMD/eddie_argentina_v1.jpg",
+    "img": "images/iron_maiden/eddie_argentina_v1.jpg",
     "desc": "Diseno Iron Maiden edicion FMD 2026. Disponible para remera, hoodie y buzo cuello redondo.",
     "band": "Iron Maiden",
     "collections": [
@@ -16062,7 +16080,7 @@
     "tipoPrecio": "simple",
     "isNew": true,
     "priority": 164,
-    "img": "images/iron_maiden/IRON MAIDEN BY FMD/eddie_argentina_v2.jpg",
+    "img": "images/iron_maiden/eddie_argentina_v2.jpg",
     "desc": "Diseno Iron Maiden edicion FMD 2026. Disponible para remera, hoodie y buzo cuello redondo.",
     "band": "Iron Maiden",
     "collections": [
@@ -16100,7 +16118,7 @@
     "tipoPrecio": "simple",
     "isNew": true,
     "priority": 163,
-    "img": "images/iron_maiden/IRON MAIDEN BY FMD/fmd_eddie.jpg",
+    "img": "images/iron_maiden/fmd_eddie.jpg",
     "desc": "Diseno Iron Maiden edicion FMD 2026. Disponible para remera, hoodie y buzo cuello redondo.",
     "band": "Iron Maiden",
     "collections": [
@@ -16136,7 +16154,7 @@
     "tipoPrecio": "simple",
     "isNew": true,
     "priority": 162,
-    "img": "images/iron_maiden/IRON MAIDEN BY FMD/fmd_eddie_bass.jpg",
+    "img": "images/iron_maiden/fmd_eddie_bass.jpg",
     "desc": "Diseno Iron Maiden edicion FMD 2026. Disponible para remera, hoodie y buzo cuello redondo.",
     "band": "Iron Maiden",
     "collections": [
@@ -16172,7 +16190,7 @@
     "tipoPrecio": "simple",
     "isNew": true,
     "priority": 161,
-    "img": "images/iron_maiden/IRON MAIDEN BY FMD/fmd_eddie_circular.jpg",
+    "img": "images/iron_maiden/fmd_eddie_circular.jpg",
     "desc": "Diseno Iron Maiden edicion FMD 2026. Disponible para remera, hoodie y buzo cuello redondo.",
     "band": "Iron Maiden",
     "collections": [
@@ -16208,7 +16226,7 @@
     "tipoPrecio": "simple",
     "isNew": true,
     "priority": 160,
-    "img": "images/iron_maiden/IRON MAIDEN BY FMD/fmd_eddie_la_momia.jpg",
+    "img": "images/iron_maiden/fmd_eddie_la_momia.jpg",
     "desc": "Diseno Iron Maiden edicion FMD 2026. Disponible para remera, hoodie y buzo cuello redondo.",
     "band": "Iron Maiden",
     "collections": [
@@ -16244,15 +16262,15 @@
     "tipoPrecio": "doble",
     "isNew": true,
     "priority": 159,
-    "img": "images/iron_maiden/IRON MAIDEN BY FMD/fmd_eddie_run_for_frente.jpg",
+    "img": "images/iron_maiden/fmd_eddie_run_for_frente.jpg",
     "variants": [
       {
-        "img": "images/iron_maiden/IRON MAIDEN BY FMD/fmd_eddie_run_for_frente.jpg",
+        "img": "images/iron_maiden/fmd_eddie_run_for_frente.jpg",
         "name": "Frente",
         "role": "front"
       },
       {
-        "img": "images/iron_maiden/IRON MAIDEN BY FMD/fmd_eddie_run_for_dorso.jpg",
+        "img": "images/iron_maiden/dorsos opcionales/fmd_eddie_run_for_dorso.jpg",
         "name": "Dorso",
         "role": "back"
       }
@@ -16294,7 +16312,7 @@
     "tipoPrecio": "simple",
     "isNew": true,
     "priority": 158,
-    "img": "images/iron_maiden/IRON MAIDEN BY FMD/fmd_fear_of_the_dark.jpg",
+    "img": "images/iron_maiden/fmd_fear_of_the_dark.jpg",
     "desc": "Diseno Iron Maiden edicion FMD 2026. Disponible para remera, hoodie y buzo cuello redondo.",
     "band": "Iron Maiden",
     "collections": [
@@ -16320,7 +16338,20 @@
     "campaigns": [],
     "commercialPriority": 80,
     "visibilityTier": "featured",
-    "legacyCategory": "Iron Maiden"
+    "legacyCategory": "Iron Maiden",
+    "variants": [
+      {
+        "img": "images/iron_maiden/fmd_fear_of_the_dark.jpg",
+        "name": "Fear of the Dark · Edición FMD",
+        "role": "front"
+      },
+      {
+        "img": "images/iron_maiden/dorsos opcionales/iron_maiden_fear_dorso.jpg",
+        "name": "Dorso Fear of the Dark",
+        "selectionLabel": "Dorso Fear of the Dark",
+        "role": "back"
+      }
+    ]
   },
   {
     "id": 7023,
@@ -16330,7 +16361,7 @@
     "tipoPrecio": "simple",
     "isNew": true,
     "priority": 157,
-    "img": "images/iron_maiden/IRON MAIDEN BY FMD/fmd_killers.jpg",
+    "img": "images/iron_maiden/fmd_killers.jpg",
     "desc": "Diseno Iron Maiden edicion FMD 2026. Disponible para remera, hoodie y buzo cuello redondo.",
     "band": "Iron Maiden",
     "collections": [
@@ -16355,7 +16386,20 @@
     "campaigns": [],
     "commercialPriority": 82,
     "visibilityTier": "featured",
-    "legacyCategory": "Iron Maiden"
+    "legacyCategory": "Iron Maiden",
+    "variants": [
+      {
+        "img": "images/iron_maiden/fmd_killers.jpg",
+        "name": "Killers · Edición FMD",
+        "role": "front"
+      },
+      {
+        "img": "images/iron_maiden/dorsos opcionales/iron_maiden_killers_dorso.jpg",
+        "name": "Dorso Killers",
+        "selectionLabel": "Dorso Killers",
+        "role": "back"
+      }
+    ]
   },
   {
     "id": 7024,
@@ -16365,7 +16409,7 @@
     "tipoPrecio": "simple",
     "isNew": true,
     "priority": 156,
-    "img": "images/iron_maiden/IRON MAIDEN BY FMD/fmd_killers_v2.jpg",
+    "img": "images/iron_maiden/fmd_killers_v2.jpg",
     "desc": "Diseno Iron Maiden edicion FMD 2026. Disponible para remera, hoodie y buzo cuello redondo.",
     "band": "Iron Maiden",
     "collections": [
@@ -16391,7 +16435,20 @@
     "campaigns": [],
     "commercialPriority": 78,
     "visibilityTier": "featured",
-    "legacyCategory": "Iron Maiden"
+    "legacyCategory": "Iron Maiden",
+    "variants": [
+      {
+        "img": "images/iron_maiden/fmd_killers_v2.jpg",
+        "name": "Killers V2 · Edición FMD",
+        "role": "front"
+      },
+      {
+        "img": "images/iron_maiden/dorsos opcionales/iron_maiden_killers_dorso.jpg",
+        "name": "Dorso Killers",
+        "selectionLabel": "Dorso Killers",
+        "role": "back"
+      }
+    ]
   },
   {
     "id": 7025,
@@ -16402,15 +16459,15 @@
     "tipoPrecio": "doble",
     "isNew": true,
     "priority": 155,
-    "img": "images/iron_maiden/IRON MAIDEN BY FMD/fmd_live_after_death_frente.jpg",
+    "img": "images/iron_maiden/fmd_live_after_death_frente.jpg",
     "variants": [
       {
-        "img": "images/iron_maiden/IRON MAIDEN BY FMD/fmd_live_after_death_frente.jpg",
+        "img": "images/iron_maiden/fmd_live_after_death_frente.jpg",
         "name": "Frente",
         "role": "front"
       },
       {
-        "img": "images/iron_maiden/IRON MAIDEN BY FMD/fmd_live_after_death_dorso.jpg",
+        "img": "images/iron_maiden/dorsos opcionales/fmd_live_after_death_dorso.jpg",
         "name": "Dorso",
         "role": "back"
       }
@@ -16451,15 +16508,15 @@
     "tipoPrecio": "doble",
     "isNew": true,
     "priority": 154,
-    "img": "images/iron_maiden/IRON MAIDEN BY FMD/fmd_powerslave_frente.jpg",
+    "img": "images/iron_maiden/fmd_powerslave_frente.jpg",
     "variants": [
       {
-        "img": "images/iron_maiden/IRON MAIDEN BY FMD/fmd_powerslave_frente.jpg",
+        "img": "images/iron_maiden/fmd_powerslave_frente.jpg",
         "name": "Frente",
         "role": "front"
       },
       {
-        "img": "images/iron_maiden/IRON MAIDEN BY FMD/fmd_powerslave_dorso.jpg",
+        "img": "images/iron_maiden/dorsos opcionales/fmd_powerslave_dorso.jpg",
         "name": "Dorso",
         "role": "back"
       }
@@ -16500,7 +16557,7 @@
     "tipoPrecio": "simple",
     "isNew": true,
     "priority": 153,
-    "img": "images/iron_maiden/IRON MAIDEN BY FMD/fmd_somewhere_in_time.jpg",
+    "img": "images/iron_maiden/fmd_somewhere_in_time.jpg",
     "desc": "Diseno Iron Maiden edicion FMD 2026. Disponible para remera, hoodie y buzo cuello redondo.",
     "band": "Iron Maiden",
     "collections": [
@@ -16536,7 +16593,7 @@
     "tipoPrecio": "simple",
     "isNew": true,
     "priority": 152,
-    "img": "images/iron_maiden/IRON MAIDEN BY FMD/fmd_the_book.jpg",
+    "img": "images/iron_maiden/fmd_the_book.jpg",
     "desc": "Diseno Iron Maiden edicion FMD 2026. Disponible para remera, hoodie y buzo cuello redondo.",
     "band": "Iron Maiden",
     "collections": [
@@ -16572,15 +16629,15 @@
     "tipoPrecio": "doble",
     "isNew": true,
     "priority": 151,
-    "img": "images/iron_maiden/IRON MAIDEN BY FMD/tour_3d_2026_frente.jpg",
+    "img": "images/iron_maiden/tour_3d_2026_frente.jpg",
     "variants": [
       {
-        "img": "images/iron_maiden/IRON MAIDEN BY FMD/tour_3d_2026_frente.jpg",
+        "img": "images/iron_maiden/tour_3d_2026_frente.jpg",
         "name": "Frente",
         "role": "front"
       },
       {
-        "img": "images/iron_maiden/IRON MAIDEN BY FMD/tour_3d_2026_dorso.jpg",
+        "img": "images/iron_maiden/dorsos opcionales/tour_3d_2026_dorso.jpg",
         "name": "Dorso",
         "role": "back"
       }
@@ -16622,15 +16679,15 @@
     "tipoPrecio": "doble",
     "isNew": true,
     "priority": 150,
-    "img": "images/iron_maiden/IRON MAIDEN BY FMD/tour_merch_powerslave_frente.jpg",
+    "img": "images/iron_maiden/tour_merch_powerslave_frente.jpg",
     "variants": [
       {
-        "img": "images/iron_maiden/IRON MAIDEN BY FMD/tour_merch_powerslave_frente.jpg",
+        "img": "images/iron_maiden/tour_merch_powerslave_frente.jpg",
         "name": "Frente",
         "role": "front"
       },
       {
-        "img": "images/iron_maiden/IRON MAIDEN BY FMD/tour_merch_powerslave_dorso.jpg",
+        "img": "images/iron_maiden/dorsos opcionales/tour_merch_powerslave_dorso.jpg",
         "name": "Dorso",
         "role": "back"
       }
@@ -16671,15 +16728,15 @@
     "tipoPrecio": "doble",
     "isNew": true,
     "priority": 149,
-    "img": "images/iron_maiden/IRON MAIDEN BY FMD/tour_merch_v1_frente..jpg",
+    "img": "images/iron_maiden/tour_merch_v1_frente..jpg",
     "variants": [
       {
-        "img": "images/iron_maiden/IRON MAIDEN BY FMD/tour_merch_v1_frente..jpg",
+        "img": "images/iron_maiden/tour_merch_v1_frente..jpg",
         "name": "Frente",
         "role": "front"
       },
       {
-        "img": "images/iron_maiden/IRON MAIDEN BY FMD/tour_merch_v1_dorso.jpg",
+        "img": "images/iron_maiden/dorsos opcionales/tour_merch_v1_dorso.jpg",
         "name": "Dorso",
         "role": "back"
       }
@@ -16722,15 +16779,15 @@
     "tipoPrecio": "doble",
     "isNew": true,
     "priority": 148,
-    "img": "images/iron_maiden/IRON MAIDEN BY FMD/tour_merch_v2_frente.jpg",
+    "img": "images/iron_maiden/tour_merch_v2_frente.jpg",
     "variants": [
       {
-        "img": "images/iron_maiden/IRON MAIDEN BY FMD/tour_merch_v2_frente.jpg",
+        "img": "images/iron_maiden/tour_merch_v2_frente.jpg",
         "name": "Frente",
         "role": "front"
       },
       {
-        "img": "images/iron_maiden/IRON MAIDEN BY FMD/tour_merch_v2_dorso.jpg",
+        "img": "images/iron_maiden/dorsos opcionales/tour_merch_v2_dorso.jpg",
         "name": "Dorso",
         "role": "back"
       }
@@ -16773,15 +16830,15 @@
     "tipoPrecio": "doble",
     "isNew": true,
     "priority": 147,
-    "img": "images/iron_maiden/IRON MAIDEN BY FMD/tour_merch_v3_frente.jpg",
+    "img": "images/iron_maiden/tour_merch_v3_frente.jpg",
     "variants": [
       {
-        "img": "images/iron_maiden/IRON MAIDEN BY FMD/tour_merch_v3_frente.jpg",
+        "img": "images/iron_maiden/tour_merch_v3_frente.jpg",
         "name": "Frente",
         "role": "front"
       },
       {
-        "img": "images/iron_maiden/IRON MAIDEN BY FMD/tour_merch_v3_dorso.jpg",
+        "img": "images/iron_maiden/dorsos opcionales/tour_merch_v3_dorso.jpg",
         "name": "Dorso",
         "role": "back"
       }
@@ -16844,6 +16901,12 @@
         "garmentCategory": "Buzo Cuello Redondo",
         "fmdBadge": "ORIGINAL FMD",
         "fmdBadgeDescription": "Creaci?n exclusiva FMD con Eddie gaucho para acompa?ar los shows de Iron Maiden en Argentina."
+      },
+      {
+        "img": "images/iron_maiden/dorsos opcionales/remera_iron_maiden_dorso_gaucho.jpg",
+        "name": "Dorso Eddie Gaucho Argentino",
+        "selectionLabel": "Dorso Eddie Gaucho Argentino",
+        "role": "back"
       }
     ],
     "desc": "Eddie Gaucho Argentino FMD. Creaci?n exclusiva Five Magics Designs para acompa?ar los shows de Iron Maiden en Argentina. Dise?o destacado disponible en remera, hoodie y buzo cuello redondo.",
@@ -21584,6 +21647,239 @@
       "remera",
       "Opeth Archive",
       "Mas bandas"
+    ]
+  },
+  {
+    "id": 7240,
+    "designId": "iron-maiden-the-number-of-the-beast-edicion-fmd",
+    "name": "Iron Maiden - The Number of the Beast · Edición FMD",
+    "year": "1982",
+    "album": "The Number of the Beast",
+    "img": "images/iron_maiden/iron_maiden_fear_fmd_edition.jpg",
+    "desc": "The Number of the Beast en una edición FMD.",
+    "designSlug": "iron-maiden-the-number-of-the-beast-edicion-fmd",
+    "category": "Iron Maiden",
+    "tipoPrecio": "simple",
+    "defaultPrintMode": "frontal",
+    "isNew": true,
+    "variants": [
+      {
+        "img": "images/iron_maiden/iron_maiden_fear_fmd_edition.jpg",
+        "name": "The Number of the Beast · Edición FMD",
+        "designId": "iron-maiden-the-number-of-the-beast-edicion-fmd",
+        "role": "front"
+      },
+      {
+        "img": "images/iron_maiden/dorsos opcionales/dorso_666.jpg",
+        "name": "Dorso The Number of the Beast",
+        "selectionLabel": "Dorso The Number of the Beast",
+        "role": "back"
+      }
+    ],
+    "band": "Iron Maiden",
+    "universe": [
+      "Heavy Metal Classics"
+    ],
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Archivo Maiden",
+      "The Number of the Beast"
+    ],
+    "campaigns": [],
+    "commercialPriority": 78,
+    "visibilityTier": "catalog",
+    "legacyCategory": "Iron Maiden",
+    "tags": [
+      "Iron Maiden",
+      "The Number of the Beast",
+      "remera",
+      "Archivo Maiden"
+    ]
+  },
+  {
+    "id": 7241,
+    "designId": "iron-maiden-killers-eddie-ciudad",
+    "name": "Iron Maiden - Killers · Eddie en la ciudad",
+    "year": "1981",
+    "album": "Killers",
+    "img": "images/iron_maiden/iron_maiden_killers.jpg",
+    "desc": "Diseño de Iron Maiden inspirado en Killers.",
+    "designSlug": "iron-maiden-killers-eddie-ciudad",
+    "category": "Iron Maiden",
+    "tipoPrecio": "simple",
+    "defaultPrintMode": "frontal",
+    "isNew": true,
+    "variants": [
+      {
+        "img": "images/iron_maiden/iron_maiden_killers.jpg",
+        "name": "Killers · Eddie en la ciudad",
+        "designId": "iron-maiden-killers-eddie-ciudad",
+        "role": "front"
+      },
+      {
+        "img": "images/iron_maiden/dorsos opcionales/iron_maiden_killers_dorso.jpg",
+        "name": "Dorso Killers",
+        "selectionLabel": "Dorso Killers",
+        "role": "back"
+      }
+    ],
+    "band": "Iron Maiden",
+    "universe": [
+      "Heavy Metal Classics"
+    ],
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Archivo Maiden",
+      "Killers"
+    ],
+    "campaigns": [],
+    "commercialPriority": 78,
+    "visibilityTier": "catalog",
+    "legacyCategory": "Iron Maiden",
+    "tags": [
+      "Iron Maiden",
+      "Killers",
+      "remera",
+      "Archivo Maiden"
+    ]
+  },
+  {
+    "id": 7236,
+    "designId": "iron-maiden-a-matter-of-life-and-death",
+    "name": "Iron Maiden - A Matter of Life and Death",
+    "year": "2006",
+    "album": "A Matter of Life and Death",
+    "img": "images/iron_maiden/iron_maiden_a_matter.jpg",
+    "desc": "Diseño de Iron Maiden inspirado en A Matter of Life and Death.",
+    "designSlug": "iron-maiden-a-matter-of-life-and-death",
+    "category": "Iron Maiden",
+    "tipoPrecio": "simple",
+    "defaultPrintMode": "frontal",
+    "isNew": true,
+    "variants": [
+      {
+        "img": "images/iron_maiden/iron_maiden_a_matter.jpg",
+        "name": "A Matter of Life and Death",
+        "designId": "iron-maiden-a-matter-of-life-and-death",
+        "role": "front"
+      }
+    ],
+    "band": "Iron Maiden",
+    "universe": [
+      "Heavy Metal Classics"
+    ],
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Archivo Maiden",
+      "A Matter of Life and Death"
+    ],
+    "campaigns": [],
+    "commercialPriority": 78,
+    "visibilityTier": "catalog",
+    "legacyCategory": "Iron Maiden",
+    "tags": [
+      "Iron Maiden",
+      "A Matter of Life and Death",
+      "remera",
+      "Archivo Maiden"
+    ]
+  },
+  {
+    "id": 7237,
+    "designId": "iron-maiden-the-trooper-france",
+    "name": "Iron Maiden - The Trooper · France",
+    "year": "1983",
+    "album": "Piece of Mind",
+    "img": "images/iron_maiden/iron_maiden_tour_france.jpg",
+    "desc": "The Trooper con Eddie en una edición inspirada en Francia.",
+    "designSlug": "iron-maiden-the-trooper-france",
+    "category": "Iron Maiden",
+    "tipoPrecio": "simple",
+    "defaultPrintMode": "frontal",
+    "isNew": true,
+    "variants": [
+      {
+        "img": "images/iron_maiden/iron_maiden_tour_france.jpg",
+        "name": "The Trooper · France",
+        "designId": "iron-maiden-the-trooper-france",
+        "role": "front"
+      },
+      {
+        "img": "images/iron_maiden/dorsos opcionales/iron_maiden_dorso_2024_tour.jpg",
+        "name": "Dorso tour 2024",
+        "selectionLabel": "Dorso tour 2024",
+        "role": "back"
+      }
+    ],
+    "band": "Iron Maiden",
+    "universe": [
+      "Heavy Metal Classics"
+    ],
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Archivo Maiden",
+      "Piece of Mind"
+    ],
+    "campaigns": [],
+    "commercialPriority": 78,
+    "visibilityTier": "catalog",
+    "legacyCategory": "Iron Maiden",
+    "tags": [
+      "Iron Maiden",
+      "Piece of Mind",
+      "remera",
+      "Archivo Maiden"
+    ]
+  },
+  {
+    "id": 7238,
+    "designId": "iron-maiden-burning-ambition-edicion-fmd",
+    "name": "Iron Maiden - Burning Ambition · Edición FMD",
+    "year": "1980",
+    "album": "Iron Maiden",
+    "img": "images/iron_maiden/remera_iron_maiden_movie.jpg",
+    "desc": "Burning Ambition en una edición FMD.",
+    "designSlug": "iron-maiden-burning-ambition-edicion-fmd",
+    "category": "Iron Maiden",
+    "tipoPrecio": "simple",
+    "defaultPrintMode": "frontal",
+    "isNew": true,
+    "variants": [
+      {
+        "img": "images/iron_maiden/remera_iron_maiden_movie.jpg",
+        "name": "Burning Ambition · Edición FMD",
+        "designId": "iron-maiden-burning-ambition-edicion-fmd",
+        "role": "front"
+      }
+    ],
+    "band": "Iron Maiden",
+    "universe": [
+      "Heavy Metal Classics"
+    ],
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Archivo Maiden",
+      "Iron Maiden"
+    ],
+    "campaigns": [],
+    "commercialPriority": 78,
+    "visibilityTier": "catalog",
+    "legacyCategory": "Iron Maiden",
+    "tags": [
+      "Iron Maiden",
+      "Iron Maiden",
+      "remera",
+      "Archivo Maiden"
     ]
   }
 ]
