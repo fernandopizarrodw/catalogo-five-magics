@@ -3970,10 +3970,10 @@
     "year": "2026",
     "name": "Iron Maiden",
     "tipoPrecio": "simple",
-    "img": "images/iron_maiden/iron_maiden.jpg",
+    "img": "images/iron_maiden/9 discos 1 tour/iron_maiden.jpg",
     "variants": [
       {
-        "img": "images/iron_maiden/iron_maiden.jpg",
+        "img": "images/iron_maiden/9 discos 1 tour/iron_maiden.jpg",
         "name": "Frente",
         "designId": "iron-maiden-iron-maiden-classic"
       },
@@ -12611,10 +12611,10 @@
     "year": "1992",
     "name": "Iron Maiden - Fear of the Dark",
     "tipoPrecio": "simple",
-    "img": "images/iron_maiden/iron_maiden_fear.jpg",
+    "img": "images/iron_maiden/9 discos 1 tour/iron_maiden_fear.jpg",
     "variants": [
       {
-        "img": "images/iron_maiden/iron_maiden_fear.jpg",
+        "img": "images/iron_maiden/9 discos 1 tour/iron_maiden_fear.jpg",
         "name": "Fear of the Dark",
         "designId": "iron-maiden-fear-of-the-dark-classic",
         "role": "front"
@@ -12853,10 +12853,10 @@
     "year": "2026",
     "name": "Iron Maiden The Number of the Beast",
     "tipoPrecio": "simple",
-    "img": "images/iron_maiden/iron_maiden_fear_v1.jpg",
+    "img": "images/iron_maiden/9 discos 1 tour/iron_maiden_fear_v1.jpg",
     "variants": [
       {
-        "img": "images/iron_maiden/iron_maiden_fear_v1.jpg",
+        "img": "images/iron_maiden/9 discos 1 tour/iron_maiden_fear_v1.jpg",
         "name": "The Number of the Beast V1"
       },
       {
@@ -21704,7 +21704,7 @@
     "name": "Iron Maiden - Killers · Eddie en la ciudad",
     "year": "1981",
     "album": "Killers",
-    "img": "images/iron_maiden/iron_maiden_killers.jpg",
+    "img": "images/iron_maiden/9 discos 1 tour/iron_maiden_killers.jpg",
     "desc": "Diseño de Iron Maiden inspirado en Killers.",
     "designSlug": "iron-maiden-killers-eddie-ciudad",
     "category": "Iron Maiden",
@@ -21713,7 +21713,7 @@
     "isNew": true,
     "variants": [
       {
-        "img": "images/iron_maiden/iron_maiden_killers.jpg",
+        "img": "images/iron_maiden/9 discos 1 tour/iron_maiden_killers.jpg",
         "name": "Killers · Eddie en la ciudad",
         "designId": "iron-maiden-killers-eddie-ciudad",
         "role": "front"
