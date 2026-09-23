@@ -297,6 +297,11 @@
             designOrder: [
                 'iron-maiden-run-for-your-lives-2026-oficial',
                 'cd-iron-maiden-eddie-gaucho-argentino--p7040',
+                'cd-iron-maiden-somewhere-in-time--p5037',
+                'iron-maiden-somewhere-in-time-40th-fmd',
+                'iron-maiden-somewhere-in-time-40th-eddie',
+                'iron-maiden-somewhere-in-time-40th-black',
+                'iron-maiden-somewhere-back-in-time-world-tour',
                 'iron-maiden-1980-run-for-your-lives',
                 'iron-maiden-killers-1981-run-for-your-lives',
                 'iron-maiden-number-of-the-beast-1982-run-for-your-lives',
@@ -319,7 +324,6 @@
                 'cd-iron-maiden-tour-merch-powerslave-fmd--p7030',
                 'cd-iron-maiden-live-after-death--p307',
                 'iron-maiden-live-after-death-fmd',
-                'cd-iron-maiden-somewhere-in-time--p5037',
                 'cd-iron-maiden-somewhere-in-time-fmd--p7027',
                 'cd-iron-maiden-can-i-play-with-madness--p5033',
                 'iron-maiden-fear-of-the-dark-classic',
@@ -366,6 +370,48 @@
                     'iron-maiden-fear-of-the-dark-1992-run-for-your-lives'
                 ]
             },
+            featuredCollection: {
+                kicker: 'EDICIÓN ESPECIAL',
+                title: 'SOMEWHERE IN TIME · 40 AÑOS',
+                copy: 'Cinco portadas para celebrar uno de los discos esenciales de Iron Maiden. Elegí tu frente y combiná la versión doble con dos dorsos opcionales.',
+                cards: [
+                    {
+                        designId: 'cd-iron-maiden-somewhere-in-time--p5037',
+                        label: 'Portada clásica',
+                        image: '/images/iron_maiden/somewhere in time/iron_maiden_somewhere.jpg'
+                    },
+                    {
+                        designId: 'iron-maiden-somewhere-in-time-40th-fmd',
+                        label: 'Edición FMD',
+                        image: '/images/iron_maiden/somewhere in time/iron_maiden_somewhere_fmd.jpg'
+                    },
+                    {
+                        designId: 'iron-maiden-somewhere-in-time-40th-eddie',
+                        label: 'Cyborg Eddie',
+                        image: '/images/iron_maiden/somewhere in time/iron_maiden_somewhere_eddie.jpg'
+                    },
+                    {
+                        designId: 'iron-maiden-somewhere-in-time-40th-black',
+                        label: 'Eddie monocromo',
+                        image: '/images/iron_maiden/somewhere in time/iron_maiden_somewhere_black.jpg'
+                    },
+                    {
+                        designId: 'iron-maiden-somewhere-back-in-time-world-tour',
+                        label: 'Somewhere Back in Time',
+                        image: '/images/iron_maiden/somewhere in time/iron_maiden_somewhere_back_in_time.jpg'
+                    }
+                ],
+                note: 'Disponibles con estampa frontal o frente + dorso.',
+                ctaLabel: 'VER LOS DISEÑOS DE SOMEWHERE IN TIME',
+                query: 'Somewhere in Time'
+            },
+            modalBackCarouselDesignIds: [
+                'cd-iron-maiden-somewhere-in-time--p5037',
+                'iron-maiden-somewhere-in-time-40th-fmd',
+                'iron-maiden-somewhere-in-time-40th-eddie',
+                'iron-maiden-somewhere-in-time-40th-black',
+                'iron-maiden-somewhere-back-in-time-world-tour'
+            ],
             garments: [
                 { key: 'hoodie', title: 'HOODIES', price: 'Desde $52.000', image: '/images/hoddies_fmd/hoodies_otras_bandas/iron_maiden_killers_v1.jpg', alt: 'Hoodie Iron Maiden Killers' },
                 { key: 'buzo_cuello_redondo', title: 'BUZOS', price: 'Frontal $50.000 · Doble $55.000', image: '/images/buzos cuello redondo/iron_maiden_original_fmd.jpg', alt: 'Buzo cuello redondo Iron Maiden Powerslave' },

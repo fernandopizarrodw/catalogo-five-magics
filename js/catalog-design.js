@@ -34,6 +34,18 @@
         return Array.from(new Set(values.filter(Boolean)));
     }
 
+    function uniqueRefsByImage(refs) {
+        const seen = new Set();
+        return refs.filter(ref => {
+            const imageKey = String(ref?.image || '')
+                .replace(/\\/g, '/')
+                .toLowerCase();
+            if (!imageKey || seen.has(imageKey)) return false;
+            seen.add(imageKey);
+            return true;
+        });
+    }
+
     function repairPublicText(value) {
         const replacements = {
             'Ã¡': 'á', 'Ã©': 'é', 'Ã­': 'í', 'Ã³': 'ó', 'Ãº': 'ú', 'Ã±': 'ñ',
@@ -60,7 +72,9 @@
 
     function isBackVariant(variant) {
         if (!variant) return false;
-        if (normalizeText(variant.role) === 'back') return true;
+        const explicitRole = normalizeText(variant.role);
+        if (explicitRole === 'back') return true;
+        if (explicitRole === 'front') return false;
         const searchable = normalizeText(`${variant.name || ''} ${variant.img || ''}`);
         if (searchable.includes('frente y dorso') || searchable.includes('front and back')) return false;
         return searchable.includes('dorso') || /(^|\s)back(\s|$)/.test(searchable);
@@ -146,7 +160,9 @@
         }
 
         name = stripBandPrefix(name, product?.band);
-        name = stripRoleWords(name);
+        name = normalizeText(variant?.role) === 'front'
+            ? name.replace(/\b(?:frente|front)\b/gi, ' ').replace(/\s+/g, ' ').trim()
+            : stripRoleWords(name);
         name = name.replace(/^[-:–—\s]+|[-:–—\s]+$/g, '').trim();
 
         if (/^v\d+$/i.test(name)) {
@@ -357,7 +373,10 @@
                 backOptions: group.backOptions.map(back => ({ ...back })),
                 availableGarments: [...group.availableGarments],
                 previewsByGarment: Object.fromEntries(
-                    Object.entries(group.previewsByGarment).map(([garment, previews]) => [garment, previews.map(preview => ({ ...preview }))])
+                    Object.entries(group.previewsByGarment).map(([garment, previews]) => [
+                        garment,
+                        uniqueRefsByImage(previews).map(preview => ({ ...preview }))
+                    ])
                 ),
                 sourceProductIds: unique(group.sourceProductIds),
                 designFamilyIds: unique(group.designFamilyIds),

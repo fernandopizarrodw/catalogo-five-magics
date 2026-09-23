@@ -237,6 +237,26 @@ function renderLanding(config, sharedCommerceMarkup) {
             </div>
             <button type="button" class="band-design-showcase-cta" onclick="openBandShowcaseCollection()">${config.showcase.ctaLabel}</button>
         </section>` : '';
+    const featuredCollection = config.featuredCollection && typeof config.featuredCollection === 'object'
+        ? config.featuredCollection
+        : null;
+    const featuredCollectionCards = Array.isArray(featuredCollection?.cards) ? featuredCollection.cards : [];
+    const featuredCollectionMarkup = featuredCollection && featuredCollectionCards.length ? `
+        <section class="band-featured-collection" aria-labelledby="bandFeaturedCollectionTitle">
+            <div class="band-featured-collection-head">
+                <p>${featuredCollection.kicker}</p>
+                <h2 id="bandFeaturedCollectionTitle">${featuredCollection.title}</h2>
+                <span>${featuredCollection.copy}</span>
+            </div>
+            <div class="band-featured-collection-grid">
+${featuredCollectionCards.map((card, index) => `                <button type="button" class="band-featured-collection-card" onclick="openCatalogDesign('${card.designId}', 'remera')" aria-label="Ver ${card.label}">
+                    <img src="${card.image}" alt="${card.label} de ${config.band}" loading="${index < 2 ? 'eager' : 'lazy'}" decoding="async">
+                    <strong>${card.label}</strong>
+                </button>`).join('\n')}
+            </div>
+            <p class="band-featured-collection-note">${featuredCollection.note}</p>
+            <button type="button" class="band-featured-collection-cta" onclick="showBandLandingFeaturedCollection('${featuredCollection.query}')">${featuredCollection.ctaLabel}</button>
+        </section>` : '';
     return `<!DOCTYPE html>
 <html lang="es">
 <head>
@@ -327,8 +347,7 @@ ${eventDay ? `                <p class="helloween-event-day-line">${eventDay.lab
                 <p>${config.heroCopy}</p>
 ${config.heroQualityLine ? `                <p class="band-landing-quality-line">${config.heroQualityLine}</p>` : ''}
                 <a class="band-landing-primary-cta" href="#catalogoPrincipal">${config.heroCtaLabel || 'VER DISEÑOS'}</a>
-${config.heroNotice ? `                <p class="band-landing-hero-notice">${config.heroNotice}</p>` : ''}
-${config.relatedArchive ? `                <a class="band-landing-related-archive" href="${config.relatedArchive.href}" aria-label="${config.relatedArchive.label}: ${config.relatedArchive.title}">
+${config.heroNotice ? `                <p class="band-landing-hero-notice">${config.heroNotice}</p>\n` : ''}${config.relatedArchive ? `                <a class="band-landing-related-archive" href="${config.relatedArchive.href}" aria-label="${config.relatedArchive.label}: ${config.relatedArchive.title}">
                     <span>${config.relatedArchive.label}</span>
                     <strong>${config.relatedArchive.title}</strong>
                     <span aria-hidden="true">→</span>
@@ -350,7 +369,7 @@ ${postShow ? `
             <div class="band-landing-hero-art">
                 <img src="${config.image}" alt="Colección Helloween post-show en Five Magics Designs" width="1200" height="1200">
             </div>
-        </section>` : ''}
+        </section>` : ''}${featuredCollectionMarkup ? `\n${featuredCollectionMarkup}` : ''}
 ${catalogFirst ? `${garmentSelectorMarkup}
 ${catalogMarkup}` : ''}${postShowFeatured ? `
         <section class="helloween-post-show-featured" aria-labelledby="helloweenFeaturedTitle">

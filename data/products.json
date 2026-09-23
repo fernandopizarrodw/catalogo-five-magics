@@ -8592,8 +8592,8 @@
         "defaultPrintMode": "double"
       },
       {
-        "img": "images/banda_sugeridas/helloween/dorso/dorso_helloween_40_tour.jpg",
-        "name": "Dorso Helloween 40 Years Anniversary Tour",
+        "img": "images/banda_sugeridas/helloween/dorso/dorso_tour_flayer.jpg",
+        "name": "Dorso 40 Years + Buenos Aires 2026",
         "role": "back",
         "backTargetDesignId": "helloween-40-tour",
         "garmentCategory": "Bandas Sugeridas"
@@ -12815,11 +12815,27 @@
     "year": "2026",
     "name": "Iron Maiden Somewhere",
     "tipoPrecio": "simple",
-    "img": "images/iron_maiden/iron_maiden_somewhere.jpg",
+    "img": "images/iron_maiden/somewhere in time/iron_maiden_somewhere.jpg",
     "variants": [
       {
-        "img": "images/iron_maiden/iron_maiden_somewhere.jpg",
-        "name": "Somewhere in Time"
+        "img": "images/iron_maiden/somewhere in time/iron_maiden_somewhere.jpg",
+        "name": "Somewhere in Time",
+        "role": "front",
+        "campaignPreview": "iron-maiden-somewhere-40th"
+      },
+      {
+        "img": "images/iron_maiden/somewhere in time/iron_maiden_dorso_eddie.jpg",
+        "name": "Dorso Eddie cósmico · Somewhere in Time",
+        "selectionLabel": "Dorso Eddie cósmico",
+        "role": "back",
+        "backTargetDesignId": "cd-iron-maiden-somewhere-in-time--p5037"
+      },
+      {
+        "img": "images/iron_maiden/somewhere in time/iron_maiden_dorso_logo.jpg",
+        "name": "Dorso logo · Somewhere in Time",
+        "selectionLabel": "Dorso logo Somewhere in Time",
+        "role": "back",
+        "backTargetDesignId": "cd-iron-maiden-somewhere-in-time--p5037"
       }
     ],
     "desc": "Iron Maiden Somewhere - DiseÃ±o de la banda clÃ¡sica.",
@@ -22136,5 +22152,186 @@
     "visibilityTier": "featured",
     "legacyCategory": "Iron Maiden",
     "tags": ["Iron Maiden", "Fear of the Dark", "1992", "9 discos", "Run For Your Lives", "remera"]
+  },
+  {
+    "id": 7251,
+    "designId": "iron-maiden-somewhere-back-in-time-world-tour",
+    "designSlug": "iron-maiden-somewhere-back-in-time-world-tour",
+    "category": "Iron Maiden",
+    "band": "Iron Maiden",
+    "name": "Somewhere Back in Time · World Tour",
+    "year": "2008",
+    "album": "Somewhere in Time",
+    "tipoPrecio": "simple",
+    "defaultPrintMode": "frontal",
+    "isNew": true,
+    "img": "images/iron_maiden/somewhere in time/iron_maiden_somewhere_back_in_time.jpg",
+    "desc": "Somewhere Back in Time World Tour, parte de la selección especial por los 40 años de Somewhere in Time.",
+    "variants": [
+      {
+        "img": "images/iron_maiden/somewhere in time/iron_maiden_somewhere_back_in_time.jpg",
+        "name": "Somewhere Back in Time · World Tour",
+        "designId": "iron-maiden-somewhere-back-in-time-world-tour",
+        "role": "front",
+        "campaignPreview": "iron-maiden-somewhere-40th"
+      },
+      {
+        "img": "images/iron_maiden/somewhere in time/iron_maiden_dorso_eddie.jpg",
+        "name": "Dorso Eddie cósmico · Somewhere in Time",
+        "selectionLabel": "Dorso Eddie cósmico",
+        "role": "back",
+        "backTargetDesignId": "iron-maiden-somewhere-back-in-time-world-tour"
+      },
+      {
+        "img": "images/iron_maiden/somewhere in time/iron_maiden_dorso_logo.jpg",
+        "name": "Dorso logo · Somewhere in Time",
+        "selectionLabel": "Dorso logo Somewhere in Time",
+        "role": "back",
+        "backTargetDesignId": "iron-maiden-somewhere-back-in-time-world-tour"
+      }
+    ],
+    "garments": ["remera"],
+    "collections": ["Archivo Maiden", "Somewhere in Time", "40 años"],
+    "campaigns": ["Somewhere in Time 40 años"],
+    "commercialPriority": 95,
+    "visibilityTier": "featured",
+    "legacyCategory": "Iron Maiden",
+    "tags": ["Iron Maiden", "Somewhere in Time", "40 años", "World Tour", "remera"]
+  },
+  {
+    "id": 7252,
+    "designId": "iron-maiden-somewhere-in-time-40th-black",
+    "designSlug": "iron-maiden-somewhere-in-time-40th-black",
+    "category": "Iron Maiden",
+    "band": "Iron Maiden",
+    "name": "Somewhere in Time 40th · Eddie monocromo",
+    "year": "2026",
+    "album": "Somewhere in Time",
+    "tipoPrecio": "simple",
+    "defaultPrintMode": "frontal",
+    "isNew": true,
+    "img": "images/iron_maiden/somewhere in time/iron_maiden_somewhere_black.jpg",
+    "desc": "Eddie monocromo, edición especial por los 40 años de Somewhere in Time.",
+    "variants": [
+      {
+        "img": "images/iron_maiden/somewhere in time/iron_maiden_somewhere_black.jpg",
+        "name": "Somewhere in Time 40th · Eddie monocromo",
+        "designId": "iron-maiden-somewhere-in-time-40th-black",
+        "role": "front",
+        "campaignPreview": "iron-maiden-somewhere-40th"
+      },
+      {
+        "img": "images/iron_maiden/somewhere in time/iron_maiden_dorso_eddie.jpg",
+        "name": "Dorso Eddie cósmico · Somewhere in Time",
+        "selectionLabel": "Dorso Eddie cósmico",
+        "role": "back",
+        "backTargetDesignId": "iron-maiden-somewhere-in-time-40th-black"
+      },
+      {
+        "img": "images/iron_maiden/somewhere in time/iron_maiden_dorso_logo.jpg",
+        "name": "Dorso logo · Somewhere in Time",
+        "selectionLabel": "Dorso logo Somewhere in Time",
+        "role": "back",
+        "backTargetDesignId": "iron-maiden-somewhere-in-time-40th-black"
+      }
+    ],
+    "garments": ["remera"],
+    "collections": ["Archivo Maiden", "Somewhere in Time", "40 años"],
+    "campaigns": ["Somewhere in Time 40 años"],
+    "commercialPriority": 94,
+    "visibilityTier": "featured",
+    "legacyCategory": "Iron Maiden",
+    "tags": ["Iron Maiden", "Somewhere in Time", "40 años", "Eddie", "monocromo", "remera"]
+  },
+  {
+    "id": 7253,
+    "designId": "iron-maiden-somewhere-in-time-40th-eddie",
+    "designSlug": "iron-maiden-somewhere-in-time-40th-eddie",
+    "category": "Iron Maiden",
+    "band": "Iron Maiden",
+    "name": "Somewhere in Time 40th · Cyborg Eddie",
+    "year": "2026",
+    "album": "Somewhere in Time",
+    "tipoPrecio": "simple",
+    "defaultPrintMode": "frontal",
+    "isNew": true,
+    "img": "images/iron_maiden/somewhere in time/iron_maiden_somewhere_eddie.jpg",
+    "desc": "Cyborg Eddie, edición especial por los 40 años de Somewhere in Time.",
+    "variants": [
+      {
+        "img": "images/iron_maiden/somewhere in time/iron_maiden_somewhere_eddie.jpg",
+        "name": "Somewhere in Time 40th · Cyborg Eddie",
+        "designId": "iron-maiden-somewhere-in-time-40th-eddie",
+        "role": "front",
+        "campaignPreview": "iron-maiden-somewhere-40th"
+      },
+      {
+        "img": "images/iron_maiden/somewhere in time/iron_maiden_dorso_eddie.jpg",
+        "name": "Dorso Eddie cósmico · Somewhere in Time",
+        "selectionLabel": "Dorso Eddie cósmico",
+        "role": "back",
+        "backTargetDesignId": "iron-maiden-somewhere-in-time-40th-eddie"
+      },
+      {
+        "img": "images/iron_maiden/somewhere in time/iron_maiden_dorso_logo.jpg",
+        "name": "Dorso logo · Somewhere in Time",
+        "selectionLabel": "Dorso logo Somewhere in Time",
+        "role": "back",
+        "backTargetDesignId": "iron-maiden-somewhere-in-time-40th-eddie"
+      }
+    ],
+    "garments": ["remera"],
+    "collections": ["Archivo Maiden", "Somewhere in Time", "40 años"],
+    "campaigns": ["Somewhere in Time 40 años"],
+    "commercialPriority": 93,
+    "visibilityTier": "featured",
+    "legacyCategory": "Iron Maiden",
+    "tags": ["Iron Maiden", "Somewhere in Time", "40 años", "Cyborg Eddie", "remera"]
+  },
+  {
+    "id": 7254,
+    "designId": "iron-maiden-somewhere-in-time-40th-fmd",
+    "designSlug": "iron-maiden-somewhere-in-time-40th-fmd",
+    "category": "Iron Maiden",
+    "band": "Iron Maiden",
+    "name": "Somewhere in Time 40th · Edición FMD",
+    "year": "2026",
+    "album": "Somewhere in Time",
+    "tipoPrecio": "simple",
+    "defaultPrintMode": "frontal",
+    "isNew": true,
+    "img": "images/iron_maiden/somewhere in time/iron_maiden_somewhere_fmd.jpg",
+    "desc": "Edición FMD por los 40 años de Somewhere in Time.",
+    "variants": [
+      {
+        "img": "images/iron_maiden/somewhere in time/iron_maiden_somewhere_fmd.jpg",
+        "name": "Somewhere in Time 40th · Edición FMD",
+        "designId": "iron-maiden-somewhere-in-time-40th-fmd",
+        "role": "front",
+        "campaignPreview": "iron-maiden-somewhere-40th"
+      },
+      {
+        "img": "images/iron_maiden/somewhere in time/iron_maiden_dorso_eddie.jpg",
+        "name": "Dorso Eddie cósmico · Somewhere in Time",
+        "selectionLabel": "Dorso Eddie cósmico",
+        "role": "back",
+        "backTargetDesignId": "iron-maiden-somewhere-in-time-40th-fmd"
+      },
+      {
+        "img": "images/iron_maiden/somewhere in time/iron_maiden_dorso_logo.jpg",
+        "name": "Dorso logo · Somewhere in Time",
+        "selectionLabel": "Dorso logo Somewhere in Time",
+        "role": "back",
+        "backTargetDesignId": "iron-maiden-somewhere-in-time-40th-fmd"
+      }
+    ],
+    "garments": ["remera"],
+    "collections": ["Archivo Maiden", "Somewhere in Time", "40 años", "Originales FMD"],
+    "campaigns": ["Somewhere in Time 40 años"],
+    "commercialPriority": 96,
+    "visibilityTier": "featured",
+    "legacyCategory": "Iron Maiden",
+    "fmdBadge": "EDICIÓN FMD",
+    "tags": ["Iron Maiden", "Somewhere in Time", "40 años", "Edición FMD", "remera"]
   }
 ]

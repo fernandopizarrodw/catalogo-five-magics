@@ -297,6 +297,27 @@ function selectBandLandingGarment(garment) {
 }
 
 window.selectBandLandingGarment = selectBandLandingGarment;
+
+function showBandLandingFeaturedCollection(query) {
+    if (!isBandLandingMode()) return;
+    bandLandingOuterwear = false;
+    bandLandingGarment = 'remera';
+    currentSearch = String(query || '').toLowerCase().trim();
+    if (searchInput) {
+        searchInput.value = query || '';
+        searchClear?.classList.toggle('visible', Boolean(currentSearch));
+    }
+    document.querySelectorAll('[data-band-landing-garment]').forEach(button => {
+        const isActive = button.dataset.bandLandingGarment === 'remera';
+        button.classList.toggle('active', isActive);
+        button.setAttribute('aria-selected', String(isActive));
+    });
+    resetCatalogPagination();
+    filterProducts();
+    scrollToSection('bandCatalogTitle');
+}
+
+window.showBandLandingFeaturedCollection = showBandLandingFeaturedCollection;
 const MAIDEN_ARCHIVE_HIGHLIGHT_IDS = [7015, 7027, 7023, 7025, 7026, 7029];
 const MAIDEN_ARCHIVE_GROUPS = [
     { title: 'Iron Maiden clásico', meta: 'Diseños FMD', productIds: [308, 6004, 7011] },
@@ -392,7 +413,10 @@ const CATALOG_DESIGNS_WITH_REQUIRED_BACK = new Set([
     'peace-sells-vic-naranja',
     'peace-sells-vic-rojo',
     'helloween-eagle-fly-free',
-    'helloween-pumpkin-buenos-aires-edicion-fmd'
+    'helloween-pumpkin-buenos-aires-edicion-fmd',
+    ...(Array.isArray(BAND_LANDING_CONFIG?.modalBackCarouselDesignIds)
+        ? BAND_LANDING_CONFIG.modalBackCarouselDesignIds
+        : [])
 ]);
 let fmdSpotlightTimer = null;
 let fmdSpotlightPaused = false;

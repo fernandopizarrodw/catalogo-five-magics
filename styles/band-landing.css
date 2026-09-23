@@ -592,6 +592,129 @@ body[data-band="Helloween"] .helloween-post-show-featured {
     to { transform: translate3d(-50%, 0, 0); }
 }
 
+.band-featured-collection {
+    width: min(1180px, calc(100% - 32px));
+    margin: 24px auto 0;
+    padding: 28px;
+    border: 1px solid rgba(255, 213, 55, 0.42);
+    border-radius: 22px;
+    background:
+        radial-gradient(circle at 50% 0, rgba(22, 85, 111, 0.22), transparent 45%),
+        linear-gradient(145deg, rgba(14, 15, 17, 0.98), rgba(4, 5, 6, 0.98));
+}
+
+.band-featured-collection-head {
+    max-width: 820px;
+    margin: 0 auto 20px;
+    text-align: center;
+}
+
+.band-featured-collection-head p {
+    margin: 0 0 7px;
+    color: #f3d438;
+    font-family: "Oswald", sans-serif;
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+}
+
+.band-featured-collection-head h2 {
+    margin: 0;
+    color: #fff;
+    font-family: "Bebas Neue", sans-serif;
+    font-size: clamp(2rem, 4.6vw, 3.55rem);
+    line-height: 1;
+    letter-spacing: 0.025em;
+}
+
+.band-featured-collection-head span {
+    display: block;
+    margin-top: 9px;
+    color: #cbcdd1;
+    font-family: "Inter", sans-serif;
+    font-size: 0.94rem;
+    line-height: 1.5;
+}
+
+.band-featured-collection-grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.band-featured-collection-card {
+    min-width: 0;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 12px;
+    color: #fff;
+    background: #090a0b;
+    cursor: pointer;
+    text-align: left;
+    transition: transform 160ms ease, border-color 160ms ease;
+}
+
+.band-featured-collection-card:hover {
+    transform: translateY(-3px);
+    border-color: #f3d438;
+}
+
+.band-featured-collection-card:focus-visible,
+.band-featured-collection-cta:focus-visible {
+    outline: 3px solid #f3d438;
+    outline-offset: 3px;
+}
+
+.band-featured-collection-card img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    background: #08090a;
+}
+
+.band-featured-collection-card strong {
+    display: block;
+    min-height: 52px;
+    padding: 10px 11px;
+    font-family: "Oswald", sans-serif;
+    font-size: 0.78rem;
+    line-height: 1.25;
+    letter-spacing: 0.035em;
+    text-transform: uppercase;
+}
+
+.band-featured-collection-note {
+    margin: 16px 0 0;
+    color: #f3d438;
+    font-family: "Inter", sans-serif;
+    font-size: 0.84rem;
+    font-weight: 800;
+    text-align: center;
+}
+
+.band-featured-collection-cta {
+    min-height: 46px;
+    margin: 14px auto 0;
+    padding: 11px 24px;
+    display: block;
+    border: 1px solid rgba(243, 212, 56, 0.72);
+    border-radius: 8px;
+    color: #fff;
+    background: rgba(243, 212, 56, 0.08);
+    font-family: "Oswald", sans-serif;
+    font-size: 0.86rem;
+    font-weight: 800;
+    letter-spacing: 0.075em;
+    cursor: pointer;
+}
+
+.band-featured-collection-cta:hover {
+    color: #050505;
+    background: #f3d438;
+}
+
 .band-landing-hero-copy {
     position: relative;
     z-index: 1;
@@ -1575,6 +1698,46 @@ body.band-landing-page[data-band="Argentina"] #modal .btn-add-cart {
     .band-design-showcase-cta {
         width: calc(100% - 24px);
         margin-top: 18px;
+    }
+
+    .band-featured-collection {
+        width: calc(100% - 20px);
+        margin-top: 14px;
+        padding: 20px 12px;
+        border-radius: 18px;
+    }
+
+    .band-featured-collection-head {
+        margin-bottom: 15px;
+    }
+
+    .band-featured-collection-head h2 {
+        font-size: clamp(1.9rem, 9vw, 2.55rem);
+    }
+
+    .band-featured-collection-head span {
+        font-size: 0.84rem;
+    }
+
+    .band-featured-collection-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+    }
+
+    .band-featured-collection-card:last-child:nth-child(odd) {
+        width: calc(50% - 4px);
+        grid-column: 1 / -1;
+        justify-self: center;
+    }
+
+    .band-featured-collection-card strong {
+        min-height: 48px;
+        padding: 9px;
+        font-size: 0.72rem;
+    }
+
+    .band-featured-collection-cta {
+        width: 100%;
     }
 
     .band-landing-garment-selector {
