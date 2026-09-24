@@ -289,6 +289,9 @@
             defaultGarment: 'remera',
             usesShownComposition: true,
             retiredDesignIds: [
+                'iron-maiden-iron-maiden-classic',
+                'iron-maiden-fear-of-the-dark-classic',
+                'cd-iron-maiden-the-number-of-the-beast-v1--p5038',
                 'cd-iron-maiden-666--p6005',
                 'cd-iron-maiden-killers-v1--p6006',
                 'cd-iron-maiden-killers-v2--p6007',
@@ -305,19 +308,20 @@
                 'iron-maiden-1980-run-for-your-lives',
                 'iron-maiden-killers-1981-run-for-your-lives',
                 'iron-maiden-number-of-the-beast-1982-run-for-your-lives',
+                'iron-maiden-hallowed-be-thy-name',
+                'iron-maiden-run-to-the-hills',
                 'iron-maiden-piece-of-mind-1983-run-for-your-lives',
+                'iron-maiden-the-trooper-classic',
                 'iron-maiden-powerslave-1984-run-for-your-lives',
                 'iron-maiden-somewhere-in-time-1986-run-for-your-lives',
                 'iron-maiden-seventh-son-1988-run-for-your-lives',
                 'iron-maiden-no-prayer-1990-run-for-your-lives',
                 'iron-maiden-fear-of-the-dark-1992-run-for-your-lives',
-                'iron-maiden-iron-maiden-classic',
                 'iron-maiden-burning-ambition-edicion-fmd',
                 'cd-iron-maiden-killers--p5036',
                 'iron-maiden-killers-eddie-ciudad',
                 'cd-iron-maiden-killers-edicion-fmd--p7023',
                 'cd-iron-maiden-killers-v2-edicion-fmd--p7024',
-                'cd-iron-maiden-the-number-of-the-beast-v1--p5038',
                 'iron-maiden-the-number-of-the-beast-edicion-fmd',
                 'iron-maiden-the-trooper-france',
                 'iron-maiden-powerslave-fmd',
@@ -326,7 +330,6 @@
                 'iron-maiden-live-after-death-fmd',
                 'cd-iron-maiden-somewhere-in-time-fmd--p7027',
                 'cd-iron-maiden-can-i-play-with-madness--p5033',
-                'iron-maiden-fear-of-the-dark-classic',
                 'cd-iron-maiden-fear-of-the-dark-edicion-fmd--p7022',
                 'cd-iron-maiden-brave-new-world--p5035',
                 'iron-maiden-a-matter-of-life-and-death',
@@ -413,9 +416,9 @@
                 'iron-maiden-somewhere-back-in-time-world-tour'
             ],
             garments: [
-                { key: 'hoodie', title: 'HOODIES', price: 'Desde $52.000', image: '/images/hoddies_fmd/hoodies_otras_bandas/iron_maiden_killers_v1.jpg', alt: 'Hoodie Iron Maiden Killers' },
-                { key: 'buzo_cuello_redondo', title: 'BUZOS', price: 'Frontal $50.000 · Doble $55.000', image: '/images/buzos cuello redondo/iron_maiden_original_fmd.jpg', alt: 'Buzo cuello redondo Iron Maiden Powerslave' },
-                { key: 'remera', title: 'REMERAS', price: 'Desde $37.000', image: '/images/iron_maiden/9 discos 1 tour/iron_maiden_fear_v1.jpg', alt: 'Remera Iron Maiden The Number of the Beast' }
+                { key: 'hoodie', title: 'HOODIES', price: 'Desde $52.000', image: '/images/iron_maiden/9 discos 1 tour/hoodie_iron_maiden_killers.jpg', alt: 'Hoodie Iron Maiden Killers' },
+                { key: 'buzo_cuello_redondo', title: 'BUZOS', price: 'Frontal $50.000 · Doble $55.000', image: '/images/iron_maiden/9 discos 1 tour/buzo_iron_maiden_number.jpg', alt: 'Buzo cuello redondo Iron Maiden The Number of the Beast' },
+                { key: 'remera', title: 'REMERAS', price: 'Desde $37.000', image: '/images/iron_maiden/9 discos 1 tour/iron_maiden_number.jpg', alt: 'Remera Iron Maiden The Number of the Beast' }
             ]
         },
         {

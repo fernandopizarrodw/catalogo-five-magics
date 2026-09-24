@@ -12869,10 +12869,10 @@
     "year": "2026",
     "name": "Iron Maiden The Number of the Beast",
     "tipoPrecio": "simple",
-    "img": "images/iron_maiden/9 discos 1 tour/iron_maiden_fear_v1.jpg",
+    "img": "images/iron_maiden/9 discos 1 tour/iron_maiden_number.jpg",
     "variants": [
       {
-        "img": "images/iron_maiden/9 discos 1 tour/iron_maiden_fear_v1.jpg",
+        "img": "images/iron_maiden/9 discos 1 tour/iron_maiden_number.jpg",
         "name": "The Number of the Beast V1"
       },
       {
@@ -15024,7 +15024,7 @@
     "year": "2026",
     "name": "Hoodie Iron Maiden",
     "tipoPrecio": "doble",
-    "img": "images/hoddies_fmd/hoodies_otras_bandas/iron_maiden.jpg",
+    "img": "images/iron_maiden/9 discos 1 tour/hoodie_iron_maiden.jpg",
     "desc": "Hoodie canguro oversize unisex. AlgodÃ³n frizado, estampa DTG. Iron Maiden clÃ¡sico. ProducciÃ³n a pedido 4-7 dÃ­as.",
     "band": "Iron Maiden",
     "universe": [
@@ -15054,7 +15054,7 @@
     "year": "2026",
     "name": "Hoodie Iron Maiden 666",
     "tipoPrecio": "doble",
-    "img": "images/hoddies_fmd/hoodies_otras_bandas/iron_maiden_666.jpg",
+    "img": "images/iron_maiden/9 discos 1 tour/hoodie_iron_maiden_number.jpg",
     "desc": "Hoodie canguro oversize unisex. AlgodÃ³n frizado, estampa DTG. Iron Maiden 666. ProducciÃ³n a pedido 4-7 dÃ­as.",
     "band": "Iron Maiden",
     "universe": [
@@ -15086,7 +15086,7 @@
     "year": "2026",
     "name": "Hoodie Iron Maiden Killers v1",
     "tipoPrecio": "doble",
-    "img": "images/hoddies_fmd/hoodies_otras_bandas/iron_maiden_killers_v1.jpg",
+    "img": "images/iron_maiden/9 discos 1 tour/hoodie_iron_maiden_killers.jpg",
     "desc": "Hoodie canguro oversize unisex. AlgodÃ³n frizado, estampa DTG. Iron Maiden Killers v1. ProducciÃ³n a pedido 4-7 dÃ­as.",
     "band": "Iron Maiden",
     "universe": [
@@ -15118,7 +15118,7 @@
     "year": "2026",
     "name": "Hoodie Iron Maiden Killers v2",
     "tipoPrecio": "doble",
-    "img": "images/hoddies_fmd/hoodies_otras_bandas/iron_maiden_killers_v2.jpg",
+    "img": "images/iron_maiden/hoodie_iron_maiden_killers_circular.jpg",
     "desc": "Hoodie canguro oversize unisex. AlgodÃ³n frizado, estampa DTG. Iron Maiden Killers v2. ProducciÃ³n a pedido 4-7 dÃ­as.",
     "band": "Iron Maiden",
     "universe": [
@@ -21921,19 +21921,43 @@
         "campaignPreview": "iron-maiden-nine-albums-tour"
       },
       {
+        "img": "images/iron_maiden/9 discos 1 tour/iron_maiden_doble_estampa.jpg",
+        "name": "Iron Maiden (1980) · Frente y dorso",
+        "designId": "iron-maiden-1980-run-for-your-lives",
+        "role": "front",
+        "garmentCategory": "Iron Maiden",
+        "defaultPrintMode": "double"
+      },
+      {
+        "img": "images/iron_maiden/9 discos 1 tour/hoodie_iron_maiden.jpg",
+        "name": "Iron Maiden (1980) · Hoodie",
+        "designId": "iron-maiden-1980-run-for-your-lives",
+        "role": "front",
+        "garmentCategory": "Hoodies Otras Bandas",
+        "defaultPrintMode": "double"
+      },
+      {
+        "img": "images/iron_maiden/9 discos 1 tour/buzo_iron_maiden.jpg",
+        "name": "Iron Maiden (1980) · Buzo cuello redondo",
+        "designId": "iron-maiden-1980-run-for-your-lives",
+        "role": "front",
+        "garmentCategory": "Buzo Cuello Redondo",
+        "defaultPrintMode": "double"
+      },
+      {
         "img": "images/iron_maiden/dorsos opcionales/iron_maiden_dorso.jpg",
         "name": "Dorso Iron Maiden clásico",
         "selectionLabel": "Dorso Iron Maiden clásico",
         "role": "back"
       }
     ],
-    "garments": ["remera"],
+    "garments": ["remera", "hoodie", "buzo_cuello_redondo"],
     "collections": ["Archivo Maiden", "9 discos · 1 tour", "Iron Maiden"],
     "campaigns": ["Run For Your Lives 2026"],
     "commercialPriority": 96,
     "visibilityTier": "featured",
     "legacyCategory": "Iron Maiden",
-    "tags": ["Iron Maiden", "1980", "9 discos", "Run For Your Lives", "remera"]
+    "tags": ["Iron Maiden", "1980", "9 discos", "Run For Your Lives", "remera", "hoodie", "buzo"]
   },
   {
     "id": 7243,
@@ -21958,19 +21982,43 @@
         "campaignPreview": "iron-maiden-nine-albums-tour"
       },
       {
+        "img": "images/iron_maiden/9 discos 1 tour/iron_maiden_killers_doble_estampa.jpg",
+        "name": "Killers (1981) · Frente y dorso",
+        "designId": "iron-maiden-killers-1981-run-for-your-lives",
+        "role": "front",
+        "garmentCategory": "Iron Maiden",
+        "defaultPrintMode": "double"
+      },
+      {
+        "img": "images/iron_maiden/9 discos 1 tour/hoodie_iron_maiden_killers.jpg",
+        "name": "Killers (1981) · Hoodie",
+        "designId": "iron-maiden-killers-1981-run-for-your-lives",
+        "role": "front",
+        "garmentCategory": "Hoodies Otras Bandas",
+        "defaultPrintMode": "double"
+      },
+      {
+        "img": "images/iron_maiden/9 discos 1 tour/buzo_iron_maiden_killers.jpg",
+        "name": "Killers (1981) · Buzo cuello redondo",
+        "designId": "iron-maiden-killers-1981-run-for-your-lives",
+        "role": "front",
+        "garmentCategory": "Buzo Cuello Redondo",
+        "defaultPrintMode": "double"
+      },
+      {
         "img": "images/iron_maiden/dorsos opcionales/iron_maiden_killers_dorso.jpg",
         "name": "Dorso Killers",
         "selectionLabel": "Dorso Killers",
         "role": "back"
       }
     ],
-    "garments": ["remera"],
+    "garments": ["remera", "hoodie", "buzo_cuello_redondo"],
     "collections": ["Archivo Maiden", "9 discos · 1 tour", "Killers"],
     "campaigns": ["Run For Your Lives 2026"],
     "commercialPriority": 95,
     "visibilityTier": "featured",
     "legacyCategory": "Iron Maiden",
-    "tags": ["Iron Maiden", "Killers", "1981", "9 discos", "Run For Your Lives", "remera"]
+    "tags": ["Iron Maiden", "Killers", "1981", "9 discos", "Run For Your Lives", "remera", "hoodie", "buzo"]
   },
   {
     "id": 7244,
@@ -21984,15 +22032,39 @@
     "tipoPrecio": "simple",
     "defaultPrintMode": "frontal",
     "isNew": true,
-    "img": "images/iron_maiden/9 discos 1 tour/iron_maiden_fear_v1.jpg",
+    "img": "images/iron_maiden/9 discos 1 tour/iron_maiden_number.jpg",
     "desc": "The Number of the Beast (1982), parte de la selección 9 discos · 1 tour.",
     "variants": [
       {
-        "img": "images/iron_maiden/9 discos 1 tour/iron_maiden_fear_v1.jpg",
+        "img": "images/iron_maiden/9 discos 1 tour/iron_maiden_number.jpg",
         "name": "The Number of the Beast (1982) · Run For Your Lives",
         "designId": "iron-maiden-number-of-the-beast-1982-run-for-your-lives",
         "role": "front",
         "campaignPreview": "iron-maiden-nine-albums-tour"
+      },
+      {
+        "img": "images/iron_maiden/9 discos 1 tour/iron_maiden_number_doble_estampa.jpg",
+        "name": "The Number of the Beast (1982) · Frente y dorso",
+        "designId": "iron-maiden-number-of-the-beast-1982-run-for-your-lives",
+        "role": "front",
+        "garmentCategory": "Iron Maiden",
+        "defaultPrintMode": "double"
+      },
+      {
+        "img": "images/iron_maiden/9 discos 1 tour/hoodie_iron_maiden_number.jpg",
+        "name": "The Number of the Beast (1982) · Hoodie",
+        "designId": "iron-maiden-number-of-the-beast-1982-run-for-your-lives",
+        "role": "front",
+        "garmentCategory": "Hoodies Otras Bandas",
+        "defaultPrintMode": "double"
+      },
+      {
+        "img": "images/iron_maiden/9 discos 1 tour/buzo_iron_maiden_number.jpg",
+        "name": "The Number of the Beast (1982) · Buzo cuello redondo",
+        "designId": "iron-maiden-number-of-the-beast-1982-run-for-your-lives",
+        "role": "front",
+        "garmentCategory": "Buzo Cuello Redondo",
+        "defaultPrintMode": "double"
       },
       {
         "img": "images/iron_maiden/dorsos opcionales/dorso_666.jpg",
@@ -22001,13 +22073,13 @@
         "role": "back"
       }
     ],
-    "garments": ["remera"],
+    "garments": ["remera", "hoodie", "buzo_cuello_redondo"],
     "collections": ["Archivo Maiden", "9 discos · 1 tour", "The Number of the Beast"],
     "campaigns": ["Run For Your Lives 2026"],
     "commercialPriority": 94,
     "visibilityTier": "featured",
     "legacyCategory": "Iron Maiden",
-    "tags": ["Iron Maiden", "The Number of the Beast", "1982", "9 discos", "Run For Your Lives", "remera"]
+    "tags": ["Iron Maiden", "The Number of the Beast", "1982", "9 discos", "Run For Your Lives", "remera", "hoodie", "buzo"]
   },
   {
     "id": 7245,
@@ -22048,15 +22120,18 @@
     "desc": "Powerslave (1984), parte de la selección 9 discos · 1 tour.",
     "variants": [
       {"img": "images/iron_maiden/9 discos 1 tour/Powerslave (1984).jpg", "name": "Powerslave (1984) · Run For Your Lives", "designId": "iron-maiden-powerslave-1984-run-for-your-lives", "role": "front", "campaignPreview": "iron-maiden-nine-albums-tour"},
+      {"img": "images/iron_maiden/9 discos 1 tour/remera_iron_maiden_powerslave_doble_estampa.jpg", "name": "Powerslave (1984) · Remera frente y dorso", "designId": "iron-maiden-powerslave-1984-run-for-your-lives", "role": "front", "garmentCategory": "Iron Maiden", "defaultPrintMode": "double"},
+      {"img": "images/iron_maiden/9 discos 1 tour/hoodie_iron_maiden_powerslave.jpg", "name": "Powerslave (1984) · Hoodie", "designId": "iron-maiden-powerslave-1984-run-for-your-lives", "role": "front", "garmentCategory": "Hoodies Otras Bandas", "defaultPrintMode": "double"},
+      {"img": "images/iron_maiden/9 discos 1 tour/remera_iron_maiden_powerslave.jpg", "name": "Powerslave (1984) · Buzo cuello redondo", "designId": "iron-maiden-powerslave-1984-run-for-your-lives", "role": "front", "garmentCategory": "Buzo Cuello Redondo", "defaultPrintMode": "double"},
       {"img": "images/iron_maiden/dorsos opcionales/fmd_powerslave_dorso.jpg", "name": "Dorso Powerslave", "selectionLabel": "Dorso Powerslave", "role": "back"}
     ],
-    "garments": ["remera"],
+    "garments": ["remera", "hoodie", "buzo_cuello_redondo"],
     "collections": ["Archivo Maiden", "9 discos · 1 tour", "Powerslave"],
     "campaigns": ["Run For Your Lives 2026"],
     "commercialPriority": 92,
     "visibilityTier": "featured",
     "legacyCategory": "Iron Maiden",
-    "tags": ["Iron Maiden", "Powerslave", "1984", "9 discos", "Run For Your Lives", "remera"]
+    "tags": ["Iron Maiden", "Powerslave", "1984", "9 discos", "Run For Your Lives", "remera", "hoodie", "buzo"]
   },
   {
     "id": 7247,
@@ -22072,14 +22147,19 @@
     "isNew": true,
     "img": "images/iron_maiden/9 discos 1 tour/Somewhere in Time (1986).jpg",
     "desc": "Somewhere in Time (1986), parte de la selección 9 discos · 1 tour.",
-    "variants": [{"img": "images/iron_maiden/9 discos 1 tour/Somewhere in Time (1986).jpg", "name": "Somewhere in Time (1986) · Run For Your Lives", "designId": "iron-maiden-somewhere-in-time-1986-run-for-your-lives", "role": "front", "campaignPreview": "iron-maiden-nine-albums-tour"}],
-    "garments": ["remera"],
+    "variants": [
+      {"img": "images/iron_maiden/9 discos 1 tour/Somewhere in Time (1986).jpg", "name": "Somewhere in Time (1986) · Run For Your Lives", "designId": "iron-maiden-somewhere-in-time-1986-run-for-your-lives", "role": "front", "campaignPreview": "iron-maiden-nine-albums-tour"},
+      {"img": "images/iron_maiden/9 discos 1 tour/iron_maiden_somewhere_in_time_doble_estampa.jpg", "name": "Somewhere in Time (1986) · Frente y dorso", "designId": "iron-maiden-somewhere-in-time-1986-run-for-your-lives", "role": "front", "garmentCategory": "Iron Maiden", "defaultPrintMode": "double"},
+      {"img": "images/iron_maiden/9 discos 1 tour/hoodies_iron_maiden_somewhere_in_time.jpg", "name": "Somewhere in Time (1986) · Hoodie", "designId": "iron-maiden-somewhere-in-time-1986-run-for-your-lives", "role": "front", "garmentCategory": "Hoodies Otras Bandas", "defaultPrintMode": "double"},
+      {"img": "images/iron_maiden/9 discos 1 tour/buzo_iron_maiden_somewhere_in_time.jpg", "name": "Somewhere in Time (1986) · Buzo cuello redondo", "designId": "iron-maiden-somewhere-in-time-1986-run-for-your-lives", "role": "front", "garmentCategory": "Buzo Cuello Redondo", "defaultPrintMode": "double"}
+    ],
+    "garments": ["remera", "hoodie", "buzo_cuello_redondo"],
     "collections": ["Archivo Maiden", "9 discos · 1 tour", "Somewhere in Time"],
     "campaigns": ["Run For Your Lives 2026"],
     "commercialPriority": 91,
     "visibilityTier": "featured",
     "legacyCategory": "Iron Maiden",
-    "tags": ["Iron Maiden", "Somewhere in Time", "1986", "9 discos", "Run For Your Lives", "remera"]
+    "tags": ["Iron Maiden", "Somewhere in Time", "1986", "9 discos", "Run For Your Lives", "remera", "hoodie", "buzo"]
   },
   {
     "id": 7248,
@@ -22143,15 +22223,18 @@
     "desc": "Fear of the Dark (1992), parte de la selección 9 discos · 1 tour.",
     "variants": [
       {"img": "images/iron_maiden/9 discos 1 tour/iron_maiden_fear.jpg", "name": "Fear of the Dark (1992) · Run For Your Lives", "designId": "iron-maiden-fear-of-the-dark-1992-run-for-your-lives", "role": "front", "campaignPreview": "iron-maiden-nine-albums-tour"},
+      {"img": "images/iron_maiden/9 discos 1 tour/iron_maiden_fear_doble_estampa.jpg", "name": "Fear of the Dark (1992) · Frente y dorso", "designId": "iron-maiden-fear-of-the-dark-1992-run-for-your-lives", "role": "front", "garmentCategory": "Iron Maiden", "defaultPrintMode": "double"},
+      {"img": "images/iron_maiden/9 discos 1 tour/hoodie_iron_maiden_fear.jpg", "name": "Fear of the Dark (1992) · Hoodie", "designId": "iron-maiden-fear-of-the-dark-1992-run-for-your-lives", "role": "front", "garmentCategory": "Hoodies Otras Bandas", "defaultPrintMode": "double"},
+      {"img": "images/iron_maiden/9 discos 1 tour/buzo_iron_maiden_fear.jpg", "name": "Fear of the Dark (1992) · Buzo cuello redondo", "designId": "iron-maiden-fear-of-the-dark-1992-run-for-your-lives", "role": "front", "garmentCategory": "Buzo Cuello Redondo", "defaultPrintMode": "double"},
       {"img": "images/iron_maiden/dorsos opcionales/iron_maiden_fear_dorso.jpg", "name": "Dorso Fear of the Dark", "selectionLabel": "Dorso Fear of the Dark", "role": "back"}
     ],
-    "garments": ["remera"],
+    "garments": ["remera", "hoodie", "buzo_cuello_redondo"],
     "collections": ["Archivo Maiden", "9 discos · 1 tour", "Fear of the Dark"],
     "campaigns": ["Run For Your Lives 2026"],
     "commercialPriority": 88,
     "visibilityTier": "featured",
     "legacyCategory": "Iron Maiden",
-    "tags": ["Iron Maiden", "Fear of the Dark", "1992", "9 discos", "Run For Your Lives", "remera"]
+    "tags": ["Iron Maiden", "Fear of the Dark", "1992", "9 discos", "Run For Your Lives", "remera", "hoodie", "buzo"]
   },
   {
     "id": 7251,
@@ -22333,5 +22416,116 @@
     "legacyCategory": "Iron Maiden",
     "fmdBadge": "EDICIÓN FMD",
     "tags": ["Iron Maiden", "Somewhere in Time", "40 años", "Edición FMD", "remera"]
+  },
+  {
+    "id": 7255,
+    "designId": "iron-maiden-the-trooper-classic",
+    "designSlug": "iron-maiden-the-trooper-classic",
+    "category": "Iron Maiden",
+    "band": "Iron Maiden",
+    "name": "The Trooper",
+    "year": "1983",
+    "album": "Piece of Mind",
+    "tipoPrecio": "simple",
+    "defaultPrintMode": "frontal",
+    "isNew": true,
+    "img": "images/iron_maiden/iron_maiden_the_trooper.jpg",
+    "desc": "The Trooper, clásico de Piece of Mind.",
+    "variants": [
+      {
+        "img": "images/iron_maiden/iron_maiden_the_trooper.jpg",
+        "name": "The Trooper",
+        "designId": "iron-maiden-the-trooper-classic",
+        "role": "front"
+      },
+      {
+        "img": "images/iron_maiden/dorsos opcionales/dorso_logo_rojo.jpg",
+        "name": "Dorso logo Iron Maiden",
+        "selectionLabel": "Dorso logo Iron Maiden",
+        "role": "back",
+        "backTargetDesignId": "iron-maiden-the-trooper-classic"
+      }
+    ],
+    "garments": ["remera"],
+    "collections": ["Archivo Maiden", "Piece of Mind", "Canciones clásicas"],
+    "campaigns": ["Run For Your Lives 2026"],
+    "commercialPriority": 91,
+    "visibilityTier": "catalog",
+    "legacyCategory": "Iron Maiden",
+    "tags": ["Iron Maiden", "The Trooper", "Piece of Mind", "1983", "remera"]
+  },
+  {
+    "id": 7256,
+    "designId": "iron-maiden-hallowed-be-thy-name",
+    "designSlug": "iron-maiden-hallowed-be-thy-name",
+    "category": "Iron Maiden",
+    "band": "Iron Maiden",
+    "name": "Hallowed Be Thy Name",
+    "year": "1982",
+    "album": "The Number of the Beast",
+    "tipoPrecio": "simple",
+    "defaultPrintMode": "frontal",
+    "isNew": true,
+    "img": "images/iron_maiden/remera_iron_maiden_hallowed_by_the_name.jpg",
+    "desc": "Hallowed Be Thy Name, clásico de The Number of the Beast.",
+    "variants": [
+      {
+        "img": "images/iron_maiden/remera_iron_maiden_hallowed_by_the_name.jpg",
+        "name": "Hallowed Be Thy Name",
+        "designId": "iron-maiden-hallowed-be-thy-name",
+        "role": "front"
+      },
+      {
+        "img": "images/iron_maiden/dorsos opcionales/dorso_666.jpg",
+        "name": "Dorso The Number of the Beast",
+        "selectionLabel": "Dorso The Number of the Beast",
+        "role": "back",
+        "backTargetDesignId": "iron-maiden-hallowed-be-thy-name"
+      }
+    ],
+    "garments": ["remera"],
+    "collections": ["Archivo Maiden", "The Number of the Beast", "Canciones clásicas"],
+    "campaigns": ["Run For Your Lives 2026"],
+    "commercialPriority": 92,
+    "visibilityTier": "catalog",
+    "legacyCategory": "Iron Maiden",
+    "tags": ["Iron Maiden", "Hallowed Be Thy Name", "The Number of the Beast", "1982", "remera"]
+  },
+  {
+    "id": 7257,
+    "designId": "iron-maiden-run-to-the-hills",
+    "designSlug": "iron-maiden-run-to-the-hills",
+    "category": "Iron Maiden",
+    "band": "Iron Maiden",
+    "name": "Run to the Hills",
+    "year": "1982",
+    "album": "The Number of the Beast",
+    "tipoPrecio": "simple",
+    "defaultPrintMode": "frontal",
+    "isNew": true,
+    "img": "images/iron_maiden/remera_iron_maiden_run_to_the_hills.jpg",
+    "desc": "Run to the Hills, clásico de The Number of the Beast.",
+    "variants": [
+      {
+        "img": "images/iron_maiden/remera_iron_maiden_run_to_the_hills.jpg",
+        "name": "Run to the Hills",
+        "designId": "iron-maiden-run-to-the-hills",
+        "role": "front"
+      },
+      {
+        "img": "images/iron_maiden/dorsos opcionales/dorso_666.jpg",
+        "name": "Dorso The Number of the Beast",
+        "selectionLabel": "Dorso The Number of the Beast",
+        "role": "back",
+        "backTargetDesignId": "iron-maiden-run-to-the-hills"
+      }
+    ],
+    "garments": ["remera"],
+    "collections": ["Archivo Maiden", "The Number of the Beast", "Canciones clásicas"],
+    "campaigns": ["Run For Your Lives 2026"],
+    "commercialPriority": 92,
+    "visibilityTier": "catalog",
+    "legacyCategory": "Iron Maiden",
+    "tags": ["Iron Maiden", "Run to the Hills", "The Number of the Beast", "1982", "remera"]
   }
 ]
