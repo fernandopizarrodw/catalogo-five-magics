@@ -1070,51 +1070,110 @@
     "variants": [
       {
         "img": "images/albums/Rust_in_peace/rust_in_peace.jpg",
-        "name": "Frente"
+        "name": "Rust in Peace",
+        "publicName": "Rust in Peace",
+        "role": "front",
+        "designId": "cd-megadeth-rust-in-peace--rust-in-peace"
       },
       {
         "img": "images/albums/Rust_in_peace/rust_in_peace_dorso.jpg",
-        "name": "Dorso"
+        "name": "Dorso logo Rust in Peace",
+        "role": "back",
+        "backTargetDesignId": "cd-megadeth-rust-in-peace--rust-in-peace"
       },
       {
         "img": "images/albums/Rust_in_peace/rust_in_peace_v2-dorso.jpg",
-        "name": "v2 Dorso"
+        "name": "Dorso nuclear Rust in Peace",
+        "role": "back",
+        "backTargetDesignId": "cd-megadeth-rust-in-peace--rust-in-peace"
       },
       {
-        "img": "images/albums/Rust_in_peace/rust_in_peace_lineup-dorso.jpg",
-        "name": "Lineup Dorso"
+        "img": "images/albums/Rust_in_peace/rust_in_peace_fmd.jpg",
+        "name": "Rust in Peace - Edición FMD",
+        "publicName": "Rust in Peace - Edición FMD",
+        "role": "front",
+        "designId": "cd-megadeth-rust-in-peace--rust-in-peace-fmd",
+        "isNew": true,
+        "fmdBadge": "ORIGINAL FMD",
+        "fmdBadgeDescription": "Creación FMD inspirada en la estética de Rust in Peace."
       },
       {
         "img": "images/albums/Rust_in_peace/alternate-rip.jpg",
-        "name": "Alternate Frente"
+        "name": "Rust in Peace - Edición circular",
+        "publicName": "Rust in Peace - Edición circular",
+        "role": "front",
+        "designId": "cd-megadeth-rust-in-peace--alternate"
       },
       {
         "img": "images/albums/Rust_in_peace/alternate-rip-dorso.jpg",
-        "name": "Alternate Dorso"
+        "name": "Dorso Rust in Peace - Edición circular",
+        "role": "back",
+        "backTargetDesignId": "cd-megadeth-rust-in-peace--alternate"
       },
       {
         "img": "images/albums/Rust_in_peace/rust_in_peace_lineup_v2.jpg",
-        "name": "Lineup V2",
-        "isNew": true
+        "name": "Rust in Peace - Formación clásica",
+        "publicName": "Rust in Peace - Formación clásica",
+        "role": "front",
+        "designId": "cd-megadeth-rust-in-peace--lineup-v2"
+      },
+      {
+        "img": "images/albums/Rust_in_peace/rust_in_peace_lineup-dorso.jpg",
+        "name": "Dorso canciones de Rust in Peace",
+        "role": "back",
+        "backTargetDesignId": "cd-megadeth-rust-in-peace--lineup-v2"
+      },
+      {
+        "img": "images/albums/Rust_in_peace/rust_in_peace_lineup-dorso.png",
+        "name": "Dorso formación Rust in Peace",
+        "role": "back",
+        "backTargetDesignId": "cd-megadeth-rust-in-peace--lineup-v2"
       },
       {
         "img": "images/fmd-edition-3d/rust/rust_in_peace_3d_edition_frente.jpg",
-        "name": "Rust in Peace 3D Frente",
+        "name": "Rust in Peace - Edición 3D",
+        "publicName": "Rust in Peace - Edición 3D",
+        "role": "front",
+        "designId": "cd-megadeth-rust-in-peace--rust-in-peace-3d",
         "isNew": true,
         "fmdBadge": "ORIGINAL FMD",
         "fmdBadgeDescription": "Creación FMD de autor con foco en impacto visual, espíritu thrash y lectura premium en prenda."
       },
       {
         "img": "images/fmd-edition-3d/rust/rust_in_peace_3d_edition_dorso.jpg",
-        "name": "Rust in Peace 3D Dorso",
-        "isNew": true,
-        "fmdBadge": "ORIGINAL FMD",
-        "fmdBadgeDescription": "Creación FMD de autor con foco en impacto visual, espíritu thrash y lectura premium en prenda."
+        "name": "Dorso Rust in Peace - Edición 3D",
+        "role": "back",
+        "backTargetDesignId": "cd-megadeth-rust-in-peace--rust-in-peace-3d"
       },
       {
-        "img": "images/albums/Rust_in_peace/rust_in_peace_lineup-dorso.png",
-        "name": "Lineup Dorso NG",
-        "backTargetDesignId": "cd-megadeth-rust-in-peace--lineup-v2",
+        "img": "images/albums/Rust_in_peace/remera_megadeth_rust_in_peace_holy_wars.jpg",
+        "name": "Holy Wars",
+        "publicName": "Holy Wars",
+        "role": "front",
+        "designId": "cd-megadeth-rust-in-peace--holy-wars",
+        "isNew": true
+      },
+      {
+        "img": "images/albums/Rust_in_peace/remera_megadeth_rust_in_peace_v3.jpg",
+        "name": "Rust in Peace - Edición azul",
+        "publicName": "Rust in Peace - Edición azul",
+        "role": "front",
+        "designId": "cd-megadeth-rust-in-peace--edicion-azul",
+        "isNew": true
+      },
+      {
+        "img": "images/albums/Rust_in_peace/remera_megadeth_rust_in_peace_v2.jpg",
+        "name": "Rust in Peace - Edición azul",
+        "publicName": "Rust in Peace - Edición azul",
+        "role": "front",
+        "designId": "cd-megadeth-rust-in-peace--edicion-azul",
+        "isNew": true
+      },
+      {
+        "img": "images/albums/Rust_in_peace/remera_megadeth_dorso_nuclear_skulls.jpg",
+        "name": "Dorso calaveras nucleares",
+        "role": "back",
+        "backTargetDesignId": "cd-megadeth-rust-in-peace--edicion-azul",
         "isNew": true
       }
     ],

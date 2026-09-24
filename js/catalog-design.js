@@ -147,6 +147,9 @@
     }
 
     function getConceptName(product, variant) {
+        const explicitPublicName = repairPublicText(variant?.publicName || '').trim();
+        if (explicitPublicName) return explicitPublicName;
+
         const productBaseName = getProductBaseName(product);
         let name = stripInternalSuffixes(stripGarmentSuffix(repairPublicText(variant?.name || productBaseName)));
         name = name

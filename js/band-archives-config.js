@@ -198,6 +198,9 @@
             },
             usesShownComposition: false,
             usesShownCompositionGarments: ['hoodie', 'buzo_cuello_redondo'],
+            cardImageOverrides: {
+                'cd-megadeth-rust-in-peace--rust-in-peace-3d': '/images/fmd-edition-3d/rust/rust_in_peace_3d_edition_doble_estampa.jpg'
+            },
             albumOrder: [
                 'Killing Is My Business... and Business Is Good!',
                 "Peace Sells... but Who's Buying?",
