@@ -39,6 +39,12 @@ async function main() {
     };
 
     try {
+        await send('Emulation.setDeviceMetricsOverride', {
+            width: 390,
+            height: 844,
+            deviceScaleFactor: 1,
+            mobile: true
+        });
         await send('Page.navigate', { url: PAGE_URL });
         for (let attempt = 0; attempt < 80; attempt++) {
             const ready = await evaluate(`document.readyState === 'complete'
@@ -79,6 +85,56 @@ async function main() {
         assert(result.backSelectorImages.some(path => path.includes(BACK_IMAGE)));
         assert(result.imagesLoad, 'Alguna imagen de Eddie Gaucho no carga');
         console.log(`Eddie Gaucho: frente y dorso individuales correctos, ${result.code}`);
+
+        const circularFlow = await evaluate(`(() => {
+            closeModal();
+            cart.clearCart();
+            const design = catalogDesigns.find(item => item.designId === 'cd-iron-maiden-eddie-circular-fmd--p7019');
+            if (!design) return { error: 'Eddie Circular no encontrado' };
+            openCatalogDesign(design.designId, 'remera');
+            selectRemeraVariant('mujer_clasica');
+            selectSize('M');
+            selectColor('negro');
+            selectPrintMode('double');
+            const panelOpen = document.getElementById('modalAdvancedPanel')?.open === true;
+            const primaryChoices = [...document.querySelectorAll('.catalog-design-dorso-recommended .catalog-design-dorso')];
+            const blockedWithoutDecision = addToCartFromModal() === false && cart.getCart().length === 0;
+            primaryChoices[0]?.click();
+            const selectedBack = selectedCatalogBackRef?.label || '';
+            const addedWithBack = addToCartFromModal();
+            const selectedItem = cart.getCart().at(-1);
+            const selectedSummary = cart.generateSummary();
+            cart.clearCart();
+            deferCatalogDesignBack();
+            const addedDeferred = addToCartFromModal();
+            const deferredItem = cart.getCart().at(-1);
+            const deferredSummary = cart.generateSummary();
+            cart.clearCart();
+            return {
+                panelOpen,
+                primaryChoiceCount: primaryChoices.length,
+                blockedWithoutDecision,
+                selectedBack,
+                addedWithBack,
+                selectedItemBack: selectedItem?.backName || '',
+                selectedSummary,
+                addedDeferred,
+                deferredItemBack: deferredItem?.backName || '',
+                deferredSummary
+            };
+        })()`);
+
+        assert(!circularFlow.error, circularFlow.error);
+        assert(circularFlow.panelOpen, 'La elección de dorso no se abre al seleccionar doble estampa');
+        assert(circularFlow.primaryChoiceCount >= 2, 'Eddie Circular no muestra dorsos visibles');
+        assert(circularFlow.blockedWithoutDecision, 'El modal permitió agregar doble estampa sin decidir el dorso');
+        assert(circularFlow.addedWithBack && circularFlow.selectedBack, 'No se pudo elegir un dorso');
+        assert.equal(circularFlow.selectedItemBack, circularFlow.selectedBack);
+        assert(circularFlow.selectedSummary.includes(`Dorso: ${circularFlow.selectedBack}`));
+        assert(circularFlow.addedDeferred, 'No se pudo dejar el dorso a definir');
+        assert.equal(circularFlow.deferredItemBack, 'A definir por WhatsApp');
+        assert(circularFlow.deferredSummary.includes('Dorso a definir'));
+        console.log('Eddie Circular: selección obligatoria y opción de definir el dorso por WhatsApp correctas');
     } finally {
         socket.close();
     }

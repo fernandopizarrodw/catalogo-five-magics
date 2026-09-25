@@ -392,6 +392,7 @@ let catalogDesignById = new Map();
 let catalogHistoricalBacks = [];
 let currentCatalogDesign = null;
 let selectedCatalogBackRef = null;
+let selectedCatalogBackDeferred = false;
 let selectedCatalogFrontRef = null;
 let selectedAge = 'adulto';
 let selectedSize = '';
@@ -2751,7 +2752,7 @@ function hasDorsoSelection() {
     const dorsoInputValue = (document.getElementById('dorsoCustomInput')?.value || '').trim();
     const hasBackExamples = typeof selectedBacks !== 'undefined' && selectedBacks && selectedBacks.size > 0;
     const hasChips = typeof selectedDorsoChips !== 'undefined' && selectedDorsoChips && selectedDorsoChips.size > 0;
-    return Boolean(selectedCatalogBackRef) || selectedBackIndex >= 0 || hasBackExamples || hasChips || dorsoInputValue.length > 0;
+    return Boolean(selectedCatalogBackRef) || selectedCatalogBackDeferred || selectedBackIndex >= 0 || hasBackExamples || hasChips || dorsoInputValue.length > 0;
 }
 
 function isDoubleSelectionActive(product = currentProduct) {
@@ -2794,6 +2795,7 @@ function selectPrintMode(mode) {
     if (selectedPrintMode === 'simple') {
         selectedBackIndex = -1;
         selectedCatalogBackRef = null;
+        selectedCatalogBackDeferred = false;
         selectedDorsoChips.clear();
         selectedBacks.clear();
         document.querySelectorAll('#chipsRow .chip, .thumb-dorso').forEach(item => item.classList.remove('active', 'selected'));
@@ -2804,6 +2806,17 @@ function selectPrintMode(mode) {
     }
 
     updatePrintModeUI();
+    if (selectedPrintMode === 'double' && !usesBandLandingShownComposition()) {
+        const advancedPanel = document.getElementById('modalAdvancedPanel');
+        const dorsoPanel = document.getElementById('upsellDorso');
+        if (advancedPanel) advancedPanel.open = true;
+        requestAnimationFrame(() => {
+            dorsoPanel?.scrollIntoView({
+                behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
+                block: 'start'
+            });
+        });
+    }
     updateDobleWaLink();
     trackCatalogEvent('print_mode_select', {
         ...getModalAnalyticsContext(),
@@ -4433,6 +4446,7 @@ function selectCatalogDesignBack(productId, variantIndex) {
         && Number(selectedCatalogBackRef.productId) === Number(choice.productId)
         && Number(selectedCatalogBackRef.variantIndex) === Number(choice.variantIndex);
     selectedCatalogBackRef = isSame ? null : choice;
+    selectedCatalogBackDeferred = false;
     selectedBackIndex = -1;
     if (selectedCatalogBackRef) selectedPrintMode = 'double';
     clearSelectionError('dorsoVariantsSection');
@@ -4443,17 +4457,29 @@ function selectCatalogDesignBack(productId, variantIndex) {
 
 window.selectCatalogDesignBack = selectCatalogDesignBack;
 
+function deferCatalogDesignBack() {
+    if (!currentCatalogDesign) return;
+    selectedCatalogBackRef = null;
+    selectedCatalogBackDeferred = true;
+    selectedBackIndex = -1;
+    selectedPrintMode = 'double';
+    clearSelectionError('dorsoVariantsSection');
+    renderDorsoSelector();
+    updateModalPrices();
+    updateDobleWaLink();
+}
+
+window.deferCatalogDesignBack = deferCatalogDesignBack;
+
 function consultCatalogBackChoice() {
     if (!currentCatalogDesign) return;
     const front = selectedCatalogFrontRef?.selectionLabel || selectedCatalogFrontRef?.label || currentCatalogDesign.publicName;
-    const backs = (currentCatalogDesign.backOptions || []).map(ref => `- ${ref.label}`).join('\n');
     const message = [
         'Hola FMD! Necesito ayuda para elegir el dorso:',
         '',
         `Diseño: ${currentCatalogDesign.publicName}`,
         `Frente: ${front.replace(/^Frente\s+/i, '')}`,
-        'Quiero pedirlo con frente y dorso. Estoy eligiendo entre:',
-        backs,
+        'Quiero pedirlo con frente y dorso, pero necesito ayuda para elegir una de las opciones disponibles.',
         '',
         '¿Me ayudan a elegir la mejor opción?'
     ].filter(Boolean).join('\n');
@@ -4474,7 +4500,14 @@ function renderDorsoSelector() {
     if (currentCatalogDesign) {
         const choices = getCatalogDesignBackChoices();
         const recommended = choices.filter(ref => ref.backType === 'Recomendado');
-        const historical = choices.filter(ref => ref.backType === 'Archivo');
+        const historical = choices
+            .filter(ref => ref.backType === 'Archivo')
+            .sort((a, b) => {
+                const genericScore = ref => /(?:dorso_logo_rojo|iron_maiden_dorso\.jpg)$/i.test(ref.image || '') ? 0 : 1;
+                return genericScore(a) - genericScore(b);
+            });
+        const primary = recommended.length ? recommended : historical.slice(0, 2);
+        const archive = recommended.length ? historical : historical.slice(2);
         const renderChoice = ref => {
             const selected = selectedCatalogBackRef
                 && Number(selectedCatalogBackRef.productId) === Number(ref.productId)
@@ -4491,13 +4524,13 @@ function renderDorsoSelector() {
         customSection.style.display = choices.length ? 'none' : 'block';
         variantsGrid.classList.add('catalog-design-dorso-grid');
         variantsGrid.innerHTML = `
-            ${recommended.length ? `<div class="catalog-design-dorso-recommended"><p><b>2. ELEG&Iacute; EL DORSO</b><span>Seleccion&aacute; una opci&oacute;n para completar la prenda.</span></p><div>${recommended.map(renderChoice).join('')}</div><button type="button" class="catalog-design-dorso-help" onclick="consultCatalogBackChoice()">&iquest;NECESIT&Aacute;S AYUDA PARA ELEGIR? CONSULTANOS</button></div>` : ''}
-            ${historical.length ? `<details class="catalog-design-dorso-archive"><summary>VER OTROS DORSOS DE ${currentCatalogDesign.band.toUpperCase()}</summary><div>${historical.map(renderChoice).join('')}</div></details>` : ''}
+            ${primary.length ? `<div class="catalog-design-dorso-recommended"><p><b>2. ELEG&Iacute; EL DORSO</b><span>Seleccion&aacute; una opci&oacute;n para completar la prenda.</span></p><div>${primary.map(renderChoice).join('')}</div><button type="button" class="catalog-design-dorso-help${selectedCatalogBackDeferred ? ' selected' : ''}" onclick="deferCatalogDesignBack()">${selectedCatalogBackDeferred ? 'DORSO A DEFINIR SELECCIONADO' : 'DEFINIR EL DORSO POR WHATSAPP'}</button><button type="button" class="catalog-design-dorso-help" onclick="consultCatalogBackChoice()">&iquest;NECESIT&Aacute;S AYUDA PARA ELEGIR? CONSULTANOS</button></div>` : ''}
+            ${archive.length ? `<details class="catalog-design-dorso-archive"><summary>VER OTROS DORSOS DE ${currentCatalogDesign.band.toUpperCase()}</summary><div>${archive.map(renderChoice).join('')}</div></details>` : ''}
         `;
         if (summarySection) {
             const summaryText = document.getElementById('dorsoSelectionText');
-            summarySection.style.display = selectedCatalogBackRef ? 'block' : 'none';
-            if (summaryText) summaryText.textContent = selectedCatalogBackRef?.label || '';
+            summarySection.style.display = selectedCatalogBackRef || selectedCatalogBackDeferred ? 'block' : 'none';
+            if (summaryText) summaryText.textContent = selectedCatalogBackRef?.label || (selectedCatalogBackDeferred ? 'A definir por WhatsApp' : '');
         }
         return;
     }
@@ -5102,6 +5135,7 @@ function openModal(id, variantIndex = undefined, scopedVariantIndexes = undefine
     currentCatalogDesign = catalogDesignId ? catalogDesignById.get(catalogDesignId) || null : null;
     modal.classList.toggle('catalog-design-modal', Boolean(currentCatalogDesign));
     selectedCatalogBackRef = null;
+    selectedCatalogBackDeferred = false;
     selectedCatalogFrontRef = currentCatalogDesign?.front || null;
     const canonicalProductId = currentCatalogDesign?.front?.productId ?? id;
     const product = db.find(p => p.id === canonicalProductId);
@@ -5511,6 +5545,7 @@ function closeModal(fromHistory = false, shouldRestorePosition = true) {
     currentCatalogDesign = null;
     modal.classList.remove('catalog-design-modal');
     selectedCatalogBackRef = null;
+    selectedCatalogBackDeferred = false;
     selectedCatalogFrontRef = null;
     if (!fromHistory && /^#(?:producto|diseno)-/i.test(window.location.hash)) {
         history.replaceState(
@@ -8210,6 +8245,7 @@ function getModalGarmentLabel(product = currentProduct) {
 
 function getSelectedBackLabelForWhatsapp() {
     if (selectedCatalogBackRef) return selectedCatalogBackRef.label;
+    if (selectedCatalogBackDeferred) return 'A definir por WhatsApp';
     if (selectedBackIndex >= 0 && currentProduct?.variants?.[selectedBackIndex]) {
         return currentProduct.variants[selectedBackIndex].name;
     }
@@ -8295,10 +8331,16 @@ function addToCartFromModal() {
     
     // Determinar si es doble estampa basándose en el dorso seleccionado
     const isDouble = isDoubleSelectionActive(currentProduct);
-    const hasDefinedCatalogBacks = Boolean(currentCatalogDesign?.backOptions?.length);
-    if (isDouble && hasDefinedCatalogBacks && !selectedCatalogBackRef) {
+    const catalogBackChoices = currentCatalogDesign ? getCatalogDesignBackChoices() : [];
+    const requiresCatalogBackDecision = isDouble
+        && !usesBandLandingShownComposition()
+        && catalogBackChoices.length > 0;
+    if (requiresCatalogBackDecision && !selectedCatalogBackRef && !selectedCatalogBackDeferred) {
         showNotification('Elegí un dorso o consultanos por WhatsApp.', 2600);
         markSelectionError('dorsoVariantsSection');
+        const advancedPanel = document.getElementById('modalAdvancedPanel');
+        if (advancedPanel) advancedPanel.open = true;
+        document.getElementById('dorsoVariantsSection')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
         document.querySelector('#dorsoVariantsSection button')?.focus({ preventScroll: true });
         return false;
     }
@@ -8320,7 +8362,7 @@ function addToCartFromModal() {
         frontName: selectedCatalogFrontRef?.selectionLabel || '',
         orderCodeBase: currentCatalogDesign?.orderCodeBase || '',
         usesShownComposition: isDouble && usesBandLandingShownComposition(),
-        backName: selectedCatalogBackRef?.label || '',
+        backName: selectedCatalogBackRef?.label || (selectedCatalogBackDeferred ? 'A definir por WhatsApp' : ''),
         backCode: selectedCatalogBackRef
             ? cart.generateCode(selectedCatalogBackRef.productId, selectedCatalogBackRef.variantIndex)
             : ''

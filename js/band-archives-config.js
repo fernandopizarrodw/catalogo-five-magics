@@ -290,7 +290,7 @@
             finalCopy: 'También hacemos diseños personalizados a partir de una tapa, imagen o idea.',
             whatsappMessage: 'Hola FMD! Quiero consultar por un diseño de Iron Maiden a partir de una tapa, imagen o idea.',
             defaultGarment: 'remera',
-            usesShownComposition: true,
+            usesShownComposition: false,
             retiredDesignIds: [
                 'iron-maiden-iron-maiden-classic',
                 'iron-maiden-fear-of-the-dark-classic',
