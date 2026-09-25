@@ -113,13 +113,19 @@ async function main() {
             const hangar = catalogDesigns.find(design => design.publicName === 'Hangar 18');
             const hangarImageOk = hangar ? (await fetch(new URL(hangar.front.image, location.href))).ok : false;
             openCatalogDesign('cd-megadeth-rust-in-peace--edicion-azul');
+            selectRemeraVariant('mujer_clasica');
+            openSizeGuideForCurrentGarment();
             selectPrintMode('double');
             await new Promise(resolve => setTimeout(resolve, 50));
             const modal = {
                 open: document.getElementById('modal').classList.contains('active'),
                 frontSlides: currentModalImages.length,
                 recommendedBacks: document.querySelectorAll('#dorsoVariantsGrid .catalog-design-dorso-recommended .catalog-design-dorso').length,
-                selectedDesign: currentCatalogDesign?.designId
+                selectedDesign: currentCatalogDesign?.designId,
+                garmentVariant: getSelectedRemeraVariantId(),
+                sizeGuideVisible: !document.getElementById('modalSizeGuidePanel').classList.contains('is-hidden'),
+                sizeGuideTitle: document.getElementById('modalSizeGuideTitle').textContent.trim(),
+                firstSizeRow: [...document.querySelectorAll('#modalSizeGuideTable tbody tr:first-child td')].map(cell => cell.textContent.trim())
             };
             return {
                 designs,
@@ -141,7 +147,11 @@ async function main() {
             open: true,
             frontSlides: 2,
             recommendedBacks: 1,
-            selectedDesign: 'cd-megadeth-rust-in-peace--edicion-azul'
+            selectedDesign: 'cd-megadeth-rust-in-peace--edicion-azul',
+            garmentVariant: 'mujer_clasica',
+            sizeGuideVisible: true,
+            sizeGuideTitle: 'Remera corte mujer',
+            firstSizeRow: ['S', '47', '61']
         });
         assert.equal(result.overflow, false, `Overflow horizontal en viewport ${result.viewport}px`);
         console.log('Megadeth Rust in Peace: 7 diseños, dorsos asociados, Hangar 18 y mobile OK');

@@ -16955,10 +16955,10 @@
     "name": "Iron Maiden Eddie Gaucho Argentino FMD",
     "tipoPrecio": "simple",
     "isNew": true,
-    "img": "images/iron_maiden/remera_iron_maiden_eddie_gaucho_argentino.jpg",
+    "img": "images/iron_maiden/remera_iron_maiden_eddie_gaucho_argentino_frente.jpg",
     "variants": [
       {
-        "img": "images/iron_maiden/remera_iron_maiden_eddie_gaucho_argentino.jpg",
+        "img": "images/iron_maiden/remera_iron_maiden_eddie_gaucho_argentino_frente.jpg",
         "name": "Eddie Gaucho Argentino - Remera",
         "fmdBadge": "ORIGINAL FMD",
         "fmdBadgeDescription": "Creaci?n exclusiva FMD con Eddie gaucho para acompa?ar los shows de Iron Maiden en Argentina."
@@ -16978,7 +16978,7 @@
         "fmdBadgeDescription": "Creaci?n exclusiva FMD con Eddie gaucho para acompa?ar los shows de Iron Maiden en Argentina."
       },
       {
-        "img": "images/iron_maiden/dorsos opcionales/remera_iron_maiden_dorso_gaucho.jpg",
+        "img": "images/iron_maiden/remera_iron_maiden_eddie_gaucho_argentino_dorso.jpg",
         "name": "Dorso Eddie Gaucho Argentino",
         "selectionLabel": "Dorso Eddie Gaucho Argentino",
         "role": "back"

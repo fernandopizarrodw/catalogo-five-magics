@@ -717,7 +717,7 @@
                                     label: '40 YEARS + FECHA'
                                 },
                                 {
-                                    src: '/images/banda_sugeridas/helloween/show_2026_verticales/remera_helloween_65_set_list_40years_dorso.jpg',
+                                    src: '/images/banda_sugeridas/helloween/dorso/remera_helloween_65_set_list_40years_dorso.jpg',
                                     alt: 'Dorso con setlist completo del show en Buenos Aires 2026',
                                     label: 'SETLIST COMPLETO + FECHA'
                                 }

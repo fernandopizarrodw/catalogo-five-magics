@@ -147,6 +147,27 @@ async function main() {
         assert(catalogFlow.every(item => item.cards > 0), JSON.stringify(catalogFlow));
         assert(catalogFlow[3].collection.includes('DISEÑOS'));
         console.log(`Flujo de compra: filtros remera/hoodie/buzo y modal correctos`);
+        const womenSizeGuide = await evaluate(`(() => {
+            document.querySelector('[data-band-landing-garment="remera"]').click();
+            document.querySelector('.catalog-design-card-main').click();
+            selectRemeraVariant('mujer_clasica');
+            openSizeGuideForCurrentGarment();
+            const result = {
+                garmentVariant: getSelectedRemeraVariantId(),
+                visible: !document.getElementById('modalSizeGuidePanel').classList.contains('is-hidden'),
+                title: document.getElementById('modalSizeGuideTitle').textContent.trim(),
+                firstRow: [...document.querySelectorAll('#modalSizeGuideTable tbody tr:first-child td')].map(cell => cell.textContent.trim())
+            };
+            closeModal();
+            return result;
+        })()`);
+        assert.deepEqual(womenSizeGuide, {
+            garmentVariant: 'mujer_clasica',
+            visible: true,
+            title: 'Remera corte mujer',
+            firstRow: ['S', '47', '61']
+        });
+        console.log('Tabla de medidas de mujer: título y medidas correctos');
         await send('Page.navigate', { url: 'http://127.0.0.1:5500/helloween/?prenda=abrigos#productsGrid' });
         for (let attempt = 0; attempt < 80; attempt++) {
             if (await evaluate("document.querySelectorAll('.catalog-design-card').length > 0")) break;
