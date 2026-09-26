@@ -7,6 +7,7 @@ const PAGE_URL = 'http://127.0.0.1:5500/iron-maiden/';
 const FRONT_IMAGE = '/images/iron_maiden/remera_iron_maiden_eddie_gaucho_argentino_frente.jpg';
 const DATED_FRONT_IMAGE = '/images/iron_maiden/remera_iron_maiden_eddie_gaucho_argentino_con_fecha.jpg';
 const BACK_IMAGE = '/images/iron_maiden/remera_iron_maiden_eddie_gaucho_argentino_dorso.jpg';
+const COMBINED_IMAGE = '/images/iron_maiden/remera_iron_maiden_eddie_gaucho_argentino.jpg';
 
 async function main() {
     const pages = await fetch(`${CDP_URL}/json`).then(response => response.json());
@@ -73,7 +74,10 @@ async function main() {
             const paths = [...featureImages, design.front.image, design.backOptions[0]?.image].filter(Boolean);
             const responses = await Promise.all(paths.map(path => fetch(new URL(path, location.href)).then(response => response.ok)));
             return {
-                featureIsFirst: document.querySelector('main > section') === feature,
+                heroIsFirst: document.querySelector('main > section')?.classList.contains('band-landing-hero') === true,
+                showcaseIsSecond: document.querySelectorAll('main > section')[1]?.id === 'bandDesignShowcase',
+                featureIsThird: document.querySelectorAll('main > section')[2] === feature,
+                showcaseCardCount: document.querySelectorAll('#bandDesignShowcase .band-design-showcase-card').length,
                 featureImages,
                 featureCardCount: feature.querySelectorAll('.band-campaign-feature-card').length,
                 featureCtaLabel: feature.querySelector('.band-campaign-feature-cta')?.textContent.trim() || '',
@@ -92,10 +96,13 @@ async function main() {
         })()`);
 
         assert(!result.error, result.error);
-        assert(result.featureIsFirst, 'La campaña Eddie Gaucho no aparece primero');
+        assert(result.heroIsFirst, 'El hero de campaña no aparece primero');
+        assert(result.showcaseIsSecond, 'Los destacados no aparecen después del hero');
+        assert(result.featureIsThird, 'Eddie Gaucho no aparece después de los destacados');
+        assert.equal(result.showcaseCardCount, 8, 'La selección de campaña no muestra ocho diseños');
         assert.equal(result.featureCardCount, 3);
-        assert.deepEqual(result.featureImages, [FRONT_IMAGE, DATED_FRONT_IMAGE, BACK_IMAGE]);
-        assert.equal(result.featureCtaLabel, 'ELEGIR VERSIÓN');
+        assert.deepEqual(result.featureImages, [FRONT_IMAGE, BACK_IMAGE, COMBINED_IMAGE]);
+        assert.equal(result.featureCtaLabel, 'VER DISEÑO Y ARMAR PEDIDO');
         assert.equal(result.featureOpenedDesign, 'cd-iron-maiden-eddie-gaucho-argentino--p7040');
         assert.equal(result.horizontalOverflow, false, 'La sección genera desborde horizontal en mobile');
         assert.equal(result.catalogCardCount, 1, 'Eddie Gaucho se duplicó en el catálogo');
@@ -132,11 +139,11 @@ async function main() {
 
             closeModal();
             featureCards[1].click();
-            const datedFront = snapshot();
+            const back = snapshot();
 
             closeModal();
             featureCards[2].click();
-            const back = snapshot();
+            const combined = snapshot();
 
             closeModal();
             feature.querySelector('.band-campaign-feature-cta').click();
@@ -146,7 +153,7 @@ async function main() {
             document.querySelector('[data-design-id="cd-iron-maiden-eddie-gaucho-argentino--p7040"] .catalog-design-card-main').click();
             const catalogCard = snapshot();
 
-            return { classicFront, classicWithBack, datedFront, back, cta, catalogCard };
+            return { classicFront, classicWithBack, back, combined, cta, catalogCard };
         })()`);
 
         assert.equal(entryFlow.classicFront.printMode, 'simple');
@@ -157,13 +164,10 @@ async function main() {
         assert.equal(entryFlow.classicWithBack.printMode, 'double');
         assert.equal(entryFlow.classicWithBack.back, 'Dorso Buenos Aires 2026');
         assert(entryFlow.classicWithBack.price.includes('$44.000'));
-        assert.equal(entryFlow.datedFront.printMode, 'simple');
-        assert.equal(entryFlow.datedFront.back, '');
-        assert.equal(entryFlow.datedFront.front, 'Frente Buenos Aires 2026');
-        assert(entryFlow.datedFront.slide.includes(DATED_FRONT_IMAGE));
-        assert(entryFlow.datedFront.price.includes('$37.000'));
         assert.equal(entryFlow.back.printMode, 'double');
         assert.equal(entryFlow.back.back, 'Dorso Buenos Aires 2026');
+        assert.equal(entryFlow.combined.printMode, 'double');
+        assert.equal(entryFlow.combined.back, 'Dorso Buenos Aires 2026');
         assert.equal(entryFlow.cta.printMode, 'simple');
         assert.equal(entryFlow.cta.back, '');
         assert(entryFlow.cta.slide.includes(FRONT_IMAGE));
@@ -195,7 +199,9 @@ async function main() {
         const datedCartFlow = await evaluate(`(() => {
             closeModal();
             cart.clearCart();
-            document.querySelectorAll('#bandCampaignFeature .band-campaign-feature-card')[1].click();
+            openCatalogDesign('cd-iron-maiden-eddie-gaucho-argentino--p7040', 'remera');
+            const datedSlide = getModalImages().findIndex(item => String(item.img || '').includes('${DATED_FRONT_IMAGE}'));
+            goToSlide(datedSlide);
             selectRemeraVariant('hombre_clasica');
             selectSize('M');
             selectColor('negro');

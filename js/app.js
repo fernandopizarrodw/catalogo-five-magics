@@ -3626,7 +3626,7 @@ function renderBandDesignShowcase() {
         designId,
         design: catalogDesignById.get(designId),
         variant: variants.get(designId)
-    })).filter(item => item.design && item.variant?.img);
+    })).filter(item => item.design && (item.variant?.img || item.design.front?.image));
 
     if (!items.length) {
         section.hidden = true;
@@ -3647,19 +3647,47 @@ function renderBandDesignShowcase() {
                 card.addEventListener('click', () => openBandShowcaseDesign(item.designId));
             }
             const image = document.createElement('img');
-            const previewImage = item.variant.campaignThumbnail || item.variant.img;
+            const previewImage = item.variant?.campaignThumbnail || item.variant?.img || item.design.front.image;
             image.src = `/${previewImage.replace(/^\/+/, '')}`;
-            image.alt = interactive ? (item.variant.alt || `Remera ${BAND_LANDING_CONFIG?.band || 'FMD'} ${item.design.publicName}`) : '';
+            image.alt = interactive ? (item.variant?.alt || `Remera ${BAND_LANDING_CONFIG?.band || 'FMD'} ${item.design.publicName}`) : '';
             image.decoding = 'async';
             image.loading = copyIndex === 0 && index < 6 ? 'eager' : 'lazy';
             card.appendChild(image);
+            if (BAND_LANDING_SHOWCASE?.showNames) {
+                const copy = document.createElement('span');
+                copy.className = 'band-design-showcase-card-copy';
+                const badges = Array.isArray(BAND_LANDING_SHOWCASE?.badges?.[item.designId])
+                    ? BAND_LANDING_SHOWCASE.badges[item.designId]
+                    : [];
+                if (badges.length) {
+                    const badgeRow = document.createElement('span');
+                    badgeRow.className = 'band-design-showcase-badges';
+                    badges.forEach(label => {
+                        const badge = document.createElement('small');
+                        badge.textContent = label;
+                        badgeRow.appendChild(badge);
+                    });
+                    copy.appendChild(badgeRow);
+                }
+                const name = document.createElement('strong');
+                name.textContent = BAND_LANDING_SHOWCASE?.labels?.[item.designId] || item.design.publicName;
+                copy.appendChild(name);
+                card.appendChild(copy);
+                card.classList.add('has-copy');
+            }
             set.appendChild(card);
         });
         return set;
     };
 
     track.style.setProperty('--showcase-duration', `${Number(BAND_LANDING_SHOWCASE.durationSeconds) || 60}s`);
-    track.append(buildSet(true, 0), buildSet(false, 1));
+    if (BAND_LANDING_SHOWCASE?.manualScroll) {
+        viewport.classList.add('is-manual');
+        track.classList.add('is-manual');
+        track.append(buildSet(true, 0));
+    } else {
+        track.append(buildSet(true, 0), buildSet(false, 1));
+    }
     track.dataset.rendered = 'true';
     track.dataset.itemCount = String(items.length);
 
@@ -4509,6 +4537,7 @@ function renderDorsoSelector() {
     
     if (currentCatalogDesign) {
         const choices = getCatalogDesignBackChoices();
+        const isEddieGaucho = currentCatalogDesign.designId === 'cd-iron-maiden-eddie-gaucho-argentino--p7040';
         const recommended = choices.filter(ref => ref.backType === 'Recomendado');
         const historical = choices
             .filter(ref => ref.backType === 'Archivo')
@@ -4527,15 +4556,15 @@ function renderDorsoSelector() {
                     onclick="selectCatalogDesignBack(${ref.productId}, ${ref.variantIndex})">
                 <span class="catalog-design-dorso-state">${selected ? 'DORSO ELEGIDO' : 'ELEGIR ESTE DORSO'}</span>
                 <img src="${ref.image}" alt="${ref.label}">
-                <span><strong>${ref.label}</strong><small>Opci&oacute;n de dorso</small></span>
+                <span><strong>${ref.label}</strong><small>${isEddieGaucho && ref.backType === 'Recomendado' ? 'Dorso recomendado' : 'Opci&oacute;n de dorso'}</small></span>
             </button>`;
         };
         variantsSection.style.display = choices.length ? 'block' : 'none';
         customSection.style.display = choices.length ? 'none' : 'block';
         variantsGrid.classList.add('catalog-design-dorso-grid');
         variantsGrid.innerHTML = `
-            ${primary.length ? `<div class="catalog-design-dorso-recommended"><p><b>2. ELEG&Iacute; EL DORSO</b><span>Seleccion&aacute; una opci&oacute;n para completar la prenda.</span></p><div>${primary.map(renderChoice).join('')}</div><button type="button" class="catalog-design-dorso-help${selectedCatalogBackDeferred ? ' selected' : ''}" onclick="deferCatalogDesignBack()">${selectedCatalogBackDeferred ? 'DORSO A DEFINIR SELECCIONADO' : 'DEFINIR EL DORSO POR WHATSAPP'}</button><button type="button" class="catalog-design-dorso-help" onclick="consultCatalogBackChoice()">&iquest;NECESIT&Aacute;S AYUDA PARA ELEGIR? CONSULTANOS</button></div>` : ''}
-            ${archive.length ? `<details class="catalog-design-dorso-archive"><summary>VER OTROS DORSOS DE ${currentCatalogDesign.band.toUpperCase()}</summary><div>${archive.map(renderChoice).join('')}</div></details>` : ''}
+            ${primary.length ? `<div class="catalog-design-dorso-recommended"><p><b>${isEddieGaucho ? '2. DORSO RECOMENDADO' : '2. ELEG&Iacute; EL DORSO'}</b><span>${isEddieGaucho ? 'La opci&oacute;n Buenos Aires 2026 completa este dise&ntilde;o.' : 'Seleccion&aacute; una opci&oacute;n para completar la prenda.'}</span></p><div>${primary.map(renderChoice).join('')}</div><button type="button" class="catalog-design-dorso-help${selectedCatalogBackDeferred ? ' selected' : ''}" onclick="deferCatalogDesignBack()">${selectedCatalogBackDeferred ? 'DORSO A DEFINIR SELECCIONADO' : 'DEFINIR EL DORSO POR WHATSAPP'}</button><button type="button" class="catalog-design-dorso-help" onclick="consultCatalogBackChoice()">&iquest;NECESIT&Aacute;S AYUDA PARA ELEGIR? CONSULTANOS</button></div>` : ''}
+            ${archive.length ? `<details class="catalog-design-dorso-archive"><summary>${isEddieGaucho ? 'VER OTROS DORSOS' : `VER OTROS DORSOS DE ${currentCatalogDesign.band.toUpperCase()}`}</summary><div>${archive.map(renderChoice).join('')}</div></details>` : ''}
         `;
         if (summarySection) {
             const summaryText = document.getElementById('dorsoSelectionText');

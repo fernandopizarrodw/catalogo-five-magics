@@ -123,11 +123,11 @@ ${config.garments.map((garment, index) => `
 function renderCatalogSection(config, collections, completeArchive) {
     return `        <section class="band-landing-catalog"${config.showGarmentSelector === false ? ' id="catalogoPrincipal"' : ''} aria-labelledby="bandCatalogTitle">
             <div class="band-landing-section-head">
-                <p>ARCHIVO FMD</p>
-                <h2 id="bandCatalogTitle">DISEÑOS DE ${config.displayName}</h2>
+                <p>${config.catalogKicker || 'ARCHIVO FMD'}</p>
+                <h2 id="bandCatalogTitle">${config.catalogTitle || `DISEÑOS DE ${config.displayName}`}</h2>
                 <div class="band-landing-design-note">
-                    <strong>TU DISEÑO, TU PRENDA</strong>
-                    <span>Remeras, hoodies y buzos con diseño solo al frente o frente y dorso.</span>
+                    <strong>${config.catalogNoteTitle || 'TU DISEÑO, TU PRENDA'}</strong>
+                    <span>${config.catalogNoteCopy || 'Remeras, hoodies y buzos con diseño solo al frente o frente y dorso.'}</span>
                 </div>
             </div>
             <nav id="categoryNav" hidden aria-hidden="true"></nav>
@@ -237,7 +237,7 @@ function renderLanding(config, sharedCommerceMarkup) {
             </div>
             <button type="button" class="band-design-showcase-cta" onclick="openBandShowcaseCollection()">${config.showcase.ctaLabel}</button>
         </section>` : '';
-    const featuredCollection = config.featuredCollection && typeof config.featuredCollection === 'object'
+    const featuredCollection = !config.hideFeaturedCollection && config.featuredCollection && typeof config.featuredCollection === 'object'
         ? config.featuredCollection
         : null;
     const featuredCollectionCards = Array.isArray(featuredCollection?.cards) ? featuredCollection.cards : [];
@@ -269,13 +269,38 @@ ${featuredCollectionCards.map((card, index) => `                <button type="bu
                 <span>${campaignFeature.copy}</span>
             </div>
             <div class="band-campaign-feature-gallery">
-${campaignFeatureImages.map((image, index) => `                <button type="button" class="band-campaign-feature-card${image.primary ? ' is-primary' : ''}" onclick="openCatalogDesignPreview('${campaignFeature.designId}', 'remera', '${image.printMode || 'simple'}', '${image.src}')" aria-label="Ver ${image.label}: ${campaignFeature.title}">
+${campaignFeatureImages.map((image, index) => `                <button type="button" class="band-campaign-feature-card${image.primary ? ' is-primary' : ''}" onclick="openCatalogDesignPreview('${campaignFeature.designId}', 'remera', '${image.printMode || 'simple'}', '${image.preview || image.src}')" aria-label="Ver ${image.label}: ${campaignFeature.title}">
                     <img src="${image.src}" alt="${image.alt}" width="${image.width}" height="${image.height}" loading="${index === 0 ? 'eager' : 'lazy'}" decoding="async">
                     <strong>${image.label}</strong>
                 </button>`).join('\n')}
             </div>
+${campaignFeature.eventLine ? `            <p class="band-campaign-feature-event">${campaignFeature.eventLine}</p>\n` : ''}${Array.isArray(campaignFeature.priceOptions) && campaignFeature.priceOptions.length ? `            <div class="band-campaign-feature-prices" aria-label="Precios disponibles">
+${campaignFeature.priceOptions.map(option => `                <span><b>${option.label}</b>${option.price}</span>`).join('\n')}
+            </div>\n` : ''}
             <p class="band-campaign-feature-note">${campaignFeature.note}</p>
             <button type="button" class="band-campaign-feature-cta" onclick="openCatalogDesignPreview('${campaignFeature.designId}', 'remera', '${campaignFeature.defaultPrintMode || 'simple'}', '${campaignFeature.defaultPreview || campaignFeatureImages[0].src}')">${campaignFeature.ctaLabel}</button>
+        </section>` : '';
+    const realProductProof = config.realProductProof && typeof config.realProductProof === 'object'
+        ? config.realProductProof
+        : null;
+    const realProductProofImages = Array.isArray(realProductProof?.images)
+        ? realProductProof.images.filter(image => image?.src)
+        : [];
+    const realProductProofMarkup = realProductProofImages.length ? `
+        <section class="band-real-product-proof" id="realProductProof" aria-labelledby="bandRealProductProofTitle">
+            <div class="band-real-product-proof-head">
+                <p>${realProductProof.kicker || 'PRENDAS REALES'}</p>
+                <h2 id="bandRealProductProofTitle">${realProductProof.title}</h2>
+                <span>${realProductProof.copy}</span>
+            </div>
+            <div class="band-real-product-proof-grid">
+${realProductProofImages.map((image, index) => `                <button type="button" onclick="openImageModal('${image.src}')" aria-label="Ampliar ${image.alt}">
+                    <img src="${image.src}" alt="${image.alt}" width="${image.width || 1080}" height="${image.height || 1350}" loading="${index === 0 ? 'eager' : 'lazy'}" decoding="async">
+                </button>`).join('\n')}
+            </div>
+            <div class="band-real-product-proof-specs">
+${(Array.isArray(realProductProof.specs) ? realProductProof.specs : ['Algodón peinado 24/1', 'Impresión DTG directa sobre la tela']).map(spec => `                <strong>${spec}</strong>`).join('\n')}
+            </div>
         </section>` : '';
     return `<!DOCTYPE html>
 <html lang="es">
@@ -336,7 +361,7 @@ ${instagram ? `                <a href="${instagram.href}" class="band-landing-i
                     <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.4" cy="6.6" r="1"></circle></svg>
                 </a>` : ''}
                 <a href="${whatsappUrl(`Hola FMD! Quiero consultar por los diseños de ${config.band}.`)}" class="btn-wa-header" target="_blank" rel="noopener"${catalogFirst ? ' aria-label="Consultar por WhatsApp"' : ''}>
-${catalogFirst ? `                    <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
+${catalogFirst || config.band === 'Iron Maiden' ? `                    <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
 ` : ''}                    <span>CONSULTAR</span>
                 </a>
             </div>
@@ -357,8 +382,7 @@ ${catalogFirst ? `                    <svg viewBox="0 0 24 24" aria-hidden="true
     </div>
 
     <main>
-${campaignFeatureMarkup}
-${showcaseFirst ? showcaseMarkup : ''}
+${config.heroFirst ? '' : campaignFeatureMarkup}${showcaseFirst && !config.heroFirst ? showcaseMarkup : ''}
         <section class="band-landing-hero${postShow ? ' band-landing-pre-show' : ''}" aria-labelledby="bandLandingTitle">
             <div class="band-landing-hero-copy">
                 <p class="band-landing-brand">FIVE MAGICS DESIGNS</p>
@@ -367,7 +391,10 @@ ${showcaseFirst ? showcaseMarkup : ''}
 ${eventDay ? `                <p class="helloween-event-day-line">${eventDay.label}</p>` : ''}
                 <p>${config.heroCopy}</p>
 ${config.heroQualityLine ? `                <p class="band-landing-quality-line">${config.heroQualityLine}</p>` : ''}
-                <a class="band-landing-primary-cta" href="#catalogoPrincipal">${config.heroCtaLabel || 'VER DISEÑOS'}</a>
+${config.heroSecondaryCta ? `                <div class="band-landing-hero-actions">
+                    <a class="band-landing-primary-cta" href="#catalogoPrincipal">${config.heroCtaLabel || 'VER DISEÑOS'}</a>
+                    <a class="band-landing-secondary-cta" href="${config.heroSecondaryCta.href}">${config.heroSecondaryCta.label}</a>
+                </div>` : `                <a class="band-landing-primary-cta" href="#catalogoPrincipal">${config.heroCtaLabel || 'VER DISEÑOS'}</a>`}
 ${config.heroNotice ? `                <p class="band-landing-hero-notice">${config.heroNotice}</p>\n` : ''}${config.relatedArchive ? `                <a class="band-landing-related-archive" href="${config.relatedArchive.href}" aria-label="${config.relatedArchive.label}: ${config.relatedArchive.title}">
                     <span>${config.relatedArchive.label}</span>
                     <strong>${config.relatedArchive.title}</strong>
@@ -390,7 +417,7 @@ ${postShow ? `
             <div class="band-landing-hero-art">
                 <img src="${config.image}" alt="Colección Helloween post-show en Five Magics Designs" width="1200" height="1200">
             </div>
-        </section>` : ''}${featuredCollectionMarkup ? `\n${featuredCollectionMarkup}` : ''}
+        </section>` : ''}${config.heroFirst && showcaseFirst ? `\n${showcaseMarkup}` : ''}${config.heroFirst ? `\n${campaignFeatureMarkup}` : ''}${realProductProofMarkup}${featuredCollectionMarkup ? `\n${featuredCollectionMarkup}` : ''}
 ${catalogFirst ? `${garmentSelectorMarkup}
 ${catalogMarkup}` : ''}${postShowFeatured ? `
         <section class="helloween-post-show-featured" aria-labelledby="helloweenFeaturedTitle">
@@ -425,7 +452,7 @@ ${postShowFeaturedCtas.map(cta => `                    <button type="button" onc
             </div>
         </section>` : ''}
 
-${config.moveShippingAfterShowcase ? '' : shippingPromoMarkup}
+${config.moveShippingAfterShowcase ? '' : shippingPromoMarkup}${config.catalogBeforeProduction ? `\n${garmentSelectorMarkup}\n${catalogMarkup}` : ''}
         <section class="production-tracking-strip" aria-label="Producción y seguimiento">
             <strong>${config.productionTitle || '<span>PRODUCCIÓN</span> 48 A 72 H HÁBILES'}</strong>
             <p>${config.productionCopy || 'Una vez despachado, te enviamos el enlace de seguimiento. Plazo total estimado: 3 a 7 días hábiles según destino.'}</p>
@@ -455,7 +482,7 @@ ${finishedGarments.map((photo, index) => `                <button type="button" 
         </section>` : ''}
 ${showcaseFirst ? '' : showcaseMarkup}
 ${config.moveShippingAfterShowcase ? shippingPromoMarkup : ''}
-${catalogFirst ? '' : garmentSelectorMarkup}
+${catalogFirst || config.catalogBeforeProduction ? '' : garmentSelectorMarkup}
 ${config.showSizeGuide ? `
         <details class="band-landing-size-guide" id="tablaDeMedidas">
             <summary>
@@ -481,7 +508,7 @@ ${config.showSizeGuide ? `
             </div>
         </details>` : ''}
 
-${catalogFirst ? '' : catalogMarkup}
+${catalogFirst || config.catalogBeforeProduction ? '' : catalogMarkup}
 
 ${instagram ? `        <section class="band-landing-instagram" aria-label="Instagram de Five Magics Designs">
             <p>SEGUINOS EN INSTAGRAM</p>

@@ -278,14 +278,28 @@
             slug: 'iron-maiden',
             band: 'Iron Maiden',
             displayName: 'IRON MAIDEN',
-            title: 'Iron Maiden: remeras, hoodies y buzos | Five Magics Designs',
-            description: 'Colección Iron Maiden Run For Your Lives 2026. Diseños inspirados en los primeros nueve discos, de 1980 a 1992, en remeras, hoodies y buzos.',
+            title: 'Iron Maiden Run For Your Lives Argentina 2026 | Five Magics Designs',
+            description: 'Colección Iron Maiden para los shows del 20 y 21 de octubre de 2026 en el Estadio Huracán. Más de 50 diseños en remeras, hoodies y buzos.',
             canonical: 'https://catalogo.fivemagicsdesigns.com/iron-maiden/',
-            image: '/images/iron_maiden/maiden_live_after_death.jpg',
-            imageUrl: 'https://catalogo.fivemagicsdesigns.com/images/iron_maiden/maiden_live_after_death.jpg',
-            heroTitle: 'RUN FOR YOUR LIVES · 50 AÑOS',
-            heroCopy: '<strong>LOS PRIMEROS NUEVE DISCOS. UNA GIRA HISTÓRICA.</strong><br>Diseños inspirados en la era clásica de Iron Maiden, de 1980 a 1992.',
-            heroCtaLabel: 'VER LA COLECCIÓN',
+            image: '/images/iron_maiden/remera_iron_maiden_run_oficial.jpg',
+            imageUrl: 'https://catalogo.fivemagicsdesigns.com/images/iron_maiden/remera_iron_maiden_run_oficial.jpg',
+            heroFirst: true,
+            catalogBeforeProduction: true,
+            hideFeaturedCollection: true,
+            heroTitle: 'RUN FOR YOUR LIVES<br><span>ARGENTINA 2026 🇦🇷</span>',
+            heroCopy: '<strong>20 + 21 OCTUBRE · ESTADIO HURACÁN</strong><br><br>La gira que celebra 50 años de historia llega a Buenos Aires.<br>Diseños inspirados en los primeros nueve discos de Iron Maiden.<br><br><b>MÁS DE 50 DISEÑOS</b><br>Remeras · Hoodies · Buzos<br>Estampa frontal o frente + dorso',
+            heroCtaLabel: 'VER COLECCIÓN MAIDEN 2026',
+            heroSecondaryCta: {
+                label: 'VER EDDIE GAUCHO ARGENTINO',
+                href: '#bandCampaignFeature'
+            },
+            showSizeGuide: true,
+            productionTitle: '<span>PRODUCCIÓN</span> 48 A 72 H HÁBILES',
+            productionCopy: 'Algodón peinado 24/1 e impresión DTG directa sobre la tela. Una vez despachado, te enviamos el enlace de seguimiento.',
+            catalogKicker: 'ARCHIVO IRON MAIDEN',
+            catalogTitle: 'ARCHIVO IRON MAIDEN',
+            catalogNoteTitle: 'MÁS DE 50 DISEÑOS DISPONIBLES',
+            catalogNoteCopy: 'Explorá toda la colección por álbum, era, Eddie o tour.',
             finalTitle: '¿BUSCABAS OTRO DISEÑO DE IRON MAIDEN?',
             finalCopy: 'También hacemos diseños personalizados a partir de una tapa, imagen o idea.',
             whatsappMessage: 'Hola FMD! Quiero consultar por un diseño de Iron Maiden a partir de una tapa, imagen o idea.',
@@ -293,37 +307,44 @@
             usesShownComposition: false,
             campaignFeature: {
                 theme: 'argentina',
-                kicker: 'EDICIÓN ARGENTINA · ORIGINAL FMD',
-                title: 'EDDIE GAUCHO ARGENTINO',
-                copy: 'Elegí tu versión de frente y sumá el dorso Buenos Aires 2026 si querés la versión completa.',
-                note: 'Disponible solo frente o frente + dorso.',
+                kicker: 'DISEÑO ORIGINAL FMD',
+                title: 'EDDIE GAUCHO ARGENTINO 🇦🇷',
+                copy: 'Nuestra versión de Eddie para los shows de Iron Maiden en Argentina.',
+                eventLine: '20 + 21 OCTUBRE · ESTADIO HURACÁN',
+                note: 'Elegí solo frente o la versión completa con dorso Buenos Aires 2026.',
+                priceOptions: [
+                    { label: 'SOLO FRENTE', price: '$37.000' },
+                    { label: 'FRENTE + DORSO', price: '$44.000' }
+                ],
                 designId: 'cd-iron-maiden-eddie-gaucho-argentino--p7040',
-                ctaLabel: 'ELEGIR VERSIÓN',
+                ctaLabel: 'VER DISEÑO Y ARMAR PEDIDO',
                 images: [
                     {
                         src: '/images/iron_maiden/remera_iron_maiden_eddie_gaucho_argentino_frente.jpg',
-                        alt: 'Frente clásico de la remera Eddie Gaucho Argentino',
-                        label: 'FRENTE CLÁSICO',
+                        alt: 'Frente Eddie Gaucho Argentino sin fecha',
+                        label: 'FRENTE',
                         printMode: 'simple',
                         width: 1080,
                         height: 1340,
                         primary: true
                     },
                     {
-                        src: '/images/iron_maiden/remera_iron_maiden_eddie_gaucho_argentino_con_fecha.jpg',
-                        alt: 'Frente Buenos Aires 2026 de la remera Eddie Gaucho Argentino',
-                        label: 'FRENTE BUENOS AIRES 2026',
-                        printMode: 'simple',
-                        width: 1080,
-                        height: 1350
-                    },
-                    {
                         src: '/images/iron_maiden/remera_iron_maiden_eddie_gaucho_argentino_dorso.jpg',
                         alt: 'Dorso Run For Your Lives Buenos Aires 2026',
-                        label: 'DORSO BUENOS AIRES 2026',
+                        label: 'DORSO RECOMENDADO',
                         printMode: 'double',
+                        preview: '/images/iron_maiden/remera_iron_maiden_eddie_gaucho_argentino_frente.jpg',
                         width: 4691,
                         height: 5820
+                    },
+                    {
+                        src: '/images/iron_maiden/remera_iron_maiden_eddie_gaucho_argentino.jpg',
+                        alt: 'Remera Eddie Gaucho Argentino con frente y dorso Buenos Aires 2026',
+                        label: 'VERSIÓN FRENTE + DORSO',
+                        printMode: 'double',
+                        preview: '/images/iron_maiden/remera_iron_maiden_eddie_gaucho_argentino_frente.jpg',
+                        width: 1200,
+                        height: 1200
                     }
                 ],
                 defaultPrintMode: 'simple',
@@ -398,20 +419,69 @@
             showcaseFirst: true,
             showcase: {
                 campaignPreview: 'iron-maiden-nine-albums-tour',
-                title: '9 DISCOS · 1 TOUR',
-                copy: 'La historia que recorre Run For Your Lives: de Iron Maiden a Fear of the Dark. Tocá un diseño para verlo.',
-                ctaLabel: 'VER TODOS LOS DISEÑOS',
-                durationSeconds: 42,
+                title: 'DESTACADOS · RUN FOR YOUR LIVES 2026',
+                copy: 'Una selección para empezar. Después podés explorar el archivo completo.',
+                ctaLabel: 'VER LOS +50 DISEÑOS',
+                manualScroll: true,
+                showNames: true,
+                labels: {
+                    'cd-iron-maiden-eddie-gaucho-argentino--p7040': 'Eddie Gaucho Argentino',
+                    'iron-maiden-run-for-your-lives-2026-oficial': 'Run For Your Lives 2026',
+                    'iron-maiden-killers-1981-run-for-your-lives': 'Killers',
+                    'iron-maiden-number-of-the-beast-1982-run-for-your-lives': 'The Number of the Beast',
+                    'iron-maiden-powerslave-1984-run-for-your-lives': 'Powerslave',
+                    'iron-maiden-somewhere-in-time-1986-run-for-your-lives': 'Somewhere in Time',
+                    'iron-maiden-seventh-son-1988-run-for-your-lives': 'Seventh Son',
+                    'iron-maiden-fear-of-the-dark-1992-run-for-your-lives': 'Fear of the Dark'
+                },
+                badges: {
+                    'cd-iron-maiden-eddie-gaucho-argentino--p7040': ['ORIGINAL FMD', 'ARGENTINA 2026'],
+                    'iron-maiden-run-for-your-lives-2026-oficial': ['TOUR 2026'],
+                    'iron-maiden-killers-1981-run-for-your-lives': ['CLÁSICO'],
+                    'iron-maiden-number-of-the-beast-1982-run-for-your-lives': ['CLÁSICO'],
+                    'iron-maiden-powerslave-1984-run-for-your-lives': ['CLÁSICO'],
+                    'iron-maiden-somewhere-in-time-1986-run-for-your-lives': ['CLÁSICO'],
+                    'iron-maiden-seventh-son-1988-run-for-your-lives': ['CLÁSICO'],
+                    'iron-maiden-fear-of-the-dark-1992-run-for-your-lives': ['CLÁSICO']
+                },
                 order: [
-                    'iron-maiden-1980-run-for-your-lives',
+                    'cd-iron-maiden-eddie-gaucho-argentino--p7040',
+                    'iron-maiden-run-for-your-lives-2026-oficial',
                     'iron-maiden-killers-1981-run-for-your-lives',
                     'iron-maiden-number-of-the-beast-1982-run-for-your-lives',
-                    'iron-maiden-piece-of-mind-1983-run-for-your-lives',
                     'iron-maiden-powerslave-1984-run-for-your-lives',
                     'iron-maiden-somewhere-in-time-1986-run-for-your-lives',
                     'iron-maiden-seventh-son-1988-run-for-your-lives',
-                    'iron-maiden-no-prayer-1990-run-for-your-lives',
                     'iron-maiden-fear-of-the-dark-1992-run-for-your-lives'
+                ]
+            },
+            realProductProof: {
+                kicker: 'DEL ARTE A LA PRENDA',
+                title: 'ASÍ QUEDAN IMPRESAS',
+                copy: 'Así salen nuestros diseños del taller.',
+                specs: [
+                    'Algodón peinado 24/1',
+                    'Impresión DTG directa sobre la tela'
+                ],
+                images: [
+                    {
+                        src: '/images/iron_maiden/prendas_reales/eddie_gaucho_frente.jpg',
+                        alt: 'Frente real de la remera Eddie Gaucho Argentino terminada',
+                        width: 1080,
+                        height: 1350
+                    },
+                    {
+                        src: '/images/iron_maiden/prendas_reales/eddie_gaucho_dorso.jpg',
+                        alt: 'Dorso real Buenos Aires 2026 de la remera Eddie Gaucho Argentino terminada',
+                        width: 1086,
+                        height: 1448
+                    },
+                    {
+                        src: '/images/iron_maiden/prendas_reales/detalle_dtg.jpg',
+                        alt: 'Detalle macro de la impresión DTG sobre algodón peinado',
+                        width: 1122,
+                        height: 1402
+                    }
                 ]
             },
             featuredCollection: {

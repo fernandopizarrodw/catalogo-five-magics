@@ -604,6 +604,40 @@ body[data-band="Helloween"] .helloween-post-show-featured {
     text-align: center;
 }
 
+.band-campaign-feature-event {
+    margin: 18px 0 0;
+    color: #74acdf;
+    font: 800 0.86rem/1.4 "Oswald", sans-serif;
+    letter-spacing: 0.12em;
+    text-align: center;
+}
+
+.band-campaign-feature-prices {
+    max-width: 520px;
+    margin: 14px auto 0;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+}
+
+.band-campaign-feature-prices span {
+    padding: 11px 12px;
+    border: 1px solid rgba(116, 172, 223, 0.38);
+    border-radius: 9px;
+    color: #fff;
+    background: rgba(2, 12, 20, 0.7);
+    font: 700 1rem/1.2 "Inter", sans-serif;
+    text-align: center;
+}
+
+.band-campaign-feature-prices b {
+    display: block;
+    margin-bottom: 4px;
+    color: #b9dcf8;
+    font: 800 0.7rem/1.2 "Oswald", sans-serif;
+    letter-spacing: 0.1em;
+}
+
 .band-campaign-feature-note::first-letter {
     color: #f6c344;
 }
@@ -629,6 +663,76 @@ body[data-band="Helloween"] .helloween-post-show-featured {
     border-color: #74acdf;
     background: #74acdf;
     color: #03101a;
+}
+
+.band-real-product-proof {
+    width: min(1180px, calc(100% - 32px));
+    margin: 24px auto 0;
+    padding: 28px;
+    border: 1px solid rgba(116, 172, 223, 0.35);
+    border-radius: 22px;
+    background: linear-gradient(145deg, rgba(10, 18, 24, 0.96), rgba(4, 5, 7, 0.99));
+}
+
+.band-real-product-proof-head {
+    margin-bottom: 18px;
+    text-align: center;
+}
+
+.band-real-product-proof-head p,
+.band-real-product-proof-specs {
+    margin: 0;
+    color: #8fc7ee;
+    font: 800 0.72rem/1.4 "Oswald", sans-serif;
+    letter-spacing: 0.13em;
+    text-align: center;
+}
+
+.band-real-product-proof-specs {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 7px 20px;
+}
+
+.band-real-product-proof-specs strong {
+    color: #dceefa;
+}
+
+.band-real-product-proof-head h2 {
+    margin: 5px 0 7px;
+    color: #fff;
+    font: 400 clamp(2.2rem, 5vw, 3.8rem)/1 "Bebas Neue", sans-serif;
+}
+
+.band-real-product-proof-head span {
+    color: #d2d6db;
+    font: 400 0.94rem/1.5 "Inter", sans-serif;
+}
+
+.band-real-product-proof-grid {
+    margin-bottom: 16px;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.band-real-product-proof-grid button {
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 12px;
+    background: #08090a;
+    cursor: zoom-in;
+}
+
+.band-real-product-proof-grid img {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 4 / 5;
+    display: block;
+    object-fit: contain;
 }
 
 .band-design-showcase {
@@ -666,6 +770,24 @@ body[data-band="Helloween"] .helloween-post-show-featured {
     width: 100%;
     overflow: hidden;
     touch-action: pan-y;
+}
+
+.band-design-showcase-viewport.is-manual {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    overscroll-behavior-x: contain;
+    touch-action: pan-x pan-y;
+    padding: 0 24px 12px;
+    scrollbar-color: #6e536f #17131b;
+}
+
+.band-design-showcase-track.is-manual {
+    animation: none;
+    will-change: auto;
+}
+
+.band-design-showcase-track.is-manual .band-design-showcase-card {
+    scroll-snap-align: start;
 }
 
 .band-design-showcase-track {
@@ -714,6 +836,52 @@ body[data-band="Helloween"] .helloween-post-show-featured {
     height: 100%;
     object-fit: contain;
     background: #f5f3f0;
+}
+
+.band-design-showcase-card.has-copy {
+    width: clamp(190px, 20vw, 235px);
+    height: auto;
+    aspect-ratio: auto;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    color: #fff;
+    text-align: left;
+}
+
+.band-design-showcase-card.has-copy img {
+    height: auto;
+    aspect-ratio: 4 / 5;
+    flex: none;
+}
+
+.band-design-showcase-card-copy {
+    min-height: 82px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    background: #09090b;
+}
+
+.band-design-showcase-card-copy > strong {
+    font: 700 0.88rem/1.25 "Oswald", sans-serif;
+    letter-spacing: 0.02em;
+}
+
+.band-design-showcase-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+}
+
+.band-design-showcase-badges small {
+    padding: 3px 5px;
+    border: 1px solid rgba(116, 172, 223, 0.42);
+    border-radius: 999px;
+    color: #a9d5f6;
+    font: 800 0.56rem/1 "Oswald", sans-serif;
+    letter-spacing: 0.06em;
 }
 
 .band-design-showcase-cta {
@@ -995,6 +1163,71 @@ body.band-landing-page[data-band="Helloween"] .production-tracking-strip {
 
 .band-landing-primary-cta {
     margin-top: 28px;
+}
+
+.band-landing-hero-actions {
+    margin-top: 28px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.band-landing-hero-actions .band-landing-primary-cta {
+    margin-top: 0;
+}
+
+.band-landing-secondary-cta {
+    min-height: 48px;
+    padding: 12px 22px;
+    border: 1px solid rgba(116, 172, 223, 0.72);
+    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #e4f2fc;
+    background: rgba(116, 172, 223, 0.08);
+    font: 700 0.9rem/1 "Oswald", sans-serif;
+    letter-spacing: 0.06em;
+    text-decoration: none;
+}
+
+.band-landing-secondary-cta:hover,
+.band-landing-secondary-cta:focus-visible {
+    border-color: #74acdf;
+    background: rgba(116, 172, 223, 0.18);
+}
+
+body.band-landing-page[data-band="Iron Maiden"] .band-landing-hero {
+    border-color: rgba(116, 172, 223, 0.55);
+    background:
+        radial-gradient(circle at 7% 90%, rgba(116, 172, 223, 0.2), transparent 34%),
+        linear-gradient(105deg, #050607 0%, #0b1015 56%, #121a20 100%);
+}
+
+body.band-landing-page[data-band="Iron Maiden"] .band-landing-hero h1 {
+    font-size: clamp(4rem, 8vw, 7rem);
+}
+
+body.band-landing-page[data-band="Iron Maiden"] .band-landing-hero h2 span {
+    display: block;
+    margin-top: 5px;
+    color: #74acdf;
+}
+
+body.band-landing-page[data-band="Iron Maiden"] .band-landing-hero-art img {
+    object-fit: contain;
+    background: #ebe9e5;
+}
+
+body.band-landing-page[data-band="Iron Maiden"] .btn-wa-header svg {
+    width: 20px;
+    height: 20px;
+    flex: 0 0 20px;
+    fill: currentColor;
+}
+
+body.band-landing-page[data-band="Iron Maiden"] .btn-wa-header svg circle {
+    fill: none;
 }
 
 .band-landing-related-archive {
@@ -1807,6 +2040,41 @@ body.band-landing-page[data-band="Argentina"] #modal .btn-add-cart {
         width: 100%;
     }
 
+    .band-landing-hero-actions {
+        width: 100%;
+        margin-top: 20px;
+        display: grid;
+    }
+
+    .band-landing-secondary-cta {
+        width: 100%;
+    }
+
+    body.band-landing-page[data-band="Iron Maiden"] .band-landing-hero {
+        gap: 20px;
+        padding: 25px 16px 18px;
+    }
+
+    body.band-landing-page[data-band="Iron Maiden"] .band-landing-hero h1 {
+        font-size: clamp(3.15rem, 16vw, 4.5rem);
+        line-height: 0.88;
+    }
+
+    body.band-landing-page[data-band="Iron Maiden"] .band-landing-hero h2 {
+        font-size: clamp(1.55rem, 8vw, 2.15rem);
+        line-height: 1;
+    }
+
+    body.band-landing-page[data-band="Iron Maiden"] .band-landing-hero-copy > p:not(.band-landing-brand) {
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    body.band-landing-page[data-band="Iron Maiden"] .band-landing-hero-art {
+        min-height: 0;
+        height: 300px;
+    }
+
     .band-landing-related-archive {
         width: 100%;
         justify-content: center;
@@ -1829,6 +2097,29 @@ body.band-landing-page[data-band="Argentina"] #modal .btn-add-cart {
         margin-top: 14px;
         padding: 24px 12px 20px;
         border-radius: 18px;
+    }
+
+    .band-real-product-proof {
+        width: calc(100% - 20px);
+        margin-top: 14px;
+        padding: 20px 12px;
+        border-radius: 18px;
+    }
+
+    .band-real-product-proof-grid {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+    }
+
+    .band-real-product-proof-grid button {
+        flex: 0 0 84%;
+        scroll-snap-align: start;
+    }
+
+    .band-real-product-proof-specs {
+        display: grid;
+        gap: 5px;
     }
 
     .band-campaign-feature-head {
@@ -1896,6 +2187,27 @@ body.band-landing-page[data-band="Argentina"] #modal .btn-add-cart {
     .band-design-showcase-card {
         width: calc((100vw - 62px) / 3);
         border-radius: 8px;
+    }
+
+    .band-design-showcase-viewport.is-manual {
+        padding-inline: 12px;
+    }
+
+    .band-design-showcase-card.has-copy {
+        width: min(68vw, 235px);
+    }
+
+    .band-design-showcase-card-copy {
+        min-height: 76px;
+    }
+
+    .band-campaign-feature-prices {
+        gap: 6px;
+    }
+
+    .band-campaign-feature-prices span {
+        padding: 9px 6px;
+        font-size: 0.9rem;
     }
 
     .band-design-showcase-cta {
