@@ -195,6 +195,20 @@ body[data-band="Helloween"] .july-shipping-promo strong {
     pointer-events: none;
 }
 
+.band-landing-hero--copy-only {
+    min-height: 0;
+    grid-template-columns: minmax(0, 1fr);
+    padding-block: 50px;
+}
+
+.band-landing-hero--copy-only .band-landing-hero-copy {
+    width: min(820px, 100%);
+}
+
+.band-landing-hero--copy-only .band-landing-hero-copy > p:not(.band-landing-brand) {
+    max-width: 760px;
+}
+
 .helloween-post-show-hero {
     display: none;
 }
@@ -2053,6 +2067,10 @@ body.band-landing-page[data-band="Argentina"] #modal .btn-add-cart {
     body.band-landing-page[data-band="Iron Maiden"] .band-landing-hero {
         gap: 20px;
         padding: 25px 16px 18px;
+    }
+
+    body.band-landing-page[data-band="Iron Maiden"] .band-landing-hero--copy-only {
+        padding-bottom: 25px;
     }
 
     body.band-landing-page[data-band="Iron Maiden"] .band-landing-hero h1 {

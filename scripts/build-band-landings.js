@@ -383,7 +383,7 @@ ${catalogFirst || config.band === 'Iron Maiden' ? `                    <svg view
 
     <main>
 ${config.heroFirst ? '' : campaignFeatureMarkup}${showcaseFirst && !config.heroFirst ? showcaseMarkup : ''}
-        <section class="band-landing-hero${postShow ? ' band-landing-pre-show' : ''}" aria-labelledby="bandLandingTitle">
+        <section class="band-landing-hero${postShow ? ' band-landing-pre-show' : ''}${config.hideHeroArt ? ' band-landing-hero--copy-only' : ''}" aria-labelledby="bandLandingTitle">
             <div class="band-landing-hero-copy">
                 <p class="band-landing-brand">FIVE MAGICS DESIGNS</p>
                 <h1 id="bandLandingTitle">${config.heroDisplayName || config.displayName}</h1>
@@ -401,9 +401,9 @@ ${config.heroNotice ? `                <p class="band-landing-hero-notice">${con
                     <span aria-hidden="true">→</span>
                 </a>` : ''}
             </div>
-            <div class="band-landing-hero-art">
+${config.hideHeroArt ? '' : `            <div class="band-landing-hero-art">
                 <img src="${config.image}" alt="Diseño ${config.band} disponible en Five Magics Designs" width="1200" height="1200">
-            </div>
+            </div>`}
         </section>
 ${postShow ? `
         <section class="band-landing-hero helloween-post-show-hero" aria-labelledby="helloweenPostShowTitle" aria-hidden="true">

@@ -284,9 +284,10 @@
             image: '/images/iron_maiden/remera_iron_maiden_run_oficial.jpg',
             imageUrl: 'https://catalogo.fivemagicsdesigns.com/images/iron_maiden/remera_iron_maiden_run_oficial.jpg',
             heroFirst: true,
+            hideHeroArt: true,
             catalogBeforeProduction: true,
             hideFeaturedCollection: true,
-            heroTitle: 'RUN FOR YOUR LIVES<br><span>ARGENTINA 2026 🇦🇷</span>',
+            heroTitle: 'RUN FOR YOUR LIVES<br><span>ARGENTINA 2026</span>',
             heroCopy: '<strong>20 + 21 OCTUBRE · ESTADIO HURACÁN</strong><br><br>La gira que celebra 50 años de historia llega a Buenos Aires.<br>Diseños inspirados en los primeros nueve discos de Iron Maiden.<br><br><b>MÁS DE 50 DISEÑOS</b><br>Remeras · Hoodies · Buzos<br>Estampa frontal o frente + dorso',
             heroCtaLabel: 'VER COLECCIÓN MAIDEN 2026',
             heroSecondaryCta: {
@@ -308,7 +309,7 @@
             campaignFeature: {
                 theme: 'argentina',
                 kicker: 'DISEÑO ORIGINAL FMD',
-                title: 'EDDIE GAUCHO ARGENTINO 🇦🇷',
+                title: 'EDDIE GAUCHO ARGENTINO',
                 copy: 'Nuestra versión de Eddie para los shows de Iron Maiden en Argentina.',
                 eventLine: '20 + 21 OCTUBRE · ESTADIO HURACÁN',
                 note: 'Elegí solo frente o la versión completa con dorso Buenos Aires 2026.',
@@ -416,6 +417,12 @@
                 'cd-iron-maiden-eddie-v3--p409',
                 'cd-iron-maiden-eddie-v4--p5125'
             ],
+            suppressNewBadges: true,
+            editorialBadges: {
+                'cd-iron-maiden-eddie-gaucho-argentino--p7040': 'ORIGINAL FMD',
+                'iron-maiden-run-for-your-lives-2026-oficial': 'TOUR 2026',
+                'iron-maiden-somewhere-in-time-40th-fmd': '40 AÑOS'
+            },
             showcaseFirst: true,
             showcase: {
                 campaignPreview: 'iron-maiden-nine-albums-tour',
@@ -527,9 +534,9 @@
                 'iron-maiden-somewhere-back-in-time-world-tour'
             ],
             garments: [
+                { key: 'remera', title: 'REMERAS', price: 'Desde $37.000', image: '/images/iron_maiden/9 discos 1 tour/iron_maiden_number.jpg', alt: 'Remera Iron Maiden The Number of the Beast' },
                 { key: 'hoodie', title: 'HOODIES', price: 'Desde $52.000', image: '/images/iron_maiden/9 discos 1 tour/hoodie_iron_maiden_killers.jpg', alt: 'Hoodie Iron Maiden Killers' },
-                { key: 'buzo_cuello_redondo', title: 'BUZOS', price: 'Frontal $50.000 · Doble $55.000', image: '/images/iron_maiden/9 discos 1 tour/buzo_iron_maiden_number.jpg', alt: 'Buzo cuello redondo Iron Maiden The Number of the Beast' },
-                { key: 'remera', title: 'REMERAS', price: 'Desde $37.000', image: '/images/iron_maiden/9 discos 1 tour/iron_maiden_number.jpg', alt: 'Remera Iron Maiden The Number of the Beast' }
+                { key: 'buzo_cuello_redondo', title: 'BUZOS', price: 'Frontal $50.000 · Doble $55.000', image: '/images/iron_maiden/9 discos 1 tour/buzo_iron_maiden_number.jpg', alt: 'Buzo cuello redondo Iron Maiden The Number of the Beast' }
             ]
         },
         {
