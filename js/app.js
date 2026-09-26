@@ -2515,11 +2515,15 @@ function selectCatalogDesignPreviewForGarment(modalGarment) {
     const previews = currentCatalogDesign.previewsByGarment?.[garment] || [];
     const selectedColorKey = normalizeText(selectedColor);
     const preferCleanFront = normalizeText(currentCatalogDesign.band) === 'helloween';
-    let preview = preferCleanFront
+    const currentSelection = previews.find(item => (
+        Number(item.productId) === Number(selectedCatalogFrontRef?.productId)
+        && Number(item.variantIndex) === Number(selectedCatalogFrontRef?.variantIndex)
+    ));
+    let preview = currentSelection || (preferCleanFront
         ? chooseCleanCatalogPreview(previews, selectedColorKey)
         : previews.find(item => selectedColorKey && normalizeText(item.color) === selectedColorKey)
             || previews.find(item => item.preferredPreview)
-            || previews[0];
+            || previews[0]);
     if (!preview) {
         const fallbackGarments = ['remera', 'hoodie', 'buzo_cuello_redondo'];
         const fallbackPreviews = fallbackGarments

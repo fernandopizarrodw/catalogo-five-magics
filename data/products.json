@@ -16960,12 +16960,26 @@
       {
         "img": "images/iron_maiden/remera_iron_maiden_eddie_gaucho_argentino_frente.jpg",
         "name": "Eddie Gaucho Argentino - Remera",
+        "selectionLabel": "Frente clásico",
+        "designId": "cd-iron-maiden-eddie-gaucho-argentino--p7040",
+        "preferredPreview": true,
         "fmdBadge": "ORIGINAL FMD",
         "fmdBadgeDescription": "Creaci?n exclusiva FMD con Eddie gaucho para acompa?ar los shows de Iron Maiden en Argentina."
       },
       {
+        "img": "images/iron_maiden/remera_iron_maiden_eddie_gaucho_argentino_con_fecha.jpg",
+        "name": "Eddie Gaucho Argentino - Frente Buenos Aires 2026",
+        "selectionLabel": "Frente Buenos Aires 2026",
+        "designId": "cd-iron-maiden-eddie-gaucho-argentino--p7040",
+        "garmentCategory": "Iron Maiden",
+        "defaultPrintMode": "simple",
+        "fmdBadge": "ORIGINAL FMD",
+        "fmdBadgeDescription": "Creación exclusiva FMD con Eddie gaucho para acompañar los shows de Iron Maiden en Argentina."
+      },
+      {
         "img": "images/iron_maiden/hoodie_iron_maiden_eddie_gaucho_argentino.jpg",
         "name": "Eddie Gaucho Argentino - Hoodie",
+        "designId": "cd-iron-maiden-eddie-gaucho-argentino--p7040",
         "garmentCategory": "Hoodies Otras Bandas",
         "fmdBadge": "ORIGINAL FMD",
         "fmdBadgeDescription": "Creaci?n exclusiva FMD con Eddie gaucho para acompa?ar los shows de Iron Maiden en Argentina."
@@ -16973,24 +16987,16 @@
       {
         "img": "images/iron_maiden/buzo_iron_maiden_eddie_gaucho_argentino.jpg",
         "name": "Eddie Gaucho Argentino - Buzo cuello redondo",
+        "designId": "cd-iron-maiden-eddie-gaucho-argentino--p7040",
         "garmentCategory": "Buzo Cuello Redondo",
         "fmdBadge": "ORIGINAL FMD",
         "fmdBadgeDescription": "Creaci?n exclusiva FMD con Eddie gaucho para acompa?ar los shows de Iron Maiden en Argentina."
       },
       {
         "img": "images/iron_maiden/remera_iron_maiden_eddie_gaucho_argentino_dorso.jpg",
-        "name": "Dorso Eddie Gaucho Argentino",
-        "selectionLabel": "Dorso Eddie Gaucho Argentino",
+        "name": "Dorso Buenos Aires 2026",
+        "selectionLabel": "Dorso Buenos Aires 2026",
         "role": "back"
-      },
-      {
-        "img": "images/iron_maiden/remera_iron_maiden_eddie_gaucho_argentino.jpg",
-        "name": "Eddie Gaucho Argentino - Frente y dorso",
-        "garmentCategory": "Bandas Sugeridas",
-        "preferredPreview": true,
-        "defaultPrintMode": "double",
-        "fmdBadge": "ORIGINAL FMD",
-        "fmdBadgeDescription": "Creación exclusiva FMD con Eddie gaucho para acompañar los shows de Iron Maiden en Argentina."
       }
     ],
     "desc": "Eddie Gaucho Argentino FMD. Creaci?n exclusiva Five Magics Designs para acompa?ar los shows de Iron Maiden en Argentina. Dise?o destacado disponible en remera, hoodie y buzo cuello redondo.",

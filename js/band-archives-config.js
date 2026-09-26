@@ -295,27 +295,27 @@
                 theme: 'argentina',
                 kicker: 'EDICIÓN ARGENTINA · ORIGINAL FMD',
                 title: 'EDDIE GAUCHO ARGENTINO',
-                copy: 'Una edición original FMD inspirada en la llegada de Iron Maiden a Buenos Aires.',
-                note: 'Elegí estampa frontal o frente + dorso Run For Your Lives · Buenos Aires 2026.',
+                copy: 'Elegí tu versión de frente y sumá el dorso Buenos Aires 2026 si querés la versión completa.',
+                note: 'Disponible solo frente o frente + dorso.',
                 designId: 'cd-iron-maiden-eddie-gaucho-argentino--p7040',
-                ctaLabel: 'VER EDDIE GAUCHO',
+                ctaLabel: 'ELEGIR VERSIÓN',
                 images: [
                     {
-                        src: '/images/iron_maiden/remera_iron_maiden_eddie_gaucho_argentino.jpg',
-                        alt: 'Remera Eddie Gaucho Argentino con frente y dorso',
-                        label: 'FRENTE Y DORSO',
-                        printMode: 'double',
-                        width: 1200,
-                        height: 1200,
+                        src: '/images/iron_maiden/remera_iron_maiden_eddie_gaucho_argentino_frente.jpg',
+                        alt: 'Frente clásico de la remera Eddie Gaucho Argentino',
+                        label: 'FRENTE CLÁSICO',
+                        printMode: 'simple',
+                        width: 1080,
+                        height: 1340,
                         primary: true
                     },
                     {
-                        src: '/images/iron_maiden/remera_iron_maiden_eddie_gaucho_argentino_frente.jpg',
-                        alt: 'Frente de la remera Eddie Gaucho Argentino',
-                        label: 'FRENTE',
+                        src: '/images/iron_maiden/remera_iron_maiden_eddie_gaucho_argentino_con_fecha.jpg',
+                        alt: 'Frente Buenos Aires 2026 de la remera Eddie Gaucho Argentino',
+                        label: 'FRENTE BUENOS AIRES 2026',
                         printMode: 'simple',
                         width: 1080,
-                        height: 1340
+                        height: 1350
                     },
                     {
                         src: '/images/iron_maiden/remera_iron_maiden_eddie_gaucho_argentino_dorso.jpg',
