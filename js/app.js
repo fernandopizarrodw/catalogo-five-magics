@@ -2803,10 +2803,16 @@ function selectPrintMode(mode) {
         if (dorsoInput) dorsoInput.value = '';
         const summary = document.getElementById('dorsoSelectionSummary');
         if (summary) summary.style.display = 'none';
+    } else if (currentCatalogDesign
+        && !selectedCatalogBackRef
+        && !selectedCatalogBackDeferred
+        && currentCatalogDesign.backOptions?.length === 1) {
+        selectedCatalogBackRef = currentCatalogDesign.backOptions[0];
+        selectedBackIndex = -1;
     }
 
     updatePrintModeUI();
-    if (selectedPrintMode === 'double' && !usesBandLandingShownComposition()) {
+    if (selectedPrintMode === 'double' && !usesBandLandingShownComposition() && !selectedCatalogBackRef) {
         const advancedPanel = document.getElementById('modalAdvancedPanel');
         const dorsoPanel = document.getElementById('upsellDorso');
         if (advancedPanel) advancedPanel.open = true;
@@ -5127,6 +5133,29 @@ function openCatalogDesign(designId, initialGarment = '') {
 
 window.openCatalogDesign = openCatalogDesign;
 
+function openCatalogDesignPreview(designId, initialGarment = '', initialPrintMode = 'simple', previewImage = '') {
+    openCatalogDesign(designId, initialGarment);
+    if (!currentCatalogDesign || currentCatalogDesign.designId !== designId) return;
+
+    const normalizedPreviewImage = String(previewImage || '').replace(/^\/+/, '');
+    if (normalizedPreviewImage) {
+        const previewIndex = currentModalSourceRefs.findIndex(ref => (
+            String(ref.image || '').replace(/^\/+/, '') === normalizedPreviewImage
+        ));
+        if (previewIndex >= 0) goToSlide(previewIndex, false);
+    }
+
+    const printMode = normalizeText(initialPrintMode);
+    if (printMode === 'double' || printMode === 'doble') {
+        selectPrintMode('double');
+        return;
+    }
+
+    selectPrintMode('simple');
+}
+
+window.openCatalogDesignPreview = openCatalogDesignPreview;
+
 function openOuterwearFeaturedModal(id, variantIndex = undefined) {
     openModal(id, variantIndex, undefined, 'outerwear_feature');
 }
@@ -6542,6 +6571,11 @@ function renderCatalogDesignResults(designs) {
         ].filter(Boolean);
         const priceText = getCatalogDesignCardPriceText(design, preview, cardGarment);
         const initialGarment = isBandLandingMode() ? getBandLandingModalGarment(cardGarment) : '';
+        const previewPrintMode = normalizeText(preview?.defaultPrintMode || '');
+        const isCampaignFeatureDesign = document.getElementById('bandCampaignFeature')?.dataset.designId === design.designId;
+        const openAction = isCampaignFeatureDesign && (previewPrintMode === 'double' || previewPrintMode === 'doble')
+            ? `openCatalogDesignPreview('${design.designId}', '${initialGarment}', 'double', '${cardImage}')`
+            : `openCatalogDesign('${design.designId}', '${initialGarment}')`;
         const editorialBadge = BAND_LANDING_CONFIG?.editorialBadges?.[design.designId];
         const explicitBadges = [editorialBadge, ...(design.badges || [])]
             .filter(Boolean)
@@ -6560,7 +6594,7 @@ function renderCatalogDesignResults(designs) {
             .filter((badge, index, all) => all.findIndex(item => normalizeText(item.label) === normalizeText(badge.label)) === index)
             .slice(0, 2);
         return `<article class="catalog-design-card" data-design-id="${design.designId}">
-            <button type="button" class="catalog-design-card-main" onclick="openCatalogDesign('${design.designId}', '${initialGarment}')" aria-label="Ver diseño ${design.publicName}${design.displayGarment ? ` en ${design.displayGarment === 'hoodie' ? 'hoodie' : 'buzo'}` : ''}">
+            <button type="button" class="catalog-design-card-main" onclick="${openAction}" aria-label="Ver diseño ${design.publicName}${design.displayGarment ? ` en ${design.displayGarment === 'hoodie' ? 'hoodie' : 'buzo'}` : ''}">
                 <span class="catalog-design-media">
                     ${cardBadges.length ? `<span class="catalog-design-badges">${cardBadges.map(badge => `<span class="catalog-design-badge ${badge.className}">${badge.label}</span>`).join('')}</span>` : ''}
                     <img src="${cardImage}" alt="${preview.alt || `${design.publicName} - ${design.band}`}" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='images/logo/MARCA DE AGUA.png';">

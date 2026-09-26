@@ -291,6 +291,44 @@
             whatsappMessage: 'Hola FMD! Quiero consultar por un diseño de Iron Maiden a partir de una tapa, imagen o idea.',
             defaultGarment: 'remera',
             usesShownComposition: false,
+            campaignFeature: {
+                theme: 'argentina',
+                kicker: 'EDICIÓN ARGENTINA · ORIGINAL FMD',
+                title: 'EDDIE GAUCHO ARGENTINO',
+                copy: 'Una edición original FMD inspirada en la llegada de Iron Maiden a Buenos Aires.',
+                note: 'Elegí estampa frontal o frente + dorso Run For Your Lives · Buenos Aires 2026.',
+                designId: 'cd-iron-maiden-eddie-gaucho-argentino--p7040',
+                ctaLabel: 'VER EDDIE GAUCHO',
+                images: [
+                    {
+                        src: '/images/iron_maiden/remera_iron_maiden_eddie_gaucho_argentino.jpg',
+                        alt: 'Remera Eddie Gaucho Argentino con frente y dorso',
+                        label: 'FRENTE Y DORSO',
+                        printMode: 'double',
+                        width: 1200,
+                        height: 1200,
+                        primary: true
+                    },
+                    {
+                        src: '/images/iron_maiden/remera_iron_maiden_eddie_gaucho_argentino_frente.jpg',
+                        alt: 'Frente de la remera Eddie Gaucho Argentino',
+                        label: 'FRENTE',
+                        printMode: 'simple',
+                        width: 1080,
+                        height: 1340
+                    },
+                    {
+                        src: '/images/iron_maiden/remera_iron_maiden_eddie_gaucho_argentino_dorso.jpg',
+                        alt: 'Dorso Run For Your Lives Buenos Aires 2026',
+                        label: 'DORSO BUENOS AIRES 2026',
+                        printMode: 'double',
+                        width: 4691,
+                        height: 5820
+                    }
+                ],
+                defaultPrintMode: 'simple',
+                defaultPreview: '/images/iron_maiden/remera_iron_maiden_eddie_gaucho_argentino_frente.jpg'
+            },
             retiredDesignIds: [
                 'iron-maiden-iron-maiden-classic',
                 'iron-maiden-fear-of-the-dark-classic',

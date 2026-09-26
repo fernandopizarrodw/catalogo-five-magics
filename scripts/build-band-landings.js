@@ -257,6 +257,26 @@ ${featuredCollectionCards.map((card, index) => `                <button type="bu
             <p class="band-featured-collection-note">${featuredCollection.note}</p>
             <button type="button" class="band-featured-collection-cta" onclick="showBandLandingFeaturedCollection('${featuredCollection.query}')">${featuredCollection.ctaLabel}</button>
         </section>` : '';
+    const campaignFeature = config.campaignFeature && typeof config.campaignFeature === 'object'
+        ? config.campaignFeature
+        : null;
+    const campaignFeatureImages = Array.isArray(campaignFeature?.images) ? campaignFeature.images : [];
+    const campaignFeatureMarkup = campaignFeature && campaignFeature.designId && campaignFeatureImages.length ? `
+        <section class="band-campaign-feature band-campaign-feature--${campaignFeature.theme || 'default'}" id="bandCampaignFeature" data-design-id="${campaignFeature.designId}" aria-labelledby="bandCampaignFeatureTitle">
+            <div class="band-campaign-feature-head">
+                <p>${campaignFeature.kicker}</p>
+                <h2 id="bandCampaignFeatureTitle">${campaignFeature.title}</h2>
+                <span>${campaignFeature.copy}</span>
+            </div>
+            <div class="band-campaign-feature-gallery">
+${campaignFeatureImages.map((image, index) => `                <button type="button" class="band-campaign-feature-card${image.primary ? ' is-primary' : ''}" onclick="openCatalogDesignPreview('${campaignFeature.designId}', 'remera', '${image.printMode || 'simple'}', '${image.src}')" aria-label="Ver ${image.label}: ${campaignFeature.title}">
+                    <img src="${image.src}" alt="${image.alt}" width="${image.width}" height="${image.height}" loading="${index === 0 ? 'eager' : 'lazy'}" decoding="async">
+                    <strong>${image.label}</strong>
+                </button>`).join('\n')}
+            </div>
+            <p class="band-campaign-feature-note">${campaignFeature.note}</p>
+            <button type="button" class="band-campaign-feature-cta" onclick="openCatalogDesignPreview('${campaignFeature.designId}', 'remera', '${campaignFeature.defaultPrintMode || 'simple'}', '${campaignFeature.defaultPreview || campaignFeatureImages[0].src}')">${campaignFeature.ctaLabel}</button>
+        </section>` : '';
     return `<!DOCTYPE html>
 <html lang="es">
 <head>
@@ -337,6 +357,7 @@ ${catalogFirst ? `                    <svg viewBox="0 0 24 24" aria-hidden="true
     </div>
 
     <main>
+${campaignFeatureMarkup}
 ${showcaseFirst ? showcaseMarkup : ''}
         <section class="band-landing-hero${postShow ? ' band-landing-pre-show' : ''}" aria-labelledby="bandLandingTitle">
             <div class="band-landing-hero-copy">

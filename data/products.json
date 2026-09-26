@@ -16982,6 +16982,15 @@
         "name": "Dorso Eddie Gaucho Argentino",
         "selectionLabel": "Dorso Eddie Gaucho Argentino",
         "role": "back"
+      },
+      {
+        "img": "images/iron_maiden/remera_iron_maiden_eddie_gaucho_argentino.jpg",
+        "name": "Eddie Gaucho Argentino - Frente y dorso",
+        "garmentCategory": "Bandas Sugeridas",
+        "preferredPreview": true,
+        "defaultPrintMode": "double",
+        "fmdBadge": "ORIGINAL FMD",
+        "fmdBadgeDescription": "Creación exclusiva FMD con Eddie gaucho para acompañar los shows de Iron Maiden en Argentina."
       }
     ],
     "desc": "Eddie Gaucho Argentino FMD. Creaci?n exclusiva Five Magics Designs para acompa?ar los shows de Iron Maiden en Argentina. Dise?o destacado disponible en remera, hoodie y buzo cuello redondo.",
