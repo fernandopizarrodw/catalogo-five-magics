@@ -234,6 +234,8 @@
             garment: getGarment(variant, product),
             role: isBackVariant(variant) ? 'back' : 'front',
             preferredPreview: variant?.preferredPreview === true,
+            carouselPreview: variant?.carouselPreview === true,
+            tourRecommendation: variant?.tourRecommendation === true,
             color: String(variant?.color || '').trim(),
             defaultPrintMode: String(variant?.defaultPrintMode || product?.defaultPrintMode || '').trim()
         };
@@ -400,7 +402,7 @@
                 category: sourceProduct?.category || '',
                 isPersonalized: normalizeText(sourceProduct?.category) === 'personalizados',
                 orderCodeBase: canonicalFront && sourceProduct
-                    ? generateOrderCodeBase(sourceProduct, canonicalFront.variantIndex)
+                    ? (String(sourceProduct.orderCodeBase || '').trim() || generateOrderCodeBase(sourceProduct, canonicalFront.variantIndex))
                     : null,
                 identitySource: group.identitySource
             };

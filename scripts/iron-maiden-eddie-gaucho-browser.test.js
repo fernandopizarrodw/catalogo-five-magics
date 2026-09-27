@@ -49,7 +49,11 @@ async function main() {
         });
         await send('Network.enable');
         await send('Network.setCacheDisabled', { cacheDisabled: true });
-        await send('Page.navigate', { url: PAGE_URL });
+        if (String(page.url || '').startsWith(PAGE_URL)) {
+            await send('Page.reload', { ignoreCache: true });
+        } else {
+            await send('Page.navigate', { url: PAGE_URL });
+        }
         for (let attempt = 0; attempt < 80; attempt++) {
             const ready = await evaluate(`document.readyState === 'complete'
                 && typeof catalogDesigns !== 'undefined'
@@ -109,7 +113,7 @@ async function main() {
         assert.equal(result.front, FRONT_IMAGE);
         assert.deepEqual(result.remeraFronts, [
             { image: FRONT_IMAGE, label: 'Frente clásico' },
-            { image: DATED_FRONT_IMAGE, label: 'Frente Buenos Aires 2026' }
+            { image: DATED_FRONT_IMAGE, label: 'Frente con fechas' }
         ]);
         assert.deepEqual(result.backs, [BACK_IMAGE]);
         assert(result.cardImage.includes(FRONT_IMAGE));
@@ -187,9 +191,10 @@ async function main() {
             const item = cart.getCart().at(-1);
             const summary = cart.generateSummary();
             cart.clearCart();
-            return { added, backName: item?.backName || '', summary };
+            return { added, frontCode: item?.frontCode || '', backName: item?.backName || '', summary };
         })()`);
         assert(cartFlow.added, 'No se pudo agregar Eddie Gaucho con frente y dorso');
+        assert.equal(cartFlow.frontCode, 'IMEGAF-7040.V1');
         assert.equal(cartFlow.backName, 'Dorso Buenos Aires 2026');
         assert(cartFlow.summary.includes('Frente: clásico'));
         assert(cartFlow.summary.includes('Dorso: Dorso Buenos Aires 2026'));
@@ -209,14 +214,28 @@ async function main() {
             const item = cart.getCart().at(-1);
             const summary = cart.generateSummary();
             cart.clearCart();
-            return { added, frontName: item?.frontName || '', isDouble: item?.isDouble === true, summary };
+            return { added, frontCode: item?.frontCode || '', frontName: item?.frontName || '', isDouble: item?.isDouble === true, summary };
         })()`);
         assert(datedCartFlow.added, 'No se pudo agregar el frente Buenos Aires 2026');
-        assert.equal(datedCartFlow.frontName, 'Frente Buenos Aires 2026');
+        assert.equal(datedCartFlow.frontCode, 'IMEGAF-7040.V2');
+        assert.equal(datedCartFlow.frontName, 'Frente con fechas');
         assert.equal(datedCartFlow.isDouble, false);
-        assert(datedCartFlow.summary.includes('Frente: Buenos Aires 2026'));
+        assert(datedCartFlow.summary.includes('Frente: con fechas'));
         assert(datedCartFlow.summary.includes('Solo frente'));
         assert(datedCartFlow.summary.includes('$37.000'));
+
+        const codeSearchFlow = await evaluate(`(() => {
+            closeModal();
+            const opened = openExactCodeMatch('IMEGAF-7040.V2');
+            return {
+                opened,
+                front: selectedCatalogFrontRef?.selectionLabel || '',
+                code: document.getElementById('displayCode')?.textContent.trim() || ''
+            };
+        })()`);
+        assert.equal(codeSearchFlow.opened, true);
+        assert.equal(codeSearchFlow.front, 'Frente con fechas');
+        assert.equal(codeSearchFlow.code, 'IMEGAF-7040.V2');
         console.log(`Eddie Gaucho: dos frentes y dorso identificados correctamente, ${result.code}`);
 
         const circularFlow = await evaluate(`(() => {
@@ -229,11 +248,9 @@ async function main() {
             selectSize('M');
             selectColor('negro');
             selectPrintMode('double');
-            const panelOpen = document.getElementById('modalAdvancedPanel')?.open === true;
             const primaryChoices = [...document.querySelectorAll('.catalog-design-dorso-recommended .catalog-design-dorso')];
-            const blockedWithoutDecision = addToCartFromModal() === false && cart.getCart().length === 0;
-            primaryChoices[0]?.click();
             const selectedBack = selectedCatalogBackRef?.label || '';
+            const modalImages = getModalImages().map(item => item.img || '');
             const addedWithBack = addToCartFromModal();
             const selectedItem = cart.getCart().at(-1);
             const selectedSummary = cart.generateSummary();
@@ -244,11 +261,11 @@ async function main() {
             const deferredSummary = cart.generateSummary();
             cart.clearCart();
             return {
-                panelOpen,
                 primaryChoiceCount: primaryChoices.length,
-                blockedWithoutDecision,
+                modalImages,
                 selectedBack,
                 addedWithBack,
+                selectedItemCode: selectedItem?.frontCode || '',
                 selectedItemBack: selectedItem?.backName || '',
                 selectedSummary,
                 addedDeferred,
@@ -258,16 +275,34 @@ async function main() {
         })()`);
 
         assert(!circularFlow.error, circularFlow.error);
-        assert(circularFlow.panelOpen, 'La elección de dorso no se abre al seleccionar doble estampa');
-        assert(circularFlow.primaryChoiceCount >= 2, 'Eddie Circular no muestra dorsos visibles');
-        assert(circularFlow.blockedWithoutDecision, 'El modal permitió agregar doble estampa sin decidir el dorso');
+        assert.equal(circularFlow.primaryChoiceCount, 1, 'Eddie Circular no muestra su dorso recomendado');
+        assert(circularFlow.modalImages.some(image => image.includes('remera_iron_maiden_dorso_run_for_your_lives.jpg')));
+        assert.equal(circularFlow.selectedBack, 'Dorso Run For Your Lives');
         assert(circularFlow.addedWithBack && circularFlow.selectedBack, 'No se pudo elegir un dorso');
+        assert.equal(circularFlow.selectedItemCode, 'IMFECF-7019');
         assert.equal(circularFlow.selectedItemBack, circularFlow.selectedBack);
         assert(circularFlow.selectedSummary.includes(`Dorso: ${circularFlow.selectedBack}`));
         assert(circularFlow.addedDeferred, 'No se pudo dejar el dorso a definir');
         assert.equal(circularFlow.deferredItemBack, 'A definir por WhatsApp');
         assert(circularFlow.deferredSummary.includes('Dorso a definir'));
-        console.log('Eddie Circular: selección obligatoria y opción de definir el dorso por WhatsApp correctas');
+        const tourSuggestion = await evaluate(`(() => {
+            closeModal();
+            const design = catalogDesigns.find(item => item.designId === 'iron-maiden-piece-of-mind-1983-run-for-your-lives');
+            if (!design) return { error: 'Piece of Mind del tour no encontrado' };
+            openCatalogDesign(design.designId, 'remera');
+            selectPrintMode('double');
+            const recommended = getCatalogDesignBackChoices().filter(item => item.backType === 'Recomendado');
+            return {
+                count: recommended.length,
+                label: recommended[0]?.label || '',
+                image: recommended[0]?.image || ''
+            };
+        })()`);
+        assert(!tourSuggestion.error, tourSuggestion.error);
+        assert.equal(tourSuggestion.count, 1);
+        assert.equal(tourSuggestion.label, 'Dorso Run For Your Lives');
+        assert(tourSuggestion.image.includes('remera_iron_maiden_dorso_run_for_your_lives.jpg'));
+        console.log('Eddie Circular: dorso en carrusel y recomendación para diseños del tour correctos');
     } finally {
         socket.close();
     }

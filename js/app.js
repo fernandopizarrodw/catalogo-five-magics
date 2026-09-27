@@ -1958,6 +1958,7 @@ function openExactCodeMatch(query, afterOpen) {
             && normalizeText(item.orderCodeBase).replace(/\s+/g, '') === normalizedCode
         ));
         let matchedGarment = '';
+        let matchedCatalogRef = null;
         if (!design && codeData && Number.isFinite(codeData.variantIndex)) {
             design = catalogDesigns.find(item => {
                 if (!isCatalogDesignInScope(item)) return false;
@@ -1969,12 +1970,20 @@ function openExactCodeMatch(query, afterOpen) {
                     Number(ref.productId) === Number(codeData.id)
                     && Number(ref.variantIndex) === Number(codeData.variantIndex)
                 ));
+                if (matchedRef) matchedCatalogRef = matchedRef;
                 if (matchedRef?.role === 'front') matchedGarment = matchedRef.garment || '';
                 return Boolean(matchedRef);
             });
         }
         if (design) {
             openCatalogDesign(design.designId, matchedGarment);
+            if (matchedCatalogRef?.role === 'front') {
+                const matchedSlide = currentModalSourceRefs.findIndex(ref => (
+                    Number(ref.productId) === Number(matchedCatalogRef.productId)
+                    && Number(ref.variantIndex) === Number(matchedCatalogRef.variantIndex)
+                ));
+                if (matchedSlide >= 0) goToSlide(matchedSlide);
+            }
             if (typeof afterOpen === 'function') afterOpen(design);
             return true;
         }
@@ -3456,16 +3465,18 @@ function collectCatalogHistoricalBacks() {
             if (!isHistoricalBackProduct(product) && !window.FMDCatalogDesign.isBackVariant(variant)) return;
             const productLabel = cleanPublicText(product?.name || getCatalogBandLabel(product) || 'Diseño');
             const variantLabel = cleanPublicText(variant?.name || 'Dorso');
-            const publicLabel = normalizeText(variantLabel).includes(normalizeText(productLabel))
+            const selectionLabel = cleanPublicText(variant?.selectionLabel || '');
+            const publicLabel = selectionLabel || (normalizeText(variantLabel).includes(normalizeText(productLabel))
                 ? variantLabel
-                : `${productLabel} - ${variantLabel}`;
+                : `${productLabel} - ${variantLabel}`);
             refs.push({
                 productId: Number(product.id),
                 variantIndex,
                 image: variant?.img || product?.img || '',
                 label: publicLabel,
                 band: getCatalogBandLabel(product),
-                role: 'back'
+                role: 'back',
+                tourRecommendation: variant?.tourRecommendation === true
             });
         });
     });
@@ -4470,11 +4481,28 @@ function getCatalogDesignBackChoices() {
     if (!currentCatalogDesign) return [];
     const specific = (currentCatalogDesign.backOptions || []).map(ref => ({ ...ref, backType: 'Recomendado' }));
     if (CATALOG_DESIGNS_WITH_REQUIRED_BACK.has(currentCatalogDesign.designId)) return specific;
+    const isMaidenTourWithoutSpecificBack = !specific.length
+        && normalizeText(currentCatalogDesign.band) === 'iron maiden'
+        && (currentCatalogDesign.sourceProductIds || []).some(productId => {
+            const product = db.find(item => Number(item.id) === Number(productId));
+            const campaignText = normalizeText([
+                product?.name,
+                ...(product?.campaigns || []),
+                ...(product?.collections || []),
+                ...(product?.tags || [])
+            ].filter(Boolean).join(' '));
+            return campaignText.includes('run for your lives')
+                || campaignText.includes('world tour 2026')
+                || campaignText.includes('tour 2026');
+        });
     const specificImages = new Set(specific.map(ref => ref.image));
     const historical = catalogHistoricalBacks
         .filter(ref => normalizeText(ref.band) === normalizeText(currentCatalogDesign.band))
         .filter(ref => !specificImages.has(ref.image))
-        .map(ref => ({ ...ref, backType: 'Archivo' }));
+        .map(ref => ({
+            ...ref,
+            backType: isMaidenTourWithoutSpecificBack && ref.tourRecommendation ? 'Recomendado' : 'Archivo'
+        }));
     return [...specific, ...historical];
 }
 
@@ -4542,6 +4570,7 @@ function renderDorsoSelector() {
         const choices = getCatalogDesignBackChoices();
         const isEddieGaucho = currentCatalogDesign.designId === 'cd-iron-maiden-eddie-gaucho-argentino--p7040';
         const recommended = choices.filter(ref => ref.backType === 'Recomendado');
+        const hasTourRecommendation = recommended.some(ref => ref.tourRecommendation);
         const historical = choices
             .filter(ref => ref.backType === 'Archivo')
             .sort((a, b) => {
@@ -4559,14 +4588,14 @@ function renderDorsoSelector() {
                     onclick="selectCatalogDesignBack(${ref.productId}, ${ref.variantIndex})">
                 <span class="catalog-design-dorso-state">${selected ? 'DORSO ELEGIDO' : 'ELEGIR ESTE DORSO'}</span>
                 <img src="${ref.image}" alt="${ref.label}">
-                <span><strong>${ref.label}</strong><small>${isEddieGaucho && ref.backType === 'Recomendado' ? 'Dorso recomendado' : 'Opci&oacute;n de dorso'}</small></span>
+                <span><strong>${ref.label}</strong><small>${ref.backType === 'Recomendado' ? 'Dorso recomendado' : 'Opci&oacute;n de dorso'}</small></span>
             </button>`;
         };
         variantsSection.style.display = choices.length ? 'block' : 'none';
         customSection.style.display = choices.length ? 'none' : 'block';
         variantsGrid.classList.add('catalog-design-dorso-grid');
         variantsGrid.innerHTML = `
-            ${primary.length ? `<div class="catalog-design-dorso-recommended"><p><b>${isEddieGaucho ? '2. DORSO RECOMENDADO' : '2. ELEG&Iacute; EL DORSO'}</b><span>${isEddieGaucho ? 'La opci&oacute;n Buenos Aires 2026 completa este dise&ntilde;o.' : 'Seleccion&aacute; una opci&oacute;n para completar la prenda.'}</span></p><div>${primary.map(renderChoice).join('')}</div><button type="button" class="catalog-design-dorso-help${selectedCatalogBackDeferred ? ' selected' : ''}" onclick="deferCatalogDesignBack()">${selectedCatalogBackDeferred ? 'DORSO A DEFINIR SELECCIONADO' : 'DEFINIR EL DORSO POR WHATSAPP'}</button><button type="button" class="catalog-design-dorso-help" onclick="consultCatalogBackChoice()">&iquest;NECESIT&Aacute;S AYUDA PARA ELEGIR? CONSULTANOS</button></div>` : ''}
+            ${primary.length ? `<div class="catalog-design-dorso-recommended"><p><b>${isEddieGaucho || hasTourRecommendation ? '2. DORSO RECOMENDADO' : '2. ELEG&Iacute; EL DORSO'}</b><span>${isEddieGaucho ? 'La opci&oacute;n Buenos Aires 2026 completa este dise&ntilde;o.' : hasTourRecommendation ? 'Una opci&oacute;n pensada para completar los dise&ntilde;os del tour.' : 'Seleccion&aacute; una opci&oacute;n para completar la prenda.'}</span></p><div>${primary.map(renderChoice).join('')}</div><button type="button" class="catalog-design-dorso-help${selectedCatalogBackDeferred ? ' selected' : ''}" onclick="deferCatalogDesignBack()">${selectedCatalogBackDeferred ? 'DORSO A DEFINIR SELECCIONADO' : 'DEFINIR EL DORSO POR WHATSAPP'}</button><button type="button" class="catalog-design-dorso-help" onclick="consultCatalogBackChoice()">&iquest;NECESIT&Aacute;S AYUDA PARA ELEGIR? CONSULTANOS</button></div>` : ''}
             ${archive.length ? `<details class="catalog-design-dorso-archive"><summary>${isEddieGaucho ? 'VER OTROS DORSOS' : `VER OTROS DORSOS DE ${currentCatalogDesign.band.toUpperCase()}`}</summary><div>${archive.map(renderChoice).join('')}</div></details>` : ''}
         `;
         if (summarySection) {
@@ -4941,6 +4970,15 @@ function getActiveVariantIndex() {
     return Number.isFinite(sourceIndex) ? sourceIndex : currentSlide;
 }
 
+function getCurrentCatalogOrderCode(fallbackVariantIndex = getActiveVariantIndex()) {
+    const isEddieGaucho = currentCatalogDesign?.designId === 'cd-iron-maiden-eddie-gaucho-argentino--p7040';
+    if (isEddieGaucho && selectedCatalogFrontRef) {
+        return cart.generateCode(selectedCatalogFrontRef.productId, selectedCatalogFrontRef.variantIndex);
+    }
+    return currentCatalogDesign?.orderCodeBase
+        || cart.generateCode(currentProduct?.id, fallbackVariantIndex);
+}
+
 function getVariantGarmentType(variant) {
     if (!variant) return '';
     const category = normalizeText(variant?.garmentCategory || '');
@@ -5120,12 +5158,14 @@ function getCatalogDesignFrontRefs(design) {
     if (!design) return [];
     const refs = Object.values(design.previewsByGarment || {}).flat();
     const seen = new Set();
-    return refs.filter(ref => {
+    const frontRefs = refs.filter(ref => {
         const key = `${ref.productId}:${ref.variantIndex}`;
         if (seen.has(key)) return false;
         seen.add(key);
         return true;
     });
+    const carouselBacks = (design.backOptions || []).filter(ref => ref.carouselPreview);
+    return [...frontRefs, ...carouselBacks];
 }
 
 function catalogDesignRefToModalImage(ref) {
@@ -6270,9 +6310,9 @@ function updateModalInfo() {
     document.getElementById('modalName').textContent = displayName;
     
     // Actualizar código del producto
-    const code = cart.generateCode(currentProduct.id, activeVariantIndex, selectedBacks.size > 0 || selectedDorsoChips.size > 0);
+    const code = getCurrentCatalogOrderCode(activeVariantIndex);
     const displayCodeEl = document.getElementById('displayCode');
-    if (displayCodeEl) displayCodeEl.textContent = currentCatalogDesign?.orderCodeBase || code;
+    if (displayCodeEl) displayCodeEl.textContent = code;
     
     // Actualizar breadcrumb
     const breadcrumbCategory = document.getElementById('breadcrumbCategory');
@@ -8337,8 +8377,7 @@ function buildModalConsultationWhatsappMessage() {
     const activeVariant = images?.[currentSlide];
     const variantName = activeVariant?.name?.trim() || '';
     const displayName = currentCatalogDesign?.publicName || getProductDisplayName(currentProduct, variantName);
-    const code = currentCatalogDesign?.orderCodeBase
-        || cart.generateCode(currentProduct.id, activeVariantIndex, isDoubleSelectionActive(currentProduct));
+    const code = getCurrentCatalogOrderCode(activeVariantIndex);
     const designHash = currentCatalogDesign?.designId
         ? `#diseno-${encodeURIComponent(currentCatalogDesign.designId)}`
         : `#producto-${encodeURIComponent(currentProduct.id)}`;
@@ -8430,7 +8469,7 @@ function addToCartFromModal() {
         publicGarmentLabel: usesBandLandingShownComposition() ? getModalGarmentLabel(currentProduct) : '',
         designName: currentCatalogDesign?.publicName || '',
         frontName: selectedCatalogFrontRef?.selectionLabel || '',
-        orderCodeBase: currentCatalogDesign?.orderCodeBase || '',
+        orderCodeBase: getCurrentCatalogOrderCode(variantIndex) || '',
         usesShownComposition: isDouble && usesBandLandingShownComposition(),
         backName: selectedCatalogBackRef?.label || (selectedCatalogBackDeferred ? 'A definir por WhatsApp' : ''),
         backCode: selectedCatalogBackRef

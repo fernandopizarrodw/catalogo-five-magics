@@ -16266,6 +16266,25 @@
     "isNew": true,
     "priority": 161,
     "img": "images/iron_maiden/fmd_eddie_circular.jpg",
+    "orderCodeBase": "IMFECF-7019",
+    "variants": [
+      {
+        "img": "images/iron_maiden/fmd_eddie_circular.jpg",
+        "name": "Eddie Circular FMD - Frente",
+        "selectionLabel": "Frente Eddie Circular",
+        "designId": "cd-iron-maiden-eddie-circular-fmd--p7019",
+        "preferredPreview": true
+      },
+      {
+        "img": "images/iron_maiden/remera_iron_maiden_dorso_run_for_your_lives.jpg",
+        "name": "Dorso Run For Your Lives",
+        "selectionLabel": "Dorso Run For Your Lives",
+        "role": "back",
+        "backTargetDesignId": "cd-iron-maiden-eddie-circular-fmd--p7019",
+        "carouselPreview": true,
+        "tourRecommendation": true
+      }
+    ],
     "desc": "Diseno Iron Maiden edicion FMD 2026. Disponible para remera, hoodie y buzo cuello redondo.",
     "band": "Iron Maiden",
     "collections": [
@@ -16959,7 +16978,7 @@
     "variants": [
       {
         "img": "images/iron_maiden/remera_iron_maiden_eddie_gaucho_argentino_frente.jpg",
-        "name": "Eddie Gaucho Argentino - Remera",
+        "name": "Eddie Gaucho Argentino - Frente clásico",
         "selectionLabel": "Frente clásico",
         "designId": "cd-iron-maiden-eddie-gaucho-argentino--p7040",
         "preferredPreview": true,
@@ -16968,8 +16987,8 @@
       },
       {
         "img": "images/iron_maiden/remera_iron_maiden_eddie_gaucho_argentino_con_fecha.jpg",
-        "name": "Eddie Gaucho Argentino - Frente Buenos Aires 2026",
-        "selectionLabel": "Frente Buenos Aires 2026",
+        "name": "Eddie Gaucho Argentino - Frente con fechas",
+        "selectionLabel": "Frente con fechas",
         "designId": "cd-iron-maiden-eddie-gaucho-argentino--p7040",
         "garmentCategory": "Iron Maiden",
         "defaultPrintMode": "simple",
