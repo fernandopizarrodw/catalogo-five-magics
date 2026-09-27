@@ -113,13 +113,15 @@ async function main() {
         assert.equal(result.front, FRONT_IMAGE);
         assert.deepEqual(result.remeraFronts, [
             { image: FRONT_IMAGE, label: 'Frente clásico' },
-            { image: DATED_FRONT_IMAGE, label: 'Frente con fechas' }
+            { image: DATED_FRONT_IMAGE, label: 'Frente con fechas' },
+            { image: COMBINED_IMAGE, label: 'Frente clásico' }
         ]);
         assert.deepEqual(result.backs, [BACK_IMAGE]);
         assert(result.cardImage.includes(FRONT_IMAGE));
         assert.equal(result.code, 'IMEGAF-7040.V1');
         assert(result.modalImages.some(path => path.includes(FRONT_IMAGE)));
         assert(result.modalImages.some(path => path.includes(DATED_FRONT_IMAGE)));
+        assert(result.modalImages.some(path => path.includes(COMBINED_IMAGE)));
         assert(result.backSelectorImages.some(path => path.includes(BACK_IMAGE)));
         assert(result.imagesLoad, 'Alguna imagen de Eddie Gaucho no carga');
         const entryFlow = await evaluate(`(() => {
@@ -164,10 +166,10 @@ async function main() {
         assert.equal(entryFlow.classicFront.back, '');
         assert.equal(entryFlow.classicFront.front, 'Frente clásico');
         assert(entryFlow.classicFront.slide.includes(FRONT_IMAGE));
-        assert(entryFlow.classicFront.price.includes('$37.000'));
+        assert(entryFlow.classicFront.price.includes('$38.000'));
         assert.equal(entryFlow.classicWithBack.printMode, 'double');
         assert.equal(entryFlow.classicWithBack.back, 'Dorso Buenos Aires 2026');
-        assert(entryFlow.classicWithBack.price.includes('$44.000'));
+        assert(entryFlow.classicWithBack.price.includes('$45.000'));
         assert.equal(entryFlow.back.printMode, 'double');
         assert.equal(entryFlow.back.back, 'Dorso Buenos Aires 2026');
         assert.equal(entryFlow.combined.printMode, 'double');
@@ -179,7 +181,7 @@ async function main() {
         assert.equal(entryFlow.catalogCard.back, '');
         assert.equal(entryFlow.catalogCard.front, 'Frente clásico');
         assert(entryFlow.catalogCard.slide.includes(FRONT_IMAGE));
-        assert(entryFlow.catalogCard.price.includes('$37.000'));
+        assert(entryFlow.catalogCard.price.includes('$38.000'));
 
         const cartFlow = await evaluate(`(() => {
             cart.clearCart();
@@ -198,7 +200,7 @@ async function main() {
         assert.equal(cartFlow.backName, 'Dorso Buenos Aires 2026');
         assert(cartFlow.summary.includes('Frente: clásico'));
         assert(cartFlow.summary.includes('Dorso: Dorso Buenos Aires 2026'));
-        assert(cartFlow.summary.includes('$44.000'));
+        assert(cartFlow.summary.includes('$45.000'));
         assert(!cartFlow.summary.includes('Dorso a definir'));
 
         const datedCartFlow = await evaluate(`(() => {
@@ -222,7 +224,36 @@ async function main() {
         assert.equal(datedCartFlow.isDouble, false);
         assert(datedCartFlow.summary.includes('Frente: con fechas'));
         assert(datedCartFlow.summary.includes('Solo frente'));
-        assert(datedCartFlow.summary.includes('$37.000'));
+        assert(datedCartFlow.summary.includes('$38.000'));
+
+        const combinedCartFlow = await evaluate(`(() => {
+            closeModal();
+            cart.clearCart();
+            openCatalogDesign('cd-iron-maiden-eddie-gaucho-argentino--p7040', 'remera');
+            const combinedSlide = getModalImages().findIndex(item => String(item.img || '').includes('${COMBINED_IMAGE}'));
+            goToSlide(combinedSlide, false);
+            selectRemeraVariant('hombre_clasica');
+            selectSize('M');
+            selectColor('negro');
+            const state = {
+                printMode: selectedPrintMode,
+                front: selectedCatalogFrontRef?.selectionLabel || '',
+                back: selectedCatalogBackRef?.selectionLabel || selectedCatalogBackRef?.label || '',
+                code: document.getElementById('displayCode')?.textContent.trim() || ''
+            };
+            const added = addToCartFromModal();
+            const summary = cart.generateSummary();
+            cart.clearCart();
+            return { ...state, added, summary };
+        })()`);
+        assert.equal(combinedCartFlow.printMode, 'double');
+        assert.equal(combinedCartFlow.front, 'Frente clásico');
+        assert.equal(combinedCartFlow.back, 'Dorso Buenos Aires 2026');
+        assert.equal(combinedCartFlow.code, 'IMEGAF-7040.V1');
+        assert(combinedCartFlow.added, 'No se pudo agregar el mock combinado de Eddie Gaucho');
+        assert(combinedCartFlow.summary.includes('Frente: clásico'));
+        assert(combinedCartFlow.summary.includes('Dorso: Dorso Buenos Aires 2026'));
+        assert(combinedCartFlow.summary.includes('$45.000'));
 
         const codeSearchFlow = await evaluate(`(() => {
             closeModal();

@@ -1,29 +1,29 @@
-﻿// === CONFIGURACIÓN DE PRECIOS ===
+// === CONFIGURACIÓN DE PRECIOS ===
 const PRECIOS = {
-    simple: 37000,
-    doble: 44000,
-    simple_personalizado: 42000,
-    doble_personalizado: 49000
+    simple: 38000,
+    doble: 45000,
+    simple_personalizado: 43000,
+    doble_personalizado: 50000
 };
 const PRECIOS_OVERSIZE = {
-    simple: 40000,
-    doble: 47000,
-    simple_personalizado: 45000,
-    doble_personalizado: 52000
+    simple: 41000,
+    doble: 48000,
+    simple_personalizado: 46000,
+    doble_personalizado: 53000
 };
 const PRECIOS_CHICOS = {
-    simple: 32000,
-    doble: 35000
+    simple: 33000,
+    doble: 36000
 };
 const PRECIOS_HOODIES = {
-    simple: 52000,
-    doble: 59000
+    simple: 53000,
+    doble: 60000
 };
 const PRECIOS_BUZO_REDONDO = {
-    simple: 50000,
-    doble: 55000,
-    simple_personalizado: 55000,
-    doble_personalizado: 60000
+    simple: 51000,
+    doble: 56000,
+    simple_personalizado: 56000,
+    doble_personalizado: 61000
 };
 const PERSONALIZADO_EXTRA = 5000;
 const FECHA_VIGENCIA = "Agosto 2026";
@@ -745,9 +745,9 @@ function renderMegadethArchiveGrid() {
     if (!grid || !Array.isArray(db) || !db.length) return;
 
     const definitions = [
-        { id: 'remera', label: 'Remeras Megadeth', price: 'Desde $37.000' },
-        { id: 'hoodie', label: 'Hoodies Megadeth', price: 'Desde $52.000' },
-        { id: 'buzo', label: 'Buzos Megadeth', price: 'Frontal $50.000 · Doble $55.000' }
+        { id: 'remera', label: 'Remeras Megadeth', price: 'Desde $38.000' },
+        { id: 'hoodie', label: 'Hoodies Megadeth', price: 'Desde $53.000' },
+        { id: 'buzo', label: 'Buzos Megadeth', price: 'Frontal $51.000 · Doble $56.000' }
     ];
 
     grid.innerHTML = definitions.map(definition => {
@@ -3787,21 +3787,21 @@ function renderSlayerArchiveGrid() {
                 id: 'remera',
                 label: 'Remeras Slayer',
                 meta: 'Clásicas y oversize',
-                price: 'Desde $37.000',
+                price: 'Desde $38.000',
                 image: findGarmentImage('remera')
             },
             {
                 id: 'hoodie',
                 label: 'Hoodies Slayer',
                 meta: 'Canguro oversize unisex',
-                price: 'Desde $52.000',
+                price: 'Desde $53.000',
                 image: findGarmentImage('hoodie')
             },
             {
                 id: 'buzo',
                 label: 'Buzos Slayer',
                 meta: 'Cuello redondo unisex',
-                price: 'Frontal $50.000 · Doble $55.000',
+                price: 'Frontal $51.000 · Doble $56.000',
                 image: findGarmentImage('buzo')
             }
         ];
@@ -3844,7 +3844,7 @@ function renderEpicaArchiveGrid() {
                 id: 'remera',
                 label: 'Remeras EPICA',
                 meta: 'Estampa frontal',
-                price: 'Desde $37.000',
+                price: 'Desde $38.000',
                 image: findGarmentImage('remera'),
                 count: getVariantsByGarment('remera').length
             },
@@ -3852,7 +3852,7 @@ function renderEpicaArchiveGrid() {
                 id: 'hoodie',
                 label: 'Hoodies EPICA',
                 meta: 'Canguro oversize unisex',
-                price: 'Desde $52.000',
+                price: 'Desde $53.000',
                 image: findGarmentImage('hoodie'),
                 count: getVariantsByGarment('hoodie').length
             },
@@ -3860,7 +3860,7 @@ function renderEpicaArchiveGrid() {
                 id: 'buzo',
                 label: 'Buzos EPICA',
                 meta: 'Cuello redondo unisex',
-                price: 'Frontal $50.000 · Doble $55.000',
+                price: 'Frontal $51.000 · Doble $56.000',
                 image: findGarmentImage('buzo'),
                 count: getVariantsByGarment('buzo').length
             }
@@ -4062,9 +4062,9 @@ function renderMaidenArchiveGrid() {
     if (!grid || !section || !Array.isArray(db) || !db.length) return;
 
     const cards = [
-        { id: 'remera', title: 'Remeras Iron Maiden', price: 'Desde $37.000' },
-        { id: 'hoodie', title: 'Hoodies Iron Maiden', price: 'Desde $52.000' },
-        { id: 'buzo', title: 'Buzos Iron Maiden', price: 'Frontal $50.000 · Doble $55.000' }
+        { id: 'remera', title: 'Remeras Iron Maiden', price: 'Desde $38.000' },
+        { id: 'hoodie', title: 'Hoodies Iron Maiden', price: 'Desde $53.000' },
+        { id: 'buzo', title: 'Buzos Iron Maiden', price: 'Frontal $51.000 · Doble $56.000' }
     ].map(card => ({ ...card, products: getMaidenArchiveProducts(card.id) }));
 
     if (!cards.some(card => card.products.length)) {
@@ -4227,26 +4227,26 @@ function formatPreciosDual(product = null) {
         const slayerGarment = product?.matchedGarment || slayerGarmentPreference;
         if (slayerGarment === 'hoodie') {
             return `<div class="dual-prices">
-        <div class="price-line"><span class="price-amount">$52.000</span><span class="price-label">Hoodie estampa frontal</span></div>
-        <div class="price-line"><span class="price-amount">$59.000</span><span class="price-label">Hoodie con frente y dorso</span></div>
+        <div class="price-line"><span class="price-amount">$53.000</span><span class="price-label">Hoodie estampa frontal</span></div>
+        <div class="price-line"><span class="price-amount">$60.000</span><span class="price-label">Hoodie con frente y dorso</span></div>
     </div>`;
         }
         if (slayerGarment === 'buzo') {
             return `<div class="dual-prices">
-        <div class="price-line"><span class="price-amount">$50.000</span><span class="price-label">Buzo estampa frontal</span></div>
-        <div class="price-line"><span class="price-amount">$55.000</span><span class="price-label">Buzo con frente y dorso</span></div>
+        <div class="price-line"><span class="price-amount">$51.000</span><span class="price-label">Buzo estampa frontal</span></div>
+        <div class="price-line"><span class="price-amount">$56.000</span><span class="price-label">Buzo con frente y dorso</span></div>
     </div>`;
         }
         if (slayerGarment === 'remera') {
             return `<div class="dual-prices">
-        <div class="price-line"><span class="price-amount">$37.000</span><span class="price-label">Remera estampa frontal</span></div>
-        <div class="price-line"><span class="price-amount">$44.000</span><span class="price-label">Remera con frente y dorso</span></div>
+        <div class="price-line"><span class="price-amount">$38.000</span><span class="price-label">Remera estampa frontal</span></div>
+        <div class="price-line"><span class="price-amount">$45.000</span><span class="price-label">Remera con frente y dorso</span></div>
     </div>`;
         }
         return `<div class="dual-prices">
-        <div class="price-line"><span class="price-amount">$44.000</span><span class="price-label">Remera con frente y dorso</span></div>
-        <div class="price-line"><span class="price-amount">$59.000</span><span class="price-label">Hoodie con frente y dorso</span></div>
-        <div class="price-line"><span class="price-amount">$55.000</span><span class="price-label">Buzo con frente y dorso</span></div>
+        <div class="price-line"><span class="price-amount">$45.000</span><span class="price-label">Remera con frente y dorso</span></div>
+        <div class="price-line"><span class="price-amount">$60.000</span><span class="price-label">Hoodie con frente y dorso</span></div>
+        <div class="price-line"><span class="price-amount">$56.000</span><span class="price-label">Buzo con frente y dorso</span></div>
     </div>`;
     }
     const isHoodie = product && (product.matchedGarment === 'hoodie' || product.category === 'Hoodies FMD' || product.category === 'Hoodies Otras Bandas');
@@ -4973,7 +4973,10 @@ function getActiveVariantIndex() {
 function getCurrentCatalogOrderCode(fallbackVariantIndex = getActiveVariantIndex()) {
     const isEddieGaucho = currentCatalogDesign?.designId === 'cd-iron-maiden-eddie-gaucho-argentino--p7040';
     if (isEddieGaucho && selectedCatalogFrontRef) {
-        return cart.generateCode(selectedCatalogFrontRef.productId, selectedCatalogFrontRef.variantIndex);
+        const orderVariantIndex = Number.isInteger(selectedCatalogFrontRef.orderVariantIndex)
+            ? selectedCatalogFrontRef.orderVariantIndex
+            : selectedCatalogFrontRef.variantIndex;
+        return cart.generateCode(selectedCatalogFrontRef.productId, orderVariantIndex);
     }
     return currentCatalogDesign?.orderCodeBase
         || cart.generateCode(currentProduct?.id, fallbackVariantIndex);
@@ -5171,7 +5174,7 @@ function getCatalogDesignFrontRefs(design) {
 function catalogDesignRefToModalImage(ref) {
     return {
         img: ref.image,
-        name: ref.label,
+        name: ref.previewLabel || ref.label,
         alt: ref.alt,
         role: 'front',
         garmentCategory: ref.garment === 'hoodie'
@@ -6123,10 +6126,26 @@ function onCarouselScroll() {
     if (newSlide !== currentSlide && newSlide >= 0 && newSlide <= maxSlide) {
         currentSlide = newSlide;
         const activeCatalogRef = currentModalSourceRefs[newSlide];
-        if (activeCatalogRef?.role === 'front') selectedCatalogFrontRef = activeCatalogRef;
+        applyCatalogPreviewSelection(activeCatalogRef);
         resetModalImageZoom();
         updateModalInfo();
     }
+}
+
+function applyCatalogPreviewSelection(ref) {
+    if (ref?.role !== 'front') return;
+    selectedCatalogFrontRef = ref;
+    if (!ref.autoSelectBack || !currentCatalogDesign) return;
+
+    const targetBack = currentCatalogDesign.backOptions?.find(back => (
+        normalizeText(back.selectionLabel || back.label) === normalizeText(ref.autoSelectBack)
+    ));
+    if (!targetBack) return;
+
+    selectedCatalogBackRef = targetBack;
+    selectedCatalogBackDeferred = false;
+    selectedBackIndex = -1;
+    selectPrintMode('double');
 }
 
 function onCarouselClick(e) {
@@ -6148,7 +6167,7 @@ function goToSlide(index, smooth = true) {
     const validIndex = Math.max(0, Math.min(index, images.length - 1));
     currentSlide = validIndex;
     const activeCatalogRef = currentModalSourceRefs[validIndex];
-    if (activeCatalogRef?.role === 'front') selectedCatalogFrontRef = activeCatalogRef;
+    applyCatalogPreviewSelection(activeCatalogRef);
     resetModalImageZoom();
     
     // Calcular la posición de scroll

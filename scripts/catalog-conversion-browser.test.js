@@ -234,10 +234,10 @@ async function main() {
     assert(results.modal.name.includes('Eddie Gaucho'), 'Nombre incorrecto en modal.', failures);
     assert(results.modal.initialCode === results.modal.codeAfterGarment && results.modal.initialCode === results.modal.codeAfterSlide, 'El código cambia con prenda o imagen.', failures);
     assert(['Remera','Hoodie','Buzo'].every(label => results.modal.garmentLabels.includes(label)), 'Faltan prendas principales en el modal.', failures);
-    assert(results.modal.hoodieSimple.includes('$52.000'), `Precio hoodie frontal incorrecto: ${results.modal.hoodieSimple}`, failures);
-    assert(results.modal.hoodieDouble.includes('$59.000'), `Precio hoodie doble incorrecto: ${results.modal.hoodieDouble}`, failures);
+    assert(results.modal.hoodieSimple.includes('$53.000'), `Precio hoodie frontal incorrecto: ${results.modal.hoodieSimple}`, failures);
+    assert(results.modal.hoodieDouble.includes('$60.000'), `Precio hoodie doble incorrecto: ${results.modal.hoodieDouble}`, failures);
     assert(results.modal.message.includes('Prenda: Hoodie'), 'WhatsApp no informa Hoodie.', failures);
-    assert(results.modal.message.includes('Precio del producto: $59.000'), 'WhatsApp tiene precio incorrecto.', failures);
+    assert(results.modal.message.includes('Precio del producto: $60.000'), 'WhatsApp tiene precio incorrecto.', failures);
     assert(results.modal.message.includes('Retiro sin cargo en Villa Martelli'), 'WhatsApp no informa la entrega.', failures);
     assert(!results.modal.message.includes('Código postal:'), 'Retiro en taller no debe incluir código postal.', failures);
     const orderedTops = results.modal.order.map(item => item.top);
@@ -307,14 +307,14 @@ async function main() {
     assert(results.eddieSmoke.hoodie.previewGarment === 'hoodie', `Preview hoodie incorrecto: ${results.eddieSmoke.hoodie.previewGarment}`, failures);
     assert(results.eddieSmoke.buzo.previewGarment === 'buzo_cuello_redondo', `Preview buzo incorrecto: ${results.eddieSmoke.buzo.previewGarment}`, failures);
     assert(new Set([results.eddieSmoke.remera.previewImage, results.eddieSmoke.hoodie.previewImage, results.eddieSmoke.buzo.previewImage]).size === 3, 'Eddie Gaucho no muestra tres previews diferentes.', failures);
-    assert(results.eddieSmoke.remera.simple.includes('$37.000') && results.eddieSmoke.remera.double.includes('$44.000'), 'Precios de remera Eddie Gaucho incorrectos.', failures);
-    assert(results.eddieSmoke.hoodie.simple.includes('$52.000') && results.eddieSmoke.hoodie.double.includes('$59.000'), 'Precios de hoodie Eddie Gaucho incorrectos.', failures);
-    assert(results.eddieSmoke.buzo.simple.includes('$50.000') && results.eddieSmoke.buzo.double.includes('$55.000'), 'Precios de buzo Eddie Gaucho incorrectos.', failures);
+    assert(results.eddieSmoke.remera.simple.includes('$38.000') && results.eddieSmoke.remera.double.includes('$45.000'), 'Precios de remera Eddie Gaucho incorrectos.', failures);
+    assert(results.eddieSmoke.hoodie.simple.includes('$53.000') && results.eddieSmoke.hoodie.double.includes('$60.000'), 'Precios de hoodie Eddie Gaucho incorrectos.', failures);
+    assert(results.eddieSmoke.buzo.simple.includes('$51.000') && results.eddieSmoke.buzo.double.includes('$56.000'), 'Precios de buzo Eddie Gaucho incorrectos.', failures);
     assert(results.eddieSmoke.message.includes('Prenda: Buzo cuello redondo'), 'WhatsApp Eddie Gaucho no informa buzo.', failures);
     assert(results.eddieSmoke.message.includes('Talle: L'), 'WhatsApp Eddie Gaucho no informa talle.', failures);
     assert(results.eddieSmoke.message.includes('Color: Negra'), 'WhatsApp Eddie Gaucho no informa color.', failures);
     assert(results.eddieSmoke.message.includes('Estampa: Doble estampa'), 'WhatsApp Eddie Gaucho no informa estampa.', failures);
-    assert(results.eddieSmoke.message.includes('Precio del producto: $55.000'), 'WhatsApp Eddie Gaucho tiene precio incorrecto.', failures);
+    assert(results.eddieSmoke.message.includes('Precio del producto: $56.000'), 'WhatsApp Eddie Gaucho tiene precio incorrecto.', failures);
     assert(results.eddieSmoke.message.includes('Retiro sin cargo en Villa Martelli'), 'WhatsApp Eddie Gaucho no informa entrega.', failures);
     assert(results.eddieSmoke.categoryAfter === 'Iron Maiden', `Se perdio Iron Maiden al cerrar: ${results.eddieSmoke.categoryAfter}`, failures);
     assert(results.eddieSmoke.scrollAfter === results.eddieSmoke.scrollBefore, `Eddie Gaucho no regreso al mismo punto: ${results.eddieSmoke.scrollBefore}/${results.eddieSmoke.scrollAfter}`, failures);
@@ -334,7 +334,7 @@ async function main() {
         };
     })()`);
     assert(results.referenceView.note.includes('Vista de referencia'), 'No se aclara la ausencia de mock para HammerFall en remera.', failures);
-    assert(results.referenceView.price.includes('$37.000'), 'La remera de referencia no toma precio de remera.', failures);
+    assert(results.referenceView.price.includes('$38.000'), 'La remera de referencia no toma precio de remera.', failures);
 
     results.personalized = await cdp.evaluate(`(() => {
         closeModal();

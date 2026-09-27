@@ -48,9 +48,9 @@
                 'nightwish-tuomas'
             ],
             garments: [
-                { key: 'hoodie', title: 'HOODIES', price: 'Desde $52.000', image: '/images/banda_sugeridas/nightwish/hoodie_nightwish_once.jpg', alt: 'Hoodie Nightwish Once' },
-                { key: 'buzo_cuello_redondo', title: 'BUZOS', price: 'Frontal $50.000 · Doble $55.000', image: '/images/banda_sugeridas/nightwish/buzo_nightwish_once.jpg', alt: 'Buzo cuello redondo Nightwish Once' },
-                { key: 'remera', title: 'REMERAS', price: 'Desde $37.000', image: '/images/banda_sugeridas/nightwish/remera_nightwish_once.jpg', alt: 'Remera Nightwish Once' }
+                { key: 'hoodie', title: 'HOODIES', price: 'Desde $53.000', image: '/images/banda_sugeridas/nightwish/hoodie_nightwish_once.jpg', alt: 'Hoodie Nightwish Once' },
+                { key: 'buzo_cuello_redondo', title: 'BUZOS', price: 'Frontal $51.000 · Doble $56.000', image: '/images/banda_sugeridas/nightwish/buzo_nightwish_once.jpg', alt: 'Buzo cuello redondo Nightwish Once' },
+                { key: 'remera', title: 'REMERAS', price: 'Desde $38.000', image: '/images/banda_sugeridas/nightwish/remera_nightwish_once.jpg', alt: 'Remera Nightwish Once' }
             ]
         },
         {
@@ -109,9 +109,9 @@
                 'slayer-v2-remera-negra'
             ],
             garments: [
-                { key: 'hoodie', title: 'HOODIES', price: 'Desde $52.000', image: '/images/slayer/fmd_originals/hoodies/hoodie_slayer_fmd_angel_of_death.jpg', alt: 'Hoodie Slayer FMD Angel of Death' },
-                { key: 'buzo_cuello_redondo', title: 'BUZOS', price: 'Frontal $50.000 · Doble $55.000', image: '/images/slayer/fmd_originals/buzos/buzo_slayer_fmd_angel_of_death.jpg', alt: 'Buzo cuello redondo Slayer FMD Angel of Death' },
-                { key: 'remera', title: 'REMERAS', price: 'Desde $37.000', image: '/images/slayer/fmd_originals/remeras/remera_slayer_fmd_angel_of_death.jpg', alt: 'Remera Slayer FMD Angel of Death' }
+                { key: 'hoodie', title: 'HOODIES', price: 'Desde $53.000', image: '/images/slayer/fmd_originals/hoodies/hoodie_slayer_fmd_angel_of_death.jpg', alt: 'Hoodie Slayer FMD Angel of Death' },
+                { key: 'buzo_cuello_redondo', title: 'BUZOS', price: 'Frontal $51.000 · Doble $56.000', image: '/images/slayer/fmd_originals/buzos/buzo_slayer_fmd_angel_of_death.jpg', alt: 'Buzo cuello redondo Slayer FMD Angel of Death' },
+                { key: 'remera', title: 'REMERAS', price: 'Desde $38.000', image: '/images/slayer/fmd_originals/remeras/remera_slayer_fmd_angel_of_death.jpg', alt: 'Remera Slayer FMD Angel of Death' }
             ]
         },
         {
@@ -222,9 +222,9 @@
                 'Megadeth (2026)'
             ],
             garments: [
-                { key: 'hoodie', title: 'HOODIES', price: 'Desde $52.000', image: '/images/hoddies_fmd/rust_in_peace.jpg', alt: 'Hoodie Megadeth Rust in Peace' },
-                { key: 'buzo_cuello_redondo', title: 'BUZOS', price: 'Frontal $50.000 · Doble $55.000', image: '/images/buzos cuello redondo/megadeth_rust_in_peace_original_fmd.jpg', alt: 'Buzo cuello redondo Megadeth Rust in Peace FMD' },
-                { key: 'remera', title: 'REMERAS', price: 'Desde $37.000', image: '/images/albums/Rust_in_peace/rust_in_peace.jpg', alt: 'Remera Megadeth Rust in Peace' }
+                { key: 'hoodie', title: 'HOODIES', price: 'Desde $53.000', image: '/images/hoddies_fmd/rust_in_peace.jpg', alt: 'Hoodie Megadeth Rust in Peace' },
+                { key: 'buzo_cuello_redondo', title: 'BUZOS', price: 'Frontal $51.000 · Doble $56.000', image: '/images/buzos cuello redondo/megadeth_rust_in_peace_original_fmd.jpg', alt: 'Buzo cuello redondo Megadeth Rust in Peace FMD' },
+                { key: 'remera', title: 'REMERAS', price: 'Desde $38.000', image: '/images/albums/Rust_in_peace/rust_in_peace.jpg', alt: 'Remera Megadeth Rust in Peace' }
             ],
             collections: [
                 { id: 'featured', label: 'DESTACADOS MEGADETH FMD', match: { designIds: [
@@ -314,8 +314,8 @@
                 eventLine: '20 + 21 OCTUBRE · ESTADIO HURACÁN',
                 note: 'Elegí solo frente o la versión completa con dorso Buenos Aires 2026.',
                 priceOptions: [
-                    { label: 'SOLO FRENTE', price: '$37.000' },
-                    { label: 'FRENTE + DORSO', price: '$44.000' }
+                    { label: 'SOLO FRENTE', price: '$38.000' },
+                    { label: 'FRENTE + DORSO', price: '$45.000' }
                 ],
                 designId: 'cd-iron-maiden-eddie-gaucho-argentino--p7040',
                 ctaLabel: 'VER DISEÑO Y ARMAR PEDIDO',
@@ -540,9 +540,9 @@
                 'iron-maiden-somewhere-back-in-time-world-tour'
             ],
             garments: [
-                { key: 'remera', title: 'REMERAS', price: 'Desde $37.000', image: '/images/iron_maiden/9 discos 1 tour/iron_maiden_number.jpg', alt: 'Remera Iron Maiden The Number of the Beast' },
-                { key: 'hoodie', title: 'HOODIES', price: 'Desde $52.000', image: '/images/iron_maiden/9 discos 1 tour/hoodie_iron_maiden_killers.jpg', alt: 'Hoodie Iron Maiden Killers' },
-                { key: 'buzo_cuello_redondo', title: 'BUZOS', price: 'Frontal $50.000 · Doble $55.000', image: '/images/iron_maiden/9 discos 1 tour/buzo_iron_maiden_number.jpg', alt: 'Buzo cuello redondo Iron Maiden The Number of the Beast' }
+                { key: 'remera', title: 'REMERAS', price: 'Desde $38.000', image: '/images/iron_maiden/9 discos 1 tour/iron_maiden_number.jpg', alt: 'Remera Iron Maiden The Number of the Beast' },
+                { key: 'hoodie', title: 'HOODIES', price: 'Desde $53.000', image: '/images/iron_maiden/9 discos 1 tour/hoodie_iron_maiden_killers.jpg', alt: 'Hoodie Iron Maiden Killers' },
+                { key: 'buzo_cuello_redondo', title: 'BUZOS', price: 'Frontal $51.000 · Doble $56.000', image: '/images/iron_maiden/9 discos 1 tour/buzo_iron_maiden_number.jpg', alt: 'Buzo cuello redondo Iron Maiden The Number of the Beast' }
             ]
         },
         {
@@ -578,9 +578,9 @@
                 'hermetica-interpretes'
             ],
             garments: [
-                { key: 'hoodie', title: 'HOODIES', price: 'Frontal $52.000 · Doble $59.000', image: '/images/banda_sugeridas/hermetica/hoodie_hermetica_acido.jpg', alt: 'Hoodie Hermética Ácido Argentino' },
-                { key: 'buzo_cuello_redondo', title: 'BUZOS', price: 'Frontal $50.000 · Doble $55.000', image: '/images/banda_sugeridas/hermetica/buzo_hermetica_acido.jpg', alt: 'Buzo cuello redondo Hermética Ácido Argentino' },
-                { key: 'remera', title: 'REMERAS', price: 'Frontal $37.000 · Doble $44.000', image: '/images/banda_sugeridas/hermetica/remera_hermetica_acido.jpg', alt: 'Remera Hermética Ácido Argentino' }
+                { key: 'hoodie', title: 'HOODIES', price: 'Frontal $53.000 · Doble $60.000', image: '/images/banda_sugeridas/hermetica/hoodie_hermetica_acido.jpg', alt: 'Hoodie Hermética Ácido Argentino' },
+                { key: 'buzo_cuello_redondo', title: 'BUZOS', price: 'Frontal $51.000 · Doble $56.000', image: '/images/banda_sugeridas/hermetica/buzo_hermetica_acido.jpg', alt: 'Buzo cuello redondo Hermética Ácido Argentino' },
+                { key: 'remera', title: 'REMERAS', price: 'Frontal $38.000 · Doble $45.000', image: '/images/banda_sugeridas/hermetica/remera_hermetica_acido.jpg', alt: 'Remera Hermética Ácido Argentino' }
             ]
         },
         {
@@ -695,9 +695,9 @@
                 'ricardo-iorio-blanco-y-negro'
             ],
             garments: [
-                { key: 'hoodie', title: 'HOODIES', price: 'Frontal $52.000 · Doble $59.000', image: '/images/banda_sugeridas/ricardo_iorio/hoodie_ioriov4.jpg', alt: 'Hoodie Ricardo Iorio solista' },
-                { key: 'buzo_cuello_redondo', title: 'BUZOS', price: 'Frontal $50.000 · Doble $55.000', image: '/images/banda_sugeridas/hermetica/buzo_hermetica_acido.jpg', alt: 'Buzo Hermética Ácido Argentino' },
-                { key: 'remera', title: 'REMERAS', price: 'Frontal $37.000 · Doble $44.000', image: '/images/banda_sugeridas/ricardo_iorio/remera_almafuerte_album.jpg', alt: 'Remera Almafuerte' }
+                { key: 'hoodie', title: 'HOODIES', price: 'Frontal $53.000 · Doble $60.000', image: '/images/banda_sugeridas/ricardo_iorio/hoodie_ioriov4.jpg', alt: 'Hoodie Ricardo Iorio solista' },
+                { key: 'buzo_cuello_redondo', title: 'BUZOS', price: 'Frontal $51.000 · Doble $56.000', image: '/images/banda_sugeridas/hermetica/buzo_hermetica_acido.jpg', alt: 'Buzo Hermética Ácido Argentino' },
+                { key: 'remera', title: 'REMERAS', price: 'Frontal $38.000 · Doble $45.000', image: '/images/banda_sugeridas/ricardo_iorio/remera_almafuerte_album.jpg', alt: 'Remera Almafuerte' }
             ]
         },
         {
@@ -720,9 +720,9 @@
             usesShownComposition: true,
             showSizeGuide: true,
             garments: [
-                { key: 'hoodie', title: 'HOODIES', price: 'Frontal $52.000 · Doble $59.000', image: '/images/banda_sugeridas/ozzy/hoodie_ozzy_blizzard.jpg', alt: 'Hoodie Ozzy Osbourne Blizzard of Ozz' },
-                { key: 'buzo_cuello_redondo', title: 'BUZOS', price: 'Frontal $50.000 · Doble $55.000', image: '/images/banda_sugeridas/ozzy/buzo_bark_at_the_moon.jpg', alt: 'Buzo cuello redondo Ozzy Osbourne Bark at the Moon' },
-                { key: 'remera', title: 'REMERAS', price: 'Frontal $37.000 · Doble $44.000', image: '/images/banda_sugeridas/ozzy/remera_ozzy_blizzard_of_ozz.jpg', alt: 'Remera Ozzy Osbourne Blizzard of Ozz' }
+                { key: 'hoodie', title: 'HOODIES', price: 'Frontal $53.000 · Doble $60.000', image: '/images/banda_sugeridas/ozzy/hoodie_ozzy_blizzard.jpg', alt: 'Hoodie Ozzy Osbourne Blizzard of Ozz' },
+                { key: 'buzo_cuello_redondo', title: 'BUZOS', price: 'Frontal $51.000 · Doble $56.000', image: '/images/banda_sugeridas/ozzy/buzo_bark_at_the_moon.jpg', alt: 'Buzo cuello redondo Ozzy Osbourne Bark at the Moon' },
+                { key: 'remera', title: 'REMERAS', price: 'Frontal $38.000 · Doble $45.000', image: '/images/banda_sugeridas/ozzy/remera_ozzy_blizzard_of_ozz.jpg', alt: 'Remera Ozzy Osbourne Blizzard of Ozz' }
             ]
         },
         {
@@ -1108,9 +1108,9 @@
                 ] } }
             ],
             garments: [
-                { key: 'hoodie', title: 'HOODIES', price: 'Frontal $52.000 · Doble $59.000', image: '/images/banda_sugeridas/helloween/hoodie_helloween_tour_40.jpg', alt: 'Hoodie Helloween 40 Years Anniversary Tour' },
-                { key: 'buzo_cuello_redondo', title: 'BUZOS', price: 'Frontal $50.000 · Doble $55.000', image: '/images/banda_sugeridas/helloween/buzo_helloween_keeper_I.jpg', alt: 'Buzo cuello redondo Helloween Keeper of the Seven Keys Part I' },
-                { key: 'remera', title: 'REMERAS', price: 'Frontal $37.000 · Doble $44.000', image: '/images/banda_sugeridas/helloween/helloween_40_tour.jpg', alt: 'Remera Helloween 40 Tour' }
+                { key: 'hoodie', title: 'HOODIES', price: 'Frontal $53.000 · Doble $60.000', image: '/images/banda_sugeridas/helloween/hoodie_helloween_tour_40.jpg', alt: 'Hoodie Helloween 40 Years Anniversary Tour' },
+                { key: 'buzo_cuello_redondo', title: 'BUZOS', price: 'Frontal $51.000 · Doble $56.000', image: '/images/banda_sugeridas/helloween/buzo_helloween_keeper_I.jpg', alt: 'Buzo cuello redondo Helloween Keeper of the Seven Keys Part I' },
+                { key: 'remera', title: 'REMERAS', price: 'Frontal $38.000 · Doble $45.000', image: '/images/banda_sugeridas/helloween/helloween_40_tour.jpg', alt: 'Remera Helloween 40 Tour' }
             ]
         },
         {
@@ -1141,8 +1141,8 @@
                 'pantera-pink-from-hell'
             ],
             garments: [
-                { key: 'remera', title: 'REMERAS', price: 'Frontal $37.000 · Doble $44.000', image: '/images/pantera/remera_pantera_donington.jpg', alt: 'Remera Pantera Live From Donington 1994' },
-                { key: 'hoodie', title: 'HOODIES', price: 'Frontal $52.000 · Doble $59.000', image: '/images/pantera/hoodie_pantera_the_great_southern_trendkill.jpg', alt: 'Hoodie Pantera The Great Southern Trendkill' }
+                { key: 'remera', title: 'REMERAS', price: 'Frontal $38.000 · Doble $45.000', image: '/images/pantera/remera_pantera_donington.jpg', alt: 'Remera Pantera Live From Donington 1994' },
+                { key: 'hoodie', title: 'HOODIES', price: 'Frontal $53.000 · Doble $60.000', image: '/images/pantera/hoodie_pantera_the_great_southern_trendkill.jpg', alt: 'Hoodie Pantera The Great Southern Trendkill' }
             ]
         },
         {
@@ -1165,9 +1165,9 @@
             usesShownComposition: true,
             showSizeGuide: true,
             garments: [
-                { key: 'hoodie', title: 'HOODIES', price: 'Frontal $52.000 · Doble $59.000', image: '/images/banda_sugeridas/tarja/hoodie_tarja_my_winter_storm.jpg', alt: 'Hoodie Tarja Turunen My Winter Storm' },
-                { key: 'buzo_cuello_redondo', title: 'BUZOS', price: 'Frontal $50.000 · Doble $55.000', image: '/images/banda_sugeridas/tarja/buzo_tarja_my_winter_storm.jpg', alt: 'Buzo cuello redondo Tarja Turunen My Winter Storm' },
-                { key: 'remera', title: 'REMERAS', price: 'Frontal $37.000 · Doble $44.000', image: '/images/banda_sugeridas/tarja/remera_tarja_my_winter_storm.jpg', alt: 'Remera Tarja Turunen My Winter Storm' }
+                { key: 'hoodie', title: 'HOODIES', price: 'Frontal $53.000 · Doble $60.000', image: '/images/banda_sugeridas/tarja/hoodie_tarja_my_winter_storm.jpg', alt: 'Hoodie Tarja Turunen My Winter Storm' },
+                { key: 'buzo_cuello_redondo', title: 'BUZOS', price: 'Frontal $51.000 · Doble $56.000', image: '/images/banda_sugeridas/tarja/buzo_tarja_my_winter_storm.jpg', alt: 'Buzo cuello redondo Tarja Turunen My Winter Storm' },
+                { key: 'remera', title: 'REMERAS', price: 'Frontal $38.000 · Doble $45.000', image: '/images/banda_sugeridas/tarja/remera_tarja_my_winter_storm.jpg', alt: 'Remera Tarja Turunen My Winter Storm' }
             ]
         },
         {
@@ -1195,9 +1195,9 @@
                 'cd-epica-the-holographic-principle--p5016'
             ],
             garments: [
-                { key: 'hoodie', title: 'HOODIES', price: 'Frontal $52.000 · Doble $59.000', image: '/images/banda_sugeridas/epica/hoodie_epica_the_phantom_agony.jpg', alt: 'Hoodie EPICA The Phantom Agony' },
-                { key: 'buzo_cuello_redondo', title: 'BUZOS', price: 'Frontal $50.000 · Doble $55.000', image: '/images/banda_sugeridas/epica/buzo_epica_quantum_enigma.jpg', alt: 'Buzo cuello redondo EPICA The Quantum Enigma' },
-                { key: 'remera', title: 'REMERAS', price: 'Frontal $37.000 · Doble $44.000', image: '/images/banda_sugeridas/epica/remera_epica_aspiral.jpg', alt: 'Remera EPICA Aspiral' }
+                { key: 'hoodie', title: 'HOODIES', price: 'Frontal $53.000 · Doble $60.000', image: '/images/banda_sugeridas/epica/hoodie_epica_the_phantom_agony.jpg', alt: 'Hoodie EPICA The Phantom Agony' },
+                { key: 'buzo_cuello_redondo', title: 'BUZOS', price: 'Frontal $51.000 · Doble $56.000', image: '/images/banda_sugeridas/epica/buzo_epica_quantum_enigma.jpg', alt: 'Buzo cuello redondo EPICA The Quantum Enigma' },
+                { key: 'remera', title: 'REMERAS', price: 'Frontal $38.000 · Doble $45.000', image: '/images/banda_sugeridas/epica/remera_epica_aspiral.jpg', alt: 'Remera EPICA Aspiral' }
             ]
         },
         {
@@ -1231,9 +1231,9 @@
                 'dream-theater-logo'
             ],
             garments: [
-                { key: 'hoodie', title: 'HOODIES', price: 'Frontal $52.000 · Doble $59.000', image: '/images/banda_sugeridas/dream_theater/hoodie_dream_theater_images_and_words.jpg', alt: 'Hoodie Dream Theater Images and Words' },
-                { key: 'buzo_cuello_redondo', title: 'BUZOS', price: 'Frontal $50.000 · Doble $55.000', image: '/images/banda_sugeridas/dream_theater/buzo_dream_theater_images_and_words.jpg', alt: 'Buzo cuello redondo Dream Theater Images and Words' },
-                { key: 'remera', title: 'REMERAS', price: 'Frontal $37.000 · Doble $44.000', image: '/images/banda_sugeridas/dream_theater/remera_dream_theater_images_and_words.jpg', alt: 'Remera Dream Theater Images and Words' }
+                { key: 'hoodie', title: 'HOODIES', price: 'Frontal $53.000 · Doble $60.000', image: '/images/banda_sugeridas/dream_theater/hoodie_dream_theater_images_and_words.jpg', alt: 'Hoodie Dream Theater Images and Words' },
+                { key: 'buzo_cuello_redondo', title: 'BUZOS', price: 'Frontal $51.000 · Doble $56.000', image: '/images/banda_sugeridas/dream_theater/buzo_dream_theater_images_and_words.jpg', alt: 'Buzo cuello redondo Dream Theater Images and Words' },
+                { key: 'remera', title: 'REMERAS', price: 'Frontal $38.000 · Doble $45.000', image: '/images/banda_sugeridas/dream_theater/remera_dream_theater_images_and_words.jpg', alt: 'Remera Dream Theater Images and Words' }
             ]
         },
         {
@@ -1279,7 +1279,7 @@
                 'sonata-arctica-stones-grow-her-name'
             ],
             garments: [
-                { key: 'remera', title: 'REMERAS', price: 'Frontal $37.000 · Doble $44.000', image: '/images/banda_sugeridas/sonata_artica/remera_sonata_artica_30th_argentina_band_solo.jpg', alt: 'Remera Sonata Arctica 30th Anniversary Tour con la banda en Buenos Aires 2026' }
+                { key: 'remera', title: 'REMERAS', price: 'Frontal $38.000 · Doble $45.000', image: '/images/banda_sugeridas/sonata_artica/remera_sonata_artica_30th_argentina_band_solo.jpg', alt: 'Remera Sonata Arctica 30th Anniversary Tour con la banda en Buenos Aires 2026' }
             ]
         },
         {
@@ -1328,9 +1328,9 @@
             ],
             showSizeGuide: true,
             garments: [
-                { key: 'hoodie', title: 'HOODIES', price: 'Frontal $52.000 · Doble $59.000', image: '/images/argentina/hoodie_malvinas.jpg', alt: 'Hoodie negro Las Malvinas son Argentinas' },
-                { key: 'buzo_cuello_redondo', title: 'BUZOS', price: 'Frontal $50.000 · Doble $55.000', image: '/images/argentina/buzo_malvinas.jpg', alt: 'Buzo cuello redondo negro Las Malvinas son Argentinas' },
-                { key: 'remera', title: 'REMERAS', price: 'Frontal $37.000 · Doble $44.000', image: '/images/argentina/remera_malvinas.jpg', alt: 'Remera negra Las Malvinas son Argentinas' }
+                { key: 'hoodie', title: 'HOODIES', price: 'Frontal $53.000 · Doble $60.000', image: '/images/argentina/hoodie_malvinas.jpg', alt: 'Hoodie negro Las Malvinas son Argentinas' },
+                { key: 'buzo_cuello_redondo', title: 'BUZOS', price: 'Frontal $51.000 · Doble $56.000', image: '/images/argentina/buzo_malvinas.jpg', alt: 'Buzo cuello redondo negro Las Malvinas son Argentinas' },
+                { key: 'remera', title: 'REMERAS', price: 'Frontal $38.000 · Doble $45.000', image: '/images/argentina/remera_malvinas.jpg', alt: 'Remera negra Las Malvinas son Argentinas' }
             ]
         }
     ]);

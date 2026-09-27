@@ -230,12 +230,15 @@
             image: variant?.img || product.img || '',
             label: String(variant?.selectionLabel || variant?.name || product.name || 'Diseño').trim(),
             selectionLabel: String(variant?.selectionLabel || '').trim(),
+            previewLabel: String(variant?.previewLabel || '').trim(),
             alt: String(variant?.alt || `${getPublicBand(product)} ${variant?.name || product.name || 'Diseño'}`).trim(),
             garment: getGarment(variant, product),
             role: isBackVariant(variant) ? 'back' : 'front',
             preferredPreview: variant?.preferredPreview === true,
             carouselPreview: variant?.carouselPreview === true,
             tourRecommendation: variant?.tourRecommendation === true,
+            autoSelectBack: String(variant?.autoSelectBack || '').trim(),
+            orderVariantIndex: Number.isInteger(variant?.orderVariantIndex) ? variant.orderVariantIndex : null,
             color: String(variant?.color || '').trim(),
             defaultPrintMode: String(variant?.defaultPrintMode || product?.defaultPrintMode || '').trim()
         };

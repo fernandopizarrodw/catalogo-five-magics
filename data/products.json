@@ -17012,6 +17012,20 @@
         "fmdBadgeDescription": "Creaci?n exclusiva FMD con Eddie gaucho para acompa?ar los shows de Iron Maiden en Argentina."
       },
       {
+        "img": "images/iron_maiden/remera_iron_maiden_eddie_gaucho_argentino.jpg",
+        "name": "Eddie Gaucho Argentino - Versión frente + dorso",
+        "selectionLabel": "Frente clásico",
+        "previewLabel": "Versión frente + dorso",
+        "designId": "cd-iron-maiden-eddie-gaucho-argentino--p7040",
+        "role": "front",
+        "garmentCategory": "Iron Maiden",
+        "defaultPrintMode": "double",
+        "autoSelectBack": "Dorso Buenos Aires 2026",
+        "orderVariantIndex": 0,
+        "fmdBadge": "ORIGINAL FMD",
+        "fmdBadgeDescription": "Creación exclusiva FMD con Eddie gaucho para acompañar los shows de Iron Maiden en Argentina."
+      },
+      {
         "img": "images/iron_maiden/remera_iron_maiden_eddie_gaucho_argentino_dorso.jpg",
         "name": "Dorso Buenos Aires 2026",
         "selectionLabel": "Dorso Buenos Aires 2026",
@@ -19107,7 +19121,7 @@
     "publicSubtitle": "Argentina 2 · Inglaterra 1",
     "tipoPrecio": "doble",
     "defaultPrintMode": "double",
-    "catalogStartingPrice": 44000,
+    "catalogStartingPrice": 45000,
     "usesShownComposition": true,
     "isNew": true,
     "fmdBadge": "DOBLE ESTAMPA",
@@ -19121,8 +19135,8 @@
         "designId": "argentina-malvinas-remera-negra-2026",
         "designSlug": "las-malvinas-son-argentinas-remera-negra-2026",
         "color": "negro",
-        "catalogStartingPrice": 44000,
-        "catalogPriceText": "Doble estampa $44.000",
+        "catalogStartingPrice": 45000,
+        "catalogPriceText": "Doble estampa $45.000",
         "preferredPreview": true
       },
       {
@@ -19133,8 +19147,8 @@
         "designId": "argentina-malvinas-remera-blanca-2026",
         "designSlug": "las-malvinas-son-argentinas-remera-blanca-2026",
         "color": "blanco",
-        "catalogStartingPrice": 44000,
-        "catalogPriceText": "Doble estampa $44.000"
+        "catalogStartingPrice": 45000,
+        "catalogPriceText": "Doble estampa $45.000"
       },
       {
         "img": "images/argentina/buzo_malvinas.jpg",
@@ -19144,8 +19158,8 @@
         "designId": "argentina-malvinas-buzo-negro-2026",
         "designSlug": "las-malvinas-son-argentinas-buzo-negro-2026",
         "color": "negro",
-        "catalogStartingPrice": 50000,
-        "catalogPriceText": "Frontal $50.000 · Doble $55.000",
+        "catalogStartingPrice": 51000,
+        "catalogPriceText": "Frontal $51.000 · Doble $56.000",
         "preferredPreview": true
       },
       {
@@ -19156,8 +19170,8 @@
         "designId": "argentina-malvinas-buzo-blanco-2026",
         "designSlug": "las-malvinas-son-argentinas-buzo-blanco-2026",
         "color": "blanco",
-        "catalogStartingPrice": 50000,
-        "catalogPriceText": "Frontal $50.000 · Doble $55.000"
+        "catalogStartingPrice": 51000,
+        "catalogPriceText": "Frontal $51.000 · Doble $56.000"
       },
       {
         "img": "images/argentina/remera_messi_v1.jpg",
@@ -19168,8 +19182,8 @@
         "designSlug": "messi-argentina-inglaterra-remera-negra-2026",
         "color": "negro",
         "defaultPrintMode": "simple",
-        "catalogStartingPrice": 37000,
-        "catalogPriceText": "Estampa frontal $37.000",
+        "catalogStartingPrice": 38000,
+        "catalogPriceText": "Estampa frontal $38.000",
         "fmdBadge": "ESTAMPA FRONTAL"
       },
       {
@@ -19181,8 +19195,8 @@
         "designSlug": "messi-argentina-inglaterra-remera-blanca-2026",
         "color": "blanco",
         "defaultPrintMode": "simple",
-        "catalogStartingPrice": 37000,
-        "catalogPriceText": "Estampa frontal $37.000",
+        "catalogStartingPrice": 38000,
+        "catalogPriceText": "Estampa frontal $38.000",
         "fmdBadge": "ESTAMPA FRONTAL"
       },
       {
@@ -19194,8 +19208,8 @@
         "designSlug": "messi-semifinal-remera-negra-2026",
         "color": "negro",
         "defaultPrintMode": "simple",
-        "catalogStartingPrice": 37000,
-        "catalogPriceText": "Estampa frontal $37.000",
+        "catalogStartingPrice": 38000,
+        "catalogPriceText": "Estampa frontal $38.000",
         "fmdBadge": "ESTAMPA FRONTAL"
       },
       {
@@ -19207,8 +19221,8 @@
         "designSlug": "messi-semifinal-remera-blanca-2026",
         "color": "blanco",
         "defaultPrintMode": "simple",
-        "catalogStartingPrice": 37000,
-        "catalogPriceText": "Estampa frontal $37.000",
+        "catalogStartingPrice": 38000,
+        "catalogPriceText": "Estampa frontal $38.000",
         "fmdBadge": "ESTAMPA FRONTAL"
       },
       {
@@ -19220,8 +19234,8 @@
         "designSlug": "argentina-penalty-taker-list-remera-negra-2026",
         "color": "negro",
         "defaultPrintMode": "simple",
-        "catalogStartingPrice": 37000,
-        "catalogPriceText": "Estampa frontal $37.000",
+        "catalogStartingPrice": 38000,
+        "catalogPriceText": "Estampa frontal $38.000",
         "fmdBadge": "ESTAMPA FRONTAL"
       },
       {
@@ -19233,8 +19247,8 @@
         "designSlug": "argentina-penalty-taker-list-remera-blanca-2026",
         "color": "blanco",
         "defaultPrintMode": "simple",
-        "catalogStartingPrice": 37000,
-        "catalogPriceText": "Estampa frontal $37.000",
+        "catalogStartingPrice": 38000,
+        "catalogPriceText": "Estampa frontal $38.000",
         "fmdBadge": "ESTAMPA FRONTAL"
       },
       {
@@ -19246,8 +19260,8 @@
         "designSlug": "las-malvinas-son-argentinas-hoodie-negro-2026",
         "color": "negro",
         "defaultPrintMode": "double",
-        "catalogStartingPrice": 52000,
-        "catalogPriceText": "Frontal $52.000 · Doble $59.000",
+        "catalogStartingPrice": 53000,
+        "catalogPriceText": "Frontal $53.000 · Doble $60.000",
         "fmdBadge": "DOBLE ESTAMPA"
       },
       {
@@ -19259,8 +19273,8 @@
         "designSlug": "las-malvinas-son-argentinas-hoodie-blanco-2026",
         "color": "blanco",
         "defaultPrintMode": "double",
-        "catalogStartingPrice": 52000,
-        "catalogPriceText": "Frontal $52.000 · Doble $59.000",
+        "catalogStartingPrice": 53000,
+        "catalogPriceText": "Frontal $53.000 · Doble $60.000",
         "fmdBadge": "DOBLE ESTAMPA"
       },
       {
@@ -19273,8 +19287,8 @@
         "color": "negro",
         "defaultPrintMode": "double",
         "usesShownComposition": true,
-        "catalogStartingPrice": 44000,
-        "catalogPriceText": "Doble estampa $44.000",
+        "catalogStartingPrice": 45000,
+        "catalogPriceText": "Doble estampa $45.000",
         "fmdBadge": "DOBLE ESTAMPA"
       },
       {
@@ -19286,8 +19300,8 @@
         "designSlug": "escudo-afa-tres-estrellas-remera-blanca-2026",
         "color": "blanco",
         "defaultPrintMode": "simple",
-        "catalogStartingPrice": 37000,
-        "catalogPriceText": "Estampa frontal $37.000",
+        "catalogStartingPrice": 38000,
+        "catalogPriceText": "Estampa frontal $38.000",
         "fmdBadge": "ESTAMPA FRONTAL"
       },
       {
@@ -19299,8 +19313,8 @@
         "designSlug": "tres-estrellas-malvinas-v1-remera-negra-2026",
         "color": "negro",
         "defaultPrintMode": "simple",
-        "catalogStartingPrice": 37000,
-        "catalogPriceText": "Estampa frontal $37.000",
+        "catalogStartingPrice": 38000,
+        "catalogPriceText": "Estampa frontal $38.000",
         "fmdBadge": "ESTAMPA FRONTAL"
       },
       {
@@ -19312,8 +19326,8 @@
         "designSlug": "tres-estrellas-malvinas-v1-remera-blanca-2026",
         "color": "blanco",
         "defaultPrintMode": "simple",
-        "catalogStartingPrice": 37000,
-        "catalogPriceText": "Estampa frontal $37.000",
+        "catalogStartingPrice": 38000,
+        "catalogPriceText": "Estampa frontal $38.000",
         "fmdBadge": "ESTAMPA FRONTAL"
       },
       {
@@ -19325,8 +19339,8 @@
         "designSlug": "tres-estrellas-malvinas-v2-remera-negra-2026",
         "color": "negro",
         "defaultPrintMode": "simple",
-        "catalogStartingPrice": 37000,
-        "catalogPriceText": "Estampa frontal $37.000",
+        "catalogStartingPrice": 38000,
+        "catalogPriceText": "Estampa frontal $38.000",
         "fmdBadge": "ESTAMPA FRONTAL"
       },
       {
@@ -19338,8 +19352,8 @@
         "designSlug": "tres-estrellas-malvinas-v2-remera-blanca-2026",
         "color": "blanco",
         "defaultPrintMode": "simple",
-        "catalogStartingPrice": 37000,
-        "catalogPriceText": "Estampa frontal $37.000",
+        "catalogStartingPrice": 38000,
+        "catalogPriceText": "Estampa frontal $38.000",
         "fmdBadge": "ESTAMPA FRONTAL"
       },
       {
@@ -19351,8 +19365,8 @@
         "designSlug": "tres-estrellas-malvinas-v3-remera-negra-2026",
         "color": "negro",
         "defaultPrintMode": "simple",
-        "catalogStartingPrice": 37000,
-        "catalogPriceText": "Estampa frontal $37.000",
+        "catalogStartingPrice": 38000,
+        "catalogPriceText": "Estampa frontal $38.000",
         "fmdBadge": "ESTAMPA FRONTAL"
       },
       {
@@ -19364,8 +19378,8 @@
         "designSlug": "tres-estrellas-malvinas-v3-remera-blanca-2026",
         "color": "blanco",
         "defaultPrintMode": "simple",
-        "catalogStartingPrice": 37000,
-        "catalogPriceText": "Estampa frontal $37.000",
+        "catalogStartingPrice": 38000,
+        "catalogPriceText": "Estampa frontal $38.000",
         "fmdBadge": "ESTAMPA FRONTAL"
       },
       {
@@ -19377,8 +19391,8 @@
         "designSlug": "messi-argentina-dos-inglaterra-uno-remera-negra-2026",
         "color": "negro",
         "defaultPrintMode": "simple",
-        "catalogStartingPrice": 37000,
-        "catalogPriceText": "Estampa frontal $37.000",
+        "catalogStartingPrice": 38000,
+        "catalogPriceText": "Estampa frontal $38.000",
         "fmdBadge": "ESTAMPA FRONTAL"
       },
       {
@@ -19390,8 +19404,8 @@
         "designSlug": "messi-bandera-argentina-remera-negra-2026",
         "color": "negro",
         "defaultPrintMode": "simple",
-        "catalogStartingPrice": 37000,
-        "catalogPriceText": "Estampa frontal $37.000",
+        "catalogStartingPrice": 38000,
+        "catalogPriceText": "Estampa frontal $38.000",
         "fmdBadge": "ESTAMPA FRONTAL"
       },
       {
@@ -19403,8 +19417,8 @@
         "designSlug": "enzo-fernandez-festejo-remera-negra-2026",
         "color": "negro",
         "defaultPrintMode": "simple",
-        "catalogStartingPrice": 37000,
-        "catalogPriceText": "Estampa frontal $37.000",
+        "catalogStartingPrice": 38000,
+        "catalogPriceText": "Estampa frontal $38.000",
         "fmdBadge": "ESTAMPA FRONTAL"
       },
       {
@@ -19416,8 +19430,8 @@
         "designSlug": "enzo-fernandez-argentina-inglaterra-remera-negra-2026",
         "color": "negro",
         "defaultPrintMode": "simple",
-        "catalogStartingPrice": 37000,
-        "catalogPriceText": "Estampa frontal $37.000",
+        "catalogStartingPrice": 38000,
+        "catalogPriceText": "Estampa frontal $38.000",
         "fmdBadge": "ESTAMPA FRONTAL"
       },
       {
@@ -19429,8 +19443,8 @@
         "designSlug": "enzo-fernandez-argentina-inglaterra-remera-blanca-2026",
         "color": "blanco",
         "defaultPrintMode": "simple",
-        "catalogStartingPrice": 37000,
-        "catalogPriceText": "Estampa frontal $37.000",
+        "catalogStartingPrice": 38000,
+        "catalogPriceText": "Estampa frontal $38.000",
         "fmdBadge": "ESTAMPA FRONTAL"
       },
       {
@@ -19442,8 +19456,8 @@
         "designSlug": "las-malvinas-son-argentinas-tipografico-remera-negra-2026",
         "color": "negro",
         "defaultPrintMode": "simple",
-        "catalogStartingPrice": 37000,
-        "catalogPriceText": "Estampa frontal $37.000",
+        "catalogStartingPrice": 38000,
+        "catalogPriceText": "Estampa frontal $38.000",
         "fmdBadge": "ESTAMPA FRONTAL"
       },
       {
@@ -19455,8 +19469,8 @@
         "designSlug": "tres-estrellas-malvinas-15-julio-remera-blanca-2026",
         "color": "blanco",
         "defaultPrintMode": "simple",
-        "catalogStartingPrice": 37000,
-        "catalogPriceText": "Estampa frontal $37.000",
+        "catalogStartingPrice": 38000,
+        "catalogPriceText": "Estampa frontal $38.000",
         "fmdBadge": "ESTAMPA FRONTAL"
       },
       {
@@ -19469,8 +19483,8 @@
         "color": "negro",
         "defaultPrintMode": "double",
         "usesShownComposition": true,
-        "catalogStartingPrice": 59000,
-        "catalogPriceText": "Doble estampa $59.000",
+        "catalogStartingPrice": 60000,
+        "catalogPriceText": "Doble estampa $60.000",
         "fmdBadge": "DOBLE ESTAMPA"
       },
       {
@@ -19483,8 +19497,8 @@
         "color": "negro",
         "defaultPrintMode": "double",
         "usesShownComposition": true,
-        "catalogStartingPrice": 59000,
-        "catalogPriceText": "Doble estampa $59.000",
+        "catalogStartingPrice": 60000,
+        "catalogPriceText": "Doble estampa $60.000",
         "fmdBadge": "DOBLE ESTAMPA"
       },
       {
@@ -19497,8 +19511,8 @@
         "color": "blanco",
         "defaultPrintMode": "double",
         "usesShownComposition": true,
-        "catalogStartingPrice": 59000,
-        "catalogPriceText": "Doble estampa $59.000",
+        "catalogStartingPrice": 60000,
+        "catalogPriceText": "Doble estampa $60.000",
         "fmdBadge": "DOBLE ESTAMPA"
       },
       {
@@ -19511,8 +19525,8 @@
         "color": "blanco",
         "defaultPrintMode": "double",
         "usesShownComposition": true,
-        "catalogStartingPrice": 44000,
-        "catalogPriceText": "Doble estampa $44.000",
+        "catalogStartingPrice": 45000,
+        "catalogPriceText": "Doble estampa $45.000",
         "fmdBadge": "DOBLE ESTAMPA"
       },
       {
@@ -19524,8 +19538,8 @@
         "designSlug": "malvinas-resultado-2-1-2026",
         "color": "blanco",
         "defaultPrintMode": "simple",
-        "catalogStartingPrice": 37000,
-        "catalogPriceText": "Estampa frontal $37.000",
+        "catalogStartingPrice": 38000,
+        "catalogPriceText": "Estampa frontal $38.000",
         "fmdBadge": "ESTAMPA FRONTAL"
       },
       {
@@ -19537,8 +19551,8 @@
         "designSlug": "festejo-argentina-2-1-malvinas-2026",
         "color": "negro",
         "defaultPrintMode": "simple",
-        "catalogStartingPrice": 37000,
-        "catalogPriceText": "Estampa frontal $37.000",
+        "catalogStartingPrice": 38000,
+        "catalogPriceText": "Estampa frontal $38.000",
         "fmdBadge": "ESTAMPA FRONTAL"
       },
       {
@@ -19550,8 +19564,8 @@
         "designSlug": "festejo-argentina-2-1-malvinas-2026",
         "color": "blanco",
         "defaultPrintMode": "simple",
-        "catalogStartingPrice": 37000,
-        "catalogPriceText": "Estampa frontal $37.000",
+        "catalogStartingPrice": 38000,
+        "catalogPriceText": "Estampa frontal $38.000",
         "fmdBadge": "ESTAMPA FRONTAL"
       },
       {
@@ -19564,8 +19578,8 @@
         "color": "negro",
         "defaultPrintMode": "double",
         "usesShownComposition": true,
-        "catalogStartingPrice": 44000,
-        "catalogPriceText": "Doble estampa $44.000",
+        "catalogStartingPrice": 45000,
+        "catalogPriceText": "Doble estampa $45.000",
         "fmdBadge": "DOBLE ESTAMPA"
       },
       {
@@ -19577,8 +19591,8 @@
         "designSlug": "nunca-fue-un-partido-mas-malvinas-2026",
         "color": "blanco",
         "defaultPrintMode": "simple",
-        "catalogStartingPrice": 37000,
-        "catalogPriceText": "Estampa frontal $37.000",
+        "catalogStartingPrice": 38000,
+        "catalogPriceText": "Estampa frontal $38.000",
         "fmdBadge": "ESTAMPA FRONTAL"
       },
       {
@@ -19591,8 +19605,8 @@
         "color": "negro",
         "defaultPrintMode": "double",
         "usesShownComposition": true,
-        "catalogStartingPrice": 44000,
-        "catalogPriceText": "Doble estampa $44.000",
+        "catalogStartingPrice": 45000,
+        "catalogPriceText": "Doble estampa $45.000",
         "fmdBadge": "DOBLE ESTAMPA"
       },
       {
@@ -19606,8 +19620,8 @@
         "defaultPrintMode": "double",
         "usesShownComposition": true,
         "isNew": true,
-        "catalogStartingPrice": 59000,
-        "catalogPriceText": "Doble estampa $59.000",
+        "catalogStartingPrice": 60000,
+        "catalogPriceText": "Doble estampa $60.000",
         "fmdBadge": "DOBLE ESTAMPA"
       },
       {
@@ -19621,8 +19635,8 @@
         "defaultPrintMode": "double",
         "usesShownComposition": true,
         "isNew": true,
-        "catalogStartingPrice": 55000,
-        "catalogPriceText": "Doble estampa $55.000",
+        "catalogStartingPrice": 56000,
+        "catalogPriceText": "Doble estampa $56.000",
         "fmdBadge": "DOBLE ESTAMPA"
       },
       {
@@ -19636,8 +19650,8 @@
         "defaultPrintMode": "double",
         "usesShownComposition": true,
         "isNew": true,
-        "catalogStartingPrice": 44000,
-        "catalogPriceText": "Doble estampa $44.000",
+        "catalogStartingPrice": 45000,
+        "catalogPriceText": "Doble estampa $45.000",
         "fmdBadge": "DOBLE ESTAMPA"
       },
       {
@@ -19651,8 +19665,8 @@
         "defaultPrintMode": "double",
         "usesShownComposition": true,
         "isNew": true,
-        "catalogStartingPrice": 59000,
-        "catalogPriceText": "Doble estampa $59.000",
+        "catalogStartingPrice": 60000,
+        "catalogPriceText": "Doble estampa $60.000",
         "fmdBadge": "DOBLE ESTAMPA"
       },
       {
@@ -19666,8 +19680,8 @@
         "defaultPrintMode": "double",
         "usesShownComposition": true,
         "isNew": true,
-        "catalogStartingPrice": 55000,
-        "catalogPriceText": "Doble estampa $55.000",
+        "catalogStartingPrice": 56000,
+        "catalogPriceText": "Doble estampa $56.000",
         "fmdBadge": "DOBLE ESTAMPA"
       },
       {
@@ -19681,8 +19695,8 @@
         "defaultPrintMode": "double",
         "usesShownComposition": true,
         "isNew": true,
-        "catalogStartingPrice": 44000,
-        "catalogPriceText": "Doble estampa $44.000",
+        "catalogStartingPrice": 45000,
+        "catalogPriceText": "Doble estampa $45.000",
         "fmdBadge": "DOBLE ESTAMPA"
       },
       {
@@ -19696,8 +19710,8 @@
         "defaultPrintMode": "double",
         "usesShownComposition": true,
         "isNew": true,
-        "catalogStartingPrice": 59000,
-        "catalogPriceText": "Doble estampa $59.000",
+        "catalogStartingPrice": 60000,
+        "catalogPriceText": "Doble estampa $60.000",
         "fmdBadge": "DOBLE ESTAMPA"
       },
       {
@@ -19711,8 +19725,8 @@
         "defaultPrintMode": "double",
         "usesShownComposition": true,
         "isNew": true,
-        "catalogStartingPrice": 55000,
-        "catalogPriceText": "Doble estampa $55.000",
+        "catalogStartingPrice": 56000,
+        "catalogPriceText": "Doble estampa $56.000",
         "fmdBadge": "DOBLE ESTAMPA"
       },
       {
@@ -19726,8 +19740,8 @@
         "defaultPrintMode": "double",
         "usesShownComposition": true,
         "isNew": true,
-        "catalogStartingPrice": 59000,
-        "catalogPriceText": "Doble estampa $59.000",
+        "catalogStartingPrice": 60000,
+        "catalogPriceText": "Doble estampa $60.000",
         "fmdBadge": "DOBLE ESTAMPA"
       },
       {
@@ -19741,8 +19755,8 @@
         "defaultPrintMode": "double",
         "usesShownComposition": true,
         "isNew": true,
-        "catalogStartingPrice": 55000,
-        "catalogPriceText": "Doble estampa $55.000",
+        "catalogStartingPrice": 56000,
+        "catalogPriceText": "Doble estampa $56.000",
         "fmdBadge": "DOBLE ESTAMPA"
       },
       {
@@ -19756,8 +19770,8 @@
         "defaultPrintMode": "double",
         "usesShownComposition": true,
         "isNew": true,
-        "catalogStartingPrice": 59000,
-        "catalogPriceText": "Doble estampa $59.000",
+        "catalogStartingPrice": 60000,
+        "catalogPriceText": "Doble estampa $60.000",
         "fmdBadge": "DOBLE ESTAMPA"
       },
       {
@@ -19771,8 +19785,8 @@
         "defaultPrintMode": "double",
         "usesShownComposition": true,
         "isNew": true,
-        "catalogStartingPrice": 55000,
-        "catalogPriceText": "Doble estampa $55.000",
+        "catalogStartingPrice": 56000,
+        "catalogPriceText": "Doble estampa $56.000",
         "fmdBadge": "DOBLE ESTAMPA"
       }
     ],

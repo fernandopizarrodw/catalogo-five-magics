@@ -242,7 +242,7 @@ async function runViewport(cdp, label, width, height, mobile) {
     assert(modal.printMode === 'double', `${label}: no seleccionó doble estampa.`);
     assert(modal.size === 'L' && modal.color === 'negro', `${label}: talle o color incorrectos.`);
     assert(modal.delivery === 'domicilio' && modal.postalCode === '1678', `${label}: entrega incorrecta.`);
-    assert(modal.price.includes('$59.000'), `${label}: precio incorrecto: ${modal.price}`);
+    assert(modal.price.includes('$60.000'), `${label}: precio incorrecto: ${modal.price}`);
     assert(modal.message.includes('Prenda: Hoodie'), `${label}: mensaje sin hoodie.`);
     assert(modal.message.includes('Talle: L'), `${label}: mensaje sin talle.`);
     assert(modal.message.includes('Código postal: 1678'), `${label}: mensaje sin CP.`);
