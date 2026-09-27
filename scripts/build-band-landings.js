@@ -75,6 +75,9 @@ function serializeInlineConfig(config) {
         editorialBadges: config.editorialBadges && typeof config.editorialBadges === 'object'
             ? config.editorialBadges
             : {},
+        initialCatalogVisibleLimit: Number.isFinite(Number(config.initialCatalogVisibleLimit))
+            ? Math.max(1, Number(config.initialCatalogVisibleLimit))
+            : null,
         showcase: config.showcase && typeof config.showcase === 'object'
             ? config.showcase
             : null

@@ -2135,6 +2135,24 @@ body.band-landing-page[data-band="Argentina"] #modal .btn-add-cart {
         scroll-snap-align: start;
     }
 
+    body.band-landing-page[data-band="Iron Maiden"] .band-real-product-proof-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+        overflow: visible;
+        scroll-snap-type: none;
+    }
+
+    body.band-landing-page[data-band="Iron Maiden"] .band-real-product-proof-grid button {
+        min-width: 0;
+        flex: none;
+        scroll-snap-align: none;
+    }
+
+    body.band-landing-page[data-band="Iron Maiden"] .band-real-product-proof-grid button:first-child {
+        grid-column: 1 / -1;
+    }
+
     .band-real-product-proof-specs {
         display: grid;
         gap: 5px;

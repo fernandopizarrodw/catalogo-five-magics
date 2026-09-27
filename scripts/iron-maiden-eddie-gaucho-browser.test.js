@@ -52,8 +52,8 @@ async function main() {
         await send('Page.navigate', { url: PAGE_URL });
         for (let attempt = 0; attempt < 80; attempt++) {
             const ready = await evaluate(`document.readyState === 'complete'
-                && Array.isArray(window.catalogDesigns)
-                && window.catalogDesigns.some(item => item.designId === 'cd-iron-maiden-eddie-gaucho-argentino--p7040')`);
+                && typeof catalogDesigns !== 'undefined'
+                && catalogDesigns.some(item => item.designId === 'cd-iron-maiden-eddie-gaucho-argentino--p7040')`);
             if (ready) break;
             await new Promise(resolve => setTimeout(resolve, 100));
         }
@@ -77,7 +77,7 @@ async function main() {
                 heroIsFirst: document.querySelector('main > section')?.classList.contains('band-landing-hero') === true,
                 showcaseIsSecond: document.querySelectorAll('main > section')[1]?.id === 'bandDesignShowcase',
                 featureIsThird: document.querySelectorAll('main > section')[2] === feature,
-                showcaseCardCount: document.querySelectorAll('#bandDesignShowcase .band-design-showcase-card').length,
+                showcaseCardCount: document.querySelectorAll('#bandDesignShowcase .band-design-showcase-set:not([aria-hidden="true"]) .band-design-showcase-card').length,
                 featureImages,
                 featureCardCount: feature.querySelectorAll('.band-campaign-feature-card').length,
                 featureCtaLabel: feature.querySelector('.band-campaign-feature-cta')?.textContent.trim() || '',
@@ -99,7 +99,7 @@ async function main() {
         assert(result.heroIsFirst, 'El hero de campaña no aparece primero');
         assert(result.showcaseIsSecond, 'Los destacados no aparecen después del hero');
         assert(result.featureIsThird, 'Eddie Gaucho no aparece después de los destacados');
-        assert.equal(result.showcaseCardCount, 8, 'La selección de campaña no muestra ocho diseños');
+        assert.equal(result.showcaseCardCount, 10, 'La selección de campaña no muestra el tour y los nueve discos');
         assert.equal(result.featureCardCount, 3);
         assert.deepEqual(result.featureImages, [FRONT_IMAGE, BACK_IMAGE, COMBINED_IMAGE]);
         assert.equal(result.featureCtaLabel, 'VER DISEÑO Y ARMAR PEDIDO');

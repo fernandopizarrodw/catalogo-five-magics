@@ -337,7 +337,10 @@ let megadethSegmentPreference = 'all';
 const MEGADETH_PAGE_SIZE = 24;
 let megadethVisibleLimit = MEGADETH_PAGE_SIZE;
 const CATALOG_PAGE_SIZE = 24;
-let catalogVisibleLimit = CATALOG_PAGE_SIZE;
+const CATALOG_INITIAL_VISIBLE_LIMIT = Number.isFinite(Number(BAND_LANDING_CONFIG?.initialCatalogVisibleLimit))
+    ? Math.max(1, Number(BAND_LANDING_CONFIG.initialCatalogVisibleLimit))
+    : CATALOG_PAGE_SIZE;
+let catalogVisibleLimit = CATALOG_INITIAL_VISIBLE_LIMIT;
 const PUBLIC_VISIBILITY_TIERS = new Set(['hero', 'featured', 'catalog', 'archive']);
 const SHOWCASE_VISIBILITY_TIERS = new Set(['hero', 'featured', 'catalog']);
 const VISIBILITY_TIER_ORDER = { hero: 0, featured: 1, catalog: 2, archive: 3, hidden: 4 };
@@ -6365,7 +6368,7 @@ function renderUniverseShowcases() {
 }
 
 function resetCatalogPagination() {
-    catalogVisibleLimit = CATALOG_PAGE_SIZE;
+    catalogVisibleLimit = CATALOG_INITIAL_VISIBLE_LIMIT;
     megadethVisibleLimit = MEGADETH_PAGE_SIZE;
 }
 

@@ -2954,7 +2954,8 @@ body {
     .shipping-promo-options span {
         grid-template-columns: 1.2fr 1fr 1fr;
         align-items: center;
-        text-align: left;
+        justify-items: center;
+        text-align: center;
     }
 
     .production-tracking-strip {
