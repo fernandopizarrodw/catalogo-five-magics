@@ -22593,5 +22593,49 @@
     "visibilityTier": "catalog",
     "legacyCategory": "Iron Maiden",
     "tags": ["Iron Maiden", "Run to the Hills", "The Number of the Beast", "1982", "remera"]
+  },
+  {
+    "id": 7258,
+    "designId": "iron-maiden-eddie-tanguero-original-fmd",
+    "designSlug": "iron-maiden-eddie-tanguero-original-fmd",
+    "category": "Iron Maiden",
+    "band": "Iron Maiden",
+    "name": "Eddie Tanguero · Original FMD",
+    "year": "2026",
+    "album": null,
+    "tipoPrecio": "simple",
+    "defaultPrintMode": "double",
+    "isNew": true,
+    "img": "images/iron_maiden/iron_maiden_eddie_tanguero.jpg",
+    "desc": "Eddie Tanguero, segunda pieza de la saga Eddies Argentinos creada por Five Magics Designs.",
+    "variants": [
+      {
+        "img": "images/iron_maiden/iron_maiden_eddie_tanguero.jpg",
+        "name": "Eddie Tanguero · Frente",
+        "selectionLabel": "Frente Eddie Tanguero",
+        "designId": "iron-maiden-eddie-tanguero-original-fmd",
+        "role": "front",
+        "preferredPreview": true,
+        "defaultPrintMode": "double",
+        "fmdBadge": "ORIGINAL FMD",
+        "fmdBadgeDescription": "Segunda pieza de la saga Eddies Argentinos creada por Five Magics Designs."
+      },
+      {
+        "img": "images/iron_maiden/dorsos opcionales/iron_maiden_dorso_eddie_tanguero.jpg",
+        "name": "Dorso Eddie Tanguero · Buenos Aires 2026",
+        "selectionLabel": "Dorso Eddie Tanguero · Buenos Aires 2026",
+        "role": "back",
+        "backTargetDesignId": "iron-maiden-eddie-tanguero-original-fmd",
+        "carouselPreview": true
+      }
+    ],
+    "garments": ["remera"],
+    "collections": ["Archivo Maiden", "Original FMD", "Eddies Argentinos", "Edición Argentina"],
+    "campaigns": ["Argentina 2026", "Run For Your Lives 2026"],
+    "commercialPriority": 99,
+    "visibilityTier": "featured",
+    "legacyCategory": "Iron Maiden",
+    "fmdBadge": "ORIGINAL FMD",
+    "tags": ["Iron Maiden", "Eddie Tanguero", "Original FMD", "Eddies Argentinos", "Argentina 2026", "Run For Your Lives", "remera"]
   }
 ]

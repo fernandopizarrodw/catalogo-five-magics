@@ -8,6 +8,8 @@ const FRONT_IMAGE = '/images/iron_maiden/remera_iron_maiden_eddie_gaucho_argenti
 const DATED_FRONT_IMAGE = '/images/iron_maiden/remera_iron_maiden_eddie_gaucho_argentino_con_fecha.jpg';
 const BACK_IMAGE = '/images/iron_maiden/remera_iron_maiden_eddie_gaucho_argentino_dorso.jpg';
 const COMBINED_IMAGE = '/images/iron_maiden/remera_iron_maiden_eddie_gaucho_argentino.jpg';
+const TANGUERO_FRONT_IMAGE = '/images/iron_maiden/iron_maiden_eddie_tanguero.jpg';
+const TANGUERO_BACK_IMAGE = '/images/iron_maiden/dorsos opcionales/iron_maiden_dorso_eddie_tanguero.jpg';
 
 async function main() {
     const pages = await fetch(`${CDP_URL}/json`).then(response => response.json());
@@ -67,19 +69,23 @@ async function main() {
             if (!design) return { error: 'Eddie Gaucho no encontrado' };
             const datedDesign = catalogDesigns.find(item => item.designId === 'iron-maiden-eddie-gaucho-argentino-con-fechas');
             if (!datedDesign) return { error: 'Eddie Gaucho con fechas no encontrado' };
+            const tangueroDesign = catalogDesigns.find(item => item.designId === 'iron-maiden-eddie-tanguero-original-fmd');
+            if (!tangueroDesign) return { error: 'Eddie Tanguero no encontrado' };
             loadMoreCatalogDesigns();
             loadMoreCatalogDesigns();
             const card = document.querySelector('.catalog-design-card[data-design-id="cd-iron-maiden-eddie-gaucho-argentino--p7040"]');
             const feature = document.getElementById('bandCampaignFeature');
             feature.querySelector('.band-campaign-feature-cta')?.click();
             const featureOpenedDesign = currentCatalogDesign?.designId || '';
+            closeModal();
+            feature.querySelector('.band-campaign-feature-card')?.click();
             selectPrintMode('double');
             const modalImages = getModalImages().map(item => item.img || '');
             const backSelectorImages = [...document.querySelectorAll('#dorsoVariantsGrid img')]
                 .map(image => image.getAttribute('src') || '');
             const featureImages = [...feature.querySelectorAll('.band-campaign-feature-card img')]
                 .map(image => image.getAttribute('src') || '');
-            const paths = [...featureImages, design.front.image, design.backOptions[0]?.image, datedDesign.front.image].filter(Boolean);
+            const paths = [...featureImages, design.front.image, design.backOptions[0]?.image, datedDesign.front.image, tangueroDesign.front.image, tangueroDesign.backOptions[0]?.image].filter(Boolean);
             const responses = await Promise.all(paths.map(path => fetch(new URL(path, location.href)).then(response => response.ok)));
             return {
                 heroIsFirst: document.querySelector('main > section')?.classList.contains('band-landing-hero') === true,
@@ -109,15 +115,15 @@ async function main() {
 
         assert(!result.error, result.error);
         assert(result.heroIsFirst, 'El hero de campaña no aparece primero');
-        assert(result.featureIsSecond, 'Eddie Gaucho no aparece inmediatamente después del hero');
-        assert(result.tourCollectionIsThird, 'La colección de Eddie Tour no aparece después de Eddie Gaucho');
+        assert(result.featureIsSecond, 'La saga Eddies Argentinos no aparece inmediatamente después del hero');
+        assert(result.tourCollectionIsThird, 'La colección de Eddie Tour no aparece después de la saga Eddies Argentinos');
         assert.equal(result.tourCollectionCardCount, 9, 'La colección de Eddie Tour no contiene nueve diseños');
         assert(result.showcaseFollowsTourCollection, 'Los destacados generales no aparecen después de la colección Eddie Tour');
         assert.equal(result.showcaseCardCount, 10, 'La selección de campaña no muestra el tour y los nueve discos');
-        assert.equal(result.featureCardCount, 1);
-        assert.deepEqual(result.featureImages, [COMBINED_IMAGE]);
-        assert.equal(result.featureCtaLabel, 'ELEGIR MI EDDIE GAUCHO');
-        assert.equal(result.featureOpenedDesign, 'cd-iron-maiden-eddie-gaucho-argentino--p7040');
+        assert.equal(result.featureCardCount, 3);
+        assert.deepEqual(result.featureImages, [COMBINED_IMAGE, TANGUERO_FRONT_IMAGE, TANGUERO_BACK_IMAGE]);
+        assert.equal(result.featureCtaLabel, 'DESCUBRIR EDDIE TANGUERO');
+        assert.equal(result.featureOpenedDesign, 'iron-maiden-eddie-tanguero-original-fmd');
         assert.equal(result.horizontalOverflow, false, 'La sección genera desborde horizontal en mobile');
         assert.equal(result.catalogCardCount, 1, 'Eddie Gaucho se duplicó en el catálogo');
         assert.equal(result.datedCatalogCardCount, 1, 'El frente con fechas no quedó como card independiente');
@@ -160,6 +166,14 @@ async function main() {
             const datedFront = snapshot();
 
             closeModal();
+            featureCards[1].click();
+            const tangueroFront = snapshot();
+
+            closeModal();
+            featureCards[2].click();
+            const tangueroBack = snapshot();
+
+            closeModal();
             feature.querySelector('.band-campaign-feature-cta').click();
             const cta = snapshot();
 
@@ -167,7 +181,7 @@ async function main() {
             document.querySelector('[data-design-id="cd-iron-maiden-eddie-gaucho-argentino--p7040"] .catalog-design-card-main').click();
             const catalogCard = snapshot();
 
-            return { combined, datedFront, cta, catalogCard };
+            return { combined, datedFront, tangueroFront, tangueroBack, cta, catalogCard };
         })()`);
 
         assert.equal(entryFlow.combined.printMode, 'double');
@@ -186,17 +200,53 @@ async function main() {
         assert.equal(entryFlow.datedFront.front, 'Frente con fechas');
         assert(entryFlow.datedFront.slide.includes(DATED_FRONT_IMAGE));
         assert(entryFlow.datedFront.price.includes('$38.000'));
-        assert.equal(entryFlow.cta.printMode, 'double');
-        assert.equal(entryFlow.cta.back, 'Dorso Buenos Aires 2026');
-        assert(entryFlow.cta.slide.includes(COMBINED_IMAGE));
-        assert(entryFlow.cta.price.includes('$45.000'));
+        for (const tangueroEntry of [entryFlow.tangueroFront, entryFlow.tangueroBack, entryFlow.cta]) {
+            assert.equal(tangueroEntry.designId, 'iron-maiden-eddie-tanguero-original-fmd');
+            assert.equal(tangueroEntry.printMode, 'double');
+            assert.equal(tangueroEntry.front, 'Frente Eddie Tanguero');
+            assert.equal(tangueroEntry.back, 'Dorso Eddie Tanguero · Buenos Aires 2026');
+            assert(tangueroEntry.slide.includes(TANGUERO_FRONT_IMAGE));
+            assert(tangueroEntry.price.includes('$45.000'));
+            assert.equal(tangueroEntry.visualVisible, true);
+            assert(tangueroEntry.visualImages.some(path => path.includes(TANGUERO_FRONT_IMAGE)));
+            assert(tangueroEntry.visualImages.some(path => path.includes('iron_maiden_dorso_eddie_tanguero.jpg')));
+        }
         assert.equal(entryFlow.catalogCard.printMode, 'simple');
         assert.equal(entryFlow.catalogCard.back, '');
         assert.equal(entryFlow.catalogCard.front, 'Frente clásico');
         assert(entryFlow.catalogCard.slide.includes(FRONT_IMAGE));
         assert(entryFlow.catalogCard.price.includes('$38.000'));
 
+        const tangueroOrder = await evaluate(`(() => {
+            closeModal();
+            cart.clearCart();
+            openCatalogDesignPreview('iron-maiden-eddie-tanguero-original-fmd', 'remera', 'double', '${TANGUERO_FRONT_IMAGE}');
+            selectRemeraVariant('hombre_clasica');
+            selectSize('M');
+            selectColor('negro');
+            const added = addToCartFromModal();
+            const item = cart.getCart().at(-1);
+            return {
+                added,
+                code: item?.frontCode || '',
+                isDouble: item?.isDouble === true,
+                frontName: item?.frontName || '',
+                backName: item?.backName || '',
+                frontImage: item?.frontImage || '',
+                backImage: item?.backImage || ''
+            };
+        })()`);
+        assert.equal(tangueroOrder.added, true);
+        assert.equal(tangueroOrder.isDouble, true);
+        assert(tangueroOrder.code.includes('7258.V1'));
+        assert.equal(tangueroOrder.frontName, 'Frente Eddie Tanguero');
+        assert.equal(tangueroOrder.backName, 'Dorso Eddie Tanguero · Buenos Aires 2026');
+        assert(tangueroOrder.frontImage.includes(TANGUERO_FRONT_IMAGE));
+        assert(tangueroOrder.backImage.includes('iron_maiden_dorso_eddie_tanguero.jpg'));
+
         const backZoom = await evaluate(`(async () => {
+            closeModal();
+            openCatalogDesign('cd-iron-maiden-eddie-gaucho-argentino--p7040', 'remera');
             selectPrintMode('double');
             const button = document.querySelector('.catalog-design-dorso-preview');
             button?.click();

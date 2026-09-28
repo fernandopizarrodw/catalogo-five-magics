@@ -47,13 +47,17 @@ async function main() {
             deviceScaleFactor: 1,
             mobile: true
         });
-        await send('Page.navigate', { url: PAGE_URL });
+        if (String(page.url || '').startsWith(PAGE_URL)) {
+            await send('Page.reload', { ignoreCache: true });
+        } else {
+            await send('Page.navigate', { url: PAGE_URL });
+        }
         for (let attempt = 0; attempt < 80; attempt += 1) {
             if (await evaluate(`document.readyState === 'complete'
                 && document.querySelectorAll('#bandDesignShowcase .band-design-showcase-set:not([aria-hidden="true"]) .band-design-showcase-card').length === 10`)) break;
             await new Promise(resolve => setTimeout(resolve, 100));
         }
-        await evaluate(`Promise.all([...document.querySelectorAll('#bandTourCollection img')].map(image => {
+        await evaluate(`Promise.all([...document.querySelectorAll('#bandCampaignFeature img, #bandTourCollection img')].map(image => {
             image.loading = 'eager';
             if (image.complete) return Promise.resolve();
             return new Promise(resolve => image.addEventListener('load', resolve, { once: true }));
@@ -68,6 +72,8 @@ async function main() {
             const mainSections = [...document.querySelector('main').children];
             const catalog = document.querySelector('.band-landing-catalog');
             const campaignFeature = document.getElementById('bandCampaignFeature');
+            const campaignCards = [...campaignFeature.querySelectorAll('.band-campaign-feature-card')];
+            const campaignGrid = campaignFeature.querySelector('.band-campaign-feature-gallery');
             const tourCollection = document.getElementById('bandTourCollection');
             const tourCards = [...tourCollection.querySelectorAll('.band-featured-collection-card')];
             const somewhere = document.querySelector('.band-featured-collection:not(.band-tour-collection)');
@@ -106,6 +112,13 @@ async function main() {
                 }),
                 tourBetweenFeatureAndShowcase: mainSections.indexOf(campaignFeature) < mainSections.indexOf(tourCollection)
                     && mainSections.indexOf(tourCollection) < mainSections.indexOf(showcase),
+                campaignCards: campaignCards.length,
+                campaignColumns: getComputedStyle(campaignGrid).gridTemplateColumns.split(' ').length,
+                campaignPrimarySpansBoth: getComputedStyle(campaignCards[0]).gridColumnEnd === '-1',
+                campaignImagesLoaded: campaignCards.every(card => {
+                    const image = card.querySelector('img');
+                    return image.complete && image.naturalWidth > 0;
+                }),
                 catalogOrder: [...document.querySelectorAll('.catalog-design-card[data-design-id]')]
                     .slice(0, 8)
                     .map(card => card.dataset.designId),
@@ -132,6 +145,10 @@ async function main() {
         assert.equal(result.tourColumns, 2);
         assert.equal(result.tourImagesLoaded, true);
         assert.equal(result.tourBetweenFeatureAndShowcase, true);
+        assert.equal(result.campaignCards, 3);
+        assert.equal(result.campaignColumns, 2);
+        assert.equal(result.campaignPrimarySpansBoth, true);
+        assert.equal(result.campaignImagesLoaded, true);
         assert.deepEqual(result.catalogOrder.slice(0, 3), [
             'iron-maiden-1980-run-for-your-lives',
             'iron-maiden-burning-ambition-edicion-fmd',
@@ -198,6 +215,20 @@ async function main() {
         assert.equal(tourModalChecks.length, 9);
         assert.equal(tourModalChecks.every(item => item.modalActive && item.actual === item.expected), true);
 
+        const campaignRect = await evaluate(`(() => {
+            const section = document.getElementById('bandCampaignFeature');
+            const rect = section.getBoundingClientRect();
+            return { x: 0, y: rect.top + window.scrollY, width: document.documentElement.clientWidth, height: rect.height, scale: 1 };
+        })()`);
+        const campaignScreenshot = await send('Page.captureScreenshot', {
+            format: 'png',
+            fromSurface: true,
+            captureBeyondViewport: true,
+            clip: campaignRect
+        });
+        const campaignOutput = path.resolve(__dirname, '..', 'reports', 'iron-maiden-eddies-argentinos-mobile.png');
+        fs.writeFileSync(campaignOutput, Buffer.from(campaignScreenshot.data, 'base64'));
+
         const tourRect = await evaluate(`(() => {
             const section = document.getElementById('bandTourCollection');
             const rect = section.getBoundingClientRect();
@@ -258,12 +289,15 @@ async function main() {
             const set = showcase.querySelector('.band-design-showcase-set');
             const proof = document.querySelector('.band-real-product-proof-grid');
             const tourCollection = document.getElementById('bandTourCollection');
+            const campaignFeature = document.getElementById('bandCampaignFeature');
             return {
                 showcaseCards: set.querySelectorAll('.band-design-showcase-card').length,
                 showcaseAnimation: getComputedStyle(showcase.querySelector('.band-design-showcase-track')).animationName,
                 proofColumns: getComputedStyle(proof).gridTemplateColumns.split(' ').length,
                 tourCards: tourCollection.querySelectorAll('.band-featured-collection-card').length,
                 tourColumns: getComputedStyle(tourCollection.querySelector('.band-featured-collection-grid')).gridTemplateColumns.split(' ').length,
+                campaignCards: campaignFeature.querySelectorAll('.band-campaign-feature-card').length,
+                campaignColumns: getComputedStyle(campaignFeature.querySelector('.band-campaign-feature-gallery')).gridTemplateColumns.split(' ').length,
                 pageOverflow: document.documentElement.scrollWidth > document.documentElement.clientWidth
             };
         })()`);
@@ -272,8 +306,10 @@ async function main() {
         assert.equal(desktop.proofColumns, 3);
         assert.equal(desktop.tourCards, 9);
         assert.equal(desktop.tourColumns, 3);
+        assert.equal(desktop.campaignCards, 3);
+        assert.equal(desktop.campaignColumns, 3);
         assert.equal(desktop.pageOverflow, false);
-        console.log(JSON.stringify({ mobile: result, desktop, screenshots: [tourOutput, output, proofOutput] }, null, 2));
+        console.log(JSON.stringify({ mobile: result, desktop, screenshots: [campaignOutput, tourOutput, output, proofOutput] }, null, 2));
     } finally {
         socket.close();
     }

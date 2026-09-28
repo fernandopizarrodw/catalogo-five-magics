@@ -6773,7 +6773,12 @@ function renderCatalogDesignResults(designs) {
         const priceText = getCatalogDesignCardPriceText(design, preview, cardGarment);
         const initialGarment = isBandLandingMode() ? getBandLandingModalGarment(cardGarment) : '';
         const previewPrintMode = normalizeText(preview?.defaultPrintMode || '');
-        const isCampaignFeatureDesign = document.getElementById('bandCampaignFeature')?.dataset.designId === design.designId;
+        const campaignFeatureElement = document.getElementById('bandCampaignFeature');
+        const campaignFeatureDesignIds = String(campaignFeatureElement?.dataset.designIds || campaignFeatureElement?.dataset.designId || '')
+            .split(',')
+            .map(value => value.trim())
+            .filter(Boolean);
+        const isCampaignFeatureDesign = campaignFeatureDesignIds.includes(design.designId);
         const openAction = isCampaignFeatureDesign && (previewPrintMode === 'double' || previewPrintMode === 'doble')
             ? `openCatalogDesignPreview('${design.designId}', '${initialGarment}', 'double', '${cardImage}')`
             : `openCatalogDesign('${design.designId}', '${initialGarment}')`;

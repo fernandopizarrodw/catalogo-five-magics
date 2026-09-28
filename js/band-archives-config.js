@@ -295,7 +295,7 @@
             heroCopy: '<strong>20 + 21 OCTUBRE · ESTADIO HURACÁN</strong><br><br>La gira que celebra 50 años de historia llega a Buenos Aires.<br>Diseños inspirados en los primeros nueve discos de Iron Maiden.<br><br><b>MÁS DE 50 DISEÑOS</b><br>Remeras · Hoodies · Buzos<br>Estampa frontal o frente + dorso',
             heroCtaLabel: 'VER COLECCIÓN MAIDEN 2026',
             heroSecondaryCta: {
-                label: 'VER EDDIE GAUCHO ARGENTINO',
+                label: 'VER EDDIES ARGENTINOS',
                 href: '#bandCampaignFeature'
             },
             showSizeGuide: true,
@@ -312,30 +312,52 @@
             usesShownComposition: false,
             campaignFeature: {
                 theme: 'argentina',
-                kicker: 'EL DISEÑO MÁS ELEGIDO',
-                title: 'EDDIE GAUCHO ARGENTINO',
-                copy: 'Nuestra edición original para los shows de Iron Maiden en Argentina.',
+                kicker: 'SAGA EDDIES ARGENTINOS · ORIGINALES FMD',
+                title: 'EDDIE GAUCHO + EDDIE TANGUERO',
+                copy: 'Dos versiones de Eddie inspiradas en la identidad argentina, creadas por Five Magics Designs.',
                 eventLine: '20 + 21 OCTUBRE · ESTADIO HURACÁN',
-                note: 'Frente clásico + dorso Buenos Aires 2026.',
+                note: 'Elegí tu Eddie. Ambos disponibles con estampa frontal o frente + dorso Buenos Aires 2026.',
                 priceOptions: [
-                    { label: 'EDICIÓN COMPLETA · RECOMENDADA', price: '$45.000', recommended: true }
+                    { label: 'FRENTE + DORSO', price: '$45.000', recommended: true }
                 ],
                 designId: 'cd-iron-maiden-eddie-gaucho-argentino--p7040',
-                ctaLabel: 'ELEGIR MI EDDIE GAUCHO',
+                ctaDesignId: 'iron-maiden-eddie-tanguero-original-fmd',
+                ctaLabel: 'DESCUBRIR EDDIE TANGUERO',
                 images: [
                     {
+                        designId: 'cd-iron-maiden-eddie-gaucho-argentino--p7040',
                         src: '/images/iron_maiden/remera_iron_maiden_eddie_gaucho_argentino.jpg',
                         alt: 'Edición completa Eddie Gaucho Argentino con frente clásico y dorso Buenos Aires 2026',
-                        label: 'EDICIÓN COMPLETA · RECOMENDADA',
+                        label: 'EDDIE GAUCHO · PRIMERA EDICIÓN',
                         printMode: 'double',
                         preview: '/images/iron_maiden/remera_iron_maiden_eddie_gaucho_argentino.jpg',
                         width: 1200,
                         height: 1200,
                         primary: true
+                    },
+                    {
+                        designId: 'iron-maiden-eddie-tanguero-original-fmd',
+                        src: '/images/iron_maiden/iron_maiden_eddie_tanguero.jpg',
+                        alt: 'Frente Eddie Tanguero, segunda edición de la saga Eddies Argentinos',
+                        label: 'EDDIE TANGUERO · FRENTE',
+                        printMode: 'double',
+                        preview: '/images/iron_maiden/iron_maiden_eddie_tanguero.jpg',
+                        width: 1080,
+                        height: 1340
+                    },
+                    {
+                        designId: 'iron-maiden-eddie-tanguero-original-fmd',
+                        src: '/images/iron_maiden/dorsos opcionales/iron_maiden_dorso_eddie_tanguero.jpg',
+                        alt: 'Dorso Eddie Tanguero Buenos Aires 2026',
+                        label: 'EDDIE TANGUERO · DORSO',
+                        printMode: 'double',
+                        preview: '/images/iron_maiden/iron_maiden_eddie_tanguero.jpg',
+                        width: 1400,
+                        height: 1737
                     }
                 ],
                 defaultPrintMode: 'double',
-                defaultPreview: '/images/iron_maiden/remera_iron_maiden_eddie_gaucho_argentino.jpg'
+                defaultPreview: '/images/iron_maiden/iron_maiden_eddie_tanguero.jpg'
             },
             campaignTourCollection: {
                 kicker: 'COLECCIÓN ESPECIAL',
@@ -441,6 +463,7 @@
                 'iron-maiden-run-for-your-lives-2026-oficial',
                 'cd-iron-maiden-eddie-gaucho-argentino--p7040',
                 'iron-maiden-eddie-gaucho-argentino-con-fechas',
+                'iron-maiden-eddie-tanguero-original-fmd',
                 'cd-iron-maiden-empire--p308',
                 'iron-maiden-the-final-tour-fmd',
                 'cd-iron-maiden-tour-3d-2026-fmd--p7029',
@@ -462,6 +485,7 @@
             suppressNewBadges: true,
             editorialBadges: {
                 'cd-iron-maiden-eddie-gaucho-argentino--p7040': 'ORIGINAL FMD',
+                'iron-maiden-eddie-tanguero-original-fmd': 'ORIGINAL FMD',
                 'iron-maiden-run-for-your-lives-2026-oficial': 'TOUR 2026',
                 'iron-maiden-somewhere-in-time-40th-fmd': '40 AÑOS'
             },

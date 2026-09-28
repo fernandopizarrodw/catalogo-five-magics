@@ -278,15 +278,22 @@ ${featuredCollectionCards.map((card, index) => `                <button type="bu
         ? config.campaignFeature
         : null;
     const campaignFeatureImages = Array.isArray(campaignFeature?.images) ? campaignFeature.images : [];
+    const campaignFeatureDesignIds = campaignFeature
+        ? [...new Set([
+            campaignFeature.designId,
+            campaignFeature.ctaDesignId,
+            ...campaignFeatureImages.map(image => image.designId)
+        ].filter(Boolean))]
+        : [];
     const campaignFeatureMarkup = campaignFeature && campaignFeature.designId && campaignFeatureImages.length ? `
-        <section class="band-campaign-feature band-campaign-feature--${campaignFeature.theme || 'default'}" id="bandCampaignFeature" data-design-id="${campaignFeature.designId}" aria-labelledby="bandCampaignFeatureTitle">
+        <section class="band-campaign-feature band-campaign-feature--${campaignFeature.theme || 'default'}" id="bandCampaignFeature" data-design-id="${campaignFeature.designId}" data-design-ids="${campaignFeatureDesignIds.join(',')}" aria-labelledby="bandCampaignFeatureTitle">
             <div class="band-campaign-feature-head">
                 <p>${campaignFeature.kicker}</p>
                 <h2 id="bandCampaignFeatureTitle">${campaignFeature.title}</h2>
                 <span>${campaignFeature.copy}</span>
             </div>
             <div class="band-campaign-feature-gallery${campaignFeatureImages.length === 1 ? ' has-single-option' : ''}">
-${campaignFeatureImages.map((image, index) => `                <button type="button" class="band-campaign-feature-card${image.primary ? ' is-primary' : ''}" onclick="openCatalogDesignPreview('${campaignFeature.designId}', 'remera', '${image.printMode || 'simple'}', '${image.preview || image.src}')" aria-label="Ver ${image.label}: ${campaignFeature.title}">
+${campaignFeatureImages.map((image, index) => `                <button type="button" class="band-campaign-feature-card${image.primary ? ' is-primary' : ''}" onclick="openCatalogDesignPreview('${image.designId || campaignFeature.designId}', 'remera', '${image.printMode || 'simple'}', '${image.preview || image.src}')" aria-label="Ver ${image.label}: ${campaignFeature.title}">
                     <img src="${image.src}" alt="${image.alt}" width="${image.width}" height="${image.height}" loading="${index === 0 ? 'eager' : 'lazy'}" decoding="async">
                     <strong>${image.label}</strong>
                 </button>`).join('\n')}
@@ -295,7 +302,7 @@ ${campaignFeature.eventLine ? `            <p class="band-campaign-feature-event
 ${campaignFeature.priceOptions.map(option => `                <span${option.recommended ? ' class="is-recommended"' : ''}><b>${option.label}</b>${option.price}</span>`).join('\n')}
             </div>\n` : ''}
             <p class="band-campaign-feature-note">${campaignFeature.note}</p>
-            <button type="button" class="band-campaign-feature-cta" onclick="openCatalogDesignPreview('${campaignFeature.designId}', 'remera', '${campaignFeature.defaultPrintMode || 'simple'}', '${campaignFeature.defaultPreview || campaignFeatureImages[0].src}')">${campaignFeature.ctaLabel}</button>
+            <button type="button" class="band-campaign-feature-cta" onclick="openCatalogDesignPreview('${campaignFeature.ctaDesignId || campaignFeature.designId}', 'remera', '${campaignFeature.defaultPrintMode || 'simple'}', '${campaignFeature.defaultPreview || campaignFeatureImages[0].src}')">${campaignFeature.ctaLabel}</button>
         </section>` : '';
     const campaignTourCollection = config.campaignTourCollection && typeof config.campaignTourCollection === 'object'
         ? config.campaignTourCollection
