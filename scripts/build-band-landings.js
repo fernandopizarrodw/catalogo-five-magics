@@ -77,7 +77,7 @@ function serializeInlineConfig(config) {
             : {},
         initialCatalogVisibleLimit: Number.isFinite(Number(config.initialCatalogVisibleLimit))
             ? Math.max(1, Number(config.initialCatalogVisibleLimit))
-            : null,
+            : undefined,
         showcase: config.showcase && typeof config.showcase === 'object'
             ? config.showcase
             : null
@@ -252,7 +252,7 @@ function renderLanding(config, sharedCommerceMarkup) {
                 <span>${featuredCollection.copy}</span>
             </div>
             <div class="band-featured-collection-grid">
-${featuredCollectionCards.map((card, index) => `                <button type="button" class="band-featured-collection-card" onclick="openCatalogDesign('${card.designId}', 'remera')" aria-label="Ver ${card.label}">
+${featuredCollectionCards.map((card, index) => `                <button type="button" class="band-featured-collection-card" onclick="${card.preview || card.printMode ? `openCatalogDesignPreview('${card.designId}', 'remera', '${card.printMode || 'simple'}', '${card.preview || card.image}')` : `openCatalogDesign('${card.designId}', 'remera')`}" aria-label="Ver ${card.label}">
                     <img src="${card.image}" alt="${card.label} de ${config.band}" loading="${index < 2 ? 'eager' : 'lazy'}" decoding="async">
                     <strong>${card.label}</strong>
                 </button>`).join('\n')}

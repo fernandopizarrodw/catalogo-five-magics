@@ -88,6 +88,33 @@ async function main() {
         assert.equal(result.promoCentered, true);
         assert.equal(result.pageOverflow, false);
 
+        const somewhereFeature = await evaluate(`(() => {
+            const cards = [...document.querySelectorAll('.band-featured-collection-card')];
+            const doubleCard = cards.find(card => card.querySelector('img')?.src.includes('iron_maiden_somewhere_fmd_doble.jpg'));
+            doubleCard?.click();
+            return {
+                cardCount: cards.length,
+                hasDoubleCard: Boolean(doubleCard),
+                modalActive: document.getElementById('modal').classList.contains('active'),
+                designId: currentCatalogDesign?.designId || '',
+                printMode: selectedPrintMode,
+                front: selectedCatalogFrontRef?.previewLabel || selectedCatalogFrontRef?.label || '',
+                back: selectedCatalogBackRef?.selectionLabel || selectedCatalogBackRef?.label || '',
+                slide: getModalImages()[currentSlide]?.img || '',
+                price: document.getElementById('modalPrice')?.textContent.trim() || ''
+            };
+        })()`);
+        assert.equal(somewhereFeature.cardCount, 5);
+        assert.equal(somewhereFeature.hasDoubleCard, true);
+        assert.equal(somewhereFeature.modalActive, true);
+        assert.equal(somewhereFeature.designId, 'iron-maiden-somewhere-in-time-40th-fmd');
+        assert.equal(somewhereFeature.printMode, 'double');
+        assert.equal(somewhereFeature.front, 'Frente + dorso Eddie cósmico');
+        assert.equal(somewhereFeature.back, 'Dorso Eddie cósmico');
+        assert(somewhereFeature.slide.includes('iron_maiden_somewhere_fmd_doble.jpg'));
+        assert(somewhereFeature.price.includes('$45.000'));
+        await evaluate(`closeModal()`);
+
         await evaluate(`document.getElementById('bandDesignShowcase').scrollIntoView({ block: 'start' })`);
         await new Promise(resolve => setTimeout(resolve, 250));
         const screenshot = await send('Page.captureScreenshot', {

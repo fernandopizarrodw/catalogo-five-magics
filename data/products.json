@@ -22513,6 +22513,16 @@
         "selectionLabel": "Dorso logo Somewhere in Time",
         "role": "back",
         "backTargetDesignId": "iron-maiden-somewhere-in-time-40th-fmd"
+      },
+      {
+        "img": "images/iron_maiden/somewhere in time/iron_maiden_somewhere_fmd_doble.jpg",
+        "name": "Somewhere in Time 40th · Edición FMD · Frente y dorso",
+        "selectionLabel": "Edición FMD",
+        "previewLabel": "Frente + dorso Eddie cósmico",
+        "designId": "iron-maiden-somewhere-in-time-40th-fmd",
+        "role": "front",
+        "defaultPrintMode": "double",
+        "autoSelectBack": "Dorso Eddie cósmico"
       }
     ],
     "garments": ["remera"],

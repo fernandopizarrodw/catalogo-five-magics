@@ -286,7 +286,7 @@
             heroFirst: true,
             hideHeroArt: true,
             catalogBeforeProduction: true,
-            hideFeaturedCollection: true,
+            hideFeaturedCollection: false,
             heroTitle: 'RUN FOR YOUR LIVES<br><span>ARGENTINA 2026</span>',
             heroCopy: '<strong>20 + 21 OCTUBRE · ESTADIO HURACÁN</strong><br><br>La gira que celebra 50 años de historia llega a Buenos Aires.<br>Diseños inspirados en los primeros nueve discos de Iron Maiden.<br><br><b>MÁS DE 50 DISEÑOS</b><br>Remeras · Hoodies · Buzos<br>Estampa frontal o frente + dorso',
             heroCtaLabel: 'VER COLECCIÓN MAIDEN 2026',
@@ -509,8 +509,10 @@
                     },
                     {
                         designId: 'iron-maiden-somewhere-in-time-40th-fmd',
-                        label: 'Edición FMD',
-                        image: '/images/iron_maiden/somewhere in time/iron_maiden_somewhere_fmd.jpg'
+                        label: 'Edición FMD · Frente y dorso',
+                        image: '/images/iron_maiden/somewhere in time/iron_maiden_somewhere_fmd_doble.jpg',
+                        preview: '/images/iron_maiden/somewhere in time/iron_maiden_somewhere_fmd_doble.jpg',
+                        printMode: 'double'
                     },
                     {
                         designId: 'iron-maiden-somewhere-in-time-40th-eddie',
