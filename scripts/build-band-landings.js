@@ -292,7 +292,7 @@ ${featuredCollectionCards.map((card, index) => `                <button type="bu
                 <h2 id="bandCampaignFeatureTitle">${campaignFeature.title}</h2>
                 <span>${campaignFeature.copy}</span>
             </div>
-            <div class="band-campaign-feature-gallery${campaignFeatureImages.length === 1 ? ' has-single-option' : ''}">
+            <div class="band-campaign-feature-gallery${campaignFeatureImages.length === 1 ? ' has-single-option' : campaignFeatureImages.length === 2 ? ' has-two-options' : ''}">
 ${campaignFeatureImages.map((image, index) => `                <button type="button" class="band-campaign-feature-card${image.primary ? ' is-primary' : ''}" onclick="openCatalogDesignPreview('${image.designId || campaignFeature.designId}', 'remera', '${image.printMode || 'simple'}', '${image.preview || image.src}')" aria-label="Ver ${image.label}: ${campaignFeature.title}">
                     <img src="${image.src}" alt="${image.alt}" width="${image.width}" height="${image.height}" loading="${index === 0 ? 'eager' : 'lazy'}" decoding="async">
                     <strong>${image.label}</strong>

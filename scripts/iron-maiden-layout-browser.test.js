@@ -145,9 +145,9 @@ async function main() {
         assert.equal(result.tourColumns, 2);
         assert.equal(result.tourImagesLoaded, true);
         assert.equal(result.tourBetweenFeatureAndShowcase, true);
-        assert.equal(result.campaignCards, 3);
-        assert.equal(result.campaignColumns, 2);
-        assert.equal(result.campaignPrimarySpansBoth, true);
+        assert.equal(result.campaignCards, 2);
+        assert.equal(result.campaignColumns, 1);
+        assert.equal(result.campaignPrimarySpansBoth, false);
         assert.equal(result.campaignImagesLoaded, true);
         assert.deepEqual(result.catalogOrder.slice(0, 3), [
             'iron-maiden-1980-run-for-your-lives',
@@ -306,8 +306,8 @@ async function main() {
         assert.equal(desktop.proofColumns, 3);
         assert.equal(desktop.tourCards, 9);
         assert.equal(desktop.tourColumns, 3);
-        assert.equal(desktop.campaignCards, 3);
-        assert.equal(desktop.campaignColumns, 3);
+        assert.equal(desktop.campaignCards, 2);
+        assert.equal(desktop.campaignColumns, 2);
         assert.equal(desktop.pageOverflow, false);
         console.log(JSON.stringify({ mobile: result, desktop, screenshots: [campaignOutput, tourOutput, output, proofOutput] }, null, 2));
     } finally {

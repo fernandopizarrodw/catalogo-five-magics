@@ -5273,7 +5273,11 @@ function getCatalogDesignFrontRefs(design) {
         return true;
     });
     const carouselBacks = (design.backOptions || []).filter(ref => ref.carouselPreview);
-    return [...frontRefs, ...carouselBacks];
+    return [...frontRefs, ...carouselBacks].sort((a, b) => {
+        const aOrder = Number.isFinite(a.modalOrder) ? a.modalOrder : Number.MAX_SAFE_INTEGER;
+        const bOrder = Number.isFinite(b.modalOrder) ? b.modalOrder : Number.MAX_SAFE_INTEGER;
+        return aOrder - bOrder;
+    });
 }
 
 function catalogDesignRefToModalImage(ref) {
@@ -5281,7 +5285,7 @@ function catalogDesignRefToModalImage(ref) {
         img: ref.image,
         name: ref.previewLabel || ref.label,
         alt: ref.alt,
-        role: 'front',
+        role: ref.role || 'front',
         garmentCategory: ref.garment === 'hoodie'
             ? 'Hoodies Otras Bandas'
             : ref.garment === 'buzo_cuello_redondo'

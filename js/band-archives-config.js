@@ -328,36 +328,25 @@
                         designId: 'cd-iron-maiden-eddie-gaucho-argentino--p7040',
                         src: '/images/iron_maiden/remera_iron_maiden_eddie_gaucho_argentino.jpg',
                         alt: 'Edición completa Eddie Gaucho Argentino con frente clásico y dorso Buenos Aires 2026',
-                        label: 'EDDIE GAUCHO · PRIMERA EDICIÓN',
+                        label: 'EDDIE GAUCHO · FRENTE + DORSO',
                         printMode: 'double',
                         preview: '/images/iron_maiden/remera_iron_maiden_eddie_gaucho_argentino.jpg',
-                        width: 1200,
-                        height: 1200,
-                        primary: true
-                    },
-                    {
-                        designId: 'iron-maiden-eddie-tanguero-original-fmd',
-                        src: '/images/iron_maiden/iron_maiden_eddie_tanguero.jpg',
-                        alt: 'Frente Eddie Tanguero, segunda edición de la saga Eddies Argentinos',
-                        label: 'EDDIE TANGUERO · FRENTE',
-                        printMode: 'double',
-                        preview: '/images/iron_maiden/iron_maiden_eddie_tanguero.jpg',
                         width: 1080,
-                        height: 1340
+                        height: 1350
                     },
                     {
                         designId: 'iron-maiden-eddie-tanguero-original-fmd',
-                        src: '/images/iron_maiden/dorsos opcionales/iron_maiden_dorso_eddie_tanguero.jpg',
-                        alt: 'Dorso Eddie Tanguero Buenos Aires 2026',
-                        label: 'EDDIE TANGUERO · DORSO',
+                        src: '/images/iron_maiden/iron_maiden_eddie_tanguero_doble.jpg',
+                        alt: 'Edición completa Eddie Tanguero con frente y dorso Buenos Aires 2026',
+                        label: 'EDDIE TANGUERO · FRENTE + DORSO',
                         printMode: 'double',
-                        preview: '/images/iron_maiden/iron_maiden_eddie_tanguero.jpg',
-                        width: 1400,
-                        height: 1737
+                        preview: '/images/iron_maiden/iron_maiden_eddie_tanguero_doble.jpg',
+                        width: 1080,
+                        height: 1350
                     }
                 ],
                 defaultPrintMode: 'double',
-                defaultPreview: '/images/iron_maiden/iron_maiden_eddie_tanguero.jpg'
+                defaultPreview: '/images/iron_maiden/iron_maiden_eddie_tanguero_doble.jpg'
             },
             campaignTourCollection: {
                 kicker: 'COLECCIÓN ESPECIAL',
@@ -463,6 +452,8 @@
                 'iron-maiden-run-for-your-lives-2026-oficial',
                 'cd-iron-maiden-eddie-gaucho-argentino--p7040',
                 'iron-maiden-eddie-gaucho-argentino-con-fechas',
+                'iron-maiden-eddie-gaucho-argentino-hoodie',
+                'iron-maiden-eddie-gaucho-argentino-buzo',
                 'iron-maiden-eddie-tanguero-original-fmd',
                 'cd-iron-maiden-empire--p308',
                 'iron-maiden-the-final-tour-fmd',

@@ -16978,7 +16978,10 @@
         "img": "images/iron_maiden/remera_iron_maiden_eddie_gaucho_argentino_frente.jpg",
         "name": "Eddie Gaucho Argentino - Frente clásico",
         "selectionLabel": "Frente clásico",
+        "previewLabel": "Frente solo",
         "designId": "cd-iron-maiden-eddie-gaucho-argentino--p7040",
+        "catalogGarments": ["remera"],
+        "modalOrder": 1,
         "preferredPreview": true,
         "fmdBadge": "ORIGINAL FMD",
         "fmdBadgeDescription": "Creaci?n exclusiva FMD con Eddie gaucho para acompa?ar los shows de Iron Maiden en Argentina."
@@ -16996,16 +16999,24 @@
       {
         "img": "images/iron_maiden/hoodie_iron_maiden_eddie_gaucho_argentino.jpg",
         "name": "Eddie Gaucho Argentino - Hoodie",
-        "designId": "cd-iron-maiden-eddie-gaucho-argentino--p7040",
+        "publicName": "Eddie Gaucho Argentino · Hoodie",
+        "designId": "iron-maiden-eddie-gaucho-argentino-hoodie",
         "garmentCategory": "Hoodies Otras Bandas",
+        "catalogGarments": ["hoodie"],
+        "defaultPrintMode": "double",
+        "usesShownComposition": true,
         "fmdBadge": "ORIGINAL FMD",
         "fmdBadgeDescription": "Creaci?n exclusiva FMD con Eddie gaucho para acompa?ar los shows de Iron Maiden en Argentina."
       },
       {
         "img": "images/iron_maiden/buzo_iron_maiden_eddie_gaucho_argentino.jpg",
         "name": "Eddie Gaucho Argentino - Buzo cuello redondo",
-        "designId": "cd-iron-maiden-eddie-gaucho-argentino--p7040",
+        "publicName": "Eddie Gaucho Argentino · Buzo",
+        "designId": "iron-maiden-eddie-gaucho-argentino-buzo",
         "garmentCategory": "Buzo Cuello Redondo",
+        "catalogGarments": ["buzo_cuello_redondo"],
+        "defaultPrintMode": "double",
+        "usesShownComposition": true,
         "fmdBadge": "ORIGINAL FMD",
         "fmdBadgeDescription": "Creaci?n exclusiva FMD con Eddie gaucho para acompa?ar los shows de Iron Maiden en Argentina."
       },
@@ -17013,10 +17024,12 @@
         "img": "images/iron_maiden/remera_iron_maiden_eddie_gaucho_argentino.jpg",
         "name": "Eddie Gaucho Argentino - Versión frente + dorso",
         "selectionLabel": "Frente clásico",
-        "previewLabel": "Versión frente + dorso",
+        "previewLabel": "Frente y dorso",
         "designId": "cd-iron-maiden-eddie-gaucho-argentino--p7040",
         "role": "front",
         "garmentCategory": "Iron Maiden",
+        "catalogGarments": ["remera"],
+        "modalOrder": 3,
         "defaultPrintMode": "double",
         "autoSelectBack": "Dorso Buenos Aires 2026",
         "orderVariantIndex": 0,
@@ -17024,10 +17037,14 @@
         "fmdBadgeDescription": "Creación exclusiva FMD con Eddie gaucho para acompañar los shows de Iron Maiden en Argentina."
       },
       {
-        "img": "images/iron_maiden/remera_iron_maiden_eddie_gaucho_argentino_dorso.jpg",
+        "img": "images/iron_maiden/dorsos opcionales/remera_iron_maiden_eddie_gaucho_argentino_dorso.jpg",
         "name": "Dorso Buenos Aires 2026",
         "selectionLabel": "Dorso Buenos Aires 2026",
-        "role": "back"
+        "previewLabel": "Dorso solo",
+        "role": "back",
+        "backTargetDesignId": "cd-iron-maiden-eddie-gaucho-argentino--p7040",
+        "carouselPreview": true,
+        "modalOrder": 2
       }
     ],
     "desc": "Eddie Gaucho Argentino FMD. Creaci?n exclusiva Five Magics Designs para acompa?ar los shows de Iron Maiden en Argentina. Dise?o destacado disponible en remera, hoodie y buzo cuello redondo.",
@@ -22605,6 +22622,7 @@
     "album": null,
     "tipoPrecio": "simple",
     "defaultPrintMode": "double",
+    "catalogGarments": ["remera"],
     "isNew": true,
     "img": "images/iron_maiden/iron_maiden_eddie_tanguero.jpg",
     "desc": "Eddie Tanguero, segunda pieza de la saga Eddies Argentinos creada por Five Magics Designs.",
@@ -22613,10 +22631,26 @@
         "img": "images/iron_maiden/iron_maiden_eddie_tanguero.jpg",
         "name": "Eddie Tanguero · Frente",
         "selectionLabel": "Frente Eddie Tanguero",
+        "previewLabel": "Frente solo",
         "designId": "iron-maiden-eddie-tanguero-original-fmd",
         "role": "front",
         "preferredPreview": true,
+        "modalOrder": 1,
         "defaultPrintMode": "double",
+        "fmdBadge": "ORIGINAL FMD",
+        "fmdBadgeDescription": "Segunda pieza de la saga Eddies Argentinos creada por Five Magics Designs."
+      },
+      {
+        "img": "images/iron_maiden/iron_maiden_eddie_tanguero_doble.jpg",
+        "name": "Eddie Tanguero · Versión frente + dorso",
+        "selectionLabel": "Frente Eddie Tanguero",
+        "previewLabel": "Frente y dorso",
+        "designId": "iron-maiden-eddie-tanguero-original-fmd",
+        "role": "front",
+        "defaultPrintMode": "double",
+        "autoSelectBack": "Dorso Eddie Tanguero · Buenos Aires 2026",
+        "orderVariantIndex": 0,
+        "modalOrder": 3,
         "fmdBadge": "ORIGINAL FMD",
         "fmdBadgeDescription": "Segunda pieza de la saga Eddies Argentinos creada por Five Magics Designs."
       },
@@ -22624,9 +22658,11 @@
         "img": "images/iron_maiden/dorsos opcionales/iron_maiden_dorso_eddie_tanguero.jpg",
         "name": "Dorso Eddie Tanguero · Buenos Aires 2026",
         "selectionLabel": "Dorso Eddie Tanguero · Buenos Aires 2026",
+        "previewLabel": "Dorso solo",
         "role": "back",
         "backTargetDesignId": "iron-maiden-eddie-tanguero-original-fmd",
-        "carouselPreview": true
+        "carouselPreview": true,
+        "modalOrder": 2
       }
     ],
     "garments": ["remera"],

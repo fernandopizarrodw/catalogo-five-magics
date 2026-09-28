@@ -239,6 +239,7 @@
             tourRecommendation: variant?.tourRecommendation === true,
             autoSelectBack: String(variant?.autoSelectBack || '').trim(),
             orderVariantIndex: Number.isInteger(variant?.orderVariantIndex) ? variant.orderVariantIndex : null,
+            modalOrder: Number.isFinite(Number(variant?.modalOrder)) ? Number(variant.modalOrder) : null,
             color: String(variant?.color || '').trim(),
             defaultPrintMode: String(variant?.defaultPrintMode || product?.defaultPrintMode || '').trim()
         };
@@ -271,6 +272,11 @@
             // IDs stored with the product are authoritative. The generated map is
             // only a transition aid for legacy records without explicit identity.
             const designId = embeddedDesignId || explicitId || resolvedDesignId || transitionId;
+            const catalogGarments = unique(
+                variant?.catalogGarments
+                || product?.catalogGarments
+                || availableGarments
+            );
             if (!groups.has(designId)) {
                 groups.set(designId, {
                     designId,
@@ -279,7 +285,7 @@
                     band,
                     fronts: [],
                     backOptions: [],
-                    availableGarments: [...availableGarments],
+                    availableGarments: [...catalogGarments],
                     previewsByGarment: {
                         remera: [],
                         hoodie: [],

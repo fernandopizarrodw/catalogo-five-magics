@@ -6,9 +6,10 @@ const CDP_URL = 'http://127.0.0.1:9333';
 const PAGE_URL = 'http://127.0.0.1:5500/iron-maiden/';
 const FRONT_IMAGE = '/images/iron_maiden/remera_iron_maiden_eddie_gaucho_argentino_frente.jpg';
 const DATED_FRONT_IMAGE = '/images/iron_maiden/remera_iron_maiden_eddie_gaucho_argentino_con_fecha.jpg';
-const BACK_IMAGE = '/images/iron_maiden/remera_iron_maiden_eddie_gaucho_argentino_dorso.jpg';
+const BACK_IMAGE = '/images/iron_maiden/dorsos opcionales/remera_iron_maiden_eddie_gaucho_argentino_dorso.jpg';
 const COMBINED_IMAGE = '/images/iron_maiden/remera_iron_maiden_eddie_gaucho_argentino.jpg';
 const TANGUERO_FRONT_IMAGE = '/images/iron_maiden/iron_maiden_eddie_tanguero.jpg';
+const TANGUERO_COMBINED_IMAGE = '/images/iron_maiden/iron_maiden_eddie_tanguero_doble.jpg';
 const TANGUERO_BACK_IMAGE = '/images/iron_maiden/dorsos opcionales/iron_maiden_dorso_eddie_tanguero.jpg';
 
 async function main() {
@@ -24,8 +25,12 @@ async function main() {
 
     let id = 0;
     const pending = new Map();
+    const runtimeErrors = [];
     socket.addEventListener('message', event => {
         const response = JSON.parse(event.data);
+        if (response.method === 'Runtime.exceptionThrown') {
+            runtimeErrors.push(response.params?.exceptionDetails?.exception?.description || response.params?.exceptionDetails?.text || 'Error de runtime');
+        }
         if (!pending.has(response.id)) return;
         const request = pending.get(response.id);
         pending.delete(response.id);
@@ -38,7 +43,12 @@ async function main() {
     });
     const evaluate = async expression => {
         const result = await send('Runtime.evaluate', { expression, returnByValue: true, awaitPromise: true });
-        if (result.exceptionDetails) throw new Error(result.exceptionDetails.text);
+        if (result.exceptionDetails) {
+            const detail = result.exceptionDetails.exception?.description
+                || result.exceptionDetails.exception?.value
+                || result.exceptionDetails.text;
+            throw new Error(detail);
+        }
         return result.result.value;
     };
 
@@ -52,19 +62,26 @@ async function main() {
         await send('Network.enable');
         await send('Network.setCacheDisabled', { cacheDisabled: true });
         if (String(page.url || '').startsWith(PAGE_URL)) {
+            await evaluate(`window.__fmdTestBeforeReload = true`);
             await send('Page.reload', { ignoreCache: true });
         } else {
             await send('Page.navigate', { url: PAGE_URL });
         }
+        let pageReady = false;
         for (let attempt = 0; attempt < 80; attempt++) {
             const ready = await evaluate(`document.readyState === 'complete'
+                && window.__fmdTestBeforeReload !== true
                 && typeof catalogDesigns !== 'undefined'
                 && catalogDesigns.some(item => item.designId === 'cd-iron-maiden-eddie-gaucho-argentino--p7040')`);
-            if (ready) break;
+            if (ready) {
+                pageReady = true;
+                break;
+            }
             await new Promise(resolve => setTimeout(resolve, 100));
         }
+        assert(pageReady, `La página no terminó de iniciar: ${runtimeErrors.join(' | ')}`);
 
-        const result = await evaluate(`(async () => {
+        const result = await evaluate(`(() => {
             const design = catalogDesigns.find(item => item.designId === 'cd-iron-maiden-eddie-gaucho-argentino--p7040');
             if (!design) return { error: 'Eddie Gaucho no encontrado' };
             const datedDesign = catalogDesigns.find(item => item.designId === 'iron-maiden-eddie-gaucho-argentino-con-fechas');
@@ -86,7 +103,6 @@ async function main() {
             const featureImages = [...feature.querySelectorAll('.band-campaign-feature-card img')]
                 .map(image => image.getAttribute('src') || '');
             const paths = [...featureImages, design.front.image, design.backOptions[0]?.image, datedDesign.front.image, tangueroDesign.front.image, tangueroDesign.backOptions[0]?.image].filter(Boolean);
-            const responses = await Promise.all(paths.map(path => fetch(new URL(path, location.href)).then(response => response.ok)));
             return {
                 heroIsFirst: document.querySelector('main > section')?.classList.contains('band-landing-hero') === true,
                 featureIsSecond: document.querySelectorAll('main > section')[1] === feature,
@@ -108,8 +124,12 @@ async function main() {
                 datedFront: datedDesign.front.image,
                 backs: design.backOptions.map(item => item.image),
                 modalImages,
+                modalLabels: getModalImages().map(item => item.name || ''),
                 backSelectorImages,
-                imagesLoad: responses.every(Boolean)
+                availableGarments: design.availableGarments,
+                hoodieCatalogDesigns: catalogDesigns.filter(item => item.designId === 'iron-maiden-eddie-gaucho-argentino-hoodie').length,
+                buzoCatalogDesigns: catalogDesigns.filter(item => item.designId === 'iron-maiden-eddie-gaucho-argentino-buzo').length,
+                imagePaths: paths
             };
         })()`);
 
@@ -120,8 +140,8 @@ async function main() {
         assert.equal(result.tourCollectionCardCount, 9, 'La colección de Eddie Tour no contiene nueve diseños');
         assert(result.showcaseFollowsTourCollection, 'Los destacados generales no aparecen después de la colección Eddie Tour');
         assert.equal(result.showcaseCardCount, 10, 'La selección de campaña no muestra el tour y los nueve discos');
-        assert.equal(result.featureCardCount, 3);
-        assert.deepEqual(result.featureImages, [COMBINED_IMAGE, TANGUERO_FRONT_IMAGE, TANGUERO_BACK_IMAGE]);
+        assert.equal(result.featureCardCount, 2);
+        assert.deepEqual(result.featureImages, [COMBINED_IMAGE, TANGUERO_COMBINED_IMAGE]);
         assert.equal(result.featureCtaLabel, 'DESCUBRIR EDDIE TANGUERO');
         assert.equal(result.featureOpenedDesign, 'iron-maiden-eddie-tanguero-original-fmd');
         assert.equal(result.horizontalOverflow, false, 'La sección genera desborde horizontal en mobile');
@@ -137,10 +157,20 @@ async function main() {
         assert(result.cardImage.includes(FRONT_IMAGE));
         assert.equal(result.code, 'IMEGAF-7040.V1');
         assert(result.modalImages.some(path => path.includes(FRONT_IMAGE)));
+        assert.deepEqual(result.modalImages, [FRONT_IMAGE, BACK_IMAGE, COMBINED_IMAGE]);
+        assert.deepEqual(result.modalLabels, ['Frente solo', 'Dorso solo', 'Frente y dorso']);
+        assert.deepEqual(result.availableGarments, ['remera']);
+        assert.equal(result.hoodieCatalogDesigns, 1, 'El hoodie Gaucho no aparece como ficha independiente');
+        assert.equal(result.buzoCatalogDesigns, 1, 'El buzo Gaucho no aparece como ficha independiente');
         assert(!result.modalImages.some(path => path.includes(DATED_FRONT_IMAGE)), 'El frente con fechas aparece dentro del modal destacado');
         assert(result.modalImages.some(path => path.includes(COMBINED_IMAGE)));
         assert(result.backSelectorImages.some(path => path.includes(BACK_IMAGE)));
-        assert(result.imagesLoad, 'Alguna imagen de Eddie Gaucho no carga');
+        const imageResponses = await Promise.all(result.imagePaths.map(async path => ({
+            path,
+            ok: (await fetch(new URL(path, PAGE_URL))).ok
+        })));
+        const brokenImages = imageResponses.filter(response => !response.ok).map(response => response.path);
+        assert.equal(brokenImages.length, 0, `Alguna imagen de la saga no carga: ${brokenImages.join(', ')}`);
         const entryFlow = await evaluate(`(() => {
             const feature = document.getElementById('bandCampaignFeature');
             const featureCards = [...feature.querySelectorAll('.band-campaign-feature-card')];
@@ -167,11 +197,7 @@ async function main() {
 
             closeModal();
             featureCards[1].click();
-            const tangueroFront = snapshot();
-
-            closeModal();
-            featureCards[2].click();
-            const tangueroBack = snapshot();
+            const tangueroDouble = snapshot();
 
             closeModal();
             feature.querySelector('.band-campaign-feature-cta').click();
@@ -181,7 +207,7 @@ async function main() {
             document.querySelector('[data-design-id="cd-iron-maiden-eddie-gaucho-argentino--p7040"] .catalog-design-card-main').click();
             const catalogCard = snapshot();
 
-            return { combined, datedFront, tangueroFront, tangueroBack, cta, catalogCard };
+            return { combined, datedFront, tangueroDouble, cta, catalogCard };
         })()`);
 
         assert.equal(entryFlow.combined.printMode, 'double');
@@ -200,12 +226,12 @@ async function main() {
         assert.equal(entryFlow.datedFront.front, 'Frente con fechas');
         assert(entryFlow.datedFront.slide.includes(DATED_FRONT_IMAGE));
         assert(entryFlow.datedFront.price.includes('$38.000'));
-        for (const tangueroEntry of [entryFlow.tangueroFront, entryFlow.tangueroBack, entryFlow.cta]) {
+        for (const tangueroEntry of [entryFlow.tangueroDouble, entryFlow.cta]) {
             assert.equal(tangueroEntry.designId, 'iron-maiden-eddie-tanguero-original-fmd');
             assert.equal(tangueroEntry.printMode, 'double');
             assert.equal(tangueroEntry.front, 'Frente Eddie Tanguero');
             assert.equal(tangueroEntry.back, 'Dorso Eddie Tanguero · Buenos Aires 2026');
-            assert(tangueroEntry.slide.includes(TANGUERO_FRONT_IMAGE));
+            assert(tangueroEntry.slide.includes(TANGUERO_COMBINED_IMAGE));
             assert(tangueroEntry.price.includes('$45.000'));
             assert.equal(tangueroEntry.visualVisible, true);
             assert(tangueroEntry.visualImages.some(path => path.includes(TANGUERO_FRONT_IMAGE)));
@@ -220,7 +246,7 @@ async function main() {
         const tangueroOrder = await evaluate(`(() => {
             closeModal();
             cart.clearCart();
-            openCatalogDesignPreview('iron-maiden-eddie-tanguero-original-fmd', 'remera', 'double', '${TANGUERO_FRONT_IMAGE}');
+            openCatalogDesignPreview('iron-maiden-eddie-tanguero-original-fmd', 'remera', 'double', '${TANGUERO_COMBINED_IMAGE}');
             selectRemeraVariant('hombre_clasica');
             selectSize('M');
             selectColor('negro');
