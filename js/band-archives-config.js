@@ -281,8 +281,8 @@
             title: 'Iron Maiden Run For Your Lives Argentina 2026 | Five Magics Designs',
             description: 'Colección Iron Maiden para los shows del 20 y 21 de octubre de 2026 en el Estadio Huracán. Más de 50 diseños en remeras, hoodies y buzos.',
             canonical: 'https://catalogo.fivemagicsdesigns.com/iron-maiden/',
-            image: '/images/iron_maiden/remera_iron_maiden_run_oficial.jpg',
-            imageUrl: 'https://catalogo.fivemagicsdesigns.com/images/iron_maiden/remera_iron_maiden_run_oficial.jpg',
+            image: '/images/iron_maiden/eddie_run_for_your_lives_tour/remera_iron_maiden_run_oficial.jpg',
+            imageUrl: 'https://catalogo.fivemagicsdesigns.com/images/iron_maiden/eddie_run_for_your_lives_tour/remera_iron_maiden_run_oficial.jpg',
             heroFirst: true,
             campaignFeatureFirst: true,
             hideHeroArt: true,
@@ -336,6 +336,62 @@
                 ],
                 defaultPrintMode: 'double',
                 defaultPreview: '/images/iron_maiden/remera_iron_maiden_eddie_gaucho_argentino.jpg'
+            },
+            campaignTourCollection: {
+                kicker: 'COLECCIÓN ESPECIAL',
+                title: 'EDDIE · RUN FOR YOUR LIVES TOUR',
+                copy: 'Nueve diseños inspirados en la gira 2026. Elegí tu Eddie y armá la versión que más te guste.',
+                cards: [
+                    {
+                        designId: 'iron-maiden-run-for-your-lives-2026-oficial',
+                        label: 'Run For Your Lives · Argentina 2026',
+                        image: '/images/iron_maiden/eddie_run_for_your_lives_tour/remera_iron_maiden_run_oficial.jpg',
+                        preview: '/images/iron_maiden/eddie_run_for_your_lives_tour/remera_iron_maiden_run_oficial.jpg',
+                        printMode: 'double'
+                    },
+                    {
+                        designId: 'cd-iron-maiden-eddie-argentina-v1-fmd--p7015',
+                        label: 'Eddie Argentina · Selección',
+                        image: '/images/iron_maiden/eddie_run_for_your_lives_tour/eddie_argentina_v1.jpg'
+                    },
+                    {
+                        designId: 'cd-iron-maiden-eddie-argentina-v2-fmd--p7016',
+                        label: 'Eddie Argentina · Buenos Aires 2026',
+                        image: '/images/iron_maiden/eddie_run_for_your_lives_tour/eddie_argentina_v2.jpg'
+                    },
+                    {
+                        designId: 'cd-iron-maiden-eddie-bass-fmd--p7018',
+                        label: 'Eddie Bass · Buenos Aires 2026',
+                        image: '/images/iron_maiden/eddie_run_for_your_lives_tour/fmd_eddie_bass.jpg'
+                    },
+                    {
+                        designId: 'cd-iron-maiden-eddie-circular-fmd--p7019',
+                        label: 'Eddie Circular',
+                        image: '/images/iron_maiden/eddie_run_for_your_lives_tour/fmd_eddie_circular.jpg'
+                    },
+                    {
+                        designId: 'cd-iron-maiden-eddie-run-for-fmd--p7021',
+                        label: 'Eddie Run For Your Lives',
+                        image: '/images/iron_maiden/eddie_run_for_your_lives_tour/fmd_eddie_run_for_frente.jpg'
+                    },
+                    {
+                        designId: 'cd-iron-maiden-tour-merch-v1-fmd--p7031',
+                        label: 'Eddie Tour · World Tour 2026',
+                        image: '/images/iron_maiden/eddie_run_for_your_lives_tour/tour_merch_v1_frente..jpg'
+                    },
+                    {
+                        designId: 'cd-iron-maiden-tour-merch-v2-fmd--p7032',
+                        label: 'Eddie Tour · Ciudad en llamas',
+                        image: '/images/iron_maiden/eddie_run_for_your_lives_tour/tour_merch_v2_frente.jpg'
+                    },
+                    {
+                        designId: 'cd-iron-maiden-tour-merch-v3-fmd--p7033',
+                        label: 'Eddie Tour · Archivo 2026',
+                        image: '/images/iron_maiden/eddie_run_for_your_lives_tour/tour_merch_v3_frente.jpg'
+                    }
+                ],
+                note: 'Todos disponibles en remera. Los modelos con dorso permiten elegir frente + dorso desde el modal.',
+                ctaLabel: 'VER TODA LA COLECCIÓN IRON MAIDEN'
             },
             retiredDesignIds: [
                 'iron-maiden-iron-maiden-classic',

@@ -16117,13 +16117,12 @@
     "tipoPrecio": "simple",
     "isNew": true,
     "priority": 165,
-    "img": "images/iron_maiden/eddie_argentina_v1.jpg",
+    "img": "images/iron_maiden/eddie_run_for_your_lives_tour/eddie_argentina_v1.jpg",
     "desc": "Diseno Iron Maiden edicion FMD 2026. Disponible para remera, hoodie y buzo cuello redondo.",
     "band": "Iron Maiden",
     "collections": [
       "Eddie Argentina",
-      "Archivo Maiden",
-      "Dave Mustaine"
+      "Archivo Maiden"
     ],
     "tags": [
       "Iron Maiden",
@@ -16144,8 +16143,7 @@
     ],
     "commercialPriority": 88,
     "visibilityTier": "featured",
-    "legacyCategory": "Iron Maiden",
-    "curationNotes": "Reassigned suggestion -> Dave Mustaine (applied by script)"
+    "legacyCategory": "Iron Maiden"
   },
   {
     "id": 7016,
@@ -16155,7 +16153,7 @@
     "tipoPrecio": "simple",
     "isNew": true,
     "priority": 164,
-    "img": "images/iron_maiden/eddie_argentina_v2.jpg",
+    "img": "images/iron_maiden/eddie_run_for_your_lives_tour/eddie_argentina_v2.jpg",
     "desc": "Diseno Iron Maiden edicion FMD 2026. Disponible para remera, hoodie y buzo cuello redondo.",
     "band": "Iron Maiden",
     "collections": [
@@ -16229,7 +16227,7 @@
     "tipoPrecio": "simple",
     "isNew": true,
     "priority": 162,
-    "img": "images/iron_maiden/fmd_eddie_bass.jpg",
+    "img": "images/iron_maiden/eddie_run_for_your_lives_tour/fmd_eddie_bass.jpg",
     "desc": "Diseno Iron Maiden edicion FMD 2026. Disponible para remera, hoodie y buzo cuello redondo.",
     "band": "Iron Maiden",
     "collections": [
@@ -16265,18 +16263,18 @@
     "tipoPrecio": "simple",
     "isNew": true,
     "priority": 161,
-    "img": "images/iron_maiden/fmd_eddie_circular.jpg",
+    "img": "images/iron_maiden/eddie_run_for_your_lives_tour/fmd_eddie_circular.jpg",
     "orderCodeBase": "IMFECF-7019",
     "variants": [
       {
-        "img": "images/iron_maiden/fmd_eddie_circular.jpg",
+        "img": "images/iron_maiden/eddie_run_for_your_lives_tour/fmd_eddie_circular.jpg",
         "name": "Eddie Circular FMD - Frente",
         "selectionLabel": "Frente Eddie Circular",
         "designId": "cd-iron-maiden-eddie-circular-fmd--p7019",
         "preferredPreview": true
       },
       {
-        "img": "images/iron_maiden/remera_iron_maiden_dorso_run_for_your_lives.jpg",
+        "img": "images/iron_maiden/eddie_run_for_your_lives_tour/remera_iron_maiden_dorso_run_for_your_lives.jpg",
         "name": "Dorso Run For Your Lives",
         "selectionLabel": "Dorso Run For Your Lives",
         "role": "back",
@@ -16356,10 +16354,10 @@
     "tipoPrecio": "doble",
     "isNew": true,
     "priority": 159,
-    "img": "images/iron_maiden/fmd_eddie_run_for_frente.jpg",
+    "img": "images/iron_maiden/eddie_run_for_your_lives_tour/fmd_eddie_run_for_frente.jpg",
     "variants": [
       {
-        "img": "images/iron_maiden/fmd_eddie_run_for_frente.jpg",
+        "img": "images/iron_maiden/eddie_run_for_your_lives_tour/fmd_eddie_run_for_frente.jpg",
         "name": "Frente",
         "role": "front"
       },
@@ -16822,10 +16820,10 @@
     "tipoPrecio": "doble",
     "isNew": true,
     "priority": 149,
-    "img": "images/iron_maiden/tour_merch_v1_frente..jpg",
+    "img": "images/iron_maiden/eddie_run_for_your_lives_tour/tour_merch_v1_frente..jpg",
     "variants": [
       {
-        "img": "images/iron_maiden/tour_merch_v1_frente..jpg",
+        "img": "images/iron_maiden/eddie_run_for_your_lives_tour/tour_merch_v1_frente..jpg",
         "name": "Frente",
         "role": "front"
       },
@@ -16873,10 +16871,10 @@
     "tipoPrecio": "doble",
     "isNew": true,
     "priority": 148,
-    "img": "images/iron_maiden/tour_merch_v2_frente.jpg",
+    "img": "images/iron_maiden/eddie_run_for_your_lives_tour/tour_merch_v2_frente.jpg",
     "variants": [
       {
-        "img": "images/iron_maiden/tour_merch_v2_frente.jpg",
+        "img": "images/iron_maiden/eddie_run_for_your_lives_tour/tour_merch_v2_frente.jpg",
         "name": "Frente",
         "role": "front"
       },
@@ -16924,10 +16922,10 @@
     "tipoPrecio": "doble",
     "isNew": true,
     "priority": 147,
-    "img": "images/iron_maiden/tour_merch_v3_frente.jpg",
+    "img": "images/iron_maiden/eddie_run_for_your_lives_tour/tour_merch_v3_frente.jpg",
     "variants": [
       {
-        "img": "images/iron_maiden/tour_merch_v3_frente.jpg",
+        "img": "images/iron_maiden/eddie_run_for_your_lives_tour/tour_merch_v3_frente.jpg",
         "name": "Frente",
         "role": "front"
       },
@@ -17452,10 +17450,10 @@
     "defaultPrintMode": "doble",
     "usesShownComposition": true,
     "isNew": true,
-    "img": "images/iron_maiden/remera_iron_maiden_run_oficial.jpg",
+    "img": "images/iron_maiden/eddie_run_for_your_lives_tour/remera_iron_maiden_run_oficial.jpg",
     "variants": [
       {
-        "img": "images/iron_maiden/remera_iron_maiden_run_oficial.jpg",
+        "img": "images/iron_maiden/eddie_run_for_your_lives_tour/remera_iron_maiden_run_oficial.jpg",
         "name": "Run For Your Lives World Tour 2026 - Remera",
         "designId": "iron-maiden-run-for-your-lives-2026-oficial"
       },

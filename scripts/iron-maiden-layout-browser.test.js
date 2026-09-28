@@ -53,6 +53,11 @@ async function main() {
                 && document.querySelectorAll('#bandDesignShowcase .band-design-showcase-set:not([aria-hidden="true"]) .band-design-showcase-card').length === 10`)) break;
             await new Promise(resolve => setTimeout(resolve, 100));
         }
+        await evaluate(`Promise.all([...document.querySelectorAll('#bandTourCollection img')].map(image => {
+            image.loading = 'eager';
+            if (image.complete) return Promise.resolve();
+            return new Promise(resolve => image.addEventListener('load', resolve, { once: true }));
+        }))`);
 
         const result = await evaluate(`(() => {
             const showcase = document.getElementById('bandDesignShowcase');
@@ -62,7 +67,10 @@ async function main() {
             const proofStyle = getComputedStyle(proof);
             const mainSections = [...document.querySelector('main').children];
             const catalog = document.querySelector('.band-landing-catalog');
-            const somewhere = document.querySelector('.band-featured-collection');
+            const campaignFeature = document.getElementById('bandCampaignFeature');
+            const tourCollection = document.getElementById('bandTourCollection');
+            const tourCards = [...tourCollection.querySelectorAll('.band-featured-collection-card')];
+            const somewhere = document.querySelector('.band-featured-collection:not(.band-tour-collection)');
             const garmentSelector = document.querySelector('.band-landing-garment-selector');
             return {
                 showcaseCards: showcase.querySelectorAll('.band-design-showcase-set:not([aria-hidden="true"]) .band-design-showcase-card').length,
@@ -78,6 +86,26 @@ async function main() {
                     const style = getComputedStyle(card);
                     return style.textAlign === 'center' && style.justifyItems === 'center';
                 }),
+                promoRowsFillWidth: (() => {
+                    const options = document.querySelector('.shipping-promo-options');
+                    const rows = [...options.children];
+                    const optionsWidth = options.getBoundingClientRect().width;
+                    return rows.every(row => Math.abs(row.getBoundingClientRect().width - optionsWidth) < 2);
+                })(),
+                promoPanelCentered: (() => {
+                    const panel = document.querySelector('.july-shipping-promo');
+                    const rect = panel.getBoundingClientRect();
+                    const viewportWidth = document.documentElement.clientWidth;
+                    return Math.abs(rect.left - (viewportWidth - rect.right)) < 2;
+                })(),
+                tourCards: tourCards.length,
+                tourColumns: getComputedStyle(tourCollection.querySelector('.band-featured-collection-grid')).gridTemplateColumns.split(' ').length,
+                tourImagesLoaded: tourCards.every(card => {
+                    const image = card.querySelector('img');
+                    return image.complete && image.naturalWidth > 0;
+                }),
+                tourBetweenFeatureAndShowcase: mainSections.indexOf(campaignFeature) < mainSections.indexOf(tourCollection)
+                    && mainSections.indexOf(tourCollection) < mainSections.indexOf(showcase),
                 catalogOrder: [...document.querySelectorAll('.catalog-design-card[data-design-id]')]
                     .slice(0, 8)
                     .map(card => card.dataset.designId),
@@ -98,6 +126,12 @@ async function main() {
         assert.equal(result.firstProofSpansBoth, true);
         assert.equal(result.proofOverflow, false);
         assert.equal(result.promoCentered, true);
+        assert.equal(result.promoRowsFillWidth, true);
+        assert.equal(result.promoPanelCentered, true);
+        assert.equal(result.tourCards, 9);
+        assert.equal(result.tourColumns, 2);
+        assert.equal(result.tourImagesLoaded, true);
+        assert.equal(result.tourBetweenFeatureAndShowcase, true);
         assert.deepEqual(result.catalogOrder.slice(0, 3), [
             'iron-maiden-1980-run-for-your-lives',
             'iron-maiden-burning-ambition-edicion-fmd',
@@ -109,7 +143,7 @@ async function main() {
         assert.equal(result.pageOverflow, false);
 
         const somewhereFeature = await evaluate(`(() => {
-            const cards = [...document.querySelectorAll('.band-featured-collection-card')];
+            const cards = [...document.querySelectorAll('.band-featured-collection:not(.band-tour-collection) .band-featured-collection-card')];
             const doubleCard = cards.find(card => card.querySelector('img')?.src.includes('iron_maiden_somewhere_fmd_doble.jpg'));
             doubleCard?.click();
             return {
@@ -134,6 +168,49 @@ async function main() {
         assert(somewhereFeature.slide.includes('iron_maiden_somewhere_fmd_doble.jpg'));
         assert(somewhereFeature.price.includes('$45.000'));
         await evaluate(`closeModal()`);
+
+        const tourFeature = await evaluate(`(() => {
+            const card = document.querySelector('#bandTourCollection [data-design-id="iron-maiden-run-for-your-lives-2026-oficial"]');
+            card?.click();
+            return {
+                modalActive: document.getElementById('modal').classList.contains('active'),
+                designId: currentCatalogDesign?.designId || '',
+                printMode: selectedPrintMode,
+                slide: getModalImages()[currentSlide]?.img || ''
+            };
+        })()`);
+        assert.equal(tourFeature.modalActive, true);
+        assert.equal(tourFeature.designId, 'iron-maiden-run-for-your-lives-2026-oficial');
+        assert.equal(tourFeature.printMode, 'double');
+        assert(tourFeature.slide.includes('eddie_run_for_your_lives_tour/remera_iron_maiden_run_oficial.jpg'));
+        await evaluate(`closeModal()`);
+
+        const tourModalChecks = await evaluate(`(() => [...document.querySelectorAll('#bandTourCollection [data-design-id]')].map(card => {
+            card.click();
+            const result = {
+                expected: card.dataset.designId,
+                actual: currentCatalogDesign?.designId || '',
+                modalActive: document.getElementById('modal').classList.contains('active')
+            };
+            closeModal();
+            return result;
+        }))()`);
+        assert.equal(tourModalChecks.length, 9);
+        assert.equal(tourModalChecks.every(item => item.modalActive && item.actual === item.expected), true);
+
+        const tourRect = await evaluate(`(() => {
+            const section = document.getElementById('bandTourCollection');
+            const rect = section.getBoundingClientRect();
+            return { x: 0, y: rect.top + window.scrollY, width: document.documentElement.clientWidth, height: rect.height, scale: 1 };
+        })()`);
+        const tourScreenshot = await send('Page.captureScreenshot', {
+            format: 'png',
+            fromSurface: true,
+            captureBeyondViewport: true,
+            clip: tourRect
+        });
+        const tourOutput = path.resolve(__dirname, '..', 'reports', 'iron-maiden-eddie-tour-mobile.png');
+        fs.writeFileSync(tourOutput, Buffer.from(tourScreenshot.data, 'base64'));
 
         await evaluate(`document.getElementById('bandDesignShowcase').scrollIntoView({ block: 'start' })`);
         await new Promise(resolve => setTimeout(resolve, 250));
@@ -180,18 +257,23 @@ async function main() {
             const showcase = document.getElementById('bandDesignShowcase');
             const set = showcase.querySelector('.band-design-showcase-set');
             const proof = document.querySelector('.band-real-product-proof-grid');
+            const tourCollection = document.getElementById('bandTourCollection');
             return {
                 showcaseCards: set.querySelectorAll('.band-design-showcase-card').length,
                 showcaseAnimation: getComputedStyle(showcase.querySelector('.band-design-showcase-track')).animationName,
                 proofColumns: getComputedStyle(proof).gridTemplateColumns.split(' ').length,
+                tourCards: tourCollection.querySelectorAll('.band-featured-collection-card').length,
+                tourColumns: getComputedStyle(tourCollection.querySelector('.band-featured-collection-grid')).gridTemplateColumns.split(' ').length,
                 pageOverflow: document.documentElement.scrollWidth > document.documentElement.clientWidth
             };
         })()`);
         assert.equal(desktop.showcaseCards, 10);
         assert.equal(desktop.showcaseAnimation, 'band-showcase-scroll');
         assert.equal(desktop.proofColumns, 3);
+        assert.equal(desktop.tourCards, 9);
+        assert.equal(desktop.tourColumns, 3);
         assert.equal(desktop.pageOverflow, false);
-        console.log(JSON.stringify({ mobile: result, desktop, screenshots: [output, proofOutput] }, null, 2));
+        console.log(JSON.stringify({ mobile: result, desktop, screenshots: [tourOutput, output, proofOutput] }, null, 2));
     } finally {
         socket.close();
     }

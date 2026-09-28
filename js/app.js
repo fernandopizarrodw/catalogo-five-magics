@@ -6792,7 +6792,7 @@ function getCatalogDirectoryImage(product) {
 const FEATURED_COLLECTION_ART = Object.freeze({
     megadeth: { image: 'images/albums/Megadeth/megadeth_2026_vic_llamas_v3.jpg', alt: 'Diseño representativo de Megadeth' },
     slayer: { image: 'images/slayer/remera_slayer_aguila.jpg', alt: 'Diseño representativo de Slayer' },
-    'iron maiden': { image: 'images/iron_maiden/remera_iron_maiden_run_oficial.jpg', alt: 'Run For Your Lives World Tour 2026 de Iron Maiden' },
+    'iron maiden': { image: 'images/iron_maiden/eddie_run_for_your_lives_tour/remera_iron_maiden_run_oficial.jpg', alt: 'Run For Your Lives World Tour 2026 de Iron Maiden' },
     'ricardo iorio': { image: 'images/banda_sugeridas/ricardo_iorio/remera_almafuerte_obras.jpg', alt: 'Almafuerte - En Obras' },
     epica: { image: 'images/banda_sugeridas/epica/hoodie_epica_the_phantom_agony.jpg', alt: 'Hoodie EPICA The Phantom Agony' },
     helloween: {

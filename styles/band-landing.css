@@ -101,6 +101,23 @@ body[data-band="Helloween"] .july-shipping-promo strong {
 }
 
 @media (max-width: 760px) {
+    body[data-band="Iron Maiden"] .july-shipping-promo,
+    body[data-band="Iron Maiden"] .shipping-promo-options {
+        margin-inline: auto;
+        box-sizing: border-box;
+    }
+
+    body[data-band="Iron Maiden"] .shipping-promo-options {
+        width: 100%;
+    }
+
+    body[data-band="Iron Maiden"] .shipping-promo-options > span {
+        width: 100%;
+        max-width: none;
+        justify-self: stretch;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
     body[data-band="Helloween"] .july-shipping-promo {
         width: calc(100% - 20px);
         padding-inline: 14px;
@@ -1055,11 +1072,44 @@ body[data-band="Helloween"] .helloween-post-show-featured {
     font-weight: 800;
     letter-spacing: 0.075em;
     cursor: pointer;
+    text-align: center;
+    text-decoration: none;
 }
 
 .band-featured-collection-cta:hover {
     color: #050505;
     background: #f3d438;
+}
+
+body[data-band="Iron Maiden"] .band-tour-collection {
+    border-color: rgba(117, 199, 255, 0.58);
+    background:
+        radial-gradient(circle at 12% 0, rgba(117, 199, 255, 0.16), transparent 36%),
+        radial-gradient(circle at 88% 0, rgba(255, 255, 255, 0.08), transparent 30%),
+        linear-gradient(145deg, rgba(8, 17, 27, 0.99), rgba(4, 5, 7, 0.99));
+}
+
+body[data-band="Iron Maiden"] .band-tour-collection .band-featured-collection-head p,
+body[data-band="Iron Maiden"] .band-tour-collection .band-featured-collection-note {
+    color: #75c7ff;
+}
+
+body[data-band="Iron Maiden"] .band-tour-collection .band-featured-collection-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+body[data-band="Iron Maiden"] .band-tour-collection .band-featured-collection-card:hover {
+    border-color: #75c7ff;
+}
+
+body[data-band="Iron Maiden"] .band-tour-collection .band-featured-collection-cta {
+    border-color: rgba(117, 199, 255, 0.72);
+    background: rgba(117, 199, 255, 0.08);
+}
+
+body[data-band="Iron Maiden"] .band-tour-collection .band-featured-collection-cta:hover {
+    color: #050505;
+    background: #75c7ff;
 }
 
 .band-landing-hero-copy {
@@ -2288,6 +2338,10 @@ body.band-landing-page[data-band="Argentina"] #modal .btn-add-cart {
     .band-featured-collection-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 8px;
+    }
+
+    body[data-band="Iron Maiden"] .band-tour-collection .band-featured-collection-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
     .band-featured-collection-card:last-child:nth-child(odd) {

@@ -84,7 +84,9 @@ async function main() {
             return {
                 heroIsFirst: document.querySelector('main > section')?.classList.contains('band-landing-hero') === true,
                 featureIsSecond: document.querySelectorAll('main > section')[1] === feature,
-                showcaseIsThird: document.querySelectorAll('main > section')[2]?.id === 'bandDesignShowcase',
+                tourCollectionIsThird: document.querySelectorAll('main > section')[2]?.id === 'bandTourCollection',
+                tourCollectionCardCount: document.querySelectorAll('#bandTourCollection .band-featured-collection-card').length,
+                showcaseFollowsTourCollection: document.querySelectorAll('main > section')[3]?.id === 'bandDesignShowcase',
                 showcaseCardCount: document.querySelectorAll('#bandDesignShowcase .band-design-showcase-set:not([aria-hidden="true"]) .band-design-showcase-card').length,
                 featureImages,
                 featureCardCount: feature.querySelectorAll('.band-campaign-feature-card').length,
@@ -108,7 +110,9 @@ async function main() {
         assert(!result.error, result.error);
         assert(result.heroIsFirst, 'El hero de campaña no aparece primero');
         assert(result.featureIsSecond, 'Eddie Gaucho no aparece inmediatamente después del hero');
-        assert(result.showcaseIsThird, 'Los destacados generales no aparecen después de Eddie Gaucho');
+        assert(result.tourCollectionIsThird, 'La colección de Eddie Tour no aparece después de Eddie Gaucho');
+        assert.equal(result.tourCollectionCardCount, 9, 'La colección de Eddie Tour no contiene nueve diseños');
+        assert(result.showcaseFollowsTourCollection, 'Los destacados generales no aparecen después de la colección Eddie Tour');
         assert.equal(result.showcaseCardCount, 10, 'La selección de campaña no muestra el tour y los nueve discos');
         assert.equal(result.featureCardCount, 1);
         assert.deepEqual(result.featureImages, [COMBINED_IMAGE]);

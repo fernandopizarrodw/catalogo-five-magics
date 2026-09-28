@@ -27,6 +27,20 @@ ${landingEntries}
 `;
 }
 
+function updateSelectedSitemap(selectedLandings) {
+    const lastmod = new Date().toISOString().slice(0, 10);
+    let sitemap = fs.readFileSync(SITEMAP_PATH, 'utf8');
+    selectedLandings.forEach(config => {
+        const escapedCanonical = config.canonical.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        const entryPattern = new RegExp(`(<url>\\s*<loc>${escapedCanonical}</loc>\\s*<lastmod>)[^<]+(</lastmod>)`);
+        if (!entryPattern.test(sitemap)) {
+            throw new Error(`No se encontro ${config.canonical} en sitemap.xml.`);
+        }
+        sitemap = sitemap.replace(entryPattern, `$1${lastmod}$2`);
+    });
+    return sitemap;
+}
+
 function extractSharedCommerceMarkup(source) {
     const startMarker = '    <div class="zoom-overlay" id="zoomOverlay">';
     const endMarker = '    <script src="js/band-archives-config.js" defer></script>';
@@ -283,6 +297,28 @@ ${campaignFeature.priceOptions.map(option => `                <span${option.reco
             <p class="band-campaign-feature-note">${campaignFeature.note}</p>
             <button type="button" class="band-campaign-feature-cta" onclick="openCatalogDesignPreview('${campaignFeature.designId}', 'remera', '${campaignFeature.defaultPrintMode || 'simple'}', '${campaignFeature.defaultPreview || campaignFeatureImages[0].src}')">${campaignFeature.ctaLabel}</button>
         </section>` : '';
+    const campaignTourCollection = config.campaignTourCollection && typeof config.campaignTourCollection === 'object'
+        ? config.campaignTourCollection
+        : null;
+    const campaignTourCollectionCards = Array.isArray(campaignTourCollection?.cards)
+        ? campaignTourCollection.cards.filter(card => card?.designId && card?.image)
+        : [];
+    const campaignTourCollectionMarkup = campaignTourCollectionCards.length ? `
+        <section class="band-featured-collection band-tour-collection" id="bandTourCollection" aria-labelledby="bandTourCollectionTitle">
+            <div class="band-featured-collection-head">
+                <p>${campaignTourCollection.kicker}</p>
+                <h2 id="bandTourCollectionTitle">${campaignTourCollection.title}</h2>
+                <span>${campaignTourCollection.copy}</span>
+            </div>
+            <div class="band-featured-collection-grid">
+${campaignTourCollectionCards.map((card, index) => `                <button type="button" class="band-featured-collection-card" data-design-id="${card.designId}" onclick="${card.preview || card.printMode ? `openCatalogDesignPreview('${card.designId}', 'remera', '${card.printMode || 'simple'}', '${card.preview || card.image}')` : `openCatalogDesign('${card.designId}', 'remera')`}" aria-label="Ver ${card.label}">
+                    <img src="${card.image}" alt="${card.label} de ${config.band}" loading="${index < 2 ? 'eager' : 'lazy'}" decoding="async">
+                    <strong>${card.label}</strong>
+                </button>`).join('\n')}
+            </div>
+            <p class="band-featured-collection-note">${campaignTourCollection.note}</p>
+            <a class="band-featured-collection-cta" href="#catalogoPrincipal">${campaignTourCollection.ctaLabel}</a>
+        </section>` : '';
     const realProductProof = config.realProductProof && typeof config.realProductProof === 'object'
         ? config.realProductProof
         : null;
@@ -420,7 +456,7 @@ ${postShow ? `
             <div class="band-landing-hero-art">
                 <img src="${config.image}" alt="Colección Helloween post-show en Five Magics Designs" width="1200" height="1200">
             </div>
-        </section>` : ''}${config.heroFirst && config.campaignFeatureFirst ? `\n${campaignFeatureMarkup}` : ''}${config.heroFirst && showcaseFirst ? `\n${showcaseMarkup}` : ''}${config.heroFirst && !config.campaignFeatureFirst ? `\n${campaignFeatureMarkup}` : ''}${realProductProofMarkup}${!config.featuredCollectionAfterCatalog && featuredCollectionMarkup ? `\n${featuredCollectionMarkup}` : ''}
+        </section>` : ''}${config.heroFirst && config.campaignFeatureFirst ? `\n${campaignFeatureMarkup}${campaignTourCollectionMarkup}` : ''}${config.heroFirst && showcaseFirst ? `\n${showcaseMarkup}` : ''}${config.heroFirst && !config.campaignFeatureFirst ? `\n${campaignFeatureMarkup}${campaignTourCollectionMarkup}` : ''}${realProductProofMarkup}${!config.featuredCollectionAfterCatalog && featuredCollectionMarkup ? `\n${featuredCollectionMarkup}` : ''}
 ${catalogFirst ? `${garmentSelectorMarkup}
 ${catalogMarkup}` : ''}${postShowFeatured ? `
         <section class="helloween-post-show-featured" aria-labelledby="helloweenFeaturedTitle">
@@ -594,7 +630,11 @@ function main() {
         fs.writeFileSync(outputPath, renderLanding(config, sharedCommerceMarkup), 'utf8');
         process.stdout.write(`Generada ${path.relative(ROOT, outputPath)} para ${config.band}\n`);
     });
-    fs.writeFileSync(SITEMAP_PATH, renderSitemap(), 'utf8');
+    fs.writeFileSync(
+        SITEMAP_PATH,
+        requestedSlug ? updateSelectedSitemap(selectedLandings) : renderSitemap(),
+        'utf8'
+    );
     process.stdout.write('Sitemap actualizado\n');
 }
 
