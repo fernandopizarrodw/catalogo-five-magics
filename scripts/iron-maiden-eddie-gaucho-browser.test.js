@@ -145,7 +145,10 @@ async function main() {
                 front: selectedCatalogFrontRef?.selectionLabel || '',
                 slide: getModalImages()[currentSlide]?.img || '',
                 price: document.getElementById('modalPrice')?.textContent.trim() || '',
-                summary: document.getElementById('modalOrderSummary')?.textContent.replace(/\\s+/g, ' ').trim() || ''
+                summary: document.getElementById('modalOrderSummary')?.textContent.replace(/\\s+/g, ' ').trim() || '',
+                visualVisible: document.getElementById('modalOrderVisualPreview')?.hidden === false,
+                visualImages: [...document.querySelectorAll('#modalOrderVisualPreview img')].map(image => image.getAttribute('src') || ''),
+                backPreviewButtons: document.querySelectorAll('.catalog-design-dorso-preview').length
             });
 
             closeModal();
@@ -172,7 +175,13 @@ async function main() {
         assert.equal(entryFlow.combined.front, 'Frente clásico');
         assert(entryFlow.combined.slide.includes(COMBINED_IMAGE));
         assert(entryFlow.combined.price.includes('$45.000'));
+        assert.equal(entryFlow.combined.visualVisible, true);
+        assert.equal(entryFlow.combined.visualImages.length, 2);
+        assert(entryFlow.combined.visualImages.some(path => path.includes(FRONT_IMAGE)));
+        assert(entryFlow.combined.visualImages.some(path => path.includes(BACK_IMAGE)));
+        assert(entryFlow.combined.backPreviewButtons > 0);
         assert.equal(entryFlow.datedFront.printMode, 'simple');
+        assert.equal(entryFlow.datedFront.visualVisible, false);
         assert.equal(entryFlow.datedFront.back, '');
         assert.equal(entryFlow.datedFront.front, 'Frente con fechas');
         assert(entryFlow.datedFront.slide.includes(DATED_FRONT_IMAGE));
@@ -187,6 +196,23 @@ async function main() {
         assert(entryFlow.catalogCard.slide.includes(FRONT_IMAGE));
         assert(entryFlow.catalogCard.price.includes('$38.000'));
 
+        const backZoom = await evaluate(`(async () => {
+            selectPrintMode('double');
+            const button = document.querySelector('.catalog-design-dorso-preview');
+            button?.click();
+            await new Promise(resolve => setTimeout(resolve, 30));
+            const result = {
+                buttonLabel: button?.textContent.trim() || '',
+                active: document.getElementById('zoomOverlay')?.classList.contains('active') === true,
+                image: document.getElementById('zoomImg')?.getAttribute('src') || ''
+            };
+            closeZoom();
+            return result;
+        })()`);
+        assert.equal(backZoom.buttonLabel, 'VER GRANDE');
+        assert.equal(backZoom.active, true);
+        assert(backZoom.image.includes(BACK_IMAGE));
+
         const cartFlow = await evaluate(`(() => {
             cart.clearCart();
             selectRemeraVariant('hombre_clasica');
@@ -196,12 +222,21 @@ async function main() {
             const added = addToCartFromModal();
             const item = cart.getCart().at(-1);
             const summary = cart.generateSummary();
+            renderCartPreview();
+            const reviewImages = [...document.querySelectorAll('.cart-preview-item-visuals img')].map(image => image.getAttribute('src') || '');
+            const reviewLabels = [...document.querySelectorAll('.cart-preview-item-visuals span')].map(label => label.textContent.trim());
+            const storedFrontImage = item?.frontImage || '';
+            const storedBackImage = item?.backImage || '';
             cart.clearCart();
-            return { added, frontCode: item?.frontCode || '', backName: item?.backName || '', summary };
+            return { added, frontCode: item?.frontCode || '', backName: item?.backName || '', summary, storedFrontImage, storedBackImage, reviewImages, reviewLabels };
         })()`);
         assert(cartFlow.added, 'No se pudo agregar Eddie Gaucho con frente y dorso');
         assert.equal(cartFlow.frontCode, 'IMEGAF-7040.V1');
         assert.equal(cartFlow.backName, 'Dorso Buenos Aires 2026');
+        assert(cartFlow.storedFrontImage.includes(FRONT_IMAGE));
+        assert(cartFlow.storedBackImage.includes(BACK_IMAGE));
+        assert.equal(cartFlow.reviewImages.length, 2);
+        assert.deepEqual(cartFlow.reviewLabels, ['FRENTE', 'DORSO']);
         assert(cartFlow.summary.includes('Frente: clásico'));
         assert(cartFlow.summary.includes('Dorso: Dorso Buenos Aires 2026'));
         assert(cartFlow.summary.includes('$45.000'));
@@ -282,6 +317,10 @@ async function main() {
             selectColor('negro');
             selectPrintMode('double');
             const primaryChoices = [...document.querySelectorAll('.catalog-design-dorso-recommended .catalog-design-dorso')];
+            const availableBacks = getCatalogDesignBackChoices();
+            const visibleBacks = [...document.querySelectorAll('#dorsoVariantsGrid .catalog-design-dorso')];
+            const hiddenBackGroups = document.querySelectorAll('#dorsoVariantsGrid details').length;
+            const whatsappBackButton = document.querySelector('.catalog-design-dorso-whatsapp')?.textContent.trim() || '';
             const selectedBack = selectedCatalogBackRef?.label || '';
             const modalImages = getModalImages().map(item => item.img || '');
             const addedWithBack = addToCartFromModal();
@@ -295,6 +334,10 @@ async function main() {
             cart.clearCart();
             return {
                 primaryChoiceCount: primaryChoices.length,
+                availableBackCount: availableBacks.length,
+                visibleBackCount: visibleBacks.length,
+                hiddenBackGroups,
+                whatsappBackButton,
                 modalImages,
                 selectedBack,
                 addedWithBack,
@@ -309,6 +352,9 @@ async function main() {
 
         assert(!circularFlow.error, circularFlow.error);
         assert.equal(circularFlow.primaryChoiceCount, 1, 'Eddie Circular no muestra su dorso recomendado');
+        assert.equal(circularFlow.visibleBackCount, circularFlow.availableBackCount, 'No se muestran todos los dorsos disponibles');
+        assert.equal(circularFlow.hiddenBackGroups, 0, 'Todavía hay dorsos ocultos en un desplegable');
+        assert.equal(circularFlow.whatsappBackButton, 'ELEGIR OTRO DORSO POR WHATSAPP');
         assert(circularFlow.modalImages.some(image => image.includes('remera_iron_maiden_dorso_run_for_your_lives.jpg')));
         assert.equal(circularFlow.selectedBack, 'Dorso Run For Your Lives');
         assert(circularFlow.addedWithBack && circularFlow.selectedBack, 'No se pudo elegir un dorso');

@@ -407,7 +407,6 @@
                 'iron-maiden-burning-ambition-edicion-fmd',
                 'iron-maiden-killers-1981-run-for-your-lives',
                 'cd-iron-maiden-killers--p5036',
-                'iron-maiden-killers-eddie-ciudad',
                 'cd-iron-maiden-killers-edicion-fmd--p7023',
                 'cd-iron-maiden-killers-v2-edicion-fmd--p7024',
                 'iron-maiden-number-of-the-beast-1982-run-for-your-lives',

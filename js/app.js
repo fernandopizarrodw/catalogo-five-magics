@@ -2708,6 +2708,88 @@ function getModalOrderSummaryParts() {
 function updateModalOrderSummary() {
     const summary = document.getElementById('modalOrderSummaryText');
     if (summary) summary.textContent = getModalOrderSummaryParts().join(' · ');
+    updateModalOrderVisualPreview();
+}
+
+function getSelectedOrderVisuals() {
+    if (!currentProduct) return null;
+
+    const activeImage = getModalImages()[currentSlide];
+    const frontRef = selectedCatalogFrontRef || currentCatalogDesign?.front || null;
+    const backVariant = selectedBackIndex >= 0 ? currentProduct.variants?.[selectedBackIndex] : null;
+    const backRef = selectedCatalogBackRef || backVariant || null;
+    const frontImage = (frontRef?.autoSelectBack ? currentCatalogDesign?.front?.image : frontRef?.image)
+        || activeImage?.img
+        || currentProduct.img
+        || '';
+    const backImage = backRef?.image || backRef?.img || '';
+
+    if (!frontImage || !backImage || selectedPrintMode !== 'double') return null;
+
+    return {
+        frontImage,
+        frontLabel: frontRef?.selectionLabel || frontRef?.label || activeImage?.name || currentCatalogDesign?.publicName || currentProduct.name || 'Frente elegido',
+        backImage,
+        backLabel: backRef?.selectionLabel || backRef?.label || backRef?.name || 'Dorso elegido'
+    };
+}
+
+function ensureModalOrderVisualPreview() {
+    let section = document.getElementById('modalOrderVisualPreview');
+    if (section) return section;
+
+    const orderSummary = document.getElementById('modalOrderSummary');
+    if (!orderSummary) return null;
+
+    section = document.createElement('section');
+    section.id = 'modalOrderVisualPreview';
+    section.className = 'modal-order-visual-preview';
+    section.hidden = true;
+    orderSummary.insertAdjacentElement('afterend', section);
+    return section;
+}
+
+function createOrderVisualButton(side, image, label) {
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'modal-order-visual-card';
+    button.setAttribute('aria-label', `Ampliar ${side.toLowerCase()}: ${label}`);
+    button.addEventListener('click', () => openZoom(image, `${side}: ${label}`));
+
+    const sideLabel = document.createElement('strong');
+    sideLabel.textContent = side;
+    const img = document.createElement('img');
+    img.src = image;
+    img.alt = `${side}: ${label}`;
+    img.loading = 'lazy';
+    const name = document.createElement('span');
+    name.textContent = label;
+    const action = document.createElement('small');
+    action.textContent = 'VER GRANDE';
+
+    button.append(sideLabel, img, name, action);
+    return button;
+}
+
+function updateModalOrderVisualPreview() {
+    const section = ensureModalOrderVisualPreview();
+    if (!section) return;
+
+    const visuals = getSelectedOrderVisuals();
+    section.replaceChildren();
+    section.hidden = !visuals;
+    if (!visuals) return;
+
+    const title = document.createElement('p');
+    title.textContent = 'REVISÁ TU ELECCIÓN';
+    const copy = document.createElement('span');
+    copy.textContent = 'Tocá cada imagen para verla en grande.';
+    const grid = document.createElement('div');
+    grid.append(
+        createOrderVisualButton('FRENTE', visuals.frontImage, visuals.frontLabel),
+        createOrderVisualButton('DORSO', visuals.backImage, visuals.backLabel)
+    );
+    section.append(title, copy, grid);
 }
 
 function validateModalSelectionsBeforeWhatsapp() {
@@ -2976,6 +3058,8 @@ class CartSystem {
             backIndex: backIndex,
             backCode: backCode,
             backName: backName,
+            frontImage: options.frontImage || '',
+            backImage: options.backImage || '',
             usesShownComposition: Boolean(options.usesShownComposition),
             // Opciones de prenda
             age: options.age || 'adulto',
@@ -4506,6 +4590,16 @@ function getCatalogDesignBackChoices() {
     return [...specific, ...historical];
 }
 
+function previewCatalogDesignBack(productId, variantIndex) {
+    const choice = getCatalogDesignBackChoices().find(ref => (
+        Number(ref.productId) === Number(productId) && Number(ref.variantIndex) === Number(variantIndex)
+    ));
+    if (!choice?.image) return;
+    openZoom(choice.image, `Dorso: ${choice.label || 'opción elegida'}`);
+}
+
+window.previewCatalogDesignBack = previewCatalogDesignBack;
+
 function selectCatalogDesignBack(productId, variantIndex) {
     const choice = getCatalogDesignBackChoices().find(ref => (
         Number(ref.productId) === Number(productId) && Number(ref.variantIndex) === Number(variantIndex)
@@ -4544,13 +4638,13 @@ function consultCatalogBackChoice() {
     if (!currentCatalogDesign) return;
     const front = selectedCatalogFrontRef?.selectionLabel || selectedCatalogFrontRef?.label || currentCatalogDesign.publicName;
     const message = [
-        'Hola FMD! Necesito ayuda para elegir el dorso:',
+        'Hola FMD! Quiero elegir otro dorso para este diseño:',
         '',
         `Diseño: ${currentCatalogDesign.publicName}`,
         `Frente: ${front.replace(/^Frente\s+/i, '')}`,
-        'Quiero pedirlo con frente y dorso, pero necesito ayuda para elegir una de las opciones disponibles.',
+        'Quiero pedirlo con frente y dorso, pero busco una opción diferente de las que aparecen en el catálogo.',
         '',
-        '¿Me ayudan a elegir la mejor opción?'
+        '¿Qué otros dorsos pueden ofrecerme?'
     ].filter(Boolean).join('\n');
     openWhatsapp(message, 'modal_consultar_dorso');
 }
@@ -4577,26 +4671,29 @@ function renderDorsoSelector() {
                 const genericScore = ref => /(?:dorso_logo_rojo|iron_maiden_dorso\.jpg)$/i.test(ref.image || '') ? 0 : 1;
                 return genericScore(a) - genericScore(b);
             });
-        const primary = recommended.length ? recommended : historical.slice(0, 2);
-        const archive = recommended.length ? historical : historical.slice(2);
         const renderChoice = ref => {
             const selected = selectedCatalogBackRef
                 && Number(selectedCatalogBackRef.productId) === Number(ref.productId)
                 && Number(selectedCatalogBackRef.variantIndex) === Number(ref.variantIndex);
-            return `<button type="button" class="dorso-variant-item catalog-design-dorso${selected ? ' selected' : ''}"
-                    aria-pressed="${selected ? 'true' : 'false'}"
-                    onclick="selectCatalogDesignBack(${ref.productId}, ${ref.variantIndex})">
-                <span class="catalog-design-dorso-state">${selected ? 'DORSO ELEGIDO' : 'ELEGIR ESTE DORSO'}</span>
-                <img src="${ref.image}" alt="${ref.label}">
-                <span><strong>${ref.label}</strong><small>${ref.backType === 'Recomendado' ? 'Dorso recomendado' : 'Opci&oacute;n de dorso'}</small></span>
-            </button>`;
+            return `<div class="catalog-design-dorso-choice">
+                <button type="button" class="dorso-variant-item catalog-design-dorso${selected ? ' selected' : ''}"
+                        aria-pressed="${selected ? 'true' : 'false'}"
+                        onclick="selectCatalogDesignBack(${ref.productId}, ${ref.variantIndex})">
+                    <span class="catalog-design-dorso-state">${selected ? 'DORSO ELEGIDO' : 'ELEGIR ESTE DORSO'}</span>
+                    <img src="${ref.image}" alt="${ref.label}" loading="lazy" decoding="async">
+                    <span><strong>${ref.label}</strong><small>${ref.backType === 'Recomendado' ? 'Dorso recomendado' : 'Opci&oacute;n de dorso'}</small></span>
+                </button>
+                <button type="button" class="catalog-design-dorso-preview" onclick="previewCatalogDesignBack(${ref.productId}, ${ref.variantIndex})" aria-label="Ver ${ref.label} en grande">VER GRANDE</button>
+            </div>`;
         };
         variantsSection.style.display = choices.length ? 'block' : 'none';
         customSection.style.display = choices.length ? 'none' : 'block';
         variantsGrid.classList.add('catalog-design-dorso-grid');
         variantsGrid.innerHTML = `
-            ${primary.length ? `<div class="catalog-design-dorso-recommended"><p><b>${isEddieGaucho || hasTourRecommendation ? '2. DORSO RECOMENDADO' : '2. ELEG&Iacute; EL DORSO'}</b><span>${isEddieGaucho ? 'La opci&oacute;n Buenos Aires 2026 completa este dise&ntilde;o.' : hasTourRecommendation ? 'Una opci&oacute;n pensada para completar los dise&ntilde;os del tour.' : 'Seleccion&aacute; una opci&oacute;n para completar la prenda.'}</span></p><div>${primary.map(renderChoice).join('')}</div><button type="button" class="catalog-design-dorso-help${selectedCatalogBackDeferred ? ' selected' : ''}" onclick="deferCatalogDesignBack()">${selectedCatalogBackDeferred ? 'DORSO A DEFINIR SELECCIONADO' : 'DEFINIR EL DORSO POR WHATSAPP'}</button><button type="button" class="catalog-design-dorso-help" onclick="consultCatalogBackChoice()">&iquest;NECESIT&Aacute;S AYUDA PARA ELEGIR? CONSULTANOS</button></div>` : ''}
-            ${archive.length ? `<details class="catalog-design-dorso-archive"><summary>${isEddieGaucho ? 'VER OTROS DORSOS' : `VER OTROS DORSOS DE ${currentCatalogDesign.band.toUpperCase()}`}</summary><div>${archive.map(renderChoice).join('')}</div></details>` : ''}
+            <div class="catalog-design-dorso-heading"><b>2. ELEG&Iacute; EL DORSO</b><span>Mir&aacute; todas las opciones y toc&aacute; VER GRANDE para revisar cada dise&ntilde;o.</span></div>
+            ${recommended.length ? `<div class="catalog-design-dorso-recommended"><p><b>${isEddieGaucho || hasTourRecommendation ? 'DORSO RECOMENDADO' : 'RECOMENDADOS PARA ESTE DISE&Ntilde;O'}</b><span>${isEddieGaucho ? 'La opci&oacute;n Buenos Aires 2026 completa este dise&ntilde;o.' : hasTourRecommendation ? 'Opciones pensadas para completar los dise&ntilde;os del tour.' : 'Opciones creadas para combinar con este frente.'}</span></p><div>${recommended.map(renderChoice).join('')}</div></div>` : ''}
+            ${historical.length ? `<div class="catalog-design-dorso-all"><p><b>${recommended.length ? `TODOS LOS DEM&Aacute;S DORSOS DE ${currentCatalogDesign.band.toUpperCase()}` : `DORSOS DISPONIBLES DE ${currentCatalogDesign.band.toUpperCase()}`}</b></p><div>${historical.map(renderChoice).join('')}</div></div>` : ''}
+            <button type="button" class="catalog-design-dorso-help catalog-design-dorso-whatsapp" onclick="consultCatalogBackChoice()">ELEGIR OTRO DORSO POR WHATSAPP</button>
         `;
         if (summarySection) {
             const summaryText = document.getElementById('dorsoSelectionText');
@@ -4616,12 +4713,12 @@ function renderDorsoSelector() {
         hideDorsoAutocomplete();
         
         variantsGrid.innerHTML = dorsoVariants.map(v => `
-            <div class="dorso-variant-item" data-index="${v.index}" onclick="selectDorsoVariant(${v.index})" 
-                 style="cursor:pointer;border:2px solid #333;border-radius:8px;overflow:hidden;transition:all 0.2s;">
-                <img src="${v.img}" alt="${v.name}" style="width:100%;height:60px;object-fit:cover;">
-                <div style="font-size:0.7rem;color:#888;text-align:center;padding:4px;background:#111;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">
-                    ${v.name.replace('Dorso ', '').replace(' Dorso', '')}
-                </div>
+            <div class="legacy-dorso-choice">
+                <button type="button" class="dorso-variant-item" data-index="${v.index}" onclick="selectDorsoVariant(${v.index})">
+                    <img src="${v.img}" alt="${v.name}">
+                    <span>${v.name.replace('Dorso ', '').replace(' Dorso', '')}</span>
+                </button>
+                <button type="button" class="catalog-design-dorso-preview" onclick="previewDorsoVariant(${v.index})" aria-label="Ver ${v.name} en grande">VER GRANDE</button>
             </div>
         `).join('');
     } else {
@@ -4633,6 +4730,14 @@ function renderDorsoSelector() {
     // Resetear resumen
     if (summarySection) summarySection.style.display = 'none';
 }
+
+function previewDorsoVariant(index) {
+    const variant = currentProduct?.variants?.[index];
+    if (!variant?.img) return;
+    openZoom(variant.img, `Dorso: ${variant.name || 'opción elegida'}`);
+}
+
+window.previewDorsoVariant = previewDorsoVariant;
 
 // Seleccionar una variante de dorso
 function selectDorsoVariant(index) {
@@ -5690,8 +5795,9 @@ function requestModalClose() {
     closeModal();
 }
 
-function openZoom(src) {
+function openZoom(src, alt = '') {
     zoomImg.src = src;
+    zoomImg.alt = alt || 'Vista ampliada del diseño';
     resetFullImageZoom();
     zoomOverlay.style.display = 'flex';
     setTimeout(() => zoomOverlay.classList.add('active'), 10);
@@ -8074,6 +8180,21 @@ function calculateCartTotal() {
     };
 }
 
+function openCartItemVisual(index, side = 'front') {
+    const item = cart.getCart()[index];
+    if (!item) return;
+    const image = side === 'back'
+        ? item.backImage
+        : item.frontImage || getProductImage(item.id, item.variantIndex);
+    if (!image) return;
+    const label = side === 'back'
+        ? `Dorso: ${item.backName || item.productName}`
+        : `Frente: ${item.frontName || item.productName}`;
+    openZoom(image, label);
+}
+
+window.openCartItemVisual = openCartItemVisual;
+
 function renderCartPreview() {
     const body = document.getElementById('cartPreviewBody');
     const footer = document.getElementById('cartPreviewFooter');
@@ -8104,7 +8225,8 @@ function renderCartPreview() {
     // Renderizar items
     const itemPrices = calculateCartItemPrices(items);
     body.innerHTML = items.map((item, idx) => {
-        const img = getProductImage(item.id, item.variantIndex);
+        const img = item.frontImage || getProductImage(item.id, item.variantIndex);
+        const backImg = item.isDouble ? item.backImage : '';
         const precio = itemPrices[idx];
         const edad = item.age === 'chico' ? 'Niño' : 'Adulto';
         const talle = item.size || 'Por confirmar';
@@ -8123,13 +8245,25 @@ function renderCartPreview() {
         
         return `
             <div class="cart-preview-item" data-cart-item-index="${idx}" tabindex="-1">
-                <img src="${img}" alt="${item.productName}" class="cart-preview-item-img" 
-                     onerror="this.src='images/logo/MARCA DE AGUA.png'">
+                <div class="cart-preview-item-visuals${backImg ? ' has-back' : ''}">
+                    <button type="button" onclick="openCartItemVisual(${idx}, 'front')" aria-label="Ampliar frente de ${item.productName}">
+                        <img src="${img}" alt="Frente de ${item.productName}" class="cart-preview-item-img" onerror="this.src='images/logo/MARCA DE AGUA.png'">
+                        <span>FRENTE</span>
+                    </button>
+                    ${backImg ? `<button type="button" onclick="openCartItemVisual(${idx}, 'back')" aria-label="Ampliar dorso de ${item.productName}">
+                        <img src="${backImg}" alt="Dorso de ${item.productName}" class="cart-preview-item-img" onerror="this.src='images/logo/MARCA DE AGUA.png'">
+                        <span>DORSO</span>
+                    </button>` : ''}
+                </div>
                 <div class="cart-preview-item-info">
                     <div class="cart-preview-item-code">${item.code}</div>
                     <div class="cart-preview-item-name">${item.productName}</div>
-                    ${item.variantName && item.variantName !== item.productName ? 
-                        `<div class="cart-preview-item-variant">${item.variantName}</div>` : ''}
+                    ${item.frontName && item.frontName !== item.productName
+                        ? `<div class="cart-preview-item-variant"><b>Frente:</b> ${item.frontName.replace(/^Frente\s+/i, '')}</div>`
+                        : ''}
+                    ${item.isDouble && item.backName
+                        ? `<div class="cart-preview-item-variant"><b>Dorso:</b> ${item.backName.replace(/^Dorso\s+/i, '')}</div>`
+                        : ''}
                     ${item.isDouble ? '<span class="cart-preview-item-double">Frente y dorso</span>' : ''}
                     <div class="cart-preview-item-options">
                         <span class="cart-preview-option-tag">👤 ${edad}</span>
@@ -8475,6 +8609,7 @@ function addToCartFromModal() {
     const isCustom = isPersonalizedSelection(currentProduct);
     const variantIndex = getActiveVariantIndex();
     
+    const orderVisuals = getSelectedOrderVisuals();
     const options = {
         age: selectedAge,
         size: selectedSize,
@@ -8493,7 +8628,9 @@ function addToCartFromModal() {
         backName: selectedCatalogBackRef?.label || (selectedCatalogBackDeferred ? 'A definir por WhatsApp' : ''),
         backCode: selectedCatalogBackRef
             ? cart.generateCode(selectedCatalogBackRef.productId, selectedCatalogBackRef.variantIndex)
-            : ''
+            : '',
+        frontImage: orderVisuals?.frontImage || '',
+        backImage: orderVisuals?.backImage || ''
     };
     
     const success = cart.addToCart(currentProduct.id, variantIndex, isDouble, options);

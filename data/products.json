@@ -21820,55 +21820,6 @@
     ]
   },
   {
-    "id": 7241,
-    "designId": "iron-maiden-killers-eddie-ciudad",
-    "name": "Iron Maiden - Killers · Eddie en la ciudad",
-    "year": "1981",
-    "album": "Killers",
-    "img": "images/iron_maiden/9 discos 1 tour/iron_maiden_killers.jpg",
-    "desc": "Diseño de Iron Maiden inspirado en Killers.",
-    "designSlug": "iron-maiden-killers-eddie-ciudad",
-    "category": "Iron Maiden",
-    "tipoPrecio": "simple",
-    "defaultPrintMode": "frontal",
-    "isNew": true,
-    "variants": [
-      {
-        "img": "images/iron_maiden/9 discos 1 tour/iron_maiden_killers.jpg",
-        "name": "Killers · Eddie en la ciudad",
-        "designId": "iron-maiden-killers-eddie-ciudad",
-        "role": "front"
-      },
-      {
-        "img": "images/iron_maiden/dorsos opcionales/iron_maiden_killers_dorso.jpg",
-        "name": "Dorso Killers",
-        "selectionLabel": "Dorso Killers",
-        "role": "back"
-      }
-    ],
-    "band": "Iron Maiden",
-    "universe": [
-      "Heavy Metal Classics"
-    ],
-    "garments": [
-      "remera"
-    ],
-    "collections": [
-      "Archivo Maiden",
-      "Killers"
-    ],
-    "campaigns": [],
-    "commercialPriority": 78,
-    "visibilityTier": "catalog",
-    "legacyCategory": "Iron Maiden",
-    "tags": [
-      "Iron Maiden",
-      "Killers",
-      "remera",
-      "Archivo Maiden"
-    ]
-  },
-  {
     "id": 7236,
     "designId": "iron-maiden-a-matter-of-life-and-death",
     "name": "Iron Maiden - A Matter of Life and Death",
