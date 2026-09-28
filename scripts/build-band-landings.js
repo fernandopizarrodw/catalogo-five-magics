@@ -106,7 +106,7 @@ function customizeSharedCommerceMarkup(config, markup) {
 function renderGarmentSelector(config) {
     if (config.showGarmentSelector === false) return '';
 
-    return `        <section class="band-landing-garment-selector" id="catalogoPrincipal" aria-label="Elegir prenda ${config.band}">
+    return `        <section class="band-landing-garment-selector"${config.catalogAnchorOnCatalog ? '' : ' id="catalogoPrincipal"'} aria-label="Elegir prenda ${config.band}">
             <div class="band-landing-garment-grid" role="tablist" aria-label="Prendas disponibles">
 ${config.garments.map((garment, index) => `
                 <button type="button" class="band-landing-garment-card${garment.key === config.defaultGarment ? ' active' : ''}" data-band-landing-garment="${garment.key}" role="tab" aria-selected="${garment.key === config.defaultGarment ? 'true' : 'false'}" onclick="selectBandLandingGarment('${garment.key}')">
@@ -124,7 +124,7 @@ ${config.garments.map((garment, index) => `
 }
 
 function renderCatalogSection(config, collections, completeArchive) {
-    return `        <section class="band-landing-catalog"${config.showGarmentSelector === false ? ' id="catalogoPrincipal"' : ''} aria-labelledby="bandCatalogTitle">
+    return `        <section class="band-landing-catalog"${config.showGarmentSelector === false || config.catalogAnchorOnCatalog ? ' id="catalogoPrincipal"' : ''} aria-labelledby="bandCatalogTitle">
             <div class="band-landing-section-head">
                 <p>${config.catalogKicker || 'ARCHIVO FMD'}</p>
                 <h2 id="bandCatalogTitle">${config.catalogTitle || `DISEÑOS DE ${config.displayName}`}</h2>
@@ -271,14 +271,14 @@ ${featuredCollectionCards.map((card, index) => `                <button type="bu
                 <h2 id="bandCampaignFeatureTitle">${campaignFeature.title}</h2>
                 <span>${campaignFeature.copy}</span>
             </div>
-            <div class="band-campaign-feature-gallery">
+            <div class="band-campaign-feature-gallery${campaignFeatureImages.length === 1 ? ' has-single-option' : ''}">
 ${campaignFeatureImages.map((image, index) => `                <button type="button" class="band-campaign-feature-card${image.primary ? ' is-primary' : ''}" onclick="openCatalogDesignPreview('${campaignFeature.designId}', 'remera', '${image.printMode || 'simple'}', '${image.preview || image.src}')" aria-label="Ver ${image.label}: ${campaignFeature.title}">
                     <img src="${image.src}" alt="${image.alt}" width="${image.width}" height="${image.height}" loading="${index === 0 ? 'eager' : 'lazy'}" decoding="async">
                     <strong>${image.label}</strong>
                 </button>`).join('\n')}
             </div>
 ${campaignFeature.eventLine ? `            <p class="band-campaign-feature-event">${campaignFeature.eventLine}</p>\n` : ''}${Array.isArray(campaignFeature.priceOptions) && campaignFeature.priceOptions.length ? `            <div class="band-campaign-feature-prices" aria-label="Precios disponibles">
-${campaignFeature.priceOptions.map(option => `                <span><b>${option.label}</b>${option.price}</span>`).join('\n')}
+${campaignFeature.priceOptions.map(option => `                <span${option.recommended ? ' class="is-recommended"' : ''}><b>${option.label}</b>${option.price}</span>`).join('\n')}
             </div>\n` : ''}
             <p class="band-campaign-feature-note">${campaignFeature.note}</p>
             <button type="button" class="band-campaign-feature-cta" onclick="openCatalogDesignPreview('${campaignFeature.designId}', 'remera', '${campaignFeature.defaultPrintMode || 'simple'}', '${campaignFeature.defaultPreview || campaignFeatureImages[0].src}')">${campaignFeature.ctaLabel}</button>
@@ -420,7 +420,7 @@ ${postShow ? `
             <div class="band-landing-hero-art">
                 <img src="${config.image}" alt="Colección Helloween post-show en Five Magics Designs" width="1200" height="1200">
             </div>
-        </section>` : ''}${config.heroFirst && showcaseFirst ? `\n${showcaseMarkup}` : ''}${config.heroFirst ? `\n${campaignFeatureMarkup}` : ''}${realProductProofMarkup}${featuredCollectionMarkup ? `\n${featuredCollectionMarkup}` : ''}
+        </section>` : ''}${config.heroFirst && config.campaignFeatureFirst ? `\n${campaignFeatureMarkup}` : ''}${config.heroFirst && showcaseFirst ? `\n${showcaseMarkup}` : ''}${config.heroFirst && !config.campaignFeatureFirst ? `\n${campaignFeatureMarkup}` : ''}${realProductProofMarkup}${!config.featuredCollectionAfterCatalog && featuredCollectionMarkup ? `\n${featuredCollectionMarkup}` : ''}
 ${catalogFirst ? `${garmentSelectorMarkup}
 ${catalogMarkup}` : ''}${postShowFeatured ? `
         <section class="helloween-post-show-featured" aria-labelledby="helloweenFeaturedTitle">
@@ -455,7 +455,7 @@ ${postShowFeaturedCtas.map(cta => `                    <button type="button" onc
             </div>
         </section>` : ''}
 
-${config.moveShippingAfterShowcase ? '' : shippingPromoMarkup}${config.catalogBeforeProduction ? `\n${garmentSelectorMarkup}\n${catalogMarkup}` : ''}
+${config.moveShippingAfterShowcase ? '' : shippingPromoMarkup}${config.catalogBeforeProduction ? `\n${config.garmentSelectorAfterCatalog ? '' : garmentSelectorMarkup}\n${catalogMarkup}` : ''}
         <section class="production-tracking-strip" aria-label="Producción y seguimiento">
             <strong>${config.productionTitle || '<span>PRODUCCIÓN</span> 48 A 72 H HÁBILES'}</strong>
             <p>${config.productionCopy || 'Una vez despachado, te enviamos el enlace de seguimiento. Plazo total estimado: 3 a 7 días hábiles según destino.'}</p>
@@ -485,7 +485,7 @@ ${finishedGarments.map((photo, index) => `                <button type="button" 
         </section>` : ''}
 ${showcaseFirst ? '' : showcaseMarkup}
 ${config.moveShippingAfterShowcase ? shippingPromoMarkup : ''}
-${catalogFirst || config.catalogBeforeProduction ? '' : garmentSelectorMarkup}
+${catalogFirst || config.catalogBeforeProduction || config.garmentSelectorAfterCatalog ? '' : garmentSelectorMarkup}
 ${config.showSizeGuide ? `
         <details class="band-landing-size-guide" id="tablaDeMedidas">
             <summary>
@@ -512,6 +512,8 @@ ${config.showSizeGuide ? `
         </details>` : ''}
 
 ${catalogFirst || config.catalogBeforeProduction ? '' : catalogMarkup}
+${config.featuredCollectionAfterCatalog && featuredCollectionMarkup ? `\n${featuredCollectionMarkup}` : ''}
+${config.garmentSelectorAfterCatalog ? `\n${garmentSelectorMarkup}` : ''}
 
 ${instagram ? `        <section class="band-landing-instagram" aria-label="Instagram de Five Magics Designs">
             <p>SEGUINOS EN INSTAGRAM</p>

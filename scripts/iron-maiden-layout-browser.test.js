@@ -60,10 +60,15 @@ async function main() {
             const proof = document.querySelector('.band-real-product-proof-grid');
             const proofCards = [...proof.children];
             const proofStyle = getComputedStyle(proof);
+            const mainSections = [...document.querySelector('main').children];
+            const catalog = document.querySelector('.band-landing-catalog');
+            const somewhere = document.querySelector('.band-featured-collection');
+            const garmentSelector = document.querySelector('.band-landing-garment-selector');
             return {
                 showcaseCards: showcase.querySelectorAll('.band-design-showcase-set:not([aria-hidden="true"]) .band-design-showcase-card').length,
                 showcaseCopies: showcase.querySelectorAll('.band-design-showcase-card').length,
                 showcaseAnimation: getComputedStyle(showcaseTrack).animationName,
+                showcaseDuration: getComputedStyle(showcaseTrack).animationDuration,
                 showcaseViewportOverflow: getComputedStyle(document.getElementById('bandDesignShowcaseViewport')).overflowX,
                 proofCards: proofCards.length,
                 proofColumns: proofStyle.gridTemplateColumns.split(' ').length,
@@ -73,6 +78,12 @@ async function main() {
                     const style = getComputedStyle(card);
                     return style.textAlign === 'center' && style.justifyItems === 'center';
                 }),
+                catalogOrder: [...document.querySelectorAll('.catalog-design-card[data-design-id]')]
+                    .slice(0, 8)
+                    .map(card => card.dataset.designId),
+                catalogBeforeSomewhere: mainSections.indexOf(catalog) < mainSections.indexOf(somewhere),
+                somewhereBeforeGarments: mainSections.indexOf(somewhere) < mainSections.indexOf(garmentSelector),
+                catalogOwnsAnchor: catalog?.id === 'catalogoPrincipal' && !garmentSelector?.id,
                 pageOverflow: document.documentElement.scrollWidth > document.documentElement.clientWidth
             };
         })()`);
@@ -80,12 +91,21 @@ async function main() {
         assert.equal(result.showcaseCards, 10);
         assert.equal(result.showcaseCopies, 20);
         assert.equal(result.showcaseAnimation, 'band-showcase-scroll');
+        assert.equal(result.showcaseDuration, '48s');
         assert.equal(result.showcaseViewportOverflow, 'hidden');
         assert.equal(result.proofCards, 3);
         assert.equal(result.proofColumns, 2);
         assert.equal(result.firstProofSpansBoth, true);
         assert.equal(result.proofOverflow, false);
         assert.equal(result.promoCentered, true);
+        assert.deepEqual(result.catalogOrder.slice(0, 3), [
+            'iron-maiden-1980-run-for-your-lives',
+            'iron-maiden-burning-ambition-edicion-fmd',
+            'iron-maiden-killers-1981-run-for-your-lives'
+        ]);
+        assert.equal(result.catalogBeforeSomewhere, true);
+        assert.equal(result.somewhereBeforeGarments, true);
+        assert.equal(result.catalogOwnsAnchor, true);
         assert.equal(result.pageOverflow, false);
 
         const somewhereFeature = await evaluate(`(() => {

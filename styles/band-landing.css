@@ -559,6 +559,11 @@ body[data-band="Helloween"] .helloween-post-show-featured {
     align-items: stretch;
 }
 
+.band-campaign-feature-gallery.has-single-option {
+    grid-template-columns: minmax(0, 680px);
+    justify-content: center;
+}
+
 .band-campaign-feature-card {
     min-width: 0;
     padding: 0;
@@ -642,6 +647,16 @@ body[data-band="Helloween"] .helloween-post-show-featured {
     background: rgba(2, 12, 20, 0.7);
     font: 700 1rem/1.2 "Inter", sans-serif;
     text-align: center;
+}
+
+.band-campaign-feature-prices span.is-recommended {
+    border-color: rgba(116, 172, 223, 0.9);
+    background: linear-gradient(145deg, rgba(22, 73, 111, 0.88), rgba(2, 12, 20, 0.88));
+    box-shadow: 0 0 22px rgba(116, 172, 223, 0.14);
+}
+
+.band-campaign-feature-prices span:only-child {
+    grid-column: 1 / -1;
 }
 
 .band-campaign-feature-prices b {
