@@ -390,7 +390,7 @@
                         image: '/images/iron_maiden/eddie_run_for_your_lives_tour/tour_merch_v3_frente.jpg'
                     }
                 ],
-                note: 'Todos disponibles en remera. Los modelos con dorso permiten elegir frente + dorso desde el modal.',
+                note: 'Todos disponibles en remera. En los modelos con dorso podés elegir solo frente o frente + dorso.',
                 ctaLabel: 'VER TODA LA COLECCIÓN IRON MAIDEN'
             },
             retiredDesignIds: [
