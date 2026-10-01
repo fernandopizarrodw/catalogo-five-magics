@@ -330,7 +330,7 @@
                         alt: 'Edición completa Eddie Gaucho Argentino con frente clásico y dorso Buenos Aires 2026',
                         label: 'EDDIE GAUCHO · FRENTE + DORSO',
                         printMode: 'double',
-                        preview: '/images/iron_maiden/remera_iron_maiden_eddie_gaucho_argentino.jpg',
+                        preview: '/images/iron_maiden/remera_iron_maiden_eddie_gaucho_argentino_frente.jpg',
                         width: 1080,
                         height: 1350
                     },
@@ -340,13 +340,13 @@
                         alt: 'Edición completa Eddie Tanguero con frente y dorso Buenos Aires 2026',
                         label: 'EDDIE TANGUERO · FRENTE + DORSO',
                         printMode: 'double',
-                        preview: '/images/iron_maiden/iron_maiden_eddie_tanguero_doble.jpg',
+                        preview: '/images/iron_maiden/iron_maiden_eddie_tanguero.jpg',
                         width: 1080,
                         height: 1350
                     }
                 ],
                 defaultPrintMode: 'double',
-                defaultPreview: '/images/iron_maiden/iron_maiden_eddie_tanguero_doble.jpg'
+                defaultPreview: '/images/iron_maiden/iron_maiden_eddie_tanguero.jpg'
             },
             campaignTourCollection: {
                 kicker: 'COLECCIÓN ESPECIAL',
