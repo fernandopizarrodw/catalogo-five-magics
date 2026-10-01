@@ -3211,8 +3211,15 @@ class CartSystem {
         const discountLine = totals.descuento > 0
             ? `\n10% OFF: -$${Math.round(totals.descuento).toLocaleString('es-AR')}`
             : '';
-        const shippingLine = totals.envio > 0
-            ? `\nEnvío ${selectedDeliveryMethod === 'domicilio' ? 'a domicilio' : 'a sucursal Andreani'}: $${Math.round(totals.envio).toLocaleString('es-AR')}`
+        const shippingLabel = selectedDeliveryMethod === 'domicilio'
+            ? 'Envío a domicilio'
+            : selectedDeliveryMethod === 'retiro_andreani'
+                ? 'Envío a sucursal/punto Andreani'
+                : selectedDeliveryMethod === 'taller'
+                    ? 'Retiro en Villa Martelli'
+                    : '';
+        const shippingLine = shippingLabel
+            ? `\n${shippingLabel}: ${totals.envio > 0 ? `$${Math.round(totals.envio).toLocaleString('es-AR')}` : 'GRATIS'}`
             : '';
 
         if (total === 1) {
@@ -4961,7 +4968,7 @@ function configureCatalogConversionModalLayout() {
     const delivery = document.getElementById('modalDeliveryBox');
     const price = document.getElementById('modalPrice');
     const priceNote = document.querySelector('.modal-price-note');
-    const septemberPromo = document.querySelector('.modal-september-promo');
+    const shippingPromo = document.querySelector('.modal-shipping-promo');
     const actions = document.querySelector('.modal-actions');
     const orderSummary = document.getElementById('modalOrderSummary');
     const advanced = document.getElementById('modalAdvancedPanel');
@@ -4980,8 +4987,8 @@ function configureCatalogConversionModalLayout() {
     dorso.after(price);
     if (delivery) delivery.remove();
     if (priceNote) price.after(priceNote);
-    if (septemberPromo) (priceNote || price).after(septemberPromo);
-    (septemberPromo || priceNote || price).after(orderSummary || actions);
+    if (shippingPromo) (priceNote || price).after(shippingPromo);
+    (shippingPromo || priceNote || price).after(orderSummary || actions);
     if (orderSummary) orderSummary.after(actions);
     if (advanced?.querySelector('summary')) advanced.querySelector('summary').textContent = 'Detalles del producto';
     if (primaryAction) {
@@ -8091,25 +8098,15 @@ function calculateCartSubtotal(items) {
     return calculateCartItemPrices(items).reduce((sum, price) => sum + price, 0);
 }
 
-function calculateCustomExtraSubtotal(items) {
-    return getCustomExtraAssignments(items).reduce((sum, extra) => sum + extra, 0);
-}
-
-function calculateDiscountableSubtotal(items) {
-    return Math.max(0, calculateCartSubtotal(items) - calculateCustomExtraSubtotal(items));
-}
-
 const ANDREANI_POINT_SINGLE_PRICE = 5000;
-const ANDREANI_HOME_SINGLE_PRICE = 8000;
-const ANDREANI_HOME_TWO_PRICE = 5000;
+const ANDREANI_HOME_PRICE = 9000;
 
-function calculateWinterPromotion(items, deliveryMethod = selectedDeliveryMethod) {
+function calculateVolumePromotion(items, deliveryMethod = selectedDeliveryMethod) {
     const quantity = items.length;
     const rawSubtotal = calculateCartSubtotal(items);
-    const discountableSubtotal = calculateDiscountableSubtotal(items);
 
     if (quantity >= 3) {
-        const discount = discountableSubtotal * 0.10;
+        const discount = rawSubtotal * 0.10;
         const deliveryBenefit = deliveryMethod === 'retiro_andreani'
             ? 'envío gratis a sucursal Andreani'
             : deliveryMethod === 'taller'
@@ -8118,7 +8115,7 @@ function calculateWinterPromotion(items, deliveryMethod = selectedDeliveryMethod
         return {
             id: 'general_3_plus',
             label: `3 prendas o más: 10% OFF + ${deliveryBenefit}`,
-            description: 'Los diseños personalizados tienen un adicional de $5.000 por diseño. Ese adicional no recibe descuentos promocionales.',
+            description: 'El descuento se aplica automáticamente sobre el subtotal de las prendas.',
             subtotal: rawSubtotal,
             descuento: discount,
             total: rawSubtotal - discount,
@@ -8129,8 +8126,8 @@ function calculateWinterPromotion(items, deliveryMethod = selectedDeliveryMethod
 
     if (quantity === 2 && deliveryMethod === 'retiro_andreani') {
         return {
-            id: 'septiembre_dos_prendas',
-            label: '2 prendas: envío gratis a sucursal Andreani',
+            id: 'volumen_dos_prendas',
+            label: '2 prendas: envío gratis a sucursal o punto Andreani',
             description: 'Elegí la sucursal Andreani que te quede más cómoda.',
             subtotal: rawSubtotal,
             descuento: 0,
@@ -8142,8 +8139,8 @@ function calculateWinterPromotion(items, deliveryMethod = selectedDeliveryMethod
 
     if (quantity === 1 && deliveryMethod === 'retiro_andreani') {
         return {
-            id: 'septiembre_una_prenda',
-            label: '1 prenda: envío a sucursal Andreani por $5.000',
+            id: 'volumen_una_prenda',
+            label: '1 prenda: envío a sucursal o punto Andreani por $5.000',
             description: 'Elegí la sucursal Andreani que te quede más cómoda.',
             subtotal: rawSubtotal,
             descuento: 0,
@@ -8168,14 +8165,12 @@ function calculateWinterPromotion(items, deliveryMethod = selectedDeliveryMethod
 function calculateCartTotal() {
     const items = cart.getCart();
     const cantidad = items.length;
-    const promotion = calculateWinterPromotion(items);
-    const shippingCost = selectedDeliveryMethod === 'retiro_andreani' && cantidad === 1
-        ? ANDREANI_POINT_SINGLE_PRICE
-        : selectedDeliveryMethod === 'domicilio' && cantidad === 1
-            ? ANDREANI_HOME_SINGLE_PRICE
-            : selectedDeliveryMethod === 'domicilio' && cantidad === 2
-                ? ANDREANI_HOME_TWO_PRICE
-                : 0;
+    const promotion = calculateVolumePromotion(items);
+    const shippingCost = selectedDeliveryMethod === 'retiro_andreani'
+        ? (cantidad === 1 ? ANDREANI_POINT_SINGLE_PRICE : 0)
+        : selectedDeliveryMethod === 'domicilio'
+            ? (cantidad >= 3 ? 0 : ANDREANI_HOME_PRICE)
+            : 0;
 
     return {
         subtotal: promotion.subtotal,
@@ -8298,9 +8293,7 @@ function renderCartPreview() {
         : 'Sucursal Andreani · GRATIS';
     const homeDeliveryLabel = totals.cantidad >= 3
         ? 'Domicilio · GRATIS'
-        : totals.cantidad === 2
-            ? 'Domicilio · $5.000'
-            : 'Domicilio · $8.000';
+        : 'Domicilio · $9.000';
 
     const deliverySelector = `
         <div class="cart-customer-fields cart-delivery-checkout" id="cartDeliveryGroup">
@@ -8344,8 +8337,8 @@ function renderCartPreview() {
         customerHint = totals.cantidad >= 3
             ? 'Con 3 prendas o más tenés 10% OFF y envío gratis a domicilio.'
             : totals.cantidad === 2
-                ? 'Con 2 prendas, el envío a domicilio cuesta $5.000.'
-                : 'Con 1 prenda, el envío a domicilio cuesta $8.000.';
+                ? 'Con 2 prendas, el envío a domicilio cuesta $9.000.'
+                : 'Con 1 prenda, el envío a domicilio cuesta $9.000.';
     } else if (selectedDeliveryMethod === 'retiro_andreani') {
         logisticsFields = `
             <div class="cart-customer-grid">
@@ -8408,7 +8401,7 @@ function renderCartPreview() {
         ${shippingForm}
         <div class="cart-preview-info" style="margin-top:12px;padding:12px;background:#0a0a0a;border:1px solid #222;border-radius:8px;font-size:0.8rem;color:#888;">
             <div style="margin-bottom:8px;">
-                <span style="color:#39ff14;">📦 PROMO SEPTIEMBRE:</span> 1 prenda: sucursal $5.000 o domicilio $8.000. 2 prendas: sucursal gratis o domicilio $5.000. 3 prendas o más: 10% OFF y envío gratis a sucursal o domicilio.
+                <span style="color:#39ff14;">📦 ENVÍOS A TODO EL PAÍS:</span> 1 prenda: punto Andreani $5.000 o domicilio $9.000. 2 prendas: punto Andreani gratis o domicilio $9.000. 3 prendas o más: 10% OFF y envío gratis a punto Andreani o domicilio.
             </div>
             <div>
                 <span style="color:#39ff14;">💳 PAGO:</span> Transferencia o MercadoPago. Tarjeta de crédito disponible con recargo.

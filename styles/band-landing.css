@@ -115,7 +115,7 @@ body[data-band="Helloween"] .july-shipping-promo strong {
         width: 100%;
         max-width: none;
         justify-self: stretch;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
+        grid-template-columns: minmax(100px, .8fr) minmax(0, 1.2fr);
     }
 
     body[data-band="Helloween"] .july-shipping-promo {

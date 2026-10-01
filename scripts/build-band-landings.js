@@ -226,12 +226,11 @@ function renderLanding(config, sharedCommerceMarkup) {
     const instagram = config.instagram && typeof config.instagram === 'object' ? config.instagram : null;
     const finishedGarments = Array.isArray(config.finishedGarments) ? config.finishedGarments : [];
     const shippingPromoMarkup = config.hideShippingPromo ? '' : `        <section class="july-shipping-promo purchase-volume-promo" aria-label="Promoción por cantidad">
-            <p>${config.promoKicker || 'PROMO SEPTIEMBRE'}</p>
-            <strong>${config.promoTitle || 'SUMÁ PRENDAS <em>Y APROVECHÁ EL ENVÍO</em>'}</strong>
+            <p>${config.promoKicker || 'ENVÍOS A TODO EL PAÍS 🇦🇷'}</p>
+            <strong>${config.promoTitle || 'SUMÁ PRENDAS <em>Y APROVECHÁ LOS BENEFICIOS</em>'}</strong>
             <div class="shipping-promo-options">
-                <span><b>1 PRENDA</b><em>Envío a sucursal Andreani: $5.000</em><em>Envío a domicilio: $8.000</em></span>
-                <span><b>2 PRENDAS</b><em>Envío gratis a sucursal Andreani</em><em>Envío a domicilio: $5.000</em></span>
-                <span class="is-best"><b>3 PRENDAS O MÁS · 10% OFF</b><em>Envío gratis a sucursal Andreani</em><em>Envío gratis a domicilio</em></span>
+                <span><b>2 PRENDAS</b><em>ENVÍO GRATIS a sucursal o punto Andreani</em></span>
+                <span class="is-best"><b>3 PRENDAS O MÁS</b><em>10% OFF + ENVÍO GRATIS</em></span>
             </div>
         </section>`;
     const completeArchive = config.prominentAllDesigns || (collections.length ? {

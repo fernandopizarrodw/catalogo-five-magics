@@ -21758,6 +21758,18 @@
         "preferredPreview": true,
         "defaultPrintMode": "double",
         "isNew": true
+      },
+      {
+        "img": "images/banda_sugeridas/opeth/remera_opeth_deliverance.jpg",
+        "name": "Opeth Deliverance",
+        "alt": "Remera negra Opeth Deliverance frente y dorso",
+        "designId": "opeth-deliverance",
+        "role": "front",
+        "garmentCategory": "Bandas Sugeridas",
+        "color": "negro",
+        "preferredPreview": true,
+        "defaultPrintMode": "double",
+        "isNew": true
       }
     ],
     "desc": "Diseños de Opeth disponibles en remeras, hoodies y buzos.",

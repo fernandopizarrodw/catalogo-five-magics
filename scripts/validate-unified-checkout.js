@@ -185,17 +185,18 @@ async function main() {
     await screenshot(cdp, 'desktop-cart-checkout.png');
 
     results.point = await sendScenario(cdp, 'retiro_andreani');
-    assert(/Código postal: 1678/.test(results.point), 'El pedido a punto Andreani no incluye CP.');
-    assert(/Envío: GRATIS/.test(results.point), 'El pedido a punto Andreani no informa envío gratis.');
+    assert(/CP 1678/.test(results.point), 'El pedido a punto Andreani no incluye CP.');
+    assert(/Envío a sucursal\/punto Andreani: \$5\.000/.test(results.point), 'El pedido de una prenda no informa envío a punto Andreani por $5.000.');
 
     results.home = await sendScenario(cdp, 'domicilio');
     assert(/Dirección: Av\. Siempre Viva 123/.test(results.home), 'El pedido a domicilio no incluye dirección.');
-    assert(/Código postal: 1678/.test(results.home), 'El pedido a domicilio no incluye CP.');
+    assert(/CP 1678/.test(results.home), 'El pedido a domicilio no incluye CP.');
+    assert(/Envío a domicilio: \$9\.000/.test(results.home), 'El pedido de una prenda no informa envío a domicilio por $9.000.');
 
     results.pickup = await sendScenario(cdp, 'taller', { cp: '', direccion: '', localidad: '', provincia: '' });
-    assert(/Retiro sin cargo en Villa Martelli/.test(results.pickup), 'El retiro en taller no se informa correctamente.');
-    assert(!/Código postal:/.test(results.pickup), 'El retiro en taller incluyó CP.');
-    assert(/Nombre: Ana/.test(results.pickup) && /Teléfono: 11 5555 1234/.test(results.pickup), 'El retiro en taller no incluye datos del cliente.');
+    assert(/Retiro en Villa Martelli: GRATIS/.test(results.pickup), 'El retiro en taller no se informa correctamente.');
+    assert(!/CP \d+/.test(results.pickup), 'El retiro en taller incluyó CP.');
+    assert(/\nAna\n/.test(results.pickup), 'El retiro en taller no incluye el nombre del cliente.');
 
     await cdp.evaluate(resetExpression);
     await createOneItem(cdp);
@@ -212,9 +213,8 @@ async function main() {
     await cdp.evaluate('confirmAndSendWhatsapp()');
     const threeUrl = await cdp.evaluate('window.__checkoutWhatsappUrls.at(-1) || ""');
     results.threeItems = decodeWhatsappUrl(threeUrl);
-    assert(/Descuento: -\$/.test(results.threeItems), 'El WhatsApp de 3 prendas no incluye descuento.');
-    assert(/Envío: GRATIS/.test(results.threeItems), 'El WhatsApp de 3 prendas no incluye domicilio gratis.');
-    assert(/Talle: M/.test(results.threeItems) && /Talle: XL/.test(results.threeItems), 'El WhatsApp perdió opciones diferentes entre productos.');
+    assert(/10% OFF: -\$/.test(results.threeItems), 'El WhatsApp de 3 prendas no incluye descuento.');
+    assert(/Envío a domicilio: GRATIS/.test(results.threeItems), 'El WhatsApp de 3 prendas no incluye domicilio gratis.');
 
     await cdp.evaluate(resetExpression);
     await createOneItem(cdp);

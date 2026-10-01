@@ -77,7 +77,7 @@ async function main() {
 
             selectedDeliveryMethod = 'domicilio';
             cart.cart = [samples.classicSimple];
-            const oneTotals = calculateCartTotal();
+            const oneHomeTotals = calculateCartTotal();
             const oneSummary = cart.generateSummary();
             let whatsappUrl = '';
             const originalOpen = window.open;
@@ -86,24 +86,37 @@ async function main() {
             window.open = originalOpen;
             const whatsappMessage = new URL(whatsappUrl).searchParams.get('text') || '';
 
+            selectedDeliveryMethod = 'retiro_andreani';
+            const onePointTotals = calculateCartTotal();
+
             cart.cart = [samples.classicSimple, samples.oversizeDouble];
-            const twoTotals = calculateCartTotal();
-            const twoSummary = cart.generateSummary();
+            const twoPointTotals = calculateCartTotal();
+            selectedDeliveryMethod = 'domicilio';
+            const twoHomeTotals = calculateCartTotal();
+            const twoHomeSummary = cart.generateSummary();
 
             cart.cart = [samples.classicSimple, samples.oversizeDouble, samples.kidsDouble];
-            const threeTotals = calculateCartTotal();
-            const threeSummary = cart.generateSummary();
+            const threeHomeTotals = calculateCartTotal();
+            const threeHomeSummary = cart.generateSummary();
+            selectedDeliveryMethod = 'retiro_andreani';
+            const threePointTotals = calculateCartTotal();
+            selectedDeliveryMethod = 'taller';
+            const threeWorkshopTotals = calculateCartTotal();
             cart.clearCart();
 
             return {
                 constants: { PRECIOS, PRECIOS_OVERSIZE, PRECIOS_CHICOS, PRECIOS_HOODIES, PRECIOS_BUZO_REDONDO },
                 prices,
-                oneTotals,
+                oneHomeTotals,
+                onePointTotals,
                 oneSummary,
-                twoTotals,
-                twoSummary,
-                threeTotals,
-                threeSummary,
+                twoHomeTotals,
+                twoPointTotals,
+                twoHomeSummary,
+                threeHomeTotals,
+                threePointTotals,
+                threeWorkshopTotals,
+                threeHomeSummary,
                 whatsappMessage
             };
         })()`);
@@ -125,23 +138,31 @@ async function main() {
             buzoSimple: 51000,
             buzoDouble: 56000
         });
-        assert.deepEqual(result.oneTotals, { subtotal: 38000, envio: 8000, envioGratis: false, envioGratisPuntoAndreani: false, descuento: 0, total: 46000, cantidad: 1, promotion: result.oneTotals.promotion });
+        assert.deepEqual(result.oneHomeTotals, { subtotal: 38000, envio: 9000, envioGratis: false, envioGratisPuntoAndreani: false, descuento: 0, total: 47000, cantidad: 1, promotion: result.oneHomeTotals.promotion });
+        assert.equal(result.onePointTotals.envio, 5000);
+        assert.equal(result.onePointTotals.total, 43000);
         assert(result.oneSummary.includes('Subtotal: $38.000'));
-        assert(result.oneSummary.includes('Envío a domicilio: $8.000'));
-        assert(result.oneSummary.includes('Total: $46.000'));
-        assert.equal(result.twoTotals.subtotal, 86000);
-        assert.equal(result.twoTotals.envio, 5000);
-        assert.equal(result.twoTotals.total, 91000);
-        assert(result.twoSummary.includes('Total: $91.000'));
-        assert.equal(result.threeTotals.subtotal, 122000);
-        assert.equal(result.threeTotals.descuento, 12200);
-        assert.equal(result.threeTotals.envio, 0);
-        assert.equal(result.threeTotals.total, 109800);
-        assert(result.threeSummary.includes('10% OFF: -$12.200'));
-        assert(result.threeSummary.includes('Total: $109.800'));
+        assert(result.oneSummary.includes('Envío a domicilio: $9.000'));
+        assert(result.oneSummary.includes('Total: $47.000'));
+        assert.equal(result.twoHomeTotals.subtotal, 86000);
+        assert.equal(result.twoHomeTotals.envio, 9000);
+        assert.equal(result.twoHomeTotals.total, 95000);
+        assert.equal(result.twoPointTotals.envio, 0);
+        assert.equal(result.twoPointTotals.total, 86000);
+        assert(result.twoHomeSummary.includes('Envío a domicilio: $9.000'));
+        assert(result.twoHomeSummary.includes('Total: $95.000'));
+        for (const totals of [result.threeHomeTotals, result.threePointTotals, result.threeWorkshopTotals]) {
+            assert.equal(totals.subtotal, 122000);
+            assert.equal(totals.descuento, 12200);
+            assert.equal(totals.envio, 0);
+            assert.equal(totals.total, 109800);
+        }
+        assert(result.threeHomeSummary.includes('10% OFF: -$12.200'));
+        assert(result.threeHomeSummary.includes('Envío a domicilio: GRATIS'));
+        assert(result.threeHomeSummary.includes('Total: $109.800'));
         assert(result.whatsappMessage.includes('Solo frente · $38.000'));
-        assert(result.whatsappMessage.includes('Envío a domicilio: $8.000'));
-        assert(result.whatsappMessage.includes('Total: $46.000'));
+        assert(result.whatsappMessage.includes('Envío a domicilio: $9.000'));
+        assert(result.whatsappMessage.includes('Total: $47.000'));
         console.log('Precios, promociones, carrito y WhatsApp validados correctamente.');
     } finally {
         socket.close();
