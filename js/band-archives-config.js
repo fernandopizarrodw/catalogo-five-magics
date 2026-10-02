@@ -313,16 +313,16 @@
             campaignFeature: {
                 theme: 'argentina',
                 kicker: 'SAGA EDDIES ARGENTINOS · ORIGINALES FMD',
-                title: 'EDDIE GAUCHO + EDDIE TANGUERO',
-                copy: 'Dos versiones de Eddie inspiradas en la identidad argentina, creadas por Five Magics Designs.',
+                title: 'EDDIES ARGENTINOS · TRES CAPÍTULOS',
+                copy: 'Gaucho, Tanguero y Huracán: tres versiones originales FMD inspiradas en Argentina.',
                 eventLine: '20 + 21 OCTUBRE · ESTADIO HURACÁN',
-                note: 'Elegí tu Eddie. Ambos disponibles con estampa frontal o frente + dorso Buenos Aires 2026.',
+                note: 'Elegí tu Eddie. Los tres están disponibles con estampa frontal o frente + dorso Buenos Aires 2026.',
                 priceOptions: [
                     { label: 'FRENTE + DORSO', price: '$45.000', recommended: true }
                 ],
                 designId: 'cd-iron-maiden-eddie-gaucho-argentino--p7040',
-                ctaDesignId: 'iron-maiden-eddie-tanguero-original-fmd',
-                ctaLabel: 'DESCUBRIR EDDIE TANGUERO',
+                ctaDesignId: 'cd-iron-maiden-eddie-gaucho-argentino--p7040',
+                ctaLabel: 'VER EDDIE GAUCHO',
                 images: [
                     {
                         designId: 'cd-iron-maiden-eddie-gaucho-argentino--p7040',
@@ -332,7 +332,8 @@
                         printMode: 'double',
                         preview: '/images/iron_maiden/remera_iron_maiden_eddie_gaucho_argentino_frente.jpg',
                         width: 1080,
-                        height: 1350
+                        height: 1350,
+                        primary: true
                     },
                     {
                         designId: 'iron-maiden-eddie-tanguero-original-fmd',
@@ -343,10 +344,20 @@
                         preview: '/images/iron_maiden/iron_maiden_eddie_tanguero.jpg',
                         width: 1080,
                         height: 1350
+                    },
+                    {
+                        designId: 'iron-maiden-eddie-huracan-original-fmd',
+                        src: '/images/iron_maiden/remera_iron_maiden_eddie_huracan_doble.jpg',
+                        alt: 'Edición completa Eddie vs. Huracán con frente y dorso Buenos Aires 2026',
+                        label: 'EDDIE HURACÁN · FRENTE + DORSO',
+                        printMode: 'double',
+                        preview: '/images/iron_maiden/remera_iron_maiden_eddie_huracan_frente.jpg',
+                        width: 1080,
+                        height: 1350
                     }
                 ],
                 defaultPrintMode: 'double',
-                defaultPreview: '/images/iron_maiden/iron_maiden_eddie_tanguero.jpg'
+                defaultPreview: '/images/iron_maiden/remera_iron_maiden_eddie_gaucho_argentino_frente.jpg'
             },
             campaignTourCollection: {
                 kicker: 'COLECCIÓN ESPECIAL',
@@ -461,6 +472,7 @@
                 'iron-maiden-eddie-gaucho-argentino-hoodie',
                 'iron-maiden-eddie-gaucho-argentino-buzo',
                 'iron-maiden-eddie-tanguero-original-fmd',
+                'iron-maiden-eddie-huracan-original-fmd',
                 'cd-iron-maiden-empire--p308',
                 'iron-maiden-the-final-tour-fmd',
                 'cd-iron-maiden-tour-3d-2026-fmd--p7029',
@@ -483,6 +495,7 @@
             editorialBadges: {
                 'cd-iron-maiden-eddie-gaucho-argentino--p7040': 'ORIGINAL FMD',
                 'iron-maiden-eddie-tanguero-original-fmd': 'ORIGINAL FMD',
+                'iron-maiden-eddie-huracan-original-fmd': 'ORIGINAL FMD',
                 'iron-maiden-run-for-your-lives-2026-oficial': 'TOUR 2026',
                 'iron-maiden-somewhere-in-time-40th-fmd': '40 AÑOS'
             },

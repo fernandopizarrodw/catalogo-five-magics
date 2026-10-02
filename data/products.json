@@ -22903,5 +22903,68 @@
     "visibilityTier": "catalog",
     "legacyCategory": "Iron Maiden",
     "tags": ["Iron Maiden", "World Slavery Tour", "Powerslave", "1984", "remera"]
+  },
+  {
+    "id": 7265,
+    "designId": "iron-maiden-eddie-huracan-original-fmd",
+    "designSlug": "iron-maiden-eddie-huracan-original-fmd",
+    "category": "Iron Maiden",
+    "band": "Iron Maiden",
+    "name": "Eddie vs. Huracán · Original FMD",
+    "year": "2026",
+    "album": null,
+    "tipoPrecio": "simple",
+    "defaultPrintMode": "double",
+    "catalogGarments": ["remera"],
+    "isNew": true,
+    "img": "images/iron_maiden/remera_iron_maiden_eddie_huracan_frente.jpg",
+    "desc": "Eddie vs. Huracán, tercer capítulo de la saga Eddies Argentinos creada por Five Magics Designs.",
+    "variants": [
+      {
+        "img": "images/iron_maiden/remera_iron_maiden_eddie_huracan_frente.jpg",
+        "name": "Eddie vs. Huracán · Frente",
+        "selectionLabel": "Frente Eddie vs. Huracán",
+        "previewLabel": "Frente solo",
+        "designId": "iron-maiden-eddie-huracan-original-fmd",
+        "role": "front",
+        "preferredPreview": true,
+        "modalOrder": 1,
+        "defaultPrintMode": "double",
+        "fmdBadge": "ORIGINAL FMD",
+        "fmdBadgeDescription": "Tercer capítulo de la saga Eddies Argentinos creada por Five Magics Designs."
+      },
+      {
+        "img": "images/iron_maiden/remera_iron_maiden_eddie_huracan_dorso.jpg",
+        "name": "Dorso Eddie vs. Huracán · Buenos Aires 2026",
+        "selectionLabel": "Dorso Eddie vs. Huracán · Buenos Aires 2026",
+        "previewLabel": "Dorso solo",
+        "role": "back",
+        "backTargetDesignId": "iron-maiden-eddie-huracan-original-fmd",
+        "carouselPreview": true,
+        "modalOrder": 2
+      },
+      {
+        "img": "images/iron_maiden/remera_iron_maiden_eddie_huracan_doble.jpg",
+        "name": "Eddie vs. Huracán · Versión frente + dorso",
+        "selectionLabel": "Frente Eddie vs. Huracán",
+        "previewLabel": "Frente y dorso",
+        "designId": "iron-maiden-eddie-huracan-original-fmd",
+        "role": "front",
+        "defaultPrintMode": "double",
+        "autoSelectBack": "Dorso Eddie vs. Huracán · Buenos Aires 2026",
+        "orderVariantIndex": 0,
+        "modalOrder": 3,
+        "fmdBadge": "ORIGINAL FMD",
+        "fmdBadgeDescription": "Tercer capítulo de la saga Eddies Argentinos creada por Five Magics Designs."
+      }
+    ],
+    "garments": ["remera"],
+    "collections": ["Archivo Maiden", "Original FMD", "Eddies Argentinos", "Edición Argentina"],
+    "campaigns": ["Argentina 2026", "Run For Your Lives 2026"],
+    "commercialPriority": 100,
+    "visibilityTier": "featured",
+    "legacyCategory": "Iron Maiden",
+    "fmdBadge": "ORIGINAL FMD",
+    "tags": ["Iron Maiden", "Eddie Huracán", "Original FMD", "Eddies Argentinos", "Argentina 2026", "Run For Your Lives", "Estadio Huracán", "remera"]
   }
 ]

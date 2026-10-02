@@ -636,6 +636,28 @@ body[data-band="Helloween"] .helloween-post-show-featured {
     text-align: center;
 }
 
+.band-campaign-feature--argentina .band-campaign-feature-card,
+.band-campaign-feature--argentina .band-campaign-feature-card img {
+    background: #05080b;
+}
+
+@media (min-width: 821px) {
+    .band-campaign-feature--argentina .band-campaign-feature-gallery {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .band-campaign-feature--argentina .band-campaign-feature-card img {
+        height: auto;
+        aspect-ratio: 4 / 5;
+        flex: none;
+    }
+
+    .band-campaign-feature--argentina .band-campaign-feature-card.is-primary {
+        border-color: #74acdf;
+        box-shadow: 0 0 0 1px rgba(116, 172, 223, 0.28), 0 14px 34px rgba(30, 91, 140, 0.2);
+    }
+}
+
 .band-campaign-feature-note {
     margin: 18px 0 0;
     color: #fff;
@@ -2266,7 +2288,7 @@ body.band-landing-page[data-band="Argentina"] #modal .btn-add-cart {
     }
 
     .band-campaign-feature-card.is-primary img {
-        aspect-ratio: 1 / 1;
+        aspect-ratio: 4 / 5;
     }
 
     .band-campaign-feature-card strong {

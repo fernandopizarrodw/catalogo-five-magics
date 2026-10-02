@@ -11,6 +11,9 @@ const COMBINED_IMAGE = '/images/iron_maiden/remera_iron_maiden_eddie_gaucho_arge
 const TANGUERO_FRONT_IMAGE = '/images/iron_maiden/iron_maiden_eddie_tanguero.jpg';
 const TANGUERO_COMBINED_IMAGE = '/images/iron_maiden/iron_maiden_eddie_tanguero_doble.jpg';
 const TANGUERO_BACK_IMAGE = '/images/iron_maiden/dorsos opcionales/iron_maiden_dorso_eddie_tanguero.jpg';
+const HURACAN_FRONT_IMAGE = '/images/iron_maiden/remera_iron_maiden_eddie_huracan_frente.jpg';
+const HURACAN_BACK_IMAGE = '/images/iron_maiden/remera_iron_maiden_eddie_huracan_dorso.jpg';
+const HURACAN_COMBINED_IMAGE = '/images/iron_maiden/remera_iron_maiden_eddie_huracan_doble.jpg';
 
 async function main() {
     const pages = await fetch(`${CDP_URL}/json`).then(response => response.json());
@@ -88,6 +91,8 @@ async function main() {
             if (!datedDesign) return { error: 'Eddie Gaucho con fechas no encontrado' };
             const tangueroDesign = catalogDesigns.find(item => item.designId === 'iron-maiden-eddie-tanguero-original-fmd');
             if (!tangueroDesign) return { error: 'Eddie Tanguero no encontrado' };
+            const huracanDesign = catalogDesigns.find(item => item.designId === 'iron-maiden-eddie-huracan-original-fmd');
+            if (!huracanDesign) return { error: 'Eddie Huracán no encontrado' };
             loadMoreCatalogDesigns();
             loadMoreCatalogDesigns();
             const card = document.querySelector('.catalog-design-card[data-design-id="cd-iron-maiden-eddie-gaucho-argentino--p7040"]');
@@ -95,14 +100,14 @@ async function main() {
             feature.querySelector('.band-campaign-feature-cta')?.click();
             const featureOpenedDesign = currentCatalogDesign?.designId || '';
             closeModal();
-            feature.querySelector('.band-campaign-feature-card')?.click();
+            feature.querySelectorAll('.band-campaign-feature-card')[0]?.click();
             selectPrintMode('double');
             const modalImages = getModalImages().map(item => item.img || '');
             const backSelectorImages = [...document.querySelectorAll('#dorsoVariantsGrid img')]
                 .map(image => image.getAttribute('src') || '');
             const featureImages = [...feature.querySelectorAll('.band-campaign-feature-card img')]
                 .map(image => image.getAttribute('src') || '');
-            const paths = [...featureImages, design.front.image, design.backOptions[0]?.image, datedDesign.front.image, tangueroDesign.front.image, tangueroDesign.backOptions[0]?.image].filter(Boolean);
+            const paths = [...featureImages, design.front.image, design.backOptions[0]?.image, datedDesign.front.image, tangueroDesign.front.image, tangueroDesign.backOptions[0]?.image, huracanDesign.front.image, huracanDesign.backOptions[0]?.image].filter(Boolean);
             return {
                 heroIsFirst: document.querySelector('main > section')?.classList.contains('band-landing-hero') === true,
                 featureIsSecond: document.querySelectorAll('main > section')[1] === feature,
@@ -140,10 +145,10 @@ async function main() {
         assert.equal(result.tourCollectionCardCount, 9, 'La colección de Eddie Tour no contiene nueve diseños');
         assert(result.showcaseFollowsTourCollection, 'Los destacados generales no aparecen después de la colección Eddie Tour');
         assert.equal(result.showcaseCardCount, 10, 'La selección de campaña no muestra el tour y los nueve discos');
-        assert.equal(result.featureCardCount, 2);
-        assert.deepEqual(result.featureImages, [COMBINED_IMAGE, TANGUERO_COMBINED_IMAGE]);
-        assert.equal(result.featureCtaLabel, 'DESCUBRIR EDDIE TANGUERO');
-        assert.equal(result.featureOpenedDesign, 'iron-maiden-eddie-tanguero-original-fmd');
+        assert.equal(result.featureCardCount, 3);
+        assert.deepEqual(result.featureImages, [COMBINED_IMAGE, TANGUERO_COMBINED_IMAGE, HURACAN_COMBINED_IMAGE]);
+        assert.equal(result.featureCtaLabel, 'VER EDDIE GAUCHO');
+        assert.equal(result.featureOpenedDesign, 'cd-iron-maiden-eddie-gaucho-argentino--p7040');
         assert.equal(result.horizontalOverflow, false, 'La sección genera desborde horizontal en mobile');
         assert.equal(result.catalogCardCount, 1, 'Eddie Gaucho se duplicó en el catálogo');
         assert.equal(result.datedCatalogCardCount, 1, 'El frente con fechas no quedó como card independiente');
@@ -200,6 +205,10 @@ async function main() {
             const tangueroDouble = snapshot();
 
             closeModal();
+            featureCards[2].click();
+            const huracanDouble = snapshot();
+
+            closeModal();
             feature.querySelector('.band-campaign-feature-cta').click();
             const cta = snapshot();
 
@@ -207,13 +216,13 @@ async function main() {
             document.querySelector('[data-design-id="cd-iron-maiden-eddie-gaucho-argentino--p7040"] .catalog-design-card-main').click();
             const catalogCard = snapshot();
 
-            return { combined, datedFront, tangueroDouble, cta, catalogCard };
+            return { combined, datedFront, tangueroDouble, huracanDouble, cta, catalogCard };
         })()`);
 
         assert.equal(entryFlow.combined.printMode, 'double');
         assert.equal(entryFlow.combined.back, 'Dorso Buenos Aires 2026');
         assert.equal(entryFlow.combined.front, 'Frente clásico');
-        assert(entryFlow.combined.slide.includes(COMBINED_IMAGE));
+        assert(entryFlow.combined.slide.includes(FRONT_IMAGE));
         assert(entryFlow.combined.price.includes('$45.000'));
         assert.equal(entryFlow.combined.visualVisible, true);
         assert.equal(entryFlow.combined.visualImages.length, 2);
@@ -226,17 +235,33 @@ async function main() {
         assert.equal(entryFlow.datedFront.front, 'Frente con fechas');
         assert(entryFlow.datedFront.slide.includes(DATED_FRONT_IMAGE));
         assert(entryFlow.datedFront.price.includes('$38.000'));
-        for (const tangueroEntry of [entryFlow.tangueroDouble, entryFlow.cta]) {
+        for (const tangueroEntry of [entryFlow.tangueroDouble]) {
             assert.equal(tangueroEntry.designId, 'iron-maiden-eddie-tanguero-original-fmd');
             assert.equal(tangueroEntry.printMode, 'double');
             assert.equal(tangueroEntry.front, 'Frente Eddie Tanguero');
             assert.equal(tangueroEntry.back, 'Dorso Eddie Tanguero · Buenos Aires 2026');
-            assert(tangueroEntry.slide.includes(TANGUERO_COMBINED_IMAGE));
+            assert(tangueroEntry.slide.includes(TANGUERO_FRONT_IMAGE));
             assert(tangueroEntry.price.includes('$45.000'));
             assert.equal(tangueroEntry.visualVisible, true);
             assert(tangueroEntry.visualImages.some(path => path.includes(TANGUERO_FRONT_IMAGE)));
             assert(tangueroEntry.visualImages.some(path => path.includes('iron_maiden_dorso_eddie_tanguero.jpg')));
         }
+        for (const huracanEntry of [entryFlow.huracanDouble]) {
+            assert.equal(huracanEntry.designId, 'iron-maiden-eddie-huracan-original-fmd');
+            assert.equal(huracanEntry.printMode, 'double');
+            assert.equal(huracanEntry.front, 'Frente Eddie vs. Huracán');
+            assert.equal(huracanEntry.back, 'Dorso Eddie vs. Huracán · Buenos Aires 2026');
+            assert(huracanEntry.slide.includes(HURACAN_FRONT_IMAGE));
+            assert(huracanEntry.price.includes('$45.000'));
+            assert.equal(huracanEntry.visualVisible, true);
+            assert(huracanEntry.visualImages.some(path => path.includes(HURACAN_FRONT_IMAGE)));
+            assert(huracanEntry.visualImages.some(path => path.includes(HURACAN_BACK_IMAGE)));
+        }
+        assert.equal(entryFlow.cta.designId, 'cd-iron-maiden-eddie-gaucho-argentino--p7040');
+        assert.equal(entryFlow.cta.printMode, 'double');
+        assert.equal(entryFlow.cta.front, 'Frente clásico');
+        assert.equal(entryFlow.cta.back, 'Dorso Buenos Aires 2026');
+        assert(entryFlow.cta.slide.includes(FRONT_IMAGE));
         assert.equal(entryFlow.catalogCard.printMode, 'simple');
         assert.equal(entryFlow.catalogCard.back, '');
         assert.equal(entryFlow.catalogCard.front, 'Frente clásico');
@@ -269,6 +294,47 @@ async function main() {
         assert.equal(tangueroOrder.backName, 'Dorso Eddie Tanguero · Buenos Aires 2026');
         assert(tangueroOrder.frontImage.includes(TANGUERO_FRONT_IMAGE));
         assert(tangueroOrder.backImage.includes('iron_maiden_dorso_eddie_tanguero.jpg'));
+
+        const huracanOrder = await evaluate(`(() => {
+            closeModal();
+            cart.clearCart();
+            openCatalogDesignPreview('iron-maiden-eddie-huracan-original-fmd', 'remera', 'double', '${HURACAN_FRONT_IMAGE}');
+            const modalState = {
+                images: getModalImages().map(item => item.img || ''),
+                labels: getModalImages().map(item => item.name || ''),
+                current: getModalImages()[currentSlide]?.img || ''
+            };
+            selectRemeraVariant('hombre_clasica');
+            selectSize('M');
+            selectColor('negro');
+            const added = addToCartFromModal();
+            const item = cart.getCart().at(-1);
+            const summary = cart.generateSummary();
+            cart.clearCart();
+            return {
+                ...modalState,
+                added,
+                code: item?.frontCode || '',
+                isDouble: item?.isDouble === true,
+                frontName: item?.frontName || '',
+                backName: item?.backName || '',
+                frontImage: item?.frontImage || '',
+                backImage: item?.backImage || '',
+                summary
+            };
+        })()`);
+        assert.deepEqual(huracanOrder.images, [HURACAN_FRONT_IMAGE, HURACAN_BACK_IMAGE, HURACAN_COMBINED_IMAGE]);
+        assert.deepEqual(huracanOrder.labels, ['Frente solo', 'Dorso solo', 'Frente y dorso']);
+        assert(huracanOrder.current.includes(HURACAN_FRONT_IMAGE));
+        assert.equal(huracanOrder.added, true);
+        assert.equal(huracanOrder.isDouble, true);
+        assert(huracanOrder.code.includes('7265.V1'));
+        assert.equal(huracanOrder.frontName, 'Frente Eddie vs. Huracán');
+        assert.equal(huracanOrder.backName, 'Dorso Eddie vs. Huracán · Buenos Aires 2026');
+        assert(huracanOrder.frontImage.includes(HURACAN_FRONT_IMAGE));
+        assert(huracanOrder.backImage.includes(HURACAN_BACK_IMAGE));
+        assert(huracanOrder.summary.includes('Frente: Eddie vs. Huracán'));
+        assert(huracanOrder.summary.includes('Dorso: Dorso Eddie vs. Huracán · Buenos Aires 2026'));
 
         const backZoom = await evaluate(`(async () => {
             closeModal();
