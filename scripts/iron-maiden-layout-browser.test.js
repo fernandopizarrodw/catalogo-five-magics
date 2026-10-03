@@ -11,7 +11,6 @@ async function main() {
     const pages = await fetch(`${CDP_URL}/json`).then(response => response.json());
     const page = pages.find(item => item.type === 'page');
     assert(page?.webSocketDebuggerUrl, 'Navegador CDP no disponible');
-
     const socket = new WebSocket(page.webSocketDebuggerUrl);
     await new Promise((resolve, reject) => {
         socket.addEventListener('open', resolve, { once: true });
@@ -34,275 +33,226 @@ async function main() {
     });
     const evaluate = async expression => {
         const result = await send('Runtime.evaluate', { expression, returnByValue: true, awaitPromise: true });
-        if (result.exceptionDetails) {
-            throw new Error(result.exceptionDetails.exception?.description || result.exceptionDetails.text);
-        }
+        if (result.exceptionDetails) throw new Error(result.exceptionDetails.exception?.description || result.exceptionDetails.text);
         return result.result.value;
+    };
+    const navigate = async (width, height, mobile) => {
+        await send('Emulation.setDeviceMetricsOverride', { width, height, deviceScaleFactor: 1, mobile });
+        await send('Page.navigate', { url: PAGE_URL });
+        for (let attempt = 0; attempt < 100; attempt += 1) {
+            const ready = await evaluate(`document.readyState === 'complete'
+                && document.querySelectorAll('#bandCuratedSelection [data-design-id]').length === 16
+                && document.querySelectorAll('#productsGrid .catalog-design-card').length === 16`);
+            if (ready) return;
+            await new Promise(resolve => setTimeout(resolve, 100));
+        }
+        const state = await evaluate(`({
+            readyState: document.readyState,
+            curated: document.querySelectorAll('#bandCuratedSelection [data-design-id]').length,
+            cards: document.querySelectorAll('#productsGrid .catalog-design-card').length,
+            heading: document.getElementById('productsCount')?.textContent || '',
+            bodyText: document.body?.innerText.slice(0, 200) || '',
+            url: location.href
+        })`);
+        throw new Error(`La landing de Iron Maiden no terminó de cargar: ${JSON.stringify(state)}`);
+    };
+    const captureSection = async (selector, filename) => {
+        const clip = await evaluate(`(() => {
+            const rect = document.querySelector(${JSON.stringify(selector)}).getBoundingClientRect();
+            return { x: 0, y: rect.top + window.scrollY, width: document.documentElement.clientWidth, height: rect.height, scale: 1 };
+        })()`);
+        const screenshot = await send('Page.captureScreenshot', { format: 'png', fromSurface: true, captureBeyondViewport: true, clip });
+        const output = path.resolve(__dirname, '..', 'reports', filename);
+        fs.writeFileSync(output, Buffer.from(screenshot.data, 'base64'));
+        return output;
     };
 
     try {
-        await send('Emulation.setDeviceMetricsOverride', {
-            width: 390,
-            height: 844,
-            deviceScaleFactor: 1,
-            mobile: true
-        });
-        if (String(page.url || '').startsWith(PAGE_URL)) {
-            await send('Page.reload', { ignoreCache: true });
-        } else {
-            await send('Page.navigate', { url: PAGE_URL });
-        }
-        for (let attempt = 0; attempt < 80; attempt += 1) {
-            if (await evaluate(`document.readyState === 'complete'
-                && document.querySelectorAll('#bandDesignShowcase .band-design-showcase-set:not([aria-hidden="true"]) .band-design-showcase-card').length === 10`)) break;
-            await new Promise(resolve => setTimeout(resolve, 100));
-        }
-        await evaluate(`Promise.all([...document.querySelectorAll('#bandCampaignFeature img, #bandTourCollection img, .band-real-product-proof-grid img')].map(image => {
+        await send('Network.enable');
+        await send('Network.setCacheDisabled', { cacheDisabled: true });
+        await navigate(390, 844, true);
+        await evaluate(`Promise.all([...document.querySelectorAll('#bandCuratedSelection img, .band-real-product-proof-grid img')].map(image => {
             image.loading = 'eager';
             if (image.complete) return Promise.resolve();
             return new Promise(resolve => image.addEventListener('load', resolve, { once: true }));
         }))`);
 
-        const result = await evaluate(`(() => {
-            const showcase = document.getElementById('bandDesignShowcase');
-            const showcaseTrack = document.getElementById('bandDesignShowcaseTrack');
-            const proof = document.querySelector('.band-real-product-proof-grid');
-            const proofCards = [...proof.children];
-            const proofStyle = getComputedStyle(proof);
-            const mainSections = [...document.querySelector('main').children];
-            const catalog = document.querySelector('.band-landing-catalog');
-            const campaignFeature = document.getElementById('bandCampaignFeature');
-            const campaignCards = [...campaignFeature.querySelectorAll('.band-campaign-feature-card')];
-            const campaignGrid = campaignFeature.querySelector('.band-campaign-feature-gallery');
-            const tourCollection = document.getElementById('bandTourCollection');
-            const somewhere = document.querySelector('.band-featured-collection:not(.band-tour-collection)');
-            const garmentSelector = document.querySelector('.band-landing-garment-selector');
-            proofCards[0].click();
-            const proofLightboxWorks = document.getElementById('imageModal').classList.contains('active')
-                && document.getElementById('imageModalImg').getAttribute('src') === proofCards[0].querySelector('img').getAttribute('src');
-            closeImageModal();
+        const mobile = await evaluate(`(() => {
+            const mainChildren = [...document.querySelector('main').children];
+            const discovery = document.querySelector('.band-discovery-nav');
+            const curated = document.getElementById('bandCuratedSelection');
+            const catalog = document.getElementById('catalogoPrincipal');
+            const proof = document.getElementById('realProductProof');
+            const promo = document.querySelector('.purchase-volume-promo');
+            const production = document.querySelector('.production-tracking-strip');
+            const proofGrid = proof.querySelector('.band-real-product-proof-grid');
+            const primaryFilters = [...document.querySelectorAll('#bandLandingCollections [data-band-landing-collection]')];
+            const albumFilters = [...document.querySelectorAll('.band-landing-album-filters [data-band-landing-collection]')];
+            const curatedCards = [...curated.querySelectorAll('[data-design-id]')];
             return {
-                showcaseCards: showcase.querySelectorAll('.band-design-showcase-set:not([aria-hidden="true"]) .band-design-showcase-card').length,
-                showcaseCopies: showcase.querySelectorAll('.band-design-showcase-card').length,
-                showcaseAnimation: getComputedStyle(showcaseTrack).animationName,
-                showcaseDuration: getComputedStyle(showcaseTrack).animationDuration,
-                showcaseViewportOverflow: getComputedStyle(document.getElementById('bandDesignShowcaseViewport')).overflowX,
-                proofCards: proofCards.length,
-                proofLabels: proofCards.map(card => card.querySelector('span')?.textContent.trim()),
-                proofImagesLoaded: proofCards.every(card => {
-                    const image = card.querySelector('img');
-                    return image.complete && image.naturalWidth > 0;
-                }),
-                proofLightboxWorks,
-                proofColumns: proofStyle.gridTemplateColumns.split(' ').length,
-                firstProofSpansBoth: getComputedStyle(proofCards[0]).gridColumnEnd === '-1',
-                proofOverflow: proof.scrollWidth > proof.clientWidth,
-                promoCentered: [...document.querySelectorAll('.shipping-promo-options > span')].every(card => {
-                    const style = getComputedStyle(card);
-                    return style.textAlign === 'center' && style.justifyItems === 'center';
-                }),
-                promoRowsFillWidth: (() => {
-                    const options = document.querySelector('.shipping-promo-options');
-                    const rows = [...options.children];
-                    const optionsWidth = options.getBoundingClientRect().width;
-                    return rows.every(row => Math.abs(row.getBoundingClientRect().width - optionsWidth) < 2);
-                })(),
-                promoPanelCentered: (() => {
-                    const panel = document.querySelector('.july-shipping-promo');
-                    const rect = panel.getBoundingClientRect();
-                    const viewportWidth = document.documentElement.clientWidth;
-                    return Math.abs(rect.left - (viewportWidth - rect.right)) < 2;
-                })(),
-                tourCollectionHidden: tourCollection === null,
-                campaignBeforeShowcase: mainSections.indexOf(campaignFeature) < mainSections.indexOf(showcase),
-                campaignCards: campaignCards.length,
-                campaignColumns: getComputedStyle(campaignGrid).gridTemplateColumns.split(' ').length,
-                campaignPrimarySpansBoth: getComputedStyle(campaignCards[0]).gridColumnEnd === '-1',
-                campaignImagesLoaded: campaignCards.every(card => {
-                    const image = card.querySelector('img');
-                    return image.complete && image.naturalWidth > 0;
-                }),
-                catalogOrder: [...document.querySelectorAll('.catalog-design-card[data-design-id]')]
-                    .slice(0, 8)
-                    .map(card => card.dataset.designId),
-                catalogBeforeSomewhere: mainSections.indexOf(catalog) < mainSections.indexOf(somewhere),
-                somewhereBeforeGarments: mainSections.indexOf(somewhere) < mainSections.indexOf(garmentSelector),
-                catalogOwnsAnchor: catalog?.id === 'catalogoPrincipal' && !garmentSelector?.id,
-                pageOverflow: document.documentElement.scrollWidth > document.documentElement.clientWidth
+                discoveryLinks: discovery.querySelectorAll('button').length,
+                discoveryColumns: getComputedStyle(discovery.querySelector('.band-discovery-nav-grid')).gridTemplateColumns.split(' ').length,
+                curatedCards: curatedCards.length,
+                curatedColumns: getComputedStyle(curated.querySelector('.band-curated-selection-grid')).gridTemplateColumns.split(' ').length,
+                curatedLoaded: curatedCards.every(card => card.querySelector('img').complete && card.querySelector('img').naturalWidth > 0),
+                primaryFilters: primaryFilters.map(button => button.textContent.trim()),
+                albumFilters: albumFilters.length,
+                initialCards: document.querySelectorAll('#productsGrid .catalog-design-card').length,
+                totalHeading: document.getElementById('productsCount').textContent.trim(),
+                initialOrder: [...document.querySelectorAll('#productsGrid .catalog-design-card')].slice(0, 4).map(card => card.dataset.designId),
+                proofCards: proofGrid.children.length,
+                proofColumns: getComputedStyle(proofGrid).gridTemplateColumns.split(' ').length,
+                proofOverflow: proofGrid.scrollWidth > proofGrid.clientWidth,
+                catalogBeforeProof: mainChildren.indexOf(catalog) < mainChildren.indexOf(proof),
+                proofBeforePromo: mainChildren.indexOf(proof) < mainChildren.indexOf(promo),
+                promoBeforeProduction: mainChildren.indexOf(promo) < mainChildren.indexOf(production),
+                oldCampaignRemoved: !document.getElementById('bandCampaignFeature'),
+                oldShowcaseRemoved: !document.getElementById('bandDesignShowcase'),
+                oldSinglesRemoved: !document.getElementById('bandSinglesCollection'),
+                oldSomewhereRemoved: !document.getElementById('bandFeaturedCollectionTitle'),
+                pageOverflow: document.documentElement.scrollWidth > document.documentElement.clientWidth,
+                designCountCopy: [...document.querySelectorAll('[data-band-design-count-number]')].map(node => node.textContent.trim()),
+                publicDesigns: catalogDesigns.filter(isCatalogDesignInScope).length,
+                unorderedDesignIds: catalogDesigns.filter(isCatalogDesignInScope).filter(design => !BAND_LANDING_DESIGN_ORDER_INDEX.has(design.designId)).map(design => design.designId),
+                staleOrderIds: BAND_LANDING_DESIGN_ORDER.filter(id => !catalogDesignById.has(id))
             };
         })()`);
 
-        assert.equal(result.showcaseCards, 10);
-        assert.equal(result.showcaseCopies, 20);
-        assert.equal(result.showcaseAnimation, 'band-showcase-scroll');
-        assert.equal(result.showcaseDuration, '48s');
-        assert.equal(result.showcaseViewportOverflow, 'hidden');
-        assert.equal(result.proofCards, 17);
-        assert.equal(result.proofLabels.length, 17);
-        assert.equal(result.proofLabels[0], 'Eddie Gaucho Argentino · Frente');
-        assert.equal(result.proofLabels.at(-1), 'Detalle de impresión DTG');
-        assert.equal(result.proofImagesLoaded, true);
-        assert.equal(result.proofLightboxWorks, true);
-        assert.equal(result.proofColumns, 2);
-        assert.equal(result.firstProofSpansBoth, true);
-        assert.equal(result.proofOverflow, false);
-        assert.equal(result.promoCentered, true);
-        assert.equal(result.promoRowsFillWidth, true);
-        assert.equal(result.promoPanelCentered, true);
-        assert.equal(result.tourCollectionHidden, true);
-        assert.equal(result.campaignBeforeShowcase, true);
-        assert.equal(result.campaignCards, 3);
-        assert.equal(result.campaignColumns, 2);
-        assert.equal(result.campaignPrimarySpansBoth, true);
-        assert.equal(result.campaignImagesLoaded, true);
-        assert.deepEqual(result.catalogOrder.slice(0, 3), [
-            'iron-maiden-1980-run-for-your-lives',
-            'iron-maiden-burning-ambition-edicion-fmd',
-            'iron-maiden-killers-1981-run-for-your-lives'
+        assert.equal(mobile.discoveryLinks, 5);
+        assert.equal(mobile.discoveryColumns, 2);
+        assert.equal(mobile.curatedCards, 16);
+        assert.equal(mobile.curatedColumns, 2);
+        assert.equal(mobile.curatedLoaded, true);
+        assert.equal(mobile.primaryFilters.length, 7);
+        assert.equal(mobile.albumFilters, 9);
+        assert.equal(mobile.initialCards, 16);
+        assert.equal(mobile.totalHeading, '82 DISEÑOS · REMERAS IRON MAIDEN');
+        assert.deepEqual(mobile.initialOrder, [
+            'cd-iron-maiden-eddie-gaucho-argentino--p7040',
+            'iron-maiden-eddie-gaucho-argentino-con-fechas',
+            'iron-maiden-eddie-huracan-original-fmd',
+            'iron-maiden-eddie-tanguero-original-fmd'
         ]);
-        assert.equal(result.catalogBeforeSomewhere, true);
-        assert.equal(result.somewhereBeforeGarments, true);
-        assert.equal(result.catalogOwnsAnchor, true);
-        assert.equal(result.pageOverflow, false);
+        assert.equal(mobile.proofCards, 4);
+        assert.equal(mobile.proofColumns, 2);
+        assert.equal(mobile.proofOverflow, false);
+        assert.equal(mobile.catalogBeforeProof, true);
+        assert.equal(mobile.proofBeforePromo, true);
+        assert.equal(mobile.promoBeforeProduction, true);
+        assert.equal(mobile.oldCampaignRemoved, true);
+        assert.equal(mobile.oldShowcaseRemoved, true);
+        assert.equal(mobile.oldSinglesRemoved, true);
+        assert.equal(mobile.oldSomewhereRemoved, true);
+        assert.equal(mobile.pageOverflow, false);
+        assert.equal(
+            mobile.designCountCopy.every(count => count === String(mobile.publicDesigns)),
+            true,
+            JSON.stringify({ designCountCopy: mobile.designCountCopy, publicDesigns: mobile.publicDesigns })
+        );
 
-        const somewhereFeature = await evaluate(`(() => {
-            const cards = [...document.querySelectorAll('.band-featured-collection:not(.band-tour-collection) .band-featured-collection-card')];
-            const doubleCard = cards.find(card => card.querySelector('img')?.src.includes('iron_maiden_somewhere_fmd_doble.jpg'));
-            doubleCard?.click();
+        const imageAudit = await evaluate(`(async () => {
+            const paths = [...new Set(catalogDesigns
+                .filter(isCatalogDesignInScope)
+                .flatMap(design => [
+                    design.front?.image,
+                    ...Object.values(design.previewsByGarment || {}).flat().map(ref => ref.image),
+                    ...(design.backOptions || []).map(ref => ref.image)
+                ])
+                .filter(Boolean))];
+            const results = await Promise.all(paths.map(async path => ({
+                path,
+                ok: (await fetch(path)).ok
+            })));
             return {
-                cardCount: cards.length,
-                hasDoubleCard: Boolean(doubleCard),
-                modalActive: document.getElementById('modal').classList.contains('active'),
-                designId: currentCatalogDesign?.designId || '',
-                printMode: selectedPrintMode,
-                front: selectedCatalogFrontRef?.previewLabel || selectedCatalogFrontRef?.label || '',
-                back: selectedCatalogBackRef?.selectionLabel || selectedCatalogBackRef?.label || '',
-                slide: getModalImages()[currentSlide]?.img || '',
-                price: document.getElementById('modalPrice')?.textContent.trim() || ''
+                checked: results.length,
+                broken: results.filter(result => !result.ok).map(result => result.path)
             };
         })()`);
-        assert.equal(somewhereFeature.cardCount, 5);
-        assert.equal(somewhereFeature.hasDoubleCard, true);
-        assert.equal(somewhereFeature.modalActive, true);
-        assert.equal(somewhereFeature.designId, 'iron-maiden-somewhere-in-time-40th-fmd');
-        assert.equal(somewhereFeature.printMode, 'double');
-        assert.equal(somewhereFeature.front, 'Frente + dorso Eddie cósmico');
-        assert.equal(somewhereFeature.back, 'Dorso Eddie cósmico');
-        assert(somewhereFeature.slide.includes('iron_maiden_somewhere_fmd_doble.jpg'));
-        assert(somewhereFeature.price.includes('$45.000'));
-        await evaluate(`closeModal()`);
+        assert.equal(imageAudit.broken.length, 0, `Hay imágenes rotas: ${imageAudit.broken.join(', ')}`);
 
-        const showcaseFeature = await evaluate(`(() => {
-            const card = document.querySelector('#bandDesignShowcase .band-design-showcase-set:not([aria-hidden="true"]) [data-design-id="iron-maiden-run-for-your-lives-2026-oficial"]');
-            card?.click();
-            return {
-                modalActive: document.getElementById('modal').classList.contains('active'),
-                designId: currentCatalogDesign?.designId || '',
-                slide: getModalImages()[currentSlide]?.img || ''
-            };
-        })()`);
-        assert.equal(showcaseFeature.modalActive, true);
-        assert.equal(showcaseFeature.designId, 'iron-maiden-run-for-your-lives-2026-oficial');
-        assert(showcaseFeature.slide.includes('eddie_run_for_your_lives_tour/remera_iron_maiden_run_oficial.jpg'));
-        await evaluate(`closeModal()`);
-
-        const campaignRect = await evaluate(`(() => {
-            const section = document.getElementById('bandCampaignFeature');
-            const rect = section.getBoundingClientRect();
-            return { x: 0, y: rect.top + window.scrollY, width: document.documentElement.clientWidth, height: rect.height, scale: 1 };
-        })()`);
-        const campaignScreenshot = await send('Page.captureScreenshot', {
-            format: 'png',
-            fromSurface: true,
-            captureBeyondViewport: true,
-            clip: campaignRect
-        });
-        const campaignOutput = path.resolve(__dirname, '..', 'reports', 'iron-maiden-eddies-argentinos-mobile.png');
-        fs.writeFileSync(campaignOutput, Buffer.from(campaignScreenshot.data, 'base64'));
-
-        await evaluate(`document.getElementById('bandDesignShowcase').scrollIntoView({ block: 'start' })`);
-        await new Promise(resolve => setTimeout(resolve, 1800));
-        const showcaseMotionStart = await evaluate(`getComputedStyle(document.getElementById('bandDesignShowcaseTrack')).transform`);
-        await new Promise(resolve => setTimeout(resolve, 600));
-        const showcaseMotionEnd = await evaluate(`getComputedStyle(document.getElementById('bandDesignShowcaseTrack')).transform`);
-        const showcasePlayback = await evaluate(`getComputedStyle(document.getElementById('bandDesignShowcaseTrack')).animationPlayState`);
-        assert.notEqual(showcaseMotionStart, showcaseMotionEnd);
-        assert.equal(showcasePlayback, 'running');
-        const screenshot = await send('Page.captureScreenshot', {
-            format: 'png',
-            fromSurface: true,
-            captureBeyondViewport: false
-        });
-        const output = path.resolve(__dirname, '..', 'reports', 'iron-maiden-grid-mobile.png');
-        fs.writeFileSync(output, Buffer.from(screenshot.data, 'base64'));
-
-        await evaluate(`Promise.all([...document.querySelectorAll('.band-real-product-proof-grid img')].map(image => {
-            image.loading = 'eager';
-            if (image.complete) return Promise.resolve();
-            return new Promise(resolve => image.addEventListener('load', resolve, { once: true }));
-        }))`);
-        const proofRect = await evaluate(`(() => {
-            const section = document.getElementById('realProductProof');
-            const rect = section.getBoundingClientRect();
-            return { x: 0, y: rect.top + window.scrollY, width: document.documentElement.clientWidth, height: rect.height, scale: 1 };
-        })()`);
-        const proofScreenshot = await send('Page.captureScreenshot', {
-            format: 'png',
-            fromSurface: true,
-            captureBeyondViewport: true,
-            clip: proofRect
-        });
-        const proofOutput = path.resolve(__dirname, '..', 'reports', 'iron-maiden-proof-grid-mobile.png');
-        fs.writeFileSync(proofOutput, Buffer.from(proofScreenshot.data, 'base64'));
-
-        await send('Emulation.setDeviceMetricsOverride', {
-            width: 1440,
-            height: 1000,
-            deviceScaleFactor: 1,
-            mobile: false
-        });
-        await send('Page.navigate', { url: PAGE_URL });
-        for (let attempt = 0; attempt < 80; attempt += 1) {
-            if (await evaluate(`document.readyState === 'complete'
-                && document.querySelectorAll('#bandDesignShowcase .band-design-showcase-set:not([aria-hidden="true"]) .band-design-showcase-card').length === 10`)) break;
+        const filterResult = await evaluate(`(async () => {
+            selectBandLandingCollection('tour-argentina');
             await new Promise(resolve => setTimeout(resolve, 100));
-        }
-        const desktop = await evaluate(`(() => {
-            const showcase = document.getElementById('bandDesignShowcase');
-            const set = showcase.querySelector('.band-design-showcase-set');
-            const proof = document.querySelector('.band-real-product-proof-grid');
-            const campaignFeature = document.getElementById('bandCampaignFeature');
             return {
-                showcaseCards: set.querySelectorAll('.band-design-showcase-card').length,
-                showcaseAnimation: getComputedStyle(showcase.querySelector('.band-design-showcase-track')).animationName,
-                proofColumns: getComputedStyle(proof).gridTemplateColumns.split(' ').length,
-                tourCollectionHidden: document.getElementById('bandTourCollection') === null,
-                campaignCards: campaignFeature.querySelectorAll('.band-campaign-feature-card').length,
-                campaignColumns: getComputedStyle(campaignFeature.querySelector('.band-campaign-feature-gallery')).gridTemplateColumns.split(' ').length,
-                pageOverflow: document.documentElement.scrollWidth > document.documentElement.clientWidth
+                active: document.querySelector('[data-band-landing-collection="tour-argentina"]').classList.contains('active'),
+                heading: document.getElementById('productsCount').textContent.trim(),
+                cards: document.querySelectorAll('#productsGrid .catalog-design-card').length
             };
         })()`);
-        const desktopCampaignRect = await evaluate(`(() => {
-            const section = document.getElementById('bandCampaignFeature');
-            const rect = section.getBoundingClientRect();
-            return { x: 0, y: rect.top + window.scrollY, width: document.documentElement.clientWidth, height: rect.height, scale: 1 };
+        assert.equal(filterResult.active, true);
+        assert(filterResult.cards > 0 && filterResult.cards <= 18);
+        assert(Number.parseInt(filterResult.heading, 10) >= filterResult.cards);
+        await evaluate(`selectBandLandingCollection('')`);
+
+        const gauchoModal = await evaluate(`(() => {
+            document.querySelector('#bandCuratedSelection [data-design-id="cd-iron-maiden-eddie-gaucho-argentino--p7040"]').click();
+            return {
+                active: document.getElementById('modal').classList.contains('active'),
+                designId: currentCatalogDesign?.designId || '',
+                garments: currentCatalogDesign?.availableGarments || [],
+                name: currentCatalogDesign?.publicName || ''
+            };
         })()`);
-        const desktopCampaignScreenshot = await send('Page.captureScreenshot', {
-            format: 'png',
-            fromSurface: true,
-            captureBeyondViewport: true,
-            clip: desktopCampaignRect
-        });
-        const desktopCampaignOutput = path.resolve(__dirname, '..', 'reports', 'iron-maiden-eddies-argentinos-desktop.png');
-        fs.writeFileSync(desktopCampaignOutput, Buffer.from(desktopCampaignScreenshot.data, 'base64'));
-        assert.equal(desktop.showcaseCards, 10);
-        assert.equal(desktop.showcaseAnimation, 'band-showcase-scroll');
-        assert.equal(desktop.proofColumns, 3);
-        assert.equal(desktop.tourCollectionHidden, true);
-        assert.equal(desktop.campaignCards, 3);
-        assert.equal(desktop.campaignColumns, 3);
+        assert.equal(gauchoModal.active, true);
+        assert.equal(gauchoModal.designId, 'cd-iron-maiden-eddie-gaucho-argentino--p7040');
+        assert.equal(gauchoModal.name, 'Eddie Gaucho Argentino');
+        assert(gauchoModal.garments.includes('remera'));
+        assert(gauchoModal.garments.includes('hoodie'));
+        assert(gauchoModal.garments.includes('buzo_cuello_redondo'));
+        await evaluate(`closeModal()`);
+
+        const fmdVariant = await evaluate(`(() => {
+            document.querySelector('#bandCuratedSelection [data-design-id="iron-maiden-aces-high-singles"]').click();
+            return {
+                designId: currentCatalogDesign?.designId || '',
+                selectedImage: selectedCatalogFrontRef?.image || '',
+                modalImage: getModalImages()[currentSlide]?.img || ''
+            };
+        })()`);
+        assert.equal(fmdVariant.designId, 'iron-maiden-aces-high-singles');
+        assert(fmdVariant.selectedImage.includes('FMD ACES'));
+        assert(fmdVariant.modalImage.includes('FMD ACES'));
+        await evaluate(`closeModal()`);
+
+        await evaluate(`(async () => {
+            for (const image of document.querySelectorAll('#bandCuratedSelection img, #productsGrid img')) {
+                image.scrollIntoView({ block: 'center' });
+                await new Promise(resolve => setTimeout(resolve, 35));
+            }
+            window.scrollTo(0, 0);
+        })()`);
+
+        const mobileDiscovery = await captureSection('.band-discovery-nav', 'iron-maiden-discovery-mobile.png');
+        const mobileCurated = await captureSection('#bandCuratedSelection', 'iron-maiden-curated-mobile.png');
+        const mobileArchive = await captureSection('#catalogoPrincipal', 'iron-maiden-archive-mobile.png');
+
+        await navigate(1440, 1000, false);
+        await evaluate(`(async () => {
+            for (const image of document.querySelectorAll('#bandCuratedSelection img')) {
+                image.scrollIntoView({ block: 'center' });
+                await new Promise(resolve => setTimeout(resolve, 100));
+            }
+            await Promise.all([...document.querySelectorAll('#bandCuratedSelection img')].map(image => {
+                if (image.complete && image.naturalWidth > 0) return Promise.resolve();
+                return new Promise(resolve => image.addEventListener('load', resolve, { once: true }));
+            }));
+            window.scrollTo(0, 0);
+        })()`);
+        const desktop = await evaluate(`(() => ({
+            discoveryColumns: getComputedStyle(document.querySelector('.band-discovery-nav-grid')).gridTemplateColumns.split(' ').length,
+            curatedColumns: getComputedStyle(document.querySelector('.band-curated-selection-grid')).gridTemplateColumns.split(' ').length,
+            proofColumns: getComputedStyle(document.querySelector('.band-real-product-proof-grid')).gridTemplateColumns.split(' ').length,
+            pageOverflow: document.documentElement.scrollWidth > document.documentElement.clientWidth,
+            catalogCount: document.getElementById('productsCount').textContent.trim()
+        }))()`);
+        assert.equal(desktop.discoveryColumns, 5);
+        assert.equal(desktop.curatedColumns, 4);
+        assert.equal(desktop.proofColumns, 4);
         assert.equal(desktop.pageOverflow, false);
-        console.log(JSON.stringify({ mobile: result, desktop, showcaseMotion: { start: showcaseMotionStart, end: showcaseMotionEnd, playback: showcasePlayback }, screenshots: [campaignOutput, desktopCampaignOutput, output, proofOutput] }, null, 2));
+        assert.equal(desktop.catalogCount, '82 DISEÑOS · REMERAS IRON MAIDEN');
+        const desktopCurated = await captureSection('#bandCuratedSelection', 'iron-maiden-curated-desktop.png');
+
+        console.log(JSON.stringify({ mobile, imageAudit, filterResult, gauchoModal, fmdVariant, desktop, screenshots: [mobileDiscovery, mobileCurated, mobileArchive, desktopCurated] }, null, 2));
     } finally {
         socket.close();
     }

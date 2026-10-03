@@ -1781,6 +1781,222 @@ body.band-landing-page[data-band="Iron Maiden"] .btn-wa-header svg circle {
     display: none !important;
 }
 
+/* Iron Maiden: discovery first, archive second. */
+.band-landing-page[data-band="Iron Maiden"] .band-discovery-nav,
+.band-landing-page[data-band="Iron Maiden"] .band-curated-selection {
+    width: min(1180px, calc(100% - 32px));
+    margin: 22px auto;
+    border: 1px solid rgba(116, 190, 255, 0.34);
+    border-radius: 18px;
+    background: linear-gradient(145deg, rgba(9, 20, 31, 0.98), rgba(8, 9, 12, 0.98));
+}
+
+.band-landing-page[data-band="Iron Maiden"] .band-discovery-nav {
+    padding: 20px;
+}
+
+.band-landing-page[data-band="Iron Maiden"] .band-discovery-nav > p,
+.band-landing-page[data-band="Iron Maiden"] .band-curated-selection-head > p {
+    margin: 0 0 12px;
+    color: #78c7ff;
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    font-weight: 900;
+    letter-spacing: 0.16em;
+    text-align: center;
+}
+
+.band-discovery-nav-grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.band-discovery-nav-grid button {
+    min-width: 0;
+    min-height: 86px;
+    padding: 13px 10px;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.035);
+    color: #fff;
+    cursor: pointer;
+}
+
+.band-discovery-nav-grid button:hover,
+.band-discovery-nav-grid button:focus-visible {
+    border-color: #78c7ff;
+    background: rgba(40, 139, 206, 0.13);
+}
+
+.band-discovery-nav-grid strong,
+.band-discovery-nav-grid span {
+    display: block;
+}
+
+.band-discovery-nav-grid strong {
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    letter-spacing: 0.035em;
+}
+
+.band-discovery-nav-grid span {
+    margin-top: 5px;
+    color: #aeb8c2;
+    font-size: 0.72rem;
+    line-height: 1.35;
+}
+
+.band-landing-page[data-band="Iron Maiden"] .band-curated-selection {
+    padding: 24px;
+}
+
+.band-curated-selection-head {
+    max-width: 720px;
+    margin: 0 auto 20px;
+    text-align: center;
+}
+
+.band-curated-selection-head h2 {
+    margin: 0;
+    color: #fff;
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4.5vw, 3.6rem);
+    line-height: 0.96;
+}
+
+.band-curated-selection-head span {
+    display: block;
+    margin-top: 10px;
+    color: #c2c7cc;
+    line-height: 1.45;
+}
+
+.band-curated-selection-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.band-curated-selection-grid button {
+    min-width: 0;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.17);
+    border-radius: 12px;
+    background: #090b0e;
+    color: #fff;
+    cursor: pointer;
+    text-align: left;
+}
+
+.band-curated-selection-grid img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+}
+
+.band-curated-selection-grid strong {
+    display: block;
+    min-height: 48px;
+    padding: 10px;
+    font-family: var(--font-display);
+    font-size: 1rem;
+    line-height: 1.1;
+}
+
+.band-curated-selection-cta {
+    display: block;
+    min-height: 48px;
+    margin: 20px auto 0;
+    padding: 11px 24px;
+    border: 0;
+    border-radius: 8px;
+    background: #f4f4f4;
+    color: #080808;
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    letter-spacing: 0.04em;
+    cursor: pointer;
+}
+
+.band-landing-album-filters {
+    margin: 4px auto 18px;
+    border: 1px solid rgba(255, 255, 255, 0.13);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.025);
+}
+
+.band-landing-album-filters summary {
+    padding: 13px 16px;
+    color: #fff;
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    cursor: pointer;
+}
+
+.band-landing-album-filters .band-landing-collections {
+    padding: 0 12px 12px;
+    margin: 0;
+}
+
+.band-landing-page[data-band="Iron Maiden"] .band-real-product-proof-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.band-landing-page[data-band="Iron Maiden"] .band-real-product-proof-grid > button:first-child {
+    grid-column: auto;
+}
+
+@media (max-width: 700px) {
+    .band-landing-page[data-band="Iron Maiden"] .band-discovery-nav,
+    .band-landing-page[data-band="Iron Maiden"] .band-curated-selection {
+        width: calc(100% - 16px);
+        margin-block: 12px;
+        border-radius: 14px;
+    }
+
+    .band-landing-page[data-band="Iron Maiden"] .band-discovery-nav,
+    .band-landing-page[data-band="Iron Maiden"] .band-curated-selection {
+        padding: 14px;
+    }
+
+    .band-discovery-nav-grid,
+    .band-curated-selection-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .band-discovery-nav-grid button {
+        min-height: 74px;
+        padding: 10px 7px;
+    }
+
+    .band-discovery-nav-grid button:last-child {
+        grid-column: 1 / -1;
+    }
+
+    .band-curated-selection-grid {
+        gap: 8px;
+    }
+
+    .band-curated-selection-grid strong {
+        min-height: 44px;
+        padding: 8px;
+        font-size: 0.92rem;
+    }
+
+    .band-landing-page[data-band="Iron Maiden"] .band-landing-collections {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .band-landing-page[data-band="Iron Maiden"] .band-real-product-proof-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
 .band-landing-page #modal .modal-actions-secondary,
 .band-landing-page #modal #btnDobleAction {
     display: none !important;

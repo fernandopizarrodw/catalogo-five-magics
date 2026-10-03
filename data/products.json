@@ -5537,7 +5537,7 @@
     "id": 7034,
     "category": "Iron Maiden",
     "year": "2025",
-    "name": "Iron Maiden - Eddie v1",
+    "name": "Eddie Argentina · Copa y Obelisco",
     "tipoPrecio": "simple",
     "img": "images/iron_maiden/iron_maiden_eddie_v1.jpg",
     "desc": "Eddie - Mascota legendaria de Iron Maiden. VersiÃ³n v1 con toda la intensidad del metal.",
@@ -5563,13 +5563,24 @@
       "remera",
       "Archivo Maiden",
       "Eddie"
+    ],
+    "designId": "iron-maiden-eddie-v1",
+    "designSlug": "iron-maiden-eddie-v1",
+    "variants": [
+      {
+        "img": "images/iron_maiden/iron_maiden_eddie_v1.jpg",
+        "name": "Eddie Argentina · Copa y Obelisco",
+        "publicName": "Eddie Argentina · Copa y Obelisco",
+        "designId": "iron-maiden-eddie-v1",
+        "role": "front"
+      }
     ]
   },
   {
     "id": 408,
     "category": "Iron Maiden",
     "year": "2025",
-    "name": "Iron Maiden - Eddie v2",
+    "name": "Eddie Argentina · Ilustración clásica",
     "tipoPrecio": "simple",
     "img": "images/iron_maiden/iron_maiden_eddie_v2.jpg",
     "desc": "Eddie v2. Variante alternativa del Ã­cono del heavy metal britÃ¡nico.",
@@ -5595,13 +5606,24 @@
       "remera",
       "Archivo Maiden",
       "Eddie"
+    ],
+    "designId": "iron-maiden-eddie-v2",
+    "designSlug": "iron-maiden-eddie-v2",
+    "variants": [
+      {
+        "img": "images/iron_maiden/iron_maiden_eddie_v2.jpg",
+        "name": "Eddie Argentina · Ilustración clásica",
+        "publicName": "Eddie Argentina · Ilustración clásica",
+        "designId": "iron-maiden-eddie-v2",
+        "role": "front"
+      }
     ]
   },
   {
     "id": 409,
     "category": "Iron Maiden",
     "year": "2025",
-    "name": "Iron Maiden - Eddie v3",
+    "name": "Eddie Argentina · Tormenta",
     "tipoPrecio": "simple",
     "img": "images/iron_maiden/iron_maiden_eddie_v3.jpg",
     "desc": "Eddie v3. Otra interpretaciÃ³n del personaje mÃ¡s icÃ³nico de Iron Maiden.",
@@ -5627,13 +5649,24 @@
       "remera",
       "Archivo Maiden",
       "Eddie"
+    ],
+    "designId": "iron-maiden-eddie-v3",
+    "designSlug": "iron-maiden-eddie-v3",
+    "variants": [
+      {
+        "img": "images/iron_maiden/iron_maiden_eddie_v3.jpg",
+        "name": "Eddie Argentina · Tormenta",
+        "publicName": "Eddie Argentina · Tormenta",
+        "designId": "iron-maiden-eddie-v3",
+        "role": "front"
+      }
     ]
   },
   {
     "id": 5125,
     "category": "Iron Maiden",
     "year": "2025",
-    "name": "Iron Maiden - Eddie v4",
+    "name": "Eddie Argentina · Relámpagos",
     "tipoPrecio": "simple",
     "img": "images/iron_maiden/iron_maiden_eddie_v4.jpg",
     "desc": "Eddie v4. La evoluciÃ³n definitiva del mascotÃ³n de hierro.",
@@ -5659,6 +5692,17 @@
       "remera",
       "Archivo Maiden",
       "Eddie"
+    ],
+    "designId": "iron-maiden-eddie-v4",
+    "designSlug": "iron-maiden-eddie-v4",
+    "variants": [
+      {
+        "img": "images/iron_maiden/iron_maiden_eddie_v4.jpg",
+        "name": "Eddie Argentina · Relámpagos",
+        "publicName": "Eddie Argentina · Relámpagos",
+        "designId": "iron-maiden-eddie-v4",
+        "role": "front"
+      }
     ]
   },
   {
@@ -12715,17 +12759,21 @@
   {
     "id": 5033,
     "category": "Iron Maiden",
-    "year": "2026",
-    "name": "Iron Maiden Can I",
+    "year": "1988",
+    "name": "Can I Play with Madness",
     "tipoPrecio": "simple",
-    "img": "images/iron_maiden/iron_maiden_can_i.jpg",
+    "img": "images/iron_maiden/singles originales y fmd edition/CAN I PLAY4-5 FOR IG MOCK REMERA.jpg",
     "variants": [
       {
-        "img": "images/iron_maiden/iron_maiden_can_i.jpg",
-        "name": "Can I Play with Madness"
+        "img": "images/iron_maiden/singles originales y fmd edition/CAN I PLAY4-5 FOR IG MOCK REMERA.jpg",
+        "name": "Can I Play with Madness · Arte clásico",
+        "publicName": "Can I Play with Madness",
+        "selectionLabel": "Arte clásico",
+        "designId": "cd-iron-maiden-can-i-play-with-madness--p5033",
+        "role": "front"
       }
     ],
-    "desc": "Iron Maiden Can I - DiseÃ±o de la banda clÃ¡sica.",
+    "desc": "Diseño inspirado en el single Can I Play with Madness.",
     "band": "Iron Maiden",
     "universe": [
       "Heavy Metal Classics"
@@ -12736,7 +12784,8 @@
     ],
     "collections": [
       "Archivo Maiden",
-      "Seventh Son of a Seventh Son"
+      "Seventh Son of a Seventh Son",
+      "Singles de Iron Maiden"
     ],
     "campaigns": [],
     "commercialPriority": 68,
@@ -12744,11 +12793,14 @@
     "legacyCategory": "Iron Maiden",
     "tags": [
       "Iron Maiden",
-      "Heavy Metal Classics",
+      "Can I Play with Madness",
       "Seventh Son of a Seventh Son",
-      "remera",
-      "Archivo Maiden"
-    ]
+      "Single",
+      "remera"
+    ],
+    "designId": "cd-iron-maiden-can-i-play-with-madness--p5033",
+    "designSlug": "cd-iron-maiden-can-i-play-with-madness--p5033",
+    "isNew": true
   },
   {
     "id": 5034,
@@ -12880,21 +12932,23 @@
         "img": "images/iron_maiden/somewhere in time/iron_maiden_somewhere.jpg",
         "name": "Somewhere in Time",
         "role": "front",
-        "campaignPreview": "iron-maiden-somewhere-40th"
+        "campaignPreview": "iron-maiden-somewhere-40th",
+        "designId": "iron-maiden-somewhere-in-time",
+        "publicName": "Somewhere in Time"
       },
       {
         "img": "images/iron_maiden/somewhere in time/iron_maiden_dorso_eddie.jpg",
         "name": "Dorso Eddie cósmico · Somewhere in Time",
         "selectionLabel": "Dorso Eddie cósmico",
         "role": "back",
-        "backTargetDesignId": "cd-iron-maiden-somewhere-in-time--p5037"
+        "backTargetDesignId": "iron-maiden-somewhere-in-time"
       },
       {
         "img": "images/iron_maiden/somewhere in time/iron_maiden_dorso_logo.jpg",
         "name": "Dorso logo · Somewhere in Time",
         "selectionLabel": "Dorso logo Somewhere in Time",
         "role": "back",
-        "backTargetDesignId": "cd-iron-maiden-somewhere-in-time--p5037"
+        "backTargetDesignId": "iron-maiden-somewhere-in-time"
       }
     ],
     "desc": "Iron Maiden Somewhere - DiseÃ±o de la banda clÃ¡sica.",
@@ -12920,7 +12974,9 @@
       "Somewhere in Time",
       "remera",
       "Archivo Maiden"
-    ]
+    ],
+    "designId": "iron-maiden-somewhere-in-time",
+    "designSlug": "iron-maiden-somewhere-in-time"
   },
   {
     "id": 5038,
@@ -16816,7 +16872,7 @@
     "id": 7031,
     "category": "Iron Maiden",
     "year": "2026",
-    "name": "Iron Maiden Tour Merch V1 FMD",
+    "name": "Eddie Punk Neón · Run For Your Lives",
     "tipoPrecio": "doble",
     "isNew": true,
     "priority": 149,
@@ -16825,12 +16881,15 @@
       {
         "img": "images/iron_maiden/eddie_run_for_your_lives_tour/tour_merch_v1_frente..jpg",
         "name": "Frente",
-        "role": "front"
+        "role": "front",
+        "designId": "iron-maiden-tour-merch-v1-fmd",
+        "publicName": "Eddie Punk Neón · Run For Your Lives"
       },
       {
         "img": "images/iron_maiden/dorsos opcionales/tour_merch_v1_dorso.jpg",
         "name": "Dorso",
-        "role": "back"
+        "role": "back",
+        "backTargetDesignId": "iron-maiden-tour-merch-v1-fmd"
       }
     ],
     "desc": "Diseno Iron Maiden edicion FMD 2026. Disponible para remera, hoodie y buzo cuello redondo.",
@@ -16861,13 +16920,15 @@
     ],
     "commercialPriority": 85,
     "visibilityTier": "featured",
-    "legacyCategory": "Iron Maiden"
+    "legacyCategory": "Iron Maiden",
+    "designId": "iron-maiden-tour-merch-v1-fmd",
+    "designSlug": "iron-maiden-tour-merch-v1-fmd"
   },
   {
     "id": 7032,
     "category": "Iron Maiden",
     "year": "2026",
-    "name": "Iron Maiden Tour Merch V2 FMD",
+    "name": "Eddie con Hacha · Run For Your Lives",
     "tipoPrecio": "doble",
     "isNew": true,
     "priority": 148,
@@ -16876,12 +16937,15 @@
       {
         "img": "images/iron_maiden/eddie_run_for_your_lives_tour/tour_merch_v2_frente.jpg",
         "name": "Frente",
-        "role": "front"
+        "role": "front",
+        "designId": "iron-maiden-tour-merch-v2-fmd",
+        "publicName": "Eddie con Hacha · Run For Your Lives"
       },
       {
         "img": "images/iron_maiden/dorsos opcionales/tour_merch_v2_dorso.jpg",
         "name": "Dorso",
-        "role": "back"
+        "role": "back",
+        "backTargetDesignId": "iron-maiden-tour-merch-v2-fmd"
       }
     ],
     "desc": "Diseno Iron Maiden edicion FMD 2026. Disponible para remera, hoodie y buzo cuello redondo.",
@@ -16912,13 +16976,15 @@
     ],
     "commercialPriority": 85,
     "visibilityTier": "featured",
-    "legacyCategory": "Iron Maiden"
+    "legacyCategory": "Iron Maiden",
+    "designId": "iron-maiden-tour-merch-v2-fmd",
+    "designSlug": "iron-maiden-tour-merch-v2-fmd"
   },
   {
     "id": 7033,
     "category": "Iron Maiden",
     "year": "2026",
-    "name": "Iron Maiden Tour Merch V3 FMD",
+    "name": "Eddie Encadenado · Run For Your Lives",
     "tipoPrecio": "doble",
     "isNew": true,
     "priority": 147,
@@ -16927,12 +16993,15 @@
       {
         "img": "images/iron_maiden/eddie_run_for_your_lives_tour/tour_merch_v3_frente.jpg",
         "name": "Frente",
-        "role": "front"
+        "role": "front",
+        "designId": "iron-maiden-tour-merch-v3-fmd",
+        "publicName": "Eddie Encadenado · Run For Your Lives"
       },
       {
         "img": "images/iron_maiden/dorsos opcionales/tour_merch_v3_dorso.jpg",
         "name": "Dorso",
-        "role": "back"
+        "role": "back",
+        "backTargetDesignId": "iron-maiden-tour-merch-v3-fmd"
       }
     ],
     "desc": "Diseno Iron Maiden edicion FMD 2026. Disponible para remera, hoodie y buzo cuello redondo.",
@@ -16963,7 +17032,9 @@
     ],
     "commercialPriority": 85,
     "visibilityTier": "featured",
-    "legacyCategory": "Iron Maiden"
+    "legacyCategory": "Iron Maiden",
+    "designId": "iron-maiden-tour-merch-v3-fmd",
+    "designSlug": "iron-maiden-tour-merch-v3-fmd"
   },
   {
     "id": 7040,
@@ -16980,11 +17051,14 @@
         "selectionLabel": "Frente clásico",
         "previewLabel": "Frente solo",
         "designId": "cd-iron-maiden-eddie-gaucho-argentino--p7040",
-        "catalogGarments": ["remera"],
+        "catalogGarments": [
+          "remera"
+        ],
         "modalOrder": 1,
         "preferredPreview": true,
         "fmdBadge": "ORIGINAL FMD",
-        "fmdBadgeDescription": "Creaci?n exclusiva FMD con Eddie gaucho para acompa?ar los shows de Iron Maiden en Argentina."
+        "fmdBadgeDescription": "Creaci?n exclusiva FMD con Eddie gaucho para acompa?ar los shows de Iron Maiden en Argentina.",
+        "publicName": "Eddie Gaucho Argentino"
       },
       {
         "img": "images/iron_maiden/remera_iron_maiden_eddie_gaucho_argentino_con_fecha.jpg",
@@ -16994,31 +17068,38 @@
         "garmentCategory": "Iron Maiden",
         "defaultPrintMode": "simple",
         "fmdBadge": "ORIGINAL FMD",
-        "fmdBadgeDescription": "Creación exclusiva FMD con Eddie gaucho para acompañar los shows de Iron Maiden en Argentina."
+        "fmdBadgeDescription": "Creación exclusiva FMD con Eddie gaucho para acompañar los shows de Iron Maiden en Argentina.",
+        "publicName": "Eddie Gaucho Argentino · Con fechas"
       },
       {
         "img": "images/iron_maiden/hoodie_iron_maiden_eddie_gaucho_argentino.jpg",
         "name": "Eddie Gaucho Argentino - Hoodie",
-        "publicName": "Eddie Gaucho Argentino · Hoodie",
-        "designId": "iron-maiden-eddie-gaucho-argentino-hoodie",
+        "publicName": "Eddie Gaucho Argentino",
+        "designId": "cd-iron-maiden-eddie-gaucho-argentino--p7040",
         "garmentCategory": "Hoodies Otras Bandas",
-        "catalogGarments": ["hoodie"],
+        "catalogGarments": [
+          "hoodie"
+        ],
         "defaultPrintMode": "double",
         "usesShownComposition": true,
         "fmdBadge": "ORIGINAL FMD",
-        "fmdBadgeDescription": "Creaci?n exclusiva FMD con Eddie gaucho para acompa?ar los shows de Iron Maiden en Argentina."
+        "fmdBadgeDescription": "Creaci?n exclusiva FMD con Eddie gaucho para acompa?ar los shows de Iron Maiden en Argentina.",
+        "role": "front"
       },
       {
         "img": "images/iron_maiden/buzo_iron_maiden_eddie_gaucho_argentino.jpg",
         "name": "Eddie Gaucho Argentino - Buzo cuello redondo",
-        "publicName": "Eddie Gaucho Argentino · Buzo",
-        "designId": "iron-maiden-eddie-gaucho-argentino-buzo",
+        "publicName": "Eddie Gaucho Argentino",
+        "designId": "cd-iron-maiden-eddie-gaucho-argentino--p7040",
         "garmentCategory": "Buzo Cuello Redondo",
-        "catalogGarments": ["buzo_cuello_redondo"],
+        "catalogGarments": [
+          "buzo_cuello_redondo"
+        ],
         "defaultPrintMode": "double",
         "usesShownComposition": true,
         "fmdBadge": "ORIGINAL FMD",
-        "fmdBadgeDescription": "Creaci?n exclusiva FMD con Eddie gaucho para acompa?ar los shows de Iron Maiden en Argentina."
+        "fmdBadgeDescription": "Creaci?n exclusiva FMD con Eddie gaucho para acompa?ar los shows de Iron Maiden en Argentina.",
+        "role": "front"
       },
       {
         "img": "images/iron_maiden/remera_iron_maiden_eddie_gaucho_argentino.jpg",
@@ -17028,13 +17109,16 @@
         "designId": "cd-iron-maiden-eddie-gaucho-argentino--p7040",
         "role": "front",
         "garmentCategory": "Iron Maiden",
-        "catalogGarments": ["remera"],
+        "catalogGarments": [
+          "remera"
+        ],
         "modalOrder": 3,
         "defaultPrintMode": "double",
         "autoSelectBack": "Dorso Buenos Aires 2026",
         "orderVariantIndex": 0,
         "fmdBadge": "ORIGINAL FMD",
-        "fmdBadgeDescription": "Creación exclusiva FMD con Eddie gaucho para acompañar los shows de Iron Maiden en Argentina."
+        "fmdBadgeDescription": "Creación exclusiva FMD con Eddie gaucho para acompañar los shows de Iron Maiden en Argentina.",
+        "publicName": "Eddie Gaucho Argentino"
       },
       {
         "img": "images/iron_maiden/dorsos opcionales/remera_iron_maiden_eddie_gaucho_argentino_dorso.jpg",
@@ -22003,7 +22087,8 @@
         "name": "Iron Maiden (1980)",
         "designId": "iron-maiden-1980-run-for-your-lives",
         "role": "front",
-        "campaignPreview": "iron-maiden-nine-albums-tour"
+        "campaignPreview": "iron-maiden-nine-albums-tour",
+        "publicName": "Iron Maiden · 1980"
       },
       {
         "img": "images/iron_maiden/9 discos 1 tour/iron_maiden_doble_estampa.jpg",
@@ -22011,7 +22096,8 @@
         "designId": "iron-maiden-1980-run-for-your-lives",
         "role": "front",
         "garmentCategory": "Iron Maiden",
-        "defaultPrintMode": "double"
+        "defaultPrintMode": "double",
+        "publicName": "Iron Maiden · 1980"
       },
       {
         "img": "images/iron_maiden/9 discos 1 tour/hoodie_iron_maiden.jpg",
@@ -22019,7 +22105,8 @@
         "designId": "iron-maiden-1980-run-for-your-lives",
         "role": "front",
         "garmentCategory": "Hoodies Otras Bandas",
-        "defaultPrintMode": "double"
+        "defaultPrintMode": "double",
+        "publicName": "Iron Maiden · 1980"
       },
       {
         "img": "images/iron_maiden/9 discos 1 tour/buzo_iron_maiden.jpg",
@@ -22027,7 +22114,8 @@
         "designId": "iron-maiden-1980-run-for-your-lives",
         "role": "front",
         "garmentCategory": "Buzo Cuello Redondo",
-        "defaultPrintMode": "double"
+        "defaultPrintMode": "double",
+        "publicName": "Iron Maiden · 1980"
       },
       {
         "img": "images/iron_maiden/dorsos opcionales/iron_maiden_dorso.jpg",
@@ -22036,13 +22124,31 @@
         "role": "back"
       }
     ],
-    "garments": ["remera", "hoodie", "buzo_cuello_redondo"],
-    "collections": ["Archivo Maiden", "9 discos · 1 tour", "Iron Maiden"],
-    "campaigns": ["Run For Your Lives 2026"],
+    "garments": [
+      "remera",
+      "hoodie",
+      "buzo_cuello_redondo"
+    ],
+    "collections": [
+      "Archivo Maiden",
+      "9 discos · 1 tour",
+      "Iron Maiden"
+    ],
+    "campaigns": [
+      "Run For Your Lives 2026"
+    ],
     "commercialPriority": 96,
     "visibilityTier": "featured",
     "legacyCategory": "Iron Maiden",
-    "tags": ["Iron Maiden", "1980", "9 discos", "Run For Your Lives", "remera", "hoodie", "buzo"]
+    "tags": [
+      "Iron Maiden",
+      "1980",
+      "9 discos",
+      "Run For Your Lives",
+      "remera",
+      "hoodie",
+      "buzo"
+    ]
   },
   {
     "id": 7243,
@@ -22097,13 +22203,32 @@
         "role": "back"
       }
     ],
-    "garments": ["remera", "hoodie", "buzo_cuello_redondo"],
-    "collections": ["Archivo Maiden", "9 discos · 1 tour", "Killers"],
-    "campaigns": ["Run For Your Lives 2026"],
+    "garments": [
+      "remera",
+      "hoodie",
+      "buzo_cuello_redondo"
+    ],
+    "collections": [
+      "Archivo Maiden",
+      "9 discos · 1 tour",
+      "Killers"
+    ],
+    "campaigns": [
+      "Run For Your Lives 2026"
+    ],
     "commercialPriority": 95,
     "visibilityTier": "featured",
     "legacyCategory": "Iron Maiden",
-    "tags": ["Iron Maiden", "Killers", "1981", "9 discos", "Run For Your Lives", "remera", "hoodie", "buzo"]
+    "tags": [
+      "Iron Maiden",
+      "Killers",
+      "1981",
+      "9 discos",
+      "Run For Your Lives",
+      "remera",
+      "hoodie",
+      "buzo"
+    ]
   },
   {
     "id": 7244,
@@ -22158,13 +22283,32 @@
         "role": "back"
       }
     ],
-    "garments": ["remera", "hoodie", "buzo_cuello_redondo"],
-    "collections": ["Archivo Maiden", "9 discos · 1 tour", "The Number of the Beast"],
-    "campaigns": ["Run For Your Lives 2026"],
+    "garments": [
+      "remera",
+      "hoodie",
+      "buzo_cuello_redondo"
+    ],
+    "collections": [
+      "Archivo Maiden",
+      "9 discos · 1 tour",
+      "The Number of the Beast"
+    ],
+    "campaigns": [
+      "Run For Your Lives 2026"
+    ],
     "commercialPriority": 94,
     "visibilityTier": "featured",
     "legacyCategory": "Iron Maiden",
-    "tags": ["Iron Maiden", "The Number of the Beast", "1982", "9 discos", "Run For Your Lives", "remera", "hoodie", "buzo"]
+    "tags": [
+      "Iron Maiden",
+      "The Number of the Beast",
+      "1982",
+      "9 discos",
+      "Run For Your Lives",
+      "remera",
+      "hoodie",
+      "buzo"
+    ]
   },
   {
     "id": 7245,
@@ -22180,14 +22324,37 @@
     "isNew": true,
     "img": "images/iron_maiden/9 discos 1 tour/Piece of Mind (1983).jpg",
     "desc": "Piece of Mind (1983), parte de la selección 9 discos · 1 tour.",
-    "variants": [{"img": "images/iron_maiden/9 discos 1 tour/Piece of Mind (1983).jpg", "name": "Piece of Mind (1983)", "designId": "iron-maiden-piece-of-mind-1983-run-for-your-lives", "role": "front", "campaignPreview": "iron-maiden-nine-albums-tour"}],
-    "garments": ["remera"],
-    "collections": ["Archivo Maiden", "9 discos · 1 tour", "Piece of Mind"],
-    "campaigns": ["Run For Your Lives 2026"],
+    "variants": [
+      {
+        "img": "images/iron_maiden/9 discos 1 tour/Piece of Mind (1983).jpg",
+        "name": "Piece of Mind (1983)",
+        "designId": "iron-maiden-piece-of-mind-1983-run-for-your-lives",
+        "role": "front",
+        "campaignPreview": "iron-maiden-nine-albums-tour"
+      }
+    ],
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Archivo Maiden",
+      "9 discos · 1 tour",
+      "Piece of Mind"
+    ],
+    "campaigns": [
+      "Run For Your Lives 2026"
+    ],
     "commercialPriority": 93,
     "visibilityTier": "featured",
     "legacyCategory": "Iron Maiden",
-    "tags": ["Iron Maiden", "Piece of Mind", "1983", "9 discos", "Run For Your Lives", "remera"]
+    "tags": [
+      "Iron Maiden",
+      "Piece of Mind",
+      "1983",
+      "9 discos",
+      "Run For Your Lives",
+      "remera"
+    ]
   },
   {
     "id": 7246,
@@ -22204,19 +22371,70 @@
     "img": "images/iron_maiden/9 discos 1 tour/Powerslave (1984).jpg",
     "desc": "Powerslave (1984), parte de la selección 9 discos · 1 tour.",
     "variants": [
-      {"img": "images/iron_maiden/9 discos 1 tour/Powerslave (1984).jpg", "name": "Powerslave (1984)", "designId": "iron-maiden-powerslave-1984-run-for-your-lives", "role": "front", "campaignPreview": "iron-maiden-nine-albums-tour"},
-      {"img": "images/iron_maiden/9 discos 1 tour/remera_iron_maiden_powerslave_doble_estampa.jpg", "name": "Powerslave (1984) · Remera frente y dorso", "designId": "iron-maiden-powerslave-1984-run-for-your-lives", "role": "front", "garmentCategory": "Iron Maiden", "defaultPrintMode": "double"},
-      {"img": "images/iron_maiden/9 discos 1 tour/hoodie_iron_maiden_powerslave.jpg", "name": "Powerslave (1984) · Hoodie", "designId": "iron-maiden-powerslave-1984-run-for-your-lives", "role": "front", "garmentCategory": "Hoodies Otras Bandas", "defaultPrintMode": "double"},
-      {"img": "images/iron_maiden/9 discos 1 tour/remera_iron_maiden_powerslave.jpg", "name": "Powerslave (1984) · Buzo cuello redondo", "designId": "iron-maiden-powerslave-1984-run-for-your-lives", "role": "front", "garmentCategory": "Buzo Cuello Redondo", "defaultPrintMode": "double"},
-      {"img": "images/iron_maiden/dorsos opcionales/fmd_powerslave_dorso.jpg", "name": "Dorso Powerslave", "selectionLabel": "Dorso Powerslave", "role": "back"}
+      {
+        "img": "images/iron_maiden/9 discos 1 tour/Powerslave (1984).jpg",
+        "name": "Powerslave (1984)",
+        "designId": "iron-maiden-powerslave-1984-run-for-your-lives",
+        "role": "front",
+        "campaignPreview": "iron-maiden-nine-albums-tour"
+      },
+      {
+        "img": "images/iron_maiden/9 discos 1 tour/remera_iron_maiden_powerslave_doble_estampa.jpg",
+        "name": "Powerslave (1984) · Remera frente y dorso",
+        "designId": "iron-maiden-powerslave-1984-run-for-your-lives",
+        "role": "front",
+        "garmentCategory": "Iron Maiden",
+        "defaultPrintMode": "double"
+      },
+      {
+        "img": "images/iron_maiden/9 discos 1 tour/hoodie_iron_maiden_powerslave.jpg",
+        "name": "Powerslave (1984) · Hoodie",
+        "designId": "iron-maiden-powerslave-1984-run-for-your-lives",
+        "role": "front",
+        "garmentCategory": "Hoodies Otras Bandas",
+        "defaultPrintMode": "double"
+      },
+      {
+        "img": "images/iron_maiden/9 discos 1 tour/remera_iron_maiden_powerslave.jpg",
+        "name": "Powerslave (1984) · Buzo cuello redondo",
+        "designId": "iron-maiden-powerslave-1984-run-for-your-lives",
+        "role": "front",
+        "garmentCategory": "Buzo Cuello Redondo",
+        "defaultPrintMode": "double"
+      },
+      {
+        "img": "images/iron_maiden/dorsos opcionales/fmd_powerslave_dorso.jpg",
+        "name": "Dorso Powerslave",
+        "selectionLabel": "Dorso Powerslave",
+        "role": "back"
+      }
     ],
-    "garments": ["remera", "hoodie", "buzo_cuello_redondo"],
-    "collections": ["Archivo Maiden", "9 discos · 1 tour", "Powerslave"],
-    "campaigns": ["Run For Your Lives 2026"],
+    "garments": [
+      "remera",
+      "hoodie",
+      "buzo_cuello_redondo"
+    ],
+    "collections": [
+      "Archivo Maiden",
+      "9 discos · 1 tour",
+      "Powerslave"
+    ],
+    "campaigns": [
+      "Run For Your Lives 2026"
+    ],
     "commercialPriority": 92,
     "visibilityTier": "featured",
     "legacyCategory": "Iron Maiden",
-    "tags": ["Iron Maiden", "Powerslave", "1984", "9 discos", "Run For Your Lives", "remera", "hoodie", "buzo"]
+    "tags": [
+      "Iron Maiden",
+      "Powerslave",
+      "1984",
+      "9 discos",
+      "Run For Your Lives",
+      "remera",
+      "hoodie",
+      "buzo"
+    ]
   },
   {
     "id": 7247,
@@ -22233,18 +22451,64 @@
     "img": "images/iron_maiden/9 discos 1 tour/Somewhere in Time (1986).jpg",
     "desc": "Somewhere in Time (1986), parte de la selección 9 discos · 1 tour.",
     "variants": [
-      {"img": "images/iron_maiden/9 discos 1 tour/Somewhere in Time (1986).jpg", "name": "Somewhere in Time (1986)", "designId": "iron-maiden-somewhere-in-time-1986-run-for-your-lives", "role": "front", "campaignPreview": "iron-maiden-nine-albums-tour"},
-      {"img": "images/iron_maiden/9 discos 1 tour/iron_maiden_somewhere_in_time_doble_estampa.jpg", "name": "Somewhere in Time (1986) · Frente y dorso", "designId": "iron-maiden-somewhere-in-time-1986-run-for-your-lives", "role": "front", "garmentCategory": "Iron Maiden", "defaultPrintMode": "double"},
-      {"img": "images/iron_maiden/9 discos 1 tour/hoodies_iron_maiden_somewhere_in_time.jpg", "name": "Somewhere in Time (1986) · Hoodie", "designId": "iron-maiden-somewhere-in-time-1986-run-for-your-lives", "role": "front", "garmentCategory": "Hoodies Otras Bandas", "defaultPrintMode": "double"},
-      {"img": "images/iron_maiden/9 discos 1 tour/buzo_iron_maiden_somewhere_in_time.jpg", "name": "Somewhere in Time (1986) · Buzo cuello redondo", "designId": "iron-maiden-somewhere-in-time-1986-run-for-your-lives", "role": "front", "garmentCategory": "Buzo Cuello Redondo", "defaultPrintMode": "double"}
+      {
+        "img": "images/iron_maiden/9 discos 1 tour/Somewhere in Time (1986).jpg",
+        "name": "Somewhere in Time (1986)",
+        "designId": "iron-maiden-somewhere-in-time-1986-run-for-your-lives",
+        "role": "front",
+        "campaignPreview": "iron-maiden-nine-albums-tour"
+      },
+      {
+        "img": "images/iron_maiden/9 discos 1 tour/iron_maiden_somewhere_in_time_doble_estampa.jpg",
+        "name": "Somewhere in Time (1986) · Frente y dorso",
+        "designId": "iron-maiden-somewhere-in-time-1986-run-for-your-lives",
+        "role": "front",
+        "garmentCategory": "Iron Maiden",
+        "defaultPrintMode": "double"
+      },
+      {
+        "img": "images/iron_maiden/9 discos 1 tour/hoodies_iron_maiden_somewhere_in_time.jpg",
+        "name": "Somewhere in Time (1986) · Hoodie",
+        "designId": "iron-maiden-somewhere-in-time-1986-run-for-your-lives",
+        "role": "front",
+        "garmentCategory": "Hoodies Otras Bandas",
+        "defaultPrintMode": "double"
+      },
+      {
+        "img": "images/iron_maiden/9 discos 1 tour/buzo_iron_maiden_somewhere_in_time.jpg",
+        "name": "Somewhere in Time (1986) · Buzo cuello redondo",
+        "designId": "iron-maiden-somewhere-in-time-1986-run-for-your-lives",
+        "role": "front",
+        "garmentCategory": "Buzo Cuello Redondo",
+        "defaultPrintMode": "double"
+      }
     ],
-    "garments": ["remera", "hoodie", "buzo_cuello_redondo"],
-    "collections": ["Archivo Maiden", "9 discos · 1 tour", "Somewhere in Time"],
-    "campaigns": ["Run For Your Lives 2026"],
+    "garments": [
+      "remera",
+      "hoodie",
+      "buzo_cuello_redondo"
+    ],
+    "collections": [
+      "Archivo Maiden",
+      "9 discos · 1 tour",
+      "Somewhere in Time"
+    ],
+    "campaigns": [
+      "Run For Your Lives 2026"
+    ],
     "commercialPriority": 91,
     "visibilityTier": "featured",
     "legacyCategory": "Iron Maiden",
-    "tags": ["Iron Maiden", "Somewhere in Time", "1986", "9 discos", "Run For Your Lives", "remera", "hoodie", "buzo"]
+    "tags": [
+      "Iron Maiden",
+      "Somewhere in Time",
+      "1986",
+      "9 discos",
+      "Run For Your Lives",
+      "remera",
+      "hoodie",
+      "buzo"
+    ]
   },
   {
     "id": 7248,
@@ -22260,14 +22524,37 @@
     "isNew": true,
     "img": "images/iron_maiden/9 discos 1 tour/Seventh Son of a Seventh Son (1988).jpg",
     "desc": "Seventh Son of a Seventh Son (1988), parte de la selección 9 discos · 1 tour.",
-    "variants": [{"img": "images/iron_maiden/9 discos 1 tour/Seventh Son of a Seventh Son (1988).jpg", "name": "Seventh Son of a Seventh Son (1988)", "designId": "iron-maiden-seventh-son-1988-run-for-your-lives", "role": "front", "campaignPreview": "iron-maiden-nine-albums-tour"}],
-    "garments": ["remera"],
-    "collections": ["Archivo Maiden", "9 discos · 1 tour", "Seventh Son of a Seventh Son"],
-    "campaigns": ["Run For Your Lives 2026"],
+    "variants": [
+      {
+        "img": "images/iron_maiden/9 discos 1 tour/Seventh Son of a Seventh Son (1988).jpg",
+        "name": "Seventh Son of a Seventh Son (1988)",
+        "designId": "iron-maiden-seventh-son-1988-run-for-your-lives",
+        "role": "front",
+        "campaignPreview": "iron-maiden-nine-albums-tour"
+      }
+    ],
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Archivo Maiden",
+      "9 discos · 1 tour",
+      "Seventh Son of a Seventh Son"
+    ],
+    "campaigns": [
+      "Run For Your Lives 2026"
+    ],
     "commercialPriority": 90,
     "visibilityTier": "featured",
     "legacyCategory": "Iron Maiden",
-    "tags": ["Iron Maiden", "Seventh Son of a Seventh Son", "1988", "9 discos", "Run For Your Lives", "remera"]
+    "tags": [
+      "Iron Maiden",
+      "Seventh Son of a Seventh Son",
+      "1988",
+      "9 discos",
+      "Run For Your Lives",
+      "remera"
+    ]
   },
   {
     "id": 7249,
@@ -22283,14 +22570,37 @@
     "isNew": true,
     "img": "images/iron_maiden/9 discos 1 tour/No Prayer for the Dying (1990).jpg",
     "desc": "No Prayer for the Dying (1990), parte de la selección 9 discos · 1 tour.",
-    "variants": [{"img": "images/iron_maiden/9 discos 1 tour/No Prayer for the Dying (1990).jpg", "name": "No Prayer for the Dying (1990)", "designId": "iron-maiden-no-prayer-1990-run-for-your-lives", "role": "front", "campaignPreview": "iron-maiden-nine-albums-tour"}],
-    "garments": ["remera"],
-    "collections": ["Archivo Maiden", "9 discos · 1 tour", "No Prayer for the Dying"],
-    "campaigns": ["Run For Your Lives 2026"],
+    "variants": [
+      {
+        "img": "images/iron_maiden/9 discos 1 tour/No Prayer for the Dying (1990).jpg",
+        "name": "No Prayer for the Dying (1990)",
+        "designId": "iron-maiden-no-prayer-1990-run-for-your-lives",
+        "role": "front",
+        "campaignPreview": "iron-maiden-nine-albums-tour"
+      }
+    ],
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Archivo Maiden",
+      "9 discos · 1 tour",
+      "No Prayer for the Dying"
+    ],
+    "campaigns": [
+      "Run For Your Lives 2026"
+    ],
     "commercialPriority": 89,
     "visibilityTier": "featured",
     "legacyCategory": "Iron Maiden",
-    "tags": ["Iron Maiden", "No Prayer for the Dying", "1990", "9 discos", "Run For Your Lives", "remera"]
+    "tags": [
+      "Iron Maiden",
+      "No Prayer for the Dying",
+      "1990",
+      "9 discos",
+      "Run For Your Lives",
+      "remera"
+    ]
   },
   {
     "id": 7250,
@@ -22307,19 +22617,70 @@
     "img": "images/iron_maiden/9 discos 1 tour/iron_maiden_fear.jpg",
     "desc": "Fear of the Dark (1992), parte de la selección 9 discos · 1 tour.",
     "variants": [
-      {"img": "images/iron_maiden/9 discos 1 tour/iron_maiden_fear.jpg", "name": "Fear of the Dark (1992)", "designId": "iron-maiden-fear-of-the-dark-1992-run-for-your-lives", "role": "front", "campaignPreview": "iron-maiden-nine-albums-tour"},
-      {"img": "images/iron_maiden/9 discos 1 tour/iron_maiden_fear_doble_estampa.jpg", "name": "Fear of the Dark (1992) · Frente y dorso", "designId": "iron-maiden-fear-of-the-dark-1992-run-for-your-lives", "role": "front", "garmentCategory": "Iron Maiden", "defaultPrintMode": "double"},
-      {"img": "images/iron_maiden/9 discos 1 tour/hoodie_iron_maiden_fear.jpg", "name": "Fear of the Dark (1992) · Hoodie", "designId": "iron-maiden-fear-of-the-dark-1992-run-for-your-lives", "role": "front", "garmentCategory": "Hoodies Otras Bandas", "defaultPrintMode": "double"},
-      {"img": "images/iron_maiden/9 discos 1 tour/buzo_iron_maiden_fear.jpg", "name": "Fear of the Dark (1992) · Buzo cuello redondo", "designId": "iron-maiden-fear-of-the-dark-1992-run-for-your-lives", "role": "front", "garmentCategory": "Buzo Cuello Redondo", "defaultPrintMode": "double"},
-      {"img": "images/iron_maiden/dorsos opcionales/iron_maiden_fear_dorso.jpg", "name": "Dorso Fear of the Dark", "selectionLabel": "Dorso Fear of the Dark", "role": "back"}
+      {
+        "img": "images/iron_maiden/9 discos 1 tour/iron_maiden_fear.jpg",
+        "name": "Fear of the Dark (1992)",
+        "designId": "iron-maiden-fear-of-the-dark-1992-run-for-your-lives",
+        "role": "front",
+        "campaignPreview": "iron-maiden-nine-albums-tour"
+      },
+      {
+        "img": "images/iron_maiden/9 discos 1 tour/iron_maiden_fear_doble_estampa.jpg",
+        "name": "Fear of the Dark (1992) · Frente y dorso",
+        "designId": "iron-maiden-fear-of-the-dark-1992-run-for-your-lives",
+        "role": "front",
+        "garmentCategory": "Iron Maiden",
+        "defaultPrintMode": "double"
+      },
+      {
+        "img": "images/iron_maiden/9 discos 1 tour/hoodie_iron_maiden_fear.jpg",
+        "name": "Fear of the Dark (1992) · Hoodie",
+        "designId": "iron-maiden-fear-of-the-dark-1992-run-for-your-lives",
+        "role": "front",
+        "garmentCategory": "Hoodies Otras Bandas",
+        "defaultPrintMode": "double"
+      },
+      {
+        "img": "images/iron_maiden/9 discos 1 tour/buzo_iron_maiden_fear.jpg",
+        "name": "Fear of the Dark (1992) · Buzo cuello redondo",
+        "designId": "iron-maiden-fear-of-the-dark-1992-run-for-your-lives",
+        "role": "front",
+        "garmentCategory": "Buzo Cuello Redondo",
+        "defaultPrintMode": "double"
+      },
+      {
+        "img": "images/iron_maiden/dorsos opcionales/iron_maiden_fear_dorso.jpg",
+        "name": "Dorso Fear of the Dark",
+        "selectionLabel": "Dorso Fear of the Dark",
+        "role": "back"
+      }
     ],
-    "garments": ["remera", "hoodie", "buzo_cuello_redondo"],
-    "collections": ["Archivo Maiden", "9 discos · 1 tour", "Fear of the Dark"],
-    "campaigns": ["Run For Your Lives 2026"],
+    "garments": [
+      "remera",
+      "hoodie",
+      "buzo_cuello_redondo"
+    ],
+    "collections": [
+      "Archivo Maiden",
+      "9 discos · 1 tour",
+      "Fear of the Dark"
+    ],
+    "campaigns": [
+      "Run For Your Lives 2026"
+    ],
     "commercialPriority": 88,
     "visibilityTier": "featured",
     "legacyCategory": "Iron Maiden",
-    "tags": ["Iron Maiden", "Fear of the Dark", "1992", "9 discos", "Run For Your Lives", "remera", "hoodie", "buzo"]
+    "tags": [
+      "Iron Maiden",
+      "Fear of the Dark",
+      "1992",
+      "9 discos",
+      "Run For Your Lives",
+      "remera",
+      "hoodie",
+      "buzo"
+    ]
   },
   {
     "id": 7251,
@@ -22358,13 +22719,27 @@
         "backTargetDesignId": "iron-maiden-somewhere-back-in-time-world-tour"
       }
     ],
-    "garments": ["remera"],
-    "collections": ["Archivo Maiden", "Somewhere in Time", "40 años"],
-    "campaigns": ["Somewhere in Time 40 años"],
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Archivo Maiden",
+      "Somewhere in Time",
+      "40 años"
+    ],
+    "campaigns": [
+      "Somewhere in Time 40 años"
+    ],
     "commercialPriority": 95,
     "visibilityTier": "featured",
     "legacyCategory": "Iron Maiden",
-    "tags": ["Iron Maiden", "Somewhere in Time", "40 años", "World Tour", "remera"]
+    "tags": [
+      "Iron Maiden",
+      "Somewhere in Time",
+      "40 años",
+      "World Tour",
+      "remera"
+    ]
   },
   {
     "id": 7252,
@@ -22403,13 +22778,28 @@
         "backTargetDesignId": "iron-maiden-somewhere-in-time-40th-black"
       }
     ],
-    "garments": ["remera"],
-    "collections": ["Archivo Maiden", "Somewhere in Time", "40 años"],
-    "campaigns": ["Somewhere in Time 40 años"],
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Archivo Maiden",
+      "Somewhere in Time",
+      "40 años"
+    ],
+    "campaigns": [
+      "Somewhere in Time 40 años"
+    ],
     "commercialPriority": 94,
     "visibilityTier": "featured",
     "legacyCategory": "Iron Maiden",
-    "tags": ["Iron Maiden", "Somewhere in Time", "40 años", "Eddie", "monocromo", "remera"]
+    "tags": [
+      "Iron Maiden",
+      "Somewhere in Time",
+      "40 años",
+      "Eddie",
+      "monocromo",
+      "remera"
+    ]
   },
   {
     "id": 7253,
@@ -22448,13 +22838,27 @@
         "backTargetDesignId": "iron-maiden-somewhere-in-time-40th-eddie"
       }
     ],
-    "garments": ["remera"],
-    "collections": ["Archivo Maiden", "Somewhere in Time", "40 años"],
-    "campaigns": ["Somewhere in Time 40 años"],
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Archivo Maiden",
+      "Somewhere in Time",
+      "40 años"
+    ],
+    "campaigns": [
+      "Somewhere in Time 40 años"
+    ],
     "commercialPriority": 93,
     "visibilityTier": "featured",
     "legacyCategory": "Iron Maiden",
-    "tags": ["Iron Maiden", "Somewhere in Time", "40 años", "Cyborg Eddie", "remera"]
+    "tags": [
+      "Iron Maiden",
+      "Somewhere in Time",
+      "40 años",
+      "Cyborg Eddie",
+      "remera"
+    ]
   },
   {
     "id": 7254,
@@ -22503,14 +22907,29 @@
         "autoSelectBack": "Dorso Eddie cósmico"
       }
     ],
-    "garments": ["remera"],
-    "collections": ["Archivo Maiden", "Somewhere in Time", "40 años", "Originales FMD"],
-    "campaigns": ["Somewhere in Time 40 años"],
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Archivo Maiden",
+      "Somewhere in Time",
+      "40 años",
+      "Originales FMD"
+    ],
+    "campaigns": [
+      "Somewhere in Time 40 años"
+    ],
     "commercialPriority": 96,
     "visibilityTier": "featured",
     "legacyCategory": "Iron Maiden",
     "fmdBadge": "EDICIÓN FMD",
-    "tags": ["Iron Maiden", "Somewhere in Time", "40 años", "Edición FMD", "remera"]
+    "tags": [
+      "Iron Maiden",
+      "Somewhere in Time",
+      "40 años",
+      "Edición FMD",
+      "remera"
+    ]
   },
   {
     "id": 7255,
@@ -22541,13 +22960,27 @@
         "backTargetDesignId": "iron-maiden-the-trooper-classic"
       }
     ],
-    "garments": ["remera"],
-    "collections": ["Archivo Maiden", "Piece of Mind", "Canciones clásicas"],
-    "campaigns": ["Run For Your Lives 2026"],
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Archivo Maiden",
+      "Piece of Mind",
+      "Canciones clásicas"
+    ],
+    "campaigns": [
+      "Run For Your Lives 2026"
+    ],
     "commercialPriority": 91,
     "visibilityTier": "catalog",
     "legacyCategory": "Iron Maiden",
-    "tags": ["Iron Maiden", "The Trooper", "Piece of Mind", "1983", "remera"]
+    "tags": [
+      "Iron Maiden",
+      "The Trooper",
+      "Piece of Mind",
+      "1983",
+      "remera"
+    ]
   },
   {
     "id": 7256,
@@ -22578,13 +23011,27 @@
         "backTargetDesignId": "iron-maiden-hallowed-be-thy-name"
       }
     ],
-    "garments": ["remera"],
-    "collections": ["Archivo Maiden", "The Number of the Beast", "Canciones clásicas"],
-    "campaigns": ["Run For Your Lives 2026"],
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Archivo Maiden",
+      "The Number of the Beast",
+      "Canciones clásicas"
+    ],
+    "campaigns": [
+      "Run For Your Lives 2026"
+    ],
     "commercialPriority": 92,
     "visibilityTier": "catalog",
     "legacyCategory": "Iron Maiden",
-    "tags": ["Iron Maiden", "Hallowed Be Thy Name", "The Number of the Beast", "1982", "remera"]
+    "tags": [
+      "Iron Maiden",
+      "Hallowed Be Thy Name",
+      "The Number of the Beast",
+      "1982",
+      "remera"
+    ]
   },
   {
     "id": 7257,
@@ -22592,20 +23039,40 @@
     "designSlug": "iron-maiden-run-to-the-hills",
     "category": "Iron Maiden",
     "band": "Iron Maiden",
-    "name": "Run to the Hills",
+    "name": "Run to the Hills · Tres versiones",
     "year": "1982",
     "album": "The Number of the Beast",
     "tipoPrecio": "simple",
     "defaultPrintMode": "frontal",
     "isNew": true,
-    "img": "images/iron_maiden/remera_iron_maiden_run_to_the_hills.jpg",
-    "desc": "Run to the Hills, clásico de The Number of the Beast.",
+    "img": "images/iron_maiden/singles originales y fmd edition/RUN ORIGINAL 4-5 FOR IG MOCK REMERA.jpg",
+    "desc": "Tres interpretaciones de Run to the Hills dentro de una misma familia.",
     "variants": [
       {
-        "img": "images/iron_maiden/remera_iron_maiden_run_to_the_hills.jpg",
-        "name": "Run to the Hills",
+        "img": "images/iron_maiden/singles originales y fmd edition/RUN ORIGINAL 4-5 FOR IG MOCK REMERA.jpg",
+        "name": "Run to the Hills · Arte clásico",
+        "publicName": "Run to the Hills",
+        "selectionLabel": "Arte clásico",
         "designId": "iron-maiden-run-to-the-hills",
         "role": "front"
+      },
+      {
+        "img": "images/iron_maiden/singles originales y fmd edition/RUN 2 4-5 FOR IG MOCK REMERA.jpg",
+        "name": "Run to the Hills · Single",
+        "publicName": "Run to the Hills",
+        "selectionLabel": "Arte del single",
+        "designId": "iron-maiden-run-to-the-hills",
+        "role": "front"
+      },
+      {
+        "img": "images/iron_maiden/singles originales y fmd edition/RUN FMD 4-5 FOR IG MOCK REMERA.jpg",
+        "name": "Run to the Hills · Reinterpretación FMD",
+        "publicName": "Run to the Hills",
+        "selectionLabel": "Reinterpretación FMD",
+        "designId": "iron-maiden-run-to-the-hills",
+        "role": "front",
+        "fmdBadge": "EDICIÓN FMD",
+        "fmdBadgeDescription": "Reinterpretación visual creada por Five Magics Designs."
       },
       {
         "img": "images/iron_maiden/dorsos opcionales/dorso_666.jpg",
@@ -22615,13 +23082,32 @@
         "backTargetDesignId": "iron-maiden-run-to-the-hills"
       }
     ],
-    "garments": ["remera"],
-    "collections": ["Archivo Maiden", "The Number of the Beast", "Canciones clásicas"],
-    "campaigns": ["Run For Your Lives 2026"],
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Archivo Maiden",
+      "The Number of the Beast",
+      "Canciones clásicas",
+      "Singles de Iron Maiden",
+      "Reinterpretaciones FMD"
+    ],
+    "campaigns": [
+      "Run For Your Lives 2026"
+    ],
     "commercialPriority": 92,
     "visibilityTier": "catalog",
     "legacyCategory": "Iron Maiden",
-    "tags": ["Iron Maiden", "Run to the Hills", "The Number of the Beast", "1982", "remera"]
+    "tags": [
+      "Iron Maiden",
+      "Run to the Hills",
+      "The Number of the Beast",
+      "1982",
+      "Single",
+      "Edición FMD",
+      "remera"
+    ],
+    "fmdBadge": "TRES VERSIONES"
   },
   {
     "id": 7258,
@@ -22634,7 +23120,9 @@
     "album": null,
     "tipoPrecio": "simple",
     "defaultPrintMode": "double",
-    "catalogGarments": ["remera"],
+    "catalogGarments": [
+      "remera"
+    ],
     "isNew": true,
     "img": "images/iron_maiden/iron_maiden_eddie_tanguero.jpg",
     "desc": "Eddie Tanguero, segunda pieza de la saga Eddies Argentinos creada por Five Magics Designs.",
@@ -22650,7 +23138,8 @@
         "modalOrder": 1,
         "defaultPrintMode": "double",
         "fmdBadge": "ORIGINAL FMD",
-        "fmdBadgeDescription": "Segunda pieza de la saga Eddies Argentinos creada por Five Magics Designs."
+        "fmdBadgeDescription": "Segunda pieza de la saga Eddies Argentinos creada por Five Magics Designs.",
+        "publicName": "Eddie Tanguero"
       },
       {
         "img": "images/iron_maiden/iron_maiden_eddie_tanguero_doble.jpg",
@@ -22664,7 +23153,8 @@
         "orderVariantIndex": 0,
         "modalOrder": 3,
         "fmdBadge": "ORIGINAL FMD",
-        "fmdBadgeDescription": "Segunda pieza de la saga Eddies Argentinos creada por Five Magics Designs."
+        "fmdBadgeDescription": "Segunda pieza de la saga Eddies Argentinos creada por Five Magics Designs.",
+        "publicName": "Eddie Tanguero"
       },
       {
         "img": "images/iron_maiden/dorsos opcionales/iron_maiden_dorso_eddie_tanguero.jpg",
@@ -22677,14 +23167,32 @@
         "modalOrder": 2
       }
     ],
-    "garments": ["remera"],
-    "collections": ["Archivo Maiden", "Original FMD", "Eddies Argentinos", "Edición Argentina"],
-    "campaigns": ["Argentina 2026", "Run For Your Lives 2026"],
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Archivo Maiden",
+      "Original FMD",
+      "Eddies Argentinos",
+      "Edición Argentina"
+    ],
+    "campaigns": [
+      "Argentina 2026",
+      "Run For Your Lives 2026"
+    ],
     "commercialPriority": 99,
     "visibilityTier": "featured",
     "legacyCategory": "Iron Maiden",
     "fmdBadge": "ORIGINAL FMD",
-    "tags": ["Iron Maiden", "Eddie Tanguero", "Original FMD", "Eddies Argentinos", "Argentina 2026", "Run For Your Lives", "remera"]
+    "tags": [
+      "Iron Maiden",
+      "Eddie Tanguero",
+      "Original FMD",
+      "Eddies Argentinos",
+      "Argentina 2026",
+      "Run For Your Lives",
+      "remera"
+    ]
   },
   {
     "id": 7259,
@@ -22712,7 +23220,8 @@
         "color": "negro",
         "preferredPreview": true,
         "defaultPrintMode": "double",
-        "usesShownComposition": true
+        "usesShownComposition": true,
+        "publicName": "The Number of the Beast · 666"
       },
       {
         "img": "images/iron_maiden/remera_iron_maiden_blanca_666.jpg",
@@ -22723,16 +23232,32 @@
         "garmentCategory": "Iron Maiden",
         "color": "blanco",
         "defaultPrintMode": "double",
-        "usesShownComposition": true
+        "usesShownComposition": true,
+        "publicName": "The Number of the Beast · 666"
       }
     ],
-    "garments": ["remera"],
-    "collections": ["Archivo Maiden", "The Number of the Beast"],
-    "campaigns": ["Run For Your Lives 2026"],
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Archivo Maiden",
+      "The Number of the Beast"
+    ],
+    "campaigns": [
+      "Run For Your Lives 2026"
+    ],
     "commercialPriority": 93,
     "visibilityTier": "catalog",
     "legacyCategory": "Iron Maiden",
-    "tags": ["Iron Maiden", "The Number of the Beast", "666", "1982", "remera", "negro", "blanco"]
+    "tags": [
+      "Iron Maiden",
+      "The Number of the Beast",
+      "666",
+      "1982",
+      "remera",
+      "negro",
+      "blanco"
+    ]
   },
   {
     "id": 7260,
@@ -22757,13 +23282,26 @@
         "preferredPreview": true
       }
     ],
-    "garments": ["remera"],
-    "collections": ["Archivo Maiden", "Eddie"],
-    "campaigns": ["Run For Your Lives 2026"],
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Archivo Maiden",
+      "Eddie"
+    ],
+    "campaigns": [
+      "Run For Your Lives 2026"
+    ],
     "commercialPriority": 86,
     "visibilityTier": "catalog",
     "legacyCategory": "Iron Maiden",
-    "tags": ["Iron Maiden", "Eddie", "Eddies Collection", "50 años", "remera"]
+    "tags": [
+      "Iron Maiden",
+      "Eddie",
+      "Eddies Collection",
+      "50 años",
+      "remera"
+    ]
   },
   {
     "id": 7261,
@@ -22790,16 +23328,31 @@
         "garmentCategory": "Iron Maiden",
         "preferredPreview": true,
         "defaultPrintMode": "double",
-        "usesShownComposition": true
+        "usesShownComposition": true,
+        "publicName": "Iron Maiden · Est. 1975"
       }
     ],
-    "garments": ["remera"],
-    "collections": ["Archivo Maiden", "50 años", "Eddie"],
-    "campaigns": ["Run For Your Lives 2026"],
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Archivo Maiden",
+      "50 años",
+      "Eddie"
+    ],
+    "campaigns": [
+      "Run For Your Lives 2026"
+    ],
     "commercialPriority": 91,
     "visibilityTier": "catalog",
     "legacyCategory": "Iron Maiden",
-    "tags": ["Iron Maiden", "Est. 1975", "50 años", "Run For Your Lives", "remera"]
+    "tags": [
+      "Iron Maiden",
+      "Est. 1975",
+      "50 años",
+      "Run For Your Lives",
+      "remera"
+    ]
   },
   {
     "id": 7262,
@@ -22826,16 +23379,32 @@
         "garmentCategory": "Iron Maiden",
         "preferredPreview": true,
         "defaultPrintMode": "double",
-        "usesShownComposition": true
+        "usesShownComposition": true,
+        "publicName": "Piece of Mind · Est. 1975"
       }
     ],
-    "garments": ["remera"],
-    "collections": ["Archivo Maiden", "Piece of Mind", "50 años"],
-    "campaigns": ["Run For Your Lives 2026"],
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Archivo Maiden",
+      "Piece of Mind",
+      "50 años"
+    ],
+    "campaigns": [
+      "Run For Your Lives 2026"
+    ],
     "commercialPriority": 90,
     "visibilityTier": "catalog",
     "legacyCategory": "Iron Maiden",
-    "tags": ["Iron Maiden", "Piece of Mind", "Est. 1975", "1983", "50 años", "remera"]
+    "tags": [
+      "Iron Maiden",
+      "Piece of Mind",
+      "Est. 1975",
+      "1983",
+      "50 años",
+      "remera"
+    ]
   },
   {
     "id": 7263,
@@ -22860,13 +23429,26 @@
         "preferredPreview": true
       }
     ],
-    "garments": ["remera"],
-    "collections": ["Archivo Maiden", "Killers"],
-    "campaigns": ["Run For Your Lives 2026"],
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Archivo Maiden",
+      "Killers"
+    ],
+    "campaigns": [
+      "Run For Your Lives 2026"
+    ],
     "commercialPriority": 92,
     "visibilityTier": "catalog",
     "legacyCategory": "Iron Maiden",
-    "tags": ["Iron Maiden", "Killers", "Eddie", "1981", "remera"]
+    "tags": [
+      "Iron Maiden",
+      "Killers",
+      "Eddie",
+      "1981",
+      "remera"
+    ]
   },
   {
     "id": 7264,
@@ -22893,16 +23475,31 @@
         "garmentCategory": "Iron Maiden",
         "preferredPreview": true,
         "defaultPrintMode": "double",
-        "usesShownComposition": true
+        "usesShownComposition": true,
+        "publicName": "World Slavery Tour 1984"
       }
     ],
-    "garments": ["remera"],
-    "collections": ["Archivo Maiden", "Powerslave", "Tours clásicos"],
-    "campaigns": ["Run For Your Lives 2026"],
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Archivo Maiden",
+      "Powerslave",
+      "Tours clásicos"
+    ],
+    "campaigns": [
+      "Run For Your Lives 2026"
+    ],
     "commercialPriority": 90,
     "visibilityTier": "catalog",
     "legacyCategory": "Iron Maiden",
-    "tags": ["Iron Maiden", "World Slavery Tour", "Powerslave", "1984", "remera"]
+    "tags": [
+      "Iron Maiden",
+      "World Slavery Tour",
+      "Powerslave",
+      "1984",
+      "remera"
+    ]
   },
   {
     "id": 7265,
@@ -22915,7 +23512,9 @@
     "album": null,
     "tipoPrecio": "simple",
     "defaultPrintMode": "double",
-    "catalogGarments": ["remera"],
+    "catalogGarments": [
+      "remera"
+    ],
     "isNew": true,
     "img": "images/iron_maiden/remera_iron_maiden_eddie_huracan_frente.jpg",
     "desc": "Eddie vs. Huracán, tercer capítulo de la saga Eddies Argentinos creada por Five Magics Designs.",
@@ -22931,7 +23530,8 @@
         "modalOrder": 1,
         "defaultPrintMode": "double",
         "fmdBadge": "ORIGINAL FMD",
-        "fmdBadgeDescription": "Tercer capítulo de la saga Eddies Argentinos creada por Five Magics Designs."
+        "fmdBadgeDescription": "Tercer capítulo de la saga Eddies Argentinos creada por Five Magics Designs.",
+        "publicName": "Eddie vs. Huracán"
       },
       {
         "img": "images/iron_maiden/remera_iron_maiden_eddie_huracan_dorso.jpg",
@@ -22955,16 +23555,916 @@
         "orderVariantIndex": 0,
         "modalOrder": 3,
         "fmdBadge": "ORIGINAL FMD",
-        "fmdBadgeDescription": "Tercer capítulo de la saga Eddies Argentinos creada por Five Magics Designs."
+        "fmdBadgeDescription": "Tercer capítulo de la saga Eddies Argentinos creada por Five Magics Designs.",
+        "publicName": "Eddie vs. Huracán"
       }
     ],
-    "garments": ["remera"],
-    "collections": ["Archivo Maiden", "Original FMD", "Eddies Argentinos", "Edición Argentina"],
-    "campaigns": ["Argentina 2026", "Run For Your Lives 2026"],
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Archivo Maiden",
+      "Original FMD",
+      "Eddies Argentinos",
+      "Edición Argentina"
+    ],
+    "campaigns": [
+      "Argentina 2026",
+      "Run For Your Lives 2026"
+    ],
     "commercialPriority": 100,
     "visibilityTier": "featured",
     "legacyCategory": "Iron Maiden",
     "fmdBadge": "ORIGINAL FMD",
-    "tags": ["Iron Maiden", "Eddie Huracán", "Original FMD", "Eddies Argentinos", "Argentina 2026", "Run For Your Lives", "Estadio Huracán", "remera"]
+    "tags": [
+      "Iron Maiden",
+      "Eddie Huracán",
+      "Original FMD",
+      "Eddies Argentinos",
+      "Argentina 2026",
+      "Run For Your Lives",
+      "Estadio Huracán",
+      "remera"
+    ]
+  },
+  {
+    "id": 7266,
+    "designId": "iron-maiden-a-real-dead-one",
+    "designSlug": "iron-maiden-a-real-dead-one",
+    "category": "Iron Maiden",
+    "band": "Iron Maiden",
+    "name": "A Real Dead One",
+    "year": "1993",
+    "album": "A Real Dead One",
+    "tipoPrecio": "simple",
+    "defaultPrintMode": "frontal",
+    "isNew": true,
+    "img": "images/iron_maiden/1 REAL 4-5 FOR IG MOCK REMERA.jpg",
+    "desc": "Eddie en vivo inspirado en A Real Dead One.",
+    "variants": [
+      {
+        "img": "images/iron_maiden/1 REAL 4-5 FOR IG MOCK REMERA.jpg",
+        "name": "A Real Dead One",
+        "publicName": "A Real Dead One",
+        "selectionLabel": "Frente principal",
+        "designId": "iron-maiden-a-real-dead-one",
+        "role": "front"
+      }
+    ],
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Archivo Maiden",
+      "Colección general"
+    ],
+    "campaigns": [],
+    "commercialPriority": 72,
+    "visibilityTier": "catalog",
+    "legacyCategory": "Iron Maiden",
+    "tags": [
+      "Iron Maiden",
+      "A Real Dead One",
+      "A Real Dead One",
+      "remera"
+    ]
+  },
+  {
+    "id": 7267,
+    "designId": "iron-maiden-eddie-electrico",
+    "designSlug": "iron-maiden-eddie-electrico",
+    "category": "Iron Maiden",
+    "band": "Iron Maiden",
+    "name": "Eddie Eléctrico",
+    "year": "2026",
+    "album": null,
+    "tipoPrecio": "simple",
+    "defaultPrintMode": "frontal",
+    "isNew": true,
+    "img": "images/iron_maiden/2 REAL 4-5 FOR IG MOCK REMERA.jpg",
+    "desc": "Eddie atravesado por descargas eléctricas.",
+    "variants": [
+      {
+        "img": "images/iron_maiden/2 REAL 4-5 FOR IG MOCK REMERA.jpg",
+        "name": "Eddie Eléctrico",
+        "publicName": "Eddie Eléctrico",
+        "selectionLabel": "Frente principal",
+        "designId": "iron-maiden-eddie-electrico",
+        "role": "front"
+      }
+    ],
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Archivo Maiden",
+      "Colección general"
+    ],
+    "campaigns": [],
+    "commercialPriority": 72,
+    "visibilityTier": "catalog",
+    "legacyCategory": "Iron Maiden",
+    "tags": [
+      "Iron Maiden",
+      "Eddie Eléctrico",
+      "Eddie",
+      "remera"
+    ]
+  },
+  {
+    "id": 7268,
+    "designId": "iron-maiden-eddies-run-for-your-lives",
+    "designSlug": "iron-maiden-eddies-run-for-your-lives",
+    "category": "Iron Maiden",
+    "band": "Iron Maiden",
+    "name": "Eddies · Run For Your Lives",
+    "year": "2026",
+    "album": null,
+    "tipoPrecio": "simple",
+    "defaultPrintMode": "frontal",
+    "isNew": true,
+    "img": "images/iron_maiden/EDDIES BLUE 4-5 FOR IG MOCK REMERA.jpg",
+    "desc": "Galería monocromática de Eddies para Run For Your Lives.",
+    "variants": [
+      {
+        "img": "images/iron_maiden/EDDIES BLUE 4-5 FOR IG MOCK REMERA.jpg",
+        "name": "Eddies · Run For Your Lives",
+        "publicName": "Eddies · Run For Your Lives",
+        "selectionLabel": "Frente principal",
+        "designId": "iron-maiden-eddies-run-for-your-lives",
+        "role": "front"
+      }
+    ],
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Archivo Maiden",
+      "Colección general"
+    ],
+    "campaigns": [
+      "Run For Your Lives 2026"
+    ],
+    "commercialPriority": 72,
+    "visibilityTier": "catalog",
+    "legacyCategory": "Iron Maiden",
+    "tags": [
+      "Iron Maiden",
+      "Eddies · Run For Your Lives",
+      "Eddie",
+      "remera"
+    ]
+  },
+  {
+    "id": 7269,
+    "designId": "iron-maiden-eddies-collection-color",
+    "designSlug": "iron-maiden-eddies-collection-color",
+    "category": "Iron Maiden",
+    "band": "Iron Maiden",
+    "name": "Eddies Collection · Color",
+    "year": "2026",
+    "album": null,
+    "tipoPrecio": "simple",
+    "defaultPrintMode": "frontal",
+    "isNew": true,
+    "img": "images/iron_maiden/EDDIES MANY 4-5 FOR IG MOCK REMERA.jpg",
+    "desc": "Colección de distintas encarnaciones de Eddie a todo color.",
+    "variants": [
+      {
+        "img": "images/iron_maiden/EDDIES MANY 4-5 FOR IG MOCK REMERA.jpg",
+        "name": "Eddies Collection · Color",
+        "publicName": "Eddies Collection · Color",
+        "selectionLabel": "Frente principal",
+        "designId": "iron-maiden-eddies-collection-color",
+        "role": "front"
+      }
+    ],
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Archivo Maiden",
+      "Colección general"
+    ],
+    "campaigns": [],
+    "commercialPriority": 72,
+    "visibilityTier": "catalog",
+    "legacyCategory": "Iron Maiden",
+    "tags": [
+      "Iron Maiden",
+      "Eddies Collection · Color",
+      "Eddie",
+      "remera"
+    ]
+  },
+  {
+    "id": 7270,
+    "designId": "iron-maiden-maiden-mania-80-87",
+    "designSlug": "iron-maiden-maiden-mania-80-87",
+    "category": "Iron Maiden",
+    "band": "Iron Maiden",
+    "name": "Maiden Mania · 80–87",
+    "year": "2026",
+    "album": null,
+    "tipoPrecio": "simple",
+    "defaultPrintMode": "frontal",
+    "isNew": true,
+    "img": "images/iron_maiden/MAIDEN MANIA 4-5 FOR IG MOCK REMERA.jpg",
+    "desc": "Homenaje visual a los Eddies de la etapa 1980–1987.",
+    "variants": [
+      {
+        "img": "images/iron_maiden/MAIDEN MANIA 4-5 FOR IG MOCK REMERA.jpg",
+        "name": "Maiden Mania · 80–87",
+        "publicName": "Maiden Mania · 80–87",
+        "selectionLabel": "Frente principal",
+        "designId": "iron-maiden-maiden-mania-80-87",
+        "role": "front"
+      }
+    ],
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Archivo Maiden",
+      "Colección general"
+    ],
+    "campaigns": [],
+    "commercialPriority": 72,
+    "visibilityTier": "catalog",
+    "legacyCategory": "Iron Maiden",
+    "tags": [
+      "Iron Maiden",
+      "Maiden Mania · 80–87",
+      "Eddie",
+      "remera"
+    ]
+  },
+  {
+    "id": 7271,
+    "designId": "iron-maiden-run-for-your-lives-buenos-aires",
+    "designSlug": "iron-maiden-run-for-your-lives-buenos-aires",
+    "category": "Iron Maiden",
+    "band": "Iron Maiden",
+    "name": "Run For Your Lives · Buenos Aires 2026",
+    "year": "2026",
+    "album": null,
+    "tipoPrecio": "simple",
+    "defaultPrintMode": "frontal",
+    "isNew": true,
+    "img": "images/iron_maiden/NUEVO TOUR4-5 FOR IG MOCK REMERA.jpg",
+    "desc": "Eddie Run For Your Lives con las fechas de Buenos Aires 2026.",
+    "variants": [
+      {
+        "img": "images/iron_maiden/NUEVO TOUR4-5 FOR IG MOCK REMERA.jpg",
+        "name": "Run For Your Lives · Buenos Aires 2026",
+        "publicName": "Run For Your Lives · Buenos Aires 2026",
+        "selectionLabel": "Frente principal",
+        "designId": "iron-maiden-run-for-your-lives-buenos-aires",
+        "role": "front"
+      }
+    ],
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Archivo Maiden",
+      "Colección general"
+    ],
+    "campaigns": [
+      "Run For Your Lives 2026"
+    ],
+    "commercialPriority": 88,
+    "visibilityTier": "catalog",
+    "legacyCategory": "Iron Maiden",
+    "tags": [
+      "Iron Maiden",
+      "Run For Your Lives · Buenos Aires 2026",
+      "Eddie",
+      "remera"
+    ]
+  },
+  {
+    "id": 7272,
+    "designId": "iron-maiden-seventh-son-eddie",
+    "designSlug": "iron-maiden-seventh-son-eddie",
+    "category": "Iron Maiden",
+    "band": "Iron Maiden",
+    "name": "Seventh Son · Eddie",
+    "year": "1988",
+    "album": "Seventh Son of a Seventh Son",
+    "tipoPrecio": "simple",
+    "defaultPrintMode": "frontal",
+    "isNew": true,
+    "img": "images/iron_maiden/SEVENTH4-5 FOR IG MOCK REMERA.jpg",
+    "desc": "Eddie inspirado en Seventh Son of a Seventh Son.",
+    "variants": [
+      {
+        "img": "images/iron_maiden/SEVENTH4-5 FOR IG MOCK REMERA.jpg",
+        "name": "Seventh Son · Eddie",
+        "publicName": "Seventh Son · Eddie",
+        "selectionLabel": "Frente principal",
+        "designId": "iron-maiden-seventh-son-eddie",
+        "role": "front"
+      }
+    ],
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Archivo Maiden",
+      "Colección general"
+    ],
+    "campaigns": [],
+    "commercialPriority": 72,
+    "visibilityTier": "catalog",
+    "legacyCategory": "Iron Maiden",
+    "tags": [
+      "Iron Maiden",
+      "Seventh Son · Eddie",
+      "Seventh Son of a Seventh Son",
+      "remera"
+    ]
+  },
+  {
+    "id": 7273,
+    "designId": "iron-maiden-eddie-classic",
+    "designSlug": "iron-maiden-eddie-classic",
+    "category": "Iron Maiden",
+    "band": "Iron Maiden",
+    "name": "Eddie Clásico",
+    "year": "2026",
+    "album": null,
+    "tipoPrecio": "simple",
+    "defaultPrintMode": "frontal",
+    "isNew": true,
+    "img": "images/iron_maiden/eddie one 4-5 FOR IG MOCK REMERA.jpg",
+    "desc": "Retrato clásico de Eddie con campera de cuero.",
+    "variants": [
+      {
+        "img": "images/iron_maiden/eddie one 4-5 FOR IG MOCK REMERA.jpg",
+        "name": "Eddie Clásico",
+        "publicName": "Eddie Clásico",
+        "selectionLabel": "Frente principal",
+        "designId": "iron-maiden-eddie-classic",
+        "role": "front"
+      }
+    ],
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Archivo Maiden",
+      "Colección general"
+    ],
+    "campaigns": [],
+    "commercialPriority": 72,
+    "visibilityTier": "catalog",
+    "legacyCategory": "Iron Maiden",
+    "tags": [
+      "Iron Maiden",
+      "Eddie Clásico",
+      "Eddie",
+      "remera"
+    ]
+  },
+  {
+    "id": 7274,
+    "designId": "iron-maiden-legacy-of-the-beast-grid",
+    "designSlug": "iron-maiden-legacy-of-the-beast-grid",
+    "category": "Iron Maiden",
+    "band": "Iron Maiden",
+    "name": "Legacy of the Beast · Eddies",
+    "year": "2026",
+    "album": null,
+    "tipoPrecio": "simple",
+    "defaultPrintMode": "frontal",
+    "isNew": true,
+    "img": "images/iron_maiden/eddies cuadricula 4-5 FOR IG MOCK REMERA.jpg",
+    "desc": "Nueve versiones de Eddie reunidas en una grilla Legacy of the Beast.",
+    "variants": [
+      {
+        "img": "images/iron_maiden/eddies cuadricula 4-5 FOR IG MOCK REMERA.jpg",
+        "name": "Legacy of the Beast · Eddies",
+        "publicName": "Legacy of the Beast · Eddies",
+        "selectionLabel": "Frente principal",
+        "designId": "iron-maiden-legacy-of-the-beast-grid",
+        "role": "front"
+      }
+    ],
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Archivo Maiden",
+      "Colección general"
+    ],
+    "campaigns": [],
+    "commercialPriority": 72,
+    "visibilityTier": "catalog",
+    "legacyCategory": "Iron Maiden",
+    "tags": [
+      "Iron Maiden",
+      "Legacy of the Beast · Eddies",
+      "Eddie",
+      "remera"
+    ]
+  },
+  {
+    "id": 7275,
+    "designId": "iron-maiden-the-future-past-world-tour-2024",
+    "designSlug": "iron-maiden-the-future-past-world-tour-2024",
+    "category": "Iron Maiden",
+    "band": "Iron Maiden",
+    "name": "The Future Past World Tour 2024",
+    "year": "2024",
+    "album": null,
+    "tipoPrecio": "simple",
+    "defaultPrintMode": "frontal",
+    "isNew": true,
+    "img": "images/iron_maiden/future.jpg",
+    "desc": "Eddie futurista inspirado en The Future Past World Tour 2024.",
+    "variants": [
+      {
+        "img": "images/iron_maiden/future.jpg",
+        "name": "The Future Past World Tour 2024",
+        "publicName": "The Future Past World Tour 2024",
+        "selectionLabel": "Frente principal",
+        "designId": "iron-maiden-the-future-past-world-tour-2024",
+        "role": "front"
+      }
+    ],
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Archivo Maiden",
+      "Colección general"
+    ],
+    "campaigns": [],
+    "commercialPriority": 72,
+    "visibilityTier": "catalog",
+    "legacyCategory": "Iron Maiden",
+    "tags": [
+      "Iron Maiden",
+      "The Future Past World Tour 2024",
+      "Eddie",
+      "remera"
+    ]
+  },
+  {
+    "id": 7276,
+    "designId": "iron-maiden-2-minutes-to-midnight-singles",
+    "designSlug": "iron-maiden-2-minutes-to-midnight-singles",
+    "category": "Iron Maiden",
+    "band": "Iron Maiden",
+    "name": "2 Minutes to Midnight",
+    "year": "1984",
+    "album": "Powerslave",
+    "tipoPrecio": "simple",
+    "defaultPrintMode": "frontal",
+    "isNew": true,
+    "img": "images/iron_maiden/singles originales y fmd edition/2 MINUTES 4-5 FOR IG MOCK REMERA.jpg",
+    "desc": "Dos interpretaciones de 2 Minutes to Midnight: arte clásico y reinterpretación FMD.",
+    "variants": [
+      {
+        "img": "images/iron_maiden/singles originales y fmd edition/2 MINUTES 4-5 FOR IG MOCK REMERA.jpg",
+        "name": "2 Minutes to Midnight · Arte clásico",
+        "publicName": "2 Minutes to Midnight",
+        "selectionLabel": "Arte clásico",
+        "designId": "iron-maiden-2-minutes-to-midnight-singles",
+        "role": "front"
+      },
+      {
+        "img": "images/iron_maiden/singles originales y fmd edition/2 MINUTES FMD4-5 FOR IG MOCK REMERA.jpg",
+        "name": "2 Minutes to Midnight · Reinterpretación FMD",
+        "publicName": "2 Minutes to Midnight",
+        "selectionLabel": "Reinterpretación FMD",
+        "designId": "iron-maiden-2-minutes-to-midnight-singles",
+        "role": "front",
+        "fmdBadge": "EDICIÓN FMD",
+        "fmdBadgeDescription": "Reinterpretación visual creada por Five Magics Designs."
+      }
+    ],
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Archivo Maiden",
+      "Singles de Iron Maiden",
+      "Reinterpretaciones FMD"
+    ],
+    "campaigns": [],
+    "commercialPriority": 89,
+    "visibilityTier": "catalog",
+    "legacyCategory": "Iron Maiden",
+    "fmdBadge": "CLÁSICO + FMD",
+    "tags": [
+      "Iron Maiden",
+      "2 Minutes to Midnight",
+      "Powerslave",
+      "Single",
+      "Edición FMD",
+      "remera"
+    ]
+  },
+  {
+    "id": 7277,
+    "designId": "iron-maiden-aces-high-singles",
+    "designSlug": "iron-maiden-aces-high-singles",
+    "category": "Iron Maiden",
+    "band": "Iron Maiden",
+    "name": "Aces High",
+    "year": "1984",
+    "album": "Powerslave",
+    "tipoPrecio": "simple",
+    "defaultPrintMode": "frontal",
+    "isNew": true,
+    "img": "images/iron_maiden/singles originales y fmd edition/ACES OR-4-5 FOR IG MOCK REMERA.jpg",
+    "desc": "Dos interpretaciones de Aces High: piloto clásico y batalla aérea FMD.",
+    "variants": [
+      {
+        "img": "images/iron_maiden/singles originales y fmd edition/ACES OR-4-5 FOR IG MOCK REMERA.jpg",
+        "name": "Aces High · Arte clásico",
+        "publicName": "Aces High",
+        "selectionLabel": "Arte clásico",
+        "designId": "iron-maiden-aces-high-singles",
+        "role": "front"
+      },
+      {
+        "img": "images/iron_maiden/singles originales y fmd edition/FMD ACES 4-5 FOR IG MOCK REMERA.jpg",
+        "name": "Aces High · Reinterpretación FMD",
+        "publicName": "Aces High",
+        "selectionLabel": "Reinterpretación FMD",
+        "designId": "iron-maiden-aces-high-singles",
+        "role": "front",
+        "fmdBadge": "EDICIÓN FMD",
+        "fmdBadgeDescription": "Reinterpretación visual creada por Five Magics Designs."
+      }
+    ],
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Archivo Maiden",
+      "Singles de Iron Maiden",
+      "Reinterpretaciones FMD"
+    ],
+    "campaigns": [],
+    "commercialPriority": 90,
+    "visibilityTier": "catalog",
+    "legacyCategory": "Iron Maiden",
+    "fmdBadge": "CLÁSICO + FMD",
+    "tags": [
+      "Iron Maiden",
+      "Aces High",
+      "Powerslave",
+      "Single",
+      "Edición FMD",
+      "remera"
+    ]
+  },
+  {
+    "id": 7278,
+    "designId": "iron-maiden-bring-your-daughter-single",
+    "designSlug": "iron-maiden-bring-your-daughter-single",
+    "category": "Iron Maiden",
+    "band": "Iron Maiden",
+    "name": "Bring Your Daughter… to the Slaughter",
+    "year": "1990",
+    "album": "No Prayer for the Dying",
+    "tipoPrecio": "simple",
+    "defaultPrintMode": "frontal",
+    "isNew": true,
+    "img": "images/iron_maiden/singles originales y fmd edition/BRING 4-5 FOR IG MOCK REMERA.jpg",
+    "desc": "Diseño inspirado en el single Bring Your Daughter… to the Slaughter.",
+    "variants": [
+      {
+        "img": "images/iron_maiden/singles originales y fmd edition/BRING 4-5 FOR IG MOCK REMERA.jpg",
+        "name": "Bring Your Daughter… to the Slaughter · Arte clásico",
+        "publicName": "Bring Your Daughter… to the Slaughter",
+        "selectionLabel": "Arte clásico",
+        "designId": "iron-maiden-bring-your-daughter-single",
+        "role": "front"
+      }
+    ],
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Archivo Maiden",
+      "Singles de Iron Maiden"
+    ],
+    "campaigns": [],
+    "commercialPriority": 82,
+    "visibilityTier": "catalog",
+    "legacyCategory": "Iron Maiden",
+    "fmdBadge": "SINGLE",
+    "tags": [
+      "Iron Maiden",
+      "Bring Your Daughter… to the Slaughter",
+      "No Prayer for the Dying",
+      "Single",
+      "remera"
+    ]
+  },
+  {
+    "id": 7279,
+    "designId": "iron-maiden-flight-of-icarus-singles",
+    "designSlug": "iron-maiden-flight-of-icarus-singles",
+    "category": "Iron Maiden",
+    "band": "Iron Maiden",
+    "name": "Flight of Icarus",
+    "year": "1983",
+    "album": "Piece of Mind",
+    "tipoPrecio": "simple",
+    "defaultPrintMode": "frontal",
+    "isNew": true,
+    "img": "images/iron_maiden/singles originales y fmd edition/FLIGHT-4-5 FOR IG MOCK REMERA.jpg",
+    "desc": "Dos interpretaciones de Flight of Icarus: arte clásico y reinterpretación FMD.",
+    "variants": [
+      {
+        "img": "images/iron_maiden/singles originales y fmd edition/FLIGHT-4-5 FOR IG MOCK REMERA.jpg",
+        "name": "Flight of Icarus · Arte clásico",
+        "publicName": "Flight of Icarus",
+        "selectionLabel": "Arte clásico",
+        "designId": "iron-maiden-flight-of-icarus-singles",
+        "role": "front"
+      },
+      {
+        "img": "images/iron_maiden/singles originales y fmd edition/FMD EDITION - 4-5 FOR IG MOCK REMERA.jpg",
+        "name": "Flight of Icarus · Reinterpretación FMD",
+        "publicName": "Flight of Icarus",
+        "selectionLabel": "Reinterpretación FMD",
+        "designId": "iron-maiden-flight-of-icarus-singles",
+        "role": "front",
+        "fmdBadge": "EDICIÓN FMD",
+        "fmdBadgeDescription": "Reinterpretación visual creada por Five Magics Designs."
+      }
+    ],
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Archivo Maiden",
+      "Singles de Iron Maiden",
+      "Reinterpretaciones FMD"
+    ],
+    "campaigns": [],
+    "commercialPriority": 88,
+    "visibilityTier": "catalog",
+    "legacyCategory": "Iron Maiden",
+    "fmdBadge": "CLÁSICO + FMD",
+    "tags": [
+      "Iron Maiden",
+      "Flight of Icarus",
+      "Piece of Mind",
+      "Single",
+      "Edición FMD",
+      "remera"
+    ]
+  },
+  {
+    "id": 7280,
+    "designId": "iron-maiden-number-of-the-beast-singles",
+    "designSlug": "iron-maiden-number-of-the-beast-singles",
+    "category": "Iron Maiden",
+    "band": "Iron Maiden",
+    "name": "The Number of the Beast",
+    "year": "1982",
+    "album": "The Number of the Beast",
+    "tipoPrecio": "simple",
+    "defaultPrintMode": "frontal",
+    "isNew": true,
+    "img": "images/iron_maiden/singles originales y fmd edition/NUMBER 666-4-5 FOR IG MOCK REMERA.jpg",
+    "desc": "Dos interpretaciones de The Number of the Beast.",
+    "variants": [
+      {
+        "img": "images/iron_maiden/singles originales y fmd edition/NUMBER 666-4-5 FOR IG MOCK REMERA.jpg",
+        "name": "The Number of the Beast · Arte clásico",
+        "publicName": "The Number of the Beast",
+        "selectionLabel": "Arte clásico",
+        "designId": "iron-maiden-number-of-the-beast-singles",
+        "role": "front"
+      },
+      {
+        "img": "images/iron_maiden/singles originales y fmd edition/NUMBER FMD 4-5 FOR IG MOCK REMERA.jpg",
+        "name": "The Number of the Beast · Reinterpretación FMD",
+        "publicName": "The Number of the Beast",
+        "selectionLabel": "Reinterpretación FMD",
+        "designId": "iron-maiden-number-of-the-beast-singles",
+        "role": "front",
+        "fmdBadge": "EDICIÓN FMD",
+        "fmdBadgeDescription": "Reinterpretación visual creada por Five Magics Designs."
+      }
+    ],
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Archivo Maiden",
+      "Singles de Iron Maiden",
+      "Reinterpretaciones FMD"
+    ],
+    "campaigns": [],
+    "commercialPriority": 90,
+    "visibilityTier": "catalog",
+    "legacyCategory": "Iron Maiden",
+    "fmdBadge": "CLÁSICO + FMD",
+    "tags": [
+      "Iron Maiden",
+      "The Number of the Beast",
+      "The Number of the Beast",
+      "Single",
+      "Edición FMD",
+      "remera"
+    ]
+  },
+  {
+    "id": 7281,
+    "designId": "iron-maiden-purgatory-single",
+    "designSlug": "iron-maiden-purgatory-single",
+    "category": "Iron Maiden",
+    "band": "Iron Maiden",
+    "name": "Purgatory",
+    "year": "1981",
+    "album": "Killers",
+    "tipoPrecio": "simple",
+    "defaultPrintMode": "frontal",
+    "isNew": true,
+    "img": "images/iron_maiden/singles originales y fmd edition/PURGA 4-5 FOR IG MOCK REMERA.jpg",
+    "desc": "Diseño inspirado en el single Purgatory.",
+    "variants": [
+      {
+        "img": "images/iron_maiden/singles originales y fmd edition/PURGA 4-5 FOR IG MOCK REMERA.jpg",
+        "name": "Purgatory · Arte clásico",
+        "publicName": "Purgatory",
+        "selectionLabel": "Arte clásico",
+        "designId": "iron-maiden-purgatory-single",
+        "role": "front"
+      }
+    ],
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Archivo Maiden",
+      "Singles de Iron Maiden"
+    ],
+    "campaigns": [],
+    "commercialPriority": 82,
+    "visibilityTier": "catalog",
+    "legacyCategory": "Iron Maiden",
+    "fmdBadge": "SINGLE",
+    "tags": [
+      "Iron Maiden",
+      "Purgatory",
+      "Killers",
+      "Single",
+      "remera"
+    ]
+  },
+  {
+    "id": 7282,
+    "designId": "iron-maiden-sanctuary-single",
+    "designSlug": "iron-maiden-sanctuary-single",
+    "category": "Iron Maiden",
+    "band": "Iron Maiden",
+    "name": "Sanctuary",
+    "year": "1980",
+    "album": "Iron Maiden",
+    "tipoPrecio": "simple",
+    "defaultPrintMode": "frontal",
+    "isNew": true,
+    "img": "images/iron_maiden/singles originales y fmd edition/SANTUARY 4-5 FOR IG MOCK REMERA.jpg",
+    "desc": "Diseño inspirado en el single Sanctuary.",
+    "variants": [
+      {
+        "img": "images/iron_maiden/singles originales y fmd edition/SANTUARY 4-5 FOR IG MOCK REMERA.jpg",
+        "name": "Sanctuary · Arte clásico",
+        "publicName": "Sanctuary",
+        "selectionLabel": "Arte clásico",
+        "designId": "iron-maiden-sanctuary-single",
+        "role": "front"
+      }
+    ],
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Archivo Maiden",
+      "Singles de Iron Maiden"
+    ],
+    "campaigns": [],
+    "commercialPriority": 82,
+    "visibilityTier": "catalog",
+    "legacyCategory": "Iron Maiden",
+    "fmdBadge": "SINGLE",
+    "tags": [
+      "Iron Maiden",
+      "Sanctuary",
+      "Iron Maiden",
+      "Single",
+      "remera"
+    ]
+  },
+  {
+    "id": 7283,
+    "designId": "iron-maiden-the-evil-that-men-do-single",
+    "designSlug": "iron-maiden-the-evil-that-men-do-single",
+    "category": "Iron Maiden",
+    "band": "Iron Maiden",
+    "name": "The Evil That Men Do",
+    "year": "1988",
+    "album": "Seventh Son of a Seventh Son",
+    "tipoPrecio": "simple",
+    "defaultPrintMode": "frontal",
+    "isNew": true,
+    "img": "images/iron_maiden/singles originales y fmd edition/THE EVIL 4-5 FOR IG MOCK REMERA.jpg",
+    "desc": "Diseño inspirado en el single The Evil That Men Do.",
+    "variants": [
+      {
+        "img": "images/iron_maiden/singles originales y fmd edition/THE EVIL 4-5 FOR IG MOCK REMERA.jpg",
+        "name": "The Evil That Men Do · Arte clásico",
+        "publicName": "The Evil That Men Do",
+        "selectionLabel": "Arte clásico",
+        "designId": "iron-maiden-the-evil-that-men-do-single",
+        "role": "front"
+      }
+    ],
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Archivo Maiden",
+      "Singles de Iron Maiden"
+    ],
+    "campaigns": [],
+    "commercialPriority": 82,
+    "visibilityTier": "catalog",
+    "legacyCategory": "Iron Maiden",
+    "fmdBadge": "SINGLE",
+    "tags": [
+      "Iron Maiden",
+      "The Evil That Men Do",
+      "Seventh Son of a Seventh Son",
+      "Single",
+      "remera"
+    ]
+  },
+  {
+    "id": 7284,
+    "designId": "iron-maiden-wasted-years-singles",
+    "designSlug": "iron-maiden-wasted-years-singles",
+    "category": "Iron Maiden",
+    "band": "Iron Maiden",
+    "name": "Wasted Years",
+    "year": "1986",
+    "album": "Somewhere in Time",
+    "tipoPrecio": "simple",
+    "defaultPrintMode": "frontal",
+    "isNew": true,
+    "img": "images/iron_maiden/singles originales y fmd edition/WASTED 4-5 FOR IG MOCK REMERA.jpg",
+    "desc": "Dos interpretaciones de Wasted Years: arte clásico y reinterpretación FMD.",
+    "variants": [
+      {
+        "img": "images/iron_maiden/singles originales y fmd edition/WASTED 4-5 FOR IG MOCK REMERA.jpg",
+        "name": "Wasted Years · Arte clásico",
+        "publicName": "Wasted Years",
+        "selectionLabel": "Arte clásico",
+        "designId": "iron-maiden-wasted-years-singles",
+        "role": "front"
+      },
+      {
+        "img": "images/iron_maiden/singles originales y fmd edition/WASTED FMD 4-5 FOR IG MOCK REMERA.jpg",
+        "name": "Wasted Years · Reinterpretación FMD",
+        "publicName": "Wasted Years",
+        "selectionLabel": "Reinterpretación FMD",
+        "designId": "iron-maiden-wasted-years-singles",
+        "role": "front",
+        "fmdBadge": "EDICIÓN FMD",
+        "fmdBadgeDescription": "Reinterpretación visual creada por Five Magics Designs."
+      }
+    ],
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Archivo Maiden",
+      "Singles de Iron Maiden",
+      "Reinterpretaciones FMD"
+    ],
+    "campaigns": [],
+    "commercialPriority": 89,
+    "visibilityTier": "catalog",
+    "legacyCategory": "Iron Maiden",
+    "fmdBadge": "CLÁSICO + FMD",
+    "tags": [
+      "Iron Maiden",
+      "Wasted Years",
+      "Somewhere in Time",
+      "Single",
+      "Edición FMD",
+      "remera"
+    ]
   }
 ]

@@ -315,7 +315,9 @@
                                 : 'transition-name'
                 });
             }
-            return groups.get(designId);
+            const group = groups.get(designId);
+            group.availableGarments = unique([...group.availableGarments, ...catalogGarments]);
+            return group;
         }
 
         for (const product of products) {

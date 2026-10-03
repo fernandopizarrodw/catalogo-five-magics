@@ -282,6 +282,18 @@ function selectBandLandingCollection(collectionId = '') {
 
 window.selectBandLandingCollection = selectBandLandingCollection;
 
+function selectBandLandingCollectionAndScroll(collectionId = '') {
+    selectBandLandingCollection(collectionId);
+    const catalog = document.getElementById('catalogoPrincipal');
+    if (!catalog) return;
+    catalog.scrollIntoView({
+        behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
+        block: 'start'
+    });
+}
+
+window.selectBandLandingCollectionAndScroll = selectBandLandingCollectionAndScroll;
+
 function selectBandLandingGarment(garment) {
     if (!isBandLandingMode() || !BAND_LANDING_GARMENTS.has(garment)) return;
     bandLandingOuterwear = false;
@@ -2524,6 +2536,24 @@ function updateCatalogDesignReferenceNote() {
 function selectCatalogDesignPreviewForGarment(modalGarment) {
     if (!currentCatalogDesign || !currentModalSourceRefs.length) return;
     const garment = getCatalogDesignGarmentKey(modalGarment);
+    const garmentRefs = getCatalogDesignFrontRefs(currentCatalogDesign)
+        .filter(ref => ref.garment === garment);
+    if (garmentRefs.length) {
+        const currentKeys = currentModalSourceRefs.map(ref => `${ref.productId}:${ref.variantIndex}`);
+        const garmentKeys = garmentRefs.map(ref => `${ref.productId}:${ref.variantIndex}`);
+        const needsRefresh = currentKeys.length !== garmentKeys.length
+            || currentKeys.some((key, index) => key !== garmentKeys[index]);
+        if (needsRefresh) {
+            currentModalSourceRefs = garmentRefs;
+            currentModalImages = garmentRefs.map(catalogDesignRefToModalImage);
+            currentModalSourceIndexes = garmentRefs.map(ref => (
+                ref.productId === currentProduct.id
+                    ? ref.variantIndex
+                    : currentCatalogDesign.front.variantIndex
+            ));
+            renderCurrentModalCarousel();
+        }
+    }
     const previews = currentCatalogDesign.previewsByGarment?.[garment] || [];
     const selectedColorKey = normalizeText(selectedColor);
     const preferCleanFront = normalizeText(currentCatalogDesign.band) === 'helloween';
@@ -3650,6 +3680,9 @@ function initializeCatalogDesigns() {
         const designCount = catalogDesigns.filter(isCatalogDesignInScope).length;
         document.querySelectorAll('[data-band-design-count-copy]').forEach(element => {
             element.textContent = element.textContent.replace('{count}', String(designCount));
+        });
+        document.querySelectorAll('[data-band-design-count-number]').forEach(element => {
+            element.textContent = String(designCount);
         });
     }
 

@@ -138,6 +138,9 @@ ${config.garments.map((garment, index) => `
 }
 
 function renderCatalogSection(config, collections, completeArchive) {
+    const primaryCollections = collections.filter(collection => collection.group !== 'album');
+    const albumCollections = collections.filter(collection => collection.group === 'album');
+    const renderCollectionButton = collection => `                <button type="button" class="band-landing-collection-btn${config.defaultCollection === collection.id ? ' active' : ''}" data-band-landing-collection="${collection.id}" onclick="selectBandLandingCollection('${collection.id}')">${collection.label} <span data-collection-count="${collection.id}"></span></button>`;
     return `        <section class="band-landing-catalog"${config.showGarmentSelector === false || config.catalogAnchorOnCatalog ? ' id="catalogoPrincipal"' : ''} aria-labelledby="bandCatalogTitle">
             <div class="band-landing-section-head">
                 <p>${config.catalogKicker || 'ARCHIVO FMD'}</p>
@@ -157,8 +160,14 @@ ${completeArchive ? `            <div class="band-landing-all-designs">
             </div>` : ''}
 ${collections.length ? `            <div class="band-landing-collections" id="bandLandingCollections" aria-label="Explorar ${config.band} por colección">
 ${!completeArchive || config.band === 'Helloween' ? `                <button type="button" class="band-landing-collection-btn${config.defaultCollection ? '' : ' active'}" data-band-landing-collection="" onclick="selectBandLandingCollection('')">${config.allCollectionLabel || 'TODOS'} <span data-collection-count=""></span></button>` : ''}
-${collections.map(collection => `                <button type="button" class="band-landing-collection-btn${config.defaultCollection === collection.id ? ' active' : ''}" data-band-landing-collection="${collection.id}" onclick="selectBandLandingCollection('${collection.id}')">${collection.label} <span data-collection-count="${collection.id}"></span></button>`).join('\n')}
-            </div>` : ''}
+${primaryCollections.map(renderCollectionButton).join('\n')}
+            </div>
+${albumCollections.length ? `            <details class="band-landing-album-filters">
+                <summary>FILTRAR POR ÁLBUM / ERA</summary>
+                <div class="band-landing-collections" aria-label="Filtrar ${config.band} por álbum">
+${albumCollections.map(renderCollectionButton).join('\n')}
+                </div>
+            </details>` : ''}` : ''}
             <div class="catalog-toolbar">
                 <button type="button" id="megadethBackBtn" hidden></button>
                 <button type="button" id="slayerBackBtn" hidden></button>
@@ -233,7 +242,7 @@ function renderLanding(config, sharedCommerceMarkup) {
                 <span class="is-best"><b>3 PRENDAS O MÁS</b><em>10% OFF + ENVÍO GRATIS</em></span>
             </div>
         </section>`;
-    const completeArchive = config.prominentAllDesigns || (collections.length ? {
+    const completeArchive = config.hideProminentAllDesigns ? null : config.prominentAllDesigns || (collections.length ? {
         kicker: 'CATÁLOGO COMPLETO',
         label: 'VER TODOS LOS DISEÑOS',
         copy: `Explorá todos los diseños de ${config.band}.`
@@ -242,7 +251,7 @@ function renderLanding(config, sharedCommerceMarkup) {
     const catalogMarkup = renderCatalogSection(config, collections, completeArchive);
     const catalogFirst = config.band === 'Helloween';
     const showcaseFirst = catalogFirst || config.showcaseFirst === true;
-    const showcaseMarkup = config.showcase ? `
+    const showcaseMarkup = config.showcase && !config.hideShowcase ? `
         <section class="band-design-showcase" id="bandDesignShowcase" aria-labelledby="bandDesignShowcaseTitle">
             <div class="band-design-showcase-head">
                 <h2 id="bandDesignShowcaseTitle">${config.showcase.title}</h2>
@@ -273,7 +282,7 @@ ${featuredCollectionCards.map((card, index) => `                <button type="bu
             <p class="band-featured-collection-note">${featuredCollection.note}</p>
             <button type="button" class="band-featured-collection-cta" onclick="showBandLandingFeaturedCollection('${featuredCollection.query}')">${featuredCollection.ctaLabel}</button>
         </section>` : '';
-    const campaignFeature = config.campaignFeature && typeof config.campaignFeature === 'object'
+    const campaignFeature = !config.hideCampaignFeature && config.campaignFeature && typeof config.campaignFeature === 'object'
         ? config.campaignFeature
         : null;
     const campaignFeatureImages = Array.isArray(campaignFeature?.images) ? campaignFeature.images : [];
@@ -325,13 +334,38 @@ ${campaignTourCollectionCards.map((card, index) => `                <button type
             <p class="band-featured-collection-note">${campaignTourCollection.note}</p>
             <a class="band-featured-collection-cta" href="#catalogoPrincipal">${campaignTourCollection.ctaLabel}</a>
         </section>` : '';
+    const editorialCollection = !config.hideEditorialCollection && config.editorialCollection && typeof config.editorialCollection === 'object'
+        ? config.editorialCollection
+        : null;
+    const editorialCollectionCards = Array.isArray(editorialCollection?.cards)
+        ? editorialCollection.cards.filter(card => card?.designId && card?.image)
+        : [];
+    const editorialCollectionMarkup = editorialCollectionCards.length ? `
+        <section class="band-featured-collection band-editorial-collection" id="${editorialCollection.id || 'bandEditorialCollection'}" aria-labelledby="bandEditorialCollectionTitle">
+            <div class="band-featured-collection-head">
+                <p>${editorialCollection.kicker}</p>
+                <h2 id="bandEditorialCollectionTitle">${editorialCollection.title}</h2>
+                <span>${editorialCollection.copy}</span>
+            </div>
+            <div class="band-featured-collection-grid">
+${editorialCollectionCards.map((card, index) => `                <button type="button" class="band-featured-collection-card" data-design-id="${card.designId}" onclick="openCatalogDesign('${card.designId}', 'remera')" aria-label="Ver ${card.label}">
+                    <img src="${card.image}" alt="${card.label} de ${config.band}" loading="${index < 2 ? 'eager' : 'lazy'}" decoding="async">
+                    <strong>${card.label}</strong>
+                </button>`).join('\n')}
+            </div>
+            <p class="band-featured-collection-note">${editorialCollection.note}</p>
+            <a class="band-featured-collection-cta" href="#catalogoPrincipal">${editorialCollection.ctaLabel}</a>
+        </section>` : '';
     const realProductProof = config.realProductProof && typeof config.realProductProof === 'object'
         ? config.realProductProof
         : null;
     const realProductProofImages = Array.isArray(realProductProof?.images)
         ? realProductProof.images.filter(image => image?.src)
         : [];
-    const realProductProofMarkup = realProductProofImages.length ? `
+    const visibleRealProductProofImages = Number.isFinite(Number(config.realProductProofLimit))
+        ? realProductProofImages.slice(0, Math.max(1, Number(config.realProductProofLimit)))
+        : realProductProofImages;
+    const realProductProofMarkup = visibleRealProductProofImages.length ? `
         <section class="band-real-product-proof" id="realProductProof" aria-labelledby="bandRealProductProofTitle">
             <div class="band-real-product-proof-head">
                 <p>${realProductProof.kicker || 'PRENDAS REALES'}</p>
@@ -339,7 +373,7 @@ ${campaignTourCollectionCards.map((card, index) => `                <button type
                 <span>${realProductProof.copy}</span>
             </div>
             <div class="band-real-product-proof-grid">
-${realProductProofImages.map((image, index) => `                <button type="button" onclick="openImageModal('${image.src}')" aria-label="Ampliar ${image.alt}">
+${visibleRealProductProofImages.map((image, index) => `                <button type="button" onclick="openImageModal('${image.src}')" aria-label="Ampliar ${image.alt}">
                     <img src="${image.src}" alt="${image.alt}" width="${image.width || 1080}" height="${image.height || 1350}" loading="${index === 0 ? 'eager' : 'lazy'}" decoding="async">
                     ${image.label ? `<span>${image.label}</span>` : ''}
                 </button>`).join('\n')}
@@ -347,6 +381,35 @@ ${realProductProofImages.map((image, index) => `                <button type="bu
             <div class="band-real-product-proof-specs">
 ${(Array.isArray(realProductProof.specs) ? realProductProof.specs : ['Algodón peinado 24/1', 'Impresión DTG directa sobre la tela']).map(spec => `                <strong>${spec}</strong>`).join('\n')}
             </div>
+        </section>` : '';
+    const discoveryLinks = Array.isArray(config.discoveryLinks) ? config.discoveryLinks : [];
+    const discoveryMarkup = discoveryLinks.length ? `
+        <nav class="band-discovery-nav" aria-label="Elegir una colección de ${config.band}">
+            <p>ENCONTRÁ TU DISEÑO</p>
+            <div class="band-discovery-nav-grid">
+${discoveryLinks.map(link => `                <button type="button" onclick="selectBandLandingCollectionAndScroll('${link.collectionId || ''}')"><strong>${link.label}</strong>${link.copy ? `<span>${link.copy}</span>` : ''}</button>`).join('\n')}
+            </div>
+        </nav>` : '';
+    const curatedSelection = config.curatedSelection && typeof config.curatedSelection === 'object'
+        ? config.curatedSelection
+        : null;
+    const curatedCards = Array.isArray(curatedSelection?.cards)
+        ? curatedSelection.cards.filter(card => card?.designId && card?.image)
+        : [];
+    const curatedSelectionMarkup = curatedCards.length ? `
+        <section class="band-curated-selection" id="bandCuratedSelection" aria-labelledby="bandCuratedSelectionTitle">
+            <div class="band-curated-selection-head">
+                <p>${curatedSelection.kicker || 'SELECCIÓN FMD'}</p>
+                <h2 id="bandCuratedSelectionTitle">${curatedSelection.title}</h2>
+                <span>${curatedSelection.copy || ''}</span>
+            </div>
+            <div class="band-curated-selection-grid">
+${curatedCards.map((card, index) => `                <button type="button" data-design-id="${card.designId}" onclick="${card.preview ? `openCatalogDesignPreview('${card.designId}', 'remera', '${card.printMode || 'simple'}', '${card.preview}')` : `openCatalogDesign('${card.designId}', 'remera')`}" aria-label="Ver ${card.label}">
+                    <img src="${card.image}" alt="${card.label} de ${config.band}" loading="${index < 4 ? 'eager' : 'lazy'}" decoding="async">
+                    <strong>${card.label}</strong>
+                </button>`).join('\n')}
+            </div>
+            <button type="button" class="band-curated-selection-cta" onclick="selectBandLandingCollectionAndScroll('')">${curatedSelection.ctaLabel || 'VER COLECCIÓN COMPLETA'} <span data-band-design-count-number></span></button>
         </section>` : '';
     return `<!DOCTYPE html>
 <html lang="es">
@@ -451,7 +514,7 @@ ${config.hideHeroArt ? '' : `            <div class="band-landing-hero-art">
                 <img src="${config.image}" alt="Diseño ${config.band} disponible en Five Magics Designs" width="1200" height="1200">
             </div>`}
         </section>
-${postShow ? `
+${discoveryMarkup}${curatedSelectionMarkup}${postShow ? `
         <section class="band-landing-hero helloween-post-show-hero" aria-labelledby="helloweenPostShowTitle" aria-hidden="true">
             <div class="band-landing-hero-copy">
                 <p class="band-landing-brand">FIVE MAGICS DESIGNS</p>
@@ -463,7 +526,7 @@ ${postShow ? `
             <div class="band-landing-hero-art">
                 <img src="${config.image}" alt="Colección Helloween post-show en Five Magics Designs" width="1200" height="1200">
             </div>
-        </section>` : ''}${config.heroFirst && config.campaignFeatureFirst ? `\n${campaignFeatureMarkup}${campaignTourCollectionMarkup}` : ''}${config.heroFirst && showcaseFirst ? `\n${showcaseMarkup}` : ''}${config.heroFirst && !config.campaignFeatureFirst ? `\n${campaignFeatureMarkup}${campaignTourCollectionMarkup}` : ''}${realProductProofMarkup}${!config.featuredCollectionAfterCatalog && featuredCollectionMarkup ? `\n${featuredCollectionMarkup}` : ''}
+    </section>` : ''}${config.heroFirst && config.campaignFeatureFirst ? `\n${campaignFeatureMarkup}${campaignTourCollectionMarkup}` : ''}${config.heroFirst && showcaseFirst ? `\n${showcaseMarkup}${editorialCollectionMarkup}` : ''}${config.heroFirst && !config.campaignFeatureFirst ? `\n${campaignFeatureMarkup}${campaignTourCollectionMarkup}` : ''}${config.realProductProofAfterCatalog ? '' : realProductProofMarkup}${!config.featuredCollectionAfterCatalog && featuredCollectionMarkup ? `\n${featuredCollectionMarkup}` : ''}
 ${catalogFirst ? `${garmentSelectorMarkup}
 ${catalogMarkup}` : ''}${postShowFeatured ? `
         <section class="helloween-post-show-featured" aria-labelledby="helloweenFeaturedTitle">
@@ -498,7 +561,9 @@ ${postShowFeaturedCtas.map(cta => `                    <button type="button" onc
             </div>
         </section>` : ''}
 
-${config.moveShippingAfterShowcase ? '' : shippingPromoMarkup}${config.catalogBeforeProduction ? `\n${config.garmentSelectorAfterCatalog ? '' : garmentSelectorMarkup}\n${catalogMarkup}` : ''}
+${config.moveShippingAfterShowcase || config.shippingAfterCatalog ? '' : shippingPromoMarkup}${config.catalogBeforeProduction ? `\n${config.garmentSelectorAfterCatalog ? '' : garmentSelectorMarkup}\n${catalogMarkup}` : ''}
+${config.realProductProofAfterCatalog ? realProductProofMarkup : ''}
+${config.shippingAfterCatalog ? shippingPromoMarkup : ''}
         <section class="production-tracking-strip" aria-label="Producción y seguimiento">
             <strong>${config.productionTitle || '<span>PRODUCCIÓN</span> 48 A 72 H HÁBILES'}</strong>
             <p>${config.productionCopy || 'Una vez despachado, te enviamos el enlace de seguimiento. Plazo total estimado: 3 a 7 días hábiles según destino.'}</p>
@@ -526,7 +591,7 @@ ${finishedGarments.map((photo, index) => `                <button type="button" 
                 <a href="#bandCatalogTitle">VER LOS 75 DISEÑOS</a>
             </div>
         </section>` : ''}
-${showcaseFirst ? '' : showcaseMarkup}
+${showcaseFirst ? '' : `${showcaseMarkup}${editorialCollectionMarkup}`}
 ${config.moveShippingAfterShowcase ? shippingPromoMarkup : ''}
 ${catalogFirst || config.catalogBeforeProduction || config.garmentSelectorAfterCatalog ? '' : garmentSelectorMarkup}
 ${config.showSizeGuide ? `
