@@ -57,7 +57,7 @@ async function main() {
                 && document.querySelectorAll('#bandDesignShowcase .band-design-showcase-set:not([aria-hidden="true"]) .band-design-showcase-card').length === 10`)) break;
             await new Promise(resolve => setTimeout(resolve, 100));
         }
-        await evaluate(`Promise.all([...document.querySelectorAll('#bandCampaignFeature img, #bandTourCollection img')].map(image => {
+        await evaluate(`Promise.all([...document.querySelectorAll('#bandCampaignFeature img, #bandTourCollection img, .band-real-product-proof-grid img')].map(image => {
             image.loading = 'eager';
             if (image.complete) return Promise.resolve();
             return new Promise(resolve => image.addEventListener('load', resolve, { once: true }));
@@ -75,9 +75,12 @@ async function main() {
             const campaignCards = [...campaignFeature.querySelectorAll('.band-campaign-feature-card')];
             const campaignGrid = campaignFeature.querySelector('.band-campaign-feature-gallery');
             const tourCollection = document.getElementById('bandTourCollection');
-            const tourCards = [...tourCollection.querySelectorAll('.band-featured-collection-card')];
             const somewhere = document.querySelector('.band-featured-collection:not(.band-tour-collection)');
             const garmentSelector = document.querySelector('.band-landing-garment-selector');
+            proofCards[0].click();
+            const proofLightboxWorks = document.getElementById('imageModal').classList.contains('active')
+                && document.getElementById('imageModalImg').getAttribute('src') === proofCards[0].querySelector('img').getAttribute('src');
+            closeImageModal();
             return {
                 showcaseCards: showcase.querySelectorAll('.band-design-showcase-set:not([aria-hidden="true"]) .band-design-showcase-card').length,
                 showcaseCopies: showcase.querySelectorAll('.band-design-showcase-card').length,
@@ -85,6 +88,12 @@ async function main() {
                 showcaseDuration: getComputedStyle(showcaseTrack).animationDuration,
                 showcaseViewportOverflow: getComputedStyle(document.getElementById('bandDesignShowcaseViewport')).overflowX,
                 proofCards: proofCards.length,
+                proofLabels: proofCards.map(card => card.querySelector('span')?.textContent.trim()),
+                proofImagesLoaded: proofCards.every(card => {
+                    const image = card.querySelector('img');
+                    return image.complete && image.naturalWidth > 0;
+                }),
+                proofLightboxWorks,
                 proofColumns: proofStyle.gridTemplateColumns.split(' ').length,
                 firstProofSpansBoth: getComputedStyle(proofCards[0]).gridColumnEnd === '-1',
                 proofOverflow: proof.scrollWidth > proof.clientWidth,
@@ -104,14 +113,8 @@ async function main() {
                     const viewportWidth = document.documentElement.clientWidth;
                     return Math.abs(rect.left - (viewportWidth - rect.right)) < 2;
                 })(),
-                tourCards: tourCards.length,
-                tourColumns: getComputedStyle(tourCollection.querySelector('.band-featured-collection-grid')).gridTemplateColumns.split(' ').length,
-                tourImagesLoaded: tourCards.every(card => {
-                    const image = card.querySelector('img');
-                    return image.complete && image.naturalWidth > 0;
-                }),
-                tourBetweenFeatureAndShowcase: mainSections.indexOf(campaignFeature) < mainSections.indexOf(tourCollection)
-                    && mainSections.indexOf(tourCollection) < mainSections.indexOf(showcase),
+                tourCollectionHidden: tourCollection === null,
+                campaignBeforeShowcase: mainSections.indexOf(campaignFeature) < mainSections.indexOf(showcase),
                 campaignCards: campaignCards.length,
                 campaignColumns: getComputedStyle(campaignGrid).gridTemplateColumns.split(' ').length,
                 campaignPrimarySpansBoth: getComputedStyle(campaignCards[0]).gridColumnEnd === '-1',
@@ -134,17 +137,20 @@ async function main() {
         assert.equal(result.showcaseAnimation, 'band-showcase-scroll');
         assert.equal(result.showcaseDuration, '48s');
         assert.equal(result.showcaseViewportOverflow, 'hidden');
-        assert.equal(result.proofCards, 3);
+        assert.equal(result.proofCards, 17);
+        assert.equal(result.proofLabels.length, 17);
+        assert.equal(result.proofLabels[0], 'Eddie Gaucho Argentino · Frente');
+        assert.equal(result.proofLabels.at(-1), 'Detalle de impresión DTG');
+        assert.equal(result.proofImagesLoaded, true);
+        assert.equal(result.proofLightboxWorks, true);
         assert.equal(result.proofColumns, 2);
         assert.equal(result.firstProofSpansBoth, true);
         assert.equal(result.proofOverflow, false);
         assert.equal(result.promoCentered, true);
         assert.equal(result.promoRowsFillWidth, true);
         assert.equal(result.promoPanelCentered, true);
-        assert.equal(result.tourCards, 9);
-        assert.equal(result.tourColumns, 2);
-        assert.equal(result.tourImagesLoaded, true);
-        assert.equal(result.tourBetweenFeatureAndShowcase, true);
+        assert.equal(result.tourCollectionHidden, true);
+        assert.equal(result.campaignBeforeShowcase, true);
         assert.equal(result.campaignCards, 3);
         assert.equal(result.campaignColumns, 2);
         assert.equal(result.campaignPrimarySpansBoth, true);
@@ -186,34 +192,19 @@ async function main() {
         assert(somewhereFeature.price.includes('$45.000'));
         await evaluate(`closeModal()`);
 
-        const tourFeature = await evaluate(`(() => {
-            const card = document.querySelector('#bandTourCollection [data-design-id="iron-maiden-run-for-your-lives-2026-oficial"]');
+        const showcaseFeature = await evaluate(`(() => {
+            const card = document.querySelector('#bandDesignShowcase .band-design-showcase-set:not([aria-hidden="true"]) [data-design-id="iron-maiden-run-for-your-lives-2026-oficial"]');
             card?.click();
             return {
                 modalActive: document.getElementById('modal').classList.contains('active'),
                 designId: currentCatalogDesign?.designId || '',
-                printMode: selectedPrintMode,
                 slide: getModalImages()[currentSlide]?.img || ''
             };
         })()`);
-        assert.equal(tourFeature.modalActive, true);
-        assert.equal(tourFeature.designId, 'iron-maiden-run-for-your-lives-2026-oficial');
-        assert.equal(tourFeature.printMode, 'double');
-        assert(tourFeature.slide.includes('eddie_run_for_your_lives_tour/remera_iron_maiden_run_oficial.jpg'));
+        assert.equal(showcaseFeature.modalActive, true);
+        assert.equal(showcaseFeature.designId, 'iron-maiden-run-for-your-lives-2026-oficial');
+        assert(showcaseFeature.slide.includes('eddie_run_for_your_lives_tour/remera_iron_maiden_run_oficial.jpg'));
         await evaluate(`closeModal()`);
-
-        const tourModalChecks = await evaluate(`(() => [...document.querySelectorAll('#bandTourCollection [data-design-id]')].map(card => {
-            card.click();
-            const result = {
-                expected: card.dataset.designId,
-                actual: currentCatalogDesign?.designId || '',
-                modalActive: document.getElementById('modal').classList.contains('active')
-            };
-            closeModal();
-            return result;
-        }))()`);
-        assert.equal(tourModalChecks.length, 9);
-        assert.equal(tourModalChecks.every(item => item.modalActive && item.actual === item.expected), true);
 
         const campaignRect = await evaluate(`(() => {
             const section = document.getElementById('bandCampaignFeature');
@@ -229,22 +220,14 @@ async function main() {
         const campaignOutput = path.resolve(__dirname, '..', 'reports', 'iron-maiden-eddies-argentinos-mobile.png');
         fs.writeFileSync(campaignOutput, Buffer.from(campaignScreenshot.data, 'base64'));
 
-        const tourRect = await evaluate(`(() => {
-            const section = document.getElementById('bandTourCollection');
-            const rect = section.getBoundingClientRect();
-            return { x: 0, y: rect.top + window.scrollY, width: document.documentElement.clientWidth, height: rect.height, scale: 1 };
-        })()`);
-        const tourScreenshot = await send('Page.captureScreenshot', {
-            format: 'png',
-            fromSurface: true,
-            captureBeyondViewport: true,
-            clip: tourRect
-        });
-        const tourOutput = path.resolve(__dirname, '..', 'reports', 'iron-maiden-eddie-tour-mobile.png');
-        fs.writeFileSync(tourOutput, Buffer.from(tourScreenshot.data, 'base64'));
-
         await evaluate(`document.getElementById('bandDesignShowcase').scrollIntoView({ block: 'start' })`);
-        await new Promise(resolve => setTimeout(resolve, 250));
+        await new Promise(resolve => setTimeout(resolve, 1800));
+        const showcaseMotionStart = await evaluate(`getComputedStyle(document.getElementById('bandDesignShowcaseTrack')).transform`);
+        await new Promise(resolve => setTimeout(resolve, 600));
+        const showcaseMotionEnd = await evaluate(`getComputedStyle(document.getElementById('bandDesignShowcaseTrack')).transform`);
+        const showcasePlayback = await evaluate(`getComputedStyle(document.getElementById('bandDesignShowcaseTrack')).animationPlayState`);
+        assert.notEqual(showcaseMotionStart, showcaseMotionEnd);
+        assert.equal(showcasePlayback, 'running');
         const screenshot = await send('Page.captureScreenshot', {
             format: 'png',
             fromSurface: true,
@@ -288,14 +271,12 @@ async function main() {
             const showcase = document.getElementById('bandDesignShowcase');
             const set = showcase.querySelector('.band-design-showcase-set');
             const proof = document.querySelector('.band-real-product-proof-grid');
-            const tourCollection = document.getElementById('bandTourCollection');
             const campaignFeature = document.getElementById('bandCampaignFeature');
             return {
                 showcaseCards: set.querySelectorAll('.band-design-showcase-card').length,
                 showcaseAnimation: getComputedStyle(showcase.querySelector('.band-design-showcase-track')).animationName,
                 proofColumns: getComputedStyle(proof).gridTemplateColumns.split(' ').length,
-                tourCards: tourCollection.querySelectorAll('.band-featured-collection-card').length,
-                tourColumns: getComputedStyle(tourCollection.querySelector('.band-featured-collection-grid')).gridTemplateColumns.split(' ').length,
+                tourCollectionHidden: document.getElementById('bandTourCollection') === null,
                 campaignCards: campaignFeature.querySelectorAll('.band-campaign-feature-card').length,
                 campaignColumns: getComputedStyle(campaignFeature.querySelector('.band-campaign-feature-gallery')).gridTemplateColumns.split(' ').length,
                 pageOverflow: document.documentElement.scrollWidth > document.documentElement.clientWidth
@@ -317,12 +298,11 @@ async function main() {
         assert.equal(desktop.showcaseCards, 10);
         assert.equal(desktop.showcaseAnimation, 'band-showcase-scroll');
         assert.equal(desktop.proofColumns, 3);
-        assert.equal(desktop.tourCards, 9);
-        assert.equal(desktop.tourColumns, 3);
+        assert.equal(desktop.tourCollectionHidden, true);
         assert.equal(desktop.campaignCards, 3);
         assert.equal(desktop.campaignColumns, 3);
         assert.equal(desktop.pageOverflow, false);
-        console.log(JSON.stringify({ mobile: result, desktop, screenshots: [campaignOutput, desktopCampaignOutput, tourOutput, output, proofOutput] }, null, 2));
+        console.log(JSON.stringify({ mobile: result, desktop, showcaseMotion: { start: showcaseMotionStart, end: showcaseMotionEnd, playback: showcasePlayback }, screenshots: [campaignOutput, desktopCampaignOutput, output, proofOutput] }, null, 2));
     } finally {
         socket.close();
     }

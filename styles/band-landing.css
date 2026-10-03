@@ -809,6 +809,29 @@ body[data-band="Helloween"] .helloween-post-show-featured {
     object-fit: contain;
 }
 
+body.band-landing-page[data-band="Iron Maiden"] .band-real-product-proof-grid button {
+    display: flex;
+    flex-direction: column;
+}
+
+body.band-landing-page[data-band="Iron Maiden"] .band-real-product-proof-grid img {
+    height: auto;
+}
+
+body.band-landing-page[data-band="Iron Maiden"] .band-real-product-proof-grid button > span {
+    width: 100%;
+    min-height: 42px;
+    padding: 9px 10px;
+    display: grid;
+    place-items: center;
+    color: #f2f4f6;
+    background: #08090a;
+    font: 600 0.78rem/1.25 "Oswald", sans-serif;
+    letter-spacing: 0.035em;
+    text-align: center;
+    text-transform: uppercase;
+}
+
 .band-design-showcase {
     width: min(1180px, calc(100% - 32px));
     margin: 24px auto 0;
@@ -872,10 +895,15 @@ body[data-band="Helloween"] .helloween-post-show-featured {
     animation: band-showcase-scroll var(--showcase-duration, 60s) linear infinite;
 }
 
-.band-design-showcase-track.is-paused,
-.band-design-showcase-viewport:hover .band-design-showcase-track,
-.band-design-showcase-viewport:focus-within .band-design-showcase-track {
+.band-design-showcase-track.is-paused {
     animation-play-state: paused;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .band-design-showcase-viewport:hover .band-design-showcase-track,
+    .band-design-showcase-viewport:focus-within .band-design-showcase-track {
+        animation-play-state: paused;
+    }
 }
 
 .band-design-showcase-set {

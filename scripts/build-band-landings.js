@@ -303,7 +303,7 @@ ${campaignFeature.priceOptions.map(option => `                <span${option.reco
             <p class="band-campaign-feature-note">${campaignFeature.note}</p>
             <button type="button" class="band-campaign-feature-cta" onclick="openCatalogDesignPreview('${campaignFeature.ctaDesignId || campaignFeature.designId}', 'remera', '${campaignFeature.defaultPrintMode || 'simple'}', '${campaignFeature.defaultPreview || campaignFeatureImages[0].src}')">${campaignFeature.ctaLabel}</button>
         </section>` : '';
-    const campaignTourCollection = config.campaignTourCollection && typeof config.campaignTourCollection === 'object'
+    const campaignTourCollection = !config.hideCampaignTourCollection && config.campaignTourCollection && typeof config.campaignTourCollection === 'object'
         ? config.campaignTourCollection
         : null;
     const campaignTourCollectionCards = Array.isArray(campaignTourCollection?.cards)
@@ -341,6 +341,7 @@ ${campaignTourCollectionCards.map((card, index) => `                <button type
             <div class="band-real-product-proof-grid">
 ${realProductProofImages.map((image, index) => `                <button type="button" onclick="openImageModal('${image.src}')" aria-label="Ampliar ${image.alt}">
                     <img src="${image.src}" alt="${image.alt}" width="${image.width || 1080}" height="${image.height || 1350}" loading="${index === 0 ? 'eager' : 'lazy'}" decoding="async">
+                    ${image.label ? `<span>${image.label}</span>` : ''}
                 </button>`).join('\n')}
             </div>
             <div class="band-real-product-proof-specs">

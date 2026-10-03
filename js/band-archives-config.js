@@ -285,6 +285,7 @@
             imageUrl: 'https://catalogo.fivemagicsdesigns.com/images/iron_maiden/eddie_run_for_your_lives_tour/remera_iron_maiden_run_oficial.jpg',
             heroFirst: true,
             campaignFeatureFirst: true,
+            hideCampaignTourCollection: true,
             hideHeroArt: true,
             catalogBeforeProduction: true,
             catalogAnchorOnCatalog: true,
@@ -557,18 +558,119 @@
                     {
                         src: '/images/iron_maiden/prendas_reales/eddie_gaucho_frente.jpg',
                         alt: 'Frente real de la remera Eddie Gaucho Argentino terminada',
+                        label: 'Eddie Gaucho Argentino · Frente',
                         width: 1080,
                         height: 1350
                     },
                     {
-                        src: '/images/iron_maiden/prendas_reales/eddie_gaucho_dorso.jpg',
-                        alt: 'Dorso real Buenos Aires 2026 de la remera Eddie Gaucho Argentino terminada',
+                        src: '/images/iron_maiden/prendas_reales/eddie-tanguero-frente-real.jpg',
+                        alt: 'Remera terminada Eddie Tanguero con estampa frontal',
+                        label: 'Eddie Tanguero · Frente',
+                        width: 941,
+                        height: 1672
+                    },
+                    {
+                        src: '/images/iron_maiden/prendas_reales/a-matter-of-life-and-death-frente-real.jpg',
+                        alt: 'Remera terminada A Matter of Life and Death con estampa frontal',
+                        label: 'A Matter of Life and Death · Frente',
                         width: 1086,
                         height: 1448
                     },
                     {
+                        src: '/images/iron_maiden/prendas_reales/powerslave-frente-real.jpg',
+                        alt: 'Remera terminada Powerslave con estampa frontal',
+                        label: 'Powerslave · Frente',
+                        width: 941,
+                        height: 1672
+                    },
+                    {
+                        src: '/images/iron_maiden/prendas_reales/somewhere-in-time-frente-real.jpg',
+                        alt: 'Remera terminada Somewhere in Time con estampa frontal',
+                        label: 'Somewhere in Time · Frente',
+                        width: 941,
+                        height: 1672
+                    },
+                    {
+                        src: '/images/iron_maiden/prendas_reales/fear-of-the-dark-frente-real.jpg',
+                        alt: 'Remera terminada Fear of the Dark con estampa frontal',
+                        label: 'Fear of the Dark · Frente',
+                        width: 1122,
+                        height: 1402
+                    },
+                    {
+                        src: '/images/iron_maiden/prendas_reales/run-for-your-lives-2026-frente-real.jpg',
+                        alt: 'Remera terminada Run For Your Lives Argentina 2026 con estampa frontal',
+                        label: 'Run For Your Lives Argentina 2026 · Frente',
+                        width: 941,
+                        height: 1672
+                    },
+                    {
+                        src: '/images/iron_maiden/prendas_reales/eddie-circular-fmd-frente-real.jpg',
+                        alt: 'Remera terminada Eddie Circular FMD con estampa frontal',
+                        label: 'Eddie Circular FMD · Frente',
+                        width: 941,
+                        height: 1672
+                    },
+                    {
+                        src: '/images/iron_maiden/prendas_reales/eddie-gaucho-con-fechas-frente-real.jpg',
+                        alt: 'Remera terminada Eddie Gaucho Argentino con fechas de Buenos Aires 2026 en el frente',
+                        label: 'Eddie Gaucho con fechas · Frente',
+                        width: 941,
+                        height: 1672
+                    },
+                    {
+                        src: '/images/iron_maiden/prendas_reales/eddie_gaucho_dorso.jpg',
+                        alt: 'Dorso real Buenos Aires 2026 de la remera Eddie Gaucho Argentino terminada',
+                        label: 'Eddie Gaucho Argentino · Dorso Buenos Aires 2026',
+                        width: 1086,
+                        height: 1448
+                    },
+                    {
+                        src: '/images/iron_maiden/prendas_reales/eddie-tanguero-dorso-real.jpg',
+                        alt: 'Dorso terminado de Eddie Tanguero con fechas de Buenos Aires 2026',
+                        label: 'Eddie Tanguero · Dorso Buenos Aires 2026',
+                        width: 941,
+                        height: 1672
+                    },
+                    {
+                        src: '/images/iron_maiden/prendas_reales/powerslave-dorso-real.jpg',
+                        alt: 'Dorso terminado de Powerslave con emblema alado',
+                        label: 'Powerslave · Dorso',
+                        width: 941,
+                        height: 1672
+                    },
+                    {
+                        src: '/images/iron_maiden/prendas_reales/somewhere-in-time-dorso-real.jpg',
+                        alt: 'Dorso terminado de Somewhere in Time con Eddie cósmico',
+                        label: 'Somewhere in Time · Dorso Eddie cósmico',
+                        width: 941,
+                        height: 1672
+                    },
+                    {
+                        src: '/images/iron_maiden/prendas_reales/run-for-your-lives-world-tour-2026-dorso-real.jpg',
+                        alt: 'Dorso terminado Run For Your Lives World Tour 2026 con fechas de Latinoamérica',
+                        label: 'Run For Your Lives 2026 · Dorso de gira',
+                        width: 941,
+                        height: 1672
+                    },
+                    {
+                        src: '/images/iron_maiden/prendas_reales/run-for-your-lives-logo-dorso-real.jpg',
+                        alt: 'Dorso terminado con el logo Run For Your Lives',
+                        label: 'Run For Your Lives · Dorso con logo',
+                        width: 941,
+                        height: 1672
+                    },
+                    {
+                        src: '/images/iron_maiden/prendas_reales/eddie-gaucho-buenos-aires-dorso-real.jpg',
+                        alt: 'Otra vista del dorso terminado Eddie Gaucho Buenos Aires 2026',
+                        label: 'Eddie Gaucho · Dorso Buenos Aires 2026',
+                        width: 941,
+                        height: 1672
+                    },
+                    {
                         src: '/images/iron_maiden/prendas_reales/detalle_dtg.jpg',
                         alt: 'Detalle macro de la impresión DTG sobre algodón peinado',
+                        label: 'Detalle de impresión DTG',
                         width: 1122,
                         height: 1402
                     }
