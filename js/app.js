@@ -6826,10 +6826,9 @@ function getBandLandingDesignPreview(design, garment = bandLandingGarment) {
     if (normalizeText(BAND_LANDING_BAND) === 'helloween') {
         return chooseCleanCatalogPreview(previews) || design?.front || null;
     }
-    const garmentIsAvailable = (design?.availableGarments || []).includes(garment);
     return previews.find(item => item.preferredPreview)
         || previews[0]
-        || (garmentIsAvailable ? design?.front || null : null);
+        || null;
 }
 
 function getCatalogDesignSearchText(design) {

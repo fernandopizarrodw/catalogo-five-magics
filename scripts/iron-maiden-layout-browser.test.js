@@ -215,7 +215,7 @@ async function main() {
                 return {
                     heading: document.getElementById('productsCount').textContent.trim(),
                     cards: document.querySelectorAll('#productsGrid .catalog-design-card').length,
-                    missing: catalogDesigns.filter(isCatalogDesignInScope).filter(design => !getBandLandingDesignPreview(design, garment)).map(design => ({ id: design.designId, garments: design.availableGarments }))
+                    visibleWithoutMock: (getCatalogDesignResults() || []).filter(design => !(design.previewsByGarment?.[garment] || []).length).map(design => design.designId)
                 };
             };
             const hoodie = await inspect('hoodie');
@@ -223,10 +223,12 @@ async function main() {
             const remera = await inspect('remera');
             return { hoodie, buzo, remera };
         })()`);
-        assert(garmentAvailability.hoodie.heading.startsWith('82 ') && garmentAvailability.hoodie.heading.includes('HOODIES'), JSON.stringify(garmentAvailability));
-        assert.equal(garmentAvailability.hoodie.cards, 16);
-        assert(garmentAvailability.buzo.heading.startsWith('82 ') && garmentAvailability.buzo.heading.includes('BUZOS'));
-        assert.equal(garmentAvailability.buzo.cards, 16);
+        assert(garmentAvailability.hoodie.heading.startsWith('8 ') && garmentAvailability.hoodie.heading.includes('HOODIES'), JSON.stringify(garmentAvailability));
+        assert.equal(garmentAvailability.hoodie.cards, 8);
+        assert.equal(garmentAvailability.hoodie.visibleWithoutMock.length, 0);
+        assert(garmentAvailability.buzo.heading.startsWith('10 ') && garmentAvailability.buzo.heading.includes('BUZOS'));
+        assert.equal(garmentAvailability.buzo.cards, 10);
+        assert.equal(garmentAvailability.buzo.visibleWithoutMock.length, 0);
         assert(garmentAvailability.remera.heading.startsWith('82 ') && garmentAvailability.remera.heading.includes('REMERAS'));
         assert.equal(garmentAvailability.remera.cards, 16);
 
