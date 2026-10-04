@@ -372,7 +372,7 @@
                 { id: 'tour-argentina', label: 'TOUR ARGENTINA 2026', match: { designIds: [
                     'cd-iron-maiden-eddie-gaucho-argentino--p7040', 'iron-maiden-eddie-gaucho-argentino-con-fechas',
                     'iron-maiden-eddie-tanguero-original-fmd', 'iron-maiden-eddie-huracan-original-fmd',
-                    'iron-maiden-run-for-your-lives-2026-oficial', 'iron-maiden-run-for-your-lives-buenos-aires',
+                    'iron-maiden-run-for-your-lives-2026-oficial', 'iron-maiden-run-for-your-lives-fmd-2026', 'iron-maiden-run-for-your-lives-buenos-aires',
                     'iron-maiden-eddies-run-for-your-lives', 'cd-iron-maiden-eddie-argentina-v1-fmd--p7015',
                     'cd-iron-maiden-eddie-argentina-v2-fmd--p7016', 'cd-iron-maiden-eddie-circular-fmd--p7019',
                     'cd-iron-maiden-eddie-run-for-fmd--p7021', 'cd-iron-maiden-eddie-bass-fmd--p7018',
@@ -394,7 +394,7 @@
                     'iron-maiden-run-to-the-hills', 'iron-maiden-flight-of-icarus-singles',
                     'iron-maiden-2-minutes-to-midnight-singles', 'iron-maiden-aces-high-singles',
                     'iron-maiden-wasted-years-singles', 'cd-iron-maiden-can-i-play-with-madness--p5033',
-                    'iron-maiden-the-evil-that-men-do-single', 'iron-maiden-bring-your-daughter-single',
+                    'iron-maiden-the-evil-that-men-do-single', 'iron-maiden-the-clairvoyant', 'iron-maiden-bring-your-daughter-single',
                     'iron-maiden-the-trooper-classic', 'iron-maiden-hallowed-be-thy-name'
                 ] } },
                 { id: 'somewhere-40', label: 'SOMEWHERE IN TIME · 40 AÑOS', match: { designIds: [
@@ -411,7 +411,8 @@
                     'cd-iron-maiden-killers-v2-edicion-fmd--p7024', 'cd-iron-maiden-the-book-fmd--p7028',
                     'iron-maiden-run-to-the-hills', 'iron-maiden-2-minutes-to-midnight-singles',
                     'iron-maiden-aces-high-singles', 'iron-maiden-flight-of-icarus-singles',
-                    'iron-maiden-number-of-the-beast-singles', 'iron-maiden-wasted-years-singles'
+                    'iron-maiden-number-of-the-beast-singles', 'iron-maiden-wasted-years-singles',
+                    'iron-maiden-run-for-your-lives-fmd-2026'
                 ] } },
                 { id: 'album-iron-maiden', group: 'album', label: 'IRON MAIDEN · 1980', match: { albums: ['Iron Maiden'] } },
                 { id: 'album-killers', group: 'album', label: 'KILLERS · 1981', match: { albums: ['Killers'] } },
@@ -629,6 +630,7 @@
                 'iron-maiden-eddie-huracan-original-fmd',
                 'iron-maiden-eddie-tanguero-original-fmd',
                 'iron-maiden-run-for-your-lives-2026-oficial',
+                'iron-maiden-run-for-your-lives-fmd-2026',
                 'iron-maiden-run-for-your-lives-buenos-aires',
                 'iron-maiden-eddies-run-for-your-lives',
                 'cd-iron-maiden-eddie-argentina-v1-fmd--p7015',
@@ -666,6 +668,7 @@
                 'iron-maiden-the-trooper-france',
                 'iron-maiden-flight-of-icarus-singles',
                 'iron-maiden-powerslave-1984-run-for-your-lives',
+                'iron-maiden-powerslave-piramide',
                 'iron-maiden-world-slavery-tour-1984',
                 'iron-maiden-powerslave-fmd',
                 'cd-iron-maiden-tour-merch-powerslave-fmd--p7030',
@@ -684,6 +687,7 @@
                 'iron-maiden-seventh-son-1988-run-for-your-lives',
                 'cd-iron-maiden-can-i-play-with-madness--p5033',
                 'iron-maiden-the-evil-that-men-do-single',
+                'iron-maiden-the-clairvoyant',
                 'iron-maiden-seventh-son-eddie',
                 'iron-maiden-no-prayer-1990-run-for-your-lives',
                 'iron-maiden-bring-your-daughter-single',
@@ -713,6 +717,8 @@
                 'iron-maiden-eddie-tanguero-original-fmd': 'ORIGINAL FMD',
                 'iron-maiden-eddie-huracan-original-fmd': 'ORIGINAL FMD',
                 'iron-maiden-run-for-your-lives-2026-oficial': 'TOUR 2026',
+                'iron-maiden-run-for-your-lives-fmd-2026': 'ORIGINAL FMD',
+                'iron-maiden-the-clairvoyant': 'SINGLE',
                 'iron-maiden-somewhere-in-time-40th-fmd': '40 AÑOS'
             },
             initialCatalogVisibleLimit: 16,

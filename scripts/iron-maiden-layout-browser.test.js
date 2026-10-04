@@ -133,7 +133,7 @@ async function main() {
         assert.equal(mobile.primaryFilters.length, 7);
         assert.equal(mobile.albumFilters, 9);
         assert.equal(mobile.initialCards, 16);
-        assert.equal(mobile.totalHeading, '82 DISEÑOS · REMERAS IRON MAIDEN');
+        assert.equal(mobile.totalHeading, '85 DISEÑOS · REMERAS IRON MAIDEN');
         assert.deepEqual(mobile.initialOrder, [
             'cd-iron-maiden-eddie-gaucho-argentino--p7040',
             'iron-maiden-eddie-gaucho-argentino-con-fechas',
@@ -229,7 +229,7 @@ async function main() {
         assert(garmentAvailability.buzo.heading.startsWith('10 ') && garmentAvailability.buzo.heading.includes('BUZOS'));
         assert.equal(garmentAvailability.buzo.cards, 10);
         assert.equal(garmentAvailability.buzo.visibleWithoutMock.length, 0);
-        assert(garmentAvailability.remera.heading.startsWith('82 ') && garmentAvailability.remera.heading.includes('REMERAS'));
+        assert(garmentAvailability.remera.heading.startsWith('85 ') && garmentAvailability.remera.heading.includes('REMERAS'));
         assert.equal(garmentAvailability.remera.cards, 16);
 
         const collectionCounts = await evaluate(`(async () => {
@@ -243,8 +243,8 @@ async function main() {
             selectBandLandingCollection('');
             return { singles, originals };
         })()`);
-        assert(collectionCounts.singles.startsWith('13 '));
-        assert(collectionCounts.originals.startsWith('18 '));
+        assert(collectionCounts.singles.startsWith('14 '));
+        assert(collectionCounts.originals.startsWith('19 '));
 
         const filterResult = await evaluate(`(async () => {
             selectBandLandingCollection('tour-argentina');
@@ -454,7 +454,7 @@ async function main() {
         assert.equal(desktop.proofOverflow, true);
         assert.equal(desktop.proofVisible, 8);
         assert.equal(desktop.pageOverflow, false);
-        assert.equal(desktop.catalogCount, '82 DISEÑOS · REMERAS IRON MAIDEN');
+        assert.equal(desktop.catalogCount, '85 DISEÑOS · REMERAS IRON MAIDEN');
         const desktopCurated = await captureSection('#bandCuratedSelection', 'iron-maiden-curated-desktop.png');
         const desktopProof = await captureSection('#realProductProof', 'iron-maiden-proof-desktop.png');
 

@@ -24504,5 +24504,112 @@
       "Edición FMD",
       "remera"
     ]
+  },
+  {
+    "id": 7285,
+    "designId": "iron-maiden-powerslave-piramide",
+    "designSlug": "iron-maiden-powerslave-piramide",
+    "category": "Iron Maiden",
+    "band": "Iron Maiden",
+    "name": "Powerslave · Pirámide",
+    "year": "1984",
+    "album": "Powerslave",
+    "tipoPrecio": "simple",
+    "defaultPrintMode": "frontal",
+    "catalogGarments": ["remera", "hoodie", "buzo_cuello_redondo"],
+    "isNew": true,
+    "img": "images/iron_maiden/9 discos 1 tour/Powerslave_v2.jpg",
+    "desc": "Diseño inspirado en Powerslave.",
+    "variants": [
+      {
+        "img": "images/iron_maiden/9 discos 1 tour/Powerslave_v2.jpg",
+        "name": "Powerslave · Pirámide",
+        "publicName": "Powerslave · Pirámide",
+        "selectionLabel": "Frente Pirámide",
+        "designId": "iron-maiden-powerslave-piramide",
+        "role": "front",
+        "preferredPreview": true
+      }
+    ],
+    "garments": ["remera", "hoodie", "buzo_cuello_redondo"],
+    "collections": ["Archivo Maiden", "Powerslave"],
+    "campaigns": ["Run For Your Lives 2026"],
+    "commercialPriority": 88,
+    "visibilityTier": "catalog",
+    "legacyCategory": "Iron Maiden",
+    "fmdBadge": "CLÁSICO",
+    "tags": ["Iron Maiden", "Powerslave", "1984", "remera"]
+  },
+  {
+    "id": 7286,
+    "designId": "iron-maiden-the-clairvoyant",
+    "designSlug": "iron-maiden-the-clairvoyant",
+    "category": "Iron Maiden",
+    "band": "Iron Maiden",
+    "name": "The Clairvoyant",
+    "year": "1988",
+    "album": "Seventh Son of a Seventh Son",
+    "tipoPrecio": "simple",
+    "defaultPrintMode": "frontal",
+    "catalogGarments": ["remera", "hoodie", "buzo_cuello_redondo"],
+    "isNew": true,
+    "img": "images/iron_maiden/Iron_Maiden_The Clairvoyant.jpg",
+    "desc": "Diseño inspirado en The Clairvoyant.",
+    "variants": [
+      {
+        "img": "images/iron_maiden/Iron_Maiden_The Clairvoyant.jpg",
+        "name": "The Clairvoyant",
+        "publicName": "The Clairvoyant",
+        "selectionLabel": "Frente The Clairvoyant",
+        "designId": "iron-maiden-the-clairvoyant",
+        "role": "front",
+        "preferredPreview": true
+      }
+    ],
+    "garments": ["remera", "hoodie", "buzo_cuello_redondo"],
+    "collections": ["Archivo Maiden", "Singles de Iron Maiden"],
+    "campaigns": ["Run For Your Lives 2026"],
+    "commercialPriority": 86,
+    "visibilityTier": "catalog",
+    "legacyCategory": "Iron Maiden",
+    "fmdBadge": "SINGLE",
+    "tags": ["Iron Maiden", "The Clairvoyant", "Seventh Son of a Seventh Son", "1988", "Single", "remera"]
+  },
+  {
+    "id": 7287,
+    "designId": "iron-maiden-run-for-your-lives-fmd-2026",
+    "designSlug": "iron-maiden-run-for-your-lives-fmd-2026",
+    "category": "Iron Maiden",
+    "band": "Iron Maiden",
+    "name": "Run For Your Lives · Edición FMD",
+    "year": "2026",
+    "album": null,
+    "tipoPrecio": "simple",
+    "defaultPrintMode": "frontal",
+    "catalogGarments": ["remera", "hoodie", "buzo_cuello_redondo"],
+    "isNew": true,
+    "img": "images/iron_maiden/eddie_run_for_your_lives_tour/remera_iron_maiden_run_fmd.jpg",
+    "desc": "Edición FMD para Run For Your Lives Argentina 2026.",
+    "variants": [
+      {
+        "img": "images/iron_maiden/eddie_run_for_your_lives_tour/remera_iron_maiden_run_fmd.jpg",
+        "name": "Run For Your Lives · Edición FMD",
+        "publicName": "Run For Your Lives · Edición FMD",
+        "selectionLabel": "Frente Edición FMD",
+        "designId": "iron-maiden-run-for-your-lives-fmd-2026",
+        "role": "front",
+        "preferredPreview": true,
+        "fmdBadge": "ORIGINAL FMD",
+        "fmdBadgeDescription": "Diseño original creado por Five Magics Designs."
+      }
+    ],
+    "garments": ["remera", "hoodie", "buzo_cuello_redondo"],
+    "collections": ["Archivo Maiden", "Originales FMD", "Tour Argentina 2026"],
+    "campaigns": ["Argentina 2026", "Run For Your Lives 2026"],
+    "commercialPriority": 94,
+    "visibilityTier": "catalog",
+    "legacyCategory": "Iron Maiden",
+    "fmdBadge": "ORIGINAL FMD",
+    "tags": ["Iron Maiden", "Run For Your Lives", "Argentina 2026", "Original FMD", "remera"]
   }
 ]
