@@ -133,7 +133,7 @@ async function main() {
         assert.equal(mobile.primaryFilters.length, 7);
         assert.equal(mobile.albumFilters, 9);
         assert.equal(mobile.initialCards, 16);
-        assert.equal(mobile.totalHeading, '89 DISEÑOS · REMERAS IRON MAIDEN');
+        assert.equal(mobile.totalHeading, '94 DISEÑOS · REMERAS IRON MAIDEN');
         assert.deepEqual(mobile.initialOrder, [
             'cd-iron-maiden-eddie-gaucho-argentino--p7040',
             'iron-maiden-eddie-gaucho-argentino-con-fechas',
@@ -240,7 +240,7 @@ async function main() {
         assert.equal(garmentAvailability.buzo.results, garmentAvailability.buzo.expected);
         assert.deepEqual(garmentAvailability.buzo.unavailableShown, []);
         assert.deepEqual(garmentAvailability.buzo.missing, []);
-        assert(garmentAvailability.remera.heading.startsWith('89 ') && garmentAvailability.remera.heading.includes('REMERAS'));
+        assert(garmentAvailability.remera.heading.startsWith('94 ') && garmentAvailability.remera.heading.includes('REMERAS'));
         assert.equal(garmentAvailability.remera.cards, 16);
 
         const collectionCounts = await evaluate(`(async () => {
@@ -507,7 +507,7 @@ async function main() {
         assert.equal(desktop.proofOverflow, true);
         assert.equal(desktop.proofVisible, 8);
         assert.equal(desktop.pageOverflow, false);
-        assert.equal(desktop.catalogCount, '89 DISEÑOS · REMERAS IRON MAIDEN');
+        assert.equal(desktop.catalogCount, '94 DISEÑOS · REMERAS IRON MAIDEN');
         const desktopCurated = await captureSection('#bandCuratedSelection', 'iron-maiden-curated-desktop.png');
         const desktopProof = await captureSection('#realProductProof', 'iron-maiden-proof-desktop.png');
 
