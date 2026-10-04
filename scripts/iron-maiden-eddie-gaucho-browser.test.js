@@ -134,11 +134,13 @@ async function main() {
                 available: getCatalogDesignBackChoices().length,
                 visible: document.querySelectorAll('#dorsoVariantsGrid .catalog-design-dorso').length,
                 hiddenGroups: document.querySelectorAll('#dorsoVariantsGrid details').length,
+                alternativesOpen: document.querySelector('#dorsoVariantsGrid details')?.open || false,
                 whatsapp: document.querySelector('.catalog-design-dorso-whatsapp')?.textContent.trim() || ''
             };
         })()`);
         assert.equal(backs.visible, backs.available);
-        assert.equal(backs.hiddenGroups, 0);
+        assert.equal(backs.hiddenGroups, 1);
+        assert.equal(backs.alternativesOpen, false);
         assert.equal(backs.whatsapp, 'ELEGIR OTRO DORSO POR WHATSAPP');
         console.log(JSON.stringify({ modal, order, dated, related, backs }, null, 2));
     } finally {

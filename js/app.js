@@ -311,6 +311,96 @@ function toggleRealProductProof(button) {
 
 window.toggleRealProductProof = toggleRealProductProof;
 
+function initRealProductProofCarousel() {
+    const track = document.querySelector('[data-proof-carousel]');
+    if (!track) return;
+    const section = track.closest('.band-real-product-proof');
+    const items = [...track.querySelectorAll('.band-real-product-proof-item')];
+    const previous = section?.querySelector('[data-proof-prev]');
+    const next = section?.querySelector('[data-proof-next]');
+    const counter = section?.querySelector('[data-proof-counter]');
+    if (!section || items.length < 2 || !previous || !next || !counter) return;
+
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let activeIndex = 0;
+    let autoplayTimer = 0;
+    let visible = true;
+    let interacting = false;
+    let scrollTimer = 0;
+
+    const updateCounter = () => {
+        counter.textContent = `${activeIndex + 1} / ${items.length}`;
+    };
+    const scheduleAutoplay = () => {
+        window.clearTimeout(autoplayTimer);
+        if (reducedMotion || !visible || interacting || document.hidden) return;
+        autoplayTimer = window.setTimeout(() => goTo(activeIndex + 1), 4200);
+    };
+    const goTo = index => {
+        activeIndex = (index + items.length) % items.length;
+        const left = Math.max(0, items[activeIndex].offsetLeft - track.offsetLeft);
+        track.scrollTo({ left, behavior: reducedMotion ? 'auto' : 'smooth' });
+        updateCounter();
+        scheduleAutoplay();
+    };
+    const syncFromScroll = () => {
+        window.clearTimeout(scrollTimer);
+        scrollTimer = window.setTimeout(() => {
+            activeIndex = items.reduce((closest, item, index) => (
+                Math.abs(item.offsetLeft - track.offsetLeft - track.scrollLeft)
+                    < Math.abs(items[closest].offsetLeft - track.offsetLeft - track.scrollLeft)
+                    ? index
+                    : closest
+            ), 0);
+            updateCounter();
+            scheduleAutoplay();
+        }, 90);
+    };
+
+    previous.addEventListener('click', () => goTo(activeIndex - 1));
+    next.addEventListener('click', () => goTo(activeIndex + 1));
+    track.addEventListener('scroll', syncFromScroll, { passive: true });
+    track.addEventListener('keydown', event => {
+        if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
+        event.preventDefault();
+        goTo(activeIndex + (event.key === 'ArrowRight' ? 1 : -1));
+    });
+    track.addEventListener('pointerdown', () => {
+        interacting = true;
+        window.clearTimeout(autoplayTimer);
+    }, { passive: true });
+    const resume = () => {
+        interacting = false;
+        scheduleAutoplay();
+    };
+    track.addEventListener('pointerup', resume, { passive: true });
+    track.addEventListener('pointercancel', resume, { passive: true });
+    section.addEventListener('mouseenter', () => {
+        interacting = true;
+        window.clearTimeout(autoplayTimer);
+    });
+    section.addEventListener('mouseleave', resume);
+    section.addEventListener('focusin', () => {
+        interacting = true;
+        window.clearTimeout(autoplayTimer);
+    });
+    section.addEventListener('focusout', event => {
+        if (section.contains(event.relatedTarget)) return;
+        resume();
+    });
+    document.addEventListener('visibilitychange', scheduleAutoplay);
+    if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver(([entry]) => {
+            visible = entry.isIntersecting;
+            scheduleAutoplay();
+        }, { threshold: 0.15 });
+        observer.observe(section);
+    }
+
+    updateCounter();
+    scheduleAutoplay();
+}
+
 function selectBandLandingGarment(garment) {
     if (!isBandLandingMode() || !BAND_LANDING_GARMENTS.has(garment)) return;
     bandLandingOuterwear = false;
@@ -2527,7 +2617,11 @@ function updateCatalogDesignReferenceNote() {
     if (!note || !currentCatalogDesign) return;
     document.querySelector('.modal-adaptable-note')?.classList.add('is-hidden');
     const garment = getCatalogDesignGarmentKey();
-    const hasPreview = Boolean(currentCatalogDesign.previewsByGarment?.[garment]?.length);
+    const garmentPreviews = currentCatalogDesign.previewsByGarment?.[garment] || [];
+    const hasPreview = garmentPreviews.some(preview => (
+        Number(preview.productId) === Number(selectedCatalogFrontRef?.productId)
+        && Number(preview.variantIndex) === Number(selectedCatalogFrontRef?.variantIndex)
+    ));
     const garmentLabel = garment === 'hoodie'
         ? 'hoodie'
         : garment === 'buzo_cuello_redondo'
@@ -2553,9 +2647,22 @@ function updateCatalogDesignReferenceNote() {
 function selectCatalogDesignPreviewForGarment(modalGarment) {
     if (!currentCatalogDesign || !currentModalSourceRefs.length) return;
     const garment = getCatalogDesignGarmentKey(modalGarment);
+    const previousSelection = selectedCatalogFrontRef;
+    const previousSelectionLabel = normalizeText(previousSelection?.selectionLabel || previousSelection?.label || '');
     const garmentRefs = getCatalogDesignFrontRefs(currentCatalogDesign)
         .filter(ref => ref.garment === garment);
-    if (garmentRefs.length) {
+    const compatibleGarmentRef = garmentRefs.find(ref => (
+        Number(ref.productId) === Number(previousSelection?.productId)
+        && Number(ref.variantIndex) === Number(previousSelection?.variantIndex)
+    )) || garmentRefs.find(ref => (
+        previousSelectionLabel
+        && normalizeText(ref.selectionLabel || ref.label || '') === previousSelectionLabel
+    ));
+    const previousGarmentRefs = getCatalogDesignFrontRefs(currentCatalogDesign)
+        .filter(ref => ref.garment === previousSelection?.garment);
+    const canUseSingleGarmentPreview = garmentRefs.length === 1 && previousGarmentRefs.length <= 1;
+    const targetGarmentRef = compatibleGarmentRef || (canUseSingleGarmentPreview ? garmentRefs[0] : null);
+    if (targetGarmentRef) {
         const currentKeys = currentModalSourceRefs.map(ref => `${ref.productId}:${ref.variantIndex}`);
         const garmentKeys = garmentRefs.map(ref => `${ref.productId}:${ref.variantIndex}`);
         const needsRefresh = currentKeys.length !== garmentKeys.length
@@ -2578,7 +2685,7 @@ function selectCatalogDesignPreviewForGarment(modalGarment) {
         Number(item.productId) === Number(selectedCatalogFrontRef?.productId)
         && Number(item.variantIndex) === Number(selectedCatalogFrontRef?.variantIndex)
     ));
-    let preview = currentSelection || (preferCleanFront
+    let preview = currentSelection || targetGarmentRef || previousSelection || (preferCleanFront
         ? chooseCleanCatalogPreview(previews, selectedColorKey)
         : previews.find(item => selectedColorKey && normalizeText(item.color) === selectedColorKey)
             || previews.find(item => item.preferredPreview)
@@ -4720,6 +4827,7 @@ function renderDorsoSelector() {
     if (currentCatalogDesign) {
         const choices = getCatalogDesignBackChoices();
         const isEddieGaucho = currentCatalogDesign.designId === 'cd-iron-maiden-eddie-gaucho-argentino--p7040';
+        const collapseHistoricalBacks = normalizeText(currentCatalogDesign.band) === 'iron maiden';
         const recommended = choices.filter(ref => ref.backType === 'Recomendado');
         const hasTourRecommendation = recommended.some(ref => ref.tourRecommendation);
         const historical = choices
@@ -4749,7 +4857,10 @@ function renderDorsoSelector() {
         variantsGrid.innerHTML = `
             <div class="catalog-design-dorso-heading"><b>2. ELEG&Iacute; EL DORSO</b><span>Mir&aacute; todas las opciones y toc&aacute; VER GRANDE para revisar cada dise&ntilde;o.</span></div>
             ${recommended.length ? `<div class="catalog-design-dorso-recommended"><p><b>${isEddieGaucho || hasTourRecommendation ? 'DORSO RECOMENDADO' : 'RECOMENDADOS PARA ESTE DISE&Ntilde;O'}</b><span>${isEddieGaucho ? 'La opci&oacute;n Buenos Aires 2026 completa este dise&ntilde;o.' : hasTourRecommendation ? 'Opciones pensadas para completar los dise&ntilde;os del tour.' : 'Opciones creadas para combinar con este frente.'}</span></p><div>${recommended.map(renderChoice).join('')}</div></div>` : ''}
-            ${historical.length ? `<div class="catalog-design-dorso-all"><p><b>${recommended.length ? `TODOS LOS DEM&Aacute;S DORSOS DE ${currentCatalogDesign.band.toUpperCase()}` : `DORSOS DISPONIBLES DE ${currentCatalogDesign.band.toUpperCase()}`}</b></p><div>${historical.map(renderChoice).join('')}</div></div>` : ''}
+            ${historical.length ? (collapseHistoricalBacks
+                ? `<details class="catalog-design-dorso-all"><summary>${recommended.length ? `VER OTROS DORSOS DE ${currentCatalogDesign.band.toUpperCase()}` : `VER DORSOS DISPONIBLES DE ${currentCatalogDesign.band.toUpperCase()}`} <span>${historical.length}</span></summary><div>${historical.map(renderChoice).join('')}</div></details>`
+                : `<div class="catalog-design-dorso-all"><p><b>${recommended.length ? `TODOS LOS DEM&Aacute;S DORSOS DE ${currentCatalogDesign.band.toUpperCase()}` : `DORSOS DISPONIBLES DE ${currentCatalogDesign.band.toUpperCase()}`}</b></p><div>${historical.map(renderChoice).join('')}</div></div>`
+            ) : ''}
             <button type="button" class="catalog-design-dorso-help catalog-design-dorso-whatsapp" onclick="consultCatalogBackChoice()">ELEGIR OTRO DORSO POR WHATSAPP</button>
         `;
         if (summarySection) {
@@ -4977,6 +5088,7 @@ let currentModalSourceIndexes = [];
 let currentModalSourceRefs = [];
 let currentAlbumGarmentFilter = 'all';
 let scrollPosition = 0;
+let cartReturnScrollPosition = null;
 let modalReturnElement = null;
 let modalReturnDesignId = '';
 let isScrolling = false;
@@ -5155,6 +5267,31 @@ function getVariantGarmentType(variant) {
     return 'remera';
 }
 
+function renderModalCarouselIndicators(modalImages, activeIndex = 0) {
+    if (modalImages.length < 2) return '';
+    const showNames = currentCatalogDesign && normalizeText(currentCatalogDesign.band) === 'iron maiden';
+    return modalImages.map((item, index) => {
+        const active = index === activeIndex ? ' active' : '';
+        if (!showNames) return `<button type="button" class="carousel-dot${active}" data-index="${index}" aria-label="Ver variante ${index + 1}"></button>`;
+        const rawLabel = cleanPublicText(item?.name || `Versión ${index + 1}`);
+        const label = rawLabel
+            .replace(new RegExp(`^${String(currentCatalogDesign.publicName || '').replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\s*[·-]?\\s*`, 'i'), '')
+            .trim() || `Versión ${index + 1}`;
+        return `<button type="button" class="carousel-dot carousel-variant-tab${active}" data-index="${index}" aria-label="Ver ${label}">${label}</button>`;
+    }).join('');
+}
+
+function setModalCarouselNavigationVisibility(visible) {
+    const prevBtn = document.getElementById('carouselPrev');
+    const nextBtn = document.getElementById('carouselNext');
+    [prevBtn, nextBtn].forEach(button => {
+        if (!button) return;
+        button.classList.toggle('is-hidden', !visible);
+        button.style.display = visible ? '' : 'none';
+    });
+    if (carouselDots) carouselDots.style.display = visible ? '' : 'none';
+}
+
 function renderCurrentModalCarousel() {
     const modalImages = getModalImages();
     carousel.innerHTML = modalImages.map((v, index) => `
@@ -5163,9 +5300,7 @@ function renderCurrentModalCarousel() {
             <img src="${v.img}" alt="${currentProduct?.name || ''}">
         </div>
     `).join('');
-    carouselDots.innerHTML = modalImages.length > 1
-        ? modalImages.map((_, i) => `<div class="carousel-dot${i === 0 ? ' active' : ''}" data-index="${i}"></div>`).join('')
-        : '';
+    carouselDots.innerHTML = renderModalCarouselIndicators(modalImages, 0);
     currentSlide = 0;
     carousel.scrollLeft = 0;
     resetModalImageZoom();
@@ -5176,11 +5311,7 @@ function renderCurrentModalCarousel() {
         });
     });
 
-    const prevBtn = document.getElementById('carouselPrev');
-    const nextBtn = document.getElementById('carouselNext');
-    if (prevBtn) prevBtn.style.display = modalImages.length > 1 ? '' : 'none';
-    if (nextBtn) nextBtn.style.display = modalImages.length > 1 ? '' : 'none';
-    if (carouselDots) carouselDots.style.display = modalImages.length > 1 ? '' : 'none';
+    setModalCarouselNavigationVisibility(modalImages.length > 1);
 }
 
 function renderAlbumGarmentFilter() {
@@ -5511,7 +5642,7 @@ function openModal(id, variantIndex = undefined, scopedVariantIndexes = undefine
     `).join('');
     resetModalImageZoom();
 
-    carouselDots.innerHTML = modalImages.length > 1 ? modalImages.map((_, i) => `<div class="carousel-dot${i === currentSlide ? ' active' : ''}" data-index="${i}"></div>`).join('') : '';
+    carouselDots.innerHTML = renderModalCarouselIndicators(modalImages, currentSlide);
     
     // Añadir click listeners a los dots para que sean navegables
     if (modalImages.length > 1) {
@@ -5698,22 +5829,16 @@ function openModal(id, variantIndex = undefined, scopedVariantIndexes = undefine
         const nextBtn = document.getElementById('carouselNext');
         const dotsContainer = document.getElementById('carouselDots');
         
-        const lockToSingle = hasSpecificVariant && !hasScopedVariants;
+        const lockToSingle = !currentCatalogDesign && hasSpecificVariant && !hasScopedVariants;
         if (lockToSingle) {
             // Ocultar navegación si es variante específica
-            if(prevBtn) prevBtn.style.display = 'none';
-            if(nextBtn) nextBtn.style.display = 'none';
-            if(dotsContainer) dotsContainer.style.display = 'none';
+            setModalCarouselNavigationVisibility(false);
         } else {
             // Mostrar/ocultar según cantidad de imágenes
             if (modalImages.length > 1) {
-                if(prevBtn) prevBtn.style.display = '';
-                if(nextBtn) nextBtn.style.display = '';
-                if(dotsContainer) dotsContainer.style.display = '';
+                setModalCarouselNavigationVisibility(true);
             } else {
-                if(prevBtn) prevBtn.style.display = 'none';
-                if(nextBtn) nextBtn.style.display = 'none';
-                if(dotsContainer) dotsContainer.style.display = 'none';
+                setModalCarouselNavigationVisibility(false);
             }
         }
     } catch (e) { /* no bloquear si falla */ }
@@ -6701,7 +6826,10 @@ function getBandLandingDesignPreview(design, garment = bandLandingGarment) {
     if (normalizeText(BAND_LANDING_BAND) === 'helloween') {
         return chooseCleanCatalogPreview(previews) || design?.front || null;
     }
-    return previews.find(item => item.preferredPreview) || previews[0] || null;
+    const garmentIsAvailable = (design?.availableGarments || []).includes(garment);
+    return previews.find(item => item.preferredPreview)
+        || previews[0]
+        || (garmentIsAvailable ? design?.front || null : null);
 }
 
 function getCatalogDesignSearchText(design) {
@@ -6883,6 +7011,13 @@ function renderCatalogDesignResults(designs) {
             </button>
         </article>`;
     }).join('');
+    if (!visibleDesigns.length && currentSearch) {
+        productsGrid.innerHTML = `<div class="catalog-empty-state">
+            <strong>NO ENCONTRAMOS ESE DISEÑO EN ESTE FILTRO</strong>
+            <span>Podés limpiar la búsqueda y seguir recorriendo toda la colección.</span>
+            <button type="button" onclick="clearCatalogSearch()">VER TODA LA COLECCIÓN</button>
+        </div>`;
+    }
 
     ['megadethBackBtn', 'slayerBackBtn', 'maidenBackBtn'].forEach(id => {
         const button = document.getElementById(id);
@@ -7245,7 +7380,16 @@ searchInput.addEventListener('keydown', (e) => {
     }
 });
 
-searchClear.onclick = () => { searchInput.value = ''; currentSearch = ''; resetCatalogPagination(); searchClear.classList.remove('visible'); filterProducts(); };
+function clearCatalogSearch() {
+    searchInput.value = '';
+    currentSearch = '';
+    resetCatalogPagination();
+    searchClear.classList.remove('visible');
+    filterProducts();
+}
+
+window.clearCatalogSearch = clearCatalogSearch;
+searchClear.onclick = clearCatalogSearch;
 
 categoryNav.addEventListener('click', (e) => {
     const btn = e.target.closest('.cat-btn');
@@ -7967,6 +8111,7 @@ function buildCustomerDataForWhatsapp(data) {
             .join(' · ');
         if (location) lines.push(location);
         if (data.direccion) lines.push(`Dirección: ${data.direccion}`);
+        if (data.telefono) lines.push(`Teléfono: ${data.telefono}`);
     }
 
     if (!lines.length) {
@@ -8034,7 +8179,8 @@ function sendViaWhatsapp(postalCode = '', customerData = null) {
 }
 
 // === MODAL VISTA PREVIA DEL CARRITO ===
-function openCartPreview() {
+function openCartPreview(returnScrollPosition = null) {
+    cartReturnScrollPosition = Number.isFinite(returnScrollPosition) ? returnScrollPosition : null;
     trackCatalogEvent('cart_open', {
         cart_items: cart.getCart().length,
         band: currentCatalogDesign?.band || (currentProduct ? getCatalogBandLabel(currentProduct) : undefined),
@@ -8065,6 +8211,11 @@ function closeCartPreview() {
     if (modal) {
         modal.classList.remove('active');
         document.body.style.overflow = '';
+    }
+    if (Number.isFinite(cartReturnScrollPosition)) {
+        const returnPosition = cartReturnScrollPosition;
+        cartReturnScrollPosition = null;
+        requestAnimationFrame(() => window.scrollTo(0, returnPosition));
     }
 }
 
@@ -8460,7 +8611,7 @@ function renderCartPreview() {
                 <span style="color:#39ff14;">📦 ENVÍOS A TODO EL PAÍS:</span> 1 prenda: punto Andreani $5.000 o domicilio $9.000. 2 prendas: punto Andreani gratis o domicilio $9.000. 3 prendas o más: 10% OFF y envío gratis a punto Andreani o domicilio.
             </div>
             <div>
-                <span style="color:#39ff14;">💳 PAGO:</span> Transferencia o MercadoPago. Tarjeta de crédito disponible con recargo.
+                <span style="color:#39ff14;">💳 PAGO:</span> Transferencia o MercadoPago. Tarjeta de crédito: recargo fijo de $7.000.
             </div>
         </div>
         <div class="cart-preview-actions">
@@ -8719,8 +8870,9 @@ function addToCartFromModal() {
 
 function addToOrderAndOpenCart() {
     if (!addToCartFromModal()) return;
+    const returnScrollPosition = scrollPosition;
     closeModal(false, false);
-    openCartPreview();
+    openCartPreview(returnScrollPosition);
 }
 
 // Compatibilidad con botones guardados en HTML anterior.
@@ -9359,6 +9511,7 @@ function initMegadethShowcase() {
 document.addEventListener('DOMContentLoaded', () => {
     ensureProductionTrackingStrip();
     renderLandingSizeGuide('hombre');
+    initRealProductProofCarousel();
 
     if (bandLandingOuterwear) {
         document.querySelectorAll('[data-band-landing-garment]').forEach(button => {

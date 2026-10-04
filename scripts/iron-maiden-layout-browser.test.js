@@ -38,7 +38,9 @@ async function main() {
     };
     const navigate = async (width, height, mobile) => {
         await send('Emulation.setDeviceMetricsOverride', { width, height, deviceScaleFactor: 1, mobile });
-        await send('Page.navigate', { url: PAGE_URL });
+        const separator = PAGE_URL.includes('?') ? '&' : '?';
+        await send('Page.navigate', { url: `${PAGE_URL}${separator}audit=${Date.now()}` });
+        await new Promise(resolve => setTimeout(resolve, 500));
         for (let attempt = 0; attempt < 100; attempt += 1) {
             const ready = await evaluate(`document.readyState === 'complete'
                 && document.querySelectorAll('#bandCuratedSelection [data-design-id]').length === 16
@@ -85,6 +87,7 @@ async function main() {
             const proof = document.getElementById('realProductProof');
             const promo = document.querySelector('.purchase-volume-promo');
             const production = document.querySelector('.production-tracking-strip');
+            const garmentSelector = document.querySelector('.band-garment-selector');
             const proofGrid = proof.querySelector('.band-real-product-proof-grid');
             const primaryFilters = [...document.querySelectorAll('#bandLandingCollections [data-band-landing-collection]')];
             const albumFilters = [...document.querySelectorAll('.band-landing-album-filters [data-band-landing-collection]')];
@@ -103,11 +106,13 @@ async function main() {
                 proofCards: proofGrid.children.length,
                 proofVisible: proofGrid.querySelectorAll('.band-real-product-proof-item:not([hidden])').length,
                 proofToggle: proof.querySelector('.band-real-product-proof-toggle')?.textContent.replace(/\s+/g, ' ').trim() || '',
-                proofColumns: getComputedStyle(proofGrid).gridTemplateColumns.split(' ').length,
+                proofCounter: proof.querySelector('[data-proof-counter]')?.textContent.trim() || '',
+                proofControls: proof.querySelectorAll('.band-real-product-proof-controls button').length,
                 proofOverflow: proofGrid.scrollWidth > proofGrid.clientWidth,
                 catalogBeforeProof: mainChildren.indexOf(catalog) < mainChildren.indexOf(proof),
                 proofBeforePromo: mainChildren.indexOf(proof) < mainChildren.indexOf(promo),
                 promoBeforeProduction: mainChildren.indexOf(promo) < mainChildren.indexOf(production),
+                garmentSelectorBeforeCatalog: mainChildren.indexOf(garmentSelector) < mainChildren.indexOf(catalog),
                 oldCampaignRemoved: !document.getElementById('bandCampaignFeature'),
                 oldShowcaseRemoved: !document.getElementById('bandDesignShowcase'),
                 oldSinglesRemoved: !document.getElementById('bandSinglesCollection'),
@@ -135,14 +140,16 @@ async function main() {
             'iron-maiden-eddie-huracan-original-fmd',
             'iron-maiden-eddie-tanguero-original-fmd'
         ]);
-        assert.equal(mobile.proofCards, 17);
-        assert.equal(mobile.proofVisible, 6);
-        assert.equal(mobile.proofToggle, 'VER MÁS PRENDAS REALES 11');
-        assert.equal(mobile.proofColumns, 2);
-        assert.equal(mobile.proofOverflow, false);
+        assert.equal(mobile.proofCards, 8);
+        assert.equal(mobile.proofVisible, 8);
+        assert.equal(mobile.proofToggle, '');
+        assert.equal(mobile.proofCounter, '1 / 8');
+        assert.equal(mobile.proofControls, 2);
+        assert.equal(mobile.proofOverflow, true);
         assert.equal(mobile.catalogBeforeProof, true);
         assert.equal(mobile.proofBeforePromo, true);
         assert.equal(mobile.promoBeforeProduction, true);
+        assert.equal(mobile.garmentSelectorBeforeCatalog, true);
         assert.equal(mobile.oldCampaignRemoved, true);
         assert.equal(mobile.oldShowcaseRemoved, true);
         assert.equal(mobile.oldSinglesRemoved, true);
@@ -174,26 +181,20 @@ async function main() {
         })()`);
         assert.equal(imageAudit.broken.length, 0, `Hay imágenes rotas: ${imageAudit.broken.join(', ')}`);
 
-        const proofToggle = await evaluate(`(() => {
-            const button = document.querySelector('.band-real-product-proof-toggle');
-            button.click();
-            const expanded = {
-                visible: document.querySelectorAll('.band-real-product-proof-item:not([hidden])').length,
-                expanded: button.getAttribute('aria-expanded'),
-                label: button.textContent.trim()
+        const proofCarousel = await evaluate(`(async () => {
+            const section = document.getElementById('realProductProof');
+            section.scrollIntoView({ block: 'center' });
+            section.querySelector('[data-proof-next]').click();
+            await new Promise(resolve => setTimeout(resolve, 650));
+            const state = {
+                counter: section.querySelector('[data-proof-counter]').textContent.trim(),
+                scrollLeft: section.querySelector('[data-proof-carousel]').scrollLeft
             };
-            button.click();
-            return {
-                expanded,
-                collapsedVisible: document.querySelectorAll('.band-real-product-proof-item:not([hidden])').length,
-                collapsed: button.getAttribute('aria-expanded')
-            };
+            section.querySelector('[data-proof-prev]').click();
+            return state;
         })()`);
-        assert.equal(proofToggle.expanded.visible, 17);
-        assert.equal(proofToggle.expanded.expanded, 'true');
-        assert.equal(proofToggle.expanded.label, 'VER MENOS PRENDAS REALES');
-        assert.equal(proofToggle.collapsedVisible, 6);
-        assert.equal(proofToggle.collapsed, 'false');
+        assert.equal(proofCarousel.counter, '2 / 8');
+        assert(proofCarousel.scrollLeft > 0);
 
         const heroEddiesFilter = await evaluate(`(async () => {
             document.querySelector('.band-landing-secondary-cta').click();
@@ -206,6 +207,42 @@ async function main() {
         assert.equal(heroEddiesFilter.active, true);
         assert(heroEddiesFilter.heading.startsWith('6 DISEÑOS'));
         await evaluate(`selectBandLandingCollection('')`);
+
+        const garmentAvailability = await evaluate(`(async () => {
+            const inspect = async garment => {
+                selectBandLandingGarment(garment);
+                await new Promise(resolve => setTimeout(resolve, 100));
+                return {
+                    heading: document.getElementById('productsCount').textContent.trim(),
+                    cards: document.querySelectorAll('#productsGrid .catalog-design-card').length,
+                    missing: catalogDesigns.filter(isCatalogDesignInScope).filter(design => !getBandLandingDesignPreview(design, garment)).map(design => ({ id: design.designId, garments: design.availableGarments }))
+                };
+            };
+            const hoodie = await inspect('hoodie');
+            const buzo = await inspect('buzo_cuello_redondo');
+            const remera = await inspect('remera');
+            return { hoodie, buzo, remera };
+        })()`);
+        assert(garmentAvailability.hoodie.heading.startsWith('82 ') && garmentAvailability.hoodie.heading.includes('HOODIES'), JSON.stringify(garmentAvailability));
+        assert.equal(garmentAvailability.hoodie.cards, 16);
+        assert(garmentAvailability.buzo.heading.startsWith('82 ') && garmentAvailability.buzo.heading.includes('BUZOS'));
+        assert.equal(garmentAvailability.buzo.cards, 16);
+        assert(garmentAvailability.remera.heading.startsWith('82 ') && garmentAvailability.remera.heading.includes('REMERAS'));
+        assert.equal(garmentAvailability.remera.cards, 16);
+
+        const collectionCounts = await evaluate(`(async () => {
+            const inspect = async collection => {
+                selectBandLandingCollection(collection);
+                await new Promise(resolve => setTimeout(resolve, 100));
+                return document.getElementById('productsCount').textContent.trim();
+            };
+            const singles = await inspect('singles');
+            const originals = await inspect('fmd-originals');
+            selectBandLandingCollection('');
+            return { singles, originals };
+        })()`);
+        assert(collectionCounts.singles.startsWith('13 '));
+        assert(collectionCounts.originals.startsWith('18 '));
 
         const filterResult = await evaluate(`(async () => {
             selectBandLandingCollection('tour-argentina');
@@ -249,7 +286,69 @@ async function main() {
         assert.equal(fmdVariant.designId, 'iron-maiden-aces-high-singles');
         assert(fmdVariant.selectedImage.includes('FMD ACES'));
         assert(fmdVariant.modalImage.includes('FMD ACES'));
+        const fmdGarmentChange = await evaluate(`(() => {
+            selectModalGarment('hoodie');
+            return {
+                garment: selectedModalGarment,
+                selectedImage: selectedCatalogFrontRef?.image || '',
+                note: document.querySelector('.modal-preview-reference-note')?.textContent.trim() || '',
+                previewRefs: (currentCatalogDesign?.previewsByGarment?.hoodie || []).map(ref => ({ productId: ref.productId, variantIndex: ref.variantIndex, image: ref.image })),
+                variantButtons: document.querySelectorAll('#carouselDots .carousel-variant-tab').length,
+                arrowsVisible: !document.getElementById('carouselPrev').classList.contains('is-hidden')
+                    && !document.getElementById('carouselNext').classList.contains('is-hidden')
+            };
+        })()`);
+        assert.equal(fmdGarmentChange.garment, 'hoodie');
+        assert(fmdGarmentChange.selectedImage.includes('FMD ACES'));
+        assert(fmdGarmentChange.note.includes('DISPONIBLE EN HOODIE'), JSON.stringify(fmdGarmentChange));
+        assert(fmdGarmentChange.variantButtons > 1);
+        assert.equal(fmdGarmentChange.arrowsVisible, true);
         await evaluate(`closeModal()`);
+
+        const gauchoBacks = await evaluate(`(() => {
+            openCatalogDesign('cd-iron-maiden-eddie-gaucho-argentino--p7040', 'remera');
+            selectPrintMode('double');
+            const details = document.querySelector('.catalog-design-dorso-all');
+            const initial = {
+                exists: Boolean(details),
+                open: details?.open || false,
+                recommended: document.querySelectorAll('.catalog-design-dorso-recommended .catalog-design-dorso-choice').length,
+                extra: details?.querySelectorAll('.catalog-design-dorso-choice').length || 0
+            };
+            if (details) details.open = true;
+            const expanded = details?.open || false;
+            closeModal();
+            return { initial, expanded };
+        })()`);
+        assert.equal(gauchoBacks.initial.exists, true);
+        assert.equal(gauchoBacks.initial.open, false);
+        assert(gauchoBacks.initial.recommended > 0);
+        assert(gauchoBacks.initial.extra > 0);
+        assert.equal(gauchoBacks.expanded, true);
+
+        const homeCustomer = await evaluate(`(() => {
+            selectedDeliveryMethod = 'domicilio';
+            return buildCustomerDataForWhatsapp({
+                nombre: 'Ana', apellido: 'Prueba', telefono: '1122334455', cp: '1425',
+                provincia: 'Buenos Aires', localidad: 'CABA', direccion: 'Calle 123'
+            });
+        })()`);
+        assert(homeCustomer.includes('1122334455'));
+
+        const emptySearch = await evaluate(`(async () => {
+            const input = document.getElementById('searchInput');
+            input.value = 'zzz-sin-resultados-zzz';
+            input.dispatchEvent(new Event('input', { bubbles: true }));
+            await new Promise(resolve => setTimeout(resolve, 100));
+            const state = {
+                message: document.querySelector('.catalog-empty-state')?.textContent.replace(/\s+/g, ' ').trim() || '',
+                button: document.querySelector('.catalog-empty-state button')?.textContent.trim() || ''
+            };
+            clearCatalogSearch();
+            return state;
+        })()`);
+        assert(emptySearch.message.toUpperCase().includes('NO ENCONTRAMOS'), JSON.stringify(emptySearch));
+        assert(emptySearch.button.startsWith('VER TODA LA COLECCI'));
 
         const est1975 = await evaluate(`(() => {
             const inspect = id => {
@@ -305,6 +404,16 @@ async function main() {
         assert.equal(est1975Order.hasDoubleCopy, true);
         assert.equal(est1975Order.hasUndefinedBack, false);
 
+        const cartScrollReturn = await evaluate(`(async () => {
+            window.scrollTo(0, 900);
+            const before = window.scrollY;
+            openCartPreview(before);
+            closeCartPreview();
+            await new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)));
+            return { before, after: window.scrollY };
+        })()`);
+        assert(Math.abs(cartScrollReturn.after - cartScrollReturn.before) < 3, JSON.stringify(cartScrollReturn));
+
         await evaluate(`(async () => {
             for (const image of document.querySelectorAll('#bandCuratedSelection img, #productsGrid img')) {
                 image.scrollIntoView({ block: 'center' });
@@ -333,21 +442,21 @@ async function main() {
         const desktop = await evaluate(`(() => ({
             discoveryColumns: getComputedStyle(document.querySelector('.band-discovery-nav-grid')).gridTemplateColumns.split(' ').length,
             curatedColumns: getComputedStyle(document.querySelector('.band-curated-selection-grid')).gridTemplateColumns.split(' ').length,
-            proofColumns: getComputedStyle(document.querySelector('.band-real-product-proof-grid')).gridTemplateColumns.split(' ').length,
+            proofOverflow: document.querySelector('.band-real-product-proof-grid').scrollWidth > document.querySelector('.band-real-product-proof-grid').clientWidth,
             proofVisible: document.querySelectorAll('.band-real-product-proof-item:not([hidden])').length,
             pageOverflow: document.documentElement.scrollWidth > document.documentElement.clientWidth,
             catalogCount: document.getElementById('productsCount').textContent.trim()
         }))()`);
         assert.equal(desktop.discoveryColumns, 5);
         assert.equal(desktop.curatedColumns, 4);
-        assert.equal(desktop.proofColumns, 3);
-        assert.equal(desktop.proofVisible, 6);
+        assert.equal(desktop.proofOverflow, true);
+        assert.equal(desktop.proofVisible, 8);
         assert.equal(desktop.pageOverflow, false);
         assert.equal(desktop.catalogCount, '82 DISEÑOS · REMERAS IRON MAIDEN');
         const desktopCurated = await captureSection('#bandCuratedSelection', 'iron-maiden-curated-desktop.png');
         const desktopProof = await captureSection('#realProductProof', 'iron-maiden-proof-desktop.png');
 
-        console.log(JSON.stringify({ mobile, imageAudit, proofToggle, heroEddiesFilter, filterResult, gauchoModal, fmdVariant, est1975, est1975Order, desktop, screenshots: [mobileDiscovery, mobileCurated, mobileArchive, mobileProof, desktopCurated, desktopProof] }, null, 2));
+        console.log(JSON.stringify({ mobile, imageAudit, proofCarousel, heroEddiesFilter, filterResult, garmentAvailability, collectionCounts, gauchoModal, fmdVariant, fmdGarmentChange, gauchoBacks, emptySearch, est1975, est1975Order, cartScrollReturn, desktop, screenshots: [mobileDiscovery, mobileCurated, mobileArchive, mobileProof, desktopCurated, desktopProof] }, null, 2));
     } finally {
         socket.close();
     }

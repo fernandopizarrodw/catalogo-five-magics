@@ -1368,10 +1368,25 @@ body.band-landing-page[data-band="Helloween"] .production-tracking-strip {
 }
 
 body.band-landing-page[data-band="Iron Maiden"] .band-landing-hero {
+    min-height: 0;
+    padding-block: 42px;
     border-color: rgba(116, 172, 223, 0.55);
     background:
         radial-gradient(circle at 7% 90%, rgba(116, 172, 223, 0.2), transparent 34%),
         linear-gradient(105deg, #050607 0%, #0b1015 56%, #121a20 100%);
+}
+
+body.band-landing-page[data-band="Iron Maiden"] .band-landing-hero--copy-only .band-landing-hero-copy {
+    margin-inline: auto;
+    text-align: center;
+}
+
+body.band-landing-page[data-band="Iron Maiden"] .band-landing-hero--copy-only .band-landing-hero-copy > p:not(.band-landing-brand) {
+    margin-inline: auto;
+}
+
+body.band-landing-page[data-band="Iron Maiden"] .band-landing-hero-actions {
+    justify-content: center;
 }
 
 body.band-landing-page[data-band="Iron Maiden"] .band-landing-hero h1 {
@@ -1941,6 +1956,16 @@ body.band-landing-page[data-band="Iron Maiden"] .btn-wa-header svg circle {
     line-height: 1.1;
 }
 
+.band-curated-selection-grid small {
+    display: block;
+    padding: 0 10px 10px;
+    color: #8fc7ee;
+    font-family: "Oswald", sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+}
+
 .band-curated-selection-cta {
     display: block;
     min-height: 48px;
@@ -2035,6 +2060,93 @@ body.band-landing-page[data-band="Iron Maiden"] .btn-wa-header svg circle {
 .band-landing-page #modal .modal-actions-secondary,
 .band-landing-page #modal #btnDobleAction {
     display: none !important;
+}
+
+.band-real-product-proof.is-carousel {
+    overflow: hidden;
+}
+
+.band-real-product-proof-controls {
+    margin: 0 0 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+.band-real-product-proof-controls button {
+    width: 42px;
+    height: 42px;
+    padding: 0;
+    display: grid;
+    place-items: center;
+    border: 1px solid rgba(143, 199, 238, 0.55);
+    border-radius: 999px;
+    background: rgba(116, 172, 223, 0.08);
+    color: #fff;
+    font: 500 1.75rem/1 sans-serif;
+    cursor: pointer;
+}
+
+.band-real-product-proof-controls button:hover,
+.band-real-product-proof-controls button:focus-visible {
+    border-color: #8fc7ee;
+    background: rgba(116, 172, 223, 0.18);
+    outline: none;
+}
+
+.band-real-product-proof-controls output {
+    min-width: 58px;
+    color: #dceefa;
+    font: 800 0.78rem/1 "Oswald", sans-serif;
+    letter-spacing: 0.08em;
+    text-align: center;
+}
+
+.band-real-product-proof.is-carousel .band-real-product-proof-grid,
+body.band-landing-page[data-band="Iron Maiden"] .band-real-product-proof.is-carousel .band-real-product-proof-grid {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: calc((100% - 20px) / 3);
+    grid-template-columns: none;
+    gap: 10px;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+}
+
+.band-real-product-proof.is-carousel .band-real-product-proof-grid::-webkit-scrollbar {
+    display: none;
+}
+
+.band-real-product-proof.is-carousel .band-real-product-proof-item,
+body.band-landing-page[data-band="Iron Maiden"] .band-real-product-proof.is-carousel .band-real-product-proof-item {
+    min-width: 0;
+    scroll-snap-align: start;
+}
+
+@media (max-width: 700px) {
+    .band-real-product-proof.is-carousel {
+        padding-inline: 12px;
+    }
+
+    .band-real-product-proof.is-carousel .band-real-product-proof-grid,
+    body.band-landing-page[data-band="Iron Maiden"] .band-real-product-proof.is-carousel .band-real-product-proof-grid {
+        display: grid;
+        grid-auto-columns: 86%;
+        grid-template-columns: none;
+        gap: 10px;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+    }
+
+    .band-real-product-proof.is-carousel .band-real-product-proof-item,
+    body.band-landing-page[data-band="Iron Maiden"] .band-real-product-proof.is-carousel .band-real-product-proof-item {
+        min-width: 0;
+        scroll-snap-align: start;
+    }
 }
 
 .band-landing-page #modal .band-landing-modal-help {

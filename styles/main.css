@@ -694,6 +694,43 @@
     border-top: 1px solid #333;
 }
 
+.catalog-design-dorso-all > summary {
+    min-height: 42px;
+    padding: 10px 12px;
+    border: 1px solid #3a4146;
+    border-radius: 7px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    color: #f0f0f0;
+    background: #11161a;
+    font-size: .76rem;
+    font-weight: 800;
+    letter-spacing: .04em;
+    cursor: pointer;
+    list-style: none;
+}
+
+.catalog-design-dorso-all > summary::-webkit-details-marker {
+    display: none;
+}
+
+.catalog-design-dorso-all > summary span {
+    min-width: 24px;
+    min-height: 24px;
+    border-radius: 999px;
+    display: inline-grid;
+    place-items: center;
+    color: #050505;
+    background: var(--magic-green);
+}
+
+.catalog-design-dorso-all[open] > summary {
+    margin-bottom: 10px;
+    border-color: var(--magic-green);
+}
+
 .catalog-design-dorso-choice,
 .legacy-dorso-choice {
     min-width: 0;
@@ -8008,6 +8045,110 @@ header {
 
 .carousel-dot.active {
     background: var(--rust);
+}
+
+body.band-landing-page[data-band="Iron Maiden"] #modal.catalog-design-modal .carousel-indicators {
+    bottom: 14px;
+    max-width: calc(100% - 84px);
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px;
+    z-index: 5;
+}
+
+body.band-landing-page[data-band="Iron Maiden"] #modal.catalog-design-modal .carousel-variant-tab {
+    width: auto;
+    height: auto;
+    min-height: 34px;
+    padding: 7px 10px;
+    border: 1px solid rgba(255,255,255,.45);
+    border-radius: 999px;
+    color: #fff;
+    background: rgba(5,8,10,.9);
+    font: 700 .7rem/1.1 "Oswald", sans-serif;
+    cursor: pointer;
+}
+
+body.band-landing-page[data-band="Iron Maiden"] #modal.catalog-design-modal .carousel-variant-tab.active {
+    border-color: #8fc7ee;
+    color: #07111a;
+    background: #8fc7ee;
+}
+
+body.band-landing-page[data-band="Iron Maiden"] #modal.catalog-design-modal .carousel-arrow {
+    position: absolute;
+    top: 44%;
+    width: 42px;
+    height: 48px;
+    border: 1px solid rgba(143,199,238,.7);
+    border-radius: 9px;
+    display: grid;
+    place-items: center;
+    color: #fff;
+    background: rgba(5,8,10,.82);
+    z-index: 6;
+    cursor: pointer;
+}
+
+body.band-landing-page[data-band="Iron Maiden"] #modal.catalog-design-modal .carousel-arrow.left {
+    left: 10px;
+}
+
+body.band-landing-page[data-band="Iron Maiden"] #modal.catalog-design-modal .carousel-arrow.right {
+    right: 10px;
+}
+
+body.band-landing-page[data-band="Iron Maiden"] #modal.catalog-design-modal .carousel-arrow.is-hidden {
+    display: none !important;
+}
+
+.catalog-empty-state {
+    grid-column: 1 / -1;
+    min-height: 220px;
+    padding: 30px 20px;
+    border: 1px solid rgba(255,255,255,.16);
+    border-radius: 14px;
+    display: grid;
+    place-content: center;
+    justify-items: center;
+    gap: 10px;
+    text-align: center;
+    background: #0b0c0d;
+}
+
+.catalog-empty-state span {
+    color: #bbb;
+}
+
+.catalog-empty-state button {
+    min-height: 42px;
+    margin-top: 6px;
+    padding: 9px 16px;
+    border: 1px solid var(--rust);
+    border-radius: 7px;
+    color: #fff;
+    background: rgba(232,67,46,.14);
+    font-weight: 800;
+    cursor: pointer;
+}
+
+@media (max-width: 600px) {
+    body.band-landing-page[data-band="Iron Maiden"] #modal.catalog-design-modal .carousel-arrow {
+        width: 38px;
+        height: 44px;
+        display: grid !important;
+    }
+
+    body.band-landing-page[data-band="Iron Maiden"] #modal.catalog-design-modal .carousel-arrow.is-hidden {
+        display: none !important;
+    }
+
+    body.band-landing-page[data-band="Iron Maiden"] #modal.catalog-design-modal .carousel-indicators {
+        position: static;
+        max-width: none;
+        padding: 8px 10px 2px;
+        transform: none;
+    }
 }
 
 .variant-name {

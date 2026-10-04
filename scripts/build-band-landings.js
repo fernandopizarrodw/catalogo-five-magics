@@ -372,6 +372,7 @@ ${editorialCollectionCards.map((card, index) => `                <button type="b
         return aOrder - bOrder;
     });
     const proofExpandable = config.realProductProofExpandable === true;
+    const proofCarousel = config.realProductProofCarousel === true;
     const proofInitialLimit = Math.max(1, Number(config.realProductProofInitialLimit) || orderedRealProductProofImages.length);
     const visibleRealProductProofImages = proofExpandable
         ? orderedRealProductProofImages
@@ -379,13 +380,18 @@ ${editorialCollectionCards.map((card, index) => `                <button type="b
             ? orderedRealProductProofImages.slice(0, Math.max(1, Number(config.realProductProofLimit)))
             : orderedRealProductProofImages;
     const realProductProofMarkup = visibleRealProductProofImages.length ? `
-        <section class="band-real-product-proof" id="realProductProof" aria-labelledby="bandRealProductProofTitle">
+        <section class="band-real-product-proof${proofCarousel ? ' is-carousel' : ''}" id="realProductProof" aria-labelledby="bandRealProductProofTitle">
             <div class="band-real-product-proof-head">
                 <p>${realProductProof.kicker || 'PRENDAS REALES'}</p>
                 <h2 id="bandRealProductProofTitle">${realProductProof.title}</h2>
                 <span>${realProductProof.copy}</span>
             </div>
-            <div class="band-real-product-proof-grid">
+${proofCarousel ? `            <div class="band-real-product-proof-controls">
+                <button type="button" data-proof-prev aria-label="Foto anterior">&#8249;</button>
+                <output data-proof-counter aria-live="polite">1 / ${visibleRealProductProofImages.length}</output>
+                <button type="button" data-proof-next aria-label="Foto siguiente">&#8250;</button>
+            </div>` : ''}
+            <div class="band-real-product-proof-grid"${proofCarousel ? ' data-proof-carousel tabindex="0" aria-label="Producción FMD de Iron Maiden; desplazá para ver más"' : ''}>
 ${visibleRealProductProofImages.map((image, index) => `                <button type="button" class="band-real-product-proof-item"${proofExpandable && index >= proofInitialLimit ? ' hidden' : ''} onclick="openImageModal('${image.src}')" aria-label="Ampliar ${image.alt}">
                     <img src="${image.src}" alt="${image.alt}" width="${image.width || 1080}" height="${image.height || 1350}" loading="${index < proofInitialLimit ? 'eager' : 'lazy'}" decoding="async">
                     ${image.label ? `<span>${image.label}</span>` : ''}
@@ -421,6 +427,7 @@ ${discoveryLinks.map(link => `                <button type="button" onclick="sel
 ${curatedCards.map((card, index) => `                <button type="button" data-design-id="${card.designId}" onclick="${card.preview ? `openCatalogDesignPreview('${card.designId}', 'remera', '${card.printMode || 'simple'}', '${card.preview}')` : `openCatalogDesign('${card.designId}', 'remera')`}" aria-label="Ver ${card.label}">
                     <img src="${card.image}" alt="${card.label} de ${config.band}" loading="${index < 4 ? 'eager' : 'lazy'}" decoding="async">
                     <strong>${card.label}</strong>
+                    ${curatedSelection.priceLabel ? `<small>${curatedSelection.priceLabel}</small>` : ''}
                 </button>`).join('\n')}
             </div>
             <button type="button" class="band-curated-selection-cta" onclick="selectBandLandingCollectionAndScroll('')">${curatedSelection.ctaLabel || 'VER COLECCIÓN COMPLETA'} <span data-band-design-count-number></span></button>
@@ -692,7 +699,6 @@ ${postShow ? `    <script>
         })();
     </script>
 ` : ''}    <script src="/js/band-archives-config.js" defer></script>
-    <script src="/js/band-archives-config.js" defer></script>
     <script src="/js/catalog-design.js" defer></script>
     <script src="/js/app.js" defer></script>
 </body>

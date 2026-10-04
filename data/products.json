@@ -23121,7 +23121,9 @@
     "tipoPrecio": "simple",
     "defaultPrintMode": "double",
     "catalogGarments": [
-      "remera"
+      "remera",
+      "hoodie",
+      "buzo_cuello_redondo"
     ],
     "isNew": true,
     "img": "images/iron_maiden/iron_maiden_eddie_tanguero.jpg",
@@ -23168,7 +23170,9 @@
       }
     ],
     "garments": [
-      "remera"
+      "remera",
+      "hoodie",
+      "buzo_cuello_redondo"
     ],
     "collections": [
       "Archivo Maiden",
@@ -23543,7 +23547,9 @@
     "tipoPrecio": "simple",
     "defaultPrintMode": "double",
     "catalogGarments": [
-      "remera"
+      "remera",
+      "hoodie",
+      "buzo_cuello_redondo"
     ],
     "isNew": true,
     "img": "images/iron_maiden/remera_iron_maiden_eddie_huracan_frente.jpg",
@@ -23590,7 +23596,9 @@
       }
     ],
     "garments": [
-      "remera"
+      "remera",
+      "hoodie",
+      "buzo_cuello_redondo"
     ],
     "collections": [
       "Archivo Maiden",

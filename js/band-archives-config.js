@@ -292,24 +292,26 @@
             hideHeroArt: true,
             catalogBeforeProduction: true,
             catalogAnchorOnCatalog: true,
-            garmentSelectorAfterCatalog: true,
+            garmentSelectorAfterCatalog: false,
             featuredCollectionAfterCatalog: true,
             hideFeaturedCollection: true,
             realProductProofAfterCatalog: true,
-            realProductProofInitialLimit: 6,
-            realProductProofExpandable: true,
+            realProductProofCarousel: true,
+            realProductProofLimit: 8,
             realProductProofFeaturedOrder: [
                 '/images/iron_maiden/prendas_reales/eddie_gaucho_frente.jpg',
+                '/images/iron_maiden/prendas_reales/detalle_dtg.jpg',
                 '/images/iron_maiden/prendas_reales/eddie_gaucho_dorso.jpg',
                 '/images/iron_maiden/prendas_reales/eddie-tanguero-frente-real.jpg',
                 '/images/iron_maiden/prendas_reales/eddie-tanguero-dorso-real.jpg',
                 '/images/iron_maiden/prendas_reales/powerslave-frente-real.jpg',
-                '/images/iron_maiden/prendas_reales/somewhere-in-time-frente-real.jpg'
+                '/images/iron_maiden/prendas_reales/somewhere-in-time-frente-real.jpg',
+                '/images/iron_maiden/prendas_reales/run-for-your-lives-2026-frente-real.jpg'
             ],
             shippingAfterCatalog: true,
             heroTitle: 'RUN FOR YOUR LIVES<br><span>ARGENTINA 2026</span>',
             heroCopy: '<strong>20 + 21 OCTUBRE · ESTADIO HURACÁN</strong><br><br>La gira que celebra 50 años de historia llega a Buenos Aires.<br>Diseños inspirados en los primeros nueve discos de Iron Maiden.<br><br><b><span data-band-design-count-number>82</span> DISEÑOS ÚNICOS</b><br>Remeras · Hoodies · Buzos<br>Estampa frontal o frente + dorso',
-            heroCtaLabel: 'VER COLECCIÓN MAIDEN 2026',
+            heroCtaLabel: 'VER COLECCIÓN COMPLETA',
             heroSecondaryCta: {
                 label: 'VER EDDIES ARGENTINOS',
                 href: '#catalogoPrincipal',
@@ -318,6 +320,11 @@
             showSizeGuide: true,
             productionTitle: '<span>PRODUCCIÓN</span> 48 A 72 H HÁBILES',
             productionCopy: 'Algodón peinado 24/1 e impresión DTG directa sobre la tela. Una vez despachado, te enviamos el enlace de seguimiento.',
+            productionNotice: '¿La querés para los shows del 20 o 21 de octubre? Consultanos con tu código postal antes de comprar para confirmar la mejor opción de entrega.',
+            productionCta: {
+                label: 'CONSULTAR ENTREGA PARA EL SHOW',
+                href: 'https://wa.me/541169667685?text=Hola%20FMD!%20Quiero%20consultar%20la%20entrega%20de%20una%20prenda%20de%20Iron%20Maiden%20para%20el%20show.%20Mi%20CP%20es%3A%20'
+            },
             catalogKicker: 'COLECCIÓN COMPLETA',
             catalogTitle: '82 DISEÑOS DE IRON MAIDEN',
             catalogNoteTitle: 'FILTRÁ Y ELEGÍ MÁS RÁPIDO',
@@ -340,6 +347,7 @@
                 kicker: 'SELECCIÓN FMD',
                 title: '16 DISEÑOS PARA EMPEZAR',
                 copy: 'Argentina 2026, clásicos esenciales y originales FMD.',
+                priceLabel: 'Remeras desde $38.000',
                 ctaLabel: 'VER COLECCIÓN COMPLETA ·',
                 cards: [
                     { designId: 'cd-iron-maiden-eddie-gaucho-argentino--p7040', label: 'Eddie Gaucho Argentino', image: '/images/iron_maiden/remera_iron_maiden_eddie_gaucho_argentino_frente.jpg' },
@@ -386,7 +394,8 @@
                     'iron-maiden-run-to-the-hills', 'iron-maiden-flight-of-icarus-singles',
                     'iron-maiden-2-minutes-to-midnight-singles', 'iron-maiden-aces-high-singles',
                     'iron-maiden-wasted-years-singles', 'cd-iron-maiden-can-i-play-with-madness--p5033',
-                    'iron-maiden-the-evil-that-men-do-single', 'iron-maiden-bring-your-daughter-single'
+                    'iron-maiden-the-evil-that-men-do-single', 'iron-maiden-bring-your-daughter-single',
+                    'iron-maiden-the-trooper-classic', 'iron-maiden-hallowed-be-thy-name'
                 ] } },
                 { id: 'somewhere-40', label: 'SOMEWHERE IN TIME · 40 AÑOS', match: { designIds: [
                     'iron-maiden-somewhere-in-time', 'iron-maiden-somewhere-in-time-40th-fmd',
@@ -399,7 +408,10 @@
                     'iron-maiden-the-number-of-the-beast-edicion-fmd', 'iron-maiden-powerslave-fmd',
                     'iron-maiden-live-after-death-fmd', 'iron-maiden-somewhere-in-time-40th-fmd',
                     'cd-iron-maiden-fear-of-the-dark-edicion-fmd--p7022', 'cd-iron-maiden-killers-edicion-fmd--p7023',
-                    'cd-iron-maiden-killers-v2-edicion-fmd--p7024', 'cd-iron-maiden-the-book-fmd--p7028'
+                    'cd-iron-maiden-killers-v2-edicion-fmd--p7024', 'cd-iron-maiden-the-book-fmd--p7028',
+                    'iron-maiden-run-to-the-hills', 'iron-maiden-2-minutes-to-midnight-singles',
+                    'iron-maiden-aces-high-singles', 'iron-maiden-flight-of-icarus-singles',
+                    'iron-maiden-number-of-the-beast-singles', 'iron-maiden-wasted-years-singles'
                 ] } },
                 { id: 'album-iron-maiden', group: 'album', label: 'IRON MAIDEN · 1980', match: { albums: ['Iron Maiden'] } },
                 { id: 'album-killers', group: 'album', label: 'KILLERS · 1981', match: { albums: ['Killers'] } },
@@ -771,9 +783,9 @@
                 ctaLabel: 'VER LA COLECCIÓN COMPLETA'
             },
             realProductProof: {
-                kicker: 'DEL ARTE A LA PRENDA',
-                title: 'ASÍ QUEDAN IMPRESAS',
-                copy: 'Así salen nuestros diseños del taller.',
+                kicker: 'IRON MAIDEN',
+                title: 'PRODUCCIÓN FMD',
+                copy: 'Diseños que ya están saliendo del taller para octubre.',
                 specs: [
                     'Algodón peinado 24/1',
                     'Impresión DTG directa sobre la tela'
