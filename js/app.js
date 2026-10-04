@@ -2647,6 +2647,17 @@ function updateCatalogDesignReferenceNote() {
 function selectCatalogDesignPreviewForGarment(modalGarment) {
     if (!currentCatalogDesign || !currentModalSourceRefs.length) return;
     const garment = getCatalogDesignGarmentKey(modalGarment);
+    // La prenda o el color pueden cambiar la referencia visual, pero no la
+    // variante de arte ni la configuración comercial elegida por el cliente.
+    const preservedSelection = {
+        printMode: selectedPrintMode,
+        backIndex: selectedBackIndex,
+        catalogBackRef: selectedCatalogBackRef,
+        catalogBackDeferred: selectedCatalogBackDeferred,
+        dorsoChips: new Set(selectedDorsoChips),
+        backs: new Set(selectedBacks),
+        customBack: document.getElementById('dorsoCustomInput')?.value || ''
+    };
     const previousSelection = selectedCatalogFrontRef;
     const previousSelectionLabel = normalizeText(previousSelection?.selectionLabel || previousSelection?.label || '');
     const garmentRefs = getCatalogDesignFrontRefs(currentCatalogDesign)
@@ -2707,6 +2718,16 @@ function selectCatalogDesignPreviewForGarment(modalGarment) {
         ));
         if (slideIndex >= 0) goToSlide(slideIndex, false);
     }
+    selectedPrintMode = preservedSelection.printMode;
+    selectedBackIndex = preservedSelection.backIndex;
+    selectedCatalogBackRef = preservedSelection.catalogBackRef;
+    selectedCatalogBackDeferred = preservedSelection.catalogBackDeferred;
+    selectedDorsoChips = preservedSelection.dorsoChips;
+    selectedBacks = preservedSelection.backs;
+    const dorsoInput = document.getElementById('dorsoCustomInput');
+    if (dorsoInput) dorsoInput.value = preservedSelection.customBack;
+    updateModalPrices();
+    updateDobleWaLink();
     updateCatalogDesignReferenceNote();
 }
 
@@ -5500,6 +5521,18 @@ function openCatalogDesign(designId, initialGarment = '') {
         initial_garment: requestedGarment || undefined
     });
     openModal(design.front.productId, design.front.variantIndex, undefined, 'catalog_design', designId, requestedGarment);
+    if (bandLandingCollection === 'fmd-originals') {
+        const fmdIndex = currentModalSourceRefs.findIndex(ref => {
+            const copy = normalizeText([
+                ref.fmdBadge,
+                ref.selectionLabel,
+                ref.label,
+                ref.name
+            ].filter(Boolean).join(' '));
+            return copy.includes('fmd') && !copy.includes('arte clasico');
+        });
+        if (fmdIndex >= 0) goToSlide(fmdIndex, false);
+    }
     if (bandShowcaseCollectionMode
         && normalizeText(BAND_LANDING_BAND) === 'helloween'
         && designId !== 'helloween-keeper-i-setlist-buenos-aires-2026') {
@@ -6822,12 +6855,14 @@ function chooseCleanCatalogPreview(previews, colorKey = '') {
 
 function getBandLandingDesignPreview(design, garment = bandLandingGarment) {
     if (!isBandLandingMode() || !garment) return design?.front || null;
+    if (!(design?.availableGarments || []).includes(garment)) return null;
     const previews = design?.previewsByGarment?.[garment] || [];
     if (normalizeText(BAND_LANDING_BAND) === 'helloween') {
         return chooseCleanCatalogPreview(previews) || design?.front || null;
     }
     return previews.find(item => item.preferredPreview)
         || previews[0]
+        || design?.front
         || null;
 }
 
@@ -6870,7 +6905,7 @@ function getCatalogDesignResults() {
     }
     if (bandLandingOuterwear) {
         scopedDesigns = scopedDesigns.filter(design => ['hoodie', 'buzo_cuello_redondo']
-            .some(garment => (design?.previewsByGarment?.[garment] || []).length));
+            .some(garment => (design?.availableGarments || []).includes(garment)));
     }
     updateBandLandingCollectionCounts(scopedDesigns);
     if (isBandLandingMode() && bandLandingCollection) {
@@ -6910,7 +6945,7 @@ function getCatalogDesignResults() {
     });
     return bandLandingOuterwear
         ? designs.flatMap(design => ['hoodie', 'buzo_cuello_redondo']
-            .filter(garment => (design?.previewsByGarment?.[garment] || []).length)
+            .filter(garment => (design?.availableGarments || []).includes(garment))
             .map(displayGarment => ({ ...design, displayGarment })))
         : designs;
 }

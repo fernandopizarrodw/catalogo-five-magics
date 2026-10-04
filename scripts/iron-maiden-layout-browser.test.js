@@ -133,7 +133,7 @@ async function main() {
         assert.equal(mobile.primaryFilters.length, 7);
         assert.equal(mobile.albumFilters, 9);
         assert.equal(mobile.initialCards, 16);
-        assert.equal(mobile.totalHeading, '85 DISEÑOS · REMERAS IRON MAIDEN');
+        assert.equal(mobile.totalHeading, '89 DISEÑOS · REMERAS IRON MAIDEN');
         assert.deepEqual(mobile.initialOrder, [
             'cd-iron-maiden-eddie-gaucho-argentino--p7040',
             'iron-maiden-eddie-gaucho-argentino-con-fechas',
@@ -212,10 +212,17 @@ async function main() {
             const inspect = async garment => {
                 selectBandLandingGarment(garment);
                 await new Promise(resolve => setTimeout(resolve, 100));
+                const expected = catalogDesigns
+                    .filter(isCatalogDesignInScope)
+                    .filter(design => (design.availableGarments || []).includes(garment));
+                const results = getCatalogDesignResults() || [];
                 return {
                     heading: document.getElementById('productsCount').textContent.trim(),
                     cards: document.querySelectorAll('#productsGrid .catalog-design-card').length,
-                    visibleWithoutMock: (getCatalogDesignResults() || []).filter(design => !(design.previewsByGarment?.[garment] || []).length).map(design => design.designId)
+                    expected: expected.length,
+                    results: results.length,
+                    unavailableShown: results.filter(design => !(design.availableGarments || []).includes(garment)).map(design => design.designId),
+                    missing: expected.filter(design => !results.some(result => result.designId === design.designId)).map(design => design.designId)
                 };
             };
             const hoodie = await inspect('hoodie');
@@ -223,13 +230,17 @@ async function main() {
             const remera = await inspect('remera');
             return { hoodie, buzo, remera };
         })()`);
-        assert(garmentAvailability.hoodie.heading.startsWith('8 ') && garmentAvailability.hoodie.heading.includes('HOODIES'), JSON.stringify(garmentAvailability));
-        assert.equal(garmentAvailability.hoodie.cards, 8);
-        assert.equal(garmentAvailability.hoodie.visibleWithoutMock.length, 0);
-        assert(garmentAvailability.buzo.heading.startsWith('10 ') && garmentAvailability.buzo.heading.includes('BUZOS'));
-        assert.equal(garmentAvailability.buzo.cards, 10);
-        assert.equal(garmentAvailability.buzo.visibleWithoutMock.length, 0);
-        assert(garmentAvailability.remera.heading.startsWith('85 ') && garmentAvailability.remera.heading.includes('REMERAS'));
+        assert(garmentAvailability.hoodie.heading.startsWith(`${garmentAvailability.hoodie.expected} `) && garmentAvailability.hoodie.heading.includes('HOODIES'), JSON.stringify(garmentAvailability));
+        assert.equal(garmentAvailability.hoodie.cards, Math.min(16, garmentAvailability.hoodie.expected));
+        assert.equal(garmentAvailability.hoodie.results, garmentAvailability.hoodie.expected);
+        assert.deepEqual(garmentAvailability.hoodie.unavailableShown, []);
+        assert.deepEqual(garmentAvailability.hoodie.missing, []);
+        assert(garmentAvailability.buzo.heading.startsWith(`${garmentAvailability.buzo.expected} `) && garmentAvailability.buzo.heading.includes('BUZOS'));
+        assert.equal(garmentAvailability.buzo.cards, Math.min(16, garmentAvailability.buzo.expected));
+        assert.equal(garmentAvailability.buzo.results, garmentAvailability.buzo.expected);
+        assert.deepEqual(garmentAvailability.buzo.unavailableShown, []);
+        assert.deepEqual(garmentAvailability.buzo.missing, []);
+        assert(garmentAvailability.remera.heading.startsWith('89 ') && garmentAvailability.remera.heading.includes('REMERAS'));
         assert.equal(garmentAvailability.remera.cards, 16);
 
         const collectionCounts = await evaluate(`(async () => {
@@ -243,8 +254,25 @@ async function main() {
             selectBandLandingCollection('');
             return { singles, originals };
         })()`);
-        assert(collectionCounts.singles.startsWith('14 '));
+        assert(collectionCounts.singles.startsWith('16 '));
         assert(collectionCounts.originals.startsWith('19 '));
+
+        const fmdFilterVariant = await evaluate(`(() => {
+            selectBandLandingGarment('remera');
+            selectBandLandingCollection('fmd-originals');
+            openCatalogDesign('iron-maiden-aces-high-singles', 'remera');
+            const state = {
+                collection: bandLandingCollection,
+                selectedImage: selectedCatalogFrontRef?.image || '',
+                modalImage: getModalImages()[currentSlide]?.img || ''
+            };
+            closeModal();
+            selectBandLandingCollection('');
+            return state;
+        })()`);
+        assert.equal(fmdFilterVariant.collection, 'fmd-originals');
+        assert(fmdFilterVariant.selectedImage.includes('FMD ACES'), JSON.stringify(fmdFilterVariant));
+        assert(fmdFilterVariant.modalImage.includes('FMD ACES'), JSON.stringify(fmdFilterVariant));
 
         const filterResult = await evaluate(`(async () => {
             selectBandLandingCollection('tour-argentina');
@@ -407,14 +435,39 @@ async function main() {
         assert.equal(est1975Order.hasUndefinedBack, false);
 
         const cartScrollReturn = await evaluate(`(async () => {
+            selectBandLandingCollection('singles');
+            const input = document.getElementById('searchInput');
+            input.value = 'aces high';
+            input.dispatchEvent(new Event('input', { bubbles: true }));
+            await new Promise(resolve => setTimeout(resolve, 100));
             window.scrollTo(0, 900);
             const before = window.scrollY;
-            openCartPreview(before);
+            openCatalogDesign('iron-maiden-aces-high-singles', 'remera');
+            selectRemeraVariant('hombre_clasica');
+            selectPrintMode('simple');
+            selectSize('M');
+            selectColor('negro');
+            addToOrderAndOpenCart();
             closeCartPreview();
             await new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)));
-            return { before, after: window.scrollY };
+            const state = {
+                before,
+                after: window.scrollY,
+                collection: bandLandingCollection,
+                search: document.getElementById('searchInput').value,
+                cards: document.querySelectorAll('#productsGrid .catalog-design-card').length,
+                cartItems: cart.getCart().length
+            };
+            cart.clearCart();
+            clearCatalogSearch();
+            selectBandLandingCollection('');
+            return state;
         })()`);
         assert(Math.abs(cartScrollReturn.after - cartScrollReturn.before) < 3, JSON.stringify(cartScrollReturn));
+        assert.equal(cartScrollReturn.collection, 'singles');
+        assert.equal(cartScrollReturn.search, 'aces high');
+        assert(cartScrollReturn.cards > 0);
+        assert.equal(cartScrollReturn.cartItems, 1);
 
         await evaluate(`(async () => {
             for (const image of document.querySelectorAll('#bandCuratedSelection img, #productsGrid img')) {
@@ -454,11 +507,11 @@ async function main() {
         assert.equal(desktop.proofOverflow, true);
         assert.equal(desktop.proofVisible, 8);
         assert.equal(desktop.pageOverflow, false);
-        assert.equal(desktop.catalogCount, '85 DISEÑOS · REMERAS IRON MAIDEN');
+        assert.equal(desktop.catalogCount, '89 DISEÑOS · REMERAS IRON MAIDEN');
         const desktopCurated = await captureSection('#bandCuratedSelection', 'iron-maiden-curated-desktop.png');
         const desktopProof = await captureSection('#realProductProof', 'iron-maiden-proof-desktop.png');
 
-        console.log(JSON.stringify({ mobile, imageAudit, proofCarousel, heroEddiesFilter, filterResult, garmentAvailability, collectionCounts, gauchoModal, fmdVariant, fmdGarmentChange, gauchoBacks, emptySearch, est1975, est1975Order, cartScrollReturn, desktop, screenshots: [mobileDiscovery, mobileCurated, mobileArchive, mobileProof, desktopCurated, desktopProof] }, null, 2));
+        console.log(JSON.stringify({ mobile, imageAudit, proofCarousel, heroEddiesFilter, filterResult, garmentAvailability, collectionCounts, fmdFilterVariant, gauchoModal, fmdVariant, fmdGarmentChange, gauchoBacks, emptySearch, est1975, est1975Order, cartScrollReturn, desktop, screenshots: [mobileDiscovery, mobileCurated, mobileArchive, mobileProof, desktopCurated, desktopProof] }, null, 2));
     } finally {
         socket.close();
     }

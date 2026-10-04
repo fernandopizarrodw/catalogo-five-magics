@@ -279,7 +279,7 @@
             band: 'Iron Maiden',
             displayName: 'IRON MAIDEN',
             title: 'Iron Maiden Run For Your Lives Argentina 2026 | Five Magics Designs',
-            description: 'Colección Iron Maiden para los shows del 20 y 21 de octubre de 2026 en el Estadio Huracán. 82 diseños únicos en remeras, hoodies y buzos.',
+            description: 'Colección Iron Maiden para los shows del 20 y 21 de octubre de 2026 en el Estadio Huracán. +80 diseños en remeras, hoodies y buzos.',
             canonical: 'https://catalogo.fivemagicsdesigns.com/iron-maiden/',
             image: '/images/iron_maiden/eddie_run_for_your_lives_tour/remera_iron_maiden_run_oficial.jpg',
             imageUrl: 'https://catalogo.fivemagicsdesigns.com/images/iron_maiden/eddie_run_for_your_lives_tour/remera_iron_maiden_run_oficial.jpg',
@@ -326,7 +326,7 @@
                 href: 'https://wa.me/541169667685?text=Hola%20FMD!%20Quiero%20consultar%20la%20entrega%20de%20una%20prenda%20de%20Iron%20Maiden%20para%20el%20show.%20Mi%20CP%20es%3A%20'
             },
             catalogKicker: 'COLECCIÓN COMPLETA',
-            catalogTitle: '82 DISEÑOS DE IRON MAIDEN',
+            catalogTitle: '<span data-band-design-count-number>0</span> DISEÑOS DE IRON MAIDEN',
             catalogNoteTitle: 'FILTRÁ Y ELEGÍ MÁS RÁPIDO',
             catalogNoteCopy: 'Filtrá por tour, álbum, canción o colección y encontrá el tuyo más rápido.',
             finalTitle: '¿BUSCABAS OTRO DISEÑO DE IRON MAIDEN?',
@@ -341,7 +341,7 @@
                 { collectionId: 'eddies-argentinos', label: 'EDDIES ARGENTINOS', copy: 'Gaucho · Tanguero · Huracán' },
                 { collectionId: 'nine-classics', label: 'LOS 9 DISCOS CLÁSICOS', copy: '1980–1992' },
                 { collectionId: 'singles', label: 'SINGLES + CANCIONES', copy: 'Clásicos y reinterpretaciones' },
-                { collectionId: '', label: 'COLECCIÓN COMPLETA', copy: '82 diseños únicos' }
+                { collectionId: '', label: 'COLECCIÓN COMPLETA', copy: '<span data-band-design-count-number>0</span> diseños únicos' }
             ],
             curatedSelection: {
                 kicker: 'SELECCIÓN FMD',
@@ -394,7 +394,9 @@
                     'iron-maiden-run-to-the-hills', 'iron-maiden-flight-of-icarus-singles',
                     'iron-maiden-2-minutes-to-midnight-singles', 'iron-maiden-aces-high-singles',
                     'iron-maiden-wasted-years-singles', 'cd-iron-maiden-can-i-play-with-madness--p5033',
-                    'iron-maiden-the-evil-that-men-do-single', 'iron-maiden-the-clairvoyant', 'iron-maiden-bring-your-daughter-single',
+                    'iron-maiden-the-evil-that-men-do-single', 'iron-maiden-the-clairvoyant',
+                    'iron-maiden-stranger-in-a-strange-land-sepia', 'iron-maiden-the-reincarnation-of-benjamin-breeg',
+                    'iron-maiden-bring-your-daughter-single',
                     'iron-maiden-the-trooper-classic', 'iron-maiden-hallowed-be-thy-name'
                 ] } },
                 { id: 'somewhere-40', label: 'SOMEWHERE IN TIME · 40 AÑOS', match: { designIds: [
@@ -647,6 +649,7 @@
                 'iron-maiden-est-1975',
                 'iron-maiden-eddies-collection',
                 'iron-maiden-eddies-collection-color',
+                'iron-maiden-eddies-logo-collection',
                 'iron-maiden-1980-run-for-your-lives',
                 'iron-maiden-burning-ambition-edicion-fmd',
                 'iron-maiden-sanctuary-single',
@@ -684,6 +687,7 @@
                 'iron-maiden-somewhere-in-time-40th-black',
                 'iron-maiden-somewhere-back-in-time-world-tour',
                 'iron-maiden-wasted-years-singles',
+                'iron-maiden-stranger-in-a-strange-land-sepia',
                 'iron-maiden-seventh-son-1988-run-for-your-lives',
                 'cd-iron-maiden-can-i-play-with-madness--p5033',
                 'iron-maiden-the-evil-that-men-do-single',
@@ -696,9 +700,11 @@
                 'iron-maiden-a-real-dead-one',
                 'cd-iron-maiden-brave-new-world--p5035',
                 'iron-maiden-a-matter-of-life-and-death',
+                'iron-maiden-the-reincarnation-of-benjamin-breeg',
                 'iron-maiden-the-final-frontier',
                 'cd-iron-maiden-the-book-of-souls-v2--p5034',
                 'cd-iron-maiden-the-book-fmd--p7028',
+                'iron-maiden-senjutsu-samurai-eddie',
                 'iron-maiden-the-future-past-world-tour-2024',
                 'iron-maiden-maiden-mania-80-87',
                 'iron-maiden-eddie-electrico',
@@ -719,6 +725,8 @@
                 'iron-maiden-run-for-your-lives-2026-oficial': 'TOUR 2026',
                 'iron-maiden-run-for-your-lives-fmd-2026': 'ORIGINAL FMD',
                 'iron-maiden-the-clairvoyant': 'SINGLE',
+                'iron-maiden-stranger-in-a-strange-land-sepia': 'SINGLE',
+                'iron-maiden-the-reincarnation-of-benjamin-breeg': 'SINGLE',
                 'iron-maiden-somewhere-in-time-40th-fmd': '40 AÑOS'
             },
             initialCatalogVisibleLimit: 16,

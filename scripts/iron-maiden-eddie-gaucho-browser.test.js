@@ -126,6 +126,48 @@ async function main() {
             assert.equal(design.current, design.images[0]);
         }
 
+        const huracanSelection = await evaluate(`(() => {
+            closeModal();
+            openCatalogDesign('iron-maiden-eddie-huracan-original-fmd', 'remera');
+            goToSlide(0, false);
+            selectRemeraVariant('hombre_clasica');
+            selectPrintMode('simple');
+            const frontBefore = selectedCatalogFrontRef?.image || '';
+            selectColor('negro');
+            const afterColor = {
+                front: selectedCatalogFrontRef?.image || '',
+                printMode: selectedPrintMode,
+                price: document.getElementById('modalPrice')?.textContent || ''
+            };
+            selectRemeraVariant('oversize_unisex');
+            const afterGarment = {
+                front: selectedCatalogFrontRef?.image || '',
+                printMode: selectedPrintMode,
+                price: document.getElementById('modalPrice')?.textContent || ''
+            };
+            selectPrintMode('double');
+            const backBefore = selectedCatalogBackRef?.image || '';
+            selectColor('blanco');
+            selectModalGarment('hoodie');
+            const doubleAfterChanges = {
+                front: selectedCatalogFrontRef?.image || '',
+                back: selectedCatalogBackRef?.image || '',
+                printMode: selectedPrintMode,
+                price: document.getElementById('modalPrice')?.textContent || ''
+            };
+            return { frontBefore, backBefore, afterColor, afterGarment, doubleAfterChanges };
+        })()`);
+        assert.equal(huracanSelection.afterColor.front, huracanSelection.frontBefore);
+        assert.equal(huracanSelection.afterColor.printMode, 'simple');
+        assert(huracanSelection.afterColor.price.includes('$38.000'), JSON.stringify(huracanSelection));
+        assert.equal(huracanSelection.afterGarment.front, huracanSelection.frontBefore);
+        assert.equal(huracanSelection.afterGarment.printMode, 'simple');
+        assert(huracanSelection.afterGarment.price.includes('$41.000'), JSON.stringify(huracanSelection));
+        assert.equal(huracanSelection.doubleAfterChanges.front, huracanSelection.frontBefore);
+        assert.equal(huracanSelection.doubleAfterChanges.back, huracanSelection.backBefore);
+        assert.equal(huracanSelection.doubleAfterChanges.printMode, 'double');
+        assert(huracanSelection.doubleAfterChanges.price.includes('$60.000'), JSON.stringify(huracanSelection));
+
         const backs = await evaluate(`(() => {
             closeModal();
             openCatalogDesign('cd-iron-maiden-eddie-circular-fmd--p7019', 'remera');
@@ -142,7 +184,7 @@ async function main() {
         assert.equal(backs.hiddenGroups, 1);
         assert.equal(backs.alternativesOpen, false);
         assert.equal(backs.whatsapp, 'ELEGIR OTRO DORSO POR WHATSAPP');
-        console.log(JSON.stringify({ modal, order, dated, related, backs }, null, 2));
+        console.log(JSON.stringify({ modal, order, dated, related, huracanSelection, backs }, null, 2));
     } finally {
         socket.close();
     }
