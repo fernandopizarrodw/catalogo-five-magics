@@ -832,6 +832,41 @@ body.band-landing-page[data-band="Iron Maiden"] .band-real-product-proof-grid bu
     text-transform: uppercase;
 }
 
+.band-real-product-proof-item[hidden] {
+    display: none !important;
+}
+
+.band-real-product-proof-toggle {
+    display: block;
+    min-height: 46px;
+    margin: 4px auto 16px;
+    padding: 10px 20px;
+    border: 1px solid rgba(143, 199, 238, 0.55);
+    border-radius: 9px;
+    background: rgba(116, 172, 223, 0.08);
+    color: #fff;
+    font: 700 0.82rem/1.2 "Oswald", sans-serif;
+    letter-spacing: 0.07em;
+    cursor: pointer;
+}
+
+.band-real-product-proof-toggle:hover,
+.band-real-product-proof-toggle:focus-visible {
+    border-color: #8fc7ee;
+    background: rgba(116, 172, 223, 0.18);
+}
+
+.band-real-product-proof-toggle span {
+    display: inline-grid;
+    min-width: 24px;
+    min-height: 24px;
+    margin-left: 6px;
+    place-items: center;
+    border-radius: 999px;
+    background: #8fc7ee;
+    color: #07111a;
+}
+
 .band-design-showcase {
     width: min(1180px, calc(100% - 32px));
     margin: 24px auto 0;
@@ -1944,7 +1979,7 @@ body.band-landing-page[data-band="Iron Maiden"] .btn-wa-header svg circle {
 }
 
 .band-landing-page[data-band="Iron Maiden"] .band-real-product-proof-grid {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .band-landing-page[data-band="Iron Maiden"] .band-real-product-proof-grid > button:first-child {
@@ -2487,7 +2522,7 @@ body.band-landing-page[data-band="Argentina"] #modal .btn-add-cart {
     }
 
     body.band-landing-page[data-band="Iron Maiden"] .band-real-product-proof-grid button:first-child {
-        grid-column: 1 / -1;
+        grid-column: auto;
     }
 
     .band-real-product-proof-specs {

@@ -23313,23 +23313,38 @@
     "year": "2026",
     "album": null,
     "tipoPrecio": "simple",
-    "defaultPrintMode": "double",
+    "defaultPrintMode": "frontal",
     "usesShownComposition": true,
     "isNew": true,
-    "img": "images/iron_maiden/remera_iron_maiden_est_1975.jpg",
+    "img": "images/iron_maiden/remera_iron_maiden_est_1975_frente.jpg",
     "desc": "Iron Maiden Est. 1975, edición con frente y dorso por los 50 años de la banda.",
     "variants": [
       {
-        "img": "images/iron_maiden/remera_iron_maiden_est_1975.jpg",
-        "name": "Iron Maiden Est. 1975 · Frente y dorso",
-        "selectionLabel": "Iron Maiden Est. 1975",
+        "img": "images/iron_maiden/remera_iron_maiden_est_1975_frente.jpg",
+        "name": "Iron Maiden · Est. 1975 · Frente",
+        "publicName": "Iron Maiden · Est. 1975",
+        "selectionLabel": "Frente solo",
+        "previewLabel": "Frente solo",
         "designId": "iron-maiden-est-1975",
         "role": "front",
         "garmentCategory": "Iron Maiden",
         "preferredPreview": true,
+        "modalOrder": 1,
+        "defaultPrintMode": "simple"
+      },
+      {
+        "img": "images/iron_maiden/remera_iron_maiden_est_1975.jpg",
+        "name": "Iron Maiden · Est. 1975 · Frente y dorso",
+        "selectionLabel": "Frente y dorso",
+        "designId": "iron-maiden-est-1975",
+        "role": "front",
+        "garmentCategory": "Iron Maiden",
+        "preferredPreview": false,
         "defaultPrintMode": "double",
         "usesShownComposition": true,
-        "publicName": "Iron Maiden · Est. 1975"
+        "publicName": "Iron Maiden · Est. 1975",
+        "previewLabel": "Frente y dorso",
+        "modalOrder": 3
       }
     ],
     "garments": [
@@ -23364,23 +23379,38 @@
     "year": "1983",
     "album": "Piece of Mind",
     "tipoPrecio": "simple",
-    "defaultPrintMode": "double",
+    "defaultPrintMode": "frontal",
     "usesShownComposition": true,
     "isNew": true,
-    "img": "images/iron_maiden/remera_iron_maiden_est_1975_piece_of_mind.jpg",
+    "img": "images/iron_maiden/remera_iron_maiden_est_1975_piece_of_mind_frente.jpg",
     "desc": "Piece of Mind en versión Est. 1975 con composición de frente y dorso.",
     "variants": [
       {
-        "img": "images/iron_maiden/remera_iron_maiden_est_1975_piece_of_mind.jpg",
-        "name": "Iron Maiden Est. 1975 · Piece of Mind · Frente y dorso",
-        "selectionLabel": "Est. 1975 · Piece of Mind",
+        "img": "images/iron_maiden/remera_iron_maiden_est_1975_piece_of_mind_frente.jpg",
+        "name": "Piece of Mind · Est. 1975 · Frente",
+        "publicName": "Piece of Mind · Est. 1975",
+        "selectionLabel": "Frente solo",
+        "previewLabel": "Frente solo",
         "designId": "iron-maiden-est-1975-piece-of-mind",
         "role": "front",
         "garmentCategory": "Iron Maiden",
         "preferredPreview": true,
+        "modalOrder": 1,
+        "defaultPrintMode": "simple"
+      },
+      {
+        "img": "images/iron_maiden/remera_iron_maiden_est_1975_piece_of_mind.jpg",
+        "name": "Piece of Mind · Est. 1975 · Frente y dorso",
+        "selectionLabel": "Frente y dorso",
+        "designId": "iron-maiden-est-1975-piece-of-mind",
+        "role": "front",
+        "garmentCategory": "Iron Maiden",
+        "preferredPreview": false,
         "defaultPrintMode": "double",
         "usesShownComposition": true,
-        "publicName": "Piece of Mind · Est. 1975"
+        "publicName": "Piece of Mind · Est. 1975",
+        "previewLabel": "Frente y dorso",
+        "modalOrder": 3
       }
     ],
     "garments": [

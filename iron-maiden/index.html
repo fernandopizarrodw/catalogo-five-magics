@@ -83,7 +83,7 @@
 
                 <div class="band-landing-hero-actions">
                     <a class="band-landing-primary-cta" href="#catalogoPrincipal">VER COLECCIÓN MAIDEN 2026</a>
-                    <a class="band-landing-secondary-cta" href="#bandCampaignFeature">VER EDDIES ARGENTINOS</a>
+                    <a class="band-landing-secondary-cta" href="#catalogoPrincipal" onclick="event.preventDefault(); selectBandLandingCollectionAndScroll('eddies-argentinos')">VER EDDIES ARGENTINOS</a>
                 </div>
 
             </div>
@@ -260,23 +260,76 @@
                 <span>Así salen nuestros diseños del taller.</span>
             </div>
             <div class="band-real-product-proof-grid">
-                <button type="button" onclick="openImageModal('/images/iron_maiden/prendas_reales/eddie_gaucho_frente.jpg')" aria-label="Ampliar Frente real de la remera Eddie Gaucho Argentino terminada">
+                <button type="button" class="band-real-product-proof-item" onclick="openImageModal('/images/iron_maiden/prendas_reales/eddie_gaucho_frente.jpg')" aria-label="Ampliar Frente real de la remera Eddie Gaucho Argentino terminada">
                     <img src="/images/iron_maiden/prendas_reales/eddie_gaucho_frente.jpg" alt="Frente real de la remera Eddie Gaucho Argentino terminada" width="1080" height="1350" loading="eager" decoding="async">
                     <span>Eddie Gaucho Argentino · Frente</span>
                 </button>
-                <button type="button" onclick="openImageModal('/images/iron_maiden/prendas_reales/eddie-tanguero-frente-real.jpg')" aria-label="Ampliar Remera terminada Eddie Tanguero con estampa frontal">
-                    <img src="/images/iron_maiden/prendas_reales/eddie-tanguero-frente-real.jpg" alt="Remera terminada Eddie Tanguero con estampa frontal" width="941" height="1672" loading="lazy" decoding="async">
+                <button type="button" class="band-real-product-proof-item" onclick="openImageModal('/images/iron_maiden/prendas_reales/eddie_gaucho_dorso.jpg')" aria-label="Ampliar Dorso real Buenos Aires 2026 de la remera Eddie Gaucho Argentino terminada">
+                    <img src="/images/iron_maiden/prendas_reales/eddie_gaucho_dorso.jpg" alt="Dorso real Buenos Aires 2026 de la remera Eddie Gaucho Argentino terminada" width="1086" height="1448" loading="eager" decoding="async">
+                    <span>Eddie Gaucho Argentino · Dorso Buenos Aires 2026</span>
+                </button>
+                <button type="button" class="band-real-product-proof-item" onclick="openImageModal('/images/iron_maiden/prendas_reales/eddie-tanguero-frente-real.jpg')" aria-label="Ampliar Remera terminada Eddie Tanguero con estampa frontal">
+                    <img src="/images/iron_maiden/prendas_reales/eddie-tanguero-frente-real.jpg" alt="Remera terminada Eddie Tanguero con estampa frontal" width="941" height="1672" loading="eager" decoding="async">
                     <span>Eddie Tanguero · Frente</span>
                 </button>
-                <button type="button" onclick="openImageModal('/images/iron_maiden/prendas_reales/a-matter-of-life-and-death-frente-real.jpg')" aria-label="Ampliar Remera terminada A Matter of Life and Death con estampa frontal">
+                <button type="button" class="band-real-product-proof-item" onclick="openImageModal('/images/iron_maiden/prendas_reales/eddie-tanguero-dorso-real.jpg')" aria-label="Ampliar Dorso terminado de Eddie Tanguero con fechas de Buenos Aires 2026">
+                    <img src="/images/iron_maiden/prendas_reales/eddie-tanguero-dorso-real.jpg" alt="Dorso terminado de Eddie Tanguero con fechas de Buenos Aires 2026" width="941" height="1672" loading="eager" decoding="async">
+                    <span>Eddie Tanguero · Dorso Buenos Aires 2026</span>
+                </button>
+                <button type="button" class="band-real-product-proof-item" onclick="openImageModal('/images/iron_maiden/prendas_reales/powerslave-frente-real.jpg')" aria-label="Ampliar Remera terminada Powerslave con estampa frontal">
+                    <img src="/images/iron_maiden/prendas_reales/powerslave-frente-real.jpg" alt="Remera terminada Powerslave con estampa frontal" width="941" height="1672" loading="eager" decoding="async">
+                    <span>Powerslave · Frente</span>
+                </button>
+                <button type="button" class="band-real-product-proof-item" onclick="openImageModal('/images/iron_maiden/prendas_reales/somewhere-in-time-frente-real.jpg')" aria-label="Ampliar Remera terminada Somewhere in Time con estampa frontal">
+                    <img src="/images/iron_maiden/prendas_reales/somewhere-in-time-frente-real.jpg" alt="Remera terminada Somewhere in Time con estampa frontal" width="941" height="1672" loading="eager" decoding="async">
+                    <span>Somewhere in Time · Frente</span>
+                </button>
+                <button type="button" class="band-real-product-proof-item" hidden onclick="openImageModal('/images/iron_maiden/prendas_reales/a-matter-of-life-and-death-frente-real.jpg')" aria-label="Ampliar Remera terminada A Matter of Life and Death con estampa frontal">
                     <img src="/images/iron_maiden/prendas_reales/a-matter-of-life-and-death-frente-real.jpg" alt="Remera terminada A Matter of Life and Death con estampa frontal" width="1086" height="1448" loading="lazy" decoding="async">
                     <span>A Matter of Life and Death · Frente</span>
                 </button>
-                <button type="button" onclick="openImageModal('/images/iron_maiden/prendas_reales/powerslave-frente-real.jpg')" aria-label="Ampliar Remera terminada Powerslave con estampa frontal">
-                    <img src="/images/iron_maiden/prendas_reales/powerslave-frente-real.jpg" alt="Remera terminada Powerslave con estampa frontal" width="941" height="1672" loading="lazy" decoding="async">
-                    <span>Powerslave · Frente</span>
+                <button type="button" class="band-real-product-proof-item" hidden onclick="openImageModal('/images/iron_maiden/prendas_reales/fear-of-the-dark-frente-real.jpg')" aria-label="Ampliar Remera terminada Fear of the Dark con estampa frontal">
+                    <img src="/images/iron_maiden/prendas_reales/fear-of-the-dark-frente-real.jpg" alt="Remera terminada Fear of the Dark con estampa frontal" width="1122" height="1402" loading="lazy" decoding="async">
+                    <span>Fear of the Dark · Frente</span>
+                </button>
+                <button type="button" class="band-real-product-proof-item" hidden onclick="openImageModal('/images/iron_maiden/prendas_reales/run-for-your-lives-2026-frente-real.jpg')" aria-label="Ampliar Remera terminada Run For Your Lives Argentina 2026 con estampa frontal">
+                    <img src="/images/iron_maiden/prendas_reales/run-for-your-lives-2026-frente-real.jpg" alt="Remera terminada Run For Your Lives Argentina 2026 con estampa frontal" width="941" height="1672" loading="lazy" decoding="async">
+                    <span>Run For Your Lives Argentina 2026 · Frente</span>
+                </button>
+                <button type="button" class="band-real-product-proof-item" hidden onclick="openImageModal('/images/iron_maiden/prendas_reales/eddie-circular-fmd-frente-real.jpg')" aria-label="Ampliar Remera terminada Eddie Circular FMD con estampa frontal">
+                    <img src="/images/iron_maiden/prendas_reales/eddie-circular-fmd-frente-real.jpg" alt="Remera terminada Eddie Circular FMD con estampa frontal" width="941" height="1672" loading="lazy" decoding="async">
+                    <span>Eddie Circular FMD · Frente</span>
+                </button>
+                <button type="button" class="band-real-product-proof-item" hidden onclick="openImageModal('/images/iron_maiden/prendas_reales/eddie-gaucho-con-fechas-frente-real.jpg')" aria-label="Ampliar Remera terminada Eddie Gaucho Argentino con fechas de Buenos Aires 2026 en el frente">
+                    <img src="/images/iron_maiden/prendas_reales/eddie-gaucho-con-fechas-frente-real.jpg" alt="Remera terminada Eddie Gaucho Argentino con fechas de Buenos Aires 2026 en el frente" width="941" height="1672" loading="lazy" decoding="async">
+                    <span>Eddie Gaucho con fechas · Frente</span>
+                </button>
+                <button type="button" class="band-real-product-proof-item" hidden onclick="openImageModal('/images/iron_maiden/prendas_reales/powerslave-dorso-real.jpg')" aria-label="Ampliar Dorso terminado de Powerslave con emblema alado">
+                    <img src="/images/iron_maiden/prendas_reales/powerslave-dorso-real.jpg" alt="Dorso terminado de Powerslave con emblema alado" width="941" height="1672" loading="lazy" decoding="async">
+                    <span>Powerslave · Dorso</span>
+                </button>
+                <button type="button" class="band-real-product-proof-item" hidden onclick="openImageModal('/images/iron_maiden/prendas_reales/somewhere-in-time-dorso-real.jpg')" aria-label="Ampliar Dorso terminado de Somewhere in Time con Eddie cósmico">
+                    <img src="/images/iron_maiden/prendas_reales/somewhere-in-time-dorso-real.jpg" alt="Dorso terminado de Somewhere in Time con Eddie cósmico" width="941" height="1672" loading="lazy" decoding="async">
+                    <span>Somewhere in Time · Dorso Eddie cósmico</span>
+                </button>
+                <button type="button" class="band-real-product-proof-item" hidden onclick="openImageModal('/images/iron_maiden/prendas_reales/run-for-your-lives-world-tour-2026-dorso-real.jpg')" aria-label="Ampliar Dorso terminado Run For Your Lives World Tour 2026 con fechas de Latinoamérica">
+                    <img src="/images/iron_maiden/prendas_reales/run-for-your-lives-world-tour-2026-dorso-real.jpg" alt="Dorso terminado Run For Your Lives World Tour 2026 con fechas de Latinoamérica" width="941" height="1672" loading="lazy" decoding="async">
+                    <span>Run For Your Lives 2026 · Dorso de gira</span>
+                </button>
+                <button type="button" class="band-real-product-proof-item" hidden onclick="openImageModal('/images/iron_maiden/prendas_reales/run-for-your-lives-logo-dorso-real.jpg')" aria-label="Ampliar Dorso terminado con el logo Run For Your Lives">
+                    <img src="/images/iron_maiden/prendas_reales/run-for-your-lives-logo-dorso-real.jpg" alt="Dorso terminado con el logo Run For Your Lives" width="941" height="1672" loading="lazy" decoding="async">
+                    <span>Run For Your Lives · Dorso con logo</span>
+                </button>
+                <button type="button" class="band-real-product-proof-item" hidden onclick="openImageModal('/images/iron_maiden/prendas_reales/eddie-gaucho-buenos-aires-dorso-real.jpg')" aria-label="Ampliar Otra vista del dorso terminado Eddie Gaucho Buenos Aires 2026">
+                    <img src="/images/iron_maiden/prendas_reales/eddie-gaucho-buenos-aires-dorso-real.jpg" alt="Otra vista del dorso terminado Eddie Gaucho Buenos Aires 2026" width="941" height="1672" loading="lazy" decoding="async">
+                    <span>Eddie Gaucho · Dorso Buenos Aires 2026</span>
+                </button>
+                <button type="button" class="band-real-product-proof-item" hidden onclick="openImageModal('/images/iron_maiden/prendas_reales/detalle_dtg.jpg')" aria-label="Ampliar Detalle macro de la impresión DTG sobre algodón peinado">
+                    <img src="/images/iron_maiden/prendas_reales/detalle_dtg.jpg" alt="Detalle macro de la impresión DTG sobre algodón peinado" width="1122" height="1402" loading="lazy" decoding="async">
+                    <span>Detalle de impresión DTG</span>
                 </button>
             </div>
+            <button type="button" class="band-real-product-proof-toggle" aria-expanded="false" onclick="toggleRealProductProof(this)">VER MÁS PRENDAS REALES <span>11</span></button>
             <div class="band-real-product-proof-specs">
                 <strong>Algodón peinado 24/1</strong>
                 <strong>Impresión DTG directa sobre la tela</strong>

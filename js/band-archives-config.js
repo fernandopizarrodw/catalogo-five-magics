@@ -296,14 +296,24 @@
             featuredCollectionAfterCatalog: true,
             hideFeaturedCollection: true,
             realProductProofAfterCatalog: true,
-            realProductProofLimit: 4,
+            realProductProofInitialLimit: 6,
+            realProductProofExpandable: true,
+            realProductProofFeaturedOrder: [
+                '/images/iron_maiden/prendas_reales/eddie_gaucho_frente.jpg',
+                '/images/iron_maiden/prendas_reales/eddie_gaucho_dorso.jpg',
+                '/images/iron_maiden/prendas_reales/eddie-tanguero-frente-real.jpg',
+                '/images/iron_maiden/prendas_reales/eddie-tanguero-dorso-real.jpg',
+                '/images/iron_maiden/prendas_reales/powerslave-frente-real.jpg',
+                '/images/iron_maiden/prendas_reales/somewhere-in-time-frente-real.jpg'
+            ],
             shippingAfterCatalog: true,
             heroTitle: 'RUN FOR YOUR LIVES<br><span>ARGENTINA 2026</span>',
             heroCopy: '<strong>20 + 21 OCTUBRE · ESTADIO HURACÁN</strong><br><br>La gira que celebra 50 años de historia llega a Buenos Aires.<br>Diseños inspirados en los primeros nueve discos de Iron Maiden.<br><br><b><span data-band-design-count-number>82</span> DISEÑOS ÚNICOS</b><br>Remeras · Hoodies · Buzos<br>Estampa frontal o frente + dorso',
             heroCtaLabel: 'VER COLECCIÓN MAIDEN 2026',
             heroSecondaryCta: {
                 label: 'VER EDDIES ARGENTINOS',
-                href: '#bandCampaignFeature'
+                href: '#catalogoPrincipal',
+                collectionId: 'eddies-argentinos'
             },
             showSizeGuide: true,
             productionTitle: '<span>PRODUCCIÓN</span> 48 A 72 H HÁBILES',

@@ -5,7 +5,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 
 const CDP_URL = 'http://127.0.0.1:9333';
-const PAGE_URL = 'http://127.0.0.1:5500/iron-maiden/';
+const PAGE_URL = process.env.PAGE_URL || 'http://127.0.0.1:5500/iron-maiden/';
 
 async function main() {
     const pages = await fetch(`${CDP_URL}/json`).then(response => response.json());
@@ -71,7 +71,7 @@ async function main() {
         await send('Network.enable');
         await send('Network.setCacheDisabled', { cacheDisabled: true });
         await navigate(390, 844, true);
-        await evaluate(`Promise.all([...document.querySelectorAll('#bandCuratedSelection img, .band-real-product-proof-grid img')].map(image => {
+        await evaluate(`Promise.all([...document.querySelectorAll('#bandCuratedSelection img, .band-real-product-proof-item:not([hidden]) img')].map(image => {
             image.loading = 'eager';
             if (image.complete) return Promise.resolve();
             return new Promise(resolve => image.addEventListener('load', resolve, { once: true }));
@@ -101,6 +101,8 @@ async function main() {
                 totalHeading: document.getElementById('productsCount').textContent.trim(),
                 initialOrder: [...document.querySelectorAll('#productsGrid .catalog-design-card')].slice(0, 4).map(card => card.dataset.designId),
                 proofCards: proofGrid.children.length,
+                proofVisible: proofGrid.querySelectorAll('.band-real-product-proof-item:not([hidden])').length,
+                proofToggle: proof.querySelector('.band-real-product-proof-toggle')?.textContent.replace(/\s+/g, ' ').trim() || '',
                 proofColumns: getComputedStyle(proofGrid).gridTemplateColumns.split(' ').length,
                 proofOverflow: proofGrid.scrollWidth > proofGrid.clientWidth,
                 catalogBeforeProof: mainChildren.indexOf(catalog) < mainChildren.indexOf(proof),
@@ -133,7 +135,9 @@ async function main() {
             'iron-maiden-eddie-huracan-original-fmd',
             'iron-maiden-eddie-tanguero-original-fmd'
         ]);
-        assert.equal(mobile.proofCards, 4);
+        assert.equal(mobile.proofCards, 17);
+        assert.equal(mobile.proofVisible, 6);
+        assert.equal(mobile.proofToggle, 'VER MÁS PRENDAS REALES 11');
         assert.equal(mobile.proofColumns, 2);
         assert.equal(mobile.proofOverflow, false);
         assert.equal(mobile.catalogBeforeProof, true);
@@ -169,6 +173,39 @@ async function main() {
             };
         })()`);
         assert.equal(imageAudit.broken.length, 0, `Hay imágenes rotas: ${imageAudit.broken.join(', ')}`);
+
+        const proofToggle = await evaluate(`(() => {
+            const button = document.querySelector('.band-real-product-proof-toggle');
+            button.click();
+            const expanded = {
+                visible: document.querySelectorAll('.band-real-product-proof-item:not([hidden])').length,
+                expanded: button.getAttribute('aria-expanded'),
+                label: button.textContent.trim()
+            };
+            button.click();
+            return {
+                expanded,
+                collapsedVisible: document.querySelectorAll('.band-real-product-proof-item:not([hidden])').length,
+                collapsed: button.getAttribute('aria-expanded')
+            };
+        })()`);
+        assert.equal(proofToggle.expanded.visible, 17);
+        assert.equal(proofToggle.expanded.expanded, 'true');
+        assert.equal(proofToggle.expanded.label, 'VER MENOS PRENDAS REALES');
+        assert.equal(proofToggle.collapsedVisible, 6);
+        assert.equal(proofToggle.collapsed, 'false');
+
+        const heroEddiesFilter = await evaluate(`(async () => {
+            document.querySelector('.band-landing-secondary-cta').click();
+            await new Promise(resolve => setTimeout(resolve, 100));
+            return {
+                active: document.querySelector('[data-band-landing-collection="eddies-argentinos"]').classList.contains('active'),
+                heading: document.getElementById('productsCount').textContent.trim()
+            };
+        })()`);
+        assert.equal(heroEddiesFilter.active, true);
+        assert(heroEddiesFilter.heading.startsWith('6 DISEÑOS'));
+        await evaluate(`selectBandLandingCollection('')`);
 
         const filterResult = await evaluate(`(async () => {
             selectBandLandingCollection('tour-argentina');
@@ -214,6 +251,60 @@ async function main() {
         assert(fmdVariant.modalImage.includes('FMD ACES'));
         await evaluate(`closeModal()`);
 
+        const est1975 = await evaluate(`(() => {
+            const inspect = id => {
+                closeModal();
+                openCatalogDesign(id, 'remera');
+                return {
+                    images: getModalImages().map(item => item.img || ''),
+                    current: getModalImages()[currentSlide]?.img || ''
+                };
+            };
+            return {
+                classic: inspect('iron-maiden-est-1975'),
+                piece: inspect('iron-maiden-est-1975-piece-of-mind')
+            };
+        })()`);
+        assert.equal(est1975.classic.images.length, 2);
+        assert(est1975.classic.current.includes('remera_iron_maiden_est_1975_frente.jpg'));
+        assert(est1975.classic.images.some(image => image.endsWith('remera_iron_maiden_est_1975.jpg')));
+        assert.equal(est1975.piece.images.length, 2);
+        assert(est1975.piece.current.includes('remera_iron_maiden_est_1975_piece_of_mind_frente.jpg'));
+        assert(est1975.piece.images.some(image => image.endsWith('remera_iron_maiden_est_1975_piece_of_mind.jpg')));
+        await evaluate(`closeModal()`);
+
+        const est1975Order = await evaluate(`(() => {
+            cart.clearCart();
+            openCatalogDesign('iron-maiden-est-1975', 'remera');
+            const initialMode = selectedPrintMode;
+            goToSlide(1, false);
+            const combinedMode = selectedPrintMode;
+            selectRemeraVariant('hombre_clasica', false);
+            selectSize('M');
+            selectColor('negro');
+            const added = addToCartFromModal();
+            const item = cart.getCart().at(-1) || null;
+            const summary = cart.generateSummary();
+            closeModal();
+            cart.clearCart();
+            return {
+                initialMode,
+                combinedMode,
+                added,
+                isDouble: item?.isDouble,
+                usesShownComposition: item?.usesShownComposition,
+                hasDoubleCopy: summary.includes('Frente y dorso'),
+                hasUndefinedBack: summary.includes('Dorso a definir')
+            };
+        })()`);
+        assert.equal(est1975Order.initialMode, 'simple');
+        assert.equal(est1975Order.combinedMode, 'double');
+        assert.equal(est1975Order.added, true);
+        assert.equal(est1975Order.isDouble, true);
+        assert.equal(est1975Order.usesShownComposition, true);
+        assert.equal(est1975Order.hasDoubleCopy, true);
+        assert.equal(est1975Order.hasUndefinedBack, false);
+
         await evaluate(`(async () => {
             for (const image of document.querySelectorAll('#bandCuratedSelection img, #productsGrid img')) {
                 image.scrollIntoView({ block: 'center' });
@@ -225,14 +316,15 @@ async function main() {
         const mobileDiscovery = await captureSection('.band-discovery-nav', 'iron-maiden-discovery-mobile.png');
         const mobileCurated = await captureSection('#bandCuratedSelection', 'iron-maiden-curated-mobile.png');
         const mobileArchive = await captureSection('#catalogoPrincipal', 'iron-maiden-archive-mobile.png');
+        const mobileProof = await captureSection('#realProductProof', 'iron-maiden-proof-mobile.png');
 
         await navigate(1440, 1000, false);
         await evaluate(`(async () => {
-            for (const image of document.querySelectorAll('#bandCuratedSelection img')) {
+            for (const image of document.querySelectorAll('#bandCuratedSelection img, .band-real-product-proof-item:not([hidden]) img')) {
                 image.scrollIntoView({ block: 'center' });
                 await new Promise(resolve => setTimeout(resolve, 100));
             }
-            await Promise.all([...document.querySelectorAll('#bandCuratedSelection img')].map(image => {
+            await Promise.all([...document.querySelectorAll('#bandCuratedSelection img, .band-real-product-proof-item:not([hidden]) img')].map(image => {
                 if (image.complete && image.naturalWidth > 0) return Promise.resolve();
                 return new Promise(resolve => image.addEventListener('load', resolve, { once: true }));
             }));
@@ -242,17 +334,20 @@ async function main() {
             discoveryColumns: getComputedStyle(document.querySelector('.band-discovery-nav-grid')).gridTemplateColumns.split(' ').length,
             curatedColumns: getComputedStyle(document.querySelector('.band-curated-selection-grid')).gridTemplateColumns.split(' ').length,
             proofColumns: getComputedStyle(document.querySelector('.band-real-product-proof-grid')).gridTemplateColumns.split(' ').length,
+            proofVisible: document.querySelectorAll('.band-real-product-proof-item:not([hidden])').length,
             pageOverflow: document.documentElement.scrollWidth > document.documentElement.clientWidth,
             catalogCount: document.getElementById('productsCount').textContent.trim()
         }))()`);
         assert.equal(desktop.discoveryColumns, 5);
         assert.equal(desktop.curatedColumns, 4);
-        assert.equal(desktop.proofColumns, 4);
+        assert.equal(desktop.proofColumns, 3);
+        assert.equal(desktop.proofVisible, 6);
         assert.equal(desktop.pageOverflow, false);
         assert.equal(desktop.catalogCount, '82 DISEÑOS · REMERAS IRON MAIDEN');
         const desktopCurated = await captureSection('#bandCuratedSelection', 'iron-maiden-curated-desktop.png');
+        const desktopProof = await captureSection('#realProductProof', 'iron-maiden-proof-desktop.png');
 
-        console.log(JSON.stringify({ mobile, imageAudit, filterResult, gauchoModal, fmdVariant, desktop, screenshots: [mobileDiscovery, mobileCurated, mobileArchive, desktopCurated] }, null, 2));
+        console.log(JSON.stringify({ mobile, imageAudit, proofToggle, heroEddiesFilter, filterResult, gauchoModal, fmdVariant, est1975, est1975Order, desktop, screenshots: [mobileDiscovery, mobileCurated, mobileArchive, mobileProof, desktopCurated, desktopProof] }, null, 2));
     } finally {
         socket.close();
     }

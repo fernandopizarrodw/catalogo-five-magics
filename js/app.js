@@ -294,6 +294,23 @@ function selectBandLandingCollectionAndScroll(collectionId = '') {
 
 window.selectBandLandingCollectionAndScroll = selectBandLandingCollectionAndScroll;
 
+function toggleRealProductProof(button) {
+    const section = button?.closest?.('.band-real-product-proof');
+    if (!section) return;
+    const extras = [...section.querySelectorAll('.band-real-product-proof-item[hidden], .band-real-product-proof-item.is-expanded-extra')];
+    const expanding = button.getAttribute('aria-expanded') !== 'true';
+    extras.forEach(item => {
+        item.hidden = !expanding;
+        item.classList.toggle('is-expanded-extra', expanding);
+    });
+    button.setAttribute('aria-expanded', String(expanding));
+    button.innerHTML = expanding
+        ? 'VER MENOS PRENDAS REALES'
+        : `VER MÁS PRENDAS REALES <span>${extras.length}</span>`;
+}
+
+window.toggleRealProductProof = toggleRealProductProof;
+
 function selectBandLandingGarment(garment) {
     if (!isBandLandingMode() || !BAND_LANDING_GARMENTS.has(garment)) return;
     bandLandingOuterwear = false;
@@ -6285,6 +6302,12 @@ function onCarouselScroll() {
 function applyCatalogPreviewSelection(ref) {
     if (ref?.role !== 'front') return;
     selectedCatalogFrontRef = ref;
+    const previewPrintMode = normalizeText(ref.defaultPrintMode || '');
+    if ((previewPrintMode === 'double' || previewPrintMode === 'doble') && selectedPrintMode !== 'double') {
+        selectPrintMode('double');
+    } else if ((previewPrintMode === 'simple' || previewPrintMode === 'frontal') && selectedPrintMode !== 'simple') {
+        selectPrintMode('simple');
+    }
     if (!ref.autoSelectBack || !currentCatalogDesign) return;
 
     const targetBack = currentCatalogDesign.backOptions?.find(back => (

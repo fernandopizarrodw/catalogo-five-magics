@@ -362,9 +362,22 @@ ${editorialCollectionCards.map((card, index) => `                <button type="b
     const realProductProofImages = Array.isArray(realProductProof?.images)
         ? realProductProof.images.filter(image => image?.src)
         : [];
-    const visibleRealProductProofImages = Number.isFinite(Number(config.realProductProofLimit))
-        ? realProductProofImages.slice(0, Math.max(1, Number(config.realProductProofLimit)))
-        : realProductProofImages;
+    const proofFeaturedOrder = Array.isArray(config.realProductProofFeaturedOrder)
+        ? config.realProductProofFeaturedOrder
+        : [];
+    const proofOrderIndex = new Map(proofFeaturedOrder.map((src, index) => [src, index]));
+    const orderedRealProductProofImages = [...realProductProofImages].sort((a, b) => {
+        const aOrder = proofOrderIndex.has(a.src) ? proofOrderIndex.get(a.src) : Number.MAX_SAFE_INTEGER;
+        const bOrder = proofOrderIndex.has(b.src) ? proofOrderIndex.get(b.src) : Number.MAX_SAFE_INTEGER;
+        return aOrder - bOrder;
+    });
+    const proofExpandable = config.realProductProofExpandable === true;
+    const proofInitialLimit = Math.max(1, Number(config.realProductProofInitialLimit) || orderedRealProductProofImages.length);
+    const visibleRealProductProofImages = proofExpandable
+        ? orderedRealProductProofImages
+        : Number.isFinite(Number(config.realProductProofLimit))
+            ? orderedRealProductProofImages.slice(0, Math.max(1, Number(config.realProductProofLimit)))
+            : orderedRealProductProofImages;
     const realProductProofMarkup = visibleRealProductProofImages.length ? `
         <section class="band-real-product-proof" id="realProductProof" aria-labelledby="bandRealProductProofTitle">
             <div class="band-real-product-proof-head">
@@ -373,11 +386,12 @@ ${editorialCollectionCards.map((card, index) => `                <button type="b
                 <span>${realProductProof.copy}</span>
             </div>
             <div class="band-real-product-proof-grid">
-${visibleRealProductProofImages.map((image, index) => `                <button type="button" onclick="openImageModal('${image.src}')" aria-label="Ampliar ${image.alt}">
-                    <img src="${image.src}" alt="${image.alt}" width="${image.width || 1080}" height="${image.height || 1350}" loading="${index === 0 ? 'eager' : 'lazy'}" decoding="async">
+${visibleRealProductProofImages.map((image, index) => `                <button type="button" class="band-real-product-proof-item"${proofExpandable && index >= proofInitialLimit ? ' hidden' : ''} onclick="openImageModal('${image.src}')" aria-label="Ampliar ${image.alt}">
+                    <img src="${image.src}" alt="${image.alt}" width="${image.width || 1080}" height="${image.height || 1350}" loading="${index < proofInitialLimit ? 'eager' : 'lazy'}" decoding="async">
                     ${image.label ? `<span>${image.label}</span>` : ''}
                 </button>`).join('\n')}
             </div>
+${proofExpandable && visibleRealProductProofImages.length > proofInitialLimit ? `            <button type="button" class="band-real-product-proof-toggle" aria-expanded="false" onclick="toggleRealProductProof(this)">VER MÁS PRENDAS REALES <span>${visibleRealProductProofImages.length - proofInitialLimit}</span></button>` : ''}
             <div class="band-real-product-proof-specs">
 ${(Array.isArray(realProductProof.specs) ? realProductProof.specs : ['Algodón peinado 24/1', 'Impresión DTG directa sobre la tela']).map(spec => `                <strong>${spec}</strong>`).join('\n')}
             </div>
@@ -502,7 +516,7 @@ ${eventDay ? `                <p class="helloween-event-day-line">${eventDay.lab
 ${config.heroQualityLine ? `                <p class="band-landing-quality-line">${config.heroQualityLine}</p>` : ''}
 ${config.heroSecondaryCta ? `                <div class="band-landing-hero-actions">
                     <a class="band-landing-primary-cta" href="#catalogoPrincipal">${config.heroCtaLabel || 'VER DISEÑOS'}</a>
-                    <a class="band-landing-secondary-cta" href="${config.heroSecondaryCta.href}">${config.heroSecondaryCta.label}</a>
+                    <a class="band-landing-secondary-cta" href="${config.heroSecondaryCta.href}"${config.heroSecondaryCta.collectionId ? ` onclick="event.preventDefault(); selectBandLandingCollectionAndScroll('${config.heroSecondaryCta.collectionId}')"` : ''}>${config.heroSecondaryCta.label}</a>
                 </div>` : `                <a class="band-landing-primary-cta" href="#catalogoPrincipal">${config.heroCtaLabel || 'VER DISEÑOS'}</a>`}
 ${config.heroNotice ? `                <p class="band-landing-hero-notice">${config.heroNotice}</p>\n` : ''}${config.relatedArchive ? `                <a class="band-landing-related-archive" href="${config.relatedArchive.href}" aria-label="${config.relatedArchive.label}: ${config.relatedArchive.title}">
                     <span>${config.relatedArchive.label}</span>

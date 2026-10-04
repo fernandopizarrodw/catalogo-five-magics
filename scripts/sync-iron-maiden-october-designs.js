@@ -151,6 +151,46 @@ function setFrontPublicName(productId, publicName) {
     return item;
 }
 
+function addStandaloneFrontToShownComposition(productId, frontImage) {
+    const item = requireProduct(productId, `producto ${productId}`);
+    const composition = (item.variants || []).find(variant => variant.usesShownComposition === true)
+        || item.variants?.[0];
+    if (!composition) throw new Error(`El producto ${productId} no tiene mock combinado.`);
+    const designId = item.designId || composition.designId;
+    const publicName = composition.publicName || item.name;
+    item.img = frontImage;
+    item.defaultPrintMode = 'frontal';
+    item.usesShownComposition = true;
+    item.variants = [
+        {
+            img: frontImage,
+            name: `${publicName} · Frente`,
+            publicName,
+            selectionLabel: 'Frente solo',
+            previewLabel: 'Frente solo',
+            designId,
+            role: 'front',
+            garmentCategory: 'Iron Maiden',
+            preferredPreview: true,
+            modalOrder: 1,
+            defaultPrintMode: 'simple'
+        },
+        {
+            ...composition,
+            name: `${publicName} · Frente y dorso`,
+            publicName,
+            selectionLabel: 'Frente y dorso',
+            previewLabel: 'Frente y dorso',
+            designId,
+            role: 'front',
+            preferredPreview: false,
+            modalOrder: 3,
+            defaultPrintMode: 'double',
+            usesShownComposition: true
+        }
+    ];
+}
+
 const gaucho = requireProduct(7040, 'Eddie Gaucho Argentino');
 gaucho.variants.forEach(variant => {
     const isOuterwear = variant.catalogGarments?.includes('hoodie')
@@ -183,6 +223,8 @@ setFrontPublicName(7258, 'Eddie Tanguero');
 setFrontPublicName(7259, 'The Number of the Beast · 666');
 setFrontPublicName(7261, 'Iron Maiden · Est. 1975');
 setFrontPublicName(7262, 'Piece of Mind · Est. 1975');
+addStandaloneFrontToShownComposition(7261, 'images/iron_maiden/remera_iron_maiden_est_1975_frente.jpg');
+addStandaloneFrontToShownComposition(7262, 'images/iron_maiden/remera_iron_maiden_est_1975_piece_of_mind_frente.jpg');
 setFrontPublicName(7264, 'World Slavery Tour 1984');
 setFrontPublicName(7265, 'Eddie vs. Huracán');
 
