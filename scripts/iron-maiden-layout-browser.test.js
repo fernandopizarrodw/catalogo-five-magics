@@ -96,6 +96,7 @@ async function main() {
                 discoveryLinks: discovery.querySelectorAll('button').length,
                 discoveryColumns: getComputedStyle(discovery.querySelector('.band-discovery-nav-grid')).gridTemplateColumns.split(' ').length,
                 curatedCards: curatedCards.length,
+                curatedOrder: curatedCards.map(card => card.dataset.designId),
                 curatedColumns: getComputedStyle(curated.querySelector('.band-curated-selection-grid')).gridTemplateColumns.split(' ').length,
                 curatedLoaded: curatedCards.every(card => card.querySelector('img').complete && card.querySelector('img').naturalWidth > 0),
                 primaryFilters: primaryFilters.map(button => button.textContent.trim()),
@@ -128,6 +129,21 @@ async function main() {
         assert.equal(mobile.discoveryLinks, 5);
         assert.equal(mobile.discoveryColumns, 2);
         assert.equal(mobile.curatedCards, 16);
+        assert.deepEqual(mobile.curatedOrder.slice(0, 13), [
+            'cd-iron-maiden-eddie-gaucho-argentino--p7040',
+            'iron-maiden-eddie-tanguero-original-fmd',
+            'iron-maiden-eddie-huracan-original-fmd',
+            'iron-maiden-run-for-your-lives-fmd-2026',
+            'iron-maiden-1980-run-for-your-lives',
+            'iron-maiden-killers-1981-run-for-your-lives',
+            'iron-maiden-number-of-the-beast-1982-run-for-your-lives',
+            'iron-maiden-piece-of-mind-1983-run-for-your-lives',
+            'iron-maiden-powerslave-1984-run-for-your-lives',
+            'iron-maiden-somewhere-in-time-1986-run-for-your-lives',
+            'iron-maiden-seventh-son-1988-run-for-your-lives',
+            'iron-maiden-no-prayer-1990-run-for-your-lives',
+            'iron-maiden-fear-of-the-dark-1992-run-for-your-lives'
+        ]);
         assert.equal(mobile.curatedColumns, 2);
         assert.equal(mobile.curatedLoaded, true);
         assert.equal(mobile.primaryFilters.length, 7);
@@ -140,10 +156,10 @@ async function main() {
             'iron-maiden-eddie-huracan-original-fmd',
             'iron-maiden-eddie-tanguero-original-fmd'
         ]);
-        assert.equal(mobile.proofCards, 8);
-        assert.equal(mobile.proofVisible, 8);
+        assert.equal(mobile.proofCards, 11);
+        assert.equal(mobile.proofVisible, 11);
         assert.equal(mobile.proofToggle, '');
-        assert.equal(mobile.proofCounter, '1 / 8');
+        assert.equal(mobile.proofCounter, '1 / 11');
         assert.equal(mobile.proofControls, 2);
         assert.equal(mobile.proofOverflow, true);
         assert.equal(mobile.catalogBeforeProof, true);
@@ -193,7 +209,7 @@ async function main() {
             section.querySelector('[data-proof-prev]').click();
             return state;
         })()`);
-        assert.equal(proofCarousel.counter, '2 / 8');
+        assert.equal(proofCarousel.counter, '2 / 11');
         assert(proofCarousel.scrollLeft > 0);
 
         const heroEddiesFilter = await evaluate(`(async () => {
@@ -505,7 +521,7 @@ async function main() {
         assert.equal(desktop.discoveryColumns, 5);
         assert.equal(desktop.curatedColumns, 4);
         assert.equal(desktop.proofOverflow, true);
-        assert.equal(desktop.proofVisible, 8);
+        assert.equal(desktop.proofVisible, 11);
         assert.equal(desktop.pageOverflow, false);
         assert.equal(desktop.catalogCount, '94 DISEÑOS · REMERAS IRON MAIDEN');
         const desktopCurated = await captureSection('#bandCuratedSelection', 'iron-maiden-curated-desktop.png');

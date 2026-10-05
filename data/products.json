@@ -23570,6 +23570,19 @@
         "publicName": "Eddie vs. Huracán"
       },
       {
+        "img": "images/iron_maiden/remera_iron_maiden_eddie_huracan_v2.jpg",
+        "name": "Eddie vs. Huracán · Frente V2",
+        "selectionLabel": "Frente V2 · Eddie en primer plano",
+        "previewLabel": "Frente V2",
+        "designId": "iron-maiden-eddie-huracan-original-fmd",
+        "role": "front",
+        "modalOrder": 2,
+        "defaultPrintMode": "double",
+        "fmdBadge": "ORIGINAL FMD",
+        "fmdBadgeDescription": "Segunda versión del tercer capítulo de la saga Eddies Argentinos.",
+        "publicName": "Eddie vs. Huracán"
+      },
+      {
         "img": "images/iron_maiden/remera_iron_maiden_eddie_huracan_dorso.jpg",
         "name": "Dorso Eddie vs. Huracán · Buenos Aires 2026",
         "selectionLabel": "Dorso Eddie vs. Huracán · Buenos Aires 2026",
@@ -23577,7 +23590,7 @@
         "role": "back",
         "backTargetDesignId": "iron-maiden-eddie-huracan-original-fmd",
         "carouselPreview": true,
-        "modalOrder": 2
+        "modalOrder": 3
       },
       {
         "img": "images/iron_maiden/remera_iron_maiden_eddie_huracan_doble.jpg",
@@ -23589,7 +23602,7 @@
         "defaultPrintMode": "double",
         "autoSelectBack": "Dorso Eddie vs. Huracán · Buenos Aires 2026",
         "orderVariantIndex": 0,
-        "modalOrder": 3,
+        "modalOrder": 4,
         "fmdBadge": "ORIGINAL FMD",
         "fmdBadgeDescription": "Tercer capítulo de la saga Eddies Argentinos creada por Five Magics Designs.",
         "publicName": "Eddie vs. Huracán"

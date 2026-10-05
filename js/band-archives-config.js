@@ -297,7 +297,7 @@
             hideFeaturedCollection: true,
             realProductProofAfterCatalog: true,
             realProductProofCarousel: true,
-            realProductProofLimit: 8,
+            realProductProofLimit: 11,
             realProductProofFeaturedOrder: [
                 '/images/iron_maiden/prendas_reales/eddie_gaucho_frente.jpg',
                 '/images/iron_maiden/prendas_reales/detalle_dtg.jpg',
@@ -306,7 +306,10 @@
                 '/images/iron_maiden/prendas_reales/eddie-tanguero-dorso-real.jpg',
                 '/images/iron_maiden/prendas_reales/powerslave-frente-real.jpg',
                 '/images/iron_maiden/prendas_reales/somewhere-in-time-frente-real.jpg',
-                '/images/iron_maiden/prendas_reales/run-for-your-lives-2026-frente-real.jpg'
+                '/images/iron_maiden/prendas_reales/run-for-your-lives-2026-frente-real.jpg',
+                '/images/iron_maiden/prendas_reales/eddie vs huracan.jpg',
+                '/images/iron_maiden/prendas_reales/killers real.jpg',
+                '/images/iron_maiden/prendas_reales/trooper.jpg'
             ],
             shippingAfterCatalog: true,
             heroTitle: 'RUN FOR YOUR LIVES<br><span>ARGENTINA 2026</span>',
@@ -346,26 +349,26 @@
             curatedSelection: {
                 kicker: 'SELECCIÓN FMD',
                 title: '16 DISEÑOS PARA EMPEZAR',
-                copy: 'Argentina 2026, clásicos esenciales y originales FMD.',
+                copy: 'Eddies Argentinos, edición FMD y los nueve discos del tour en orden cronológico.',
                 priceLabel: 'Remeras desde $38.000',
                 ctaLabel: 'VER COLECCIÓN COMPLETA ·',
                 cards: [
                     { designId: 'cd-iron-maiden-eddie-gaucho-argentino--p7040', label: 'Eddie Gaucho Argentino', image: '/images/iron_maiden/remera_iron_maiden_eddie_gaucho_argentino_frente.jpg' },
-                    { designId: 'iron-maiden-eddie-huracan-original-fmd', label: 'Eddie vs. Huracán', image: '/images/iron_maiden/remera_iron_maiden_eddie_huracan_frente.jpg' },
                     { designId: 'iron-maiden-eddie-tanguero-original-fmd', label: 'Eddie Tanguero', image: '/images/iron_maiden/iron_maiden_eddie_tanguero.jpg' },
+                    { designId: 'iron-maiden-eddie-huracan-original-fmd', label: 'Eddie vs. Huracán', image: '/images/iron_maiden/remera_iron_maiden_eddie_huracan_frente.jpg' },
+                    { designId: 'iron-maiden-run-for-your-lives-fmd-2026', label: 'Run For Your Lives · Edición FMD', image: '/images/iron_maiden/eddie_run_for_your_lives_tour/remera_iron_maiden_run_fmd.jpg' },
+                    { designId: 'iron-maiden-1980-run-for-your-lives', label: 'Iron Maiden · 1980', image: '/images/iron_maiden/9 discos 1 tour/iron_maiden.jpg' },
+                    { designId: 'iron-maiden-killers-1981-run-for-your-lives', label: 'Killers · 1981', image: '/images/iron_maiden/9 discos 1 tour/iron_maiden_killers.jpg' },
+                    { designId: 'iron-maiden-number-of-the-beast-1982-run-for-your-lives', label: 'The Number of the Beast · 1982', image: '/images/iron_maiden/9 discos 1 tour/iron_maiden_number.jpg' },
+                    { designId: 'iron-maiden-piece-of-mind-1983-run-for-your-lives', label: 'Piece of Mind · 1983', image: '/images/iron_maiden/9 discos 1 tour/Piece of Mind (1983).jpg' },
+                    { designId: 'iron-maiden-powerslave-1984-run-for-your-lives', label: 'Powerslave · 1984', image: '/images/iron_maiden/9 discos 1 tour/Powerslave (1984).jpg' },
+                    { designId: 'iron-maiden-somewhere-in-time-1986-run-for-your-lives', label: 'Somewhere in Time · 1986', image: '/images/iron_maiden/9 discos 1 tour/Somewhere in Time (1986).jpg' },
+                    { designId: 'iron-maiden-seventh-son-1988-run-for-your-lives', label: 'Seventh Son · 1988', image: '/images/iron_maiden/9 discos 1 tour/Seventh Son of a Seventh Son (1988).jpg' },
+                    { designId: 'iron-maiden-no-prayer-1990-run-for-your-lives', label: 'No Prayer for the Dying · 1990', image: '/images/iron_maiden/9 discos 1 tour/No Prayer for the Dying (1990).jpg' },
+                    { designId: 'iron-maiden-fear-of-the-dark-1992-run-for-your-lives', label: 'Fear of the Dark · 1992', image: '/images/iron_maiden/9 discos 1 tour/iron_maiden_fear.jpg' },
                     { designId: 'iron-maiden-aces-high-singles', label: 'Aces High · FMD', image: '/images/iron_maiden/singles originales y fmd edition/FMD ACES 4-5 FOR IG MOCK REMERA.jpg', preview: '/images/iron_maiden/singles originales y fmd edition/FMD ACES 4-5 FOR IG MOCK REMERA.jpg' },
                     { designId: 'iron-maiden-wasted-years-singles', label: 'Wasted Years · FMD', image: '/images/iron_maiden/singles originales y fmd edition/WASTED FMD 4-5 FOR IG MOCK REMERA.jpg', preview: '/images/iron_maiden/singles originales y fmd edition/WASTED FMD 4-5 FOR IG MOCK REMERA.jpg' },
-                    { designId: 'iron-maiden-flight-of-icarus-singles', label: 'Flight of Icarus · FMD', image: '/images/iron_maiden/singles originales y fmd edition/FMD EDITION - 4-5 FOR IG MOCK REMERA.jpg', preview: '/images/iron_maiden/singles originales y fmd edition/FMD EDITION - 4-5 FOR IG MOCK REMERA.jpg' },
-                    { designId: 'iron-maiden-somewhere-in-time-40th-fmd', label: 'Somewhere in Time · 40 años', image: '/images/iron_maiden/somewhere in time/iron_maiden_somewhere_fmd_doble.jpg', preview: '/images/iron_maiden/somewhere in time/iron_maiden_somewhere_fmd_doble.jpg', printMode: 'double' },
-                    { designId: 'iron-maiden-powerslave-fmd', label: 'Powerslave · FMD', image: '/images/iron_maiden/fmd_powerslave_frente.jpg' },
-                    { designId: 'iron-maiden-number-of-the-beast-singles', label: 'The Number of the Beast · FMD', image: '/images/iron_maiden/singles originales y fmd edition/NUMBER FMD 4-5 FOR IG MOCK REMERA.jpg', preview: '/images/iron_maiden/singles originales y fmd edition/NUMBER FMD 4-5 FOR IG MOCK REMERA.jpg' },
-                    { designId: 'iron-maiden-the-trooper-classic', label: 'The Trooper', image: '/images/iron_maiden/iron_maiden_the_trooper.jpg' },
-                    { designId: 'iron-maiden-hallowed-be-thy-name', label: 'Hallowed Be Thy Name', image: '/images/iron_maiden/remera_iron_maiden_hallowed_by_the_name.jpg' },
-                    { designId: 'cd-iron-maiden-fear-of-the-dark-edicion-fmd--p7022', label: 'Fear of the Dark · FMD', image: '/images/iron_maiden/fmd_fear_of_the_dark.jpg' },
-                    { designId: 'cd-iron-maiden-killers--p5036', label: 'Killers', image: '/images/iron_maiden/iron_maiden_killers_frente.jpg' },
-                    { designId: 'iron-maiden-run-for-your-lives-buenos-aires', label: 'Run For Your Lives · Buenos Aires', image: '/images/iron_maiden/NUEVO TOUR4-5 FOR IG MOCK REMERA.jpg' },
-                    { designId: 'iron-maiden-eddies-collection', label: 'Eddies Collection', image: '/images/iron_maiden/remera_iron_maiden_eddies.jpg' },
-                    { designId: 'iron-maiden-seventh-son-eddie', label: 'Seventh Son · Eddie', image: '/images/iron_maiden/SEVENTH4-5 FOR IG MOCK REMERA.jpg' }
+                    { designId: 'iron-maiden-the-trooper-classic', label: 'The Trooper', image: '/images/iron_maiden/iron_maiden_the_trooper.jpg' }
                 ]
             },
             collections: [
@@ -816,6 +819,27 @@
                         label: 'Eddie Gaucho Argentino · Frente',
                         width: 1080,
                         height: 1350
+                    },
+                    {
+                        src: '/images/iron_maiden/prendas_reales/eddie vs huracan.jpg',
+                        alt: 'Remera terminada Eddie vs. Huracán con estampa frontal',
+                        label: 'Eddie vs. Huracán · Frente',
+                        width: 1086,
+                        height: 1448
+                    },
+                    {
+                        src: '/images/iron_maiden/prendas_reales/killers real.jpg',
+                        alt: 'Remera terminada Killers con Eddie en la ciudad',
+                        label: 'Killers · Frente',
+                        width: 1080,
+                        height: 1350
+                    },
+                    {
+                        src: '/images/iron_maiden/prendas_reales/trooper.jpg',
+                        alt: 'Remera terminada The Trooper con estampa frontal',
+                        label: 'The Trooper · Frente',
+                        width: 968,
+                        height: 1592
                     },
                     {
                         src: '/images/iron_maiden/prendas_reales/eddie-tanguero-frente-real.jpg',
