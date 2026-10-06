@@ -149,7 +149,7 @@ async function main() {
         assert.equal(mobile.primaryFilters.length, 7);
         assert.equal(mobile.albumFilters, 9);
         assert.equal(mobile.initialCards, 16);
-        assert.equal(mobile.totalHeading, '94 DISEÑOS · REMERAS IRON MAIDEN');
+        assert.equal(mobile.totalHeading, '96 DISEÑOS · REMERAS IRON MAIDEN');
         assert.deepEqual(mobile.initialOrder, [
             'cd-iron-maiden-eddie-gaucho-argentino--p7040',
             'iron-maiden-eddie-gaucho-argentino-con-fechas',
@@ -221,7 +221,7 @@ async function main() {
             };
         })()`);
         assert.equal(heroEddiesFilter.active, true);
-        assert(heroEddiesFilter.heading.startsWith('6 DISEÑOS'));
+        assert(heroEddiesFilter.heading.startsWith('7 DISEÑOS'));
         await evaluate(`selectBandLandingCollection('')`);
 
         const garmentAvailability = await evaluate(`(async () => {
@@ -256,7 +256,7 @@ async function main() {
         assert.equal(garmentAvailability.buzo.results, garmentAvailability.buzo.expected);
         assert.deepEqual(garmentAvailability.buzo.unavailableShown, []);
         assert.deepEqual(garmentAvailability.buzo.missing, []);
-        assert(garmentAvailability.remera.heading.startsWith('94 ') && garmentAvailability.remera.heading.includes('REMERAS'));
+        assert(garmentAvailability.remera.heading.startsWith('96 ') && garmentAvailability.remera.heading.includes('REMERAS'));
         assert.equal(garmentAvailability.remera.cards, 16);
 
         const collectionCounts = await evaluate(`(async () => {
@@ -271,7 +271,7 @@ async function main() {
             return { singles, originals };
         })()`);
         assert(collectionCounts.singles.startsWith('16 '));
-        assert(collectionCounts.originals.startsWith('19 '));
+        assert(collectionCounts.originals.startsWith('21 '));
 
         const fmdFilterVariant = await evaluate(`(() => {
             selectBandLandingGarment('remera');
@@ -290,6 +290,44 @@ async function main() {
         assert(fmdFilterVariant.selectedImage.includes('FMD ACES'), JSON.stringify(fmdFilterVariant));
         assert(fmdFilterVariant.modalImage.includes('FMD ACES'), JSON.stringify(fmdFilterVariant));
 
+        const latestDesigns = await evaluate(`(() => {
+            const inspect = id => {
+                openCatalogDesign(id, 'remera');
+                const state = {
+                    designId: currentCatalogDesign?.designId || '',
+                    images: getModalImages().map(item => item.img || ''),
+                    backs: (currentCatalogDesign?.backOptions || []).map(item => item.image || '')
+                };
+                closeModal();
+                return state;
+            };
+            return {
+                piece: inspect('iron-maiden-piece-of-mind-1983-run-for-your-lives'),
+                powerslave: inspect('iron-maiden-powerslave-1984-run-for-your-lives'),
+                legacy: inspect('iron-maiden-legacy-of-the-beast-grid'),
+                runFmd: inspect('iron-maiden-run-for-your-lives-fmd-2026'),
+                pilot: inspect('iron-maiden-eddie-piloto-ed-force-one'),
+                argentina: inspect('iron-maiden-eddie-argentina-seleccion-fmd')
+            };
+        })()`);
+        assert(latestDesigns.piece.images.some(image => image.endsWith('iron_maiden_eddie_piece_of_mind.jpg')));
+        assert(latestDesigns.piece.images.some(image => image.endsWith('iron_maiden_eddie_piece_of_mind_v2_fmd.jpg')));
+        assert.equal(latestDesigns.powerslave.images.filter(image => image.includes('iron_maiden_eddie_powerslave')).length, 3);
+        assert(latestDesigns.legacy.images.some(image => image.endsWith('iron_maiden_legacy.jpg')));
+        assert(latestDesigns.runFmd.backs.some(image => image.endsWith('iron_maiden_i_saw_eddie_dorso.jpg')));
+        assert.equal(latestDesigns.pilot.designId, 'iron-maiden-eddie-piloto-ed-force-one');
+        assert.equal(latestDesigns.argentina.designId, 'iron-maiden-eddie-argentina-seleccion-fmd');
+
+        const pieceFmdVariant = await evaluate(`(() => {
+            selectBandLandingCollection('fmd-originals');
+            openCatalogDesign('iron-maiden-piece-of-mind-1983-run-for-your-lives', 'remera');
+            const selectedImage = selectedCatalogFrontRef?.image || '';
+            closeModal();
+            selectBandLandingCollection('');
+            return selectedImage;
+        })()`);
+        assert(pieceFmdVariant.endsWith('iron_maiden_eddie_piece_of_mind_v2_fmd.jpg'));
+
         const filterResult = await evaluate(`(async () => {
             selectBandLandingCollection('tour-argentina');
             await new Promise(resolve => setTimeout(resolve, 100));
@@ -300,7 +338,7 @@ async function main() {
             };
         })()`);
         assert.equal(filterResult.active, true);
-        assert(filterResult.cards > 0 && filterResult.cards <= 18);
+        assert(filterResult.cards > 0 && filterResult.cards <= 19);
         assert(Number.parseInt(filterResult.heading, 10) >= filterResult.cards);
         await evaluate(`selectBandLandingCollection('')`);
 
@@ -523,11 +561,11 @@ async function main() {
         assert.equal(desktop.proofOverflow, true);
         assert.equal(desktop.proofVisible, 11);
         assert.equal(desktop.pageOverflow, false);
-        assert.equal(desktop.catalogCount, '94 DISEÑOS · REMERAS IRON MAIDEN');
+        assert.equal(desktop.catalogCount, '96 DISEÑOS · REMERAS IRON MAIDEN');
         const desktopCurated = await captureSection('#bandCuratedSelection', 'iron-maiden-curated-desktop.png');
         const desktopProof = await captureSection('#realProductProof', 'iron-maiden-proof-desktop.png');
 
-        console.log(JSON.stringify({ mobile, imageAudit, proofCarousel, heroEddiesFilter, filterResult, garmentAvailability, collectionCounts, fmdFilterVariant, gauchoModal, fmdVariant, fmdGarmentChange, gauchoBacks, emptySearch, est1975, est1975Order, cartScrollReturn, desktop, screenshots: [mobileDiscovery, mobileCurated, mobileArchive, mobileProof, desktopCurated, desktopProof] }, null, 2));
+        console.log(JSON.stringify({ mobile, imageAudit, proofCarousel, heroEddiesFilter, filterResult, garmentAvailability, collectionCounts, fmdFilterVariant, latestDesigns, pieceFmdVariant, gauchoModal, fmdVariant, fmdGarmentChange, gauchoBacks, emptySearch, est1975, est1975Order, cartScrollReturn, desktop, screenshots: [mobileDiscovery, mobileCurated, mobileArchive, mobileProof, desktopCurated, desktopProof] }, null, 2));
     } finally {
         socket.close();
     }

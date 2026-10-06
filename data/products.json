@@ -22331,6 +22331,24 @@
         "designId": "iron-maiden-piece-of-mind-1983-run-for-your-lives",
         "role": "front",
         "campaignPreview": "iron-maiden-nine-albums-tour"
+      },
+      {
+        "img": "images/iron_maiden/9 discos 1 tour/iron_maiden_eddie_piece_of_mind.jpg",
+        "name": "Piece of Mind · Eddie encadenado",
+        "publicName": "Piece of Mind · Eddie encadenado",
+        "selectionLabel": "Frente Eddie encadenado",
+        "designId": "iron-maiden-piece-of-mind-1983-run-for-your-lives",
+        "role": "front"
+      },
+      {
+        "img": "images/iron_maiden/9 discos 1 tour/iron_maiden_eddie_piece_of_mind_v2_fmd.jpg",
+        "name": "Piece of Mind · Eddie encadenado · Edición FMD",
+        "publicName": "Piece of Mind · Eddie encadenado",
+        "selectionLabel": "Frente Eddie encadenado · Edición FMD",
+        "designId": "iron-maiden-piece-of-mind-1983-run-for-your-lives",
+        "role": "front",
+        "fmdBadge": "ORIGINAL FMD",
+        "fmdBadgeDescription": "Reinterpretación visual creada por Five Magics Designs."
       }
     ],
     "garments": [
@@ -22377,6 +22395,30 @@
         "designId": "iron-maiden-powerslave-1984-run-for-your-lives",
         "role": "front",
         "campaignPreview": "iron-maiden-nine-albums-tour"
+      },
+      {
+        "img": "images/iron_maiden/9 discos 1 tour/iron_maiden_eddie_powerslave.jpg",
+        "name": "Powerslave · Eddie momia azul y amarillo",
+        "publicName": "Powerslave · Eddie momia",
+        "selectionLabel": "Frente azul y amarillo",
+        "designId": "iron-maiden-powerslave-1984-run-for-your-lives",
+        "role": "front"
+      },
+      {
+        "img": "images/iron_maiden/9 discos 1 tour/iron_maiden_eddie_powerslave_v2.jpg",
+        "name": "Powerslave · Eddie momia dorado",
+        "publicName": "Powerslave · Eddie momia",
+        "selectionLabel": "Frente dorado",
+        "designId": "iron-maiden-powerslave-1984-run-for-your-lives",
+        "role": "front"
+      },
+      {
+        "img": "images/iron_maiden/9 discos 1 tour/iron_maiden_eddie_powerslave_v3.jpg",
+        "name": "Powerslave · Eddie momia tormenta azul",
+        "publicName": "Powerslave · Eddie momia",
+        "selectionLabel": "Frente tormenta azul",
+        "designId": "iron-maiden-powerslave-1984-run-for-your-lives",
+        "role": "front"
       },
       {
         "img": "images/iron_maiden/9 discos 1 tour/remera_iron_maiden_powerslave_doble_estampa.jpg",
@@ -24000,6 +24042,14 @@
         "selectionLabel": "Frente principal",
         "designId": "iron-maiden-legacy-of-the-beast-grid",
         "role": "front"
+      },
+      {
+        "img": "images/iron_maiden/iron_maiden_legacy.jpg",
+        "name": "Legacy of the Beast · Vitrales",
+        "publicName": "Legacy of the Beast · Vitrales",
+        "selectionLabel": "Frente vitrales",
+        "designId": "iron-maiden-legacy-of-the-beast-grid",
+        "role": "front"
       }
     ],
     "garments": [
@@ -24622,6 +24672,16 @@
         "preferredPreview": true,
         "fmdBadge": "ORIGINAL FMD",
         "fmdBadgeDescription": "Diseño original creado por Five Magics Designs."
+      },
+      {
+        "img": "images/iron_maiden/dorsos opcionales/iron_maiden_i_saw_eddie_dorso.jpg",
+        "name": "Dorso I Saw Eddie · World Tour 2026",
+        "selectionLabel": "Dorso I Saw Eddie · World Tour 2026",
+        "previewLabel": "Dorso opcional",
+        "role": "back",
+        "backTargetDesignId": "iron-maiden-run-for-your-lives-fmd-2026",
+        "carouselPreview": true,
+        "modalOrder": 2
       }
     ],
     "garments": ["remera", "hoodie", "buzo_cuello_redondo"],
@@ -24937,5 +24997,73 @@
     "legacyCategory": "Iron Maiden",
     "fmdBadge": "EDDIE",
     "tags": ["Iron Maiden", "Eddie", "Chicago Mutant", "remera"]
+  },
+  {
+    "id": 7297,
+    "designId": "iron-maiden-eddie-piloto-ed-force-one",
+    "designSlug": "iron-maiden-eddie-piloto-ed-force-one",
+    "category": "Iron Maiden",
+    "band": "Iron Maiden",
+    "name": "Eddie Piloto · Ed Force One",
+    "year": null,
+    "album": null,
+    "tipoPrecio": "simple",
+    "defaultPrintMode": "frontal",
+    "catalogGarments": ["remera", "hoodie", "buzo_cuello_redondo"],
+    "isNew": true,
+    "img": "images/iron_maiden/eddie_piloto.jpg",
+    "desc": "Eddie y el Ed Force One en pleno vuelo.",
+    "variants": [{
+      "img": "images/iron_maiden/eddie_piloto.jpg",
+      "name": "Eddie Piloto · Ed Force One",
+      "publicName": "Eddie Piloto · Ed Force One",
+      "selectionLabel": "Frente Eddie Piloto",
+      "designId": "iron-maiden-eddie-piloto-ed-force-one",
+      "role": "front",
+      "preferredPreview": true
+    }],
+    "garments": ["remera", "hoodie", "buzo_cuello_redondo"],
+    "collections": ["Archivo Maiden", "Eddies", "Colección general"],
+    "campaigns": [],
+    "commercialPriority": 85,
+    "visibilityTier": "catalog",
+    "legacyCategory": "Iron Maiden",
+    "fmdBadge": "EDDIE",
+    "tags": ["Iron Maiden", "Eddie", "Ed Force One", "Avión", "Piloto", "remera"]
+  },
+  {
+    "id": 7298,
+    "designId": "iron-maiden-eddie-argentina-seleccion-fmd",
+    "designSlug": "iron-maiden-eddie-argentina-seleccion-fmd",
+    "category": "Iron Maiden",
+    "band": "Iron Maiden",
+    "name": "Eddie Argentina · Selección · Edición FMD",
+    "year": "2026",
+    "album": null,
+    "tipoPrecio": "simple",
+    "defaultPrintMode": "frontal",
+    "catalogGarments": ["remera", "hoodie", "buzo_cuello_redondo"],
+    "isNew": true,
+    "img": "images/iron_maiden/eddie_run_for_your_lives_tour/iron_maiden_eddie_argentina.jpg",
+    "desc": "Eddie con la camiseta argentina, edición original FMD para Run For Your Lives 2026.",
+    "variants": [{
+      "img": "images/iron_maiden/eddie_run_for_your_lives_tour/iron_maiden_eddie_argentina.jpg",
+      "name": "Eddie Argentina · Selección · Edición FMD",
+      "publicName": "Eddie Argentina · Selección",
+      "selectionLabel": "Frente Eddie Argentina",
+      "designId": "iron-maiden-eddie-argentina-seleccion-fmd",
+      "role": "front",
+      "preferredPreview": true,
+      "fmdBadge": "ORIGINAL FMD",
+      "fmdBadgeDescription": "Diseño original creado por Five Magics Designs."
+    }],
+    "garments": ["remera", "hoodie", "buzo_cuello_redondo"],
+    "collections": ["Archivo Maiden", "Originales FMD", "Tour Argentina 2026", "Eddies Argentinos"],
+    "campaigns": ["Argentina 2026", "Run For Your Lives 2026"],
+    "commercialPriority": 96,
+    "visibilityTier": "featured",
+    "legacyCategory": "Iron Maiden",
+    "fmdBadge": "ORIGINAL FMD",
+    "tags": ["Iron Maiden", "Eddie", "Argentina", "Selección Argentina", "Run For Your Lives", "Original FMD", "remera"]
   }
 ]
