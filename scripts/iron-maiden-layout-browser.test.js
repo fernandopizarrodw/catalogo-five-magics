@@ -313,6 +313,9 @@ async function main() {
         assert(latestDesigns.piece.images.some(image => image.endsWith('iron_maiden_eddie_piece_of_mind.jpg')));
         assert(latestDesigns.piece.images.some(image => image.endsWith('iron_maiden_eddie_piece_of_mind_v2_fmd.jpg')));
         assert.equal(latestDesigns.powerslave.images.filter(image => image.includes('iron_maiden_eddie_powerslave')).length, 3);
+        for (let version = 3; version <= 7; version += 1) {
+            assert(latestDesigns.powerslave.images.some(image => image.endsWith(`Powerslave_v${version}.jpg`)));
+        }
         assert(latestDesigns.legacy.images.some(image => image.endsWith('iron_maiden_legacy.jpg')));
         assert(latestDesigns.runFmd.backs.some(image => image.endsWith('iron_maiden_i_saw_eddie_dorso.jpg')));
         assert.equal(latestDesigns.pilot.designId, 'iron-maiden-eddie-piloto-ed-force-one');

@@ -16827,10 +16827,10 @@
     "tipoPrecio": "doble",
     "isNew": true,
     "priority": 150,
-    "img": "images/iron_maiden/tour_merch_powerslave_frente.jpg",
+    "img": "images/iron_maiden/9 discos 1 tour/tour_merch_powerslave_frente.jpg",
     "variants": [
       {
-        "img": "images/iron_maiden/tour_merch_powerslave_frente.jpg",
+        "img": "images/iron_maiden/9 discos 1 tour/tour_merch_powerslave_frente.jpg",
         "name": "Frente",
         "role": "front"
       },
@@ -22417,6 +22417,46 @@
         "name": "Powerslave · Eddie momia tormenta azul",
         "publicName": "Powerslave · Eddie momia",
         "selectionLabel": "Frente tormenta azul",
+        "designId": "iron-maiden-powerslave-1984-run-for-your-lives",
+        "role": "front"
+      },
+      {
+        "img": "images/iron_maiden/9 discos 1 tour/Powerslave_v3.jpg",
+        "name": "Powerslave · Trono egipcio",
+        "publicName": "Powerslave",
+        "selectionLabel": "Frente trono egipcio",
+        "designId": "iron-maiden-powerslave-1984-run-for-your-lives",
+        "role": "front"
+      },
+      {
+        "img": "images/iron_maiden/9 discos 1 tour/Powerslave_v4.jpg",
+        "name": "Powerslave · Eddies egipcios",
+        "publicName": "Powerslave",
+        "selectionLabel": "Frente Eddies egipcios",
+        "designId": "iron-maiden-powerslave-1984-run-for-your-lives",
+        "role": "front"
+      },
+      {
+        "img": "images/iron_maiden/9 discos 1 tour/Powerslave_v5.jpg",
+        "name": "Powerslave · Eddie alado",
+        "publicName": "Powerslave",
+        "selectionLabel": "Frente Eddie alado",
+        "designId": "iron-maiden-powerslave-1984-run-for-your-lives",
+        "role": "front"
+      },
+      {
+        "img": "images/iron_maiden/9 discos 1 tour/Powerslave_v6.jpg",
+        "name": "Powerslave · Eddie faraón",
+        "publicName": "Powerslave",
+        "selectionLabel": "Frente Eddie faraón",
+        "designId": "iron-maiden-powerslave-1984-run-for-your-lives",
+        "role": "front"
+      },
+      {
+        "img": "images/iron_maiden/9 discos 1 tour/Powerslave_v7.jpg",
+        "name": "Powerslave · Pirámide y tormenta",
+        "publicName": "Powerslave",
+        "selectionLabel": "Frente pirámide y tormenta",
         "designId": "iron-maiden-powerslave-1984-run-for-your-lives",
         "role": "front"
       },
