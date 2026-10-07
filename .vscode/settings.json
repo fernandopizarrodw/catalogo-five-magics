@@ -1,0 +1,7 @@
+{
+  "workbench.editorAssociations": {
+    "*.jpg": "imagePreview.previewEditor",
+    "*.jpeg": "imagePreview.previewEditor",
+    "*.png": "imagePreview.previewEditor"
+  }
+}

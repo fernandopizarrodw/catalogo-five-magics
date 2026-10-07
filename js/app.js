@@ -5413,7 +5413,8 @@ function renderModalSizeGuide(tabName) {
         <thead><tr><th>Talle</th><th>Ancho axila a axila</th><th>Largo</th></tr></thead>
         <tbody>${guide.rows.map(row => `<tr><td>${row[0]}</td><td>${row[1]}</td><td>${row[2]}</td></tr>`).join('')}</tbody>
     </table>
-    <p class="size-selection-policy size-selection-policy-table">Queremos que te quede perfecta: compará las medidas antes de elegir el talle. Como preparamos cada prenda especialmente para vos, no realizamos cambios por talle.</p>`;
+    <p class="size-selection-policy size-selection-policy-table"><strong>IMPORTANTE:</strong> las medidas son aproximadas y pueden presentar una variación de hasta ±5% debido al proceso de confección. El ancho se mide de axila a axila, con la prenda extendida sobre una superficie plana, sin estirar la tela.</p>
+    <p class="size-selection-policy size-selection-policy-table">Compará estas medidas con una prenda tuya antes de elegir el talle. Cada prenda se prepara especialmente para vos, por eso no realizamos cambios por elección de talle.</p>`;
     panel.classList.remove('is-hidden');
     panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }

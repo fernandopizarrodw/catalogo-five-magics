@@ -634,8 +634,8 @@ ${config.showSizeGuide ? `
                     <h3 id="landingSizeGuideTitle">Tabla de medidas</h3>
                     <p id="landingSizeGuideCopy"></p>
                     <div id="landingSizeGuideTable"></div>
-                    <p class="band-landing-size-guide-note">Medí una prenda similar extendida sobre una superficie plana. Las medidas pueden variar hasta un 5%.</p>
-                    <p class="size-selection-policy size-selection-policy-table">Queremos que te quede perfecta: compará las medidas antes de elegir el talle. Como preparamos cada prenda especialmente para vos, no realizamos cambios por talle.</p>
+                    <p class="band-landing-size-guide-note"><strong>IMPORTANTE:</strong> las medidas son aproximadas y pueden presentar una variación de hasta ±5% debido al proceso de confección. El ancho se mide de axila a axila, con la prenda extendida sobre una superficie plana, sin estirar la tela.</p>
+                    <p class="size-selection-policy size-selection-policy-table">Compará estas medidas con una prenda tuya antes de elegir el talle. Cada prenda se prepara especialmente para vos, por eso no realizamos cambios por elección de talle.</p>
                 </div>
             </div>
         </details>` : ''}
