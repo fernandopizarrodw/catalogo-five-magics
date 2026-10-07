@@ -22173,6 +22173,22 @@
         "campaignPreview": "iron-maiden-nine-albums-tour"
       },
       {
+        "img": "images/iron_maiden/9 discos 1 tour/iron_maiden_killers_v1.jpg",
+        "name": "Killers · Eddie blanco y rojo",
+        "publicName": "Killers",
+        "selectionLabel": "Frente blanco y rojo",
+        "designId": "iron-maiden-killers-1981-run-for-your-lives",
+        "role": "front"
+      },
+      {
+        "img": "images/iron_maiden/9 discos 1 tour/iron_maiden_killers_v2.jpg",
+        "name": "Killers · Eddie dorado",
+        "publicName": "Killers",
+        "selectionLabel": "Frente dorado",
+        "designId": "iron-maiden-killers-1981-run-for-your-lives",
+        "role": "front"
+      },
+      {
         "img": "images/iron_maiden/9 discos 1 tour/iron_maiden_killers_doble_estampa.jpg",
         "name": "Killers (1981) · Frente y dorso",
         "designId": "iron-maiden-killers-1981-run-for-your-lives",
