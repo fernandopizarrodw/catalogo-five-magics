@@ -271,7 +271,7 @@ async function main() {
             return { singles, originals };
         })()`);
         assert(collectionCounts.singles.startsWith('16 '));
-        assert(collectionCounts.originals.startsWith('21 '));
+        assert(collectionCounts.originals.startsWith('22 '));
 
         const fmdFilterVariant = await evaluate(`(() => {
             selectBandLandingGarment('remera');
@@ -316,6 +316,7 @@ async function main() {
         assert(latestDesigns.piece.images.some(image => image.endsWith('iron_maiden_eddie_piece_of_mind_v2_fmd.jpg')));
         assert(latestDesigns.killers.images.some(image => image.endsWith('iron_maiden_killers_v1.jpg')));
         assert(latestDesigns.killers.images.some(image => image.endsWith('iron_maiden_killers_v2.jpg')));
+        assert(latestDesigns.trooper.images.some(image => image.endsWith('iron_maiden_the_trooper_fmd_edition.jpg')));
         assert(latestDesigns.trooper.backs.some(image => image.endsWith('iron_maiden_the_trooper_dorso_classic.jpg')));
         assert(latestDesigns.trooper.backs.some(image => image.endsWith('iron_maiden_the_trooper_dorso_fmd.jpg')));
         assert.equal(latestDesigns.powerslave.images.filter(image => image.includes('iron_maiden_eddie_powerslave')).length, 3);

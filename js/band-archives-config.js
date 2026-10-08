@@ -420,7 +420,7 @@
                     'iron-maiden-aces-high-singles', 'iron-maiden-flight-of-icarus-singles',
                     'iron-maiden-number-of-the-beast-singles', 'iron-maiden-wasted-years-singles',
                     'iron-maiden-run-for-your-lives-fmd-2026', 'iron-maiden-piece-of-mind-1983-run-for-your-lives',
-                    'iron-maiden-eddie-argentina-seleccion-fmd'
+                    'iron-maiden-eddie-argentina-seleccion-fmd', 'iron-maiden-the-trooper-classic'
                 ] } },
                 { id: 'album-iron-maiden', group: 'album', label: 'IRON MAIDEN · 1980', match: { albums: ['Iron Maiden'] } },
                 { id: 'album-killers', group: 'album', label: 'KILLERS · 1981', match: { albums: ['Killers'] } },
