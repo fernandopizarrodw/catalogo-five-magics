@@ -23056,6 +23056,20 @@
         "selectionLabel": "Dorso logo Iron Maiden",
         "role": "back",
         "backTargetDesignId": "iron-maiden-the-trooper-classic"
+      },
+      {
+        "img": "images/iron_maiden/dorsos opcionales/iron_maiden_the_trooper_dorso_classic.jpg",
+        "name": "Dorso The Trooper · Clásico",
+        "selectionLabel": "Dorso The Trooper · Clásico",
+        "role": "back",
+        "backTargetDesignId": "iron-maiden-the-trooper-classic"
+      },
+      {
+        "img": "images/iron_maiden/dorsos opcionales/iron_maiden_the_trooper_dorso_fmd.jpg",
+        "name": "Dorso The Trooper · Eddie",
+        "selectionLabel": "Dorso The Trooper · Eddie",
+        "role": "back",
+        "backTargetDesignId": "iron-maiden-the-trooper-classic"
       }
     ],
     "garments": [

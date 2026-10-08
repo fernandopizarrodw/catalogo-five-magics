@@ -304,6 +304,7 @@ async function main() {
             return {
                 piece: inspect('iron-maiden-piece-of-mind-1983-run-for-your-lives'),
                 killers: inspect('iron-maiden-killers-1981-run-for-your-lives'),
+                trooper: inspect('iron-maiden-the-trooper-classic'),
                 powerslave: inspect('iron-maiden-powerslave-1984-run-for-your-lives'),
                 legacy: inspect('iron-maiden-legacy-of-the-beast-grid'),
                 runFmd: inspect('iron-maiden-run-for-your-lives-fmd-2026'),
@@ -315,6 +316,8 @@ async function main() {
         assert(latestDesigns.piece.images.some(image => image.endsWith('iron_maiden_eddie_piece_of_mind_v2_fmd.jpg')));
         assert(latestDesigns.killers.images.some(image => image.endsWith('iron_maiden_killers_v1.jpg')));
         assert(latestDesigns.killers.images.some(image => image.endsWith('iron_maiden_killers_v2.jpg')));
+        assert(latestDesigns.trooper.backs.some(image => image.endsWith('iron_maiden_the_trooper_dorso_classic.jpg')));
+        assert(latestDesigns.trooper.backs.some(image => image.endsWith('iron_maiden_the_trooper_dorso_fmd.jpg')));
         assert.equal(latestDesigns.powerslave.images.filter(image => image.includes('iron_maiden_eddie_powerslave')).length, 3);
         for (let version = 3; version <= 7; version += 1) {
             assert(latestDesigns.powerslave.images.some(image => image.endsWith(`Powerslave_v${version}.jpg`)));
