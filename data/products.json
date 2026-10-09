@@ -25142,5 +25142,70 @@
     "legacyCategory": "Iron Maiden",
     "fmdBadge": "ORIGINAL FMD",
     "tags": ["Iron Maiden", "Eddie", "Argentina", "Selección Argentina", "Run For Your Lives", "Original FMD", "remera"]
+  },
+  {
+    "id": 7299,
+    "designId": "iron-maiden-eddie-gaucho-tempestad-original-fmd",
+    "designSlug": "iron-maiden-eddie-gaucho-tempestad-original-fmd",
+    "category": "Iron Maiden",
+    "band": "Iron Maiden",
+    "name": "Eddie Gaucho Tempestad - Original FMD",
+    "year": "2026",
+    "album": null,
+    "tipoPrecio": "simple",
+    "defaultPrintMode": "double",
+    "catalogGarments": ["remera", "hoodie", "buzo_cuello_redondo"],
+    "isNew": true,
+    "img": "images/iron_maiden/iron_maiden_eddie_gaucho_tempestad.jpg",
+    "desc": "Eddie Gaucho Tempestad, capitulo final de la saga Eddies Argentinos creada por Five Magics Designs.",
+    "variants": [
+      {
+        "img": "images/iron_maiden/iron_maiden_eddie_gaucho_tempestad.jpg",
+        "name": "Eddie Gaucho Tempestad - Frente",
+        "selectionLabel": "Frente Eddie Gaucho Tempestad",
+        "previewLabel": "Frente solo",
+        "designId": "iron-maiden-eddie-gaucho-tempestad-original-fmd",
+        "role": "front",
+        "preferredPreview": true,
+        "modalOrder": 1,
+        "defaultPrintMode": "double",
+        "fmdBadge": "ORIGINAL FMD",
+        "fmdBadgeDescription": "Capitulo final de la saga Eddies Argentinos creada por Five Magics Designs.",
+        "publicName": "Eddie Gaucho Tempestad"
+      },
+      {
+        "img": "images/iron_maiden/iron_maiden_dorso_eddie_gaucho_tempestad.jpg",
+        "name": "Dorso Eddie Gaucho Tempestad",
+        "selectionLabel": "Dorso Eddie Gaucho Tempestad",
+        "previewLabel": "Dorso solo",
+        "role": "back",
+        "backTargetDesignId": "iron-maiden-eddie-gaucho-tempestad-original-fmd",
+        "carouselPreview": true,
+        "modalOrder": 2
+      },
+      {
+        "img": "images/iron_maiden/mock frente y dorso eddie gaucho tempestad.jpg",
+        "name": "Eddie Gaucho Tempestad - Version frente + dorso",
+        "selectionLabel": "Frente Eddie Gaucho Tempestad",
+        "previewLabel": "Frente y dorso",
+        "designId": "iron-maiden-eddie-gaucho-tempestad-original-fmd",
+        "role": "front",
+        "defaultPrintMode": "double",
+        "autoSelectBack": "Dorso Eddie Gaucho Tempestad",
+        "orderVariantIndex": 0,
+        "modalOrder": 3,
+        "fmdBadge": "ORIGINAL FMD",
+        "fmdBadgeDescription": "Capitulo final de la saga Eddies Argentinos creada por Five Magics Designs.",
+        "publicName": "Eddie Gaucho Tempestad"
+      }
+    ],
+    "garments": ["remera", "hoodie", "buzo_cuello_redondo"],
+    "collections": ["Archivo Maiden", "Original FMD", "Eddies Argentinos", "Edicion Argentina"],
+    "campaigns": ["Argentina 2026", "Run For Your Lives 2026"],
+    "commercialPriority": 100,
+    "visibilityTier": "featured",
+    "legacyCategory": "Iron Maiden",
+    "fmdBadge": "ORIGINAL FMD",
+    "tags": ["Iron Maiden", "Eddie Gaucho Tempestad", "Original FMD", "Eddies Argentinos", "Argentina 2026", "Run For Your Lives", "remera"]
   }
 ]

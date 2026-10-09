@@ -149,12 +149,12 @@ async function main() {
         assert.equal(mobile.primaryFilters.length, 7);
         assert.equal(mobile.albumFilters, 9);
         assert.equal(mobile.initialCards, 16);
-        assert.equal(mobile.totalHeading, '96 DISEÑOS · REMERAS IRON MAIDEN');
+        assert.equal(mobile.totalHeading, '97 DISEÑOS · REMERAS IRON MAIDEN');
         assert.deepEqual(mobile.initialOrder, [
             'cd-iron-maiden-eddie-gaucho-argentino--p7040',
             'iron-maiden-eddie-gaucho-argentino-con-fechas',
-            'iron-maiden-eddie-huracan-original-fmd',
-            'iron-maiden-eddie-tanguero-original-fmd'
+            'iron-maiden-eddie-tanguero-original-fmd',
+            'iron-maiden-eddie-huracan-original-fmd'
         ]);
         assert.equal(mobile.proofCards, 11);
         assert.equal(mobile.proofVisible, 11);
@@ -221,7 +221,7 @@ async function main() {
             };
         })()`);
         assert.equal(heroEddiesFilter.active, true);
-        assert(heroEddiesFilter.heading.startsWith('7 DISEÑOS'));
+        assert(heroEddiesFilter.heading.startsWith('8 DISEÑOS'));
         await evaluate(`selectBandLandingCollection('')`);
 
         const garmentAvailability = await evaluate(`(async () => {
@@ -256,7 +256,7 @@ async function main() {
         assert.equal(garmentAvailability.buzo.results, garmentAvailability.buzo.expected);
         assert.deepEqual(garmentAvailability.buzo.unavailableShown, []);
         assert.deepEqual(garmentAvailability.buzo.missing, []);
-        assert(garmentAvailability.remera.heading.startsWith('96 ') && garmentAvailability.remera.heading.includes('REMERAS'));
+        assert(garmentAvailability.remera.heading.startsWith('97 ') && garmentAvailability.remera.heading.includes('REMERAS'));
         assert.equal(garmentAvailability.remera.cards, 16);
 
         const collectionCounts = await evaluate(`(async () => {
@@ -271,7 +271,7 @@ async function main() {
             return { singles, originals };
         })()`);
         assert(collectionCounts.singles.startsWith('16 '));
-        assert(collectionCounts.originals.startsWith('22 '));
+        assert(collectionCounts.originals.startsWith('23 '));
 
         const fmdFilterVariant = await evaluate(`(() => {
             selectBandLandingGarment('remera');
@@ -308,6 +308,7 @@ async function main() {
                 powerslave: inspect('iron-maiden-powerslave-1984-run-for-your-lives'),
                 legacy: inspect('iron-maiden-legacy-of-the-beast-grid'),
                 runFmd: inspect('iron-maiden-run-for-your-lives-fmd-2026'),
+                tempestad: inspect('iron-maiden-eddie-gaucho-tempestad-original-fmd'),
                 pilot: inspect('iron-maiden-eddie-piloto-ed-force-one'),
                 argentina: inspect('iron-maiden-eddie-argentina-seleccion-fmd')
             };
@@ -325,6 +326,9 @@ async function main() {
         }
         assert(latestDesigns.legacy.images.some(image => image.endsWith('iron_maiden_legacy.jpg')));
         assert(latestDesigns.runFmd.backs.some(image => image.endsWith('iron_maiden_i_saw_eddie_dorso.jpg')));
+        assert(latestDesigns.tempestad.images.some(image => image.endsWith('iron_maiden_eddie_gaucho_tempestad.jpg')));
+        assert(latestDesigns.tempestad.images.some(image => image.endsWith('mock frente y dorso eddie gaucho tempestad.jpg')));
+        assert(latestDesigns.tempestad.backs.some(image => image.endsWith('iron_maiden_dorso_eddie_gaucho_tempestad.jpg')));
         assert.equal(latestDesigns.pilot.designId, 'iron-maiden-eddie-piloto-ed-force-one');
         assert.equal(latestDesigns.argentina.designId, 'iron-maiden-eddie-argentina-seleccion-fmd');
 
@@ -571,7 +575,7 @@ async function main() {
         assert.equal(desktop.proofOverflow, true);
         assert.equal(desktop.proofVisible, 11);
         assert.equal(desktop.pageOverflow, false);
-        assert.equal(desktop.catalogCount, '96 DISEÑOS · REMERAS IRON MAIDEN');
+        assert.equal(desktop.catalogCount, '97 DISEÑOS · REMERAS IRON MAIDEN');
         const desktopCurated = await captureSection('#bandCuratedSelection', 'iron-maiden-curated-desktop.png');
         const desktopProof = await captureSection('#realProductProof', 'iron-maiden-proof-desktop.png');
 
