@@ -279,14 +279,15 @@
             band: 'Iron Maiden',
             displayName: 'IRON MAIDEN',
             title: 'Iron Maiden Run For Your Lives Argentina 2026 | Five Magics Designs',
-            description: 'Colección Iron Maiden para los shows del 20 y 21 de octubre de 2026 en el Estadio Huracán. +80 diseños en remeras, hoodies y buzos.',
+            description: 'Colección Iron Maiden para los shows del 20 y 21 de octubre de 2026 en el Estadio Huracán. +90 diseños en remeras, hoodies y buzos.',
             canonical: 'https://catalogo.fivemagicsdesigns.com/iron-maiden/',
             image: '/images/iron_maiden/eddie_run_for_your_lives_tour/remera_iron_maiden_run_oficial.jpg',
             imageUrl: 'https://catalogo.fivemagicsdesigns.com/images/iron_maiden/eddie_run_for_your_lives_tour/remera_iron_maiden_run_oficial.jpg',
             heroFirst: true,
             campaignFeatureFirst: true,
+            campaignFeatureBeforeCurated: true,
             hideCampaignTourCollection: true,
-            hideCampaignFeature: true,
+            hideCampaignFeature: false,
             hideShowcase: true,
             hideEditorialCollection: true,
             hideHeroArt: true,
@@ -313,7 +314,7 @@
             ],
             shippingAfterCatalog: true,
             heroTitle: 'RUN FOR YOUR LIVES<br><span>ARGENTINA 2026</span>',
-            heroCopy: '<strong>20 + 21 OCTUBRE · ESTADIO HURACÁN</strong><br><br>La gira que celebra 50 años de historia llega a Buenos Aires.<br>Diseños inspirados en los primeros nueve discos de Iron Maiden.<br><br><b><span data-band-design-count-number>82</span> DISEÑOS ÚNICOS</b><br>Remeras · Hoodies · Buzos<br>Estampa frontal o frente + dorso',
+            heroCopy: '<strong>20 + 21 OCTUBRE · ESTADIO HURACÁN</strong><br><br>La gira que celebra 50 años de historia llega a Buenos Aires.<br>Diseños inspirados en los primeros nueve discos de Iron Maiden.<br><br><b><span data-band-design-count-number>+90</span> DISEÑOS ÚNICOS</b><br>Remeras · Hoodies · Buzos<br>Estampa frontal o frente + dorso',
             heroCtaLabel: 'VER COLECCIÓN COMPLETA',
             heroSecondaryCta: {
                 label: 'VER EDDIES ARGENTINOS',
@@ -354,6 +355,7 @@
                 ctaLabel: 'VER COLECCIÓN COMPLETA ·',
                 cards: [
                     { designId: 'cd-iron-maiden-eddie-gaucho-argentino--p7040', label: 'Eddie Gaucho Argentino', image: '/images/iron_maiden/remera_iron_maiden_eddie_gaucho_argentino_frente.jpg' },
+                    { designId: 'iron-maiden-eddie-gaucho-tempestad-original-fmd', label: 'Eddie Gaucho Tempestad', image: '/images/iron_maiden/iron_maiden_eddie_gaucho_tempestad.jpg' },
                     { designId: 'iron-maiden-eddie-tanguero-original-fmd', label: 'Eddie Tanguero', image: '/images/iron_maiden/iron_maiden_eddie_tanguero.jpg' },
                     { designId: 'iron-maiden-eddie-huracan-original-fmd', label: 'Eddie vs. Huracán', image: '/images/iron_maiden/remera_iron_maiden_eddie_huracan_frente.jpg' },
                     { designId: 'iron-maiden-run-for-your-lives-fmd-2026', label: 'Run For Your Lives · Edición FMD', image: '/images/iron_maiden/eddie_run_for_your_lives_tour/remera_iron_maiden_run_fmd.jpg' },
@@ -367,8 +369,7 @@
                     { designId: 'iron-maiden-no-prayer-1990-run-for-your-lives', label: 'No Prayer for the Dying · 1990', image: '/images/iron_maiden/9 discos 1 tour/No Prayer for the Dying (1990).jpg' },
                     { designId: 'iron-maiden-fear-of-the-dark-1992-run-for-your-lives', label: 'Fear of the Dark · 1992', image: '/images/iron_maiden/9 discos 1 tour/iron_maiden_fear.jpg' },
                     { designId: 'iron-maiden-aces-high-singles', label: 'Aces High · FMD', image: '/images/iron_maiden/singles originales y fmd edition/FMD ACES 4-5 FOR IG MOCK REMERA.jpg', preview: '/images/iron_maiden/singles originales y fmd edition/FMD ACES 4-5 FOR IG MOCK REMERA.jpg' },
-                    { designId: 'iron-maiden-wasted-years-singles', label: 'Wasted Years · FMD', image: '/images/iron_maiden/singles originales y fmd edition/WASTED FMD 4-5 FOR IG MOCK REMERA.jpg', preview: '/images/iron_maiden/singles originales y fmd edition/WASTED FMD 4-5 FOR IG MOCK REMERA.jpg' },
-                    { designId: 'iron-maiden-the-trooper-classic', label: 'The Trooper', image: '/images/iron_maiden/iron_maiden_the_trooper.jpg' }
+                    { designId: 'iron-maiden-wasted-years-singles', label: 'Wasted Years · FMD', image: '/images/iron_maiden/singles originales y fmd edition/WASTED FMD 4-5 FOR IG MOCK REMERA.jpg', preview: '/images/iron_maiden/singles originales y fmd edition/WASTED FMD 4-5 FOR IG MOCK REMERA.jpg' }
                 ]
             },
             collections: [
@@ -444,7 +445,8 @@
                 ],
                 designId: 'cd-iron-maiden-eddie-gaucho-argentino--p7040',
                 ctaDesignId: 'cd-iron-maiden-eddie-gaucho-argentino--p7040',
-                ctaLabel: 'VER EDDIE GAUCHO',
+                ctaCollectionId: 'eddies-argentinos',
+                ctaLabel: 'VER LOS 4 EDDIES',
                 images: [
                     {
                         designId: 'cd-iron-maiden-eddie-gaucho-argentino--p7040',
@@ -456,6 +458,16 @@
                         width: 1080,
                         height: 1350,
                         primary: true
+                    },
+                    {
+                        designId: 'iron-maiden-eddie-gaucho-tempestad-original-fmd',
+                        src: '/images/iron_maiden/mock frente y dorso eddie gaucho tempestad.jpg',
+                        alt: 'Edición completa Eddie Gaucho Tempestad con frente y dorso',
+                        label: 'EDDIE GAUCHO TEMPESTAD · FRENTE + DORSO',
+                        printMode: 'double',
+                        preview: '/images/iron_maiden/iron_maiden_eddie_gaucho_tempestad.jpg',
+                        width: 1080,
+                        height: 1350
                     },
                     {
                         designId: 'iron-maiden-eddie-tanguero-original-fmd',
@@ -477,16 +489,6 @@
                         width: 1080,
                         height: 1350
                     },
-                    {
-                        designId: 'iron-maiden-eddie-gaucho-tempestad-original-fmd',
-                        src: '/images/iron_maiden/mock frente y dorso eddie gaucho tempestad.jpg',
-                        alt: 'Edición completa Eddie Gaucho Tempestad con frente y dorso',
-                        label: 'EDDIE GAUCHO TEMPESTAD · FRENTE + DORSO',
-                        printMode: 'double',
-                        preview: '/images/iron_maiden/iron_maiden_eddie_gaucho_tempestad.jpg',
-                        width: 1080,
-                        height: 1350
-                    }
                 ],
                 defaultPrintMode: 'double',
                 defaultPreview: '/images/iron_maiden/remera_iron_maiden_eddie_gaucho_argentino_frente.jpg'
@@ -645,10 +647,9 @@
             ],
             designOrder: [
                 'cd-iron-maiden-eddie-gaucho-argentino--p7040',
-                'iron-maiden-eddie-gaucho-argentino-con-fechas',
+                'iron-maiden-eddie-gaucho-tempestad-original-fmd',
                 'iron-maiden-eddie-tanguero-original-fmd',
                 'iron-maiden-eddie-huracan-original-fmd',
-                'iron-maiden-eddie-gaucho-tempestad-original-fmd',
                 'iron-maiden-run-for-your-lives-2026-oficial',
                 'iron-maiden-run-for-your-lives-fmd-2026',
                 'iron-maiden-eddie-argentina-seleccion-fmd',
@@ -664,6 +665,7 @@
                 'iron-maiden-tour-merch-v3-fmd',
                 'cd-iron-maiden-tour-3d-2026-fmd--p7029',
                 'iron-maiden-the-final-tour-fmd',
+                'iron-maiden-eddie-gaucho-argentino-con-fechas',
                 'cd-iron-maiden-empire--p308',
                 'iron-maiden-est-1975',
                 'iron-maiden-eddies-collection',

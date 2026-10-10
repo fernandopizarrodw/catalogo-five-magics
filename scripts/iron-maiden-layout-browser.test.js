@@ -114,7 +114,7 @@ async function main() {
                 proofBeforePromo: mainChildren.indexOf(proof) < mainChildren.indexOf(promo),
                 promoBeforeProduction: mainChildren.indexOf(promo) < mainChildren.indexOf(production),
                 garmentSelectorBeforeCatalog: mainChildren.indexOf(garmentSelector) < mainChildren.indexOf(catalog),
-                oldCampaignRemoved: !document.getElementById('bandCampaignFeature'),
+                eddiesFeatureVisible: Boolean(document.getElementById('bandCampaignFeature')),
                 oldShowcaseRemoved: !document.getElementById('bandDesignShowcase'),
                 oldSinglesRemoved: !document.getElementById('bandSinglesCollection'),
                 oldSomewhereRemoved: !document.getElementById('bandFeaturedCollectionTitle'),
@@ -129,8 +129,9 @@ async function main() {
         assert.equal(mobile.discoveryLinks, 5);
         assert.equal(mobile.discoveryColumns, 2);
         assert.equal(mobile.curatedCards, 16);
-        assert.deepEqual(mobile.curatedOrder.slice(0, 13), [
+        assert.deepEqual(mobile.curatedOrder.slice(0, 14), [
             'cd-iron-maiden-eddie-gaucho-argentino--p7040',
+            'iron-maiden-eddie-gaucho-tempestad-original-fmd',
             'iron-maiden-eddie-tanguero-original-fmd',
             'iron-maiden-eddie-huracan-original-fmd',
             'iron-maiden-run-for-your-lives-fmd-2026',
@@ -152,7 +153,7 @@ async function main() {
         assert.equal(mobile.totalHeading, '97 DISEÑOS · REMERAS IRON MAIDEN');
         assert.deepEqual(mobile.initialOrder, [
             'cd-iron-maiden-eddie-gaucho-argentino--p7040',
-            'iron-maiden-eddie-gaucho-argentino-con-fechas',
+            'iron-maiden-eddie-gaucho-tempestad-original-fmd',
             'iron-maiden-eddie-tanguero-original-fmd',
             'iron-maiden-eddie-huracan-original-fmd'
         ]);
@@ -166,7 +167,7 @@ async function main() {
         assert.equal(mobile.proofBeforePromo, true);
         assert.equal(mobile.promoBeforeProduction, true);
         assert.equal(mobile.garmentSelectorBeforeCatalog, true);
-        assert.equal(mobile.oldCampaignRemoved, true);
+        assert.equal(mobile.eddiesFeatureVisible, true);
         assert.equal(mobile.oldShowcaseRemoved, true);
         assert.equal(mobile.oldSinglesRemoved, true);
         assert.equal(mobile.oldSomewhereRemoved, true);

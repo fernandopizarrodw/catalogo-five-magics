@@ -310,7 +310,7 @@ ${campaignFeature.eventLine ? `            <p class="band-campaign-feature-event
 ${campaignFeature.priceOptions.map(option => `                <span${option.recommended ? ' class="is-recommended"' : ''}><b>${option.label}</b>${option.price}</span>`).join('\n')}
             </div>\n` : ''}
             <p class="band-campaign-feature-note">${campaignFeature.note}</p>
-            <button type="button" class="band-campaign-feature-cta" onclick="openCatalogDesignPreview('${campaignFeature.ctaDesignId || campaignFeature.designId}', 'remera', '${campaignFeature.defaultPrintMode || 'simple'}', '${campaignFeature.defaultPreview || campaignFeatureImages[0].src}')">${campaignFeature.ctaLabel}</button>
+            <button type="button" class="band-campaign-feature-cta" onclick="${campaignFeature.ctaCollectionId ? `selectBandLandingCollectionAndScroll('${campaignFeature.ctaCollectionId}')` : `openCatalogDesignPreview('${campaignFeature.ctaDesignId || campaignFeature.designId}', 'remera', '${campaignFeature.defaultPrintMode || 'simple'}', '${campaignFeature.defaultPreview || campaignFeatureImages[0].src}')`}">${campaignFeature.ctaLabel}</button>
         </section>` : '';
     const campaignTourCollection = !config.hideCampaignTourCollection && config.campaignTourCollection && typeof config.campaignTourCollection === 'object'
         ? config.campaignTourCollection
@@ -535,7 +535,8 @@ ${config.hideHeroArt ? '' : `            <div class="band-landing-hero-art">
                 <img src="${config.image}" alt="Diseño ${config.band} disponible en Five Magics Designs" width="1200" height="1200">
             </div>`}
         </section>
-${discoveryMarkup}${curatedSelectionMarkup}${postShow ? `
+${config.campaignFeatureBeforeCurated ? `
+${campaignFeatureMarkup}` : ''}${discoveryMarkup}${curatedSelectionMarkup}${postShow ? `
         <section class="band-landing-hero helloween-post-show-hero" aria-labelledby="helloweenPostShowTitle" aria-hidden="true">
             <div class="band-landing-hero-copy">
                 <p class="band-landing-brand">FIVE MAGICS DESIGNS</p>
@@ -547,7 +548,7 @@ ${discoveryMarkup}${curatedSelectionMarkup}${postShow ? `
             <div class="band-landing-hero-art">
                 <img src="${config.image}" alt="Colección Helloween post-show en Five Magics Designs" width="1200" height="1200">
             </div>
-    </section>` : ''}${config.heroFirst && config.campaignFeatureFirst ? `\n${campaignFeatureMarkup}${campaignTourCollectionMarkup}` : ''}${config.heroFirst && showcaseFirst ? `\n${showcaseMarkup}${editorialCollectionMarkup}` : ''}${config.heroFirst && !config.campaignFeatureFirst ? `\n${campaignFeatureMarkup}${campaignTourCollectionMarkup}` : ''}${config.realProductProofAfterCatalog ? '' : realProductProofMarkup}${!config.featuredCollectionAfterCatalog && featuredCollectionMarkup ? `\n${featuredCollectionMarkup}` : ''}
+    </section>` : ''}${config.heroFirst && config.campaignFeatureFirst && !config.campaignFeatureBeforeCurated ? `\n${campaignFeatureMarkup}${campaignTourCollectionMarkup}` : ''}${config.heroFirst && showcaseFirst ? `\n${showcaseMarkup}${editorialCollectionMarkup}` : ''}${config.heroFirst && !config.campaignFeatureFirst && !config.campaignFeatureBeforeCurated ? `\n${campaignFeatureMarkup}${campaignTourCollectionMarkup}` : ''}${config.realProductProofAfterCatalog ? '' : realProductProofMarkup}${!config.featuredCollectionAfterCatalog && featuredCollectionMarkup ? `\n${featuredCollectionMarkup}` : ''}
 ${catalogFirst ? `${garmentSelectorMarkup}
 ${catalogMarkup}` : ''}${postShowFeatured ? `
         <section class="helloween-post-show-featured" aria-labelledby="helloweenFeaturedTitle">
