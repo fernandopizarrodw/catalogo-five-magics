@@ -2095,6 +2095,11 @@ function openExactCodeMatch(query, afterOpen) {
             });
         }
         if (design) {
+            if (matchedCatalogRef?.role === 'back') {
+                openModal(matchedCatalogRef.productId, matchedCatalogRef.variantIndex);
+                if (typeof afterOpen === 'function') afterOpen(design);
+                return true;
+            }
             openCatalogDesign(design.designId, matchedGarment);
             if (matchedCatalogRef?.role === 'front') {
                 const matchedSlide = currentModalSourceRefs.findIndex(ref => (

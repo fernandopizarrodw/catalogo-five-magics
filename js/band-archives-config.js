@@ -299,6 +299,7 @@
             realProductProofAfterCatalog: true,
             realProductProofCarousel: true,
             realProductProofLimit: 11,
+            realProductProofInitialLimit: 1,
             realProductProofFeaturedOrder: [
                 '/images/iron_maiden/prendas_reales/eddie_gaucho_frente.jpg',
                 '/images/iron_maiden/prendas_reales/detalle_dtg.jpg',
