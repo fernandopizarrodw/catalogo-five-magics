@@ -25207,5 +25207,61 @@
     "legacyCategory": "Iron Maiden",
     "fmdBadge": "ORIGINAL FMD",
     "tags": ["Iron Maiden", "Eddie Gaucho Tempestad", "Original FMD", "Eddies Argentinos", "Argentina 2026", "Run For Your Lives", "remera"]
+  },
+  {
+    "id": 7300,
+    "designId": "iron-maiden-eddie-libertador-original-fmd",
+    "designSlug": "iron-maiden-eddie-libertador-original-fmd",
+    "category": "Iron Maiden",
+    "band": "Iron Maiden",
+    "name": "Eddie Libertador · Original FMD",
+    "year": "2026",
+    "album": null,
+    "tipoPrecio": "simple",
+    "defaultPrintMode": "frontal",
+    "usesShownComposition": true,
+    "catalogGarments": ["remera"],
+    "isNew": true,
+    "img": "images/iron_maiden/iron_maiden_eddie_soldado.jpg",
+    "desc": "Eddie Libertador, una interpretación fantástica inspirada en el imaginario histórico argentino, creada por Five Magics Designs para Run For Your Lives 2026.",
+    "variants": [
+      {
+        "img": "images/iron_maiden/iron_maiden_eddie_soldado.jpg",
+        "name": "Eddie Libertador · Frente",
+        "publicName": "Eddie Libertador",
+        "selectionLabel": "Frente solo",
+        "previewLabel": "Frente solo",
+        "designId": "iron-maiden-eddie-libertador-original-fmd",
+        "role": "front",
+        "preferredPreview": true,
+        "modalOrder": 1,
+        "defaultPrintMode": "simple",
+        "fmdBadge": "ORIGINAL FMD",
+        "fmdBadgeDescription": "Interpretación fantástica creada por Five Magics Designs para la colección Argentina 2026."
+      },
+      {
+        "img": "images/iron_maiden/iron_maiden_eddie_soldado_doble.jpg",
+        "name": "Eddie Libertador · Frente y dorso",
+        "publicName": "Eddie Libertador",
+        "selectionLabel": "Frente y dorso",
+        "previewLabel": "Frente y dorso",
+        "designId": "iron-maiden-eddie-libertador-original-fmd",
+        "role": "front",
+        "preferredPreview": false,
+        "modalOrder": 2,
+        "defaultPrintMode": "double",
+        "usesShownComposition": true,
+        "fmdBadge": "ORIGINAL FMD",
+        "fmdBadgeDescription": "Interpretación fantástica creada por Five Magics Designs para la colección Argentina 2026."
+      }
+    ],
+    "garments": ["remera"],
+    "collections": ["Archivo Maiden", "Original FMD", "Eddies Argentinos", "Edición Argentina"],
+    "campaigns": ["Argentina 2026", "Run For Your Lives 2026"],
+    "commercialPriority": 88,
+    "visibilityTier": "catalog",
+    "legacyCategory": "Iron Maiden",
+    "fmdBadge": "ORIGINAL FMD",
+    "tags": ["Iron Maiden", "Eddie Libertador", "Original FMD", "Eddies Argentinos", "Argentina 2026", "Run For Your Lives", "remera"]
   }
 ]

@@ -353,7 +353,7 @@
             allCollectionLabel: 'COLECCIÓN COMPLETA',
             discoveryLinks: [
                 { collectionId: 'tour-argentina', label: 'TOUR ARGENTINA 2026', copy: 'Huracán · Buenos Aires' },
-                { collectionId: 'eddies-argentinos', label: 'EDDIES ARGENTINOS', copy: 'Gaucho · Tanguero · Huracán · Tempestad' },
+                { collectionId: 'eddies-argentinos', label: 'EDDIES ARGENTINOS', copy: 'Originales FMD inspirados en Argentina' },
                 { collectionId: 'nine-classics', label: 'LOS 9 DISCOS CLÁSICOS', copy: '1980–1992' },
                 { collectionId: 'singles', label: 'SINGLES + CANCIONES', copy: 'Clásicos y reinterpretaciones' },
                 { collectionId: '', label: 'COLECCIÓN COMPLETA', copy: '<span data-band-design-count-number>0</span> diseños únicos' }
@@ -386,7 +386,7 @@
             collections: [
                 { id: 'tour-argentina', label: 'TOUR ARGENTINA 2026', match: { designIds: [
                     'cd-iron-maiden-eddie-gaucho-argentino--p7040', 'iron-maiden-eddie-gaucho-argentino-con-fechas',
-                    'iron-maiden-eddie-tanguero-original-fmd', 'iron-maiden-eddie-huracan-original-fmd', 'iron-maiden-eddie-gaucho-tempestad-original-fmd',
+                    'iron-maiden-eddie-tanguero-original-fmd', 'iron-maiden-eddie-huracan-original-fmd', 'iron-maiden-eddie-gaucho-tempestad-original-fmd', 'iron-maiden-eddie-libertador-original-fmd',
                     'iron-maiden-run-for-your-lives-2026-oficial', 'iron-maiden-run-for-your-lives-fmd-2026', 'iron-maiden-run-for-your-lives-buenos-aires',
                     'iron-maiden-eddie-argentina-seleccion-fmd',
                     'iron-maiden-eddies-run-for-your-lives', 'cd-iron-maiden-eddie-argentina-v1-fmd--p7015',
@@ -398,7 +398,7 @@
                 ] } },
                 { id: 'eddies-argentinos', label: 'EDDIES ARGENTINOS', match: { designIds: [
                     'cd-iron-maiden-eddie-gaucho-argentino--p7040', 'iron-maiden-eddie-gaucho-argentino-con-fechas',
-                    'iron-maiden-eddie-tanguero-original-fmd', 'iron-maiden-eddie-huracan-original-fmd', 'iron-maiden-eddie-gaucho-tempestad-original-fmd',
+                    'iron-maiden-eddie-tanguero-original-fmd', 'iron-maiden-eddie-huracan-original-fmd', 'iron-maiden-eddie-gaucho-tempestad-original-fmd', 'iron-maiden-eddie-libertador-original-fmd',
                     'iron-maiden-eddie-argentina-seleccion-fmd',
                     'cd-iron-maiden-eddie-argentina-v1-fmd--p7015', 'cd-iron-maiden-eddie-argentina-v2-fmd--p7016'
                 ] } },
@@ -423,7 +423,7 @@
                 ] } },
                 { id: 'fmd-originals', label: 'ORIGINALES FMD', match: { designIds: [
                     'cd-iron-maiden-eddie-gaucho-argentino--p7040', 'iron-maiden-eddie-tanguero-original-fmd',
-                    'iron-maiden-eddie-huracan-original-fmd', 'iron-maiden-eddie-gaucho-tempestad-original-fmd', 'iron-maiden-burning-ambition-edicion-fmd',
+                    'iron-maiden-eddie-huracan-original-fmd', 'iron-maiden-eddie-gaucho-tempestad-original-fmd', 'iron-maiden-eddie-libertador-original-fmd', 'iron-maiden-burning-ambition-edicion-fmd',
                     'iron-maiden-the-number-of-the-beast-edicion-fmd', 'iron-maiden-powerslave-fmd',
                     'iron-maiden-live-after-death-fmd', 'iron-maiden-somewhere-in-time-40th-fmd',
                     'cd-iron-maiden-fear-of-the-dark-edicion-fmd--p7022', 'cd-iron-maiden-killers-edicion-fmd--p7023',
@@ -457,7 +457,7 @@
                 designId: 'cd-iron-maiden-eddie-gaucho-argentino--p7040',
                 ctaDesignId: 'cd-iron-maiden-eddie-gaucho-argentino--p7040',
                 ctaCollectionId: 'eddies-argentinos',
-                ctaLabel: 'VER LOS 4 EDDIES',
+                ctaLabel: 'VER EDDIES ARGENTINOS',
                 images: [
                     {
                         designId: 'cd-iron-maiden-eddie-gaucho-argentino--p7040',
@@ -619,6 +619,7 @@
                 'iron-maiden-eddie-tanguero-original-fmd',
                 'iron-maiden-eddie-huracan-original-fmd',
                 'iron-maiden-eddie-gaucho-tempestad-original-fmd',
+                'iron-maiden-eddie-libertador-original-fmd',
                 'cd-iron-maiden-empire--p308',
                 'iron-maiden-the-final-tour-fmd',
                 'cd-iron-maiden-tour-3d-2026-fmd--p7029',
@@ -661,6 +662,7 @@
                 'iron-maiden-eddie-gaucho-tempestad-original-fmd',
                 'iron-maiden-eddie-tanguero-original-fmd',
                 'iron-maiden-eddie-huracan-original-fmd',
+                'iron-maiden-eddie-libertador-original-fmd',
                 'iron-maiden-run-for-your-lives-2026-oficial',
                 'iron-maiden-run-for-your-lives-fmd-2026',
                 'iron-maiden-eddie-argentina-seleccion-fmd',
@@ -761,6 +763,7 @@
                 'iron-maiden-eddie-tanguero-original-fmd': 'ORIGINAL FMD',
                 'iron-maiden-eddie-huracan-original-fmd': 'ORIGINAL FMD',
                 'iron-maiden-eddie-gaucho-tempestad-original-fmd': 'ORIGINAL FMD',
+                'iron-maiden-eddie-libertador-original-fmd': 'ORIGINAL FMD',
                 'iron-maiden-run-for-your-lives-2026-oficial': 'TOUR 2026',
                 'iron-maiden-run-for-your-lives-fmd-2026': 'ORIGINAL FMD',
                 'iron-maiden-eddie-argentina-seleccion-fmd': 'ORIGINAL FMD',
