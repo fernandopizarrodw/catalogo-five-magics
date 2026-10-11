@@ -6886,6 +6886,20 @@ function getCatalogDesignSearchText(design) {
     ].filter(Boolean).join(' '));
 }
 
+function getCatalogDesignExactCodeRef(design, query) {
+    const codeData = parseProductCode(query);
+    if (!design || !codeData || !Number.isFinite(codeData.variantIndex)) return null;
+
+    const refs = [
+        ...Object.values(design.previewsByGarment || {}).flat(),
+        ...(design.backOptions || [])
+    ];
+    return refs.find(ref => (
+        Number(ref.productId) === Number(codeData.id)
+        && Number(ref.variantIndex) === Number(codeData.variantIndex)
+    )) || null;
+}
+
 function getBandLandingAlbumOrderIndex(design) {
     if (!BAND_LANDING_ALBUM_ORDER_INDEX.size) return Number.MAX_SAFE_INTEGER;
     const indexes = (design?.sourceProductIds || [])
@@ -6921,7 +6935,10 @@ function getCatalogDesignResults() {
     let designs = null;
     if (currentSearch) {
         const query = normalizeText(currentSearch);
-        designs = scopedDesigns.filter(design => getCatalogDesignSearchText(design).includes(query));
+        const exactCodeMatches = scopedDesigns.filter(design => getCatalogDesignExactCodeRef(design, currentSearch));
+        designs = exactCodeMatches.length
+            ? exactCodeMatches
+            : scopedDesigns.filter(design => getCatalogDesignSearchText(design).includes(query));
     } else if (normalizeText(currentCategory) === 'personalizados') {
         designs = scopedDesigns.filter(design => design.isPersonalized);
     } else if (isBandLandingMode()) {
@@ -7008,13 +7025,16 @@ function renderCatalogDesignResults(designs) {
         const priceText = getCatalogDesignCardPriceText(design, preview, cardGarment);
         const initialGarment = isBandLandingMode() ? getBandLandingModalGarment(cardGarment) : '';
         const previewPrintMode = normalizeText(preview?.defaultPrintMode || '');
+        const exactCodeRef = currentSearch ? getCatalogDesignExactCodeRef(design, currentSearch) : null;
         const campaignFeatureElement = document.getElementById('bandCampaignFeature');
         const campaignFeatureDesignIds = String(campaignFeatureElement?.dataset.designIds || campaignFeatureElement?.dataset.designId || '')
             .split(',')
             .map(value => value.trim())
             .filter(Boolean);
         const isCampaignFeatureDesign = campaignFeatureDesignIds.includes(design.designId);
-        const openAction = isCampaignFeatureDesign && (previewPrintMode === 'double' || previewPrintMode === 'doble')
+        const openAction = exactCodeRef
+            ? `openModal(${exactCodeRef.productId}, ${exactCodeRef.variantIndex})`
+            : isCampaignFeatureDesign && (previewPrintMode === 'double' || previewPrintMode === 'doble')
             ? `openCatalogDesignPreview('${design.designId}', '${initialGarment}', 'double', '${cardImage}')`
             : `openCatalogDesign('${design.designId}', '${initialGarment}')`;
         const editorialBadge = BAND_LANDING_CONFIG?.editorialBadges?.[design.designId];
