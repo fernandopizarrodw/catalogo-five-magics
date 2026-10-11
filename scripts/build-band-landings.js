@@ -104,9 +104,18 @@ function whatsappUrl(message) {
 }
 
 function customizeSharedCommerceMarkup(config, markup) {
-    if (!config.usesShownComposition) return markup;
+    let output = markup;
 
-    let output = markup
+    if (config.modalShowNotice) {
+        output = output.replace(
+            /(<div class="modal-shipping-promo"[\s\S]*?<\/div>)/,
+            `$1\n\n                    <div class="modal-show-delivery-note" role="note">${config.modalShowNotice}</div>`
+        );
+    }
+
+    if (!config.usesShownComposition) return output;
+
+    output = output
         .replace('🛒 Guardar en carrito', 'AGREGAR AL PEDIDO')
         .replace('<summary>Dorso y personalización</summary>', '<summary>Detalles del producto</summary>')
         .replace('<div class="spec-value">☢️ DTG Premium</div>', '<div class="spec-value" id="modalSpecPrint">☢️ DTG Premium</div>')
@@ -210,6 +219,9 @@ ${albumCollections.map(renderCollectionButton).join('\n')}
 
 function renderLanding(config, sharedCommerceMarkup) {
     const commerceMarkup = customizeSharedCommerceMarkup(config, sharedCommerceMarkup);
+    const showWeekNotice = config.showWeekNotice && typeof config.showWeekNotice === 'object'
+        ? config.showWeekNotice
+        : null;
     const collections = Array.isArray(config.collections) ? config.collections : [];
     const postShow = config.postShow && typeof config.postShow === 'object' ? config.postShow : null;
     const postShowFeatured = postShow?.featured && typeof postShow.featured === 'object'
@@ -535,6 +547,17 @@ ${config.hideHeroArt ? '' : `            <div class="band-landing-hero-art">
                 <img src="${config.image}" alt="Diseño ${config.band} disponible en Five Magics Designs" width="1200" height="1200">
             </div>`}
         </section>
+${showWeekNotice ? `
+        <section class="band-show-week-notice" aria-label="Entrega para los shows de Iron Maiden">
+            <div class="band-show-week-notice-copy">
+                <p>${showWeekNotice.eyebrow}</p>
+                <strong>${showWeekNotice.question}</strong>
+                <span>${showWeekNotice.caba}</span>
+                <span>${showWeekNotice.interior}</span>
+                <small>${showWeekNotice.extra}</small>
+            </div>
+            <a href="${showWeekNotice.href}" target="_blank" rel="noopener">${showWeekNotice.ctaLabel}</a>
+        </section>` : ''}
 ${config.campaignFeatureBeforeCurated ? `
 ${campaignFeatureMarkup}` : ''}${discoveryMarkup}${curatedSelectionMarkup}${postShow ? `
         <section class="band-landing-hero helloween-post-show-hero" aria-labelledby="helloweenPostShowTitle" aria-hidden="true">

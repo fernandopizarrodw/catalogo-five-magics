@@ -321,6 +321,16 @@
                 href: '#catalogoPrincipal',
                 collectionId: 'eddies-argentinos'
             },
+            showWeekNotice: {
+                eyebrow: '&#128293; &Uacute;LTIMA SEMANA ANTES DE MAIDEN',
+                question: '&iquest;La quer&eacute;s para los shows del 20 o 21 de octubre?',
+                caba: '<strong>CABA / AMBA:</strong> todav&iacute;a tenemos opciones de entrega para llegar a tiempo.',
+                interior: '<strong>Interior:</strong> consultanos antes de pedir si la necesit&aacute;s para el show.',
+                extra: 'Tambi&eacute;n pod&eacute;s coordinar <strong>moto o retiro sin cargo por Villa Martelli</strong>.',
+                ctaLabel: 'CONSULTANOS POR WHATSAPP',
+                href: 'https://wa.me/541169667685?text=Hola%20FMD!%20Quiero%20consultar%20la%20mejor%20opci%C3%B3n%20de%20entrega%20para%20Iron%20Maiden.%20Mi%20localidad%20o%20CP%20es%3A%20'
+            },
+            modalShowNotice: '&iquest;La necesit&aacute;s para el show?<br>Consultanos tu localidad o CP antes de comprar y te indicamos la mejor opci&oacute;n de entrega.',
             showSizeGuide: true,
             productionTitle: '<span>PRODUCCIÓN</span> 48 A 72 H HÁBILES',
             productionCopy: 'Algodón peinado 24/1 e impresión DTG directa sobre la tela. Una vez despachado, te enviamos el enlace de seguimiento.',
