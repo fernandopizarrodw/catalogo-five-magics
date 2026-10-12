@@ -2096,7 +2096,7 @@ function openExactCodeMatch(query, afterOpen) {
         }
         if (design) {
             if (matchedCatalogRef?.role === 'back') {
-                openModal(matchedCatalogRef.productId, matchedCatalogRef.variantIndex);
+                openCatalogDesignPreview(design.designId, matchedGarment, 'double', matchedCatalogRef.image);
                 if (typeof afterOpen === 'function') afterOpen(design);
                 return true;
             }
@@ -6876,14 +6876,35 @@ function getCatalogDesignSearchText(design) {
     const sourceProducts = (design?.sourceProductIds || [])
         .map(id => db.find(product => Number(product.id) === Number(id)))
         .filter(Boolean);
+    const refs = [
+        ...Object.values(design?.previewsByGarment || {}).flat(),
+        ...(design?.backOptions || [])
+    ];
     return normalizeText([
         design?.designId,
         design?.publicName,
         design?.band,
         design?.orderCodeBase,
         ...(design?.designFamilyIds || []),
-        ...sourceProducts.flatMap(product => [product.name, product.category, product.album, ...(product.tags || [])])
+        ...sourceProducts.flatMap(product => [product.name, product.category, product.album, ...(product.tags || [])]),
+        ...refs.flatMap(ref => [ref.name, ref.label, ref.selectionLabel, ref.previewLabel])
     ].filter(Boolean).join(' '));
+}
+
+function getCatalogDesignSearchRef(design, query) {
+    const normalizedQuery = normalizeText(query);
+    if (!design || !normalizedQuery) return null;
+
+    const refs = [
+        ...(design?.backOptions || []),
+        ...Object.values(design?.previewsByGarment || {}).flat()
+    ];
+    return refs.find(ref => normalizeText([
+        ref.name,
+        ref.label,
+        ref.selectionLabel,
+        ref.previewLabel
+    ].filter(Boolean).join(' ')).includes(normalizedQuery)) || null;
 }
 
 function getCatalogDesignExactCodeRef(design, query) {
@@ -7014,8 +7035,13 @@ function renderCatalogDesignResults(designs) {
 
     productsGrid.innerHTML = visibleDesigns.map(design => {
         const cardGarment = design.displayGarment || bandLandingGarment;
-        const preview = getBandLandingDesignPreview(design, cardGarment) || design.front;
-        const cardImage = BAND_LANDING_CONFIG?.cardImageOverrides?.[design.designId] || preview.image;
+        const searchRef = currentSearch ? getCatalogDesignSearchRef(design, currentSearch) : null;
+        const preview = searchRef?.role === 'back'
+            ? searchRef
+            : (getBandLandingDesignPreview(design, cardGarment) || design.front);
+        const cardImage = searchRef?.role === 'back'
+            ? searchRef.image
+            : (BAND_LANDING_CONFIG?.cardImageOverrides?.[design.designId] || preview.image);
         const availableGarments = new Set((design.availableGarments || []).map(garment => normalizeText(garment)));
         const garmentLabels = [
             [...availableGarments].some(garment => garment.includes('remera')) ? 'Remera' : '',
@@ -7032,7 +7058,12 @@ function renderCatalogDesignResults(designs) {
             .map(value => value.trim())
             .filter(Boolean);
         const isCampaignFeatureDesign = campaignFeatureDesignIds.includes(design.designId);
-        const openAction = exactCodeRef
+        const directBackRef = exactCodeRef?.role === 'back'
+            ? exactCodeRef
+            : (searchRef?.role === 'back' ? searchRef : null);
+        const openAction = directBackRef
+            ? `openCatalogDesignPreview('${design.designId}', '${initialGarment}', 'double', '${directBackRef.image}')`
+            : exactCodeRef
             ? `openModal(${exactCodeRef.productId}, ${exactCodeRef.variantIndex})`
             : isCampaignFeatureDesign && (previewPrintMode === 'double' || previewPrintMode === 'doble')
             ? `openCatalogDesignPreview('${design.designId}', '${initialGarment}', 'double', '${cardImage}')`
