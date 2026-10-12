@@ -25263,5 +25263,75 @@
     "legacyCategory": "Iron Maiden",
     "fmdBadge": "ORIGINAL FMD",
     "tags": ["Iron Maiden", "Eddie Libertador", "Original FMD", "Eddies Argentinos", "Argentina 2026", "Run For Your Lives", "remera"]
+  },
+  {
+    "id": 7301,
+    "designId": "iron-maiden-live-1983",
+    "designSlug": "iron-maiden-live-1983",
+    "category": "Iron Maiden",
+    "band": "Iron Maiden",
+    "name": "Iron Maiden · Live 1983",
+    "year": "1983",
+    "album": null,
+    "tipoPrecio": "simple",
+    "defaultPrintMode": "frontal",
+    "catalogGarments": ["remera"],
+    "isNew": true,
+    "img": "images/iron_maiden/eddie_maiden_live_1983.jpg",
+    "desc": "Iron Maiden en vivo, con Eddie sobre el escenario en una edición de colección.",
+    "variants": [
+      {
+        "img": "images/iron_maiden/eddie_maiden_live_1983.jpg",
+        "name": "Iron Maiden · Live 1983",
+        "publicName": "Iron Maiden · Live 1983",
+        "selectionLabel": "Frente Live 1983",
+        "role": "front",
+        "preferredPreview": true
+      }
+    ],
+    "garments": ["remera"],
+    "collections": ["Archivo Maiden", "Eddies", "Colección general"],
+    "campaigns": [],
+    "commercialPriority": 84,
+    "visibilityTier": "catalog",
+    "legacyCategory": "Iron Maiden",
+    "fmdBadge": "EDDIE",
+    "tags": ["Iron Maiden", "Eddie", "Live 1983", "Concierto", "remera"]
+  },
+  {
+    "id": 7302,
+    "designId": "iron-maiden-eddie-reaper-original-fmd",
+    "designSlug": "iron-maiden-eddie-reaper-original-fmd",
+    "category": "Iron Maiden",
+    "band": "Iron Maiden",
+    "name": "Eddie Reaper · Original FMD",
+    "year": "2026",
+    "album": null,
+    "tipoPrecio": "simple",
+    "defaultPrintMode": "frontal",
+    "catalogGarments": ["remera"],
+    "isNew": true,
+    "img": "images/iron_maiden/iron_maiden_eddie_reaper.jpg",
+    "desc": "Eddie Reaper, diseño original FMD para la colección Run For Your Lives.",
+    "variants": [
+      {
+        "img": "images/iron_maiden/iron_maiden_eddie_reaper.jpg",
+        "name": "Eddie Reaper · Original FMD",
+        "publicName": "Eddie Reaper",
+        "selectionLabel": "Frente Eddie Reaper",
+        "role": "front",
+        "preferredPreview": true,
+        "fmdBadge": "ORIGINAL FMD",
+        "fmdBadgeDescription": "Diseño original creado por Five Magics Designs para Run For Your Lives."
+      }
+    ],
+    "garments": ["remera"],
+    "collections": ["Archivo Maiden", "Original FMD", "Tour Argentina 2026"],
+    "campaigns": ["Run For Your Lives 2026"],
+    "commercialPriority": 87,
+    "visibilityTier": "catalog",
+    "legacyCategory": "Iron Maiden",
+    "fmdBadge": "ORIGINAL FMD",
+    "tags": ["Iron Maiden", "Eddie Reaper", "Original FMD", "Run For Your Lives", "remera"]
   }
 ]
