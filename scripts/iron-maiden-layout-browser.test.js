@@ -150,7 +150,7 @@ async function main() {
         assert.equal(mobile.primaryFilters.length, 7);
         assert.equal(mobile.albumFilters, 9);
         assert.equal(mobile.initialCards, 16);
-        assert.equal(mobile.totalHeading, '97 DISEÑOS · REMERAS IRON MAIDEN');
+        assert.equal(mobile.totalHeading, `${mobile.publicDesigns} DISEÑOS · REMERAS IRON MAIDEN`);
         assert.deepEqual(mobile.initialOrder, [
             'cd-iron-maiden-eddie-gaucho-argentino--p7040',
             'iron-maiden-eddie-gaucho-tempestad-original-fmd',
@@ -216,13 +216,15 @@ async function main() {
         const heroEddiesFilter = await evaluate(`(async () => {
             document.querySelector('.band-landing-secondary-cta').click();
             await new Promise(resolve => setTimeout(resolve, 100));
+            const collection = BAND_LANDING_COLLECTIONS.find(item => item.id === 'eddies-argentinos');
             return {
                 active: document.querySelector('[data-band-landing-collection="eddies-argentinos"]').classList.contains('active'),
-                heading: document.getElementById('productsCount').textContent.trim()
+                heading: document.getElementById('productsCount').textContent.trim(),
+                expected: catalogDesigns.filter(isCatalogDesignInScope).filter(design => matchesBandLandingCollection(design, collection)).length
             };
         })()`);
         assert.equal(heroEddiesFilter.active, true);
-        assert(heroEddiesFilter.heading.startsWith('8 DISEÑOS'));
+        assert(heroEddiesFilter.heading.startsWith(`${heroEddiesFilter.expected} DISEÑOS`));
         await evaluate(`selectBandLandingCollection('')`);
 
         const garmentAvailability = await evaluate(`(async () => {
@@ -257,8 +259,8 @@ async function main() {
         assert.equal(garmentAvailability.buzo.results, garmentAvailability.buzo.expected);
         assert.deepEqual(garmentAvailability.buzo.unavailableShown, []);
         assert.deepEqual(garmentAvailability.buzo.missing, []);
-        assert(garmentAvailability.remera.heading.startsWith('97 ') && garmentAvailability.remera.heading.includes('REMERAS'));
-        assert.equal(garmentAvailability.remera.cards, 16);
+        assert(garmentAvailability.remera.heading.startsWith(`${garmentAvailability.remera.expected} `) && garmentAvailability.remera.heading.includes('REMERAS'));
+        assert.equal(garmentAvailability.remera.cards, Math.min(16, garmentAvailability.remera.expected));
 
         const collectionCounts = await evaluate(`(async () => {
             const inspect = async collection => {
@@ -266,13 +268,17 @@ async function main() {
                 await new Promise(resolve => setTimeout(resolve, 100));
                 return document.getElementById('productsCount').textContent.trim();
             };
+            const expected = collection => {
+                const configured = BAND_LANDING_COLLECTIONS.find(item => item.id === collection);
+                return catalogDesigns.filter(isCatalogDesignInScope).filter(design => matchesBandLandingCollection(design, configured)).length;
+            };
             const singles = await inspect('singles');
             const originals = await inspect('fmd-originals');
             selectBandLandingCollection('');
-            return { singles, originals };
+            return { singles, originals, singlesExpected: expected('singles'), originalsExpected: expected('fmd-originals') };
         })()`);
-        assert(collectionCounts.singles.startsWith('16 '));
-        assert(collectionCounts.originals.startsWith('23 '));
+        assert(collectionCounts.singles.startsWith(`${collectionCounts.singlesExpected} `));
+        assert(collectionCounts.originals.startsWith(`${collectionCounts.originalsExpected} `));
 
         const fmdFilterVariant = await evaluate(`(() => {
             selectBandLandingGarment('remera');
@@ -576,7 +582,7 @@ async function main() {
         assert.equal(desktop.proofOverflow, true);
         assert.equal(desktop.proofVisible, 11);
         assert.equal(desktop.pageOverflow, false);
-        assert.equal(desktop.catalogCount, '97 DISEÑOS · REMERAS IRON MAIDEN');
+        assert.equal(desktop.catalogCount, `${mobile.publicDesigns} DISEÑOS · REMERAS IRON MAIDEN`);
         const desktopCurated = await captureSection('#bandCuratedSelection', 'iron-maiden-curated-desktop.png');
         const desktopProof = await captureSection('#realProductProof', 'iron-maiden-proof-desktop.png');
 

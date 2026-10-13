@@ -83,6 +83,9 @@ const configuredBandLandingGarment = String(BAND_LANDING_CONFIG?.defaultGarment 
 const requestedBandLandingGarment = typeof window !== 'undefined'
     ? String(new URLSearchParams(window.location.search).get('prenda') || '').trim()
     : '';
+const requestedBandLandingCollection = typeof window !== 'undefined'
+    ? String(new URLSearchParams(window.location.search).get('coleccion') || '').trim()
+    : '';
 let bandLandingOuterwear = BAND_LANDING_BAND === 'Helloween' && requestedBandLandingGarment === 'abrigos';
 let bandLandingGarment = BAND_LANDING_GARMENTS.has(requestedBandLandingGarment)
     ? requestedBandLandingGarment
@@ -90,7 +93,9 @@ let bandLandingGarment = BAND_LANDING_GARMENTS.has(requestedBandLandingGarment)
     : BAND_LANDING_GARMENTS.has(configuredBandLandingGarment)
         ? configuredBandLandingGarment
     : (BAND_LANDING_BAND ? 'remera' : '');
-let bandLandingCollection = String(BAND_LANDING_CONFIG?.defaultCollection || '');
+let bandLandingCollection = BAND_LANDING_COLLECTIONS.some(collection => collection.id === requestedBandLandingCollection)
+    ? requestedBandLandingCollection
+    : String(BAND_LANDING_CONFIG?.defaultCollection || '');
 const BAND_LANDING_URLS = Object.fromEntries(BAND_ARCHIVE_CONFIGS.map(config => [
     normalizeText(config.band),
     `/${String(config.slug || '').replace(/^\/+|\/+$/g, '')}/`
@@ -249,7 +254,9 @@ function updateBandLandingCollectionCounts(designs) {
         const collectionId = counter.dataset.collectionCount || '';
         const collection = BAND_LANDING_COLLECTIONS.find(item => item.id === collectionId);
         const count = collection ? allDesigns.filter(design => matchesBandLandingCollection(design, collection)).length : allDesigns.length;
-        counter.textContent = `(${count})`;
+        counter.textContent = collection?.countPrefix
+            ? `${collection.countPrefix}${count} DISEÑOS`
+            : `(${count})`;
     });
 }
 
@@ -6814,6 +6821,10 @@ function getBandLandingDesignStartingPrice(design, garment = bandLandingGarment)
 function getCatalogDesignCardPriceText(design, preview, selectedGarment = bandLandingGarment) {
     if (!isBandLandingMode() && design?.catalogPriceText) {
         return getPublicCommerceText(design.catalogPriceText);
+    }
+
+    if (isBandLandingMode() && selectedGarment === 'remera' && Number(design?.catalogStartingPrice) > 0) {
+        return `Desde $${Number(design.catalogStartingPrice).toLocaleString('es-AR')}`;
     }
 
     const printMode = normalizeText(preview?.defaultPrintMode || design?.defaultPrintMode || '');

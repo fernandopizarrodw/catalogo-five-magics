@@ -315,7 +315,7 @@
             ],
             shippingAfterCatalog: true,
             heroTitle: 'RUN FOR YOUR LIVES<br><span>ARGENTINA 2026</span>',
-            heroCopy: '<strong>20 + 21 OCTUBRE · ESTADIO HURACÁN</strong><br><br>La gira que celebra 50 años de historia llega a Buenos Aires.<br>Diseños inspirados en los primeros nueve discos de Iron Maiden.<br><br><b><span data-band-design-count-number>+90</span> DISEÑOS ÚNICOS</b><br>Remeras · Hoodies · Buzos<br>Estampa frontal o frente + dorso',
+            heroCopy: '<strong>20 + 21 OCTUBRE · ESTADIO HURACÁN</strong><br><br>La gira que celebra 50 años de historia llega a Buenos Aires.<br><span data-band-design-count-number>0</span> diseños recorriendo discos, singles, tours y ediciones originales FMD.<br><br><b><span data-band-design-count-number>0</span> DISEÑOS ÚNICOS</b><br>Remeras · Hoodies · Buzos<br>Estampa frontal o frente + dorso',
             heroCtaLabel: 'VER COLECCIÓN COMPLETA',
             heroSecondaryCta: {
                 label: 'VER EDDIES ARGENTINOS',
@@ -327,7 +327,7 @@
                 question: '&iquest;La quer&eacute;s para el show del 20 o 21?',
                 caba: '<strong>CABA / AMBA:</strong> seguimos tomando pedidos. Consultanos con tu localidad o CP y te indicamos la mejor opci&oacute;n de entrega seg&uacute;n la fecha a la que vayas.',
                 interior: '<strong>Interior:</strong> consultanos antes de pedir si la necesit&aacute;s para el show.',
-                extra: 'Tambi&eacute;n pod&eacute;s coordinar <strong>moto o retiro coordinado</strong>.',
+                extra: '<strong>Tambi&eacute;n pod&eacute;s coordinar entrega por moto o retiro.</strong>',
                 ctaLabel: 'CONSULTAR ENTREGA PARA EL SHOW',
                 href: 'https://wa.me/541169667685?text=Hola%20FMD!%20Quiero%20consultar%20la%20mejor%20opci%C3%B3n%20de%20entrega%20para%20Iron%20Maiden.%20Voy%20al%20show%20del%3A%20%5B20%20o%2021%5D%0AMi%20localidad%20o%20CP%20es%3A%20'
             },
@@ -386,7 +386,7 @@
             collections: [
                 { id: 'tour-argentina', label: 'TOUR ARGENTINA 2026', match: { designIds: [
                     'cd-iron-maiden-eddie-gaucho-argentino--p7040', 'iron-maiden-eddie-gaucho-argentino-con-fechas',
-                    'iron-maiden-eddie-tanguero-original-fmd', 'iron-maiden-eddie-huracan-original-fmd', 'iron-maiden-eddie-gaucho-tempestad-original-fmd', 'iron-maiden-eddie-libertador-original-fmd',
+                    'iron-maiden-eddie-tanguero-original-fmd', 'iron-maiden-eddie-huracan-original-fmd', 'iron-maiden-eddie-gaucho-tempestad-original-fmd', 'iron-maiden-eddie-libertador-cruce-de-los-andes-original-fmd', 'iron-maiden-eddie-libertador-cordillera-original-fmd',
                     'iron-maiden-run-for-your-lives-2026-oficial', 'iron-maiden-run-for-your-lives-fmd-2026', 'iron-maiden-run-for-your-lives-buenos-aires',
                     'iron-maiden-eddie-reaper-original-fmd',
                     'iron-maiden-eddie-argentina-seleccion-fmd',
@@ -397,9 +397,9 @@
                     'iron-maiden-tour-merch-v3-fmd', 'cd-iron-maiden-tour-3d-2026-fmd--p7029',
                     'iron-maiden-the-final-tour-fmd'
                 ] } },
-                { id: 'eddies-argentinos', label: 'EDDIES ARGENTINOS', match: { designIds: [
+                { id: 'eddies-argentinos', label: 'EDDIES ARGENTINOS ·', countPrefix: '5 PERSONAJES / ', match: { designIds: [
                     'cd-iron-maiden-eddie-gaucho-argentino--p7040', 'iron-maiden-eddie-gaucho-argentino-con-fechas',
-                    'iron-maiden-eddie-tanguero-original-fmd', 'iron-maiden-eddie-huracan-original-fmd', 'iron-maiden-eddie-gaucho-tempestad-original-fmd', 'iron-maiden-eddie-libertador-original-fmd',
+                    'iron-maiden-eddie-tanguero-original-fmd', 'iron-maiden-eddie-huracan-original-fmd', 'iron-maiden-eddie-gaucho-tempestad-original-fmd', 'iron-maiden-eddie-libertador-cruce-de-los-andes-original-fmd', 'iron-maiden-eddie-libertador-cordillera-original-fmd',
                     'iron-maiden-eddie-argentina-seleccion-fmd',
                     'cd-iron-maiden-eddie-argentina-v1-fmd--p7015', 'cd-iron-maiden-eddie-argentina-v2-fmd--p7016'
                 ] } },
@@ -424,7 +424,7 @@
                 ] } },
                 { id: 'fmd-originals', label: 'ORIGINALES FMD', match: { designIds: [
                     'cd-iron-maiden-eddie-gaucho-argentino--p7040', 'iron-maiden-eddie-tanguero-original-fmd',
-                    'iron-maiden-eddie-huracan-original-fmd', 'iron-maiden-eddie-gaucho-tempestad-original-fmd', 'iron-maiden-eddie-libertador-original-fmd', 'iron-maiden-burning-ambition-edicion-fmd',
+                    'iron-maiden-eddie-huracan-original-fmd', 'iron-maiden-eddie-gaucho-tempestad-original-fmd', 'iron-maiden-eddie-libertador-cruce-de-los-andes-original-fmd', 'iron-maiden-eddie-libertador-cordillera-original-fmd', 'iron-maiden-burning-ambition-edicion-fmd',
                     'iron-maiden-the-number-of-the-beast-edicion-fmd', 'iron-maiden-powerslave-fmd',
                     'iron-maiden-live-after-death-fmd', 'iron-maiden-somewhere-in-time-40th-fmd',
                     'iron-maiden-eddie-reaper-original-fmd',
@@ -449,10 +449,10 @@
             campaignFeature: {
                 theme: 'argentina',
                 kicker: 'SAGA EDDIES ARGENTINOS · ORIGINALES FMD',
-                title: 'EDDIES ARGENTINOS · CINCO CAPÍTULOS',
-                copy: 'Gaucho, Tempestad, Tanguero, Huracán y Libertador: cinco versiones originales FMD inspiradas en Argentina.',
+                title: 'EDDIES ARGENTINOS · CINCO PERSONAJES',
+                copy: 'Gaucho, Tempestad, Tanguero, Huracán y Libertador: cinco Eddies originales FMD creados alrededor de Argentina 2026.',
                 eventLine: '20 + 21 OCTUBRE · ESTADIO HURACÁN',
-                note: 'Elegí tu Eddie. Los cinco están disponibles con estampa frontal o frente + dorso.',
+                note: 'Elegí tu Eddie. Los cinco personajes están disponibles en distintas versiones con estampa frontal o frente + dorso.',
                 priceOptions: [
                     { label: 'FRENTE + DORSO', price: '$45.000', recommended: true }
                 ],
@@ -503,10 +503,10 @@
                         height: 1350
                     },
                     {
-                        designId: 'iron-maiden-eddie-libertador-original-fmd',
+                        designId: 'iron-maiden-eddie-libertador-cruce-de-los-andes-original-fmd',
                         src: '/images/iron_maiden/iron_maiden_eddie_soldado_doble.jpg',
-                        alt: 'Edición completa Eddie Libertador con sombrero y bandera argentina',
-                        label: 'EDDIE LIBERTADOR · FRENTE + DORSO',
+                        alt: 'Eddie Libertador Cruce de los Andes con sombrero y bandera argentina',
+                        label: 'EDDIE LIBERTADOR · CRUCE DE LOS ANDES',
                         printMode: 'double',
                         preview: '/images/iron_maiden/iron_maiden_eddie_soldado.jpg',
                         width: 1080,
@@ -631,7 +631,8 @@
                 'iron-maiden-eddie-tanguero-original-fmd',
                 'iron-maiden-eddie-huracan-original-fmd',
                 'iron-maiden-eddie-gaucho-tempestad-original-fmd',
-                'iron-maiden-eddie-libertador-original-fmd',
+                'iron-maiden-eddie-libertador-cruce-de-los-andes-original-fmd',
+                'iron-maiden-eddie-libertador-cordillera-original-fmd',
                 'cd-iron-maiden-empire--p308',
                 'iron-maiden-the-final-tour-fmd',
                 'cd-iron-maiden-tour-3d-2026-fmd--p7029',
@@ -674,7 +675,8 @@
                 'iron-maiden-eddie-gaucho-tempestad-original-fmd',
                 'iron-maiden-eddie-tanguero-original-fmd',
                 'iron-maiden-eddie-huracan-original-fmd',
-                'iron-maiden-eddie-libertador-original-fmd',
+                'iron-maiden-eddie-libertador-cruce-de-los-andes-original-fmd',
+                'iron-maiden-eddie-libertador-cordillera-original-fmd',
                 'iron-maiden-run-for-your-lives-2026-oficial',
                 'iron-maiden-run-for-your-lives-fmd-2026',
                 'iron-maiden-eddie-reaper-original-fmd',
@@ -777,7 +779,8 @@
                 'iron-maiden-eddie-tanguero-original-fmd': 'ORIGINAL FMD',
                 'iron-maiden-eddie-huracan-original-fmd': 'ORIGINAL FMD',
                 'iron-maiden-eddie-gaucho-tempestad-original-fmd': 'ORIGINAL FMD',
-                'iron-maiden-eddie-libertador-original-fmd': 'ORIGINAL FMD',
+                'iron-maiden-eddie-libertador-cruce-de-los-andes-original-fmd': 'ORIGINAL FMD',
+                'iron-maiden-eddie-libertador-cordillera-original-fmd': 'ORIGINAL FMD',
                 'iron-maiden-run-for-your-lives-2026-oficial': 'TOUR 2026',
                 'iron-maiden-run-for-your-lives-fmd-2026': 'ORIGINAL FMD',
                 'iron-maiden-eddie-reaper-original-fmd': 'ORIGINAL FMD',

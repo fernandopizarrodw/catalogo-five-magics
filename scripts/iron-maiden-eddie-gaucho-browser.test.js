@@ -120,11 +120,13 @@ async function main() {
             };
             return { tanguero: inspect('iron-maiden-eddie-tanguero-original-fmd'), huracan: inspect('iron-maiden-eddie-huracan-original-fmd') };
         })()`);
-        for (const design of [related.tanguero, related.huracan]) {
-            assert.equal(design.images.length, 3);
-            assert.deepEqual(design.labels, ['Frente solo', 'Dorso solo', 'Frente y dorso']);
-            assert.equal(design.current, design.images[0]);
-        }
+        assert.equal(related.tanguero.images.length, 3);
+        assert.deepEqual(related.tanguero.labels, ['Frente solo', 'Dorso solo', 'Frente y dorso']);
+        assert.equal(related.tanguero.current, related.tanguero.images[0]);
+
+        assert.equal(related.huracan.images.length, 4);
+        assert.deepEqual(related.huracan.labels, ['Frente solo', 'Frente V2', 'Dorso solo', 'Frente y dorso']);
+        assert.equal(related.huracan.current, related.huracan.images[0]);
 
         const huracanSelection = await evaluate(`(() => {
             closeModal();
