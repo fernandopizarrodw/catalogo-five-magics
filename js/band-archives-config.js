@@ -324,12 +324,12 @@
             },
             showWeekNotice: {
                 eyebrow: '&#128293; &Uacute;LTIMA SEMANA ANTES DE MAIDEN',
-                question: '&iquest;La quer&eacute;s para los shows del 20 o 21 de octubre?',
-                caba: '<strong>CABA / AMBA:</strong> todav&iacute;a tenemos opciones de entrega para llegar a tiempo.',
+                question: '&iquest;La quer&eacute;s para el show del 20 o 21?',
+                caba: '<strong>CABA / AMBA:</strong> seguimos tomando pedidos. Consultanos con tu localidad o CP y te indicamos la mejor opci&oacute;n de entrega seg&uacute;n la fecha a la que vayas.',
                 interior: '<strong>Interior:</strong> consultanos antes de pedir si la necesit&aacute;s para el show.',
-                extra: 'Tambi&eacute;n pod&eacute;s coordinar <strong>moto o retiro sin cargo por Villa Martelli</strong>.',
-                ctaLabel: 'CONSULTANOS POR WHATSAPP',
-                href: 'https://wa.me/541169667685?text=Hola%20FMD!%20Quiero%20consultar%20la%20mejor%20opci%C3%B3n%20de%20entrega%20para%20Iron%20Maiden.%20Mi%20localidad%20o%20CP%20es%3A%20'
+                extra: 'Tambi&eacute;n pod&eacute;s coordinar <strong>moto o retiro coordinado</strong>.',
+                ctaLabel: 'CONSULTAR ENTREGA PARA EL SHOW',
+                href: 'https://wa.me/541169667685?text=Hola%20FMD!%20Quiero%20consultar%20la%20mejor%20opci%C3%B3n%20de%20entrega%20para%20Iron%20Maiden.%20Voy%20al%20show%20del%3A%20%5B20%20o%2021%5D%0AMi%20localidad%20o%20CP%20es%3A%20'
             },
             modalShowNotice: '&iquest;La necesit&aacute;s para el show?<br>Consultanos tu localidad o CP antes de comprar y te indicamos la mejor opci&oacute;n de entrega.',
             showSizeGuide: true,
@@ -449,10 +449,10 @@
             campaignFeature: {
                 theme: 'argentina',
                 kicker: 'SAGA EDDIES ARGENTINOS · ORIGINALES FMD',
-                title: 'EDDIES ARGENTINOS · CUATRO CAPÍTULOS',
-                copy: 'Gaucho, Tanguero, Huracán y Tempestad: cuatro versiones originales FMD inspiradas en Argentina.',
+                title: 'EDDIES ARGENTINOS · CINCO CAPÍTULOS',
+                copy: 'Gaucho, Tempestad, Tanguero, Huracán y Libertador: cinco versiones originales FMD inspiradas en Argentina.',
                 eventLine: '20 + 21 OCTUBRE · ESTADIO HURACÁN',
-                note: 'Elegí tu Eddie. Los cuatro están disponibles con estampa frontal o frente + dorso.',
+                note: 'Elegí tu Eddie. Los cinco están disponibles con estampa frontal o frente + dorso.',
                 priceOptions: [
                     { label: 'FRENTE + DORSO', price: '$45.000', recommended: true }
                 ],
@@ -499,6 +499,16 @@
                         label: 'EDDIE HURACÁN · FRENTE + DORSO',
                         printMode: 'double',
                         preview: '/images/iron_maiden/remera_iron_maiden_eddie_huracan_frente.jpg',
+                        width: 1080,
+                        height: 1350
+                    },
+                    {
+                        designId: 'iron-maiden-eddie-libertador-original-fmd',
+                        src: '/images/iron_maiden/iron_maiden_eddie_soldado_doble.jpg',
+                        alt: 'Edición completa Eddie Libertador con sombrero y bandera argentina',
+                        label: 'EDDIE LIBERTADOR · FRENTE + DORSO',
+                        printMode: 'double',
+                        preview: '/images/iron_maiden/iron_maiden_eddie_soldado.jpg',
                         width: 1080,
                         height: 1350
                     },
