@@ -356,6 +356,7 @@
                 { collectionId: 'eddies-argentinos', label: 'EDDIES ARGENTINOS', copy: 'Originales FMD inspirados en Argentina' },
                 { collectionId: 'nine-classics', label: 'LOS 9 DISCOS CLÁSICOS', copy: '1980–1992' },
                 { collectionId: 'singles', label: 'SINGLES + CANCIONES', copy: 'Clásicos y reinterpretaciones' },
+                { collectionId: 'backs', label: 'DORSOS DISPONIBLES', copy: 'Opciones para doble estampa' },
                 { collectionId: '', label: 'COLECCIÓN COMPLETA', copy: '<span data-band-design-count-number>0</span> diseños únicos' }
             ],
             curatedSelection: {
@@ -417,6 +418,7 @@
                     'iron-maiden-bring-your-daughter-single',
                     'iron-maiden-the-trooper-classic', 'iron-maiden-hallowed-be-thy-name'
                 ] } },
+                { id: 'backs', label: 'DORSOS DISPONIBLES', match: { hasBackOptions: true } },
                 { id: 'somewhere-40', label: 'SOMEWHERE IN TIME · 40 AÑOS', match: { designIds: [
                     'iron-maiden-somewhere-in-time', 'iron-maiden-somewhere-in-time-40th-fmd',
                     'iron-maiden-somewhere-in-time-40th-eddie', 'iron-maiden-somewhere-in-time-40th-black',

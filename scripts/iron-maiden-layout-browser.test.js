@@ -126,7 +126,7 @@ async function main() {
             };
         })()`);
 
-        assert.equal(mobile.discoveryLinks, 5);
+        assert.equal(mobile.discoveryLinks, 6);
         assert.equal(mobile.discoveryColumns, 2);
         assert.equal(mobile.curatedCards, 16);
         assert.deepEqual(mobile.curatedOrder.slice(0, 14), [
@@ -147,7 +147,7 @@ async function main() {
         ]);
         assert.equal(mobile.curatedColumns, 2);
         assert.equal(mobile.curatedLoaded, true);
-        assert.equal(mobile.primaryFilters.length, 7);
+        assert.equal(mobile.primaryFilters.length, 8);
         assert.equal(mobile.albumFilters, 9);
         assert.equal(mobile.initialCards, 16);
         assert.equal(mobile.totalHeading, `${mobile.publicDesigns} DISEÑOS · REMERAS IRON MAIDEN`);
@@ -273,11 +273,20 @@ async function main() {
                 return catalogDesigns.filter(isCatalogDesignInScope).filter(design => matchesBandLandingCollection(design, configured)).length;
             };
             const singles = await inspect('singles');
+            const backs = await inspect('backs');
             const originals = await inspect('fmd-originals');
             selectBandLandingCollection('');
-            return { singles, originals, singlesExpected: expected('singles'), originalsExpected: expected('fmd-originals') };
+            return {
+                singles,
+                backs,
+                originals,
+                singlesExpected: expected('singles'),
+                backsExpected: expected('backs'),
+                originalsExpected: expected('fmd-originals')
+            };
         })()`);
         assert(collectionCounts.singles.startsWith(`${collectionCounts.singlesExpected} `));
+        assert(collectionCounts.backs.startsWith(`${collectionCounts.backsExpected} `));
         assert(collectionCounts.originals.startsWith(`${collectionCounts.originalsExpected} `));
 
         const fmdFilterVariant = await evaluate(`(() => {
@@ -577,7 +586,7 @@ async function main() {
             pageOverflow: document.documentElement.scrollWidth > document.documentElement.clientWidth,
             catalogCount: document.getElementById('productsCount').textContent.trim()
         }))()`);
-        assert.equal(desktop.discoveryColumns, 5);
+        assert.equal(desktop.discoveryColumns, 3);
         assert.equal(desktop.curatedColumns, 4);
         assert.equal(desktop.proofOverflow, true);
         assert.equal(desktop.proofVisible, 11);

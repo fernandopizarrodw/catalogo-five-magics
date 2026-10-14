@@ -211,6 +211,11 @@ function matchesBandLandingCollection(design, collection) {
     if (!collection) return true;
     const designIds = (collection.match?.designIds || []).map(normalizeText);
     if (designIds.length) return designIds.includes(normalizeText(design?.designId));
+
+    if (collection.match?.hasBackOptions === true) {
+        return Array.isArray(design?.backOptions) && design.backOptions.length > 0;
+    }
+
     const collectionId = normalizeText(collection.id);
 
     const curatedCategory = normalizeText(BAND_LANDING_CURATED_DESIGN_CATEGORIES[design?.designId]);
@@ -8276,7 +8281,7 @@ function sendViaWhatsapp(postalCode = '', customerData = null) {
             : selectedDeliveryMethod === 'domicilio'
                 ? '¿Me confirmás el pedido y cómo seguimos con el pago?'
                 : '¿Me confirmás cómo seguimos?';
-    const message = `Hola FMD!\n\nQuiero hacer este pedido:\n\n${summary}${shippingContext}\n\n${closing}`;
+    const message = `Hola Five Magics!\n\nQuiero hacer este pedido:\n\n${summary}${shippingContext}\n\n${closing}`;
     openWhatsapp(message, 'cart_confirmar_pedido');
 }
 
@@ -8790,7 +8795,7 @@ function consultFirstViaWhatsapp() {
     const customerData = getShippingCustomerData();
     const hasCustomerData = Object.values(customerData).some(Boolean);
     const partialShippingContext = hasCustomerData ? buildCustomerDataForWhatsapp(customerData) : '';
-    const message = `Hola FMD! Quiero consultar antes de confirmar este pedido:\n\n${summary}${partialShippingContext}\n\n¿Me confirmás cómo avanzamos?`;
+    const message = `Hola Five Magics! Quiero consultar antes de confirmar este pedido:\n\n${summary}${partialShippingContext}\n\n¿Me confirmás cómo avanzamos?`;
     saveShippingCustomerDataToStorage(customerData);
     closeCartPreview();
     openWhatsapp(message, 'cart_consulta');
