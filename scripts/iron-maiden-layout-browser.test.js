@@ -129,11 +129,13 @@ async function main() {
         assert.equal(mobile.discoveryLinks, 6);
         assert.equal(mobile.discoveryColumns, 2);
         assert.equal(mobile.curatedCards, 16);
-        assert.deepEqual(mobile.curatedOrder.slice(0, 14), [
+        assert.deepEqual(mobile.curatedOrder, [
             'cd-iron-maiden-eddie-gaucho-argentino--p7040',
             'iron-maiden-eddie-gaucho-tempestad-original-fmd',
             'iron-maiden-eddie-tanguero-original-fmd',
             'iron-maiden-eddie-huracan-original-fmd',
+            'iron-maiden-eddie-libertador-cruce-de-los-andes-original-fmd',
+            'iron-maiden-eddie-cuatro-jinetes-del-apocalipsis-original-fmd',
             'iron-maiden-run-for-your-lives-fmd-2026',
             'iron-maiden-1980-run-for-your-lives',
             'iron-maiden-killers-1981-run-for-your-lives',

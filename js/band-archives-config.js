@@ -372,6 +372,8 @@
                     { designId: 'iron-maiden-eddie-gaucho-tempestad-original-fmd', label: 'Eddie Gaucho Tempestad', image: '/images/iron_maiden/iron_maiden_eddie_gaucho_tempestad.jpg' },
                     { designId: 'iron-maiden-eddie-tanguero-original-fmd', label: 'Eddie Tanguero', image: '/images/iron_maiden/iron_maiden_eddie_tanguero.jpg' },
                     { designId: 'iron-maiden-eddie-huracan-original-fmd', label: 'Eddie vs. Huracán', image: '/images/iron_maiden/remera_iron_maiden_eddie_huracan_frente.jpg' },
+                    { designId: 'iron-maiden-eddie-libertador-cruce-de-los-andes-original-fmd', label: 'Eddie Libertador', image: '/images/iron_maiden/iron_maiden_eddie_soldado.jpg' },
+                    { designId: 'iron-maiden-eddie-cuatro-jinetes-del-apocalipsis-original-fmd', label: 'Los 4 Jinetes del Apocalipsis', image: '/images/iron_maiden/eddie_jinetes_del_apocalipsis_fmd_frente.jpg' },
                     { designId: 'iron-maiden-run-for-your-lives-fmd-2026', label: 'Run For Your Lives · Edición FMD', image: '/images/iron_maiden/eddie_run_for_your_lives_tour/remera_iron_maiden_run_fmd.jpg' },
                     { designId: 'iron-maiden-1980-run-for-your-lives', label: 'Iron Maiden · 1980', image: '/images/iron_maiden/9 discos 1 tour/iron_maiden.jpg' },
                     { designId: 'iron-maiden-killers-1981-run-for-your-lives', label: 'Killers · 1981', image: '/images/iron_maiden/9 discos 1 tour/iron_maiden_killers.jpg' },
@@ -381,9 +383,7 @@
                     { designId: 'iron-maiden-somewhere-in-time-1986-run-for-your-lives', label: 'Somewhere in Time · 1986', image: '/images/iron_maiden/9 discos 1 tour/Somewhere in Time (1986).jpg' },
                     { designId: 'iron-maiden-seventh-son-1988-run-for-your-lives', label: 'Seventh Son · 1988', image: '/images/iron_maiden/9 discos 1 tour/Seventh Son of a Seventh Son (1988).jpg' },
                     { designId: 'iron-maiden-no-prayer-1990-run-for-your-lives', label: 'No Prayer for the Dying · 1990', image: '/images/iron_maiden/9 discos 1 tour/No Prayer for the Dying (1990).jpg' },
-                    { designId: 'iron-maiden-fear-of-the-dark-1992-run-for-your-lives', label: 'Fear of the Dark · 1992', image: '/images/iron_maiden/9 discos 1 tour/iron_maiden_fear.jpg' },
-                    { designId: 'iron-maiden-aces-high-singles', label: 'Aces High · FMD', image: '/images/iron_maiden/singles originales y fmd edition/FMD ACES 4-5 FOR IG MOCK REMERA.jpg', preview: '/images/iron_maiden/singles originales y fmd edition/FMD ACES 4-5 FOR IG MOCK REMERA.jpg' },
-                    { designId: 'iron-maiden-wasted-years-singles', label: 'Wasted Years · FMD', image: '/images/iron_maiden/singles originales y fmd edition/WASTED FMD 4-5 FOR IG MOCK REMERA.jpg', preview: '/images/iron_maiden/singles originales y fmd edition/WASTED FMD 4-5 FOR IG MOCK REMERA.jpg' }
+                    { designId: 'iron-maiden-fear-of-the-dark-1992-run-for-your-lives', label: 'Fear of the Dark · 1992', image: '/images/iron_maiden/9 discos 1 tour/iron_maiden_fear.jpg' }
                 ]
             },
             collections: [
