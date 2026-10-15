@@ -325,6 +325,7 @@ async function main() {
                 legacy: inspect('iron-maiden-legacy-of-the-beast-grid'),
                 runFmd: inspect('iron-maiden-run-for-your-lives-fmd-2026'),
                 tempestad: inspect('iron-maiden-eddie-gaucho-tempestad-original-fmd'),
+                jinetes: inspect('iron-maiden-eddie-cuatro-jinetes-del-apocalipsis-original-fmd'),
                 pilot: inspect('iron-maiden-eddie-piloto-ed-force-one'),
                 argentina: inspect('iron-maiden-eddie-argentina-seleccion-fmd')
             };
@@ -345,6 +346,10 @@ async function main() {
         assert(latestDesigns.tempestad.images.some(image => image.endsWith('iron_maiden_eddie_gaucho_tempestad.jpg')));
         assert(latestDesigns.tempestad.images.some(image => image.endsWith('mock frente y dorso eddie gaucho tempestad.jpg')));
         assert(latestDesigns.tempestad.backs.some(image => image.endsWith('iron_maiden_dorso_eddie_gaucho_tempestad.jpg')));
+        assert.equal(latestDesigns.jinetes.designId, 'iron-maiden-eddie-cuatro-jinetes-del-apocalipsis-original-fmd');
+        assert(latestDesigns.jinetes.images.some(image => image.endsWith('eddie_jinetes_del_apocalipsis_fmd_frente.jpg')));
+        assert(latestDesigns.jinetes.images.some(image => image.endsWith('eddie_jinetes_del_apocalipsis_fmd.jpg')));
+        assert(latestDesigns.jinetes.backs.some(image => image.endsWith('eddie_jinetes_del_apocalipsis_fmd_dorso.jpg')));
         assert.equal(latestDesigns.pilot.designId, 'iron-maiden-eddie-piloto-ed-force-one');
         assert.equal(latestDesigns.argentina.designId, 'iron-maiden-eddie-argentina-seleccion-fmd');
 

@@ -295,14 +295,80 @@ body[data-band="Helloween"] .july-shipping-promo strong {
     outline: none;
 }
 
+.band-show-week-notice.is-critical {
+    border-color: rgba(255, 121, 64, 0.72);
+    background: linear-gradient(110deg, rgba(91, 24, 13, 0.94), rgba(25, 9, 9, 0.98) 62%);
+}
+
+.band-show-week-notice.is-critical .band-show-week-notice-copy p {
+    color: #ff9b6a;
+}
+
+.band-show-week-notice.is-critical .band-show-week-notice-copy small {
+    color: #ffd1bb;
+}
+
+.band-show-week-notice.is-critical a {
+    border-color: #ff7043;
+    background: #ff7043;
+    color: #200804;
+}
+
+.band-show-week-notice.is-critical a:hover,
+.band-show-week-notice.is-critical a:focus-visible {
+    background: #fff;
+    border-color: #fff;
+}
+
 .modal-show-delivery-note {
     margin: 10px 0 12px;
     padding: 10px 12px;
-    border-left: 3px solid #75c7ff;
-    border-radius: 0 8px 8px 0;
-    background: rgba(116, 172, 223, 0.11);
-    color: #e3f3ff;
+    border: 1px solid rgba(255, 112, 67, 0.68);
+    border-radius: 10px;
+    background: rgba(119, 31, 14, 0.22);
+    color: #ffe5da;
     font: 500 0.8rem/1.4 "Inter", sans-serif;
+}
+
+.modal-show-delivery-note strong,
+.modal-show-delivery-note span,
+.modal-show-delivery-note a {
+    display: block;
+}
+
+.modal-show-delivery-note strong {
+    margin-bottom: 5px;
+    color: #ffad87;
+    font: 800 0.84rem/1.2 "Oswald", sans-serif;
+    letter-spacing: 0.08em;
+}
+
+.modal-show-delivery-note a {
+    width: fit-content;
+    margin-top: 10px;
+    padding: 8px 10px;
+    border: 1px solid #ff7043;
+    border-radius: 7px;
+    background: #ff7043;
+    color: #240904;
+    font: 800 0.72rem/1 "Oswald", sans-serif;
+    letter-spacing: 0.07em;
+    text-decoration: none;
+}
+
+.modal-show-delivery-note a:hover,
+.modal-show-delivery-note a:focus-visible {
+    background: #fff;
+    border-color: #fff;
+    outline: none;
+}
+
+.shipping-show-alert {
+    margin: 14px auto 0;
+    max-width: 760px;
+    color: #ffe2d3;
+    font: 600 0.82rem/1.4 "Inter", sans-serif;
+    text-align: center;
 }
 
 .helloween-post-show-hero {

@@ -323,22 +323,24 @@
                 collectionId: 'eddies-argentinos'
             },
             showWeekNotice: {
-                eyebrow: '&#128293; &Uacute;LTIMA SEMANA ANTES DE MAIDEN',
+                critical: true,
+                eyebrow: '&#128293; &Uacute;LTIMOS D&Iacute;AS ANTES DE MAIDEN',
                 question: '&iquest;La quer&eacute;s para el show del 20 o 21?',
-                caba: '<strong>CABA / AMBA:</strong> seguimos tomando pedidos. Consultanos con tu localidad o CP y te indicamos la mejor opci&oacute;n de entrega seg&uacute;n la fecha a la que vayas.',
-                interior: '<strong>Interior:</strong> consultanos antes de pedir si la necesit&aacute;s para el show.',
-                extra: '<strong>Tambi&eacute;n pod&eacute;s coordinar entrega por moto o retiro.</strong>',
+                caba: '<strong>CABA / AMBA:</strong> consultanos antes de comprar. Estamos priorizando <strong>retiro coordinado y entrega por moto</strong> seg&uacute;n la fecha que la necesites.',
+                interior: '<strong>Interior:</strong> si ven&iacute;s a Buenos Aires para el show, decinos <strong>cu&aacute;ndo lleg&aacute;s y d&oacute;nde vas a estar</strong> y vemos qu&eacute; opci&oacute;n de entrega podemos ofrecerte.',
+                extra: '<strong>Por correo al interior ya no podemos asegurar entrega antes del show.</strong>',
                 ctaLabel: 'CONSULTAR ENTREGA PARA EL SHOW',
-                href: 'https://wa.me/541169667685?text=Hola%20FMD!%20Quiero%20consultar%20la%20mejor%20opci%C3%B3n%20de%20entrega%20para%20Iron%20Maiden.%20Voy%20al%20show%20del%3A%20%5B20%20o%2021%5D%0AMi%20localidad%20o%20CP%20es%3A%20'
+                href: 'https://wa.me/541169667685?text=Hola%20Five%20Magics!%20Quiero%20consultar%20la%20entrega%20para%20Iron%20Maiden.%0AD%C3%ADa%20del%20show%3A%20%5B20%20o%2021%5D%0ALocalidad%20o%20CP%3A%20%0ASi%20vengo%20del%20interior%2C%20llego%20a%20Buenos%20Aires%3A%20%0ADonde%20voy%20a%20estar%3A%20'
             },
-            modalShowNotice: '&iquest;La necesit&aacute;s para el show?<br>Consultanos tu localidad o CP antes de comprar y te indicamos la mejor opci&oacute;n de entrega.',
+            modalShowNotice: '<strong>&#128293; &iquest;LA NECESIT&Aacute;S PARA MAIDEN?</strong><span><b>Antes de confirmar el pedido, consultanos.</b> Decinos de d&oacute;nde sos, qu&eacute; d&iacute;a vas al show y cu&aacute;ndo lleg&aacute;s a Buenos Aires si ven&iacute;s del interior.<br>Para esta &uacute;ltima etapa estamos coordinando cada pedido seg&uacute;n fecha y zona.</span><a href="https://wa.me/541169667685?text=Hola%20Five%20Magics!%20Quiero%20consultar%20la%20entrega%20para%20Iron%20Maiden.%0AD%C3%ADa%20del%20show%3A%20%5B20%20o%2021%5D%0ALocalidad%20o%20CP%3A%20%0ASi%20vengo%20del%20interior%2C%20llego%20a%20Buenos%20Aires%3A%20%0ADonde%20voy%20a%20estar%3A%20" target="_blank" rel="noopener">CONSULTAR ENTREGA PARA EL SHOW</a>',
+            shippingShowNotice: '&#9888;&#65039; Si la necesit&aacute;s para el 20/21, estos plazos no implican entrega garantizada antes del show. Consultanos primero.',
             showSizeGuide: true,
             productionTitle: '<span>PRODUCCIÓN</span> 48 A 72 H HÁBILES',
             productionCopy: 'Algodón peinado 24/1 e impresión DTG directa sobre la tela. Una vez despachado, te enviamos el enlace de seguimiento.',
             productionNotice: '¿La querés para los shows del 20 o 21 de octubre? Consultanos con tu código postal antes de comprar para confirmar la mejor opción de entrega.',
             productionCta: {
                 label: 'CONSULTAR ENTREGA PARA EL SHOW',
-                href: 'https://wa.me/541169667685?text=Hola%20FMD!%20Quiero%20consultar%20la%20entrega%20de%20una%20prenda%20de%20Iron%20Maiden%20para%20el%20show.%20Mi%20CP%20es%3A%20'
+                href: 'https://wa.me/541169667685?text=Hola%20Five%20Magics!%20Quiero%20consultar%20la%20entrega%20de%20una%20prenda%20de%20Iron%20Maiden%20para%20el%20show.%20Mi%20CP%20es%3A%20'
             },
             catalogKicker: 'COLECCIÓN COMPLETA',
             catalogTitle: '<span data-band-design-count-number>0</span> DISEÑOS DE IRON MAIDEN',
@@ -387,9 +389,9 @@
             collections: [
                 { id: 'tour-argentina', label: 'TOUR ARGENTINA 2026', match: { designIds: [
                     'cd-iron-maiden-eddie-gaucho-argentino--p7040', 'iron-maiden-eddie-gaucho-argentino-con-fechas',
-                    'iron-maiden-eddie-tanguero-original-fmd', 'iron-maiden-eddie-huracan-original-fmd', 'iron-maiden-eddie-gaucho-tempestad-original-fmd', 'iron-maiden-eddie-libertador-cruce-de-los-andes-original-fmd', 'iron-maiden-eddie-libertador-cordillera-original-fmd',
+                    'iron-maiden-eddie-tanguero-original-fmd', 'iron-maiden-eddie-huracan-original-fmd', 'iron-maiden-eddie-gaucho-tempestad-original-fmd', 'iron-maiden-eddie-libertador-cruce-de-los-andes-original-fmd', 'iron-maiden-eddie-libertador-cordillera-original-fmd', 'iron-maiden-eddie-cuatro-jinetes-del-apocalipsis-original-fmd',
                     'iron-maiden-run-for-your-lives-2026-oficial', 'iron-maiden-run-for-your-lives-fmd-2026', 'iron-maiden-run-for-your-lives-buenos-aires',
-                    'iron-maiden-eddie-reaper-original-fmd',
+                    'iron-maiden-eddie-reaper-original-fmd', 'iron-maiden-fear-of-the-dark-halloween-edition-fmd',
                     'iron-maiden-eddie-argentina-seleccion-fmd',
                     'iron-maiden-eddies-run-for-your-lives', 'cd-iron-maiden-eddie-argentina-v1-fmd--p7015',
                     'cd-iron-maiden-eddie-argentina-v2-fmd--p7016', 'cd-iron-maiden-eddie-circular-fmd--p7019',
@@ -398,9 +400,9 @@
                     'iron-maiden-tour-merch-v3-fmd', 'cd-iron-maiden-tour-3d-2026-fmd--p7029',
                     'iron-maiden-the-final-tour-fmd'
                 ] } },
-                { id: 'eddies-argentinos', label: 'EDDIES ARGENTINOS ·', countPrefix: '5 PERSONAJES / ', match: { designIds: [
+                { id: 'eddies-argentinos', label: 'EDDIES ARGENTINOS ·', countPrefix: '6 PIEZAS / ', match: { designIds: [
                     'cd-iron-maiden-eddie-gaucho-argentino--p7040', 'iron-maiden-eddie-gaucho-argentino-con-fechas',
-                    'iron-maiden-eddie-tanguero-original-fmd', 'iron-maiden-eddie-huracan-original-fmd', 'iron-maiden-eddie-gaucho-tempestad-original-fmd', 'iron-maiden-eddie-libertador-cruce-de-los-andes-original-fmd', 'iron-maiden-eddie-libertador-cordillera-original-fmd',
+                    'iron-maiden-eddie-tanguero-original-fmd', 'iron-maiden-eddie-huracan-original-fmd', 'iron-maiden-eddie-gaucho-tempestad-original-fmd', 'iron-maiden-eddie-libertador-cruce-de-los-andes-original-fmd', 'iron-maiden-eddie-libertador-cordillera-original-fmd', 'iron-maiden-eddie-cuatro-jinetes-del-apocalipsis-original-fmd',
                     'iron-maiden-eddie-argentina-seleccion-fmd',
                     'cd-iron-maiden-eddie-argentina-v1-fmd--p7015', 'cd-iron-maiden-eddie-argentina-v2-fmd--p7016'
                 ] } },
@@ -426,11 +428,11 @@
                 ] } },
                 { id: 'fmd-originals', label: 'ORIGINALES FMD', match: { designIds: [
                     'cd-iron-maiden-eddie-gaucho-argentino--p7040', 'iron-maiden-eddie-tanguero-original-fmd',
-                    'iron-maiden-eddie-huracan-original-fmd', 'iron-maiden-eddie-gaucho-tempestad-original-fmd', 'iron-maiden-eddie-libertador-cruce-de-los-andes-original-fmd', 'iron-maiden-eddie-libertador-cordillera-original-fmd', 'iron-maiden-burning-ambition-edicion-fmd',
+                    'iron-maiden-eddie-huracan-original-fmd', 'iron-maiden-eddie-gaucho-tempestad-original-fmd', 'iron-maiden-eddie-libertador-cruce-de-los-andes-original-fmd', 'iron-maiden-eddie-libertador-cordillera-original-fmd', 'iron-maiden-eddie-cuatro-jinetes-del-apocalipsis-original-fmd', 'iron-maiden-burning-ambition-edicion-fmd',
                     'iron-maiden-the-number-of-the-beast-edicion-fmd', 'iron-maiden-powerslave-fmd',
                     'iron-maiden-live-after-death-fmd', 'iron-maiden-somewhere-in-time-40th-fmd',
                     'iron-maiden-eddie-reaper-original-fmd',
-                    'cd-iron-maiden-fear-of-the-dark-edicion-fmd--p7022', 'cd-iron-maiden-killers-edicion-fmd--p7023',
+                    'cd-iron-maiden-fear-of-the-dark-edicion-fmd--p7022', 'iron-maiden-fear-of-the-dark-halloween-edition-fmd', 'cd-iron-maiden-killers-edicion-fmd--p7023',
                     'cd-iron-maiden-killers-v2-edicion-fmd--p7024', 'cd-iron-maiden-the-book-fmd--p7028',
                     'iron-maiden-run-to-the-hills', 'iron-maiden-2-minutes-to-midnight-singles',
                     'iron-maiden-aces-high-singles', 'iron-maiden-flight-of-icarus-singles',
@@ -451,10 +453,10 @@
             campaignFeature: {
                 theme: 'argentina',
                 kicker: 'SAGA EDDIES ARGENTINOS · ORIGINALES FMD',
-                title: 'EDDIES ARGENTINOS · CINCO PERSONAJES',
-                copy: 'Gaucho, Tempestad, Tanguero, Huracán y Libertador: cinco Eddies originales FMD creados alrededor de Argentina 2026.',
+                title: 'EDDIES ARGENTINOS · SEIS PIEZAS',
+                copy: 'Gaucho, Tanguero, Huracán, Gaucho Tempestad, Libertador y Los 4 Jinetes del Apocalipsis: seis originales FMD para Argentina 2026.',
                 eventLine: '20 + 21 OCTUBRE · ESTADIO HURACÁN',
-                note: 'Elegí tu Eddie. Los cinco personajes están disponibles en distintas versiones con estampa frontal o frente + dorso.',
+                note: 'Elegí tu Eddie. Las seis piezas están disponibles con estampa frontal o frente + dorso.',
                 priceOptions: [
                     { label: 'FRENTE + DORSO', price: '$45.000', recommended: true }
                 ],
@@ -511,6 +513,16 @@
                         label: 'EDDIE LIBERTADOR · CRUCE DE LOS ANDES',
                         printMode: 'double',
                         preview: '/images/iron_maiden/iron_maiden_eddie_soldado.jpg',
+                        width: 1080,
+                        height: 1350
+                    },
+                    {
+                        designId: 'iron-maiden-eddie-cuatro-jinetes-del-apocalipsis-original-fmd',
+                        src: '/images/iron_maiden/eddie_jinetes_del_apocalipsis_fmd.jpg',
+                        alt: 'Eddie Los 4 Jinetes del Apocalipsis con frente y dorso Buenos Aires 2026',
+                        label: 'LOS 4 JINETES DEL APOCALIPSIS · FRENTE + DORSO',
+                        printMode: 'double',
+                        preview: '/images/iron_maiden/eddie_jinetes_del_apocalipsis_fmd_frente.jpg',
                         width: 1080,
                         height: 1350
                     },
@@ -679,6 +691,7 @@
                 'iron-maiden-eddie-huracan-original-fmd',
                 'iron-maiden-eddie-libertador-cruce-de-los-andes-original-fmd',
                 'iron-maiden-eddie-libertador-cordillera-original-fmd',
+                'iron-maiden-eddie-cuatro-jinetes-del-apocalipsis-original-fmd',
                 'iron-maiden-run-for-your-lives-2026-oficial',
                 'iron-maiden-run-for-your-lives-fmd-2026',
                 'iron-maiden-eddie-reaper-original-fmd',
@@ -750,6 +763,7 @@
                 'iron-maiden-bring-your-daughter-single',
                 'iron-maiden-fear-of-the-dark-1992-run-for-your-lives',
                 'cd-iron-maiden-fear-of-the-dark-edicion-fmd--p7022',
+                'iron-maiden-fear-of-the-dark-halloween-edition-fmd',
                 'iron-maiden-a-real-dead-one',
                 'cd-iron-maiden-brave-new-world--p5035',
                 'iron-maiden-a-matter-of-life-and-death',
@@ -783,10 +797,12 @@
                 'iron-maiden-eddie-gaucho-tempestad-original-fmd': 'ORIGINAL FMD',
                 'iron-maiden-eddie-libertador-cruce-de-los-andes-original-fmd': 'ORIGINAL FMD',
                 'iron-maiden-eddie-libertador-cordillera-original-fmd': 'ORIGINAL FMD',
+                'iron-maiden-eddie-cuatro-jinetes-del-apocalipsis-original-fmd': 'ORIGINAL FMD',
                 'iron-maiden-run-for-your-lives-2026-oficial': 'TOUR 2026',
                 'iron-maiden-run-for-your-lives-fmd-2026': 'ORIGINAL FMD',
                 'iron-maiden-eddie-reaper-original-fmd': 'ORIGINAL FMD',
                 'iron-maiden-eddie-argentina-seleccion-fmd': 'ORIGINAL FMD',
+                'iron-maiden-fear-of-the-dark-halloween-edition-fmd': 'ORIGINAL FMD',
                 'iron-maiden-the-clairvoyant': 'SINGLE',
                 'iron-maiden-stranger-in-a-strange-land-sepia': 'SINGLE',
                 'iron-maiden-the-reincarnation-of-benjamin-breeg': 'SINGLE',

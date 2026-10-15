@@ -5169,6 +5169,7 @@ function configureCatalogConversionModalLayout() {
     const price = document.getElementById('modalPrice');
     const priceNote = document.querySelector('.modal-price-note');
     const shippingPromo = document.querySelector('.modal-shipping-promo');
+    const showDeliveryNote = document.querySelector('.modal-show-delivery-note');
     const actions = document.querySelector('.modal-actions');
     const orderSummary = document.getElementById('modalOrderSummary');
     const advanced = document.getElementById('modalAdvancedPanel');
@@ -5190,6 +5191,8 @@ function configureCatalogConversionModalLayout() {
     if (shippingPromo) (priceNote || price).after(shippingPromo);
     (shippingPromo || priceNote || price).after(orderSummary || actions);
     if (orderSummary) orderSummary.after(actions);
+    if (showDeliveryNote && orderSummary) orderSummary.after(showDeliveryNote);
+    if (showDeliveryNote) showDeliveryNote.after(actions);
     if (advanced?.querySelector('summary')) advanced.querySelector('summary').textContent = 'Detalles del producto';
     if (primaryAction) {
         primaryAction.textContent = 'AGREGAR AL PEDIDO';

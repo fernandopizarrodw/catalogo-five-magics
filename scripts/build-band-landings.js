@@ -143,6 +143,7 @@ ${config.garments.map((garment, index) => `
                     </span>
                 </button>`).join('')}
             </div>
+${config.shippingShowNotice ? `            <p class="shipping-show-alert">${config.shippingShowNotice}</p>` : ''}
         </section>`;
 }
 
@@ -548,7 +549,7 @@ ${config.hideHeroArt ? '' : `            <div class="band-landing-hero-art">
             </div>`}
         </section>
 ${showWeekNotice ? `
-        <section class="band-show-week-notice" aria-label="Entrega para los shows de Iron Maiden">
+        <section class="band-show-week-notice${showWeekNotice.critical ? ' is-critical' : ''}" aria-label="Entrega para los shows de Iron Maiden">
             <div class="band-show-week-notice-copy">
                 <p>${showWeekNotice.eyebrow}</p>
                 <strong>${showWeekNotice.question}</strong>
