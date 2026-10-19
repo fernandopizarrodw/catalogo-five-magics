@@ -364,11 +364,26 @@ body[data-band="Helloween"] .july-shipping-promo strong {
 }
 
 .shipping-show-alert {
-    margin: 14px auto 0;
-    max-width: 760px;
+    box-sizing: border-box;
+    width: min(760px, calc(100% - 32px));
+    margin: 24px auto 12px;
+    padding: 14px 18px;
+    border: 1px solid rgba(255, 112, 67, 0.68);
+    border-radius: 10px;
+    background: #28120e;
     color: #ffe2d3;
-    font: 600 0.82rem/1.4 "Inter", sans-serif;
+    font: 500 0.88rem/1.45 "Inter", sans-serif;
     text-align: center;
+}
+
+.shipping-show-alert > strong,
+.shipping-show-alert > span {
+    display: block;
+}
+
+.shipping-show-alert > strong {
+    margin-bottom: 5px;
+    color: #ffad87;
 }
 
 .helloween-post-show-hero {

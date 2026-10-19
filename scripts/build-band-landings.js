@@ -143,7 +143,6 @@ ${config.garments.map((garment, index) => `
                     </span>
                 </button>`).join('')}
             </div>
-${config.shippingShowNotice ? `            <p class="shipping-show-alert">${config.shippingShowNotice}</p>` : ''}
         </section>`;
 }
 
@@ -247,7 +246,7 @@ function renderLanding(config, sharedCommerceMarkup) {
     const eventDay = config.eventDay && typeof config.eventDay === 'object' ? config.eventDay : null;
     const instagram = config.instagram && typeof config.instagram === 'object' ? config.instagram : null;
     const finishedGarments = Array.isArray(config.finishedGarments) ? config.finishedGarments : [];
-    const shippingPromoMarkup = config.hideShippingPromo ? '' : `        <section class="july-shipping-promo purchase-volume-promo" aria-label="Promoción por cantidad">
+    const shippingPromoMarkup = config.hideShippingPromo ? '' : `${config.shippingShowNotice ? `        <aside class="shipping-show-alert" aria-label="Entrega para los shows">${config.shippingShowNotice}</aside>\n` : ''}        <section class="july-shipping-promo purchase-volume-promo" aria-label="Promoción por cantidad">
             <p>${config.promoKicker || 'ENVÍOS A TODO EL PAÍS 🇦🇷'}</p>
             <strong>${config.promoTitle || 'SUMÁ PRENDAS <em>Y APROVECHÁ LOS BENEFICIOS</em>'}</strong>
             <div class="shipping-promo-options">
@@ -553,6 +552,8 @@ ${showWeekNotice ? `
             <div class="band-show-week-notice-copy">
                 <p>${showWeekNotice.eyebrow}</p>
                 <strong>${showWeekNotice.question}</strong>
+${showWeekNotice.wednesday ? `                <span>${showWeekNotice.wednesday}</span>` : ''}
+${showWeekNotice.tuesday ? `                <span>${showWeekNotice.tuesday}</span>` : ''}
                 <span>${showWeekNotice.caba}</span>
                 <span>${showWeekNotice.interior}</span>
                 <small>${showWeekNotice.extra}</small>
