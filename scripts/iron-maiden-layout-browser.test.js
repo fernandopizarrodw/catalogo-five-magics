@@ -456,6 +456,47 @@ async function main() {
         })()`);
         assert(homeCustomer.includes('1122334455'));
 
+        const exactBackSearch = await evaluate(`(async () => {
+            const input = document.getElementById('searchInput');
+            const pause = ms => new Promise(resolve => setTimeout(resolve, ms));
+            const snapshot = () => ({
+                zoomVisible: document.getElementById('zoomOverlay').style.display === 'flex',
+                zoomImage: document.getElementById('zoomImg').getAttribute('src') || '',
+                frontImage: currentModalSourceRefs[currentSlide]?.image || '',
+                printMode: selectedPrintMode
+            });
+            selectBandLandingCollection('');
+            input.value = 'IMFERF-7021.V2';
+            input.dispatchEvent(new Event('input', { bubbles: true }));
+            const card = document.querySelector('#productsGrid .catalog-design-card-main');
+            const cardImage = card?.querySelector('img')?.getAttribute('src') || '';
+            card?.click();
+            const clicked = snapshot();
+            closeModal();
+            await pause(350);
+            input.value = 'IMFERF-7021.V2';
+            input.dispatchEvent(new InputEvent('input', { bubbles: true, inputType: 'insertFromPaste', data: input.value }));
+            await pause(100);
+            const pasted = snapshot();
+            closeModal();
+            await pause(350);
+            const openedFront = openExactCodeMatch('IMFERF-7021.V1');
+            const front = snapshot();
+            closeModal();
+            await pause(350);
+            clearCatalogSearch();
+            return { cardImage, clicked, pasted, openedFront, front };
+        })()`);
+        assert(exactBackSearch.cardImage.endsWith('fmd_eddie_run_for_dorso.jpg'), JSON.stringify(exactBackSearch));
+        for (const result of [exactBackSearch.clicked, exactBackSearch.pasted]) {
+            assert.equal(result.zoomVisible, true, JSON.stringify(exactBackSearch));
+            assert(result.zoomImage.endsWith('fmd_eddie_run_for_dorso.jpg'), JSON.stringify(exactBackSearch));
+            assert.equal(result.printMode, 'double');
+        }
+        assert.equal(exactBackSearch.openedFront, true);
+        assert.equal(exactBackSearch.front.zoomVisible, false);
+        assert(exactBackSearch.front.frontImage.endsWith('fmd_eddie_run_for_frente.jpg'), JSON.stringify(exactBackSearch));
+
         const emptySearch = await evaluate(`(async () => {
             const input = document.getElementById('searchInput');
             input.value = 'zzz-sin-resultados-zzz';

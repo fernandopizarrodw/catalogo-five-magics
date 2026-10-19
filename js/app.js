@@ -5568,8 +5568,9 @@ function openCatalogDesignPreview(designId, initialGarment = '', initialPrintMod
     if (!currentCatalogDesign || currentCatalogDesign.designId !== designId) return;
 
     const normalizedPreviewImage = String(previewImage || '').replace(/^\/+/, '');
+    let previewIndex = -1;
     if (normalizedPreviewImage) {
-        const previewIndex = currentModalSourceRefs.findIndex(ref => (
+        previewIndex = currentModalSourceRefs.findIndex(ref => (
             String(ref.image || '').replace(/^\/+/, '') === normalizedPreviewImage
         ));
         if (previewIndex >= 0) goToSlide(previewIndex, false);
@@ -5578,6 +5579,10 @@ function openCatalogDesignPreview(designId, initialGarment = '', initialPrintMod
     const printMode = normalizeText(initialPrintMode);
     if (printMode === 'double' || printMode === 'doble') {
         selectPrintMode('double');
+        if (previewIndex < 0 && normalizedPreviewImage) {
+            const back = getCatalogDesignBackChoices().find(ref => isSameAssetPath(ref.image, previewImage));
+            if (back) openZoom(back.image, `Dorso: ${back.label || 'opción elegida'}`);
+        }
         return;
     }
 
@@ -7054,12 +7059,14 @@ function renderCatalogDesignResults(designs) {
 
     productsGrid.innerHTML = visibleDesigns.map(design => {
         const cardGarment = design.displayGarment || bandLandingGarment;
+        const exactCodeRef = currentSearch ? getCatalogDesignExactCodeRef(design, currentSearch) : null;
         const searchRef = currentSearch ? getCatalogDesignSearchRef(design, currentSearch) : null;
-        const preview = searchRef?.role === 'back'
-            ? searchRef
+        const backPreview = exactCodeRef?.role === 'back' ? exactCodeRef : (searchRef?.role === 'back' ? searchRef : null);
+        const preview = backPreview
+            ? backPreview
             : (getBandLandingDesignPreview(design, cardGarment) || design.front);
-        const cardImage = searchRef?.role === 'back'
-            ? searchRef.image
+        const cardImage = backPreview
+            ? backPreview.image
             : (BAND_LANDING_CONFIG?.cardImageOverrides?.[design.designId] || preview.image);
         const availableGarments = new Set((design.availableGarments || []).map(garment => normalizeText(garment)));
         const garmentLabels = [
@@ -7070,7 +7077,6 @@ function renderCatalogDesignResults(designs) {
         const priceText = getCatalogDesignCardPriceText(design, preview, cardGarment);
         const initialGarment = isBandLandingMode() ? getBandLandingModalGarment(cardGarment) : '';
         const previewPrintMode = normalizeText(preview?.defaultPrintMode || '');
-        const exactCodeRef = currentSearch ? getCatalogDesignExactCodeRef(design, currentSearch) : null;
         const campaignFeatureElement = document.getElementById('bandCampaignFeature');
         const campaignFeatureDesignIds = String(campaignFeatureElement?.dataset.designIds || campaignFeatureElement?.dataset.designId || '')
             .split(',')
