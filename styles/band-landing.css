@@ -399,12 +399,40 @@ html.fmd-post-show-active body[data-band="Helloween"] .band-landing-pre-show {
     display: none;
 }
 
+html.fmd-post-show-active body[data-band="Iron Maiden"] .band-landing-pre-show {
+    display: none;
+}
+
 html.fmd-post-show-active body[data-band="Helloween"] .helloween-post-show-hero {
     display: grid;
     border-color: rgba(255, 150, 35, 0.52);
     background:
         radial-gradient(circle at 15% 85%, rgba(255, 91, 20, 0.18), transparent 38%),
         linear-gradient(105deg, #050505 0%, #100906 58%, #1d0d04 100%);
+}
+
+.maiden-post-show-hero {
+    display: none;
+}
+
+html.fmd-post-show-active body[data-band="Iron Maiden"] .maiden-post-show-hero {
+    display: grid;
+    border-color: rgba(116, 194, 255, 0.64);
+    background:
+        radial-gradient(circle at 80% 16%, rgba(48, 127, 218, 0.26), transparent 36%),
+        radial-gradient(circle at 12% 92%, rgba(171, 22, 22, 0.2), transparent 40%),
+        linear-gradient(112deg, #060b13 0%, #0a1928 56%, #12090b 100%);
+}
+
+body[data-band="Iron Maiden"] .maiden-post-show-hero h1 {
+    max-width: 760px;
+    color: #fff;
+    font-size: clamp(2.7rem, 5.4vw, 5rem);
+    line-height: 0.95;
+}
+
+body[data-band="Iron Maiden"] .maiden-post-show-hero h2 {
+    color: #8dceff;
 }
 
 body[data-band="Helloween"] .helloween-post-show-hero h1 {

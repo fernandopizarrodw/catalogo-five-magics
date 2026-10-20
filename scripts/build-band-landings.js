@@ -243,6 +243,24 @@ function renderLanding(config, sharedCommerceMarkup) {
         : postShowFeatured
             ? [{ designId: postShowFeatured.designId, label: postShowFeatured.ctaLabel }]
             : [];
+    const postShowClass = postShow?.className || 'helloween-post-show-hero';
+    const postShowTitleId = `${config.slug}PostShowTitle`;
+    const postShowMarkup = postShow ? `
+        <section class="band-landing-hero ${postShowClass}" aria-labelledby="${postShowTitleId}" aria-hidden="true">
+            <div class="band-landing-hero-copy">
+                <p class="band-landing-brand">FIVE MAGICS DESIGNS</p>
+                <h1 id="${postShowTitleId}">${postShow.title}</h1>
+                <h2>${postShow.subtitle}</h2>
+                <p><strong data-band-design-count-copy>${postShow.highlight}</strong><br>${postShow.copy}</p>
+                <div class="band-landing-hero-actions">
+                    <a class="band-landing-primary-cta" href="#catalogoPrincipal"${postShow.ctaCollectionId ? ` onclick="event.preventDefault(); selectBandLandingCollectionAndScroll('${postShow.ctaCollectionId}')"` : ''}>${postShow.ctaLabel}</a>
+${postShow.secondaryCtaLabel ? `                    <a class="band-landing-secondary-cta" href="#catalogoPrincipal"${postShow.secondaryCtaCollectionId ? ` onclick="event.preventDefault(); selectBandLandingCollectionAndScroll('${postShow.secondaryCtaCollectionId}')"` : ''}>${postShow.secondaryCtaLabel}</a>` : ''}
+                </div>
+            </div>
+            <div class="band-landing-hero-art">
+                <img src="${config.image}" alt="Colección ${config.band} post-show en Five Magics Designs" width="1200" height="1200">
+            </div>
+        </section>` : '';
     const eventDay = config.eventDay && typeof config.eventDay === 'object' ? config.eventDay : null;
     const instagram = config.instagram && typeof config.instagram === 'object' ? config.instagram : null;
     const finishedGarments = Array.isArray(config.finishedGarments) ? config.finishedGarments : [];
@@ -547,6 +565,7 @@ ${config.hideHeroArt ? '' : `            <div class="band-landing-hero-art">
                 <img src="${config.image}" alt="Diseño ${config.band} disponible en Five Magics Designs" width="1200" height="1200">
             </div>`}
         </section>
+${postShow?.position === 'after-hero' ? postShowMarkup : ''}
 ${showWeekNotice ? `
         <section class="band-show-week-notice${showWeekNotice.critical ? ' is-critical' : ''}" aria-label="Entrega para los shows de Iron Maiden">
             <div class="band-show-week-notice-copy">
@@ -561,19 +580,7 @@ ${showWeekNotice.tuesday ? `                <span>${showWeekNotice.tuesday}</spa
             <a href="${showWeekNotice.href}" target="_blank" rel="noopener">${showWeekNotice.ctaLabel}</a>
         </section>` : ''}
 ${config.campaignFeatureBeforeCurated ? `
-${campaignFeatureMarkup}` : ''}${discoveryMarkup}${curatedSelectionMarkup}${postShow ? `
-        <section class="band-landing-hero helloween-post-show-hero" aria-labelledby="helloweenPostShowTitle" aria-hidden="true">
-            <div class="band-landing-hero-copy">
-                <p class="band-landing-brand">FIVE MAGICS DESIGNS</p>
-                <h1 id="helloweenPostShowTitle">${postShow.title}</h1>
-                <h2>${postShow.subtitle}</h2>
-                <p><strong data-band-design-count-copy>${postShow.highlight}</strong><br>${postShow.copy}</p>
-                <a class="band-landing-primary-cta" href="#catalogoPrincipal">${postShow.ctaLabel}</a>
-            </div>
-            <div class="band-landing-hero-art">
-                <img src="${config.image}" alt="Colección Helloween post-show en Five Magics Designs" width="1200" height="1200">
-            </div>
-    </section>` : ''}${config.heroFirst && config.campaignFeatureFirst && !config.campaignFeatureBeforeCurated ? `\n${campaignFeatureMarkup}${campaignTourCollectionMarkup}` : ''}${config.heroFirst && showcaseFirst ? `\n${showcaseMarkup}${editorialCollectionMarkup}` : ''}${config.heroFirst && !config.campaignFeatureFirst && !config.campaignFeatureBeforeCurated ? `\n${campaignFeatureMarkup}${campaignTourCollectionMarkup}` : ''}${config.realProductProofAfterCatalog ? '' : realProductProofMarkup}${!config.featuredCollectionAfterCatalog && featuredCollectionMarkup ? `\n${featuredCollectionMarkup}` : ''}
+${campaignFeatureMarkup}` : ''}${discoveryMarkup}${curatedSelectionMarkup}${postShow && postShow.position !== 'after-hero' ? postShowMarkup : ''}${config.heroFirst && config.campaignFeatureFirst && !config.campaignFeatureBeforeCurated ? `\n${campaignFeatureMarkup}${campaignTourCollectionMarkup}` : ''}${config.heroFirst && showcaseFirst ? `\n${showcaseMarkup}${editorialCollectionMarkup}` : ''}${config.heroFirst && !config.campaignFeatureFirst && !config.campaignFeatureBeforeCurated ? `\n${campaignFeatureMarkup}${campaignTourCollectionMarkup}` : ''}${config.realProductProofAfterCatalog ? '' : realProductProofMarkup}${!config.featuredCollectionAfterCatalog && featuredCollectionMarkup ? `\n${featuredCollectionMarkup}` : ''}
 ${catalogFirst ? `${garmentSelectorMarkup}
 ${catalogMarkup}` : ''}${postShowFeatured ? `
         <section class="helloween-post-show-featured" aria-labelledby="helloweenFeaturedTitle">
@@ -702,7 +709,7 @@ ${postShow ? `    <script>
                 const active = Date.now() >= activationTime;
                 document.documentElement.classList.toggle('fmd-post-show-active', active);
                 document.querySelector('.band-landing-pre-show')?.setAttribute('aria-hidden', String(active));
-                document.querySelector('.helloween-post-show-hero')?.setAttribute('aria-hidden', String(!active));
+                document.querySelector(${JSON.stringify(`.${postShowClass}`)})?.setAttribute('aria-hidden', String(!active));
                 if (!active) {
                     window.setTimeout(syncPostShowState, Math.min(activationTime - Date.now(), 2147483647));
                 }

@@ -322,6 +322,19 @@
                 href: '#catalogoPrincipal',
                 collectionId: 'eddies-argentinos'
             },
+            postShow: {
+                activateAt: '2026-10-20T23:00:00-03:00',
+                position: 'after-hero',
+                className: 'maiden-post-show-hero',
+                title: 'IRON MAIDEN · BUENOS AIRES 2026',
+                subtitle: 'LA PRIMERA NOCHE YA ES HISTORIA.',
+                highlight: 'RUN FOR YOUR LIVES · ESTADIO HURACÁN',
+                copy: 'Una colección para quienes estuvieron ahí, para los que van mañana y para seguir llevando esa noche puesta.',
+                ctaLabel: 'VER EDDIES ARGENTINOS',
+                ctaCollectionId: 'eddies-argentinos',
+                secondaryCtaLabel: 'VER COLECCIÓN COMPLETA',
+                secondaryCtaCollectionId: ''
+            },
             showSizeGuide: true,
             productionTitle: '<span>PRODUCCIÓN</span> 48 A 72 HORAS HÁBILES',
             productionCopy: 'Prendas producidas exclusivamente a pedido con algodón peinado 24/1 e impresión DTG directa sobre la tela. Una vez despachado, te enviamos el enlace de seguimiento.',
