@@ -296,7 +296,9 @@ window.selectBandLandingCollection = selectBandLandingCollection;
 
 function selectBandLandingCollectionAndScroll(collectionId = '') {
     selectBandLandingCollection(collectionId);
-    const catalog = document.getElementById('catalogoPrincipal');
+    const catalog = BAND_LANDING_BAND === 'Iron Maiden'
+        ? document.getElementById('productsGrid') || document.getElementById('catalogoPrincipal')
+        : document.getElementById('catalogoPrincipal');
     if (!catalog) return;
     catalog.scrollIntoView({
         behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',

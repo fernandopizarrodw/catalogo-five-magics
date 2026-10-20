@@ -1976,6 +1976,10 @@ body.band-landing-page[data-band="Iron Maiden"] .btn-wa-header svg circle {
     padding-inline: 0;
 }
 
+.band-landing-page[data-band="Iron Maiden"] #productsGrid {
+    scroll-margin-top: 92px;
+}
+
 .band-landing-page .catalog-design-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
 }

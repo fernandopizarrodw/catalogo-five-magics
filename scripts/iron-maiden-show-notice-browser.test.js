@@ -29,25 +29,21 @@ async function main() {
             await send('Page.navigate', { url: 'http://127.0.0.1:5500/iron-maiden/' });
             await new Promise(resolve => setTimeout(resolve, 1800));
             const result = await send('Runtime.evaluate', { returnByValue: true, expression: `(() => {
-                const notice = document.querySelector('.band-show-week-notice');
-                const warning = document.querySelector('.shipping-show-alert');
-                const promo = document.querySelector('.july-shipping-promo');
-                const link = notice.querySelector('a');
-                return { text: notice.innerText, warning: warning.innerText, adjacent: warning.nextElementSibling === promo,
-                    href: link.href, note: document.querySelector('.band-campaign-feature-note').innerText,
-                    overflow: document.documentElement.scrollWidth > innerWidth,
-                    linkFits: link.getBoundingClientRect().right <= innerWidth };
+                const production = document.querySelector('.production-tracking-strip');
+                return { urgentNotice: Boolean(document.querySelector('.band-show-week-notice, .shipping-show-alert, .modal-show-delivery-note')),
+                    production: production.innerText,
+                    note: document.querySelector('.band-campaign-feature-note').innerText,
+                    overflow: document.documentElement.scrollWidth > innerWidth };
             })()` });
             assert(!result.exceptionDetails, JSON.stringify(result.exceptionDetails));
             const state = result.result.value;
-            assert.match(state.text, /Miércoles 21/);
-            assert.match(state.text, /Martes 20/);
-            assert.match(state.text, /CONSULTAR DISPONIBILIDAD PARA EL SHOW/);
-            assert.match(state.warning, /Andreani ya no es una opción segura/);
-            assert(state.adjacent && state.href.startsWith('https://wa.me/'));
+            assert.equal(state.urgentNotice, false, JSON.stringify(state));
+            assert.match(state.production, /48 A 72 HORAS HÁBILES/);
+            assert.match(state.production, /exclusivamente a pedido/);
+            assert.match(state.production, /Villa Martelli o envíos a todo el país/);
             assert.match(state.note, /Disponibles con estampa frontal/);
-            assert(!state.overflow && state.linkFits, JSON.stringify(state));
-            console.log(`PASS ${width}px: aviso, enlace, promoción y ancho`);
+            assert(!state.overflow, JSON.stringify(state));
+            console.log(`PASS ${width}px: comunicación normal, producción y ancho`);
         }
     } finally {
         socket.close();
