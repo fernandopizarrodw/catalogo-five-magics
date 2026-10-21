@@ -397,7 +397,8 @@ async function main() {
         await evaluate(`closeModal()`);
 
         const fmdVariant = await evaluate(`(() => {
-            document.querySelector('#bandCuratedSelection [data-design-id="iron-maiden-aces-high-singles"]').click();
+            selectBandLandingCollection('fmd-originals');
+            openCatalogDesign('iron-maiden-aces-high-singles', 'remera');
             return {
                 designId: currentCatalogDesign?.designId || '',
                 selectedImage: selectedCatalogFrontRef?.image || '',

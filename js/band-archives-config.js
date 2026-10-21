@@ -389,7 +389,7 @@
                     'iron-maiden-eddie-tanguero-original-fmd', 'iron-maiden-eddie-huracan-original-fmd', 'iron-maiden-eddie-gaucho-tempestad-original-fmd', 'iron-maiden-eddie-libertador-cruce-de-los-andes-original-fmd', 'iron-maiden-eddie-libertador-cordillera-original-fmd', 'iron-maiden-eddie-cuatro-jinetes-del-apocalipsis-original-fmd',
                     'iron-maiden-run-for-your-lives-2026-oficial', 'iron-maiden-run-for-your-lives-fmd-2026', 'iron-maiden-run-for-your-lives-buenos-aires',
                     'iron-maiden-eddie-reaper-original-fmd', 'iron-maiden-fear-of-the-dark-halloween-edition-fmd',
-                    'iron-maiden-eddie-argentina-seleccion-fmd',
+                    'iron-maiden-eddie-argentina-seleccion-fmd', 'iron-maiden-eddie-argentina-estadio-huracan-fmd',
                     'iron-maiden-eddies-run-for-your-lives', 'cd-iron-maiden-eddie-argentina-v1-fmd--p7015',
                     'cd-iron-maiden-eddie-argentina-v2-fmd--p7016', 'cd-iron-maiden-eddie-circular-fmd--p7019',
                     'cd-iron-maiden-eddie-run-for-fmd--p7021', 'cd-iron-maiden-eddie-bass-fmd--p7018',
@@ -435,7 +435,7 @@
                     'iron-maiden-aces-high-singles', 'iron-maiden-flight-of-icarus-singles',
                     'iron-maiden-number-of-the-beast-singles', 'iron-maiden-wasted-years-singles',
                     'iron-maiden-run-for-your-lives-fmd-2026', 'iron-maiden-piece-of-mind-1983-run-for-your-lives',
-                    'iron-maiden-eddie-argentina-seleccion-fmd', 'iron-maiden-the-trooper-classic'
+                    'iron-maiden-eddie-argentina-seleccion-fmd', 'iron-maiden-eddie-argentina-estadio-huracan-fmd', 'iron-maiden-the-trooper-classic'
                 ] } },
                 { id: 'album-iron-maiden', group: 'album', label: 'IRON MAIDEN · 1980', match: { albums: ['Iron Maiden'] } },
                 { id: 'album-killers', group: 'album', label: 'KILLERS · 1981', match: { albums: ['Killers'] } },
@@ -693,6 +693,7 @@
                 'iron-maiden-run-for-your-lives-fmd-2026',
                 'iron-maiden-eddie-reaper-original-fmd',
                 'iron-maiden-eddie-argentina-seleccion-fmd',
+                'iron-maiden-eddie-argentina-estadio-huracan-fmd',
                 'iron-maiden-run-for-your-lives-buenos-aires',
                 'iron-maiden-eddies-run-for-your-lives',
                 'cd-iron-maiden-eddie-argentina-v1-fmd--p7015',
@@ -799,6 +800,7 @@
                 'iron-maiden-run-for-your-lives-fmd-2026': 'ORIGINAL FMD',
                 'iron-maiden-eddie-reaper-original-fmd': 'ORIGINAL FMD',
                 'iron-maiden-eddie-argentina-seleccion-fmd': 'ORIGINAL FMD',
+                'iron-maiden-eddie-argentina-estadio-huracan-fmd': 'ORIGINAL FMD',
                 'iron-maiden-fear-of-the-dark-halloween-edition-fmd': 'ORIGINAL FMD',
                 'iron-maiden-the-clairvoyant': 'SINGLE',
                 'iron-maiden-stranger-in-a-strange-land-sepia': 'SINGLE',
