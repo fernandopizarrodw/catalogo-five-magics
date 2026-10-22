@@ -349,7 +349,7 @@ ${campaignFeature.priceOptions.map(option => `                <span${option.reco
         ? campaignTourCollection.cards.filter(card => card?.designId && card?.image)
         : [];
     const campaignTourCollectionMarkup = campaignTourCollectionCards.length ? `
-        <section class="band-featured-collection band-tour-collection" id="bandTourCollection" aria-labelledby="bandTourCollectionTitle">
+        <section class="band-featured-collection band-tour-collection${campaignTourCollectionCards.length === 1 ? ' band-featured-collection--single' : ''}" id="bandTourCollection" aria-labelledby="bandTourCollectionTitle">
             <div class="band-featured-collection-head">
                 <p>${campaignTourCollection.kicker}</p>
                 <h2 id="bandTourCollectionTitle">${campaignTourCollection.title}</h2>
@@ -361,8 +361,8 @@ ${campaignTourCollectionCards.map((card, index) => `                <button type
                     <strong>${card.label}</strong>
                 </button>`).join('\n')}
             </div>
-            <p class="band-featured-collection-note">${campaignTourCollection.note}</p>
-            <a class="band-featured-collection-cta" href="#catalogoPrincipal">${campaignTourCollection.ctaLabel}</a>
+${campaignTourCollection.note ? `            <p class="band-featured-collection-note">${campaignTourCollection.note}</p>` : ''}
+${campaignTourCollection.ctaLabel ? `            <a class="band-featured-collection-cta" href="#catalogoPrincipal">${campaignTourCollection.ctaLabel}</a>` : ''}
         </section>` : '';
     const editorialCollection = !config.hideEditorialCollection && config.editorialCollection && typeof config.editorialCollection === 'object'
         ? config.editorialCollection
@@ -579,7 +579,7 @@ ${showWeekNotice.tuesday ? `                <span>${showWeekNotice.tuesday}</spa
             </div>
             <a href="${showWeekNotice.href}" target="_blank" rel="noopener">${showWeekNotice.ctaLabel}</a>
         </section>` : ''}
-${config.campaignFeatureBeforeCurated ? `
+${config.campaignTourBeforeFeature ? campaignTourCollectionMarkup : ''}${config.campaignFeatureBeforeCurated ? `
 ${campaignFeatureMarkup}` : ''}${discoveryMarkup}${curatedSelectionMarkup}${postShow && postShow.position !== 'after-hero' ? postShowMarkup : ''}${config.heroFirst && config.campaignFeatureFirst && !config.campaignFeatureBeforeCurated ? `\n${campaignFeatureMarkup}${campaignTourCollectionMarkup}` : ''}${config.heroFirst && showcaseFirst ? `\n${showcaseMarkup}${editorialCollectionMarkup}` : ''}${config.heroFirst && !config.campaignFeatureFirst && !config.campaignFeatureBeforeCurated ? `\n${campaignFeatureMarkup}${campaignTourCollectionMarkup}` : ''}${config.realProductProofAfterCatalog ? '' : realProductProofMarkup}${!config.featuredCollectionAfterCatalog && featuredCollectionMarkup ? `\n${featuredCollectionMarkup}` : ''}
 ${catalogFirst ? `${garmentSelectorMarkup}
 ${catalogMarkup}` : ''}${postShowFeatured ? `

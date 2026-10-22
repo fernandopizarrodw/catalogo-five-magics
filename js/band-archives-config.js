@@ -286,7 +286,8 @@
             heroFirst: true,
             campaignFeatureFirst: true,
             campaignFeatureBeforeCurated: true,
-            hideCampaignTourCollection: true,
+            hideCampaignTourCollection: false,
+            campaignTourBeforeFeature: true,
             hideCampaignFeature: false,
             hideShowcase: true,
             hideEditorialCollection: true,
@@ -371,7 +372,7 @@
                     { designId: 'iron-maiden-eddie-huracan-original-fmd', label: 'Eddie vs. Huracán', image: '/images/iron_maiden/remera_iron_maiden_eddie_huracan_frente.jpg' },
                     { designId: 'iron-maiden-eddie-libertador-cruce-de-los-andes-original-fmd', label: 'Eddie Libertador', image: '/images/iron_maiden/iron_maiden_eddie_soldado.jpg' },
                     { designId: 'iron-maiden-eddie-cuatro-jinetes-del-apocalipsis-original-fmd', label: 'Los 4 Jinetes del Apocalipsis', image: '/images/iron_maiden/eddie_jinetes_del_apocalipsis_fmd_frente.jpg' },
-                    { designId: 'iron-maiden-run-for-your-lives-fmd-2026', label: 'Run For Your Lives · Edición FMD', image: '/images/iron_maiden/eddie_run_for_your_lives_tour/remera_iron_maiden_run_fmd.jpg' },
+                    { designId: 'iron-maiden-eddie-argentina-estadio-huracan-fmd', label: 'Eddie Argentina · Estadio Huracán', image: '/images/iron_maiden/iron_maiden_eddie_argentina_frente.jpg' },
                     { designId: 'iron-maiden-1980-run-for-your-lives', label: 'Iron Maiden · 1980', image: '/images/iron_maiden/9 discos 1 tour/iron_maiden.jpg' },
                     { designId: 'iron-maiden-killers-1981-run-for-your-lives', label: 'Killers · 1981', image: '/images/iron_maiden/9 discos 1 tour/iron_maiden_killers.jpg' },
                     { designId: 'iron-maiden-number-of-the-beast-1982-run-for-your-lives', label: 'The Number of the Beast · 1982', image: '/images/iron_maiden/9 discos 1 tour/iron_maiden_number.jpg' },
@@ -528,60 +529,20 @@
                 defaultPreview: '/images/iron_maiden/remera_iron_maiden_eddie_gaucho_argentino_frente.jpg'
             },
             campaignTourCollection: {
-                kicker: 'COLECCIÓN ESPECIAL',
-                title: 'EDDIE · RUN FOR YOUR LIVES TOUR',
-                copy: 'Nueve diseños inspirados en la gira 2026. Elegí tu Eddie y armá la versión que más te guste.',
+                kicker: 'NUEVO DISEÑO · TOUR ARGENTINA 2026',
+                title: 'EDDIE ARGENTINA · RUN FOR YOUR LIVES',
+                copy: 'Edición para Buenos Aires 2026, disponible con estampa frontal o frente + dorso.',
                 cards: [
                     {
-                        designId: 'iron-maiden-run-for-your-lives-2026-oficial',
-                        label: 'Run For Your Lives · Argentina 2026',
-                        image: '/images/iron_maiden/eddie_run_for_your_lives_tour/remera_iron_maiden_run_oficial.jpg',
-                        preview: '/images/iron_maiden/eddie_run_for_your_lives_tour/remera_iron_maiden_run_oficial.jpg',
+                        designId: 'iron-maiden-eddie-argentina-estadio-huracan-fmd',
+                        label: 'Eddie Argentina · Frente + dorso',
+                        image: '/images/iron_maiden/iron_maiden_eddie_argentina_doble_estampa.jpg',
+                        preview: '/images/iron_maiden/iron_maiden_eddie_argentina_frente.jpg',
                         printMode: 'double'
-                    },
-                    {
-                        designId: 'cd-iron-maiden-eddie-argentina-v1-fmd--p7015',
-                        label: 'Eddie Argentina · Selección',
-                        image: '/images/iron_maiden/eddie_run_for_your_lives_tour/eddie_argentina_v1.jpg'
-                    },
-                    {
-                        designId: 'cd-iron-maiden-eddie-argentina-v2-fmd--p7016',
-                        label: 'Eddie Argentina · Buenos Aires 2026',
-                        image: '/images/iron_maiden/eddie_run_for_your_lives_tour/eddie_argentina_v2.jpg'
-                    },
-                    {
-                        designId: 'cd-iron-maiden-eddie-bass-fmd--p7018',
-                        label: 'Eddie Bass · Buenos Aires 2026',
-                        image: '/images/iron_maiden/eddie_run_for_your_lives_tour/fmd_eddie_bass.jpg'
-                    },
-                    {
-                        designId: 'cd-iron-maiden-eddie-circular-fmd--p7019',
-                        label: 'Eddie Circular',
-                        image: '/images/iron_maiden/eddie_run_for_your_lives_tour/fmd_eddie_circular.jpg'
-                    },
-                    {
-                        designId: 'cd-iron-maiden-eddie-run-for-fmd--p7021',
-                        label: 'Eddie Run For Your Lives',
-                        image: '/images/iron_maiden/eddie_run_for_your_lives_tour/fmd_eddie_run_for_frente.jpg'
-                    },
-                    {
-                        designId: 'cd-iron-maiden-tour-merch-v1-fmd--p7031',
-                        label: 'Eddie Tour · World Tour 2026',
-                        image: '/images/iron_maiden/eddie_run_for_your_lives_tour/tour_merch_v1_frente..jpg'
-                    },
-                    {
-                        designId: 'cd-iron-maiden-tour-merch-v2-fmd--p7032',
-                        label: 'Eddie Tour · Ciudad en llamas',
-                        image: '/images/iron_maiden/eddie_run_for_your_lives_tour/tour_merch_v2_frente.jpg'
-                    },
-                    {
-                        designId: 'cd-iron-maiden-tour-merch-v3-fmd--p7033',
-                        label: 'Eddie Tour · Archivo 2026',
-                        image: '/images/iron_maiden/eddie_run_for_your_lives_tour/tour_merch_v3_frente.jpg'
                     }
                 ],
-                note: 'Todos disponibles en remera. En los modelos con dorso podés elegir solo frente o frente + dorso.',
-                ctaLabel: 'VER TODA LA COLECCIÓN IRON MAIDEN'
+                note: '',
+                ctaLabel: ''
             },
             retiredDesignIds: [
                 'iron-maiden-iron-maiden-classic',

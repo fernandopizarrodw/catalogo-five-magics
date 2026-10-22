@@ -1387,6 +1387,33 @@ body[data-band="Iron Maiden"] .band-tour-collection .band-featured-collection-gr
     grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
+body[data-band="Iron Maiden"] .band-tour-collection.band-featured-collection--single {
+    padding-bottom: 24px;
+    border-color: rgba(117, 199, 255, 0.86);
+    box-shadow: 0 0 28px rgba(41, 152, 231, 0.16);
+}
+
+body[data-band="Iron Maiden"] .band-tour-collection.band-featured-collection--single .band-featured-collection-head {
+    margin-bottom: 14px;
+}
+
+body[data-band="Iron Maiden"] .band-tour-collection.band-featured-collection--single .band-featured-collection-head p {
+    display: inline-block;
+    padding: 5px 10px;
+    border: 1px solid rgba(117, 199, 255, 0.78);
+    border-radius: 999px;
+    background: rgba(45, 137, 207, 0.15);
+}
+
+body[data-band="Iron Maiden"] .band-tour-collection.band-featured-collection--single .band-featured-collection-grid {
+    grid-template-columns: minmax(0, 360px);
+    justify-content: center;
+}
+
+body[data-band="Iron Maiden"] .band-tour-collection.band-featured-collection--single .band-featured-collection-card img {
+    aspect-ratio: 1 / 1;
+}
+
 body[data-band="Iron Maiden"] .band-tour-collection .band-featured-collection-card:hover {
     border-color: #75c7ff;
 }
@@ -3010,6 +3037,14 @@ body.band-landing-page[data-band="Argentina"] #modal .btn-add-cart {
 
     body[data-band="Iron Maiden"] .band-tour-collection .band-featured-collection-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    body[data-band="Iron Maiden"] .band-tour-collection.band-featured-collection--single .band-featured-collection-grid {
+        grid-template-columns: minmax(0, 340px);
+    }
+
+    body[data-band="Iron Maiden"] .band-tour-collection.band-featured-collection--single .band-featured-collection-card:last-child:nth-child(odd) {
+        width: 100%;
     }
 
     .band-featured-collection-card:last-child:nth-child(odd) {
