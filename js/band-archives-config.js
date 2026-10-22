@@ -329,7 +329,7 @@
                 title: 'IRON MAIDEN · BUENOS AIRES 2026',
                 subtitle: 'DOS NOCHES HISTÓRICAS EN BUENOS AIRES.',
                 highlight: 'RUN FOR YOUR LIVES · ESTADIO HURACÁN',
-                copy: 'Una colección para quienes vivieron Run For Your Lives en el Estadio Huracán y para seguir llevando esas noches puestas.',
+                copy: 'Una colección para quienes vivieron Run For Your Lives en el Estadio Huracán y para seguir conectados a esas noches únicas.',
                 ctaLabel: 'VER EDDIES ARGENTINOS',
                 ctaCollectionId: 'eddies-argentinos',
                 secondaryCtaLabel: 'VER COLECCIÓN COMPLETA',
