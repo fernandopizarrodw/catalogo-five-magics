@@ -789,6 +789,9 @@
                 'iron-maiden-eddie-v4'
             ],
             suppressNewBadges: true,
+            cardImageOverrides: {
+                'iron-maiden-eddie-argentina-estadio-huracan-fmd': '/images/iron_maiden/iron_maiden_eddie_argentina_doble_estampa.jpg'
+            },
             editorialBadges: {
                 'cd-iron-maiden-eddie-gaucho-argentino--p7040': 'ORIGINAL FMD',
                 'iron-maiden-eddie-tanguero-original-fmd': 'ORIGINAL FMD',
