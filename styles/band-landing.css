@@ -417,11 +417,21 @@ html.fmd-post-show-active body[data-band="Helloween"] .helloween-post-show-hero 
 
 html.fmd-post-show-active body[data-band="Iron Maiden"] .maiden-post-show-hero {
     display: grid;
+    min-height: 570px;
+    grid-template-columns: minmax(0, 1fr);
+    align-items: center;
     border-color: rgba(116, 194, 255, 0.64);
     background:
-        radial-gradient(circle at 80% 16%, rgba(48, 127, 218, 0.26), transparent 36%),
-        radial-gradient(circle at 12% 92%, rgba(171, 22, 22, 0.2), transparent 40%),
-        linear-gradient(112deg, #060b13 0%, #0a1928 56%, #12090b 100%);
+        linear-gradient(90deg, rgba(3, 7, 13, 0.94) 0%, rgba(3, 7, 13, 0.81) 42%, rgba(3, 7, 13, 0.26) 72%, rgba(3, 7, 13, 0.18) 100%),
+        url("../images/iron_maiden/background/jinetes-hero-desktop.jpg") center / cover no-repeat;
+}
+
+html.fmd-post-show-active body[data-band="Iron Maiden"] .maiden-post-show-hero .band-landing-hero-copy {
+    width: min(560px, 58%);
+}
+
+html.fmd-post-show-active body[data-band="Iron Maiden"] .maiden-post-show-hero .band-landing-hero-art {
+    display: none;
 }
 
 body[data-band="Iron Maiden"] .maiden-post-show-hero h1 {
@@ -2792,6 +2802,24 @@ body.band-landing-page[data-band="Argentina"] #modal .btn-add-cart {
     body.band-landing-page[data-band="Iron Maiden"] .band-landing-hero-art {
         min-height: 0;
         height: 300px;
+    }
+
+    html.fmd-post-show-active body[data-band="Iron Maiden"] .maiden-post-show-hero {
+        min-height: 620px;
+        padding: 30px 20px;
+        background:
+            linear-gradient(180deg, rgba(2, 5, 9, 0.78) 0%, rgba(2, 5, 9, 0.72) 100%),
+            url("../images/iron_maiden/background/jinetes-hero-mobile.jpg") center / cover no-repeat;
+    }
+
+    html.fmd-post-show-active body[data-band="Iron Maiden"] .maiden-post-show-hero .band-landing-hero-copy {
+        width: min(100%, 470px);
+        margin-inline: auto;
+        text-align: center;
+    }
+
+    html.fmd-post-show-active body[data-band="Iron Maiden"] .maiden-post-show-hero .band-landing-hero-actions {
+        justify-content: center;
     }
 
     .band-landing-related-archive {

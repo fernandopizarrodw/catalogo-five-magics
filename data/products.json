@@ -25590,5 +25590,81 @@
     "legacyCategory": "Iron Maiden",
     "fmdBadge": "ORIGINAL FMD",
     "tags": ["Iron Maiden", "Eddie Reaper", "Original FMD", "Run For Your Lives", "remera"]
+  },
+  {
+    "id": 7306,
+    "designId": "iron-maiden-the-clairvoyant-edicion-fmd",
+    "designSlug": "iron-maiden-the-clairvoyant-edicion-fmd",
+    "category": "Iron Maiden",
+    "band": "Iron Maiden",
+    "name": "The Clairvoyant · Edición FMD",
+    "year": "1988",
+    "album": "Seventh Son of a Seventh Son",
+    "tipoPrecio": "simple",
+    "defaultPrintMode": "frontal",
+    "catalogStartingPrice": 38000,
+    "catalogGarments": ["remera"],
+    "isNew": true,
+    "img": "images/iron_maiden/iron_maiden_clairvoyant_fmd_.jpg",
+    "desc": "The Clairvoyant en una edición original FMD inspirada en Seventh Son of a Seventh Son.",
+    "variants": [
+      {
+        "img": "images/iron_maiden/iron_maiden_clairvoyant_fmd_.jpg",
+        "name": "The Clairvoyant · Edición FMD",
+        "publicName": "The Clairvoyant · Edición FMD",
+        "selectionLabel": "Frente The Clairvoyant",
+        "role": "front",
+        "preferredPreview": true,
+        "defaultPrintMode": "simple",
+        "fmdBadge": "ORIGINAL FMD",
+        "fmdBadgeDescription": "Diseño original creado por Five Magics Designs."
+      }
+    ],
+    "garments": ["remera"],
+    "collections": ["Archivo Maiden", "Original FMD", "Singles + Canciones"],
+    "campaigns": ["Run For Your Lives 2026"],
+    "commercialPriority": 82,
+    "visibilityTier": "catalog",
+    "legacyCategory": "Iron Maiden",
+    "fmdBadge": "ORIGINAL FMD",
+    "tags": ["Iron Maiden", "The Clairvoyant", "Seventh Son of a Seventh Son", "1988", "Single", "Original FMD", "remera"]
+  },
+  {
+    "id": 7307,
+    "designId": "iron-maiden-eddie-en-llamas-original-fmd",
+    "designSlug": "iron-maiden-eddie-en-llamas-original-fmd",
+    "category": "Iron Maiden",
+    "band": "Iron Maiden",
+    "name": "Eddie en Llamas · Edición FMD",
+    "year": "2026",
+    "album": null,
+    "tipoPrecio": "simple",
+    "defaultPrintMode": "frontal",
+    "catalogStartingPrice": 38000,
+    "catalogGarments": ["remera"],
+    "isNew": true,
+    "img": "images/iron_maiden/iron_maiden_eddie_frente.jpg",
+    "desc": "Eddie en llamas en una edición original FMD.",
+    "variants": [
+      {
+        "img": "images/iron_maiden/iron_maiden_eddie_frente.jpg",
+        "name": "Eddie en Llamas · Edición FMD",
+        "publicName": "Eddie en Llamas · Edición FMD",
+        "selectionLabel": "Frente Eddie en Llamas",
+        "role": "front",
+        "preferredPreview": true,
+        "defaultPrintMode": "simple",
+        "fmdBadge": "ORIGINAL FMD",
+        "fmdBadgeDescription": "Diseño original creado por Five Magics Designs."
+      }
+    ],
+    "garments": ["remera"],
+    "collections": ["Archivo Maiden", "Original FMD"],
+    "campaigns": [],
+    "commercialPriority": 80,
+    "visibilityTier": "catalog",
+    "legacyCategory": "Iron Maiden",
+    "fmdBadge": "ORIGINAL FMD",
+    "tags": ["Iron Maiden", "Eddie", "Eddie en Llamas", "Original FMD", "remera"]
   }
 ]
