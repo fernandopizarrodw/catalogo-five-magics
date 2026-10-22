@@ -51,7 +51,7 @@ async function main() {
             assert.equal(state.preDisplay, 'none', JSON.stringify(state));
             assert.equal(state.postDisplay, 'grid', JSON.stringify(state));
             assert.match(state.title, /IRON MAIDEN · BUENOS AIRES 2026/);
-            assert.match(state.subtitle, /LA PRIMERA NOCHE YA ES HISTORIA/);
+            assert.match(state.subtitle, /DOS NOCHES HISTÓRICAS EN BUENOS AIRES/);
             assert.deepEqual(state.ctas, ['VER EDDIES ARGENTINOS', 'VER COLECCIÓN COMPLETA']);
             assert.equal(state.overflow, false, JSON.stringify(state));
             console.log(`PASS ${width}px: hero post-show Maiden`);
