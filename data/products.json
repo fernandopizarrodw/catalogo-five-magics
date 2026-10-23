@@ -25164,9 +25164,9 @@
     "variants": [
       {
         "img": "images/iron_maiden/iron_maiden_eddie_argentina_frente.jpg",
-        "name": "Eddie Argentina · Frente",
+        "name": "Eddie Argentina · Estadio Huracán · Frente",
         "publicName": "Eddie Argentina · Estadio Huracán",
-        "selectionLabel": "Frente Eddie Argentina",
+        "selectionLabel": "Frente Eddie Argentina · Estadio Huracán",
         "previewLabel": "Frente solo",
         "designId": "iron-maiden-eddie-argentina-estadio-huracan-fmd",
         "role": "front",
@@ -25178,8 +25178,9 @@
       },
       {
         "img": "images/iron_maiden/iron_maiden_eddie_argentina_dorso.jpg",
-        "name": "Dorso Eddie Argentina · Buenos Aires 2026",
-        "selectionLabel": "Dorso Eddie Argentina · Buenos Aires 2026",
+        "name": "Eddie Argentina · Estadio Huracán · Dorso",
+        "publicName": "Eddie Argentina · Estadio Huracán",
+        "selectionLabel": "Dorso Eddie Argentina · Estadio Huracán",
         "previewLabel": "Dorso solo",
         "role": "back",
         "backTargetDesignId": "iron-maiden-eddie-argentina-estadio-huracan-fmd",
@@ -25195,7 +25196,7 @@
         "designId": "iron-maiden-eddie-argentina-estadio-huracan-fmd",
         "role": "front",
         "defaultPrintMode": "double",
-        "autoSelectBack": "Dorso Eddie Argentina · Buenos Aires 2026",
+        "autoSelectBack": "Dorso Eddie Argentina · Estadio Huracán",
         "orderVariantIndex": 0,
         "modalOrder": 3,
         "fmdBadge": "ORIGINAL FMD",
