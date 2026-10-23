@@ -3451,7 +3451,7 @@ class CartSystem {
                 ? '\n* Importante: los dos diseños elegidos están identificados como dorso. Necesito confirmar cuál usar al frente.'
                 : '';
             const designLines = item.isDouble && cartItemUsesShownComposition(item)
-                ? `* Diseño: ${item.frontName || item.frontCode}\n* Composición: propuesta mostrada`
+                ? `* Diseño: ${item.frontName || item.frontCode}\n* Frente y dorso: tal como se muestra en el mock`
                 : item.isDouble && item.backCode
                 ? `* Diseño 1: ${item.frontName || item.frontCode} (${item.frontCode})\n* Diseño 2: ${item.backName || item.backCode} (${item.backCode})`
                 : item.isDouble
@@ -8864,13 +8864,13 @@ function buildModalConsultationWhatsappMessage() {
     const designLink = `${BASE_URL}${designHash}`;
 
     return [
-        'Hola FMD! Quiero consultar por este diseño:',
+        '¡Hola FMD! Estoy viendo este diseño en el catálogo:',
         '',
         `Diseño: ${displayName}`,
         `Código: ${code}`,
-        `Link del diseño: ${designLink}`,
+        `Link: ${designLink}`,
         '',
-        '¿Me cuentan qué opciones tengo?'
+        'Quería hacerles una consulta sobre este diseño.'
     ].filter(Boolean).join('\n');
 }
 
