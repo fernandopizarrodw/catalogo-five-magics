@@ -529,13 +529,13 @@
                 defaultPreview: '/images/iron_maiden/remera_iron_maiden_eddie_gaucho_argentino_frente.jpg'
             },
             campaignTourCollection: {
-                kicker: 'NUEVO DISEÑO · TOUR ARGENTINA 2026',
-                title: 'EDDIE ARGENTINA · RUN FOR YOUR LIVES',
-                copy: 'Edición para Buenos Aires 2026, disponible con estampa frontal o frente + dorso.',
+                kicker: 'DISEÑO CONMEMORATIVO · BUENOS AIRES 2026',
+                title: 'EDDIE ARGENTINA · DOS NOCHES EN HURACÁN',
+                copy: 'Una edición cargada de detalles argentinos para recordar Run For Your Lives en Buenos Aires.',
                 cards: [
                     {
                         designId: 'iron-maiden-eddie-argentina-estadio-huracan-fmd',
-                        label: 'Eddie Argentina · Frente + dorso',
+                        label: 'Frente + dorso conmemorativo',
                         image: '/images/iron_maiden/iron_maiden_eddie_argentina_doble_estampa.jpg',
                         preview: '/images/iron_maiden/iron_maiden_eddie_argentina_frente.jpg',
                         printMode: 'double'
