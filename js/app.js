@@ -3761,7 +3761,8 @@ function collectCatalogHistoricalBacks() {
                 label: publicLabel,
                 band: getCatalogBandLabel(product),
                 role: 'back',
-                tourRecommendation: variant?.tourRecommendation === true
+                tourRecommendation: variant?.tourRecommendation === true,
+                featuredBack: variant?.featuredBack === true
             });
         });
     });
@@ -4789,7 +4790,11 @@ function getCatalogDesignBackChoices() {
         .filter(ref => !specificImages.has(ref.image))
         .map(ref => ({
             ...ref,
-            backType: isMaidenTourWithoutSpecificBack && ref.tourRecommendation ? 'Recomendado' : 'Archivo'
+            backType: ref.featuredBack
+                ? 'Conmemorativo'
+                : isMaidenTourWithoutSpecificBack && ref.tourRecommendation
+                    ? 'Recomendado'
+                    : 'Archivo'
         }));
     return [...specific, ...historical];
 }
@@ -4869,6 +4874,7 @@ function renderDorsoSelector() {
         const isEddieGaucho = currentCatalogDesign.designId === 'cd-iron-maiden-eddie-gaucho-argentino--p7040';
         const collapseHistoricalBacks = normalizeText(currentCatalogDesign.band) === 'iron maiden';
         const recommended = choices.filter(ref => ref.backType === 'Recomendado');
+        const commemorative = choices.filter(ref => ref.backType === 'Conmemorativo');
         const hasTourRecommendation = recommended.some(ref => ref.tourRecommendation);
         const historical = choices
             .filter(ref => ref.backType === 'Archivo')
@@ -4886,7 +4892,7 @@ function renderDorsoSelector() {
                         onclick="selectCatalogDesignBack(${ref.productId}, ${ref.variantIndex})">
                     <span class="catalog-design-dorso-state">${selected ? 'DORSO ELEGIDO' : 'ELEGIR ESTE DORSO'}</span>
                     <img src="${ref.image}" alt="${ref.label}" loading="lazy" decoding="async">
-                    <span><strong>${ref.label}</strong><small>${ref.backType === 'Recomendado' ? 'Dorso recomendado' : 'Opci&oacute;n de dorso'}</small></span>
+                    <span><strong>${ref.label}</strong><small>${ref.backType === 'Conmemorativo' ? 'Dorso conmemorativo' : ref.backType === 'Recomendado' ? 'Dorso recomendado' : 'Opci&oacute;n de dorso'}</small></span>
                 </button>
                 <button type="button" class="catalog-design-dorso-preview" onclick="previewCatalogDesignBack(${ref.productId}, ${ref.variantIndex})" aria-label="Ver ${ref.label} en grande">VER GRANDE</button>
             </div>`;
@@ -4897,6 +4903,7 @@ function renderDorsoSelector() {
         variantsGrid.innerHTML = `
             <div class="catalog-design-dorso-heading"><b>2. ELEG&Iacute; EL DORSO</b><span>Mir&aacute; todas las opciones y toc&aacute; VER GRANDE para revisar cada dise&ntilde;o.</span></div>
             ${recommended.length ? `<div class="catalog-design-dorso-recommended"><p><b>${isEddieGaucho || hasTourRecommendation ? 'DORSO RECOMENDADO' : 'RECOMENDADOS PARA ESTE DISE&Ntilde;O'}</b><span>${isEddieGaucho ? 'La opci&oacute;n Buenos Aires 2026 completa este dise&ntilde;o.' : hasTourRecommendation ? 'Opciones pensadas para completar los dise&ntilde;os del tour.' : 'Opciones creadas para combinar con este frente.'}</span></p><div>${recommended.map(renderChoice).join('')}</div></div>` : ''}
+            ${commemorative.length ? `<div class="catalog-design-dorso-recommended catalog-design-dorso-commemorative"><p><b>DORSOS CONMEMORATIVOS · ARGENTINA 2026</b><span>Combinables con este frente.</span></p><div>${commemorative.map(renderChoice).join('')}</div></div>` : ''}
             ${historical.length ? (collapseHistoricalBacks
                 ? `<details class="catalog-design-dorso-all"><summary>${recommended.length ? `VER OTROS DORSOS DE ${currentCatalogDesign.band.toUpperCase()}` : `VER DORSOS DISPONIBLES DE ${currentCatalogDesign.band.toUpperCase()}`} <span>${historical.length}</span></summary><div>${historical.map(renderChoice).join('')}</div></details>`
                 : `<div class="catalog-design-dorso-all"><p><b>${recommended.length ? `TODOS LOS DEM&Aacute;S DORSOS DE ${currentCatalogDesign.band.toUpperCase()}` : `DORSOS DISPONIBLES DE ${currentCatalogDesign.band.toUpperCase()}`}</b></p><div>${historical.map(renderChoice).join('')}</div></div>`

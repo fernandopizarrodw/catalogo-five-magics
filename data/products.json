@@ -25683,35 +25683,40 @@
         "name": "Dorso Afiche · Set List Argentina 2026",
         "selectionLabel": "Dorso Afiche · Set List Argentina 2026",
         "role": "back",
-        "tourRecommendation": true
+        "tourRecommendation": true,
+        "featuredBack": true
       },
       {
         "img": "images/iron_maiden/dorsos_conmemorativos_set_list_argentina/dorso_eddie_flayer_set_list_argentina.jpg",
         "name": "Dorso Eddie Hacha · Set List Argentina 2026",
         "selectionLabel": "Dorso Eddie Hacha · Set List Argentina 2026",
         "role": "back",
-        "tourRecommendation": true
+        "tourRecommendation": true,
+        "featuredBack": true
       },
       {
         "img": "images/iron_maiden/dorsos_conmemorativos_set_list_argentina/dorso_eddie_huracan_set_list_argentina.jpg",
         "name": "Dorso Eddie Huracán · Set List Argentina 2026",
         "selectionLabel": "Dorso Eddie Huracán · Set List Argentina 2026",
         "role": "back",
-        "tourRecommendation": true
+        "tourRecommendation": true,
+        "featuredBack": true
       },
       {
         "img": "images/iron_maiden/dorsos_conmemorativos_set_list_argentina/dorso_eddie_tour_set_list_argentina.jpg",
         "name": "Dorso Eddie Tour · Set List Argentina 2026",
         "selectionLabel": "Dorso Eddie Tour · Set List Argentina 2026",
         "role": "back",
-        "tourRecommendation": true
+        "tourRecommendation": true,
+        "featuredBack": true
       },
       {
         "img": "images/iron_maiden/dorsos_conmemorativos_set_list_argentina/dorso_iron_maiden_set_list_argentina.jpg.jpg",
         "name": "Dorso Set List · Argentina 2026",
         "selectionLabel": "Dorso Set List · Argentina 2026",
         "role": "back",
-        "tourRecommendation": true
+        "tourRecommendation": true,
+        "featuredBack": true
       }
     ],
     "garments": ["remera"],
