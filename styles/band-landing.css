@@ -1436,6 +1436,33 @@ body[data-band="Iron Maiden"] .band-tour-collection .band-featured-collection-ct
     background: #75c7ff;
 }
 
+body[data-band="Iron Maiden"] .band-commemorative-backs {
+    border-color: rgba(72, 163, 220, 0.66);
+    background:
+        radial-gradient(circle at 18% 0, rgba(35, 115, 180, 0.28), transparent 36%),
+        radial-gradient(circle at 84% 100%, rgba(170, 30, 36, 0.2), transparent 44%),
+        linear-gradient(145deg, #080e16, #05070b 70%);
+}
+
+body[data-band="Iron Maiden"] .band-commemorative-backs .band-featured-collection-head p,
+body[data-band="Iron Maiden"] .band-commemorative-backs .band-featured-collection-note {
+    color: #86d5ff;
+}
+
+body[data-band="Iron Maiden"] .band-commemorative-backs .band-featured-collection-card:hover {
+    border-color: #86d5ff;
+}
+
+body[data-band="Iron Maiden"] .band-commemorative-backs .band-featured-collection-cta {
+    border-color: rgba(134, 213, 255, 0.72);
+    background: rgba(134, 213, 255, 0.1);
+}
+
+body[data-band="Iron Maiden"] .band-commemorative-backs .band-featured-collection-cta:hover {
+    color: #050505;
+    background: #86d5ff;
+}
+
 .band-landing-hero-copy {
     position: relative;
     z-index: 1;

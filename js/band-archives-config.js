@@ -288,6 +288,7 @@
             campaignFeatureBeforeCurated: true,
             hideCampaignTourCollection: false,
             campaignTourBeforeFeature: true,
+            commemorativeBacksBeforeFeature: true,
             hideCampaignFeature: false,
             hideShowcase: true,
             hideEditorialCollection: true,
@@ -543,6 +544,20 @@
                 ],
                 note: '',
                 ctaLabel: ''
+            },
+            commemorativeBacks: {
+                kicker: 'DORSOS CONMEMORATIVOS · ARGENTINA 2026',
+                title: 'SET LIST · DOS NOCHES EN HURACÁN',
+                copy: 'Cinco dorsos para recordar el repertorio de Buenos Aires. Elegí cualquiera con tu frente favorito de Iron Maiden.',
+                note: 'Combinables con cualquier frente de Iron Maiden en una remera frente + dorso.',
+                ctaLabel: 'ELEGÍ TU FRENTE',
+                cards: [
+                    { label: 'AFICHE · SET LIST', image: '/images/iron_maiden/dorsos_conmemorativos_set_list_argentina/dorso_afiche_set_list_argentina.jpg' },
+                    { label: 'EDDIE HACHA · SET LIST', image: '/images/iron_maiden/dorsos_conmemorativos_set_list_argentina/dorso_eddie_flayer_set_list_argentina.jpg' },
+                    { label: 'EDDIE HURACÁN · SET LIST', image: '/images/iron_maiden/dorsos_conmemorativos_set_list_argentina/dorso_eddie_huracan_set_list_argentina.jpg' },
+                    { label: 'EDDIE TOUR · SET LIST', image: '/images/iron_maiden/dorsos_conmemorativos_set_list_argentina/dorso_eddie_tour_set_list_argentina.jpg' },
+                    { label: 'SET LIST · ARGENTINA 2026', image: '/images/iron_maiden/dorsos_conmemorativos_set_list_argentina/dorso_iron_maiden_set_list_argentina.jpg.jpg' }
+                ]
             },
             retiredDesignIds: [
                 'iron-maiden-iron-maiden-classic',

@@ -25667,5 +25667,58 @@
     "legacyCategory": "Iron Maiden",
     "fmdBadge": "ORIGINAL FMD",
     "tags": ["Iron Maiden", "Eddie", "Eddie en Llamas", "Original FMD", "remera"]
+  },
+  {
+    "id": 7308,
+    "category": "Dorsales",
+    "band": "Iron Maiden",
+    "name": "Dorsos conmemorativos · Set List Argentina 2026",
+    "year": "2026",
+    "tipoPrecio": "doble",
+    "img": "images/iron_maiden/dorsos_conmemorativos_set_list_argentina/dorso_afiche_set_list_argentina.jpg",
+    "desc": "Dorsos conmemorativos del set list de Iron Maiden en Buenos Aires 2026, combinables con cualquier frente de la colección.",
+    "variants": [
+      {
+        "img": "images/iron_maiden/dorsos_conmemorativos_set_list_argentina/dorso_afiche_set_list_argentina.jpg",
+        "name": "Dorso Afiche · Set List Argentina 2026",
+        "selectionLabel": "Dorso Afiche · Set List Argentina 2026",
+        "role": "back",
+        "tourRecommendation": true
+      },
+      {
+        "img": "images/iron_maiden/dorsos_conmemorativos_set_list_argentina/dorso_eddie_flayer_set_list_argentina.jpg",
+        "name": "Dorso Eddie Hacha · Set List Argentina 2026",
+        "selectionLabel": "Dorso Eddie Hacha · Set List Argentina 2026",
+        "role": "back",
+        "tourRecommendation": true
+      },
+      {
+        "img": "images/iron_maiden/dorsos_conmemorativos_set_list_argentina/dorso_eddie_huracan_set_list_argentina.jpg",
+        "name": "Dorso Eddie Huracán · Set List Argentina 2026",
+        "selectionLabel": "Dorso Eddie Huracán · Set List Argentina 2026",
+        "role": "back",
+        "tourRecommendation": true
+      },
+      {
+        "img": "images/iron_maiden/dorsos_conmemorativos_set_list_argentina/dorso_eddie_tour_set_list_argentina.jpg",
+        "name": "Dorso Eddie Tour · Set List Argentina 2026",
+        "selectionLabel": "Dorso Eddie Tour · Set List Argentina 2026",
+        "role": "back",
+        "tourRecommendation": true
+      },
+      {
+        "img": "images/iron_maiden/dorsos_conmemorativos_set_list_argentina/dorso_iron_maiden_set_list_argentina.jpg.jpg",
+        "name": "Dorso Set List · Argentina 2026",
+        "selectionLabel": "Dorso Set List · Argentina 2026",
+        "role": "back",
+        "tourRecommendation": true
+      }
+    ],
+    "garments": ["remera"],
+    "collections": ["Dorsos disponibles"],
+    "campaigns": ["Run For Your Lives 2026"],
+    "visibilityTier": "catalog",
+    "legacyCategory": "Dorsales",
+    "tags": ["Iron Maiden", "Dorso", "Set List", "Argentina 2026", "Run For Your Lives"]
   }
 ]

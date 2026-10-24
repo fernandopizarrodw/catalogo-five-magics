@@ -364,6 +364,28 @@ ${campaignTourCollectionCards.map((card, index) => `                <button type
 ${campaignTourCollection.note ? `            <p class="band-featured-collection-note">${campaignTourCollection.note}</p>` : ''}
 ${campaignTourCollection.ctaLabel ? `            <a class="band-featured-collection-cta" href="#catalogoPrincipal">${campaignTourCollection.ctaLabel}</a>` : ''}
         </section>` : '';
+    const commemorativeBacks = config.commemorativeBacks && typeof config.commemorativeBacks === 'object'
+        ? config.commemorativeBacks
+        : null;
+    const commemorativeBacksCards = Array.isArray(commemorativeBacks?.cards)
+        ? commemorativeBacks.cards.filter(card => card?.image && card?.label)
+        : [];
+    const commemorativeBacksMarkup = commemorativeBacksCards.length ? `
+        <section class="band-featured-collection band-commemorative-backs" id="bandCommemorativeBacks" aria-labelledby="bandCommemorativeBacksTitle">
+            <div class="band-featured-collection-head">
+                <p>${commemorativeBacks.kicker}</p>
+                <h2 id="bandCommemorativeBacksTitle">${commemorativeBacks.title}</h2>
+                <span>${commemorativeBacks.copy}</span>
+            </div>
+            <div class="band-featured-collection-grid">
+${commemorativeBacksCards.map((card, index) => `                <button type="button" class="band-featured-collection-card" onclick="openImageModal('${card.image}', '${card.label}')" aria-label="Ver ${card.label}">
+                    <img src="${card.image}" alt="${card.label} de ${config.band}" loading="${index < 2 ? 'eager' : 'lazy'}" decoding="async">
+                    <strong>${card.label}</strong>
+                </button>`).join('\n')}
+            </div>
+            <p class="band-featured-collection-note">${commemorativeBacks.note}</p>
+            <a class="band-featured-collection-cta" href="#catalogoPrincipal">${commemorativeBacks.ctaLabel}</a>
+        </section>` : '';
     const editorialCollection = !config.hideEditorialCollection && config.editorialCollection && typeof config.editorialCollection === 'object'
         ? config.editorialCollection
         : null;
@@ -579,7 +601,7 @@ ${showWeekNotice.tuesday ? `                <span>${showWeekNotice.tuesday}</spa
             </div>
             <a href="${showWeekNotice.href}" target="_blank" rel="noopener">${showWeekNotice.ctaLabel}</a>
         </section>` : ''}
-${config.campaignTourBeforeFeature ? campaignTourCollectionMarkup : ''}${config.campaignFeatureBeforeCurated ? `
+${config.campaignTourBeforeFeature ? campaignTourCollectionMarkup : ''}${config.commemorativeBacksBeforeFeature ? commemorativeBacksMarkup : ''}${config.campaignFeatureBeforeCurated ? `
 ${campaignFeatureMarkup}` : ''}${discoveryMarkup}${curatedSelectionMarkup}${postShow && postShow.position !== 'after-hero' ? postShowMarkup : ''}${config.heroFirst && config.campaignFeatureFirst && !config.campaignFeatureBeforeCurated ? `\n${campaignFeatureMarkup}${campaignTourCollectionMarkup}` : ''}${config.heroFirst && showcaseFirst ? `\n${showcaseMarkup}${editorialCollectionMarkup}` : ''}${config.heroFirst && !config.campaignFeatureFirst && !config.campaignFeatureBeforeCurated ? `\n${campaignFeatureMarkup}${campaignTourCollectionMarkup}` : ''}${config.realProductProofAfterCatalog ? '' : realProductProofMarkup}${!config.featuredCollectionAfterCatalog && featuredCollectionMarkup ? `\n${featuredCollectionMarkup}` : ''}
 ${catalogFirst ? `${garmentSelectorMarkup}
 ${catalogMarkup}` : ''}${postShowFeatured ? `
