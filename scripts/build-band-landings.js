@@ -364,6 +364,28 @@ ${campaignTourCollectionCards.map((card, index) => `                <button type
 ${campaignTourCollection.note ? `            <p class="band-featured-collection-note">${campaignTourCollection.note}</p>` : ''}
 ${campaignTourCollection.ctaLabel ? `            <a class="band-featured-collection-cta" href="#catalogoPrincipal">${campaignTourCollection.ctaLabel}</a>` : ''}
         </section>` : '';
+    const anniversaryCollection = config.anniversaryCollection && typeof config.anniversaryCollection === 'object'
+        ? config.anniversaryCollection
+        : null;
+    const anniversaryCollectionCards = Array.isArray(anniversaryCollection?.cards)
+        ? anniversaryCollection.cards.filter(card => card?.designId && card?.image)
+        : [];
+    const anniversaryCollectionMarkup = anniversaryCollectionCards.length ? `
+        <section class="band-featured-collection band-anniversary-collection" id="bandAnniversaryCollection" aria-labelledby="bandAnniversaryCollectionTitle">
+            <div class="band-featured-collection-head">
+                <p>${anniversaryCollection.kicker}</p>
+                <h2 id="bandAnniversaryCollectionTitle">${anniversaryCollection.title}</h2>
+                <span>${anniversaryCollection.copy}</span>
+            </div>
+            <div class="band-featured-collection-grid">
+${anniversaryCollectionCards.map((card, index) => `                <button type="button" class="band-featured-collection-card${index === 0 ? ' is-primary' : ''}" data-design-id="${card.designId}" onclick="openCatalogDesignPreview('${card.designId}', 'remera', '${card.printMode || 'simple'}', '${card.preview || card.image}')" aria-label="Ver ${card.label}">
+                    <img src="${card.image}" alt="${card.label} de ${config.band}" loading="${index === 0 ? 'eager' : 'lazy'}" decoding="async">
+                    <strong>${card.label}</strong>
+                </button>`).join('\n')}
+            </div>
+            <p class="band-featured-collection-note">${anniversaryCollection.note}</p>
+            <button type="button" class="band-featured-collection-cta" onclick="openCatalogDesignPreview('${anniversaryCollection.designId}', 'remera', 'simple', '${anniversaryCollection.defaultPreview}')">${anniversaryCollection.ctaLabel}</button>
+        </section>` : '';
     const commemorativeBacks = config.commemorativeBacks && typeof config.commemorativeBacks === 'object'
         ? config.commemorativeBacks
         : null;
@@ -601,7 +623,7 @@ ${showWeekNotice.tuesday ? `                <span>${showWeekNotice.tuesday}</spa
             </div>
             <a href="${showWeekNotice.href}" target="_blank" rel="noopener">${showWeekNotice.ctaLabel}</a>
         </section>` : ''}
-${config.campaignTourBeforeFeature ? campaignTourCollectionMarkup : ''}${config.commemorativeBacksBeforeFeature ? commemorativeBacksMarkup : ''}${config.campaignFeatureBeforeCurated ? `
+${anniversaryCollectionMarkup}${config.campaignTourBeforeFeature ? campaignTourCollectionMarkup : ''}${config.commemorativeBacksBeforeFeature ? commemorativeBacksMarkup : ''}${config.campaignFeatureBeforeCurated ? `
 ${campaignFeatureMarkup}` : ''}${discoveryMarkup}${curatedSelectionMarkup}${postShow && postShow.position !== 'after-hero' ? postShowMarkup : ''}${config.heroFirst && config.campaignFeatureFirst && !config.campaignFeatureBeforeCurated ? `\n${campaignFeatureMarkup}${campaignTourCollectionMarkup}` : ''}${config.heroFirst && showcaseFirst ? `\n${showcaseMarkup}${editorialCollectionMarkup}` : ''}${config.heroFirst && !config.campaignFeatureFirst && !config.campaignFeatureBeforeCurated ? `\n${campaignFeatureMarkup}${campaignTourCollectionMarkup}` : ''}${config.realProductProofAfterCatalog ? '' : realProductProofMarkup}${!config.featuredCollectionAfterCatalog && featuredCollectionMarkup ? `\n${featuredCollectionMarkup}` : ''}
 ${catalogFirst ? `${garmentSelectorMarkup}
 ${catalogMarkup}` : ''}${postShowFeatured ? `

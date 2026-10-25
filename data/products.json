@@ -25728,6 +25728,67 @@
     "tags": ["Rammstein", "Sehnsucht", "1997", "Industrial Metal", "remera", "Rammstein Archive"]
   },
   {
+    "id": 7312,
+    "designId": "iron-maiden-buenos-aires-2026-aniversario-fmd",
+    "designSlug": "iron-maiden-buenos-aires-2026-aniversario-fmd",
+    "category": "Iron Maiden",
+    "band": "Iron Maiden",
+    "name": "Iron Maiden · Buenos Aires 2026 · Edición Aniversario FMD",
+    "year": "2026",
+    "album": null,
+    "tipoPrecio": "simple",
+    "defaultPrintMode": "simple",
+    "catalogStartingPrice": 40000,
+    "catalogGarments": ["remera"],
+    "modalPriceOverrides": {
+      "clasica": { "simple": 40000, "doble": 47000 },
+      "oversize": { "simple": 43000, "doble": 50000 }
+    },
+    "isNew": true,
+    "img": "images/iron_maiden/iron maiden fmd edition/IRON FMD.jpg",
+    "desc": "Diseño conmemorativo original FMD de las dos noches de Iron Maiden en el Estadio Huracán.",
+    "variants": [
+      {
+        "img": "images/iron_maiden/iron maiden fmd edition/IRON FMD.jpg",
+        "name": "Iron Maiden · Buenos Aires 2026 · Frente",
+        "publicName": "Iron Maiden · Buenos Aires 2026 · Edición Aniversario FMD",
+        "selectionLabel": "Frente Iron Maiden · Buenos Aires 2026",
+        "role": "front",
+        "preferredPreview": true,
+        "fmdBadge": "ORIGINAL FMD"
+      },
+      {
+        "img": "images/iron_maiden/dorsos_conmemorativos_set_list_argentina/dorso_iron_maiden_set_list_argentina.jpg.jpg",
+        "name": "Dorso Set List Argentina 2026",
+        "selectionLabel": "Dorso Set List Argentina 2026",
+        "role": "back",
+        "tourRecommendation": true
+      },
+      {
+        "img": "images/iron_maiden/dorsos_conmemorativos_set_list_argentina/dorso_afiche_set_list_argentina.jpg",
+        "name": "Dorso Afiche Conmemorativo",
+        "selectionLabel": "Dorso Afiche Conmemorativo",
+        "role": "back",
+        "tourRecommendation": true
+      },
+      {
+        "img": "images/iron_maiden/dorsos_conmemorativos_set_list_argentina/dorso_eddie_tour_set_list_argentina.jpg",
+        "name": "Dorso Eddie · Set List Argentina 2026",
+        "selectionLabel": "Dorso Eddie · Set List Argentina 2026",
+        "role": "back",
+        "tourRecommendation": true
+      }
+    ],
+    "garments": ["remera"],
+    "collections": ["Archivo Maiden", "Original FMD", "Tour Argentina 2026"],
+    "campaigns": ["Run For Your Lives 2026", "Argentina 2026"],
+    "commercialPriority": 110,
+    "visibilityTier": "featured",
+    "legacyCategory": "Iron Maiden",
+    "fmdBadge": "ORIGINAL FMD",
+    "tags": ["Iron Maiden", "Buenos Aires 2026", "Edición Aniversario", "Original FMD", "Run For Your Lives", "remera"]
+  },
+  {
     "id": 7308,
     "category": "Dorsales",
     "band": "Iron Maiden",

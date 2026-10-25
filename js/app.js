@@ -2404,7 +2404,21 @@ function resolveModalPriceConfig(product = currentProduct) {
         ? (basePrices.doble_personalizado ?? (basePrices.doble + PERSONALIZADO_EXTRA))
         : basePrices.doble;
 
-    return { simple, doble, isHoodie, isBuzoRedondo, isCustom };
+    const specialPriceKey = isOversize ? 'oversize' : 'clasica';
+    const specialPrices = !isHoodie && !isBuzoRedondo && !isKids && !isCustom
+        ? product?.modalPriceOverrides?.[specialPriceKey]
+        : null;
+    const specialSimple = Number(specialPrices?.simple);
+    const specialDoble = Number(specialPrices?.doble);
+
+    return {
+        simple: specialSimple > 0 ? specialSimple : simple,
+        doble: specialDoble > 0 ? specialDoble : doble,
+        priceOverride: specialSimple > 0 && specialDoble > 0 ? { simple: specialSimple, doble: specialDoble } : null,
+        isHoodie,
+        isBuzoRedondo,
+        isCustom
+    };
 }
 
 function getVariantGarmentCategory(product, variantIndex = getActiveVariantIndex()) {
@@ -3264,6 +3278,7 @@ class CartSystem {
             designId: options.designId || '',
             customizationText: options.customizationText || '',
             publicGarmentLabel: options.publicGarmentLabel || '',
+            priceOverride: options.priceOverride || null,
             timestamp: Date.now()
         };
 
@@ -8358,6 +8373,9 @@ function getProductImage(productId, variantIndex = 0) {
 }
 
 function calculateItemBasePrice(item) {
+    const override = Number(item?.priceOverride?.[item?.isDouble ? 'doble' : 'simple']);
+    if (override > 0) return override;
+
     const isHoodie = item.category === 'Hoodies FMD' || item.category === 'Hoodies Otras Bandas';
     const isBuzoRedondo = item.category === 'Buzo Cuello Redondo';
     const isKids = item.age === 'chico';
@@ -8955,6 +8973,7 @@ function addToCartFromModal() {
         designId: currentCatalogDesign?.designId || '',
         customizationText: (document.getElementById('dorsoCustomInput')?.value || '').trim(),
         publicGarmentLabel: usesBandLandingShownComposition() ? getModalGarmentLabel(currentProduct) : '',
+        priceOverride: resolveModalPriceConfig(currentProduct).priceOverride,
         designName: currentCatalogDesign?.publicName || '',
         frontName: selectedCatalogFrontRef?.selectionLabel || '',
         orderCodeBase: getCurrentCatalogOrderCode(variantIndex) || '',

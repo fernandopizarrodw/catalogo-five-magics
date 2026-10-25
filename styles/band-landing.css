@@ -1463,6 +1463,24 @@ body[data-band="Iron Maiden"] .band-commemorative-backs .band-featured-collectio
     background: #86d5ff;
 }
 
+body[data-band="Iron Maiden"] .band-anniversary-collection {
+    border-color: rgba(239, 72, 50, 0.78);
+    background: radial-gradient(circle at 16% 5%, rgba(203, 47, 30, 0.24), transparent 40%), linear-gradient(145deg, #160909, #070809 72%);
+}
+
+body[data-band="Iron Maiden"] .band-anniversary-collection .band-featured-collection-head p,
+body[data-band="Iron Maiden"] .band-anniversary-collection .band-featured-collection-note {
+    color: #ff9a76;
+}
+
+body[data-band="Iron Maiden"] .band-anniversary-collection .band-featured-collection-grid {
+    grid-template-columns: minmax(0, 1.35fr) repeat(3, minmax(0, 1fr));
+}
+
+body[data-band="Iron Maiden"] .band-anniversary-collection .band-featured-collection-card.is-primary {
+    border-color: rgba(255, 154, 118, 0.82);
+}
+
 .band-landing-hero-copy {
     position: relative;
     z-index: 1;
@@ -3072,6 +3090,16 @@ body.band-landing-page[data-band="Argentina"] #modal .btn-add-cart {
 
     body[data-band="Iron Maiden"] .band-tour-collection .band-featured-collection-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    body[data-band="Iron Maiden"] .band-anniversary-collection .band-featured-collection-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    body[data-band="Iron Maiden"] .band-anniversary-collection .band-featured-collection-card.is-primary {
+        grid-column: 1 / -1;
+        width: min(100%, 340px);
+        justify-self: center;
     }
 
     body[data-band="Iron Maiden"] .band-tour-collection.band-featured-collection--single .band-featured-collection-grid {

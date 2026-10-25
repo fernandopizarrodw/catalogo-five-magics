@@ -545,6 +545,21 @@
                 note: '',
                 ctaLabel: ''
             },
+            anniversaryCollection: {
+                kicker: 'CREACIÓN ORIGINAL FIVE MAGICS DESIGNS · EDICIÓN ANIVERSARIO',
+                title: 'NUEVO · IRON MAIDEN BUENOS AIRES 2026',
+                copy: 'Una ilustración conmemorativa de las dos noches de Iron Maiden en el Estadio Huracán, reuniendo a los Eddies, la banda, el escenario y el público argentino. Un diseño especialmente creado por FMD para recordar los shows del 20 y 21 de octubre de 2026.',
+                note: 'Podés pedir este diseño solo en el frente o combinarlo con cualquiera de nuestros dorsos de Iron Maiden disponibles en el catálogo.',
+                ctaLabel: 'ELEGIR MI EDICIÓN ANIVERSARIO',
+                designId: 'iron-maiden-buenos-aires-2026-aniversario-fmd',
+                defaultPreview: '/images/iron_maiden/iron maiden fmd edition/IRON FMD.jpg',
+                cards: [
+                    { designId: 'iron-maiden-buenos-aires-2026-aniversario-fmd', label: 'SOLO FRENTE', image: '/images/iron_maiden/iron maiden fmd edition/IRON FMD.jpg', printMode: 'simple' },
+                    { designId: 'iron-maiden-buenos-aires-2026-aniversario-fmd', label: 'FRENTE + DORSO SET LIST ARGENTINA', image: '/images/iron_maiden/iron maiden fmd edition/IRON DOBLE 3.jpg', printMode: 'double' },
+                    { designId: 'iron-maiden-buenos-aires-2026-aniversario-fmd', label: 'FRENTE + DORSO AFICHE CONMEMORATIVO', image: '/images/iron_maiden/iron maiden fmd edition/IRON DOBLE 2.jpg', printMode: 'double' },
+                    { designId: 'iron-maiden-buenos-aires-2026-aniversario-fmd', label: 'FRENTE + DORSO EDDIE SET LIST', image: '/images/iron_maiden/iron maiden fmd edition/IRON DOBLE 1.jpg', printMode: 'double' }
+                ]
+            },
             commemorativeBacks: {
                 kicker: 'DORSOS CONMEMORATIVOS · ARGENTINA 2026',
                 title: 'SET LIST · DOS NOCHES EN HURACÁN',
