@@ -370,7 +370,7 @@
                     { designId: 'cd-iron-maiden-eddie-gaucho-argentino--p7040', label: 'Eddie Gaucho Argentino', image: '/images/iron_maiden/remera_iron_maiden_eddie_gaucho_argentino_frente.jpg' },
                     { designId: 'iron-maiden-eddie-gaucho-tempestad-original-fmd', label: 'Eddie Gaucho Tempestad', image: '/images/iron_maiden/iron_maiden_eddie_gaucho_tempestad.jpg' },
                     { designId: 'iron-maiden-eddie-tanguero-original-fmd', label: 'Eddie Tanguero', image: '/images/iron_maiden/iron_maiden_eddie_tanguero.jpg' },
-                    { designId: 'iron-maiden-eddie-huracan-original-fmd', label: 'Eddie vs. Huracán', image: '/images/iron_maiden/remera_iron_maiden_eddie_huracan_frente.jpg' },
+                    { designId: 'iron-maiden-eddie-huracan-original-fmd', label: 'Eddie en Huracán', image: '/images/iron_maiden/remera_iron_maiden_eddie_huracan_frente.jpg' },
                     { designId: 'iron-maiden-eddie-libertador-cruce-de-los-andes-original-fmd', label: 'Eddie Libertador', image: '/images/iron_maiden/iron_maiden_eddie_soldado.jpg' },
                     { designId: 'iron-maiden-eddie-cuatro-jinetes-del-apocalipsis-original-fmd', label: 'Los 4 Jinetes del Apocalipsis', image: '/images/iron_maiden/eddie_jinetes_del_apocalipsis_fmd_frente.jpg' },
                     { designId: 'iron-maiden-eddie-argentina-estadio-huracan-fmd', label: 'Eddie Argentina · Estadio Huracán', image: '/images/iron_maiden/iron_maiden_eddie_argentina_frente.jpg' },
@@ -498,7 +498,7 @@
                     {
                         designId: 'iron-maiden-eddie-huracan-original-fmd',
                         src: '/images/iron_maiden/remera_iron_maiden_eddie_huracan_doble.jpg',
-                        alt: 'Edición completa Eddie vs. Huracán con frente y dorso Buenos Aires 2026',
+                        alt: 'Edición completa Eddie en Huracán con frente y dorso Buenos Aires 2026',
                         label: 'EDDIE HURACÁN · FRENTE + DORSO',
                         printMode: 'double',
                         preview: '/images/iron_maiden/remera_iron_maiden_eddie_huracan_frente.jpg',
@@ -874,8 +874,8 @@
                     },
                     {
                         src: '/images/iron_maiden/prendas_reales/eddie vs huracan.jpg',
-                        alt: 'Remera terminada Eddie vs. Huracán con estampa frontal',
-                        label: 'Eddie vs. Huracán · Frente',
+                        alt: 'Remera terminada Eddie en Huracán con estampa frontal',
+                        label: 'Eddie en Huracán · Frente',
                         width: 1086,
                         height: 1448
                     },
