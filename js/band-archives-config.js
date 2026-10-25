@@ -547,10 +547,10 @@
             },
             anniversaryCollection: {
                 kicker: 'CREACIÓN ORIGINAL FIVE MAGICS DESIGNS · EDICIÓN ANIVERSARIO',
-                title: 'NUEVO · IRON MAIDEN BUENOS AIRES 2026',
+                title: 'IRON MAIDEN - RUN FOR ARGENTINA • 50 YEARS',
                 copy: 'Una ilustración conmemorativa de las dos noches de Iron Maiden en el Estadio Huracán, reuniendo a los Eddies, la banda, el escenario y el público argentino. Un diseño especialmente creado por FMD para recordar los shows del 20 y 21 de octubre de 2026.',
                 note: 'Podés pedir este diseño solo en el frente o combinarlo con cualquiera de nuestros dorsos de Iron Maiden disponibles en el catálogo.',
-                ctaLabel: 'ELEGIR MI EDICIÓN ANIVERSARIO',
+                ctaLabel: 'ELEGIR RUN FOR ARGENTINA',
                 designId: 'iron-maiden-buenos-aires-2026-aniversario-fmd',
                 defaultPreview: '/images/iron_maiden/iron maiden fmd edition/IRON FMD.jpg',
                 cards: [

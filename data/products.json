@@ -25733,7 +25733,7 @@
     "designSlug": "iron-maiden-buenos-aires-2026-aniversario-fmd",
     "category": "Iron Maiden",
     "band": "Iron Maiden",
-    "name": "Iron Maiden · Buenos Aires 2026 · Edición Aniversario FMD",
+    "name": "IRON MAIDEN - RUN FOR ARGENTINA • 50 YEARS",
     "year": "2026",
     "album": null,
     "tipoPrecio": "simple",
@@ -25750,9 +25750,9 @@
     "variants": [
       {
         "img": "images/iron_maiden/iron maiden fmd edition/IRON FMD.jpg",
-        "name": "Iron Maiden · Buenos Aires 2026 · Frente",
-        "publicName": "Iron Maiden · Buenos Aires 2026 · Edición Aniversario FMD",
-        "selectionLabel": "Frente Iron Maiden · Buenos Aires 2026",
+        "name": "IRON MAIDEN - RUN FOR ARGENTINA • 50 YEARS · Frente",
+        "publicName": "IRON MAIDEN - RUN FOR ARGENTINA • 50 YEARS",
+        "selectionLabel": "Frente RUN FOR ARGENTINA • 50 YEARS",
         "role": "front",
         "preferredPreview": true,
         "fmdBadge": "ORIGINAL FMD"
@@ -25786,7 +25786,7 @@
     "visibilityTier": "featured",
     "legacyCategory": "Iron Maiden",
     "fmdBadge": "ORIGINAL FMD",
-    "tags": ["Iron Maiden", "Buenos Aires 2026", "Edición Aniversario", "Original FMD", "Run For Your Lives", "remera"]
+    "tags": ["Iron Maiden", "Run For Argentina", "50 Years", "Buenos Aires 2026", "Edición Aniversario", "Original FMD", "Run For Your Lives", "remera"]
   },
   {
     "id": 7308,
