@@ -1487,7 +1487,13 @@ function buscar(query) {
 window.b = buscar;
 
 function parseProductCode(query) {
-    const normalized = String(query || '').trim().toLowerCase();
+    // Los pedidos suelen pegar el código entre paréntesis: (ECHRFY-7032.V1).
+    // Conservamos el código interno y descartamos únicamente los signos externos.
+    const normalized = String(query || '')
+        .trim()
+        .replace(/^\s*[\(\[\{]\s*/, '')
+        .replace(/\s*[\)\]\}]\s*$/, '')
+        .toLowerCase();
     // Soporta: PS-002, PS-002.V1, M2-017.V7, ps002, 002, 2, etc.
     // Prefijo puede tener letras Y números (ej: M2, HBST, TA)
     const match = normalized.match(/^(?:[a-z0-9]+-)?0*(\d+)(?:\.v(\d+))?$/i);
@@ -2085,7 +2091,7 @@ function getSearchResults(query, sourceProducts = db, useGlobalCodeLookup = fals
 function openExactCodeMatch(query, afterOpen) {
     const codeData = parseProductCode(query);
     if (ENABLE_CATALOG_DESIGN_RENDER && catalogDesigns.length) {
-        const normalizedCode = normalizeText(query).replace(/\s+/g, '');
+        const normalizedCode = (codeData?.raw || normalizeText(query)).replace(/\s+/g, '');
         let design = catalogDesigns.find(item => (
             isCatalogDesignInScope(item)
             && normalizeText(item.orderCodeBase).replace(/\s+/g, '') === normalizedCode
