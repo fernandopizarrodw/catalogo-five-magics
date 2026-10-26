@@ -3395,24 +3395,28 @@ class CartSystem {
             if (tipoPrenda === 'Remera clásica mujer') tipoPrenda = 'Remera con corte clásico mujer';
 
             const estampado = item.isDouble ? 'Frente y dorso' : 'Solo frente';
-            const usesShownComposition = cartItemUsesShownComposition(item);
             const additionalDetails = [];
-            if (item.frontName && normalizeText(item.frontName) !== normalizeText(productName)) {
-                additionalDetails.push(`Frente: ${item.frontName.replace(/^Frente\s+/i, '')}`);
-            }
-            if (item.isDouble && !usesShownComposition && !item.backCode) {
-                additionalDetails.push('Dorso a definir');
-            } else if (item.isDouble && !usesShownComposition && item.backName) {
-                additionalDetails.push(`Dorso: ${item.backName}`);
-            }
             if (item.customizationText) {
                 additionalDetails.push(`Personalización: ${item.customizationText}`);
             }
-
-            const options = [tipoPrenda, color, `Talle ${talle}`, estampado, ...additionalDetails]
-                .filter(Boolean)
-                .join(' · ');
-            return `${idx + 1}. ${item.frontCode || item.code} — ${productName} · ${options} · $${Math.round(itemPrices[idx]).toLocaleString('es-AR')}`;
+            const frontCode = item.frontCode || item.code;
+            const frontName = String(item.frontName || productName).replace(/^Frente\s+/i, '').trim();
+            const frontLine = `* Frente: ${frontName} (${frontCode})`;
+            const backLine = !item.isDouble
+                ? ''
+                : item.backCode && item.backName
+                    ? `\n* Dorso: ${String(item.backName).replace(/^Dorso\s+/i, '').trim()} (${item.backCode})`
+                    : '\n* Dorso: a definir';
+            const extraLines = additionalDetails.length
+                ? `\n${additionalDetails.map(detail => `* ${detail}`).join('\n')}`
+                : '';
+            return `${idx + 1}) ${frontCode} — ${productName}
+* Prenda: ${tipoPrenda}
+* Talle: ${talle}
+* Color: ${color}
+* Estampa: ${estampado}
+${frontLine}${backLine}${extraLines}
+* Precio: $${Math.round(itemPrices[idx]).toLocaleString('es-AR')}`;
         }).join('\n');
 
         const total = this.cart.length;
@@ -3481,7 +3485,7 @@ class CartSystem {
 * Color: ${color}
 * Estampa: ${item.isDouble ? 'Frente y dorso' : 'Solo frente'}
 ${designLines}
-* Precio estimado: $${price}${warning}`;
+* Precio: $${price}${warning}`;
         }).join('\n\n');
     }
 
