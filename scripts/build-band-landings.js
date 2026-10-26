@@ -149,7 +149,7 @@ ${config.garments.map((garment, index) => `
 function renderCatalogSection(config, collections, completeArchive) {
     const primaryCollections = collections.filter(collection => collection.group !== 'album');
     const albumCollections = collections.filter(collection => collection.group === 'album');
-    const renderCollectionButton = collection => `                <button type="button" class="band-landing-collection-btn${config.defaultCollection === collection.id ? ' active' : ''}" data-band-landing-collection="${collection.id}" onclick="selectBandLandingCollection('${collection.id}')">${collection.label} <span data-collection-count="${collection.id}"></span></button>`;
+    const renderCollectionButton = collection => `                <button type="button" class="band-landing-collection-btn${config.defaultCollection === collection.id ? ' active' : ''}" data-band-landing-collection="${collection.id}" onclick="${collection.sectionId ? `scrollToBandLandingSection('${collection.sectionId}')` : `selectBandLandingCollection('${collection.id}')`}">${collection.label} <span data-collection-count="${collection.id}"></span></button>`;
     return `        <section class="band-landing-catalog"${config.showGarmentSelector === false || config.catalogAnchorOnCatalog ? ' id="catalogoPrincipal"' : ''} aria-labelledby="bandCatalogTitle">
             <div class="band-landing-section-head">
                 <p>${config.catalogKicker || 'ARCHIVO FMD'}</p>
@@ -481,7 +481,7 @@ ${(Array.isArray(realProductProof.specs) ? realProductProof.specs : ['Algodón p
         <nav class="band-discovery-nav" aria-label="Elegir una colección de ${config.band}">
             <p>ENCONTRÁ TU DISEÑO</p>
             <div class="band-discovery-nav-grid">
-${discoveryLinks.map(link => `                <button type="button" onclick="selectBandLandingCollectionAndScroll('${link.collectionId || ''}')"><strong>${link.label}</strong>${link.copy ? `<span>${link.copy}</span>` : ''}</button>`).join('\n')}
+${discoveryLinks.map(link => `                <button type="button" onclick="${link.sectionId ? `scrollToBandLandingSection('${link.sectionId}')` : `selectBandLandingCollectionAndScroll('${link.collectionId || ''}')`}"><strong>${link.label}</strong>${link.copy ? `<span>${link.copy}</span>` : ''}</button>`).join('\n')}
             </div>
         </nav>` : '';
     const curatedSelection = config.curatedSelection && typeof config.curatedSelection === 'object'

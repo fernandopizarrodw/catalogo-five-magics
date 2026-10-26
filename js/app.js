@@ -308,6 +308,17 @@ function selectBandLandingCollectionAndScroll(collectionId = '') {
 
 window.selectBandLandingCollectionAndScroll = selectBandLandingCollectionAndScroll;
 
+function scrollToBandLandingSection(sectionId) {
+    const section = document.getElementById(sectionId);
+    if (!section) return;
+    section.scrollIntoView({
+        behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
+        block: 'start'
+    });
+}
+
+window.scrollToBandLandingSection = scrollToBandLandingSection;
+
 function updatePendingCatalogBackNotice() {
     const catalog = document.getElementById('catalogoPrincipal');
     if (!catalog) return;
@@ -1549,6 +1560,14 @@ function parseProductCode(query) {
         variantIndex: match[2] ? Math.max(parseInt(match[2], 10) - 1, 0) : undefined,
         raw: normalized
     };
+}
+
+function isCompleteVariantCode(query) {
+    const normalized = String(query || '')
+        .trim()
+        .replace(/^\s*[\(\[\{]\s*/, '')
+        .replace(/\s*[\)\]\}]\s*$/, '');
+    return /^(?:[a-z0-9]+-)?0*\d+\.v\d+$/i.test(normalized);
 }
 
 function normalizeText(value) {
@@ -7587,8 +7606,7 @@ searchInput.addEventListener('input', (e) => {
     currentSearch = e.target.value.toLowerCase().trim();
     resetCatalogPagination();
     searchClear.classList.toggle('visible', currentSearch.length > 0);
-    const codeData = parseProductCode(currentSearch);
-    if (e.inputType === 'insertFromPaste' && Number.isFinite(codeData?.variantIndex)) {
+    if (isCompleteVariantCode(currentSearch)) {
         setTimeout(() => {
             if (openExactCodeMatch(searchInput.value)) searchInput.blur();
         }, 0);
@@ -9268,7 +9286,7 @@ function initSearchModal() {
         }
 
         // Si es código exacto, abrir modal directo (solo si la búsqueda es SOLO el código, sin espacios)
-        if (!query.includes(' ') && query.length >= 2 && parseProductCode(query)) {
+        if (isCompleteVariantCode(query)) {
             const opened = openExactCodeMatch(query, () => searchModal.classList.remove('active'));
             if (opened) return;
         }
