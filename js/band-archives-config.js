@@ -563,18 +563,18 @@
             commemorativeBacks: {
                 kicker: 'DORSOS CONMEMORATIVOS · ARGENTINA 2026',
                 title: 'SET LIST · DOS NOCHES EN HURACÁN',
-                copy: 'Ocho dorsos para recordar el repertorio de Buenos Aires. Elegí cualquiera con tu frente favorito de Iron Maiden.',
-                note: 'Combinables con cualquier frente de Iron Maiden en una remera frente + dorso.',
+                copy: 'Ocho dorsos para recordar el repertorio de Buenos Aires. Tocá uno y después elegí el frente para combinarlo.',
+                note: 'Podés elegir el dorso ahora: queda cargado al abrir el frente que quieras combinar.',
                 ctaLabel: 'ELEGÍ TU FRENTE',
                 cards: [
-                    { label: 'AFICHE · SET LIST', image: '/images/iron_maiden/dorsos_conmemorativos_set_list_argentina/dorso_afiche_set_list_argentina.jpg' },
-                    { label: 'EDDIE HACHA · SET LIST', image: '/images/iron_maiden/dorsos_conmemorativos_set_list_argentina/dorso_eddie_flayer_set_list_argentina.jpg' },
-                    { label: 'EDDIE HURACÁN · SET LIST', image: '/images/iron_maiden/dorsos_conmemorativos_set_list_argentina/dorso_eddie_huracan_set_list_argentina.jpg' },
-                    { label: 'EDDIE TOUR · SET LIST', image: '/images/iron_maiden/dorsos_conmemorativos_set_list_argentina/dorso_eddie_tour_set_list_argentina.jpg' },
-                    { label: 'EDDIE HACHA NEGRO · SET LIST', image: '/images/iron_maiden/dorsos_conmemorativos_set_list_argentina/dorso_eddie_black_set_list_argentina.jpg' },
-                    { label: 'EDDIE HURACÁN · TORMENTA · SET LIST', image: '/images/iron_maiden/dorsos_conmemorativos_set_list_argentina/dorso_eddie_huracan_destruction_set_list_argentina.jpg' },
-                    { label: 'EDDIE RUN FOR YOUR LIVES · SET LIST', image: '/images/iron_maiden/dorsos_conmemorativos_set_list_argentina/dorso_eddie_run_for__set_list_argentina.jpg' },
-                    { label: 'SET LIST · ARGENTINA 2026', image: '/images/iron_maiden/dorsos_conmemorativos_set_list_argentina/dorso_iron_maiden_set_list_argentina.jpg.jpg' }
+                    { label: 'AFICHE · SET LIST', image: '/images/iron_maiden/dorsos_conmemorativos_set_list_argentina/dorso_afiche_set_list_argentina.jpg', productId: 7308, variantIndex: 0 },
+                    { label: 'EDDIE HACHA · SET LIST', image: '/images/iron_maiden/dorsos_conmemorativos_set_list_argentina/dorso_eddie_flayer_set_list_argentina.jpg', productId: 7308, variantIndex: 1 },
+                    { label: 'EDDIE HURACÁN · SET LIST', image: '/images/iron_maiden/dorsos_conmemorativos_set_list_argentina/dorso_eddie_huracan_set_list_argentina.jpg', productId: 7308, variantIndex: 2 },
+                    { label: 'EDDIE TOUR · SET LIST', image: '/images/iron_maiden/dorsos_conmemorativos_set_list_argentina/dorso_eddie_tour_set_list_argentina.jpg', productId: 7308, variantIndex: 3 },
+                    { label: 'EDDIE HACHA NEGRO · SET LIST', image: '/images/iron_maiden/dorsos_conmemorativos_set_list_argentina/dorso_eddie_black_set_list_argentina.jpg', productId: 7308, variantIndex: 4 },
+                    { label: 'EDDIE HURACÁN · TORMENTA · SET LIST', image: '/images/iron_maiden/dorsos_conmemorativos_set_list_argentina/dorso_eddie_huracan_destruction_set_list_argentina.jpg', productId: 7308, variantIndex: 5 },
+                    { label: 'EDDIE RUN FOR YOUR LIVES · SET LIST', image: '/images/iron_maiden/dorsos_conmemorativos_set_list_argentina/dorso_eddie_run_for__set_list_argentina.jpg', productId: 7308, variantIndex: 6 },
+                    { label: 'SET LIST · ARGENTINA 2026', image: '/images/iron_maiden/dorsos_conmemorativos_set_list_argentina/dorso_iron_maiden_set_list_argentina.jpg.jpg', productId: 7308, variantIndex: 7 }
                 ]
             },
             retiredDesignIds: [

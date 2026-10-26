@@ -308,6 +308,49 @@ function selectBandLandingCollectionAndScroll(collectionId = '') {
 
 window.selectBandLandingCollectionAndScroll = selectBandLandingCollectionAndScroll;
 
+function updatePendingCatalogBackNotice() {
+    const catalog = document.getElementById('catalogoPrincipal');
+    if (!catalog) return;
+    let notice = document.getElementById('catalogPendingBackNotice');
+    if (!pendingCatalogBackRef) {
+        notice?.remove();
+        return;
+    }
+    if (!notice) {
+        notice = document.createElement('div');
+        notice.id = 'catalogPendingBackNotice';
+        notice.className = 'catalog-pending-back-notice';
+        const toolbar = catalog.querySelector('.catalog-toolbar');
+        (toolbar || catalog).before(notice);
+    }
+    notice.innerHTML = `<span><b>DORSO ELEGIDO:</b> ${pendingCatalogBackRef.label}. Ahora elegí el frente para combinarlo.</span><button type="button" onclick="clearPendingCatalogBack()">CAMBIAR DORSO</button>`;
+}
+
+function clearPendingCatalogBack() {
+    pendingCatalogBackRef = null;
+    updatePendingCatalogBackNotice();
+}
+
+window.clearPendingCatalogBack = clearPendingCatalogBack;
+
+function chooseCommemorativeBack(productId, variantIndex) {
+    const choice = catalogHistoricalBacks.find(ref => (
+        Number(ref.productId) === Number(productId)
+        && Number(ref.variantIndex) === Number(variantIndex)
+    ));
+    if (!choice) return;
+    pendingCatalogBackRef = choice;
+    selectBandLandingCollection('');
+    updatePendingCatalogBackNotice();
+    const catalog = document.getElementById('productsGrid') || document.getElementById('catalogoPrincipal');
+    catalog?.scrollIntoView({
+        behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
+        block: 'start'
+    });
+}
+
+window.chooseCommemorativeBack = chooseCommemorativeBack;
+
 function toggleRealProductProof(button) {
     const section = button?.closest?.('.band-real-product-proof');
     if (!section) return;
@@ -528,6 +571,7 @@ let catalogDesignById = new Map();
 let catalogHistoricalBacks = [];
 let currentCatalogDesign = null;
 let selectedCatalogBackRef = null;
+let pendingCatalogBackRef = null;
 let selectedCatalogBackDeferred = false;
 let selectedCatalogFrontRef = null;
 let selectedAge = 'adulto';
@@ -4911,7 +4955,8 @@ function renderDorsoSelector() {
             const selected = selectedCatalogBackRef
                 && Number(selectedCatalogBackRef.productId) === Number(ref.productId)
                 && Number(selectedCatalogBackRef.variantIndex) === Number(ref.variantIndex);
-            return `<div class="catalog-design-dorso-choice">
+            const searchText = normalizeText([ref.label, ref.band, ref.productId, `${ref.productId}.v${Number(ref.variantIndex) + 1}`].join(' '));
+            return `<div class="catalog-design-dorso-choice" data-dorso-search="${searchText}">
                 <button type="button" class="dorso-variant-item catalog-design-dorso${selected ? ' selected' : ''}"
                         aria-pressed="${selected ? 'true' : 'false'}"
                         onclick="selectCatalogDesignBack(${ref.productId}, ${ref.variantIndex})">
@@ -4926,7 +4971,8 @@ function renderDorsoSelector() {
         customSection.style.display = choices.length ? 'none' : 'block';
         variantsGrid.classList.add('catalog-design-dorso-grid');
         variantsGrid.innerHTML = `
-            <div class="catalog-design-dorso-heading"><b>2. ELEG&Iacute; EL DORSO</b><span>Mir&aacute; todas las opciones y toc&aacute; VER GRANDE para revisar cada dise&ntilde;o.</span></div>
+            <div class="catalog-design-dorso-heading"><b>2. ELEG&Iacute; EL DORSO</b><span>Busc&aacute; por nombre, tour o c&oacute;digo. Toc&aacute; VER GRANDE para revisarlo.</span></div>
+            <label class="catalog-design-dorso-search"><span>BUSCAR DORSO</span><input type="search" placeholder="Ej: Set List, Hurac&aacute;n o 7308.V4" oninput="filterCatalogDesignBacks(this.value)" autocomplete="off"></label>
             ${recommended.length ? `<div class="catalog-design-dorso-recommended"><p><b>${isEddieGaucho || hasTourRecommendation ? 'DORSO RECOMENDADO' : 'RECOMENDADOS PARA ESTE DISE&Ntilde;O'}</b><span>${isEddieGaucho ? 'La opci&oacute;n Buenos Aires 2026 completa este dise&ntilde;o.' : hasTourRecommendation ? 'Opciones pensadas para completar los dise&ntilde;os del tour.' : 'Opciones creadas para combinar con este frente.'}</span></p><div>${recommended.map(renderChoice).join('')}</div></div>` : ''}
             ${commemorative.length ? `<div class="catalog-design-dorso-recommended catalog-design-dorso-commemorative"><p><b>DORSOS CONMEMORATIVOS · ARGENTINA 2026</b><span>Combinables con este frente.</span></p><div>${commemorative.map(renderChoice).join('')}</div></div>` : ''}
             ${historical.length ? (collapseHistoricalBacks
@@ -4978,6 +5024,19 @@ function previewDorsoVariant(index) {
 }
 
 window.previewDorsoVariant = previewDorsoVariant;
+
+function filterCatalogDesignBacks(query = '') {
+    const term = normalizeText(query);
+    document.querySelectorAll('#dorsoVariantsGrid [data-dorso-search]').forEach(choice => {
+        choice.hidden = Boolean(term) && !choice.dataset.dorsoSearch.includes(term);
+    });
+    document.querySelectorAll('#dorsoVariantsGrid details.catalog-design-dorso-all').forEach(group => {
+        const hasMatch = [...group.querySelectorAll('[data-dorso-search]')].some(choice => !choice.hidden);
+        if (term && hasMatch) group.open = true;
+    });
+}
+
+window.filterCatalogDesignBacks = filterCatalogDesignBacks;
 
 // Seleccionar una variante de dorso
 function selectDorsoVariant(index) {
@@ -5576,6 +5635,24 @@ function openCatalogDesign(designId, initialGarment = '') {
         initial_garment: requestedGarment || undefined
     });
     openModal(design.front.productId, design.front.variantIndex, undefined, 'catalog_design', designId, requestedGarment);
+    const pendingBack = pendingCatalogBackRef && normalizeText(pendingCatalogBackRef.band) === normalizeText(design.band)
+        ? getCatalogDesignBackChoices().find(ref => (
+            Number(ref.productId) === Number(pendingCatalogBackRef.productId)
+            && Number(ref.variantIndex) === Number(pendingCatalogBackRef.variantIndex)
+        ))
+        : null;
+    if (pendingBack) {
+        selectedCatalogBackRef = pendingBack;
+        selectedCatalogBackDeferred = false;
+        selectedBackIndex = -1;
+        selectedPrintMode = 'double';
+        pendingCatalogBackRef = null;
+        updatePendingCatalogBackNotice();
+        updatePrintModeUI();
+        renderDorsoSelector();
+        updateModalPrices();
+        updateDobleWaLink();
+    }
     if (bandLandingCollection === 'fmd-originals') {
         const fmdIndex = currentModalSourceRefs.findIndex(ref => {
             const copy = normalizeText([

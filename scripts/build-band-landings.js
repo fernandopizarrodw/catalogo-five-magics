@@ -400,7 +400,7 @@ ${anniversaryCollectionCards.map((card, index) => `                <button type=
                 <span>${commemorativeBacks.copy}</span>
             </div>
             <div class="band-featured-collection-grid">
-${commemorativeBacksCards.map((card, index) => `                <button type="button" class="band-featured-collection-card" onclick="openImageModal('${card.image}', '${card.label}')" aria-label="Ver ${card.label}">
+${commemorativeBacksCards.map((card, index) => `                <button type="button" class="band-featured-collection-card" onclick="${Number.isFinite(card.productId) && Number.isFinite(card.variantIndex) ? `chooseCommemorativeBack(${card.productId}, ${card.variantIndex})` : `openImageModal('${card.image}', '${card.label}')`}" aria-label="${Number.isFinite(card.productId) && Number.isFinite(card.variantIndex) ? `Elegir ${card.label} y continuar con el frente` : `Ver ${card.label}`}">
                     <img src="${card.image}" alt="${card.label} de ${config.band}" loading="${index < 2 ? 'eager' : 'lazy'}" decoding="async">
                     <strong>${card.label}</strong>
                 </button>`).join('\n')}

@@ -665,6 +665,74 @@
     margin-bottom: 12px;
 }
 
+.catalog-design-dorso-search {
+    display: block;
+    margin: 0 0 14px;
+}
+
+.catalog-design-dorso-search span {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--magic-green);
+    font-size: .68rem;
+    font-weight: 900;
+    letter-spacing: .08em;
+}
+
+.catalog-design-dorso-search input {
+    width: 100%;
+    min-height: 42px;
+    box-sizing: border-box;
+    border: 1px solid #4b5960;
+    border-radius: 7px;
+    background: #080b0d;
+    color: #fff;
+    padding: 10px 12px;
+    font: inherit;
+}
+
+.catalog-design-dorso-search input:focus {
+    outline: none;
+    border-color: var(--magic-green);
+    box-shadow: 0 0 0 2px rgba(57, 255, 20, .18);
+}
+
+.catalog-pending-back-notice {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin: 0 auto 14px;
+    padding: 12px;
+    border: 1px solid #86d5ff;
+    border-radius: 9px;
+    background: rgba(24, 76, 108, .25);
+    color: #eaf8ff;
+    font-size: .82rem;
+    font-weight: 700;
+}
+
+.catalog-pending-back-notice b { color: #86d5ff; }
+
+.catalog-pending-back-notice button {
+    flex: 0 0 auto;
+    min-height: 34px;
+    border: 1px solid #86d5ff;
+    border-radius: 5px;
+    background: transparent;
+    color: #eaf8ff;
+    padding: 6px 9px;
+    font: inherit;
+    font-size: .68rem;
+    font-weight: 900;
+    cursor: pointer;
+}
+
+@media (max-width: 540px) {
+    .catalog-pending-back-notice { align-items: stretch; flex-direction: column; }
+    .catalog-pending-back-notice button { width: 100%; }
+}
+
 .catalog-design-dorso-heading b,
 .catalog-design-dorso-heading span,
 .catalog-design-dorso-recommended > p b,
