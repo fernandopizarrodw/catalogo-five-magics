@@ -25203,6 +25203,18 @@
         "modalOrder": 3,
         "fmdBadge": "ORIGINAL FMD",
         "fmdBadgeDescription": "Diseño original creado por Five Magics Designs para Buenos Aires 2026."
+      },
+      {
+        "img": "images/iron_maiden/iron_maiden_eddie_argentina_blanca_frente.jpg",
+        "name": "Eddie Argentina · Frente blanco",
+        "publicName": "Eddie Argentina · Estadio Huracán",
+        "selectionLabel": "Frente Eddie Argentina · Blanca",
+        "previewLabel": "Frente blanco",
+        "designId": "iron-maiden-eddie-argentina-estadio-huracan-fmd",
+        "role": "front",
+        "modalOrder": 4,
+        "fmdBadge": "ORIGINAL FMD",
+        "fmdBadgeDescription": "Diseño original creado por Five Magics Designs para Buenos Aires 2026."
       }
     ],
     "garments": ["remera", "hoodie", "buzo_cuello_redondo"],
