@@ -109,18 +109,23 @@
             </div>
         </section>
 
+
+
         <section class="band-landing-hero helloween-post-show-hero" aria-labelledby="helloweenPostShowTitle" aria-hidden="true">
             <div class="band-landing-hero-copy">
                 <p class="band-landing-brand">FIVE MAGICS DESIGNS</p>
                 <h1 id="helloweenPostShowTitle">HELLOWEEN 40 YEARS · BUENOS AIRES 🎃</h1>
                 <h2>Una noche para llevar puesta.</h2>
                 <p><strong data-band-design-count-copy>{count} diseños para elegir y personalizar</strong><br>Eagle Fly Free · Keeper · Dr. Stein · 40 Years · Buenos Aires 2026 · originales FMD</p>
-                <a class="band-landing-primary-cta" href="#catalogoPrincipal">VER LA COLECCIÓN</a>
+                <div class="band-landing-hero-actions">
+                    <a class="band-landing-primary-cta" href="#catalogoPrincipal">VER LA COLECCIÓN</a>
+
+                </div>
             </div>
             <div class="band-landing-hero-art">
                 <img src="/images/banda_sugeridas/helloween/helloween_40_tour.jpg" alt="Colección Helloween post-show en Five Magics Designs" width="1200" height="1200">
             </div>
-    </section>
+        </section>
         <section class="band-landing-garment-selector" id="catalogoPrincipal" aria-label="Elegir prenda Helloween">
             <div class="band-landing-garment-grid" role="tablist" aria-label="Prendas disponibles">
 
@@ -678,7 +683,7 @@
                 const active = Date.now() >= activationTime;
                 document.documentElement.classList.toggle('fmd-post-show-active', active);
                 document.querySelector('.band-landing-pre-show')?.setAttribute('aria-hidden', String(active));
-                document.querySelector('.helloween-post-show-hero')?.setAttribute('aria-hidden', String(!active));
+                document.querySelector(".helloween-post-show-hero")?.setAttribute('aria-hidden', String(!active));
                 if (!active) {
                     window.setTimeout(syncPostShowState, Math.min(activationTime - Date.now(), 2147483647));
                 }
