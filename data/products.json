@@ -11545,6 +11545,7 @@
         "img": "images/slayer/fmd_originals/remera_slayer_blanca_throne_blanca.jpg",
         "name": "Slayer FMD Originals Throne - Remera blanca frente y dorso",
         "garmentCategory": "Slayer",
+        "color": "blanco",
         "fmdBadge": "ORIGINAL FMD",
         "fmdBadgeDescription": "Arte original FMD Throne en remera blanca, con composicion de frente y dorso."
       },
@@ -17418,12 +17419,18 @@
     "defaultPrintMode": "doble",
     "usesShownComposition": true,
     "isNew": true,
-    "img": "images/banda_sugeridas/hermetica/remera_hermetica_victimas_blanca.jpg",
+    "img": "images/banda_sugeridas/hermetica/remera_hermetica_victimas.jpg",
     "variants": [
       {
-        "img": "images/banda_sugeridas/hermetica/remera_hermetica_victimas_blanca.jpg",
-        "name": "Víctimas del Vaciamiento - Remera blanca frente y dorso",
+        "img": "images/banda_sugeridas/hermetica/remera_hermetica_victimas.jpg",
+        "name": "Victimas del Vaciamiento - Remera",
         "designId": "hermetica-victimas-del-vaciamiento"
+      },
+      {
+        "img": "images/banda_sugeridas/hermetica/remera_hermetica_victimas_blanca.jpg",
+        "name": "Victimas del Vaciamiento - Remera blanca frente y dorso",
+        "designId": "hermetica-victimas-del-vaciamiento",
+        "color": "blanco"
       },
       {
         "img": "images/banda_sugeridas/hermetica/hoodie_hermetica_victimas.jpg",
