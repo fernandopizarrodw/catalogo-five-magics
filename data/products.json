@@ -4544,8 +4544,8 @@
         "role": "front"
       },
       {
-        "img": "images/vic_rattlehead/vic_my_last_words_logo_gris.jpg",
-        "name": "Logo Gris",
+        "img": "images/vic_rattlehead/vic_my_last_words_logo_gris_doble.png",
+        "name": "Logo Gris - Frente y dorso Tecnópolis 2026",
         "role": "front"
       }
     ],
@@ -10256,11 +10256,11 @@
     "defaultPrintMode": "doble",
     "usesShownComposition": true,
     "isNew": true,
-    "img": "images/banda_sugeridas/hermetica/remera_hermetica_acido.jpg",
+    "img": "images/banda_sugeridas/hermetica/remera_hermetica_acido.png",
     "variants": [
       {
-        "img": "images/banda_sugeridas/hermetica/remera_hermetica_acido.jpg",
-        "name": "Ácido Argentino - Remera",
+        "img": "images/banda_sugeridas/hermetica/remera_hermetica_acido.png",
+        "name": "Ácido Argentino - Remera frente y dorso",
         "designId": "hermetica-acido-argentino"
       },
       {
@@ -11540,6 +11540,13 @@
         "garmentCategory": "Buzo Cuello Redondo",
         "fmdBadge": "ORIGINAL FMD",
         "fmdBadgeDescription": "Arte original FMD Soldier V2 Graphic del universo Slayer, adaptado a buzo cuello redondo."
+      },
+      {
+        "img": "images/slayer/fmd_originals/remera_slayer_blanca_throne_blanca.jpg",
+        "name": "Slayer FMD Originals Throne - Remera blanca frente y dorso",
+        "garmentCategory": "Slayer",
+        "fmdBadge": "ORIGINAL FMD",
+        "fmdBadgeDescription": "Arte original FMD Throne en remera blanca, con composicion de frente y dorso."
       },
       {
         "img": "images/slayer/fmd_originals/buzos/buzo_slayer_fmd_south_of_heaven_graphic.jpg",
@@ -17411,11 +17418,11 @@
     "defaultPrintMode": "doble",
     "usesShownComposition": true,
     "isNew": true,
-    "img": "images/banda_sugeridas/hermetica/remera_hermetica_victimas.jpg",
+    "img": "images/banda_sugeridas/hermetica/remera_hermetica_victimas_blanca.jpg",
     "variants": [
       {
-        "img": "images/banda_sugeridas/hermetica/remera_hermetica_victimas.jpg",
-        "name": "Víctimas del Vaciamiento - Remera",
+        "img": "images/banda_sugeridas/hermetica/remera_hermetica_victimas_blanca.jpg",
+        "name": "Víctimas del Vaciamiento - Remera blanca frente y dorso",
         "designId": "hermetica-victimas-del-vaciamiento"
       },
       {
@@ -20085,6 +20092,13 @@
         "alt": "Hoodie Ricardo Iorio con logo al frente y retrato en blanco y negro en el dorso",
         "designId": "ricardo-iorio-blanco-y-negro",
         "garmentCategory": "Hoodies Otras Bandas"
+      },
+      {
+        "img": "images/banda_sugeridas/ricardo_iorio/remera_iorio_leyenda.png",
+        "name": "Ricardo Iorio - Leyenda - Frente",
+        "alt": "Remera negra Ricardo Iorio Leyenda con estampa frontal",
+        "designId": "ricardo-iorio-blanco-y-negro",
+        "role": "front"
       }
     ],
     "desc": "Ricardo Iorio en blanco y negro. Composición de frente y dorso disponible en remera y hoodie.",
@@ -21005,17 +21019,27 @@
         "designId": "pantera-cfh-simbolo-rojo",
         "color": "negro",
         "preferredPreview": true
+      },
+      {
+        "img": "images/pantera/buzo_pantera_logo_rojo.png",
+        "name": "CFH Símbolo Rojo - Buzo frente y dorso",
+        "alt": "Buzo negro Pantera con logo CFH rojo en el pecho y PANTERA en el dorso",
+        "designId": "pantera-cfh-simbolo-rojo",
+        "garmentCategory": "Buzo Cuello Redondo",
+        "color": "negro"
       }
     ],
     "desc": "Pantera - símbolo CFH en rojo.",
     "band": "Pantera",
     "album": "Cowboys from Hell",
     "garments": [
-      "remera"
+      "remera",
+      "buzo_cuello_redondo"
     ],
     "collections": [
       "Pantera Archive",
-      "Cowboys from Hell"
+      "Cowboys from Hell",
+      "Buzo Cuello Redondo"
     ],
     "campaigns": [],
     "commercialPriority": 82,
@@ -21029,7 +21053,9 @@
       "Groove Metal",
       "remera",
       "negro",
-      "estampa frontal"
+      "estampa frontal",
+      "buzo_cuello_redondo",
+      "frente y dorso"
     ]
   },
   {
