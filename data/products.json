@@ -17552,11 +17552,11 @@
     "defaultPrintMode": "doble",
     "usesShownComposition": true,
     "isNew": true,
-    "img": "images/iron_maiden/eddie_run_for_your_lives_tour/remera_iron_maiden_run_oficial.jpg",
+    "img": "images/iron_maiden/eddie_run_for_your_lives_tour/remera_iron_maiden_run_oficial_set_argentina.png",
     "variants": [
       {
-        "img": "images/iron_maiden/eddie_run_for_your_lives_tour/remera_iron_maiden_run_oficial.jpg",
-        "name": "Run For Your Lives World Tour 2026 - Remera",
+        "img": "images/iron_maiden/eddie_run_for_your_lives_tour/remera_iron_maiden_run_oficial_set_argentina.png",
+        "name": "Run For Your Lives World Tour 2026 - Set List Argentina",
         "designId": "iron-maiden-run-for-your-lives-2026-oficial"
       },
       {
@@ -21939,17 +21939,18 @@
     "name": "Iron Maiden - A Matter of Life and Death",
     "year": "2006",
     "album": "A Matter of Life and Death",
-    "img": "images/iron_maiden/iron_maiden_a_matter.jpg",
+    "img": "images/iron_maiden/iron_maiden_a_matter_doble.png",
     "desc": "Diseño de Iron Maiden inspirado en A Matter of Life and Death.",
     "designSlug": "iron-maiden-a-matter-of-life-and-death",
     "category": "Iron Maiden",
-    "tipoPrecio": "simple",
-    "defaultPrintMode": "frontal",
+    "tipoPrecio": "doble",
+    "defaultPrintMode": "doble",
+    "usesShownComposition": true,
     "isNew": true,
     "variants": [
       {
-        "img": "images/iron_maiden/iron_maiden_a_matter.jpg",
-        "name": "A Matter of Life and Death",
+        "img": "images/iron_maiden/iron_maiden_a_matter_doble.png",
+        "name": "A Matter of Life and Death - Frente y dorso",
         "designId": "iron-maiden-a-matter-of-life-and-death",
         "role": "front"
       }

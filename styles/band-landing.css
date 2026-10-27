@@ -2894,12 +2894,33 @@ body.band-landing-page[data-band="Argentina"] #modal .btn-add-cart {
 
     html.fmd-post-show-active body[data-band="Iron Maiden"] .maiden-post-show-hero .band-landing-hero-copy {
         width: min(100%, 470px);
+        min-width: 0;
         margin-inline: auto;
         text-align: center;
     }
 
+    html.fmd-post-show-active body[data-band="Iron Maiden"] .maiden-post-show-hero h1,
+    html.fmd-post-show-active body[data-band="Iron Maiden"] .maiden-post-show-hero h2 {
+        max-width: 100%;
+        overflow-wrap: anywhere;
+    }
+
+    html.fmd-post-show-active body[data-band="Iron Maiden"] .maiden-post-show-hero h1 {
+        font-size: clamp(2.65rem, 13vw, 4.1rem);
+        white-space: normal;
+        word-break: normal;
+    }
+
     html.fmd-post-show-active body[data-band="Iron Maiden"] .maiden-post-show-hero .band-landing-hero-actions {
         justify-content: center;
+    }
+
+    body.band-landing-page[data-band="Iron Maiden"] .btn-back-catalog {
+        display: none;
+    }
+
+    body.band-landing-page[data-band="Iron Maiden"] .header-content {
+        justify-content: space-between;
     }
 
     .band-landing-related-archive {

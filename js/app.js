@@ -4991,8 +4991,17 @@ function renderDorsoSelector() {
             const selected = selectedCatalogBackRef
                 && Number(selectedCatalogBackRef.productId) === Number(ref.productId)
                 && Number(selectedCatalogBackRef.variantIndex) === Number(ref.variantIndex);
-            const searchText = normalizeText([ref.label, ref.band, ref.productId, `${ref.productId}.v${Number(ref.variantIndex) + 1}`].join(' '));
-            return `<div class="catalog-design-dorso-choice" data-dorso-search="${searchText}">
+            const backProduct = db.find(product => Number(product.id) === Number(ref.productId));
+            const orderCode = cart.generateCode(ref.productId, ref.variantIndex);
+            const orderVariantNumber = getOrderCodeVariantIndex(backProduct, ref.variantIndex) + 1;
+            const searchText = normalizeText([
+                ref.label,
+                ref.band,
+                ref.productId,
+                `${ref.productId}.v${orderVariantNumber}`,
+                orderCode
+            ].join(' '));
+            return `<div class="catalog-design-dorso-choice" data-dorso-search="${searchText}" data-dorso-product-id="${ref.productId}" data-dorso-variant-index="${ref.variantIndex}">
                 <button type="button" class="dorso-variant-item catalog-design-dorso${selected ? ' selected' : ''}"
                         aria-pressed="${selected ? 'true' : 'false'}"
                         onclick="selectCatalogDesignBack(${ref.productId}, ${ref.variantIndex})">
@@ -5063,8 +5072,13 @@ window.previewDorsoVariant = previewDorsoVariant;
 
 function filterCatalogDesignBacks(query = '') {
     const term = normalizeText(query);
+    const codeData = parseProductCode(query);
     document.querySelectorAll('#dorsoVariantsGrid [data-dorso-search]').forEach(choice => {
-        choice.hidden = Boolean(term) && !choice.dataset.dorsoSearch.includes(term);
+        const product = db.find(item => Number(item.id) === Number(choice.dataset.dorsoProductId));
+        const codeMatches = codeData
+            && Number(choice.dataset.dorsoProductId) === Number(codeData.id)
+            && Number(choice.dataset.dorsoVariantIndex) === getRawVariantIndexFromOrderCode(product, codeData.variantIndex);
+        choice.hidden = Boolean(term) && !choice.dataset.dorsoSearch.includes(term) && !codeMatches;
     });
     document.querySelectorAll('#dorsoVariantsGrid details.catalog-design-dorso-all').forEach(group => {
         const hasMatch = [...group.querySelectorAll('[data-dorso-search]')].some(choice => !choice.hidden);
