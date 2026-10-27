@@ -1981,6 +1981,21 @@ function isBackVariant(variant) {
     return searchable.includes('dorso') || /(^|[\s_.-])back([\s_.-]|$)/.test(searchable);
 }
 
+function hasSyntheticFrontVariant(product) {
+    const variants = Array.isArray(product?.variants) ? product.variants : [];
+    return variants.length > 0
+        && !variants.some(variant => !isBackVariant(variant))
+        && variants.some(isBackVariant);
+}
+
+function getOrderCodeVariantIndex(product, variantIndex) {
+    return hasSyntheticFrontVariant(product) ? Number(variantIndex) + 1 : Number(variantIndex);
+}
+
+function getRawVariantIndexFromOrderCode(product, orderVariantIndex) {
+    return hasSyntheticFrontVariant(product) ? Number(orderVariantIndex) - 1 : Number(orderVariantIndex);
+}
+
 function isFrontVariant(variant) {
     if (!variant) return false;
     return normalizeText(variant.role) === 'front';
@@ -2138,7 +2153,7 @@ function getSearchResults(query, sourceProducts = db, useGlobalCodeLookup = fals
             .map(product => ({
                 ...product,
                 matchedVariantIndex: typeof codeData.variantIndex === 'number'
-                    ? Math.min(codeData.variantIndex, Math.max((product.variants?.length || 1) - 1, 0))
+                    ? Math.max(0, Math.min(getRawVariantIndexFromOrderCode(product, codeData.variantIndex), Math.max((product.variants?.length || 1) - 1, 0)))
                     : undefined,
                 matchedCode: normalized
             }));
@@ -2168,10 +2183,11 @@ function openExactCodeMatch(query, afterOpen) {
                     ...Object.values(item.previewsByGarment || {}).flat(),
                     ...(item.backOptions || [])
                 ];
-                const matchedRef = refs.find(ref => (
-                    Number(ref.productId) === Number(codeData.id)
-                    && Number(ref.variantIndex) === Number(codeData.variantIndex)
-                ));
+                const matchedRef = refs.find(ref => {
+                    if (Number(ref.productId) !== Number(codeData.id)) return false;
+                    const product = db.find(item => Number(item.id) === Number(ref.productId));
+                    return Number(ref.variantIndex) === getRawVariantIndexFromOrderCode(product, codeData.variantIndex);
+                });
                 if (matchedRef) matchedCatalogRef = matchedRef;
                 if (matchedRef?.role === 'front') matchedGarment = matchedRef.garment || '';
                 return Boolean(matchedRef);
@@ -3287,7 +3303,8 @@ class CartSystem {
         
         const abbrev = this.generateProductAbbreviation(product.name);
         const baseCode = `${abbrev}-${String(productId).padStart(3, '0')}`;
-        const variantPart = product.variants && product.variants.length > 1 ? `.V${variantIndex + 1}` : '';
+        const codeVariantIndex = getOrderCodeVariantIndex(product, variantIndex);
+        const variantPart = product.variants && product.variants.length > 1 ? `.V${codeVariantIndex + 1}` : '';
         return `${baseCode}${variantPart}`;
     }
 
@@ -7069,10 +7086,11 @@ function getCatalogDesignExactCodeRef(design, query) {
         ...Object.values(design.previewsByGarment || {}).flat(),
         ...(design.backOptions || [])
     ];
-    return refs.find(ref => (
-        Number(ref.productId) === Number(codeData.id)
-        && Number(ref.variantIndex) === Number(codeData.variantIndex)
-    )) || null;
+    return refs.find(ref => {
+        if (Number(ref.productId) !== Number(codeData.id)) return false;
+        const product = db.find(item => Number(item.id) === Number(ref.productId));
+        return Number(ref.variantIndex) === getRawVariantIndexFromOrderCode(product, codeData.variantIndex);
+    }) || null;
 }
 
 function getBandLandingAlbumOrderIndex(design) {
