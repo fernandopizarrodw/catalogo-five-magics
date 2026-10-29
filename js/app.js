@@ -5651,29 +5651,8 @@ function getCatalogDesignFrontRefs(design) {
         seen.add(key);
         return true;
     });
-    const galleryRefs = [];
-    const gallerySeen = new Set();
-    frontRefs.forEach(ref => {
-        const product = db.find(item => Number(item?.id) === Number(ref.productId));
-        (product?.gallery || []).forEach((galleryItem, galleryIndex) => {
-            const image = String(galleryItem?.img || '').trim();
-            if (!image || gallerySeen.has(image)) return;
-            gallerySeen.add(image);
-            galleryRefs.push({
-                productId: ref.productId,
-                variantIndex: ref.variantIndex,
-                image,
-                label: galleryItem?.name || `Detalle ${galleryIndex + 1}`,
-                previewLabel: galleryItem?.name || `Detalle ${galleryIndex + 1}`,
-                alt: galleryItem?.alt || galleryItem?.name || 'Detalle del diseño',
-                role: 'gallery',
-                garment: ref.garment,
-                modalOrder: 100 + galleryIndex
-            });
-        });
-    });
     const carouselBacks = (design.backOptions || []).filter(ref => ref.carouselPreview);
-    return [...frontRefs, ...galleryRefs, ...carouselBacks].sort((a, b) => {
+    return [...frontRefs, ...carouselBacks].sort((a, b) => {
         const aOrder = Number.isFinite(a.modalOrder) ? a.modalOrder : Number.MAX_SAFE_INTEGER;
         const bOrder = Number.isFinite(b.modalOrder) ? b.modalOrder : Number.MAX_SAFE_INTEGER;
         return aOrder - bOrder;

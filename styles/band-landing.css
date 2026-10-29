@@ -1488,6 +1488,37 @@ body[data-band="Iron Maiden"] .band-anniversary-collection .band-featured-collec
     margin-top: 20px;
 }
 
+.band-anniversary-production {
+    margin-top: 18px;
+    padding: 12px;
+    border: 1px solid rgba(255, 154, 118, 0.34);
+    border-radius: 12px;
+    background: rgba(8, 9, 10, 0.72);
+}
+
+.band-anniversary-production summary {
+    color: #ffb099;
+    cursor: pointer;
+    font-family: "Oswald", sans-serif;
+    font-size: 0.84rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-align: center;
+}
+
+.band-anniversary-production p {
+    margin: 10px 0 0;
+    color: #d8e4ee;
+    font-family: "Inter", sans-serif;
+    font-size: 0.86rem;
+    text-align: center;
+}
+
+.band-anniversary-production:not([open]) .band-anniversary-gallery,
+.band-anniversary-production:not([open]) p {
+    display: none;
+}
+
 .band-anniversary-gallery button {
     min-width: 0;
     padding: 0;
