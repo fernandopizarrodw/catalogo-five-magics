@@ -25793,6 +25793,38 @@
     "isNew": true,
     "img": "images/iron_maiden/iron maiden fmd edition/IRON FMD.jpg",
     "desc": "Diseño conmemorativo original FMD de las dos noches de Iron Maiden en el Estadio Huracán.",
+    "gallery": [
+      {
+        "img": "images/iron_maiden/iron maiden fmd edition/fmd5.jpg",
+        "name": "Frente completo",
+        "alt": "Run For Argentina 50 Years con frente completo"
+      },
+      {
+        "img": "images/iron_maiden/iron maiden fmd edition/fmd2.jpg",
+        "name": "Detalle con bandera argentina",
+        "alt": "Detalle del frente Run For Argentina con bandera argentina"
+      },
+      {
+        "img": "images/iron_maiden/iron maiden fmd edition/fmd4.jpg",
+        "name": "Detalle de impresión",
+        "alt": "Detalle superior de la impresión Run For Argentina"
+      },
+      {
+        "img": "images/iron_maiden/iron maiden fmd edition/5-fmd.jpg",
+        "name": "Escenario, músicos y público",
+        "alt": "Detalle del escenario, músicos y público del diseño Run For Argentina"
+      },
+      {
+        "img": "images/iron_maiden/iron maiden fmd edition/fmd6.jpg",
+        "name": "Dorso con set list",
+        "alt": "Dorso Run For Argentina con perfil de Eddie y set list"
+      },
+      {
+        "img": "images/iron_maiden/iron maiden fmd edition/fmd1.jpg",
+        "name": "Frente y manga",
+        "alt": "Frente Run For Argentina y logo FMD en la manga"
+      }
+    ],
     "variants": [
       {
         "img": "images/iron_maiden/iron maiden fmd edition/IRON FMD.jpg",

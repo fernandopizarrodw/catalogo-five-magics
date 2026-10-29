@@ -1481,6 +1481,61 @@ body[data-band="Iron Maiden"] .band-anniversary-collection .band-featured-collec
     border-color: rgba(255, 154, 118, 0.82);
 }
 
+.band-anniversary-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.band-anniversary-gallery button {
+    min-width: 0;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid rgba(255, 154, 118, 0.36);
+    border-radius: 12px;
+    color: #fff;
+    background: #090a0b;
+    cursor: zoom-in;
+    text-align: left;
+}
+
+.band-anniversary-gallery img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    background: #08090a;
+}
+
+.band-anniversary-gallery span {
+    display: block;
+    min-height: 36px;
+    padding: 8px 9px;
+    font-family: "Oswald", sans-serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.band-anniversary-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 14px;
+}
+
+.band-anniversary-actions .band-featured-collection-cta {
+    margin: 0;
+}
+
+.band-anniversary-all-designs {
+    border-color: rgba(255, 255, 255, 0.36);
+    background: rgba(255, 255, 255, 0.07);
+}
+
 .band-landing-hero-copy {
     position: relative;
     z-index: 1;
@@ -3121,6 +3176,25 @@ body.band-landing-page[data-band="Argentina"] #modal .btn-add-cart {
         grid-column: 1 / -1;
         width: min(100%, 340px);
         justify-self: center;
+    }
+
+    .band-anniversary-gallery {
+        display: flex;
+        width: calc(100% + 12px);
+        margin-left: -6px;
+        padding: 2px 6px 10px;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: thin;
+    }
+
+    .band-anniversary-gallery button {
+        flex: 0 0 min(76vw, 290px);
+        scroll-snap-align: start;
+    }
+
+    .band-anniversary-actions .band-featured-collection-cta {
+        width: 100%;
     }
 
     body[data-band="Iron Maiden"] .band-tour-collection.band-featured-collection--single .band-featured-collection-grid {
