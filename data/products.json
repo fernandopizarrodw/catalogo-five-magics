@@ -13695,6 +13695,14 @@
       {
         "img": "images/acdc/acdc_pwrup_dorso.jpg",
         "name": "Dorso"
+      },
+      {
+        "img": "images/acdc/acdc_pwrup_doble.jpg",
+        "name": "Frente y dorso",
+        "role": "front",
+        "defaultPrintMode": "double",
+        "usesShownComposition": true,
+        "autoSelectBack": "Dorso"
       }
     ],
     "desc": "AC/DC PWR UP - DiseÃ±o con frente y dorso en un mismo carrusel.",
@@ -16430,6 +16438,14 @@
         "img": "images/iron_maiden/dorsos opcionales/fmd_eddie_run_for_dorso.jpg",
         "name": "Dorso",
         "role": "back"
+      },
+      {
+        "img": "images/iron_maiden/iron_maiden_doble_argentina.jpg",
+        "name": "Frente y dorso",
+        "role": "front",
+        "defaultPrintMode": "double",
+        "usesShownComposition": true,
+        "autoSelectBack": "Dorso"
       }
     ],
     "desc": "Diseno Iron Maiden edicion FMD 2026. Disponible para remera, hoodie y buzo cuello redondo.",
@@ -16847,6 +16863,14 @@
         "img": "images/iron_maiden/dorsos opcionales/tour_merch_powerslave_dorso.jpg",
         "name": "Dorso",
         "role": "back"
+      },
+      {
+        "img": "images/iron_maiden/9 discos 1 tour/tour_merch_powerslave_doble.jpg",
+        "name": "Frente y dorso",
+        "role": "front",
+        "defaultPrintMode": "double",
+        "usesShownComposition": true,
+        "autoSelectBack": "Dorso"
       }
     ],
     "desc": "Diseno Iron Maiden edicion FMD 2026. Disponible para remera, hoodie y buzo cuello redondo.",
@@ -25823,6 +25847,11 @@
         "img": "images/iron_maiden/iron maiden fmd edition/fmd1.jpg",
         "name": "Frente y manga",
         "alt": "Frente Run For Argentina y logo FMD en la manga"
+      },
+      {
+        "img": "images/iron_maiden/iron maiden fmd edition/fmd7.jpg",
+        "name": "Detalle del dorso",
+        "alt": "Detalle de la impresion del dorso Run For Argentina"
       }
     ],
     "variants": [
@@ -25936,6 +25965,14 @@
         "img": "images/iron_maiden/dorsos_conmemorativos_set_list_argentina/dorso_iron_maiden_set_list_argentina.jpg.jpg",
         "name": "Dorso Set List · Argentina 2026",
         "selectionLabel": "Dorso Set List · Argentina 2026",
+        "role": "back",
+        "tourRecommendation": true,
+        "featuredBack": true
+      },
+      {
+        "img": "images/iron_maiden/dorsos_conmemorativos_set_list_argentina/dorso_bruce_fear_set_list_argentina.jpg.jpg",
+        "name": "Dorso Bruce Fear of the Dark Set List Argentina 2026",
+        "selectionLabel": "Dorso Bruce Fear of the Dark Set List Argentina 2026",
         "role": "back",
         "tourRecommendation": true,
         "featuredBack": true

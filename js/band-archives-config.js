@@ -574,7 +574,8 @@
                     { label: 'EDDIE HACHA NEGRO · SET LIST', image: '/images/iron_maiden/dorsos_conmemorativos_set_list_argentina/dorso_eddie_black_set_list_argentina.jpg', productId: 7308, variantIndex: 4 },
                     { label: 'EDDIE HURACÁN · TORMENTA · SET LIST', image: '/images/iron_maiden/dorsos_conmemorativos_set_list_argentina/dorso_eddie_huracan_destruction_set_list_argentina.jpg', productId: 7308, variantIndex: 5 },
                     { label: 'EDDIE RUN FOR YOUR LIVES · SET LIST', image: '/images/iron_maiden/dorsos_conmemorativos_set_list_argentina/dorso_eddie_run_for__set_list_argentina.jpg', productId: 7308, variantIndex: 6 },
-                    { label: 'SET LIST · ARGENTINA 2026', image: '/images/iron_maiden/dorsos_conmemorativos_set_list_argentina/dorso_iron_maiden_set_list_argentina.jpg.jpg', productId: 7308, variantIndex: 7 }
+                    { label: 'SET LIST · ARGENTINA 2026', image: '/images/iron_maiden/dorsos_conmemorativos_set_list_argentina/dorso_iron_maiden_set_list_argentina.jpg.jpg', productId: 7308, variantIndex: 7 },
+                    { label: 'BRUCE · FEAR OF THE DARK · SET LIST', image: '/images/iron_maiden/dorsos_conmemorativos_set_list_argentina/dorso_bruce_fear_set_list_argentina.jpg.jpg', productId: 7308, variantIndex: 8 }
                 ]
             },
             retiredDesignIds: [
