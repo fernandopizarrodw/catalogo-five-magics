@@ -423,7 +423,7 @@ html.fmd-post-show-active body[data-band="Iron Maiden"] .maiden-post-show-hero {
     border-color: rgba(116, 194, 255, 0.64);
     background:
         linear-gradient(90deg, rgba(3, 7, 13, 0.94) 0%, rgba(3, 7, 13, 0.81) 42%, rgba(3, 7, 13, 0.26) 72%, rgba(3, 7, 13, 0.18) 100%),
-        url("../images/iron_maiden/background/jinetes-hero-desktop.jpg") center / cover no-repeat;
+        url("../images/iron_maiden/background/16 9 Iron Maiden y Eddie en Buenos Aires.png") center / cover no-repeat;
 }
 
 html.fmd-post-show-active body[data-band="Iron Maiden"] .maiden-post-show-hero .band-landing-hero-copy {
@@ -2944,7 +2944,7 @@ body.band-landing-page[data-band="Argentina"] #modal .btn-add-cart {
         padding: 30px 20px;
         background:
             linear-gradient(180deg, rgba(2, 5, 9, 0.78) 0%, rgba(2, 5, 9, 0.72) 100%),
-            url("../images/iron_maiden/background/jinetes-hero-mobile.jpg") center / cover no-repeat;
+            url("../images/iron_maiden/background/4_5 MAIDEN ANIVERSARIO FMD.png") center / cover no-repeat;
     }
 
     html.fmd-post-show-active body[data-band="Iron Maiden"] .maiden-post-show-hero .band-landing-hero-copy {
