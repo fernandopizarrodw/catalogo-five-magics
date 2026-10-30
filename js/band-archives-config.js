@@ -1820,8 +1820,8 @@
             band: 'Def Leppard',
             displayName: 'DEF LEPPARD',
             heroDisplayName: 'DEF LEPPARD · ARGENTINA 2026',
-            title: 'Def Leppard Argentina 2026: remeras, hoodies y buzos | Five Magics Designs',
-            description: 'Colecci\u00f3n especial de Def Leppard para Argentina 2026. Dise\u00f1os de Hysteria, Pyromania, cl\u00e1sicos y Tour 2026 en remeras, hoodies y buzos hechos a pedido.',
+            title: 'Def Leppard Argentina 2026: remeras | Five Magics Designs',
+            description: 'Colecci\u00f3n especial de Def Leppard para Argentina 2026. Dise\u00f1os de Hysteria, Pyromania, cl\u00e1sicos y Tour 2026 en remeras hechas a pedido.',
             canonical: 'https://catalogo.fivemagicsdesigns.com/def-leppard/',
             image: '/images/banda_sugeridas/def_leppard/def 8.jpg',
             imageUrl: 'https://catalogo.fivemagicsdesigns.com/images/banda_sugeridas/def_leppard/def 8.jpg',
@@ -1853,9 +1853,7 @@
                 'def-leppard-love-bites'
             ],
             garments: [
-                { key: 'remera', title: 'REMERAS', price: 'Frontal $38.000 \u00b7 Doble $45.000', image: '/images/banda_sugeridas/def_leppard/def 8.jpg', alt: 'Remera Def Leppard Tour 2026 Argentina' },
-                { key: 'hoodie', title: 'HOODIES', price: 'Frontal $53.000 \u00b7 Doble $60.000', image: '/images/banda_sugeridas/def_leppard/def 8.jpg', alt: 'Hoodie Def Leppard Tour 2026 Argentina' },
-                { key: 'buzo_cuello_redondo', title: 'BUZOS', price: 'Frontal $51.000 \u00b7 Doble $56.000', image: '/images/banda_sugeridas/def_leppard/def 8.jpg', alt: 'Buzo Def Leppard Tour 2026 Argentina' }
+                { key: 'remera', title: 'REMERAS', price: 'Frontal $38.000 \u00b7 Doble $45.000', image: '/images/banda_sugeridas/def_leppard/def 8.jpg', alt: 'Remera Def Leppard Tour 2026 Argentina' }
             ]
         },
         {
