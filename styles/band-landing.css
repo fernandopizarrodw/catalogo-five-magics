@@ -1859,6 +1859,28 @@ body.band-landing-page[data-band="Iron Maiden"] .btn-wa-header svg circle {
     gap: 16px;
 }
 
+/* Def Leppard is currently presented as a remera-only collection. */
+body[data-band="Def Leppard"] .july-shipping-promo {
+    width: min(760px, calc(100% - 32px));
+    padding: 16px 20px 18px;
+    gap: 4px;
+}
+
+body[data-band="Def Leppard"] .july-shipping-promo strong {
+    font-size: clamp(1.35rem, 3.5vw, 2rem);
+    line-height: 1.05;
+    letter-spacing: 0.06em;
+}
+
+body[data-band="Def Leppard"] .shipping-promo-options {
+    margin-top: 6px;
+}
+
+body[data-band="Def Leppard"] .shipping-promo-options span {
+    min-height: 0;
+    padding: 11px 12px;
+}
+
 .band-landing-garment-card {
     min-width: 0;
     padding: 0;
