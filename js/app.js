@@ -4916,7 +4916,16 @@ function getCatalogDesignBackChoices() {
                     ? 'Recomendado'
                     : 'Archivo'
         }));
-    return [...specific, ...historical];
+    const choices = [...specific, ...historical];
+    const defaultBackLabel = currentCatalogDesign.front?.autoSelectBack;
+    const defaultBackIndex = choices.findIndex(ref => (
+        normalizeText(ref.selectionLabel || ref.label) === normalizeText(defaultBackLabel)
+    ));
+    if (defaultBackIndex > 0) {
+        const [defaultBack] = choices.splice(defaultBackIndex, 1);
+        choices.unshift({ ...defaultBack, backType: 'Recomendado' });
+    }
+    return choices;
 }
 
 function previewCatalogDesignBack(productId, variantIndex) {
@@ -5714,6 +5723,11 @@ function openCatalogDesign(designId, initialGarment = '') {
         pendingCatalogBackRef = null;
         updatePendingCatalogBackNotice();
         updatePrintModeUI();
+        renderDorsoSelector();
+        updateModalPrices();
+        updateDobleWaLink();
+    } else if (currentCatalogDesign.front?.autoSelectBack) {
+        applyCatalogPreviewSelection(currentCatalogDesign.front);
         renderDorsoSelector();
         updateModalPrices();
         updateDobleWaLink();
