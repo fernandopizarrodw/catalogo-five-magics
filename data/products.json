@@ -3521,6 +3521,140 @@
     "curationNotes": "Clasificación basada en metadata y revisión existente"
   },
   {
+    "id": 7314,
+    "category": "Musician",
+    "year": "2026",
+    "name": "Marty Friedman",
+    "tipoPrecio": "simple",
+    "img": "images/musicians/Marty_Friedman/TOUR 4.jpg",
+    "variants": [
+      {
+        "img": "images/musicians/Marty_Friedman/TOUR 4.jpg",
+        "name": "Scenes · 34th Anniversary · Buenos Aires 2026",
+        "designId": "marty-friedman-scenes-34th-anniversary-buenos-aires-2026",
+        "isNew": true
+      },
+      {
+        "img": "images/musicians/Marty_Friedman/TOUR.jpg",
+        "name": "Scenes · 34th Anniversary Tour",
+        "designId": "marty-friedman-scenes-34th-anniversary-tour",
+        "usesShownComposition": true,
+        "defaultPrintMode": "double",
+        "isNew": true
+      },
+      {
+        "img": "images/musicians/Marty_Friedman/TOUR 2.jpg",
+        "name": "Scenes · Buenos Aires 2026 · Doble estampa",
+        "designId": "marty-friedman-scenes-buenos-aires-2026-doble-estampa",
+        "usesShownComposition": true,
+        "defaultPrintMode": "double",
+        "isNew": true
+      },
+      {
+        "img": "images/musicians/Marty_Friedman/4-5 FOR IG MOCK REMERA.jpg",
+        "name": "Marty Friedman · Buenos Aires 2026 Live",
+        "designId": "marty-friedman-buenos-aires-2026-live",
+        "isNew": true
+      },
+      {
+        "img": "images/musicians/Marty_Friedman/SCENES 1.jpg",
+        "name": "Scenes (1992)",
+        "designId": "marty-friedman-scenes-1992",
+        "isNew": true
+      },
+      {
+        "img": "images/musicians/Marty_Friedman/TOUR 3.jpg",
+        "name": "Scenes · 34th Anniversary",
+        "designId": "marty-friedman-scenes-34th-anniversary",
+        "isNew": true
+      },
+      {
+        "img": "images/musicians/Marty_Friedman/CACOPHONY.jpg",
+        "name": "Cacophony · Marty Friedman & Jason Becker",
+        "designId": "marty-friedman-cacophony-marty-friedman-jason-becker",
+        "isNew": true
+      },
+      {
+        "img": "images/musicians/Marty_Friedman/DRAGON.jpg",
+        "name": "Dragon's Kiss",
+        "designId": "marty-friedman-dragons-kiss",
+        "isNew": true
+      },
+      {
+        "img": "images/musicians/Marty_Friedman/DRAMA 1.jpg",
+        "name": "Drama",
+        "designId": "marty-friedman-drama",
+        "isNew": true
+      },
+      {
+        "img": "images/musicians/Marty_Friedman/INTRODUCTION.jpg",
+        "name": "Introduction",
+        "designId": "marty-friedman-introduction",
+        "isNew": true
+      },
+      {
+        "img": "images/musicians/Marty_Friedman/MARTY 1.jpg",
+        "name": "Marty Friedman · Logo rojo",
+        "designId": "marty-friedman-logo-rojo",
+        "isNew": true
+      },
+      {
+        "img": "images/musicians/Marty_Friedman/MARTY 2.jpg",
+        "name": "Marty Friedman · Símbolo",
+        "designId": "marty-friedman-simbolo",
+        "isNew": true
+      },
+      {
+        "img": "images/musicians/Marty_Friedman/MARTY BAND.jpg",
+        "name": "Marty Friedman Band",
+        "designId": "marty-friedman-band",
+        "isNew": true
+      },
+      {
+        "img": "images/musicians/Marty_Friedman/PHOTO LIVE.jpg",
+        "name": "Marty Friedman · Live",
+        "designId": "marty-friedman-live",
+        "isNew": true
+      },
+      {
+        "img": "images/musicians/Marty_Friedman/PHOTO LIVE 2.jpg",
+        "name": "Marty Friedman · Live Smoke",
+        "designId": "marty-friedman-live-smoke",
+        "isNew": true
+      }
+    ],
+    "desc": "Colección especial Marty Friedman en Argentina: 34 años de Scenes, clásicos solistas, Cacophony y diseños para Buenos Aires 2026.",
+    "band": "Marty Friedman",
+    "universe": [
+      "Guitar Heroes",
+      "Heavy Metal Classics"
+    ],
+    "album": "Scenes",
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Marty Friedman Archive",
+      "Marty Friedman Argentina 2026",
+      "Scenes"
+    ],
+    "campaigns": [
+      "Marty Friedman Argentina 2026"
+    ],
+    "commercialPriority": 90,
+    "visibilityTier": "featured",
+    "legacyCategory": "Musician",
+    "tags": [
+      "Marty Friedman",
+      "Scenes",
+      "Cacophony",
+      "Jason Becker",
+      "Guitar Heroes",
+      "remera"
+    ],
+    "isNew": true
+  },
+  {
     "id": 30,
     "category": "Musician",
     "year": "Leyenda",
