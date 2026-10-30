@@ -3502,7 +3502,7 @@ class CartSystem {
             const extraLines = additionalDetails.length
                 ? `\n${additionalDetails.map(detail => `* ${detail}`).join('\n')}`
                 : '';
-            return `${idx + 1}) ${frontCode} — ${productName}
+            return `${idx + 1}) ${productName}
 * Prenda: ${tipoPrenda}
 * Talle: ${talle}
 * Color: ${color}
@@ -3569,9 +3569,7 @@ ${frontLine}${backLine}${extraLines}
                     ? `* Diseño: ${item.frontName || item.frontCode}\n* Dorso: a definir`
                     : `* Diseño: ${item.frontName || item.code}`;
             const price = itemPrices[idx].toLocaleString('es-AR');
-            const code = item.frontCode || item.code;
-
-            return `${idx + 1}) ${code} — ${item.productName}
+            return `${idx + 1}) ${item.productName}
 * Prenda: ${garment}
 * Talle: ${item.size || 'A confirmar'}
 * Color: ${color}
