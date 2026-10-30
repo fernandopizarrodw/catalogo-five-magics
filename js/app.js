@@ -7397,6 +7397,11 @@ const FEATURED_COLLECTION_ART = Object.freeze({
         alt: 'Remera Helloween Pumpkin Logo',
         badge: 'SHOW ARGENTINA · 13 SEP'
     },
+    'def leppard': {
+        image: 'images/banda_sugeridas/def_leppard/def 3.jpg',
+        alt: 'Def Leppard Hysteria 1988 Tour',
+        badge: 'ARGENTINA · 5 NOV'
+    },
     pantera: { image: 'images/pantera/remera_pantera_the_great_southern_trendkill.jpg', alt: 'Diseño representativo de Pantera' },
     metallica: { image: 'images/metallica/metallica_master_of_puppets_realistic.jpg', alt: 'Master Realista de Metallica' }
 });
@@ -7412,7 +7417,7 @@ function renderCatalogBandDirectory(products) {
     groups.forEach(group => group.sort(compareProductsByVisibilityThenPriority));
 
     const findLabel = label => [...groups.keys()].find(groupLabel => normalizeText(groupLabel) === normalizeText(label));
-    const initialLabels = ['Megadeth', 'Slayer', 'Iron Maiden', 'Ricardo Iorio', 'Helloween', 'Metallica']
+    const initialLabels = ['Megadeth', 'Slayer', 'Iron Maiden', 'Ricardo Iorio', 'Helloween', 'Metallica', 'Def Leppard']
         .map(findLabel)
         .filter(Boolean);
     const initialLabelKeys = new Set(initialLabels.map(normalizeText));

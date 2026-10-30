@@ -8178,9 +8178,53 @@
       {
         "img": "images/banda_sugeridas/def_leppard/def_leppard_pyromania_w.jpg",
         "name": "Pyromania White"
+      },
+      {
+        "img": "images/banda_sugeridas/def_leppard/def 1.jpg",
+        "name": "Def Leppard · Shattered Logo"
+      },
+      {
+        "img": "images/banda_sugeridas/def_leppard/def 2.jpg",
+        "name": "Rock Till You Drop · 1983"
+      },
+      {
+        "img": "images/banda_sugeridas/def_leppard/def 3.jpg",
+        "name": "Hysteria · 1988 Tour"
+      },
+      {
+        "img": "images/banda_sugeridas/def_leppard/def 4.jpg",
+        "name": "Def Leppard · Logo clásico"
+      },
+      {
+        "img": "images/banda_sugeridas/def_leppard/def 5.jpg",
+        "name": "Hysteria · Leopardo eléctrico"
+      },
+      {
+        "img": "images/banda_sugeridas/def_leppard/def 6.jpg",
+        "name": "Def Leppard · Est. 1977"
+      },
+      {
+        "img": "images/banda_sugeridas/def_leppard/def 7.jpg",
+        "name": "Rock Brigade"
+      },
+      {
+        "img": "images/banda_sugeridas/def_leppard/def 8.jpg",
+        "name": "Def Leppard · Tour 2026"
+      },
+      {
+        "img": "images/banda_sugeridas/def_leppard/def 9.jpg",
+        "name": "Pyromania · Leopardo"
+      },
+      {
+        "img": "images/banda_sugeridas/def_leppard/def 10.jpg",
+        "name": "Hysteria · Rock Brigade"
+      },
+      {
+        "img": "images/banda_sugeridas/def_leppard/def 11.jpg",
+        "name": "Love Bites"
       }
     ],
-    "desc": "Def Leppard - Rock glam de los 80s con 4 diseÃ±os de sus Ã¡lbumes.",
+    "desc": "Coleccion especial Def Leppard en Argentina: Hysteria, Pyromania, clasicos y ediciones de gira para el show del 5 de noviembre en Movistar Arena.",
     "band": "Def Leppard",
     "universe": [
       "Rock Legends",
@@ -8191,9 +8235,14 @@
       "remera"
     ],
     "collections": [
-      "Def Leppard Archive"
+      "Def Leppard Archive",
+      "Def Leppard Argentina 2026",
+      "Hysteria",
+      "Pyromania"
     ],
-    "campaigns": [],
+    "campaigns": [
+      "Def Leppard Argentina 2026"
+    ],
     "commercialPriority": 78,
     "visibilityTier": "featured",
     "legacyCategory": "Bandas Sugeridas",
