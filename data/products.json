@@ -8161,8 +8161,12 @@
     "year": "2026",
     "name": "Def Leppard",
     "tipoPrecio": "simple",
-    "img": "images/banda_sugeridas/def_leppard/def_leppard_hysteria.jpg",
+    "img": "images/banda_sugeridas/def_leppard/def 8.jpg",
     "variants": [
+      {
+        "img": "images/banda_sugeridas/def_leppard/def 8.jpg",
+        "name": "Def Leppard · Tour 2026"
+      },
       {
         "img": "images/banda_sugeridas/def_leppard/def_leppard_hysteria.jpg",
         "name": "Hysteria"
@@ -8206,10 +8210,6 @@
       {
         "img": "images/banda_sugeridas/def_leppard/def 7.jpg",
         "name": "Rock Brigade"
-      },
-      {
-        "img": "images/banda_sugeridas/def_leppard/def 8.jpg",
-        "name": "Def Leppard · Tour 2026"
       },
       {
         "img": "images/banda_sugeridas/def_leppard/def 9.jpg",
