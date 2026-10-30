@@ -25416,6 +25416,7 @@
         "preferredPreview": true,
         "modalOrder": 1,
         "defaultPrintMode": "double",
+        "autoSelectBack": "Dorso Eddie Argentina · Estadio Huracán",
         "fmdBadge": "ORIGINAL FMD",
         "fmdBadgeDescription": "Diseño original creado por Five Magics Designs para Buenos Aires 2026."
       },
@@ -25990,7 +25991,7 @@
     "year": "2026",
     "album": null,
     "tipoPrecio": "simple",
-    "defaultPrintMode": "simple",
+    "defaultPrintMode": "double",
     "catalogStartingPrice": 40000,
     "catalogGarments": ["remera"],
     "modalPriceOverrides": {
@@ -26045,6 +26046,8 @@
         "selectionLabel": "Frente RUN FOR ARGENTINA • 50 YEARS",
         "role": "front",
         "preferredPreview": true,
+        "defaultPrintMode": "double",
+        "autoSelectBack": "Dorso Eddie · Set List Argentina 2026",
         "fmdBadge": "ORIGINAL FMD"
       },
       {

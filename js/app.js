@@ -5013,7 +5013,7 @@ function renderDorsoSelector() {
                     <img src="${ref.image}" alt="${ref.label}" loading="lazy" decoding="async">
                     <span><strong>${ref.label}</strong><small>${ref.backType === 'Conmemorativo' ? 'Dorso conmemorativo' : ref.backType === 'Recomendado' ? 'Dorso recomendado' : 'Opci&oacute;n de dorso'}</small></span>
                 </button>
-                <button type="button" class="catalog-design-dorso-preview" onclick="previewCatalogDesignBack(${ref.productId}, ${ref.variantIndex})" aria-label="Ver ${ref.label} en grande">VER GRANDE</button>
+                <button type="button" class="catalog-design-dorso-preview" onclick="previewCatalogDesignBack(${ref.productId}, ${ref.variantIndex})" aria-label="Abrir ${ref.label} en grande">VER DORSO GRANDE</button>
             </div>`;
         };
         variantsSection.style.display = choices.length ? 'block' : 'none';
@@ -5744,8 +5744,18 @@ function openCatalogDesignPreview(designId, initialGarment = '', initialPrintMod
     const printMode = normalizeText(initialPrintMode);
     if (printMode === 'double' || printMode === 'doble') {
         selectPrintMode('double');
+        const back = normalizedPreviewImage
+            ? getCatalogDesignBackChoices().find(ref => isSameAssetPath(ref.image, previewImage))
+            : null;
+        if (back) {
+            selectedCatalogBackRef = back;
+            selectedCatalogBackDeferred = false;
+            selectedBackIndex = -1;
+            renderDorsoSelector();
+            updateModalPrices();
+            updateDobleWaLink();
+        }
         if (previewIndex < 0 && normalizedPreviewImage) {
-            const back = getCatalogDesignBackChoices().find(ref => isSameAssetPath(ref.image, previewImage));
             if (back) openZoom(back.image, `Dorso: ${back.label || 'opción elegida'}`);
         }
         return;
