@@ -368,6 +368,17 @@ function chooseCommemorativeBack(productId, variantIndex) {
 
 window.chooseCommemorativeBack = chooseCommemorativeBack;
 
+function previewCommemorativeBack(productId, variantIndex) {
+    const choice = catalogHistoricalBacks.find(ref => (
+        Number(ref.productId) === Number(productId)
+        && Number(ref.variantIndex) === Number(variantIndex)
+    ));
+    if (!choice?.image) return;
+    openZoom(choice.image, `Dorso: ${choice.label || 'Dorso conmemorativo'}`);
+}
+
+window.previewCommemorativeBack = previewCommemorativeBack;
+
 function toggleRealProductProof(button) {
     const section = button?.closest?.('.band-real-product-proof');
     if (!section) return;

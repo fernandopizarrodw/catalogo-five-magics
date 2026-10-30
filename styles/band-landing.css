@@ -1477,6 +1477,15 @@ body[data-band="Iron Maiden"] .band-anniversary-collection .band-featured-collec
     grid-template-columns: minmax(0, 1.35fr) repeat(3, minmax(0, 1fr));
 }
 
+body[data-band="Iron Maiden"] .band-anniversary-collection .band-featured-collection-grid--single {
+    grid-template-columns: minmax(0, 360px);
+    justify-content: center;
+}
+
+body[data-band="Iron Maiden"] .band-anniversary-collection .band-featured-collection-grid--single .band-featured-collection-card img {
+    aspect-ratio: 1 / 1;
+}
+
 body[data-band="Iron Maiden"] .band-anniversary-collection .band-featured-collection-card.is-primary {
     border-color: rgba(255, 154, 118, 0.82);
 }
