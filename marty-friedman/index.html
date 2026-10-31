@@ -492,6 +492,28 @@
         </div>
     </div>
 
+    <div id="customOrderModal" class="custom-order-modal" hidden aria-hidden="true">
+        <div class="custom-order-modal-overlay" onclick="closeCustomOrderBuilder()"></div>
+        <form class="custom-order-modal-card" onsubmit="submitCustomOrder(event)" aria-labelledby="customOrderTitle">
+            <button type="button" class="custom-order-close" onclick="closeCustomOrderBuilder()" aria-label="Cerrar">×</button>
+            <p>PERSONALIZADOS FMD</p>
+            <h2 id="customOrderTitle">ARMÁ TU REMERA</h2>
+            <span>Elegí las opciones y el mensaje sale con el precio final calculado.</span>
+            <div class="custom-order-fields">
+                <label>MODELO<select id="customOrderGarment" onchange="updateCustomOrderQuote()"><option value="clasica">Remera clásica</option><option value="oversize">Remera oversize</option></select></label>
+                <label>ESTAMPADO<select id="customOrderPrint" onchange="updateCustomOrderQuote()"><option value="simple-front">Solo frente</option><option value="simple-back">Solo dorso</option><option value="double">Frente + dorso</option></select></label>
+                <label>TALLE<input id="customOrderSize" type="text" placeholder="Ej: 2XL" required></label>
+                <label>COLOR<select id="customOrderColor"><option value="Negra">Negra</option><option value="Blanca">Blanca</option></select></label>
+                <label class="custom-order-wide">DISEÑO O REFERENCIA<textarea id="customOrderReference" rows="2" placeholder="Ej: portada de Grind Bastard en la espalda" required></textarea></label>
+                <label>BANDA / ARTISTA<input id="customOrderBand" type="text" placeholder="Ej: Benediction"></label>
+                <label>CÓDIGO POSTAL<input id="customOrderCP" type="text" inputmode="numeric" maxlength="8" placeholder="Ej: B1643"></label>
+                <label class="custom-order-wide">ENTREGA<select id="customOrderDelivery" onchange="updateCustomOrderQuote()"><option value="andreani">Punto o sucursal Andreani · $5.000</option><option value="domicilio">Domicilio · $9.000</option><option value="retiro">Retiro coordinado Villa Martelli · Gratis</option></select></label>
+            </div>
+            <div class="custom-order-quote" id="customOrderQuote" aria-live="polite"></div>
+            <button type="submit" class="custom-order-submit">ENVIAR PEDIDO POR WHATSAPP</button>
+        </form>
+    </div>
+
     <script src="/js/band-archives-config.js" defer></script>
     <script src="/js/catalog-design.js" defer></script>
     <script src="/js/app.js" defer></script>

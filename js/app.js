@@ -4766,6 +4766,89 @@ function openWhatsapp(message, source = 'general') {
     window.open(`https://wa.me/${WHATSAPP}?text=${encodedMessage}`, '_blank', 'noopener');
 }
 
+function formatCustomOrderPrice(value) {
+    return `$${Number(value || 0).toLocaleString('es-AR')}`;
+}
+
+function getCustomOrderDetails() {
+    const garment = document.getElementById('customOrderGarment')?.value || 'clasica';
+    const print = document.getElementById('customOrderPrint')?.value || 'simple-front';
+    const delivery = document.getElementById('customOrderDelivery')?.value || 'andreani';
+    const isOversize = garment === 'oversize';
+    const isDouble = print === 'double';
+    const productPrice = isOversize
+        ? (isDouble ? PRECIOS_OVERSIZE.doble_personalizado : PRECIOS_OVERSIZE.simple_personalizado)
+        : (isDouble ? PRECIOS.doble_personalizado : PRECIOS.simple_personalizado);
+    const shipping = delivery === 'domicilio' ? 9000 : delivery === 'andreani' ? 5000 : 0;
+    const printLabel = print === 'double' ? 'Frente + dorso' : print === 'simple-back' ? 'Solo dorso' : 'Solo frente';
+    const deliveryLabel = delivery === 'domicilio'
+        ? 'Envío a domicilio'
+        : delivery === 'retiro'
+            ? 'Retiro coordinado Villa Martelli'
+            : 'Envío a punto/sucursal Andreani';
+    return { garment, productPrice, shipping, total: productPrice + shipping, printLabel, deliveryLabel };
+}
+
+function updateCustomOrderQuote() {
+    const quote = document.getElementById('customOrderQuote');
+    if (!quote) return;
+    const details = getCustomOrderDetails();
+    quote.innerHTML = `<span>REMERA PERSONALIZADA</span><strong>${formatCustomOrderPrice(details.productPrice)}</strong><small>${details.printLabel} · personalizado incluido (+$5.000)</small><div><span>${details.deliveryLabel}</span><b>${details.shipping ? formatCustomOrderPrice(details.shipping) : 'GRATIS'}</b></div><div class="custom-order-total"><span>TOTAL</span><b>${formatCustomOrderPrice(details.total)}</b></div>`;
+}
+
+function openCustomOrderBuilder() {
+    const modal = document.getElementById('customOrderModal');
+    if (!modal) return;
+    modal.hidden = false;
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('custom-order-open');
+    updateCustomOrderQuote();
+    document.getElementById('customOrderReference')?.focus();
+}
+
+function closeCustomOrderBuilder() {
+    const modal = document.getElementById('customOrderModal');
+    if (!modal) return;
+    modal.hidden = true;
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('custom-order-open');
+}
+
+function submitCustomOrder(event) {
+    event.preventDefault();
+    const details = getCustomOrderDetails();
+    const text = id => (document.getElementById(id)?.value || '').trim();
+    const garmentLabel = details.garment === 'oversize' ? 'Remera oversize unisex' : 'Remera clásica';
+    const message = [
+        'Hola Five Magics!',
+        '',
+        'Quiero pedir un diseño personalizado.',
+        '',
+        `Prenda: ${garmentLabel}`,
+        `Estampa: ${details.printLabel}`,
+        `Diseño o referencia: ${text('customOrderReference')}`,
+        `Banda: ${text('customOrderBand') || 'A confirmar'}`,
+        `Talle: ${text('customOrderSize')}`,
+        `Color: ${document.getElementById('customOrderColor')?.value || 'Negra'}`,
+        '',
+        'RESUMEN',
+        `Prenda personalizada: ${formatCustomOrderPrice(details.productPrice)}`,
+        `${details.deliveryLabel}: ${details.shipping ? formatCustomOrderPrice(details.shipping) : 'GRATIS'}`,
+        `Total: ${formatCustomOrderPrice(details.total)}`,
+        '',
+        `Código postal: ${text('customOrderCP') || 'A confirmar'}`,
+        '',
+        '¿Me confirmás cómo avanzamos?'
+    ].join('\n');
+    closeCustomOrderBuilder();
+    openWhatsapp(message, 'custom_order_builder');
+}
+
+window.openCustomOrderBuilder = openCustomOrderBuilder;
+window.closeCustomOrderBuilder = closeCustomOrderBuilder;
+window.submitCustomOrder = submitCustomOrder;
+window.updateCustomOrderQuote = updateCustomOrderQuote;
+
 const BASE_URL = window.location.origin + window.location.pathname;
 const DORSO_CATEGORIES = new Set(['Album','Tour','Musician','Dave Mustaine','Metallica','Pantera','Iron Maiden','Avenged Sevenfold']);
 
@@ -9857,7 +9940,15 @@ document.addEventListener('DOMContentLoaded', () => {
     if (heroCtaWhatsapp) {
         heroCtaWhatsapp.addEventListener('click', (e) => {
             e.preventDefault();
-            openWhatsapp('Hola FMD! Quiero pedir un diseño personalizado.\n\nFormato: Buzo / Hoodie / Remera\nDiseño o referencia: ___\nBanda: ___\nTalle: ___\nColor: ___\nCódigo postal si necesito envío: ___\n\n¿Me confirmás precio final y envío?', 'hero_general');
+            openCustomOrderBuilder();
+        });
+    }
+
+    const homeCustomCta = document.getElementById('homeCustomCta');
+    if (homeCustomCta) {
+        homeCustomCta.addEventListener('click', (e) => {
+            e.preventDefault();
+            openCustomOrderBuilder();
         });
     }
 

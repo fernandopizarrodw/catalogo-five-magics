@@ -14454,6 +14454,75 @@ footer p {
         linear-gradient(120deg, #080808 0%, #111 48%, #070707 100%);
 }
 
+body.custom-order-open { overflow: hidden; }
+
+.custom-order-modal {
+    position: fixed;
+    z-index: 10050;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    padding: 20px;
+}
+
+.custom-order-modal[hidden] { display: none; }
+
+.custom-order-modal-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(4px);
+}
+
+.custom-order-modal-card {
+    position: relative;
+    z-index: 1;
+    width: min(100%, 620px);
+    max-height: min(92vh, 760px);
+    overflow: auto;
+    box-sizing: border-box;
+    padding: 28px;
+    border: 1px solid rgba(57, 255, 20, 0.55);
+    border-radius: 16px;
+    color: #fff;
+    background: linear-gradient(145deg, #111b12, #080909 70%);
+    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.65);
+}
+
+.custom-order-modal-card > p {
+    margin: 0 0 5px;
+    color: #39ff14;
+    font-family: "Oswald", sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+}
+
+.custom-order-modal-card h2 { margin: 0; font-family: "Bebas Neue", "Oswald", sans-serif; font-size: 2.2rem; letter-spacing: 0.035em; }
+.custom-order-modal-card > span { display: block; margin-top: 4px; color: #c7cbc7; font: 0.88rem/1.4 "Inter", sans-serif; }
+.custom-order-close { position: absolute; top: 12px; right: 14px; border: 0; color: #fff; background: transparent; font-size: 1.9rem; cursor: pointer; }
+
+.custom-order-fields { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 20px; }
+.custom-order-fields label { display: grid; gap: 6px; color: #cfd3cf; font: 700 0.7rem/1 "Oswald", sans-serif; letter-spacing: 0.07em; }
+.custom-order-fields input, .custom-order-fields select, .custom-order-fields textarea { width: 100%; box-sizing: border-box; border: 1px solid #39413a; border-radius: 7px; padding: 11px; color: #fff; background: #090b09; font: 0.92rem "Inter", sans-serif; }
+.custom-order-fields textarea { resize: vertical; }
+.custom-order-wide { grid-column: 1 / -1; }
+
+.custom-order-quote { margin-top: 18px; padding: 14px; border: 1px solid rgba(57, 255, 20, 0.4); border-radius: 10px; background: rgba(0, 0, 0, 0.34); font-family: "Inter", sans-serif; }
+.custom-order-quote > span { display: block; color: #39ff14; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em; }
+.custom-order-quote > strong { display: block; margin: 3px 0; font: 2rem "Bebas Neue", "Oswald", sans-serif; }
+.custom-order-quote > small { display: block; color: #c8ccc8; font-size: 0.78rem; }
+.custom-order-quote > div { display: flex; justify-content: space-between; gap: 12px; margin-top: 12px; color: #e9ece9; font-size: 0.86rem; }
+.custom-order-quote .custom-order-total { padding-top: 10px; border-top: 1px solid #374238; color: #39ff14; font-weight: 800; }
+.custom-order-submit { width: 100%; margin-top: 14px; border: 0; border-radius: 8px; padding: 14px; color: #071007; background: #39ff14; font: 800 0.9rem "Oswald", sans-serif; letter-spacing: 0.08em; cursor: pointer; }
+
+@media (max-width: 560px) {
+    .custom-order-modal { padding: 10px; align-items: end; }
+    .custom-order-modal-card { max-height: 94vh; padding: 22px 16px; border-radius: 14px; }
+    .custom-order-fields { grid-template-columns: 1fr; gap: 10px; }
+    .custom-order-wide { grid-column: auto; }
+}
+
 @media (max-width: 980px) {
     .hero.fmd-institutional-hero { padding-inline: 28px; }
 }

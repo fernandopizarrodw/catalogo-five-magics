@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 
 <head>
@@ -113,7 +113,7 @@
             <p class="hero-description">Eleg&iacute; la banda, el dise&ntilde;o y la prenda. Tambi&eacute;n armamos personalizados a partir de tu idea, tapa o imagen.</p>
             <div class="hero-actions">
                 <a href="#catalogoPrincipal" class="hero-cta-btn" id="heroCtaBuzos" onclick="showFullCatalog(); return false;">EXPLORAR CAT&Aacute;LOGO</a>
-                <a href="https://wa.me/541169667685?text=Hola%20FMD%2C%20quiero%20pedir%20un%20dise%C3%B1o%20personalizado%20con%20mi%20idea%2C%20tapa%20o%20banda%2E" class="hero-cta-btn hero-cta-btn-secondary" id="heroCtaWhatsapp" target="_blank" rel="noopener">PEDIR DISEÑO PERSONALIZADO</a>
+                <a href="#personalizado" class="hero-cta-btn hero-cta-btn-secondary" id="heroCtaWhatsapp">PEDIR DISEÑO PERSONALIZADO</a>
             </div>
             <div class="hero-proof">
                 <span class="hero-proof-priority">IMPRESI&Oacute;N DTG &middot; NEGRO O BLANCO &middot; PRODUCCI&Oacute;N A PEDIDO</span>
@@ -1062,7 +1062,7 @@
             <h2 id="homeCustomTitle">TU IDEA, EN LA PRENDA QUE QUIERAS</h2>
             <span>Diseños personalizados en remeras, hoodies y buzos. Impresión DTG directa sobre la tela.</span>
         </div>
-        <a href="https://wa.me/541169667685?text=Hola%20FMD!%20Quiero%20consultar%20por%20un%20dise%C3%B1o%20personalizado." target="_blank" rel="noopener">PEDIR DISEÑO PERSONALIZADO</a>
+        <a href="#personalizado" id="homeCustomCta">PEDIR DISEÑO PERSONALIZADO</a>
     </section>
 
     <!--
@@ -1412,7 +1412,7 @@
                     <div class="modal-breadcrumb is-hidden" id="modalBreadcrumb">
                         <span id="breadcrumbCategory">Categoría</span> → <span id="breadcrumbProduct">Producto</span>
                     </div>
-                    
+
                     <h2 class="modal-product-name" id="modalName"></h2>
                     <div class="product-code-chip" id="productCodeChip">
                         <span id="displayCode"></span>
@@ -1450,7 +1450,7 @@
                         <div id="buzoRedondoInfoBanner" class="product-info-banner is-hidden">
                             <div class="product-info-banner-subtitle">Buzo cuello redondo oversize unisex · Algodón frizado · Estampa DTG</div>
                         </div>
-                        
+
                         <!-- Selector Adulto/Chico -->
                         <div class="option-group is-hidden" id="ageGroup">
                             <span class="option-label">Edad:</span>
@@ -1459,7 +1459,7 @@
                                 <button type="button" class="option-btn" data-age="chico" onclick="selectAge('chico')">Niño</button>
                             </div>
                         </div>
-                        
+
                         <!-- Selector de Talle -->
                         <div class="option-group" id="sizeGroup">
                             <div class="option-label-row">
@@ -1488,7 +1488,7 @@
                             </div>
                             <p class="size-selection-policy">Antes de elegir el talle, revisá la tabla de medidas. Son medidas aproximadas y pueden variar hasta ±5% por confección.</p>
                         </div>
-                        
+
                         <!-- Selector de Corte -->
                         <div class="option-group" id="cutGroup">
                             <span class="option-label">Corte:</span>
@@ -1498,7 +1498,7 @@
                                 <button type="button" class="option-btn" id="btnOversize" data-cut="oversize" onclick="selectCut('oversize')">Oversize unisex</button>
                             </div>
                         </div>
-                        
+
                         <!-- Selector de Color -->
                         <div class="option-group" id="colorGroup">
                             <span class="option-label">Color:</span>
@@ -1569,12 +1569,12 @@
                                 <div class="upsell-row">
                                     <div class="upsell-prices is-hidden">Solo frente: <strong id="modalPrecioSimple">-</strong> · Frente y dorso: <strong id="modalPrecioDoble">-</strong></div>
                                     <div class="dorso-help-box"><strong>ELEGÍ EL DORSO</strong><span>Seleccioná una opción para completar la prenda. También podés dejarlo a confirmar por WhatsApp.</span></div>
-                                    
+
                                     <div id="dorsoVariantsSection" class="dorso-section-hidden">
                                         <div class="dorso-label-green">📋 Elegí tu dorso o combiná otro del catálogo:</div>
                                         <div id="dorsoVariantsGrid" class="dorso-section-grid"></div>
                                     </div>
-                                    
+
                                     <div id="dorsoCustomSection" class="dorso-section-block">
                                         <div class="dorso-muted-label">Elegí una opción de dorso o contanos tu idea:</div>
                                         <div class="chips-row" id="chipsRow">
@@ -1591,7 +1591,7 @@
                                         </div>
                                     </div>
                                     <div id="backsRow" class="dorso-backs-row"></div>
-                                    
+
                                     <div id="dorsoSelectionSummary" class="dorso-summary-box is-hidden">
                                         <div class="dorso-summary-title">✓ Dorso seleccionado:</div>
                                         <div id="dorsoSelectionText" class="dorso-summary-text"></div>
@@ -1661,6 +1661,28 @@
                 <!-- Resumen y botones -->
             </div>
         </div>
+    </div>
+
+    <div id="customOrderModal" class="custom-order-modal" hidden aria-hidden="true">
+        <div class="custom-order-modal-overlay" onclick="closeCustomOrderBuilder()"></div>
+        <form class="custom-order-modal-card" onsubmit="submitCustomOrder(event)" aria-labelledby="customOrderTitle">
+            <button type="button" class="custom-order-close" onclick="closeCustomOrderBuilder()" aria-label="Cerrar">×</button>
+            <p>PERSONALIZADOS FMD</p>
+            <h2 id="customOrderTitle">ARMÁ TU REMERA</h2>
+            <span>Elegí las opciones y el mensaje sale con el precio final calculado.</span>
+            <div class="custom-order-fields">
+                <label>MODELO<select id="customOrderGarment" onchange="updateCustomOrderQuote()"><option value="clasica">Remera clásica</option><option value="oversize">Remera oversize</option></select></label>
+                <label>ESTAMPADO<select id="customOrderPrint" onchange="updateCustomOrderQuote()"><option value="simple-front">Solo frente</option><option value="simple-back">Solo dorso</option><option value="double">Frente + dorso</option></select></label>
+                <label>TALLE<input id="customOrderSize" type="text" placeholder="Ej: 2XL" required></label>
+                <label>COLOR<select id="customOrderColor"><option value="Negra">Negra</option><option value="Blanca">Blanca</option></select></label>
+                <label class="custom-order-wide">DISEÑO O REFERENCIA<textarea id="customOrderReference" rows="2" placeholder="Ej: portada de Grind Bastard en la espalda" required></textarea></label>
+                <label>BANDA / ARTISTA<input id="customOrderBand" type="text" placeholder="Ej: Benediction"></label>
+                <label>CÓDIGO POSTAL<input id="customOrderCP" type="text" inputmode="numeric" maxlength="8" placeholder="Ej: B1643"></label>
+                <label class="custom-order-wide">ENTREGA<select id="customOrderDelivery" onchange="updateCustomOrderQuote()"><option value="andreani">Punto o sucursal Andreani · $5.000</option><option value="domicilio">Domicilio · $9.000</option><option value="retiro">Retiro coordinado Villa Martelli · Gratis</option></select></label>
+            </div>
+            <div class="custom-order-quote" id="customOrderQuote" aria-live="polite"></div>
+            <button type="submit" class="custom-order-submit">ENVIAR PEDIDO POR WHATSAPP</button>
+        </form>
     </div>
 
     <script src="js/band-archives-config.js" defer></script>
