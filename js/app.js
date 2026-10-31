@@ -7377,7 +7377,10 @@ function renderCatalogDesignResults(designs) {
             : isCampaignFeatureDesign && (previewPrintMode === 'double' || previewPrintMode === 'doble')
             ? `openCatalogDesignPreview('${design.designId}', '${initialGarment}', 'double', '${cardImage}')`
             : `openCatalogDesign('${design.designId}', '${initialGarment}')`;
-        const editorialBadge = BAND_LANDING_CONFIG?.editorialBadges?.[design.designId];
+        // Eddie Argentina has its own featured section; do not repeat the FMD badge on its catalog card.
+        const editorialBadge = design.designId === 'iron-maiden-eddie-argentina-estadio-huracan-fmd'
+            ? null
+            : BAND_LANDING_CONFIG?.editorialBadges?.[design.designId];
         const explicitBadges = [editorialBadge, ...(design.badges || [])]
             .filter(Boolean)
             .map(label => ({ label: getPublicBadgeLabel(label), className: '' }));
