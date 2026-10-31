@@ -5587,7 +5587,7 @@ function renderCurrentModalCarousel() {
     const modalImages = getModalImages();
     carousel.innerHTML = modalImages.map((v, index) => `
         <div class="carousel-slide">
-            ${renderFmdBadge(currentProduct, currentModalSourceIndexes[index], 'carousel-fmd-original-badge')}
+            ${renderModalDesignBadge(currentModalSourceIndexes[index])}
             <img src="${v.img}" alt="${currentProduct?.name || ''}">
         </div>
     `).join('');
@@ -5776,6 +5776,7 @@ function catalogDesignRefToModalImage(ref) {
 }
 
 function renderModalDesignBadge(sourceIndex) {
+    if (currentCatalogDesign?.designId === 'iron-maiden-eddie-argentina-estadio-huracan-fmd') return '';
     if (!currentCatalogDesign) return renderFmdBadge(currentProduct, sourceIndex, 'carousel-fmd-original-badge');
     const badge = getPublicBadgeLabel(currentCatalogDesign.badges?.[0]);
     return badge ? `<span class="fmd-original-badge carousel-fmd-original-badge">${badge}</span>` : '';
@@ -6986,7 +6987,9 @@ function updateModalInfo() {
     document.getElementById('modalMeta').textContent = currentCatalogDesign
         ? modalMetaLabel
         : formatCategoryMeta(currentProduct.year, modalMetaLabel);
-    const fmdBadge = currentCatalogDesign?.badges?.length
+    const fmdBadge = currentCatalogDesign?.designId === 'iron-maiden-eddie-argentina-estadio-huracan-fmd'
+        ? null
+        : currentCatalogDesign?.badges?.length
         ? { label: getPublicBadgeLabel(currentCatalogDesign.badges[0]), description: 'Diseño creado por FMD.' }
         : getFmdBadgeData(currentProduct, activeVariantIndex);
     const modalDesc = document.getElementById('modalDesc');
