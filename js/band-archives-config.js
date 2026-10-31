@@ -800,7 +800,6 @@
                 'iron-maiden-run-for-your-lives-fmd-2026': 'ORIGINAL FMD',
                 'iron-maiden-eddie-reaper-original-fmd': 'ORIGINAL FMD',
                 'iron-maiden-eddie-argentina-seleccion-fmd': 'ORIGINAL FMD',
-                'iron-maiden-eddie-argentina-estadio-huracan-fmd': 'ORIGINAL FMD',
                 'iron-maiden-fear-of-the-dark-halloween-edition-fmd': 'ORIGINAL FMD',
                 'iron-maiden-fear-of-the-dark-halloween-2026-original-fmd': 'ORIGINAL FMD',
                 'iron-maiden-the-clairvoyant': 'SINGLE',

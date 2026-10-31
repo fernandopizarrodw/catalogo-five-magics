@@ -43,6 +43,25 @@
         }
 
     </script>
+    <script>
+        (() => {
+            const designId = 'iron-maiden-fear-of-the-dark-halloween-2026-original-fmd';
+            const config = window.FMD_BAND_LANDING;
+            ['tour-argentina', 'fmd-originals'].forEach(collectionId => {
+                const collection = config.collections.find(item => item.id === collectionId);
+                if (collection && !collection.match.designIds.includes(designId)) {
+                    collection.match.designIds.push(designId);
+                }
+            });
+            const oldEdition = 'iron-maiden-fear-of-the-dark-halloween-edition-fmd';
+            const orderIndex = config.designOrder.indexOf(oldEdition);
+            if (orderIndex >= 0 && !config.designOrder.includes(designId)) {
+                config.designOrder.splice(orderIndex + 1, 0, designId);
+            }
+            delete config.editorialBadges['iron-maiden-eddie-argentina-estadio-huracan-fmd'];
+            config.editorialBadges[designId] = 'ORIGINAL FMD';
+        })();
+    </script>
 </head>
 <body class="band-landing-page" data-band="Iron Maiden">
     <!-- Archivo generado por scripts/build-band-landings.js. -->
