@@ -53,11 +53,11 @@
                     collection.match.designIds.push(designId);
                 }
             });
-            const oldEdition = 'iron-maiden-fear-of-the-dark-halloween-edition-fmd';
-            const orderIndex = config.designOrder.indexOf(oldEdition);
-            if (orderIndex >= 0 && !config.designOrder.includes(designId)) {
-                config.designOrder.splice(orderIndex + 1, 0, designId);
-            }
+            const existingIndex = config.designOrder.indexOf(designId);
+            if (existingIndex >= 0) config.designOrder.splice(existingIndex, 1);
+            const featuredAfter = 'iron-maiden-eddie-argentina-estadio-huracan-fmd';
+            const orderIndex = config.designOrder.indexOf(featuredAfter);
+            if (orderIndex >= 0) config.designOrder.splice(orderIndex + 1, 0, designId);
             delete config.editorialBadges['iron-maiden-eddie-argentina-estadio-huracan-fmd'];
             config.editorialBadges[designId] = 'ORIGINAL FMD';
         })();
