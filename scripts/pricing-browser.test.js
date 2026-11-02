@@ -2,8 +2,8 @@
 
 const assert = require('node:assert/strict');
 
-const CDP_URL = 'http://127.0.0.1:9333';
-const PAGE_URL = 'http://127.0.0.1:5500/';
+const CDP_URL = process.env.CDP_URL || 'http://127.0.0.1:9333';
+const PAGE_URL = process.env.PAGE_URL || 'http://127.0.0.1:5500/';
 
 async function main() {
     const pages = await fetch(`${CDP_URL}/json`).then(response => response.json());
@@ -76,6 +76,7 @@ async function main() {
             const prices = Object.fromEntries(Object.entries(samples).map(([key, item]) => [key, calculateItemBasePrice(item)]));
 
             selectedDeliveryMethod = 'domicilio';
+            selectedShippingZone = 'amba';
             cart.cart = [samples.classicSimple];
             const oneHomeTotals = calculateCartTotal();
             const oneSummary = cart.generateSummary();
@@ -138,19 +139,19 @@ async function main() {
             buzoSimple: 51000,
             buzoDouble: 56000
         });
-        assert.deepEqual(result.oneHomeTotals, { subtotal: 38000, envio: 9000, envioGratis: false, envioGratisPuntoAndreani: false, descuento: 0, total: 47000, cantidad: 1, promotion: result.oneHomeTotals.promotion });
-        assert.equal(result.onePointTotals.envio, 5000);
-        assert.equal(result.onePointTotals.total, 43000);
+        assert.deepEqual(result.oneHomeTotals, { subtotal: 38000, envio: 10000, shippingPending: false, envioGratis: false, envioGratisPuntoAndreani: false, descuento: 0, total: 48000, cantidad: 1, promotion: result.oneHomeTotals.promotion });
+        assert.equal(result.onePointTotals.envio, 6000);
+        assert.equal(result.onePointTotals.total, 44000);
         assert(result.oneSummary.includes('Subtotal: $38.000'));
-        assert(result.oneSummary.includes('Envío a domicilio: $9.000'));
-        assert(result.oneSummary.includes('Total: $47.000'));
+        assert(result.oneSummary.includes('Envío a domicilio: $10.000'));
+        assert(result.oneSummary.includes('Total: $48.000'));
         assert.equal(result.twoHomeTotals.subtotal, 86000);
-        assert.equal(result.twoHomeTotals.envio, 9000);
-        assert.equal(result.twoHomeTotals.total, 95000);
+        assert.equal(result.twoHomeTotals.envio, 10000);
+        assert.equal(result.twoHomeTotals.total, 96000);
         assert.equal(result.twoPointTotals.envio, 0);
         assert.equal(result.twoPointTotals.total, 86000);
-        assert(result.twoHomeSummary.includes('Envío a domicilio: $9.000'));
-        assert(result.twoHomeSummary.includes('Total: $95.000'));
+        assert(result.twoHomeSummary.includes('Envío a domicilio: $10.000'));
+        assert(result.twoHomeSummary.includes('Total: $96.000'));
         for (const totals of [result.threeHomeTotals, result.threePointTotals, result.threeWorkshopTotals]) {
             assert.equal(totals.subtotal, 122000);
             assert.equal(totals.descuento, 12200);
@@ -160,9 +161,10 @@ async function main() {
         assert(result.threeHomeSummary.includes('10% OFF: -$12.200'));
         assert(result.threeHomeSummary.includes('Envío a domicilio: GRATIS'));
         assert(result.threeHomeSummary.includes('Total: $109.800'));
-        assert(result.whatsappMessage.includes('Solo frente · $38.000'));
-        assert(result.whatsappMessage.includes('Envío a domicilio: $9.000'));
-        assert(result.whatsappMessage.includes('Total: $47.000'));
+        assert(result.whatsappMessage.includes('* Estampa: Solo frente'));
+        assert(result.whatsappMessage.includes('* Precio: $38.000'));
+        assert(result.whatsappMessage.includes('Envío a domicilio: $10.000'));
+        assert(result.whatsappMessage.includes('Total: $48.000'));
         console.log('Precios, promociones, carrito y WhatsApp validados correctamente.');
     } finally {
         socket.close();

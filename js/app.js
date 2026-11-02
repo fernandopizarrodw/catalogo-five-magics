@@ -2944,6 +2944,34 @@ const DELIVERY_LABELS = {
     taller: 'Retiro sin cargo en Villa Martelli'
 };
 
+const SHIPPING_ZONES = Object.freeze({
+    amba: { label: 'AMBA (CABA y GBA)', point: 6000, home: 10000 },
+    centro: { label: 'Interior de Buenos Aires + Región Centro', point: 7000, home: 11000 },
+    resto: { label: 'Resto del país', point: 8000, home: 12000 }
+});
+
+function shippingZoneOptions(value = '') {
+    return '<option value="">Elegí tu zona</option>' + Object.entries(SHIPPING_ZONES)
+        .map(([id, zone]) => `<option value="${id}"${id === value ? ' selected' : ''}>${zone.label}</option>`).join('');
+}
+
+function getShippingCost(method, quantity, zoneId) {
+    if (!quantity || method === 'taller' || !method) return 0;
+    if (quantity >= 3 || (quantity >= 2 && method === 'retiro_andreani')) return 0;
+    const zone = SHIPPING_ZONES[zoneId];
+    if (!zone) return null;
+    return method === 'retiro_andreani' ? zone.point : zone.home;
+}
+
+function renderShippingRateTable() {
+    return `<details class="shipping-rate-details"><summary>Ver tarifas por zona</summary>
+        <div class="shipping-rate-table-wrap"><table class="shipping-rate-table">
+        <thead><tr><th>Zona</th><th>Punto Andreani</th><th>Domicilio</th></tr></thead>
+        <tbody>${Object.values(SHIPPING_ZONES).map(zone => `<tr><th scope="row">${zone.label}</th><td>$${zone.point.toLocaleString('es-AR')}</td><td>$${zone.home.toLocaleString('es-AR')}</td></tr>`).join('')}</tbody></table></div>
+        <p class="cart-customer-hint">Región Centro: Córdoba, Santa Fe, Entre Ríos y La Pampa. Confirmamos la zona y el valor según localidad y código postal antes de finalizar el pedido.</p>
+        </details>`;
+}
+
 const ORDER_CHECKOUT_STORAGE_KEY = 'fmd_order_checkout_v1';
 
 function loadOrderCheckoutState() {
@@ -2958,7 +2986,8 @@ function loadOrderCheckoutState() {
 function saveOrderCheckoutState() {
     try {
         localStorage.setItem(ORDER_CHECKOUT_STORAGE_KEY, JSON.stringify({
-            deliveryMethod: selectedDeliveryMethod || ''
+            deliveryMethod: selectedDeliveryMethod || '',
+            shippingZone: selectedShippingZone
         }));
     } catch (error) {
         // El checkout sigue funcionando aunque el navegador bloquee storage.
@@ -2968,6 +2997,16 @@ function saveOrderCheckoutState() {
 selectedDeliveryMethod = DELIVERY_LABELS[loadOrderCheckoutState().deliveryMethod]
     ? loadOrderCheckoutState().deliveryMethod
     : '';
+let selectedShippingZone = SHIPPING_ZONES[loadOrderCheckoutState().shippingZone]
+    ? loadOrderCheckoutState().shippingZone
+    : '';
+
+function selectShippingZone(zoneId) {
+    saveShippingCustomerDataToStorage(getShippingCustomerData());
+    selectedShippingZone = SHIPPING_ZONES[zoneId] ? zoneId : '';
+    saveOrderCheckoutState();
+    renderCartPreview();
+}
 
 function getModalAnalyticsContext() {
     if (!currentProduct) return {};
@@ -3535,15 +3574,16 @@ ${frontLine}${backLine}${extraLines}
                     ? 'Retiro en Villa Martelli'
                     : '';
         const shippingLine = shippingLabel
-            ? `\n${shippingLabel}: ${totals.envio > 0 ? `$${Math.round(totals.envio).toLocaleString('es-AR')}` : 'GRATIS'}`
+            ? `\n${shippingLabel}: ${totals.shippingPending ? 'A confirmar según zona' : totals.envio > 0 ? `$${Math.round(totals.envio).toLocaleString('es-AR')}` : 'GRATIS'}`
             : '';
+        const totalLabel = totals.shippingPending ? 'Total sin envío' : 'Total';
 
         if (total === 1) {
             if (!shippingLine) return `${details}\n\nTOTAL: $${Math.round(totals.total).toLocaleString('es-AR')}`;
-            return `${details}\n\nRESUMEN\n1 prenda · Subtotal: $${Math.round(totals.subtotal).toLocaleString('es-AR')}${shippingLine}\nTotal: $${Math.round(totals.total).toLocaleString('es-AR')}`;
+            return `${details}\n\nRESUMEN\n1 prenda · Subtotal: $${Math.round(totals.subtotal).toLocaleString('es-AR')}${shippingLine}\n${totalLabel}: $${Math.round(totals.total).toLocaleString('es-AR')}`;
         }
 
-        return `${details}\n\nRESUMEN\n${total} prendas · Subtotal: $${Math.round(totals.subtotal).toLocaleString('es-AR')}${discountLine}${shippingLine}\nTotal: $${Math.round(totals.total).toLocaleString('es-AR')}`;
+        return `${details}\n\nRESUMEN\n${total} prendas · Subtotal: $${Math.round(totals.subtotal).toLocaleString('es-AR')}${discountLine}${shippingLine}\n${totalLabel}: $${Math.round(totals.total).toLocaleString('es-AR')}`;
     }
 
     generateConsultationSummary() {
@@ -4779,21 +4819,30 @@ function getCustomOrderDetails() {
     const productPrice = isOversize
         ? (isDouble ? PRECIOS_OVERSIZE.doble_personalizado : PRECIOS_OVERSIZE.simple_personalizado)
         : (isDouble ? PRECIOS.doble_personalizado : PRECIOS.simple_personalizado);
-    const shipping = delivery === 'domicilio' ? 9000 : delivery === 'andreani' ? 5000 : 0;
+    const zoneId = document.getElementById('customOrderZone')?.value || '';
+    const method = delivery === 'domicilio' ? 'domicilio' : delivery === 'retiro' ? 'taller' : 'retiro_andreani';
+    const shipping = getShippingCost(method, 1, zoneId);
     const printLabel = print === 'double' ? 'Frente + dorso' : print === 'simple-back' ? 'Solo dorso' : 'Solo frente';
     const deliveryLabel = delivery === 'domicilio'
         ? 'Envío a domicilio'
         : delivery === 'retiro'
             ? 'Retiro coordinado Villa Martelli'
             : 'Envío a punto/sucursal Andreani';
-    return { garment, productPrice, shipping, total: productPrice + shipping, printLabel, deliveryLabel };
+    return { garment, productPrice, shipping, total: productPrice + (shipping || 0), printLabel, deliveryLabel, zoneId };
 }
 
 function updateCustomOrderQuote() {
     const quote = document.getElementById('customOrderQuote');
     if (!quote) return;
     const details = getCustomOrderDetails();
-    quote.innerHTML = `<span>REMERA PERSONALIZADA</span><strong>${formatCustomOrderPrice(details.productPrice)}</strong><small>${details.printLabel} · personalizado incluido (+$5.000)</small><div><span>${details.deliveryLabel}</span><b>${details.shipping ? formatCustomOrderPrice(details.shipping) : 'GRATIS'}</b></div><div class="custom-order-total"><span>TOTAL</span><b>${formatCustomOrderPrice(details.total)}</b></div>`;
+    const zone = document.getElementById('customOrderZone');
+    const pickup = document.getElementById('customOrderDelivery')?.value === 'retiro';
+    if (zone) {
+        zone.required = !pickup;
+        zone.disabled = pickup;
+        zone.closest('label').style.display = pickup ? 'none' : '';
+    }
+    quote.innerHTML = `<span>REMERA PERSONALIZADA</span><strong>${formatCustomOrderPrice(details.productPrice)}</strong><small>${details.printLabel} · personalizado incluido (+$5.000)</small><div><span>${details.deliveryLabel}</span><b>${details.shipping === null ? 'Elegí tu zona' : details.shipping ? formatCustomOrderPrice(details.shipping) : 'GRATIS'}</b></div><div class="custom-order-total"><span>${details.shipping === null ? 'TOTAL SIN ENVÍO' : 'TOTAL'}</span><b>${formatCustomOrderPrice(details.total)}</b></div>`;
 }
 
 function openCustomOrderBuilder() {
@@ -4817,6 +4866,10 @@ function closeCustomOrderBuilder() {
 function submitCustomOrder(event) {
     event.preventDefault();
     const details = getCustomOrderDetails();
+    if (details.shipping === null) {
+        document.getElementById('customOrderZone')?.reportValidity();
+        return;
+    }
     const text = id => (document.getElementById(id)?.value || '').trim();
     const garmentLabel = details.garment === 'oversize' ? 'Remera oversize unisex' : 'Remera clásica';
     const message = [
@@ -4835,6 +4888,8 @@ function submitCustomOrder(event) {
         `Prenda personalizada: ${formatCustomOrderPrice(details.productPrice)}`,
         `${details.deliveryLabel}: ${details.shipping ? formatCustomOrderPrice(details.shipping) : 'GRATIS'}`,
         `Total: ${formatCustomOrderPrice(details.total)}`,
+        ...(SHIPPING_ZONES[details.zoneId] && document.getElementById('customOrderDelivery')?.value !== 'retiro'
+            ? [`Zona de envío: ${SHIPPING_ZONES[details.zoneId].label}`] : []),
         '',
         `Código postal: ${text('customOrderCP') || 'A confirmar'}`,
         '',
@@ -8462,14 +8517,16 @@ function getRequiredShippingFields(method = selectedDeliveryMethod) {
 }
 
 function getMissingShippingFields(data, method = selectedDeliveryMethod) {
-    return getRequiredShippingFields(method).filter(field => {
+    const missing = getRequiredShippingFields(method).filter(field => {
         if (field === 'cp') return !isValidPostalCode(data.cp);
         return !data[field];
     });
+    if (getShippingCost(method, cart.getCart().length, selectedShippingZone) === null) missing.unshift('zona');
+    return missing;
 }
 
 function focusFirstMissingShippingField(fieldKey) {
-    const inputId = SHIPPING_FORM_FIELD_MAP[fieldKey];
+    const inputId = fieldKey === 'zona' ? 'shippingZone' : SHIPPING_FORM_FIELD_MAP[fieldKey];
     if (!inputId) return;
     const input = document.getElementById(inputId);
     if (!input) return;
@@ -8482,6 +8539,7 @@ function focusFirstMissingShippingField(fieldKey) {
 
 function getShippingFieldLabel(fieldKey) {
     const labels = {
+        zona: 'Zona de envío',
         nombre: selectedDeliveryMethod === 'taller' ? 'Nombre y apellido' : 'Nombre',
         apellido: 'Apellido',
         direccion: 'Direccion',
@@ -8544,6 +8602,8 @@ function updateCheckoutWhatsappAvailability() {
     button.setAttribute('aria-disabled', blocked ? 'true' : 'false');
     button.title = missingDelivery
         ? 'Elegí una forma de entrega.'
+        : missingFields.includes('zona')
+            ? 'Elegí tu zona para calcular el envío.'
         : missingFields.includes('cp')
             ? 'Ingresá el código postal para continuar.'
             : missingSize
@@ -8557,7 +8617,9 @@ function buildShippingContextForWhatsapp(postalCode = '', customerData = null) {
     const totals = calculateCartTotal();
     let deliveryBenefit = '';
     let deliveryHeading = 'ENTREGA';
-    if (selectedDeliveryMethod === 'retiro_andreani') {
+    if (totals.shippingPending) {
+        deliveryBenefit = 'Envío a confirmar según zona';
+    } else if (selectedDeliveryMethod === 'retiro_andreani') {
         deliveryBenefit = totals.envio > 0
             ? 'Sucursal Andreani'
             : 'Sucursal Andreani · Envío gratis';
@@ -8569,7 +8631,8 @@ function buildShippingContextForWhatsapp(postalCode = '', customerData = null) {
         deliveryHeading = 'RETIRO';
         deliveryBenefit = 'Villa Martelli · Zona Tecnópolis\nLunes a viernes de 10 a 16 h';
     }
-    const deliveryContext = `\n\n${deliveryHeading}\n${deliveryBenefit}`;
+    const zone = selectedDeliveryMethod !== 'taller' ? SHIPPING_ZONES[selectedShippingZone] : null;
+    const deliveryContext = `\n\n${deliveryHeading}\n${deliveryBenefit}${zone ? `\nZona: ${zone.label}` : ''}`;
     const customerContext = customerData ? buildCustomerDataForWhatsapp(customerData) : '';
     return `${deliveryContext}${customerContext}`;
 }
@@ -8718,9 +8781,6 @@ function calculateCartSubtotal(items) {
     return calculateCartItemPrices(items).reduce((sum, price) => sum + price, 0);
 }
 
-const ANDREANI_POINT_SINGLE_PRICE = 5000;
-const ANDREANI_HOME_PRICE = 9000;
-
 function calculateVolumePromotion(items, deliveryMethod = selectedDeliveryMethod) {
     const quantity = items.length;
     const rawSubtotal = calculateCartSubtotal(items);
@@ -8760,7 +8820,7 @@ function calculateVolumePromotion(items, deliveryMethod = selectedDeliveryMethod
     if (quantity === 1 && deliveryMethod === 'retiro_andreani') {
         return {
             id: 'volumen_una_prenda',
-            label: '1 prenda: envío a sucursal o punto Andreani por $5.000',
+            label: '1 prenda: envío a sucursal o punto Andreani desde $6.000 según zona',
             description: 'Elegí la sucursal Andreani que te quede más cómoda.',
             subtotal: rawSubtotal,
             descuento: 0,
@@ -8786,19 +8846,16 @@ function calculateCartTotal() {
     const items = cart.getCart();
     const cantidad = items.length;
     const promotion = calculateVolumePromotion(items);
-    const shippingCost = selectedDeliveryMethod === 'retiro_andreani'
-        ? (cantidad === 1 ? ANDREANI_POINT_SINGLE_PRICE : 0)
-        : selectedDeliveryMethod === 'domicilio'
-            ? (cantidad >= 3 ? 0 : ANDREANI_HOME_PRICE)
-            : 0;
+    const shippingCost = getShippingCost(selectedDeliveryMethod, cantidad, selectedShippingZone);
 
     return {
         subtotal: promotion.subtotal,
-        envio: shippingCost,
+        envio: shippingCost || 0,
+        shippingPending: shippingCost === null,
         envioGratis: promotion.envioGratis,
         envioGratisPuntoAndreani: promotion.envioGratisPuntoAndreani,
         descuento: promotion.descuento,
-        total: promotion.total + shippingCost,
+        total: promotion.total + (shippingCost || 0),
         cantidad,
         promotion
     };
@@ -8908,12 +8965,13 @@ function renderCartPreview() {
     const totals = calculateCartTotal();
     
     // Renderizar footer con resumen
+    const zone = SHIPPING_ZONES[selectedShippingZone];
     const pointDeliveryLabel = totals.cantidad === 1
-        ? 'Sucursal Andreani · $5.000'
+        ? `Punto Andreani · ${zone ? `$${zone.point.toLocaleString('es-AR')}` : 'desde $6.000'}`
         : 'Sucursal Andreani · GRATIS';
     const homeDeliveryLabel = totals.cantidad >= 3
         ? 'Domicilio · GRATIS'
-        : 'Domicilio · $9.000';
+        : `Domicilio · ${zone ? `$${zone.home.toLocaleString('es-AR')}` : 'desde $10.000'}`;
 
     const deliverySelector = `
         <div class="cart-customer-fields cart-delivery-checkout" id="cartDeliveryGroup">
@@ -8923,7 +8981,13 @@ function renderCartPreview() {
                 <button type="button" class="option-btn modal-delivery-btn ${selectedDeliveryMethod === 'domicilio' ? 'active' : ''}" data-order-delivery data-delivery="domicilio" onclick="selectDeliveryMethod('domicilio')">${homeDeliveryLabel}</button>
                 <button type="button" class="option-btn modal-delivery-btn ${selectedDeliveryMethod === 'taller' ? 'active' : ''}" data-order-delivery data-delivery="taller" onclick="selectDeliveryMethod('taller')">Retiro sin cargo en Villa Martelli</button>
             </div>
+            ${selectedDeliveryMethod && selectedDeliveryMethod !== 'taller' ? `<div class="cart-customer-grid single"><div class="cart-cp-field">
+                <label for="shippingZone">Zona de envío${totals.envio === 0 && !totals.shippingPending ? ' (opcional · envío gratis)' : ''}</label>
+                <select id="shippingZone" onchange="selectShippingZone(this.value)">${shippingZoneOptions(selectedShippingZone)}</select>
+                <small>Región Centro: Córdoba, Santa Fe, Entre Ríos y La Pampa.</small>
+            </div></div>` : ''}
             <p class="cart-customer-hint">Elegí una opción para completar los datos necesarios del pedido.</p>
+            ${renderShippingRateTable()}
         </div>`;
 
     const standardIdentityFields = `
@@ -8957,16 +9021,16 @@ function renderCartPreview() {
         customerHint = totals.cantidad >= 3
             ? 'Con 3 prendas o más tenés 10% OFF y envío gratis a domicilio.'
             : totals.cantidad === 2
-                ? 'Con 2 prendas, el envío a domicilio cuesta $9.000.'
-                : 'Con 1 prenda, el envío a domicilio cuesta $9.000.';
+                ? `Con 2 prendas, abonás únicamente la tarifa de domicilio correspondiente a tu zona${zone ? `: $${zone.home.toLocaleString('es-AR')}` : ' (desde $10.000)'}. El envío gratis es a punto Andreani.`
+                : `Envío a domicilio ${zone ? `$${zone.home.toLocaleString('es-AR')}` : 'desde $10.000'}, según zona.`;
     } else if (selectedDeliveryMethod === 'retiro_andreani') {
         logisticsFields = `
             <div class="cart-customer-grid">
             <div class="cart-cp-field"><label for="inputCP">Código postal</label><input type="text" id="inputCP" placeholder="Ej: 1425" maxlength="8" inputmode="numeric" autocomplete="postal-code"><small>Lo usamos para encontrar la sucursal Andreani más conveniente.</small></div>
                 <div class="cart-cp-field"><label for="inputLocalidad">Localidad</label><input type="text" id="inputLocalidad" placeholder="Ej: CABA" autocomplete="address-level2"></div>
             </div>`;
-        customerHint = totals.envio > 0
-            ? 'Con 1 prenda, el envío a sucursal Andreani cuesta $5.000.'
+        customerHint = totals.cantidad === 1
+            ? `Envío a punto Andreani ${zone ? `$${zone.point.toLocaleString('es-AR')}` : 'desde $6.000'}, según zona.`
             : 'Con 2 prendas o más, el envío a sucursal Andreani es gratis.';
     } else if (selectedDeliveryMethod === 'taller') {
         customerHint = 'Villa Martelli, zona Tecnópolis · Lunes a viernes de 10 a 16 h. La dirección se coordina por WhatsApp.';
@@ -8986,11 +9050,13 @@ function renderCartPreview() {
 
     const shippingStatus = !selectedDeliveryMethod
         ? 'Elegí una forma de entrega'
+        : totals.shippingPending
+            ? 'Elegí tu zona para calcular el envío'
         : selectedDeliveryMethod === 'taller'
             ? '<span style="color:var(--magic-green);">RETIRO SIN CARGO ✓</span>'
             : selectedDeliveryMethod === 'retiro_andreani'
                 ? totals.envio > 0
-                    ? '<span>Envío a sucursal Andreani: $5.000</span>'
+                    ? `<span>Envío a punto Andreani: $${totals.envio.toLocaleString('es-AR')}</span>`
                     : '<span style="color:var(--magic-green);">ENVÍO GRATIS A SUCURSAL ANDREANI ✓</span>'
                 : totals.envio > 0
                     ? `<span>Envío a domicilio: $${totals.envio.toLocaleString('es-AR')}</span>`
@@ -9013,7 +9079,7 @@ function renderCartPreview() {
                 <span class="value">${shippingStatus}</span>
             </div>
             <div class="cart-preview-summary-row total">
-                <span>Total</span>
+                <span>${totals.shippingPending ? 'Total sin envío' : 'Total'}</span>
                 <span class="value">$${totals.total.toLocaleString('es-AR')}</span>
             </div>
         </div>
@@ -9021,7 +9087,7 @@ function renderCartPreview() {
         ${shippingForm}
         <div class="cart-preview-info" style="margin-top:12px;padding:12px;background:#0a0a0a;border:1px solid #222;border-radius:8px;font-size:0.8rem;color:#888;">
             <div style="margin-bottom:8px;">
-                <span style="color:#39ff14;">📦 ENVÍOS A TODO EL PAÍS:</span> 1 prenda: punto Andreani $5.000 o domicilio $9.000. 2 prendas: punto Andreani gratis o domicilio $9.000. 3 prendas o más: 10% OFF y envío gratis a punto Andreani o domicilio.
+                <span style="color:#39ff14;">📦 ENVÍOS A TODO EL PAÍS:</span> Punto Andreani desde $6.000 · Domicilio desde $10.000. 2 prendas: envío gratis a punto Andreani; a domicilio abonás la tarifa de tu zona. 3 prendas o más: 10% OFF + envío gratis a todo el país. Retiro coordinado por Villa Martelli sin cargo.
             </div>
             <div>
                 <span style="color:#39ff14;">💳 PAGO:</span> Transferencia o MercadoPago. Tarjeta de crédito: recargo fijo de $7.000.

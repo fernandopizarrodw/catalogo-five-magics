@@ -42,7 +42,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/main.css?v=shipping-20261102">
 
     <!-- Google Analytics 4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-1H3XPM82ED"></script>
@@ -692,9 +692,9 @@
     <!-- MINI BANNER PROMO -->
     <section class="promo-mini-banner promo-mini-banner-shell home-secondary-archive">
         <div class="promo-mini-banner-content">
-            <span class="promo-mini-item"><span class="promo-mini-icon">🚚</span> 1 prenda: <strong class="promo-mini-accent-green">punto Andreani $5.000 · domicilio $9.000</strong></span>
+            <span class="promo-mini-item"><span class="promo-mini-icon">🚚</span> 1 prenda: <strong class="promo-mini-accent-green">punto Andreani desde $6.000 · domicilio desde $10.000, según zona</strong></span>
             <span class="promo-mini-separator">|</span>
-            <span class="promo-mini-item"><span class="promo-mini-icon">📦</span> 2 prendas: <strong class="promo-mini-accent-green">punto Andreani gratis · domicilio $9.000</strong></span>
+            <span class="promo-mini-item"><span class="promo-mini-icon">📦</span> 2 prendas: <strong class="promo-mini-accent-green">punto Andreani gratis · domicilio según zona (desde $10.000)</strong></span>
             <span class="promo-mini-separator">|</span>
             <span class="promo-mini-item"><span class="promo-mini-icon">🔥</span> 3 prendas o más: <strong class="promo-mini-accent-green">10% OFF + envío gratis</strong></span>
             <span class="promo-mini-separator">|</span>
@@ -1313,7 +1313,7 @@
             <div class="faq-item bg-card">
                 <details>
                     <summary>Envíos por Andreani y seguimiento</summary>
-                    <div class="faq-content">Con 1 prenda, el envío cuesta $5.000 a sucursal/punto Andreani o $9.000 a domicilio. Con 2 prendas, es gratis a punto Andreani o cuesta $9.000 a domicilio. Desde 3 prendas tenés 10% OFF y envío gratis. Te pasamos el seguimiento apenas despacha.</div>
+                    <div class="faq-content">Punto Andreani desde $6.000 · Domicilio desde $10.000. <div class="shipping-rate-table-wrap"><table class="shipping-rate-table"><thead><tr><th>Zona</th><th>Punto Andreani</th><th>Domicilio</th></tr></thead><tbody><tr><th scope="row">AMBA (CABA y GBA)</th><td>$6.000</td><td>$10.000</td></tr><tr><th scope="row">Interior de Buenos Aires + Región Centro</th><td>$7.000</td><td>$11.000</td></tr><tr><th scope="row">Resto del país</th><td>$8.000</td><td>$12.000</td></tr></tbody></table></div>Región Centro: Córdoba, Santa Fe, Entre Ríos y La Pampa. El valor exacto depende de la localidad y código postal y se confirma antes de finalizar el pedido. Con 2 prendas, el envío a punto Andreani es gratis; a domicilio abonás únicamente la tarifa correspondiente a tu zona. Desde 3 prendas tenés 10% OFF sobre las prendas y envío gratis a todo el país. Retiro coordinado por Villa Martelli sin cargo. Te pasamos el seguimiento apenas despachamos.</div>
                 </details>
             </div>
             <div class="faq-item bg-card">
@@ -1538,8 +1538,8 @@
 
                     <div class="modal-shipping-promo" aria-label="Envíos y beneficios por cantidad">
                         <strong>ENVÍOS A TODO EL PAÍS 🇦🇷</strong>
-                        <span><b>1 prenda:</b> punto Andreani $5.000 · domicilio $9.000</span>
-                        <span><b>2 prendas:</b> punto Andreani gratis · domicilio $9.000</span>
+                        <span><b>1 prenda:</b> punto Andreani desde $6.000 · domicilio desde $10.000, según zona</span>
+                        <span><b>2 prendas:</b> punto Andreani gratis · domicilio según zona (desde $10.000)</span>
                         <span><b>3 o más:</b> 10% OFF + envío gratis</span>
                     </div>
 
@@ -1678,7 +1678,8 @@
                 <label class="custom-order-wide">DISEÑO O REFERENCIA<textarea id="customOrderReference" rows="2" placeholder="Ej: portada de Grind Bastard en la espalda" required></textarea></label>
                 <label>BANDA / ARTISTA<input id="customOrderBand" type="text" placeholder="Ej: Benediction"></label>
                 <label>CÓDIGO POSTAL<input id="customOrderCP" type="text" inputmode="numeric" maxlength="8" placeholder="Ej: B1643"></label>
-                <label class="custom-order-wide">ENTREGA<select id="customOrderDelivery" onchange="updateCustomOrderQuote()"><option value="andreani">Punto o sucursal Andreani · $5.000</option><option value="domicilio">Domicilio · $9.000</option><option value="retiro">Retiro coordinado Villa Martelli · Gratis</option></select></label>
+                <label class="custom-order-wide">ENTREGA<select id="customOrderDelivery" onchange="updateCustomOrderQuote()"><option value="andreani">Punto o sucursal Andreani · desde $6.000</option><option value="domicilio">Domicilio · desde $10.000</option><option value="retiro">Retiro coordinado Villa Martelli · Gratis</option></select></label>
+                <label class="custom-order-wide">ZONA DE ENVÍO<select id="customOrderZone" onchange="updateCustomOrderQuote()" required><option value="">Elegí tu zona</option><option value="amba">AMBA (CABA y GBA)</option><option value="centro">Interior de Buenos Aires + Región Centro</option><option value="resto">Resto del país</option></select><small>Región Centro: Córdoba, Santa Fe, Entre Ríos y La Pampa. Confirmamos el valor según localidad y CP.</small></label>
             </div>
             <div class="custom-order-quote" id="customOrderQuote" aria-live="polite"></div>
             <button type="submit" class="custom-order-submit">ENVIAR PEDIDO POR WHATSAPP</button>
@@ -1687,7 +1688,7 @@
 
     <script src="js/band-archives-config.js" defer></script>
     <script src="js/catalog-design.js" defer></script>
-    <script src="js/app.js" defer></script>
+    <script src="js/app.js?v=shipping-20261102" defer></script>
 </body>
 
 </html>

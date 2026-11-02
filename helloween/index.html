@@ -28,7 +28,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="/styles/main.css?v=shipping-20261102">
     <link rel="stylesheet" href="/styles/band-landing.css">
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-1H3XPM82ED"></script>
@@ -551,8 +551,8 @@
 
                     <div class="modal-shipping-promo" aria-label="Envíos y beneficios por cantidad">
                         <strong>ENVÍOS A TODO EL PAÍS 🇦🇷</strong>
-                        <span><b>1 prenda:</b> punto Andreani $5.000 · domicilio $9.000</span>
-                        <span><b>2 prendas:</b> punto Andreani gratis · domicilio $9.000</span>
+                        <span><b>1 prenda:</b> punto Andreani desde $6.000 · domicilio desde $10.000, según zona</span>
+                        <span><b>2 prendas:</b> punto Andreani gratis · domicilio según zona (desde $10.000)</span>
                         <span><b>3 o más:</b> 10% OFF + envío gratis</span>
                     </div>
 
@@ -691,7 +691,8 @@
                 <label class="custom-order-wide">DISEÑO O REFERENCIA<textarea id="customOrderReference" rows="2" placeholder="Ej: portada de Grind Bastard en la espalda" required></textarea></label>
                 <label>BANDA / ARTISTA<input id="customOrderBand" type="text" placeholder="Ej: Benediction"></label>
                 <label>CÓDIGO POSTAL<input id="customOrderCP" type="text" inputmode="numeric" maxlength="8" placeholder="Ej: B1643"></label>
-                <label class="custom-order-wide">ENTREGA<select id="customOrderDelivery" onchange="updateCustomOrderQuote()"><option value="andreani">Punto o sucursal Andreani · $5.000</option><option value="domicilio">Domicilio · $9.000</option><option value="retiro">Retiro coordinado Villa Martelli · Gratis</option></select></label>
+                <label class="custom-order-wide">ENTREGA<select id="customOrderDelivery" onchange="updateCustomOrderQuote()"><option value="andreani">Punto o sucursal Andreani · desde $6.000</option><option value="domicilio">Domicilio · desde $10.000</option><option value="retiro">Retiro coordinado Villa Martelli · Gratis</option></select></label>
+                <label class="custom-order-wide">ZONA DE ENVÍO<select id="customOrderZone" onchange="updateCustomOrderQuote()" required><option value="">Elegí tu zona</option><option value="amba">AMBA (CABA y GBA)</option><option value="centro">Interior de Buenos Aires + Región Centro</option><option value="resto">Resto del país</option></select><small>Región Centro: Córdoba, Santa Fe, Entre Ríos y La Pampa. Confirmamos el valor según localidad y CP.</small></label>
             </div>
             <div class="custom-order-quote" id="customOrderQuote" aria-live="polite"></div>
             <button type="submit" class="custom-order-submit">ENVIAR PEDIDO POR WHATSAPP</button>
@@ -729,6 +730,6 @@
     </script>
     <script src="/js/band-archives-config.js" defer></script>
     <script src="/js/catalog-design.js" defer></script>
-    <script src="/js/app.js" defer></script>
+    <script src="/js/app.js?v=shipping-20261102" defer></script>
 </body>
 </html>
