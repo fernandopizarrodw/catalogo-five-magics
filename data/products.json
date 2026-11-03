@@ -17264,6 +17264,9 @@
       {
         "img": "images/iron_maiden/remera_iron_maiden_eddie_gaucho_argentino_frente.jpg",
         "name": "Eddie Gaucho Argentino - Frente clásico",
+        "colorPreviews": [
+          { "img": "images/iron_maiden/remeras blancas maiden/eddie gaucho BLANCA-REMERA DOBLE ESTAMPA copia.jpg", "autoSelectBack": "Dorso Buenos Aires 2026" }
+        ],
         "selectionLabel": "Frente clásico",
         "previewLabel": "Frente solo",
         "designId": "cd-iron-maiden-eddie-gaucho-argentino--p7040",
@@ -17778,6 +17781,9 @@
       {
         "img": "images/iron_maiden/eddie_run_for_your_lives_tour/remera_iron_maiden_run_oficial_set_argentina.png",
         "name": "Run For Your Lives World Tour 2026 - Set List Argentina",
+        "colorPreviews": [
+          { "img": "images/iron_maiden/remeras blancas maiden/tour RFYL BLANCA-REMERA DOBLE ESTAMPA copia.jpg" }
+        ],
         "designId": "iron-maiden-run-for-your-lives-2026-oficial"
       },
       {
@@ -22191,6 +22197,9 @@
       {
         "img": "images/iron_maiden/iron_maiden_a_matter_doble.png",
         "name": "A Matter of Life and Death - Frente y dorso",
+        "colorPreviews": [
+          { "img": "images/iron_maiden/remeras blancas maiden/A MATTER BLANCA-REMERA DOBLE ESTAMPA copia.jpg" }
+        ],
         "designId": "iron-maiden-a-matter-of-life-and-death",
         "role": "front"
       }
@@ -22650,6 +22659,9 @@
       {
         "img": "images/iron_maiden/9 discos 1 tour/Powerslave (1984).jpg",
         "name": "Powerslave (1984)",
+        "colorPreviews": [
+          { "img": "images/iron_maiden/remeras blancas maiden/POWERSLAVE BLANCA-REMERA DOBLE ESTAMPA copia.jpg", "autoSelectBack": "Dorso Powerslave" }
+        ],
         "designId": "iron-maiden-powerslave-1984-run-for-your-lives",
         "role": "front",
         "campaignPreview": "iron-maiden-nine-albums-tour"
@@ -23494,6 +23506,9 @@
       {
         "img": "images/iron_maiden/iron_maiden_eddie_tanguero.jpg",
         "name": "Eddie Tanguero · Frente",
+        "colorPreviews": [
+          { "img": "images/iron_maiden/remeras blancas maiden/EDDIE TANGUERO BLANCA-REMERA DOBLE ESTAMPA copia.jpg", "autoSelectBack": "Dorso Eddie Tanguero · Buenos Aires 2026" }
+        ],
         "selectionLabel": "Frente Eddie Tanguero",
         "previewLabel": "Frente solo",
         "designId": "iron-maiden-eddie-tanguero-original-fmd",
@@ -23590,7 +23605,7 @@
         "publicName": "The Number of the Beast · 666"
       },
       {
-        "img": "images/iron_maiden/remera_iron_maiden_blanca_666.jpg",
+        "img": "images/iron_maiden/remeras blancas maiden/remera_iron_maiden_blanca_666.jpg",
         "name": "The Number of the Beast · 666 · Blanca",
         "selectionLabel": "The Number of the Beast · 666",
         "designId": "iron-maiden-number-of-the-beast-666",
@@ -23921,6 +23936,9 @@
       {
         "img": "images/iron_maiden/remera_iron_maiden_eddie_huracan_frente.jpg",
         "name": "Eddie en Huracán · Frente",
+        "colorPreviews": [
+          { "img": "images/iron_maiden/remeras blancas maiden/EDDIE VS HURACAN BLANCA-REMERA DOBLE ESTAMPA copia.jpg", "autoSelectBack": "Dorso Eddie Huracán · Set List Argentina 2026" }
+        ],
         "selectionLabel": "Frente Eddie en Huracán",
         "previewLabel": "Frente solo",
         "designId": "iron-maiden-eddie-huracan-original-fmd",
@@ -25408,6 +25426,10 @@
       {
         "img": "images/iron_maiden/iron_maiden_eddie_argentina_frente.jpg",
         "name": "Eddie Argentina · Estadio Huracán · Frente",
+        "colorPreviews": [
+          { "img": "images/iron_maiden/remeras blancas maiden/iron_maiden_eddie_argentina_blanca_doble.jpg", "autoSelectBack": "Dorso Afiche · Set List Argentina 2026" },
+          { "img": "images/iron_maiden/remeras blancas maiden/ART FLAYER NUEVO.jpg", "previewLabel": "Blanca · Otra presentación", "autoSelectBack": "Dorso Afiche · Set List Argentina 2026" }
+        ],
         "publicName": "Eddie Argentina · Estadio Huracán",
         "selectionLabel": "Frente Eddie Argentina · Estadio Huracán",
         "previewLabel": "Frente solo",
@@ -25449,6 +25471,8 @@
       {
         "img": "images/iron_maiden/iron_maiden_eddie_argentina_blanca_frente.jpg",
         "name": "Eddie Argentina · Frente blanco",
+        "color": "blanco",
+        "orderVariantIndex": 0,
         "publicName": "Eddie Argentina · Estadio Huracán",
         "selectionLabel": "Frente Eddie Argentina · Blanca",
         "previewLabel": "Frente blanco",
@@ -25488,6 +25512,9 @@
       {
         "img": "images/iron_maiden/iron_maiden_eddie_gaucho_tempestad.jpg",
         "name": "Eddie Gaucho Tempestad - Frente",
+        "colorPreviews": [
+          { "img": "images/iron_maiden/remeras blancas maiden/EDDIE BOLEADORAS BLANCA-REMERA DOBLE ESTAMPA copia.jpg", "autoSelectBack": "Dorso Eddie Gaucho Tempestad" }
+        ],
         "selectionLabel": "Frente Eddie Gaucho Tempestad",
         "previewLabel": "Frente solo",
         "designId": "iron-maiden-eddie-gaucho-tempestad-original-fmd",
@@ -25554,6 +25581,9 @@
       {
         "img": "images/iron_maiden/eddie_jinetes_del_apocalipsis_fmd_frente.jpg",
         "name": "Eddie · Los 4 Jinetes del Apocalipsis · Frente",
+        "colorPreviews": [
+          { "img": "images/iron_maiden/remeras blancas maiden/4-jinetes-BLANCA-REMERA DOBLE ESTAMPA copia.jpg", "autoSelectBack": "Dorso Los 4 Jinetes del Apocalipsis · Buenos Aires 2026" }
+        ],
         "publicName": "Eddie · Los 4 Jinetes del Apocalipsis",
         "selectionLabel": "Frente Los 4 Jinetes del Apocalipsis",
         "previewLabel": "Frente solo",
@@ -25687,6 +25717,9 @@
       {
         "img": "images/iron_maiden/iron_maiden_eddie_soldado.jpg",
         "name": "Eddie Libertador · Frente",
+        "colorPreviews": [
+          { "img": "images/iron_maiden/remeras blancas maiden/LIBERTADOR BLANCA-REMERA DOBLE ESTAMPA copia.jpg", "autoSelectBack": "Dorso Eddie Libertador · Cruce de los Andes" }
+        ],
         "publicName": "Eddie Libertador · Cruce de los Andes",
         "selectionLabel": "Frente solo",
         "previewLabel": "Frente solo",
@@ -26042,6 +26075,9 @@
       {
         "img": "images/iron_maiden/iron maiden fmd edition/IRON FMD.jpg",
         "name": "IRON MAIDEN - RUN FOR ARGENTINA • 50 YEARS · Frente",
+        "colorPreviews": [
+          { "img": "images/iron_maiden/remeras blancas maiden/DOBLE ESTAMPA.jpg", "autoSelectBack": "Dorso Eddie · Set List Argentina 2026" }
+        ],
         "publicName": "IRON MAIDEN - RUN FOR ARGENTINA • 50 YEARS",
         "selectionLabel": "Frente RUN FOR ARGENTINA • 50 YEARS",
         "role": "front",

@@ -2762,6 +2762,11 @@ function updateCatalogDesignReferenceNote() {
         : garment === 'buzo_cuello_redondo'
             ? 'buzo cuello redondo'
             : 'remera';
+    if (hasPreview && selectedCatalogFrontRef?.isColorPreview && selectedPrintMode !== 'double') {
+        note.classList.remove('is-hidden');
+        note.textContent = 'La imagen muestra frente y dorso. Tu pedido está configurado con solo frente.';
+        return;
+    }
     note.classList.toggle('is-hidden', hasPreview);
     if (hasPreview) {
         note.replaceChildren();
@@ -2826,12 +2831,20 @@ function selectCatalogDesignPreviewForGarment(modalGarment) {
     }
     const previews = currentCatalogDesign.previewsByGarment?.[garment] || [];
     const selectedColorKey = normalizeText(selectedColor);
+    const colorPreviews = garmentRefs.filter(ref => (
+        normalizeText(ref.color || 'negro') === selectedColorKey
+        && Number(ref.productId) === Number(previousSelection?.productId)
+        && ((ref.orderVariantIndex ?? ref.variantIndex) === (previousSelection?.orderVariantIndex ?? previousSelection?.variantIndex)
+            || (previousSelectionLabel && normalizeText(ref.selectionLabel || ref.label || '') === previousSelectionLabel))
+    ));
+    const colorPreview = colorPreviews.find(ref => isSameAssetPath(ref.image, previousSelection?.image || ''))
+        || colorPreviews.find(ref => selectedPrintMode === 'double' ? ref.isColorPreview : !ref.isColorPreview)
+        || colorPreviews[0];
     const preferCleanFront = normalizeText(currentCatalogDesign.band) === 'helloween';
     const currentSelection = previews.find(item => (
-        Number(item.productId) === Number(selectedCatalogFrontRef?.productId)
-        && Number(item.variantIndex) === Number(selectedCatalogFrontRef?.variantIndex)
+        isSameAssetPath(item.image, selectedCatalogFrontRef?.image || '')
     ));
-    let preview = currentSelection || targetGarmentRef || previousSelection || (preferCleanFront
+    let preview = colorPreview || currentSelection || targetGarmentRef || previousSelection || (preferCleanFront
         ? chooseCleanCatalogPreview(previews, selectedColorKey)
         : previews.find(item => selectedColorKey && normalizeText(item.color) === selectedColorKey)
             || previews.find(item => item.preferredPreview)
@@ -2849,7 +2862,7 @@ function selectCatalogDesignPreviewForGarment(modalGarment) {
     }
     if (preview) {
         const slideIndex = currentModalSourceRefs.findIndex(ref => (
-            ref.productId === preview.productId && ref.variantIndex === preview.variantIndex
+            isSameAssetPath(ref.image, preview.image)
         ));
         if (slideIndex >= 0) goToSlide(slideIndex, false);
     }
@@ -3276,6 +3289,7 @@ function selectPrintMode(mode) {
         print_mode: selectedPrintMode
     });
     updateModalOrderSummary();
+    updateCatalogDesignReferenceNote();
 }
 
 window.selectPrintMode = selectPrintMode;
@@ -4197,6 +4211,7 @@ async function loadProducts() {
         filterProducts(); // Renderizar después de cargar
         renderBandDesignShowcase();
         renderHomeNews();
+        renderMaidenWhiteShirts();
         loadProductFromHash(); // Abrir producto desde URL hash si existe
         loadCategoryFromURL();  // Ir a categoría desde ?cat= si existe
     } catch (error) {
@@ -5807,8 +5822,20 @@ function getCatalogDesignFrontRefs(design) {
         seen.add(key);
         return true;
     });
+    const colorRefs = frontRefs.flatMap(ref => (ref.colorPreviews || []).map(preview => ({
+        ...ref,
+        image: preview.img,
+        previewLabel: preview.previewLabel || 'Remera blanca · Frente y dorso',
+        alt: preview.alt || `${design.publicName} en remera blanca`,
+        color: preview.color || 'blanco',
+        defaultPrintMode: preview.defaultPrintMode || 'double',
+        autoSelectBack: preview.autoSelectBack || '',
+        isColorPreview: true,
+        modalOrder: 100
+    })));
     const carouselBacks = (design.backOptions || []).filter(ref => ref.carouselPreview);
-    return [...frontRefs, ...carouselBacks].sort((a, b) => {
+    return [...frontRefs, ...carouselBacks, ...colorRefs].sort((a, b) => {
+        if (Boolean(a.isColorPreview) !== Boolean(b.isColorPreview)) return a.isColorPreview ? 1 : -1;
         const aOrder = Number.isFinite(a.modalOrder) ? a.modalOrder : Number.MAX_SAFE_INTEGER;
         const bOrder = Number.isFinite(b.modalOrder) ? b.modalOrder : Number.MAX_SAFE_INTEGER;
         return aOrder - bOrder;
@@ -5929,6 +5956,42 @@ function openCatalogDesignPreview(designId, initialGarment = '', initialPrintMod
 }
 
 window.openCatalogDesignPreview = openCatalogDesignPreview;
+
+function showMaidenWhiteShirts() {
+    const section = document.getElementById('bandWhiteShirts');
+    if (!section) return;
+    section.querySelector('details').open = true;
+    scrollToBandLandingSection('bandWhiteShirts');
+}
+
+function renderMaidenWhiteShirts() {
+    const grid = document.getElementById('bandWhiteShirtsGrid');
+    if (!grid) return;
+    const cards = (BAND_LANDING_ARCHIVE_CONFIG?.whiteShirts || []).filter(card => catalogDesignById.has(card.designId));
+    grid.replaceChildren(...cards.map(card => {
+        const design = catalogDesignById.get(card.designId);
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.dataset.designId = card.designId;
+        button.setAttribute('aria-label', `Ver ${design.publicName} en remera blanca`);
+        button.addEventListener('click', () => openCatalogDesignPreview(card.designId, 'remera', 'double', card.image));
+        const img = document.createElement('img');
+        img.src = `/${card.image}`;
+        img.alt = `${design.publicName} · Remera blanca · Frente y dorso`;
+        img.loading = 'lazy';
+        img.decoding = 'async';
+        img.width = 1200;
+        img.height = 1200;
+        const title = document.createElement('strong');
+        title.textContent = design.publicName;
+        const price = document.createElement('small');
+        price.textContent = `Desde $${(design.catalogStartingPrice || PRECIOS.simple).toLocaleString('es-AR')}`;
+        button.append(img, title, price);
+        return button;
+    }));
+    const count = document.getElementById('bandWhiteShirtsCount');
+    if (count) count.textContent = `${cards.length} diseños`;
+}
 
 function openOuterwearFeaturedModal(id, variantIndex = undefined) {
     openModal(id, variantIndex, undefined, 'outerwear_feature');
@@ -6825,6 +6888,13 @@ function onCarouselScroll() {
 function applyCatalogPreviewSelection(ref) {
     if (ref?.role !== 'front') return;
     selectedCatalogFrontRef = ref;
+    if (ref.color && selectedColor !== ref.color) {
+        selectedColor = ref.color;
+        document.querySelectorAll('#colorSelector button').forEach(button => {
+            button.classList.toggle('active', button.dataset.color === ref.color);
+            button.style.cssText = '';
+        });
+    }
     const previewPrintMode = normalizeText(ref.defaultPrintMode || '');
     if ((previewPrintMode === 'double' || previewPrintMode === 'doble') && selectedPrintMode !== 'double') {
         selectPrintMode('double');
@@ -6833,7 +6903,7 @@ function applyCatalogPreviewSelection(ref) {
     }
     if (!ref.autoSelectBack || !currentCatalogDesign) return;
 
-    const targetBack = currentCatalogDesign.backOptions?.find(back => (
+    const targetBack = getCatalogDesignBackChoices().find(back => (
         normalizeText(back.selectionLabel || back.label) === normalizeText(ref.autoSelectBack)
     ));
     if (!targetBack) return;
@@ -9318,7 +9388,7 @@ function addToCartFromModal() {
         backCode: selectedCatalogBackRef
             ? cart.generateCode(selectedCatalogBackRef.productId, selectedCatalogBackRef.variantIndex)
             : '',
-        frontImage: orderVisuals?.frontImage || '',
+        frontImage: selectedCatalogFrontRef?.color === 'blanco' ? selectedCatalogFrontRef.image : orderVisuals?.frontImage || '',
         backImage: orderVisuals?.backImage || ''
     };
     

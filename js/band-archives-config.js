@@ -352,12 +352,27 @@
             usesShownComposition: false,
             hideProminentAllDesigns: true,
             allCollectionLabel: 'COLECCIÓN COMPLETA',
+            whiteShirts: [
+                { designId: 'cd-iron-maiden-eddie-gaucho-argentino--p7040', image: 'images/iron_maiden/remeras blancas maiden/eddie gaucho BLANCA-REMERA DOBLE ESTAMPA copia.jpg' },
+                { designId: 'iron-maiden-eddie-gaucho-tempestad-original-fmd', image: 'images/iron_maiden/remeras blancas maiden/EDDIE BOLEADORAS BLANCA-REMERA DOBLE ESTAMPA copia.jpg' },
+                { designId: 'iron-maiden-eddie-tanguero-original-fmd', image: 'images/iron_maiden/remeras blancas maiden/EDDIE TANGUERO BLANCA-REMERA DOBLE ESTAMPA copia.jpg' },
+                { designId: 'iron-maiden-eddie-huracan-original-fmd', image: 'images/iron_maiden/remeras blancas maiden/EDDIE VS HURACAN BLANCA-REMERA DOBLE ESTAMPA copia.jpg' },
+                { designId: 'iron-maiden-eddie-libertador-cruce-de-los-andes-original-fmd', image: 'images/iron_maiden/remeras blancas maiden/LIBERTADOR BLANCA-REMERA DOBLE ESTAMPA copia.jpg' },
+                { designId: 'iron-maiden-eddie-cuatro-jinetes-del-apocalipsis-original-fmd', image: 'images/iron_maiden/remeras blancas maiden/4-jinetes-BLANCA-REMERA DOBLE ESTAMPA copia.jpg' },
+                { designId: 'iron-maiden-eddie-argentina-estadio-huracan-fmd', image: 'images/iron_maiden/remeras blancas maiden/iron_maiden_eddie_argentina_blanca_doble.jpg' },
+                { designId: 'iron-maiden-buenos-aires-2026-aniversario-fmd', image: 'images/iron_maiden/remeras blancas maiden/DOBLE ESTAMPA.jpg' },
+                { designId: 'iron-maiden-run-for-your-lives-2026-oficial', image: 'images/iron_maiden/remeras blancas maiden/tour RFYL BLANCA-REMERA DOBLE ESTAMPA copia.jpg' },
+                { designId: 'iron-maiden-powerslave-1984-run-for-your-lives', image: 'images/iron_maiden/remeras blancas maiden/POWERSLAVE BLANCA-REMERA DOBLE ESTAMPA copia.jpg' },
+                { designId: 'iron-maiden-a-matter-of-life-and-death', image: 'images/iron_maiden/remeras blancas maiden/A MATTER BLANCA-REMERA DOBLE ESTAMPA copia.jpg' },
+                { designId: 'iron-maiden-number-of-the-beast-666', image: 'images/iron_maiden/remeras blancas maiden/remera_iron_maiden_blanca_666.jpg' }
+            ],
             discoveryLinks: [
                 { collectionId: 'tour-argentina', label: 'TOUR ARGENTINA 2026', copy: 'Huracán · Buenos Aires' },
                 { collectionId: 'eddies-argentinos', label: 'EDDIES ARGENTINOS', copy: 'Originales FMD inspirados en Argentina' },
                 { collectionId: 'nine-classics', label: 'LOS 9 DISCOS CLÁSICOS', copy: '1980–1992' },
                 { collectionId: 'singles', label: 'SINGLES + CANCIONES', copy: 'Clásicos y reinterpretaciones' },
                 { sectionId: 'bandCommemorativeBacks', label: 'DORSOS DISPONIBLES', copy: 'Elegí uno y combinalo con tu frente' },
+                { sectionId: 'bandWhiteShirts', label: 'REMERAS BLANCAS', copy: 'Mismos diseños y precios' },
                 { collectionId: '', label: 'COLECCIÓN COMPLETA', copy: '<span data-band-design-count-number>0</span> diseños únicos' }
             ],
             curatedSelection: {

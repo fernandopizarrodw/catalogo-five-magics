@@ -241,6 +241,7 @@
             orderVariantIndex: Number.isInteger(variant?.orderVariantIndex) ? variant.orderVariantIndex : null,
             modalOrder: Number.isFinite(Number(variant?.modalOrder)) ? Number(variant.modalOrder) : null,
             color: String(variant?.color || '').trim(),
+            colorPreviews: Array.isArray(variant?.colorPreviews) ? variant.colorPreviews.map(preview => ({ ...preview })) : [],
             defaultPrintMode: String(variant?.defaultPrintMode || product?.defaultPrintMode || '').trim()
         };
     }

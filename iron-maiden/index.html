@@ -29,7 +29,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/styles/main.css?v=shipping-20261102">
-    <link rel="stylesheet" href="/styles/band-landing.css">
+    <link rel="stylesheet" href="/styles/band-landing.css?v=maiden-white-20261102">
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-1H3XPM82ED"></script>
     <script>
@@ -120,6 +120,7 @@
                 <div class="band-landing-hero-actions">
                     <a class="band-landing-primary-cta" href="#catalogoPrincipal" onclick="event.preventDefault(); selectBandLandingCollectionAndScroll('eddies-argentinos')">VER EDDIES ARGENTINOS</a>
                     <a class="band-landing-secondary-cta" href="#catalogoPrincipal">VER COLECCIÓN COMPLETA</a>
+                    <a class="maiden-white-link" href="#bandWhiteShirts" onclick="event.preventDefault(); showMaidenWhiteShirts()">VER REMERAS BLANCAS</a>
                 </div>
             </div>
             <div class="band-landing-hero-art">
@@ -258,6 +259,17 @@
             <p class="band-campaign-feature-note">Elegí tu Eddie. Disponibles con estampa frontal o frente + dorso.</p>
             <button type="button" class="band-campaign-feature-cta" onclick="selectBandLandingCollectionAndScroll('eddies-argentinos')">VER EDDIES ARGENTINOS</button>
         </section>
+        <section class="band-featured-collection maiden-white-shirts" id="bandWhiteShirts" aria-labelledby="bandWhiteShirtsTitle">
+            <div class="band-featured-collection-head">
+                <p>IRON MAIDEN EN BLANCO</p>
+                <h2 id="bandWhiteShirtsTitle">TAMBIÉN EN REMERAS BLANCAS</h2>
+                <span>Elegí tu diseño en blanco. Mismos precios que en negro, con estampa frontal o frente + dorso.</span>
+            </div>
+            <details>
+                <summary>VER REMERAS BLANCAS <span id="bandWhiteShirtsCount"></span></summary>
+                <div class="band-curated-selection-grid" id="bandWhiteShirtsGrid"></div>
+            </details>
+        </section>
         <nav class="band-discovery-nav" aria-label="Elegir una colección de Iron Maiden">
             <p>ENCONTRÁ TU DISEÑO</p>
             <div class="band-discovery-nav-grid">
@@ -266,6 +278,7 @@
                 <button type="button" onclick="selectBandLandingCollectionAndScroll('nine-classics')"><strong>LOS 9 DISCOS CLÁSICOS</strong><span>1980–1992</span></button>
                 <button type="button" onclick="selectBandLandingCollectionAndScroll('singles')"><strong>SINGLES + CANCIONES</strong><span>Clásicos y reinterpretaciones</span></button>
                 <button type="button" onclick="scrollToBandLandingSection('bandCommemorativeBacks')"><strong>DORSOS DISPONIBLES</strong><span>Elegí uno y combinalo con tu frente</span></button>
+                <button type="button" onclick="showMaidenWhiteShirts()"><strong>REMERAS BLANCAS</strong><span>Mismos diseños y precios</span></button>
                 <button type="button" onclick="selectBandLandingCollectionAndScroll('')"><strong>COLECCIÓN COMPLETA</strong><span><span data-band-design-count-number>0</span> diseños únicos</span></button>
             </div>
         </nav>
@@ -922,8 +935,8 @@
             syncPostShowState();
         })();
     </script>
-    <script src="/js/band-archives-config.js" defer></script>
-    <script src="/js/catalog-design.js" defer></script>
-    <script src="/js/app.js?v=shipping-20261102" defer></script>
+    <script src="/js/band-archives-config.js?v=maiden-white-20261102" defer></script>
+    <script src="/js/catalog-design.js?v=maiden-white-20261102" defer></script>
+    <script src="/js/app.js?v=maiden-white-20261102" defer></script>
 </body>
 </html>
