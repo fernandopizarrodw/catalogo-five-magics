@@ -11947,17 +11947,97 @@
     "tipoPrecio": "doble",
     "isNew": true,
     "priority": 200,
-    "img": "images/slayer/remera_reign_in_blood.jpg",
+    "img": "images/slayer/frente/slayer_reign_in_blood_frente.jpg",
+    "usesShownComposition": false,
+    "defaultPrintMode": "simple",
     "variants": [
       {
-        "img": "images/slayer/remera_reign_in_blood.jpg",
+        "img": "images/slayer/frente/slayer_reign_in_blood_frente.jpg",
         "name": "Slayer Reign In Blood - Remera",
-        "garmentCategory": "Slayer"
+        "garmentCategory": "Slayer",
+        "selectionLabel": "Frente Reign in Blood",
+        "previewLabel": "Solo frente",
+        "modalOrder": 0,
+        "stylePreviews": [
+          {
+            "img": "images/slayer/frente/slayer_reign_in_blood_frente_sin_mangas.jpg",
+            "garmentStyle": "sin_mangas",
+            "previewLabel": "Sin mangas · Solo frente"
+          }
+        ]
       },
       {
         "img": "images/slayer/hoodie_reign_in_blood.jpg",
         "name": "Slayer Reign In Blood - Hoodie",
-        "garmentCategory": "Hoodies Otras Bandas"
+        "garmentCategory": "Hoodies Otras Bandas",
+        "modalOrder": 10
+      },
+      {
+        "img": "images/slayer/dorso/slayer_reign_in_blood_dorso.jpg",
+        "name": "Dorso Reign in Blood · Logo rojo",
+        "role": "back",
+        "garmentCategory": "Slayer",
+        "carouselPreview": true,
+        "previewLabel": "Dorso · Reign in Blood",
+        "modalOrder": 1,
+        "stylePreviews": [
+          {
+            "img": "images/slayer/dorso/slayer_reign_in_blood_dorso_sin_mangas.jpg",
+            "garmentStyle": "sin_mangas",
+            "previewLabel": "Sin mangas · Dorso"
+          }
+        ]
+      },
+      {
+        "img": "images/slayer/dobles/remera_reign_in_blood_doble.jpg",
+        "name": "Reign in Blood · Frente y dorso",
+        "publicName": "Reign In Blood",
+        "role": "front",
+        "garmentCategory": "Slayer",
+        "selectionLabel": "Frente Reign in Blood",
+        "previewLabel": "Frente y dorso",
+        "autoSelectBack": "Dorso Reign in Blood · Logo rojo",
+        "defaultPrintMode": "double",
+        "orderVariantIndex": 0,
+        "modalOrder": 2,
+        "stylePreviews": [
+          {
+            "img": "images/slayer/dobles/remera_reign_in_blood_doble_sin_mangas.jpg",
+            "garmentStyle": "sin_mangas",
+            "previewLabel": "Sin mangas · Frente y dorso"
+          }
+        ]
+      },
+      {
+        "img": "images/slayer/dobles/remera_reign_in_blood_doble_argentina.jpg",
+        "name": "Dorso Reign in Blood · Argentina 2026",
+        "selectionLabel": "Dorso Reign in Blood · Argentina 2026",
+        "previewLabel": "Combinación con dorso Argentina 2026",
+        "role": "back",
+        "garmentCategory": "Slayer"
+      },
+      {
+        "img": "images/slayer/dobles/remera_reign_in_blood_doble_argentina.jpg",
+        "name": "Reign in Blood · Frente y dorso Argentina 2026",
+        "publicName": "Reign In Blood",
+        "role": "front",
+        "garmentCategory": "Slayer",
+        "selectionLabel": "Frente Reign in Blood",
+        "previewLabel": "Frente + dorso Argentina 2026",
+        "autoSelectBack": "Dorso Reign in Blood · Argentina 2026",
+        "defaultPrintMode": "double",
+        "orderVariantIndex": 0,
+        "modalOrder": 3
+      },
+      {
+        "img": "images/slayer/frente/slayer_reign_in_blood_show_argentina.jpg",
+        "name": "Reign in Blood · Argentina 2026 - Remera",
+        "publicName": "Reign in Blood · Argentina 2026",
+        "selectionLabel": "Frente Reign in Blood · Argentina 2026",
+        "previewLabel": "Solo frente · Argentina 2026",
+        "role": "front",
+        "garmentCategory": "Slayer",
+        "defaultPrintMode": "simple"
       }
     ],
     "desc": "SLAYER - REIGN IN BLOOD 40TH ANNIVERSARY 2026. Archivo Slayer FMD. Disponible en remera, hoodie y buzo cuello redondo.",

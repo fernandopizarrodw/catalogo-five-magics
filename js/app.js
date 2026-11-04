@@ -126,6 +126,7 @@ function isBandLandingMode() {
 }
 
 function usesBandLandingShownComposition() {
+    if (selectedModalGarment === 'sin_mangas' || currentProduct?.usesShownComposition === false) return false;
     const garment = selectedModalGarment === 'buzo'
         ? 'buzo_cuello_redondo'
         : selectedModalGarment === 'hoodie'
@@ -2400,7 +2401,10 @@ function updateModalSizeRange() {
 
     const garmentCategory = getActiveGarmentCategory(currentProduct);
     let sizeRange = '';
-    if (garmentCategory === 'Hoodies FMD' || garmentCategory === 'Hoodies Otras Bandas') {
+    if (selectedModalGarment === 'sin_mangas') {
+        const sizes = MODAL_SIZE_GUIDES.sin_mangas?.rows.map(row => row[0]) || [];
+        sizeRange = sizes.length ? `${sizes[0]} a ${sizes[sizes.length - 1]}` : 'Consultanos los talles';
+    } else if (garmentCategory === 'Hoodies FMD' || garmentCategory === 'Hoodies Otras Bandas') {
         sizeRange = 'XS a 2XL';
     } else if (garmentCategory === 'Buzo Cuello Redondo') {
         sizeRange = 'XS a 2XL';
@@ -2532,6 +2536,7 @@ function getActiveGarmentCategory(product = currentProduct) {
     if (!product) return '';
     if (selectedModalGarment === 'hoodie') return 'Hoodies Otras Bandas';
     if (selectedModalGarment === 'buzo') return 'Buzo Cuello Redondo';
+    if (selectedModalGarment === 'sin_mangas') return 'Bandas Sugeridas';
     if (currentCatalogDesign && ['remera_clasica', 'mujer', 'oversize'].includes(selectedModalGarment)) {
         return normalizeText(product.category) === 'personalizados' ? 'Personalizados' : 'Bandas Sugeridas';
     }
@@ -2553,10 +2558,11 @@ function getAvailableModalGarments(product = currentProduct) {
             available.add('remera_clasica');
             available.add('mujer');
             available.add('oversize');
+            if (MODAL_SIZE_GUIDES.sin_mangas?.rows.length) available.add('sin_mangas');
         }
         if (garments.includes('hoodie')) available.add('hoodie');
         if (garments.includes('buzo_cuello_redondo')) available.add('buzo');
-        return ['remera_clasica', 'mujer', 'oversize', 'hoodie', 'buzo'].filter(key => available.has(key));
+        return ['remera_clasica', 'mujer', 'oversize', 'sin_mangas', 'hoodie', 'buzo'].filter(key => available.has(key));
     }
 
     const activeVariant = getModalImages()[currentSlide];
@@ -2598,6 +2604,7 @@ function getAvailableModalGarments(product = currentProduct) {
 }
 
 const MODAL_GARMENT_LABELS = {
+    sin_mangas: 'Sin mangas unisex',
     remera_clasica: 'Clásica hombre',
     mujer: 'Clásica mujer',
     oversize: 'Oversize unisex',
@@ -2607,6 +2614,7 @@ const MODAL_GARMENT_LABELS = {
 
 const MODAL_GARMENT_TYPE_LABELS = {
     remera: 'Remera',
+    sin_mangas: 'Sin mangas',
     hoodie: 'Hoodie',
     buzo: 'Buzo'
 };
@@ -2621,12 +2629,14 @@ const MODAL_REMERA_VARIANTS = [
 function getAvailableModalGarmentTypes(available = getAvailableModalGarments(currentProduct)) {
     const types = [];
     if (available.some(garment => ['remera_clasica', 'mujer', 'oversize'].includes(garment))) types.push('remera');
+    if (available.includes('sin_mangas')) types.push('sin_mangas');
     if (available.includes('hoodie')) types.push('hoodie');
     if (available.includes('buzo')) types.push('buzo');
     return types;
 }
 
 function getSelectedModalGarmentType() {
+    if (selectedModalGarment === 'sin_mangas') return 'sin_mangas';
     if (selectedModalGarment === 'hoodie') return 'hoodie';
     if (selectedModalGarment === 'buzo') return 'buzo';
     return 'remera';
@@ -2688,7 +2698,10 @@ function selectModalGarment(garment, shouldTrack = true) {
     const previousGarment = getSelectedModalGarmentType();
     selectedModalGarment = available.includes(garment) ? garment : (available[0] || 'remera_clasica');
 
-    if (selectedModalGarment === 'hoodie' || selectedModalGarment === 'buzo') {
+    if (selectedModalGarment === 'sin_mangas') {
+        selectedAge = 'adulto';
+        selectedCut = 'sin_mangas';
+    } else if (selectedModalGarment === 'hoodie' || selectedModalGarment === 'buzo') {
         selectedAge = 'adulto';
         selectedCut = 'oversize';
     } else if (selectedModalGarment === 'oversize') {
@@ -2752,17 +2765,21 @@ function updateCatalogDesignReferenceNote() {
     if (!note || !currentCatalogDesign) return;
     document.querySelector('.modal-adaptable-note')?.classList.add('is-hidden');
     const garment = getCatalogDesignGarmentKey();
-    const garmentPreviews = currentCatalogDesign.previewsByGarment?.[garment] || [];
+    const garmentPreviews = getCatalogDesignFrontRefs(currentCatalogDesign).filter(ref => (
+        ref.garment === garment
+        && (ref.garmentStyle === 'sin_mangas') === (selectedModalGarment === 'sin_mangas')
+    ));
     const hasPreview = garmentPreviews.some(preview => (
         Number(preview.productId) === Number(selectedCatalogFrontRef?.productId)
         && Number(preview.variantIndex) === Number(selectedCatalogFrontRef?.variantIndex)
+        && (selectedModalGarment !== 'sin_mangas' || normalizeText(preview.color || 'negro') === normalizeText(selectedColor))
     ));
-    const garmentLabel = garment === 'hoodie'
+    const garmentLabel = selectedModalGarment === 'sin_mangas' ? 'remera sin mangas' : garment === 'hoodie'
         ? 'hoodie'
         : garment === 'buzo_cuello_redondo'
             ? 'buzo cuello redondo'
             : 'remera';
-    if (hasPreview && selectedCatalogFrontRef?.isColorPreview && selectedPrintMode !== 'double') {
+    if (hasPreview && (selectedCatalogFrontRef?.isColorPreview || selectedCatalogFrontRef?.autoSelectBack) && selectedPrintMode !== 'double') {
         note.classList.remove('is-hidden');
         note.textContent = 'La imagen muestra frente y dorso. Tu pedido está configurado con solo frente.';
         return;
@@ -2775,7 +2792,11 @@ function updateCatalogDesignReferenceNote() {
     const title = document.createElement('strong');
     title.textContent = `DISPONIBLE EN ${garmentLabel.toUpperCase()}`;
     const description = document.createElement('span');
-    description.textContent = 'Podés personalizar la ubicación y combinación de estampas.';
+    description.textContent = selectedModalGarment === 'sin_mangas'
+        ? (selectedCatalogFrontRef?.garmentStyle === 'sin_mangas'
+            ? 'La imagen muestra la prenda negra. Tu pedido está configurado en blanco.'
+            : `La imagen muestra la versión con mangas. Tu pedido se prepara sin mangas${selectedColor === 'blanco' ? ', en blanco' : ''}.`)
+        : 'Podés personalizar la ubicación y combinación de estampas.';
     const consultation = document.createElement('button');
     consultation.type = 'button';
     consultation.className = 'modal-preview-reference-consult';
@@ -2801,7 +2822,8 @@ function selectCatalogDesignPreviewForGarment(modalGarment) {
     const previousSelection = selectedCatalogFrontRef;
     const previousSelectionLabel = normalizeText(previousSelection?.selectionLabel || previousSelection?.label || '');
     const garmentRefs = getCatalogDesignFrontRefs(currentCatalogDesign)
-        .filter(ref => ref.garment === garment);
+        .filter(ref => ref.garment === garment
+            && (ref.garmentStyle === 'sin_mangas') === (modalGarment === 'sin_mangas'));
     const compatibleGarmentRef = garmentRefs.find(ref => (
         Number(ref.productId) === Number(previousSelection?.productId)
         && Number(ref.variantIndex) === Number(previousSelection?.variantIndex)
@@ -2814,8 +2836,8 @@ function selectCatalogDesignPreviewForGarment(modalGarment) {
     const canUseSingleGarmentPreview = garmentRefs.length === 1 && previousGarmentRefs.length <= 1;
     const targetGarmentRef = compatibleGarmentRef || (canUseSingleGarmentPreview ? garmentRefs[0] : null);
     if (targetGarmentRef) {
-        const currentKeys = currentModalSourceRefs.map(ref => `${ref.productId}:${ref.variantIndex}`);
-        const garmentKeys = garmentRefs.map(ref => `${ref.productId}:${ref.variantIndex}`);
+        const currentKeys = currentModalSourceRefs.map(ref => `${ref.productId}:${ref.variantIndex}:${ref.image}`);
+        const garmentKeys = garmentRefs.map(ref => `${ref.productId}:${ref.variantIndex}:${ref.image}`);
         const needsRefresh = currentKeys.length !== garmentKeys.length
             || currentKeys.some((key, index) => key !== garmentKeys[index]);
         if (needsRefresh) {
@@ -2866,9 +2888,23 @@ function selectCatalogDesignPreviewForGarment(modalGarment) {
         ));
         if (slideIndex >= 0) goToSlide(slideIndex, false);
     }
+    if (modalGarment === 'sin_mangas' && !garmentRefs.length) {
+        const reference = getCatalogDesignFrontRefs(currentCatalogDesign).filter(ref => !ref.garmentStyle && ref.garment === 'remera');
+        currentModalSourceRefs = reference;
+        currentModalImages = reference.map(catalogDesignRefToModalImage);
+        currentModalSourceIndexes = reference.map(ref => ref.variantIndex);
+        renderCurrentModalCarousel();
+        const index = reference.findIndex(ref => ref.variantIndex === previousSelection?.variantIndex);
+        if (reference.length) goToSlide(Math.max(0, index), false);
+    }
     selectedPrintMode = preservedSelection.printMode;
     selectedBackIndex = preservedSelection.backIndex;
     selectedCatalogBackRef = preservedSelection.catalogBackRef;
+    if (selectedCatalogBackRef) {
+        selectedCatalogBackRef = getCatalogDesignBackChoices().find(ref => (
+            ref.productId === selectedCatalogBackRef.productId && ref.variantIndex === selectedCatalogBackRef.variantIndex
+        )) || selectedCatalogBackRef;
+    }
     selectedCatalogBackDeferred = preservedSelection.catalogBackDeferred;
     selectedDorsoChips = preservedSelection.dorsoChips;
     selectedBacks = preservedSelection.backs;
@@ -2945,6 +2981,14 @@ function updateModalGarmentUI() {
     document.querySelectorAll('#sizeSelector button, #sizeSelectorKids button').forEach(btn => {
         btn.classList.toggle('active', Boolean(selectedSize) && btn.dataset.size === selectedSize);
     });
+    if (selectedModalGarment === 'sin_mangas') {
+        const sizes = MODAL_SIZE_GUIDES.sin_mangas?.rows.map(row => row[0]) || [];
+        document.querySelectorAll('#sizeSelector button').forEach(button => {
+            button.style.display = sizes.includes(button.dataset.size) ? '' : 'none';
+        });
+    } else {
+        document.querySelectorAll('#sizeSelector button:not(.size-oversize)').forEach(button => { button.style.display = ''; });
+    }
 }
 
 window.selectModalGarment = selectModalGarment;
@@ -3080,7 +3124,12 @@ function getSelectedOrderVisuals() {
     const frontRef = selectedCatalogFrontRef || currentCatalogDesign?.front || null;
     const backVariant = selectedBackIndex >= 0 ? currentProduct.variants?.[selectedBackIndex] : null;
     const backRef = selectedCatalogBackRef || backVariant || null;
-    const frontImage = (frontRef?.autoSelectBack ? currentCatalogDesign?.front?.image : frontRef?.image)
+    const cleanStyleFront = frontRef?.garmentStyle
+        ? getCatalogDesignFrontRefs(currentCatalogDesign).find(ref => (
+            ref.garmentStyle === frontRef.garmentStyle && ref.variantIndex === currentCatalogDesign.front.variantIndex
+        ))
+        : null;
+    const frontImage = (frontRef?.autoSelectBack ? cleanStyleFront?.image || currentCatalogDesign?.front?.image : frontRef?.image)
         || activeImage?.img
         || currentProduct.img
         || '';
@@ -3267,7 +3316,10 @@ function selectPrintMode(mode) {
         && !selectedCatalogBackRef
         && !selectedCatalogBackDeferred
         && currentCatalogDesign.backOptions?.length === 1) {
-        selectedCatalogBackRef = currentCatalogDesign.backOptions[0];
+        const recommended = currentCatalogDesign.backOptions[0];
+        selectedCatalogBackRef = getCatalogDesignBackChoices().find(ref => (
+            ref.productId === recommended.productId && ref.variantIndex === recommended.variantIndex
+        )) || recommended;
         selectedBackIndex = -1;
     }
 
@@ -3936,7 +3988,8 @@ function collectCatalogHistoricalBacks() {
                 band: getCatalogBandLabel(product),
                 role: 'back',
                 tourRecommendation: variant?.tourRecommendation === true,
-                featuredBack: variant?.featuredBack === true
+                featuredBack: variant?.featuredBack === true,
+                stylePreviews: variant?.stylePreviews || []
             });
         });
     });
@@ -5078,7 +5131,12 @@ function getCatalogDesignBackChoices() {
         const [defaultBack] = choices.splice(defaultBackIndex, 1);
         choices.unshift({ ...defaultBack, backType: 'Recomendado' });
     }
-    return choices;
+    return choices.map(ref => {
+        const preview = selectedModalGarment === 'sin_mangas'
+            ? ref.stylePreviews?.find(item => item.garmentStyle === 'sin_mangas')
+            : null;
+        return preview ? { ...ref, image: normalizeBandLandingAssetPath(preview.img) } : ref;
+    });
 }
 
 function previewCatalogDesignBack(productId, variantIndex) {
@@ -5700,6 +5758,11 @@ function filterCurrentAlbumByGarment(garment) {
 }
 
 const MODAL_SIZE_GUIDES = {
+    sin_mangas: {
+        title: 'Remera clásica sin mangas unisex',
+        copy: 'Medidas en centímetros. Disponible en negro y blanco.',
+        rows: [['S', '52', '75'], ['M', '54', '77'], ['L', '55', '79'], ['XL', '57,5', '81'], ['2XL', '59,5', '83']]
+    },
     hombre: {
         title: 'Remera clásica hombre',
         copy: 'Medidas en centimetros. Pueden variar +/-5%.',
@@ -5787,7 +5850,7 @@ function closeModalSizeGuide() {
 }
 
 function openSizeGuideForCurrentGarment() {
-    const tabName = selectedModalGarment === 'hoodie'
+    const tabName = selectedModalGarment === 'sin_mangas' ? 'sin_mangas' : selectedModalGarment === 'hoodie'
         ? 'hoodies'
         : selectedModalGarment === 'buzo'
             ? 'buzo-redondo'
@@ -5834,7 +5897,16 @@ function getCatalogDesignFrontRefs(design) {
         modalOrder: 100
     })));
     const carouselBacks = (design.backOptions || []).filter(ref => ref.carouselPreview);
-    return [...frontRefs, ...carouselBacks, ...colorRefs].sort((a, b) => {
+    const baseRefs = [...frontRefs, ...carouselBacks];
+    const styleRefs = baseRefs.flatMap(ref => (ref.stylePreviews || []).map(preview => ({
+        ...ref,
+        image: normalizeBandLandingAssetPath(preview.img),
+        garmentStyle: preview.garmentStyle,
+        previewLabel: preview.previewLabel || ref.previewLabel,
+        alt: preview.alt || `${design.publicName} en remera sin mangas`,
+        isStylePreview: true
+    })));
+    return [...baseRefs, ...colorRefs, ...styleRefs].sort((a, b) => {
         if (Boolean(a.isColorPreview) !== Boolean(b.isColorPreview)) return a.isColorPreview ? 1 : -1;
         const aOrder = Number.isFinite(a.modalOrder) ? a.modalOrder : Number.MAX_SAFE_INTEGER;
         const bOrder = Number.isFinite(b.modalOrder) ? b.modalOrder : Number.MAX_SAFE_INTEGER;
@@ -6164,7 +6236,10 @@ function openModal(id, variantIndex = undefined, scopedVariantIndexes = undefine
         : availableModalGarments.includes(preferredGarment)
         ? preferredGarment
         : (availableModalGarments[0] || 'remera_clasica');
-    if (selectedModalGarment === 'hoodie' || selectedModalGarment === 'buzo' || selectedModalGarment === 'oversize') {
+    if (selectedModalGarment === 'sin_mangas') {
+        selectedAge = 'adulto';
+        selectedCut = 'sin_mangas';
+    } else if (selectedModalGarment === 'hoodie' || selectedModalGarment === 'buzo' || selectedModalGarment === 'oversize') {
         selectedAge = 'adulto';
         selectedCut = 'oversize';
     } else if (selectedModalGarment === 'mujer') {
@@ -9248,6 +9323,7 @@ function toggleCartPanel() {
 }
 
 function getModalGarmentLabel(product = currentProduct) {
+    if (selectedModalGarment === 'sin_mangas') return 'Remera clásica sin mangas unisex';
     if (selectedModalGarment === 'hoodie') return 'Hoodie canguro oversize unisex';
     if (selectedModalGarment === 'buzo') return 'Buzo cuello redondo oversize unisex';
     if (selectedModalGarment === 'oversize') return 'Remera oversize unisex';
@@ -9378,7 +9454,7 @@ function addToCartFromModal() {
         isCustom: isCustom,
         designId: currentCatalogDesign?.designId || '',
         customizationText: (document.getElementById('dorsoCustomInput')?.value || '').trim(),
-        publicGarmentLabel: usesBandLandingShownComposition() ? getModalGarmentLabel(currentProduct) : '',
+        publicGarmentLabel: selectedModalGarment === 'sin_mangas' || usesBandLandingShownComposition() ? getModalGarmentLabel(currentProduct) : '',
         priceOverride: resolveModalPriceConfig(currentProduct).priceOverride,
         designName: currentCatalogDesign?.publicName || '',
         frontName: selectedCatalogFrontRef?.selectionLabel || '',
@@ -9388,7 +9464,8 @@ function addToCartFromModal() {
         backCode: selectedCatalogBackRef
             ? cart.generateCode(selectedCatalogBackRef.productId, selectedCatalogBackRef.variantIndex)
             : '',
-        frontImage: selectedCatalogFrontRef?.color === 'blanco' ? selectedCatalogFrontRef.image : orderVisuals?.frontImage || '',
+        frontImage: selectedCatalogFrontRef?.color === 'blanco' ? selectedCatalogFrontRef.image
+            : orderVisuals?.frontImage || (selectedCatalogFrontRef?.isStylePreview ? selectedCatalogFrontRef.image : ''),
         backImage: orderVisuals?.backImage || ''
     };
     

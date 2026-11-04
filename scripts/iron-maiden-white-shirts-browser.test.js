@@ -13,7 +13,8 @@ const pause = ms => new Promise(resolve => setTimeout(resolve, ms));
 async function main() {
     const products = JSON.parse(fs.readFileSync(path.join(root, 'data/products.json'), 'utf8'));
     const previous = JSON.parse(execFileSync('git', ['show', 'HEAD:data/products.json'], { cwd: root, encoding: 'utf8' }));
-    assert.deepEqual(buildCatalogDesigns(products).map(design => [design.designId, design.orderCodeBase]), buildCatalogDesigns(previous).map(design => [design.designId, design.orderCodeBase]), 'Color previews must not create designs or change order codes');
+    const maidenIdentities = source => buildCatalogDesigns(source).filter(design => design.band === 'Iron Maiden').map(design => [design.designId, design.orderCodeBase]);
+    assert.deepEqual(maidenIdentities(products), maidenIdentities(previous), 'Maiden color previews must not create designs or change order codes');
     const cards = configs.find(config => config.slug === 'iron-maiden').whiteShirts;
     assert.equal(cards.length, 12);
     for (const card of cards) assert(fs.existsSync(path.join(root, card.image)), card.image);

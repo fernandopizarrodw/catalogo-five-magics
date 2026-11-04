@@ -1,0 +1,139 @@
+body[data-band="Slayer"] {
+    --band-accent: #e8432e;
+    --band-accent-soft: rgba(232, 67, 46, .16);
+}
+
+.slayer-header-chat { display: none; }
+
+body[data-band="Slayer"] .band-landing-hero {
+    min-height: 0;
+    border-color: rgba(232, 67, 46, .45);
+}
+
+body[data-band="Slayer"] .band-landing-hero-art img {
+    max-height: 520px;
+    object-fit: contain;
+}
+
+.slayer-event, .slayer-kicker {
+    color: #ff806d;
+    font-family: "Oswald", sans-serif;
+    font-weight: 700;
+    letter-spacing: .06em;
+}
+
+.slayer-hero-actions, .slayer-launch-styles, .slayer-catalog-access {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.slayer-hero-actions { align-items: center; margin-top: 24px; }
+.slayer-hero-actions .band-landing-primary-cta { margin-top: 0; }
+
+.slayer-secondary-cta, .slayer-text-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    color: #fff;
+    font-family: "Oswald", sans-serif;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.slayer-secondary-cta {
+    padding: 10px 18px;
+    border: 1px solid #9b4b40;
+    border-radius: 8px;
+}
+
+.slayer-launch, .slayer-kreator {
+    width: min(1100px, calc(100% - 32px));
+    margin: 28px auto;
+    padding: clamp(16px, 3vw, 32px);
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: clamp(18px, 4vw, 42px);
+    align-items: center;
+    border: 1px solid #704039;
+    border-radius: 16px;
+    background: linear-gradient(130deg, #20100e, #090909 65%);
+    scroll-margin-top: 90px;
+}
+
+.slayer-launch > *, .slayer-kreator > * { min-width: 0; }
+.slayer-launch h2, .slayer-kreator h2 {
+    margin: 8px 0 14px;
+    font-family: "Bebas Neue", sans-serif;
+    font-size: clamp(2rem, 5vw, 3.7rem);
+    line-height: 1.1;
+}
+
+.slayer-launch p, .slayer-kreator p { line-height: 1.65; }
+.slayer-launch-image {
+    position: relative;
+    display: block;
+    width: 100%;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid #444;
+    border-radius: 10px;
+    background: #080808;
+    color: #fff;
+    cursor: zoom-in;
+}
+
+.slayer-launch-image img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 5;
+    object-fit: contain;
+}
+
+.slayer-launch-image span {
+    display: block;
+    padding: 8px;
+    font: 600 .8rem "Oswald", sans-serif;
+}
+
+.slayer-launch-views { display: grid; grid-template-columns: 1fr 1fr 1.6fr; gap: 6px; margin-top: 10px; }
+.slayer-launch-views [data-slayer-view="argentina"] { grid-column: 1 / -1; }
+.slayer-launch-views [hidden] { display: none; }
+.slayer-launch-views button, .slayer-launch-styles button {
+    min-height: 44px;
+    padding: 9px 10px;
+    border: 1px solid #5f4541;
+    border-radius: 7px;
+    background: #15100f;
+    color: #ddd;
+    font: 600 .8rem "Oswald", sans-serif;
+    cursor: pointer;
+}
+
+.slayer-launch [aria-pressed="true"] { background: #a72b20; border-color: #ef6451; color: #fff; }
+.slayer-launch-price { padding-block: 12px; border-block: 1px solid #50302b; }
+.slayer-launch-price strong { color: #fff; }
+.slayer-launch-copy .band-landing-primary-cta { border: 0; cursor: pointer; }
+.slayer-text-link { display: flex; width: fit-content; margin-top: 10px; font-size: .85rem; }
+.slayer-outerwear { margin-top: 16px; }
+.slayer-outerwear summary { padding: 12px 0; cursor: pointer; font-family: "Oswald", sans-serif; color: #bdbdbd; }
+.slayer-outerwear .band-landing-garment-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 640px; margin: 8px 0; }
+.slayer-kreator { background: #0d0d0d; border-color: #343434; grid-template-columns: minmax(0, 1.5fr) minmax(0, .6fr); }
+.slayer-kreator img { width: 100%; height: auto; aspect-ratio: 1; object-fit: contain; border-radius: 10px; }
+body[data-band="Slayer"] .july-shipping-promo { padding-block: 24px; }
+body[data-band="Slayer"] .july-shipping-promo strong { margin-top: 14px; font-size: clamp(1.8rem, 5vw, 3rem); }
+
+@media (max-width: 640px) {
+    .slayer-header-chat { display: block; }
+    body[data-band="Slayer"] .band-landing-hero { margin-top: 12px; }
+    body[data-band="Slayer"] .band-landing-hero-art img { max-height: 340px; }
+    .slayer-launch { grid-template-columns: 1fr; }
+    .slayer-launch-copy { grid-row: 1; }
+    .slayer-kreator { grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 12px; }
+    .slayer-kreator h2 { font-size: 1.8rem; }
+    .slayer-hero-actions > *, .slayer-launch-copy .band-landing-primary-cta { width: 100%; box-sizing: border-box; text-align: center; }
+    .slayer-launch-views button { padding-inline: 4px; font-size: .74rem; }
+}
