@@ -217,6 +217,7 @@
     }
 
     function generateOrderCodeBase(product, variantIndex) {
+        if (product?.variants?.[variantIndex]?.orderCode) return product.variants[variantIndex].orderCode;
         const abbreviation = generateProductAbbreviation(product?.name);
         const productId = String(product?.id ?? '').padStart(3, '0');
         const hasVariants = Array.isArray(product?.variants) && product.variants.length > 1;
@@ -233,6 +234,7 @@
             previewLabel: String(variant?.previewLabel || '').trim(),
             alt: String(variant?.alt || `${getPublicBand(product)} ${variant?.name || product.name || 'Diseño'}`).trim(),
             garment: getGarment(variant, product),
+            garmentStyle: String(variant?.garmentStyle || '').trim(),
             role: isBackVariant(variant) ? 'back' : 'front',
             preferredPreview: variant?.preferredPreview === true,
             carouselPreview: variant?.carouselPreview === true,

@@ -7,25 +7,43 @@ const path = require('node:path');
 const { spawn, execFileSync } = require('node:child_process');
 const { buildCatalogDesigns } = require('../js/catalog-design.js');
 const configs = require('../js/band-archives-config.js');
+const manifest = require('./slayer-assets-manifest.js');
 const root = path.resolve(__dirname, '..');
 const pause = ms => new Promise(resolve => setTimeout(resolve, ms));
 
 async function main() {
     const products = JSON.parse(fs.readFileSync(path.join(root, 'data/products.json'), 'utf8'));
     const previous = JSON.parse(execFileSync('git', ['show', 'HEAD:data/products.json'], { cwd: root, encoding: 'utf8' }));
-    assert.deepEqual(products.filter(p => p.id !== 7101), previous.filter(p => p.id !== 7101), 'Other products must remain unchanged');
-    const designs = buildCatalogDesigns(products);
-    const identities = list => list.map(d => [d.designId, d.orderCodeBase]);
-    const newDesign = 'slayer-reign-in-blood-argentina-2026';
-    assert.equal(designs.filter(d => d.designId === newDesign).length, 1, 'Exactly one new front design');
-    assert.deepEqual(identities(designs.filter(d => d.designId !== newDesign)), identities(buildCatalogDesigns(previous)), 'Existing designs and front codes must remain unchanged');
+    assert.deepEqual(products.filter(p => p.band !== 'Slayer'), previous.filter(p => p.band !== 'Slayer'), 'Other bands must remain unchanged');
+    const options = { resolveDesignId: ({product, conceptName, transitionId, slugify}) => product.designFamilyId
+        ? `cd-${slugify(product.designFamilyId)}--${slugify(conceptName)}` : `cd-${transitionId}--p${product.id}` };
+    const designs = buildCatalogDesigns(products, options).filter(d => d.band === 'Slayer');
+    const oldDesigns = buildCatalogDesigns(previous, options).filter(d => d.band === 'Slayer');
+    assert.equal(designs.length, oldDesigns.length + 2, 'Two genuinely new arts; presentations must not duplicate designs');
+    assert(oldDesigns.every(old => designs.some(d => d.designId === old.designId)), 'Existing permanent design links must remain valid');
+    for (const old of previous.filter(p => p.band === 'Slayer')) {
+        const current = products.find(p => p.id === old.id);
+        assert.equal(current.name, old.name, 'Keep product abbreviations stable');
+        assert(current.variants.length >= old.variants.length, 'Do not remove or shift existing variant slots');
+        old.variants.forEach((v, i) => assert.equal(current.variants[i].name, v.name));
+    }
     const config = configs.find(c => c.slug === 'slayer');
     assert.equal(config.defaultGarment, 'remera');
     assert.equal(config.designOrder[0], 'cd-slayer-reign-in-blood--p7101');
-    const product = products.find(p => p.id === 7101);
-    for (const variant of product.variants) {
-        assert(fs.existsSync(path.join(root, variant.img)), variant.img);
-        for (const preview of variant.stylePreviews || []) assert(fs.existsSync(path.join(root, preview.img)), preview.img);
+    const referenced = new Set();
+    for (const product of products.filter(p => p.band === 'Slayer')) {
+        assert(fs.existsSync(path.join(root, product.img)), product.img);
+        for (const variant of product.variants) {
+            assert(fs.existsSync(path.join(root, variant.img)), variant.img);
+            referenced.add(variant.img);
+            for (const preview of variant.stylePreviews || []) {
+                assert(fs.existsSync(path.join(root, preview.img)), preview.img);
+                referenced.add(preview.img);
+            }
+        }
+    }
+    for (const folder of ['frente','dorso','dobles']) for (const name of fs.readdirSync(path.join(root,'images/slayer',folder))) {
+        assert(referenced.has(`images/slayer/${folder}/${name}`), `Unlinked new image: ${folder}/${name}`);
     }
     const mime = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.css': 'text/css; charset=utf-8', '.json': 'application/json', '.jpg': 'image/jpeg', '.png': 'image/png', '.webp': 'image/webp' };
     const server = http.createServer((req, res) => {
@@ -46,6 +64,7 @@ async function main() {
     const reportDir = path.join(root, 'reports', 'slayer-campaign');
     fs.mkdirSync(reportDir, { recursive: true });
     const errors = [], failedAssets = [], flows = [];
+    let sleevelessDesignCount = 0;
     try {
         const portFile = path.join(profile, 'DevToolsActivePort');
         for (let i = 0; i < 100 && !fs.existsSync(portFile); i++) { if (launchError) throw launchError; await pause(100); }
@@ -169,6 +188,53 @@ async function main() {
             await pause(150);
             const heroShot = await send('Page.captureScreenshot', { format: 'png' });
             fs.writeFileSync(path.join(reportDir, `slayer-hero-${width}.png`), Buffer.from(heroShot.data, 'base64'));
+            for (const row of manifest) {
+                const product = products.find(p => p.id === row.product);
+                const frontIndex = Number.isInteger(row.variant) ? row.variant
+                    : product.variants.findIndex(v => v.designId === row.designId && v.img === `images/slayer/frente/${row.front}.jpg`);
+                const designId = product.variants[frontIndex].designId;
+                for (const type of row.sleeveOnly ? ['sin_mangas'] : ['remera_clasica','sin_mangas']) {
+                    const input = JSON.stringify({ designId, frontIndex, type });
+                    await evaluate(`(() => {const c=${input};cart.clearCart();openCatalogDesign(c.designId,c.type);const index=currentModalSourceRefs.findIndex(ref=>ref.role==='front' && ref.variantIndex===c.frontIndex && !ref.autoSelectBack);if(index<0)throw new Error('Missing front '+c.designId);goToSlide(index,false);selectColor('negro');selectSize('M');selectPrintMode('simple');})()`);
+                    const expectedImage = `images/slayer/frente/${type === 'sin_mangas' && row.sleeve ? row.sleeve : row.front}.jpg`;
+                    const simple = await evaluate('({image:selectedCatalogFrontRef.image,garment:selectedModalGarment,code:getCurrentCatalogOrderCode(),expectedCode:cart.generateCode(currentProduct.id,getActiveVariantIndex()),added:addToCartFromModal(),item:cart.getCart()[0],summary:cart.generateSummary()})');
+                    assert(simple.image.endsWith(expectedImage), JSON.stringify({row:row.key,type,simple}));
+                    assert.equal(simple.garment, type);
+                    assert.equal(simple.code, simple.expectedCode);
+                    assert(simple.added);
+                    assert.equal(simple.item.isDouble, false);
+                    assert(simple.summary.includes('* Precio: $38.000'));
+                    const white = await evaluate('(() => {cart.clearCart();selectColor("blanco");const selected=selectedColor;const added=addToCartFromModal();return {selected,added,item:cart.getCart()[0],summary:cart.generateSummary()}})()');
+                    assert.equal(white.selected,'blanco',`White selection was lost for ${row.key} ${type}`);
+                    assert(white.added); assert.equal(white.item.color,'blanco'); assert(white.summary.includes('* Color: Blanca'));
+                    await evaluate('selectColor("negro")');
+                    for (const back of row.backs || []) {
+                        const variant = product.variants.findIndex(v=>v.role === 'back' && v.img === `images/slayer/dorso/${back.art}.jpg` && v.backTargetDesignId === designId);
+                        const result = await evaluate(`(() => {cart.clearCart();selectPrintMode('simple');selectCatalogDesignBack(${row.product},${variant});const slide=currentModalSourceRefs.findIndex(ref=>ref.role==='back' && ref.variantIndex===${variant});if(slide<0)throw new Error('Missing back view');goToSlide(slide,false);selectColor('blanco');selectColor('negro');const code=getCurrentCatalogOrderCode();const backCode=cart.generateCode(${row.product},${variant});return {added:addToCartFromModal(),item:cart.getCart()[0],summary:cart.generateSummary(),code,backCode};})()`);
+                        assert(result.added);
+                        assert.equal(result.item.frontCode, simple.code);
+                        assert.equal(result.item.backCode, result.backCode);
+                        assert(result.item.backImage.endsWith(`images/slayer/dorso/${back.art}${type === 'sin_mangas' ? '_sin_mangas' : ''}.jpg`));
+                        assert(result.summary.includes('* Precio: $45.000'));
+                        assert(result.summary.includes(back.label.replace(/^Dorso\s+/i, '')), JSON.stringify({profile:row.key,type,back:back.label,result}));
+                        const doubleIndex = await evaluate(`currentModalSourceRefs.findIndex(ref=>ref.autoSelectBack === ${JSON.stringify(back.label)})`);
+                        if (doubleIndex >= 0) {
+                            const selected = await evaluate(`goToSlide(${doubleIndex},false); ({back:selectedCatalogBackRef?.label,mode:selectedPrintMode,front:getCurrentCatalogOrderCode()})`);
+                            assert.equal(selected.back, back.label); assert.equal(selected.mode,'double'); assert.equal(selected.front,simple.code);
+                        }
+                        flows.push({width,profile:row.key,type,back:back.label,summary:result.summary});
+                    }
+                    flows.push({width,profile:row.key,type,summary:simple.summary});
+                    await evaluate('closeModal(false,false)');
+                }
+            }
+            await evaluate('document.querySelector("[data-slayer-browse]").click()');
+            const sleeveless = await evaluate('({garment:bandLandingGarment,designs:getCatalogDesignResults().map(d=>({id:d.designId,image:getBandLandingDesignPreview(d).image}))})');
+            assert.equal(sleeveless.garment, 'sin_mangas');
+            assert(sleeveless.designs.length >= 26);
+            sleevelessDesignCount = sleeveless.designs.length;
+            assert(sleeveless.designs.every(d=>d.image.includes('sin_mangas')));
+            await evaluate('selectBandLandingGarment("remera");cart.clearCart()');
         }
         const over = await evaluate('(() => {openCatalogDesign("cd-slayer-reign-in-blood--p7101");selectRemeraVariant("oversize_unisex");return resolveModalPriceConfig()})()');
         assert.equal(over.simple, 41000); assert.equal(over.doble, 48000);
@@ -190,8 +256,8 @@ async function main() {
         await evaluate('openCatalogDesign(getCatalogDesignResults()[0].designId);');
         assert(await evaluate('getAvailableModalGarmentTypes().includes("sin_mangas")'));
         assert.deepEqual(errors, []); assert.deepEqual(failedAssets, []);
-        fs.writeFileSync(path.join(reportDir, 'results.json'), JSON.stringify({ status: 'PASS', flows, errors, failedAssets }, null, 2));
-        console.log(JSON.stringify({ status: 'PASS', flows: flows.length, widths: [360,390,1440], newFrontDesigns: 1, existingDesignsAndFrontCodesPreserved: true, argentinaCombination: true, filters: true, outerwear: true, kreator: true, directLinkAndReload: true, errors, failedAssets, screenshots: reportDir }, null, 2));
+        fs.writeFileSync(path.join(reportDir, 'results.json'), JSON.stringify({ status: 'PASS', totalDesigns: designs.length, sleevelessDesignCount, flows, errors, failedAssets }, null, 2));
+        console.log(JSON.stringify({ status: 'PASS', flows: flows.length, widths: [360,390,1440], slayerDesigns: designs.length, sleevelessDesignCount, newFrontDesigns: 2, existingLinksAndVariantSlotsPreserved: true, whiteOrders: true, argentinaCombination: true, filters: true, outerwear: true, kreator: true, directLinkAndReload: true, errors, failedAssets, screenshots: reportDir }, null, 2));
     } finally {
         if (send) await send('Browser.close').catch(() => {});
         socket?.close();

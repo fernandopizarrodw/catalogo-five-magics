@@ -11526,203 +11526,244 @@
     "tipoPrecio": "doble",
     "isNew": true,
     "priority": 240,
-    "img": "images/slayer/fmd_originals/remeras/remera_slayer_fmd_angel_of_death.jpg",
+    "img": "images/slayer/frente/slayer_angel_of_death_frente.jpg",
     "variants": [
       {
-        "img": "images/slayer/fmd_originals/remeras/remera_slayer_fmd_angel_of_death.jpg",
+        "img": "images/slayer/frente/slayer_angel_of_death_frente.jpg",
         "name": "Slayer FMD Originals Angel Of Death - Remera",
         "garmentCategory": "Slayer",
         "fmdBadge": "ORIGINAL FMD",
-        "fmdBadgeDescription": "Arte original FMD Angel Of Death del universo Slayer, adaptado a remera."
+        "fmdBadgeDescription": "Arte original FMD Angel Of Death del universo Slayer, adaptado a remera.",
+        "designId": "cd-slayer-fmd-originals--angel-of-death",
+        "role": "front",
+        "color": "negro",
+        "selectionLabel": "Frente Angel of Death · FMD",
+        "previewLabel": "Solo frente",
+        "defaultPrintMode": "simple",
+        "modalOrder": 0,
+        "stylePreviews": [
+          {
+            "img": "images/slayer/frente/slayer_angel_of_death_frente_sin_mangas.jpg",
+            "garmentStyle": "sin_mangas",
+            "previewLabel": "Solo frente · Sin mangas"
+          }
+        ]
       },
       {
         "img": "images/slayer/fmd_originals/remeras/remera_slayer_fmd_hell_awaits.jpg",
         "name": "Slayer FMD Originals Hell Awaits - Remera",
         "garmentCategory": "Slayer",
         "fmdBadge": "ORIGINAL FMD",
-        "fmdBadgeDescription": "Arte original FMD Hell Awaits del universo Slayer, adaptado a remera."
+        "fmdBadgeDescription": "Arte original FMD Hell Awaits del universo Slayer, adaptado a remera.",
+        "designId": "cd-slayer-fmd-originals--hell-awaits"
       },
       {
         "img": "images/slayer/fmd_originals/remeras/remera_slayer_fmd_live_undead.jpg",
         "name": "Slayer FMD Originals Live Undead - Remera",
         "garmentCategory": "Slayer",
         "fmdBadge": "ORIGINAL FMD",
-        "fmdBadgeDescription": "Arte original FMD Live Undead del universo Slayer, adaptado a remera."
+        "fmdBadgeDescription": "Arte original FMD Live Undead del universo Slayer, adaptado a remera.",
+        "designId": "cd-slayer-fmd-originals--live-undead"
       },
       {
         "img": "images/slayer/fmd_originals/remeras/remera_slayer_fmd_reign_in_blood_3D.jpg",
         "name": "Slayer FMD Originals Reign In Blood 3D - Remera",
         "garmentCategory": "Slayer",
         "fmdBadge": "ORIGINAL FMD",
-        "fmdBadgeDescription": "Reinterpretacion exclusiva FMD del universo Reign In Blood, pensada para una prenda con presencia propia."
+        "fmdBadgeDescription": "Reinterpretacion exclusiva FMD del universo Reign In Blood, pensada para una prenda con presencia propia.",
+        "designId": "cd-slayer-fmd-originals--reign-in-blood-3d"
       },
       {
         "img": "images/slayer/fmd_originals/remeras/remera_slayer_fmd_reign_in_blood_graphic.jpg",
         "name": "Slayer FMD Originals Reign In Blood Graphic - Remera",
         "garmentCategory": "Slayer",
         "fmdBadge": "ORIGINAL FMD",
-        "fmdBadgeDescription": "Arte grafico exclusivo FMD inspirado en Reign In Blood, con lectura fuerte para estampa frontal y doble."
+        "fmdBadgeDescription": "Arte grafico exclusivo FMD inspirado en Reign In Blood, con lectura fuerte para estampa frontal y doble.",
+        "designId": "cd-slayer-fmd-originals--reign-in-blood-graphic"
       },
       {
         "img": "images/slayer/fmd_originals/remeras/remera_slayer_fmd_seasons_in_the_abyss.jpg",
         "name": "Slayer FMD Originals Seasons In The Abyss - Remera",
         "garmentCategory": "Slayer",
         "fmdBadge": "ORIGINAL FMD",
-        "fmdBadgeDescription": "Arte original FMD Seasons In The Abyss del universo Slayer, adaptado a remera."
+        "fmdBadgeDescription": "Arte original FMD Seasons In The Abyss del universo Slayer, adaptado a remera.",
+        "designId": "cd-slayer-fmd-originals--seasons-in-the-abyss"
       },
       {
         "img": "images/slayer/fmd_originals/remeras/remera_slayer_fmd_show_no_mercy.jpg",
         "name": "Slayer FMD Originals Show No Mercy - Remera",
         "garmentCategory": "Slayer",
         "fmdBadge": "ORIGINAL FMD",
-        "fmdBadgeDescription": "Arte original FMD Show No Mercy del universo Slayer, adaptado a remera."
+        "fmdBadgeDescription": "Arte original FMD Show No Mercy del universo Slayer, adaptado a remera.",
+        "designId": "cd-slayer-fmd-originals--show-no-mercy"
       },
       {
         "img": "images/slayer/fmd_originals/remeras/remera_slayer_fmd_skull.jpg",
         "name": "Slayer FMD Originals Skull - Remera",
         "garmentCategory": "Slayer",
         "fmdBadge": "ORIGINAL FMD",
-        "fmdBadgeDescription": "Arte original FMD Skull del universo Slayer, adaptado a remera."
+        "fmdBadgeDescription": "Arte original FMD Skull del universo Slayer, adaptado a remera.",
+        "designId": "cd-slayer-fmd-originals--skull"
       },
       {
         "img": "images/slayer/fmd_originals/remeras/remera_slayer_fmd_soldiers.jpg",
         "name": "Slayer FMD Originals Soldiers - Remera",
         "garmentCategory": "Slayer",
         "fmdBadge": "ORIGINAL FMD",
-        "fmdBadgeDescription": "Arte original FMD Soldiers del universo Slayer, adaptado a remera."
+        "fmdBadgeDescription": "Arte original FMD Soldiers del universo Slayer, adaptado a remera.",
+        "designId": "cd-slayer-fmd-originals--soldiers"
       },
       {
         "img": "images/slayer/fmd_originals/remeras/remera_slayer_fmd_south_of_heaven.jpg",
         "name": "Slayer FMD Originals South Of Heaven - Remera",
         "garmentCategory": "Slayer",
         "fmdBadge": "ORIGINAL FMD",
-        "fmdBadgeDescription": "Arte original FMD South Of Heaven del universo Slayer, adaptado a remera."
+        "fmdBadgeDescription": "Arte original FMD South Of Heaven del universo Slayer, adaptado a remera.",
+        "designId": "cd-slayer-fmd-originals--south-of-heaven"
       },
       {
         "img": "images/slayer/fmd_originals/hoodies/hoodie_slayer_fmd_angel_of_death.jpg",
         "name": "Slayer FMD Originals Angel Of Death - Hoodie",
         "garmentCategory": "Hoodies Otras Bandas",
         "fmdBadge": "ORIGINAL FMD",
-        "fmdBadgeDescription": "Arte original FMD Angel Of Death del universo Slayer, adaptado a hoodie."
+        "fmdBadgeDescription": "Arte original FMD Angel Of Death del universo Slayer, adaptado a hoodie.",
+        "designId": "cd-slayer-fmd-originals--angel-of-death"
       },
       {
         "img": "images/slayer/fmd_originals/hoodies/hoodie_slayer_fmd_hell_awaits.jpg",
         "name": "Slayer FMD Originals Hell Awaits - Hoodie",
         "garmentCategory": "Hoodies Otras Bandas",
         "fmdBadge": "ORIGINAL FMD",
-        "fmdBadgeDescription": "Arte original FMD Hell Awaits del universo Slayer, adaptado a hoodie."
+        "fmdBadgeDescription": "Arte original FMD Hell Awaits del universo Slayer, adaptado a hoodie.",
+        "designId": "cd-slayer-fmd-originals--hell-awaits"
       },
       {
         "img": "images/slayer/fmd_originals/hoodies/hoodie_slayer_fmd_reign_in_blood_3D.jpg",
         "name": "Slayer FMD Originals Reign In Blood 3D - Hoodie",
         "garmentCategory": "Hoodies Otras Bandas",
         "fmdBadge": "ORIGINAL FMD",
-        "fmdBadgeDescription": "Reinterpretacion exclusiva FMD del universo Reign In Blood adaptada a hoodie."
+        "fmdBadgeDescription": "Reinterpretacion exclusiva FMD del universo Reign In Blood adaptada a hoodie.",
+        "designId": "cd-slayer-fmd-originals--reign-in-blood-3d"
       },
       {
         "img": "images/slayer/fmd_originals/hoodies/hoodie_slayer_fmd_reign_in_blood_graphic.jpg",
         "name": "Slayer FMD Originals Reign In Blood Graphic - Hoodie",
         "garmentCategory": "Hoodies Otras Bandas",
         "fmdBadge": "ORIGINAL FMD",
-        "fmdBadgeDescription": "Arte grafico exclusivo FMD de Reign In Blood adaptado a hoodie."
+        "fmdBadgeDescription": "Arte grafico exclusivo FMD de Reign In Blood adaptado a hoodie.",
+        "designId": "cd-slayer-fmd-originals--reign-in-blood-graphic"
       },
       {
         "img": "images/slayer/fmd_originals/hoodies/hoodie_slayer_fmd_seasons_in_the_abyss.jpg",
         "name": "Slayer FMD Originals Seasons In The Abyss - Hoodie",
         "garmentCategory": "Hoodies Otras Bandas",
         "fmdBadge": "ORIGINAL FMD",
-        "fmdBadgeDescription": "Arte original FMD Seasons In The Abyss del universo Slayer, adaptado a hoodie."
+        "fmdBadgeDescription": "Arte original FMD Seasons In The Abyss del universo Slayer, adaptado a hoodie.",
+        "designId": "cd-slayer-fmd-originals--seasons-in-the-abyss"
       },
       {
         "img": "images/slayer/fmd_originals/hoodies/hoodie_slayer_fmd_seasons_in_the_abyss_v2.jpg",
         "name": "Slayer FMD Originals Seasons In The Abyss V2 - Hoodie",
         "garmentCategory": "Hoodies Otras Bandas",
         "fmdBadge": "ORIGINAL FMD",
-        "fmdBadgeDescription": "Arte original FMD Seasons In The Abyss V2 del universo Slayer, adaptado a hoodie."
+        "fmdBadgeDescription": "Arte original FMD Seasons In The Abyss V2 del universo Slayer, adaptado a hoodie.",
+        "designId": "cd-slayer-fmd-originals--seasons-in-the-abyss-v2"
       },
       {
         "img": "images/slayer/fmd_originals/hoodies/hoodie_slayer_fmd_show_no_mercy.jpg",
         "name": "Slayer FMD Originals Show No Mercy - Hoodie",
         "garmentCategory": "Hoodies Otras Bandas",
         "fmdBadge": "ORIGINAL FMD",
-        "fmdBadgeDescription": "Arte original FMD Show No Mercy del universo Slayer, adaptado a hoodie."
+        "fmdBadgeDescription": "Arte original FMD Show No Mercy del universo Slayer, adaptado a hoodie.",
+        "designId": "cd-slayer-fmd-originals--show-no-mercy"
       },
       {
         "img": "images/slayer/fmd_originals/hoodies/hoodie_slayer_fmd_south_of_heaven.jpg",
         "name": "Slayer FMD Originals South Of Heaven - Hoodie",
         "garmentCategory": "Hoodies Otras Bandas",
         "fmdBadge": "ORIGINAL FMD",
-        "fmdBadgeDescription": "Arte original FMD South Of Heaven del universo Slayer, adaptado a hoodie."
+        "fmdBadgeDescription": "Arte original FMD South Of Heaven del universo Slayer, adaptado a hoodie.",
+        "designId": "cd-slayer-fmd-originals--south-of-heaven"
       },
       {
         "img": "images/slayer/fmd_originals/hoodies/hoodie_slayer_fmd_throne.jpg",
         "name": "Slayer FMD Originals Throne - Hoodie",
         "garmentCategory": "Hoodies Otras Bandas",
         "fmdBadge": "ORIGINAL FMD",
-        "fmdBadgeDescription": "Arte original FMD Throne del universo Slayer, adaptado a hoodie."
+        "fmdBadgeDescription": "Arte original FMD Throne del universo Slayer, adaptado a hoodie.",
+        "designId": "cd-slayer-fmd-originals--throne"
       },
       {
         "img": "images/slayer/fmd_originals/buzos/buzo_slayer_fmd_angel_of_death.jpg",
         "name": "Slayer FMD Originals Angel Of Death - Buzo cuello redondo",
         "garmentCategory": "Buzo Cuello Redondo",
         "fmdBadge": "ORIGINAL FMD",
-        "fmdBadgeDescription": "Arte original FMD Angel Of Death del universo Slayer, adaptado a buzo cuello redondo."
+        "fmdBadgeDescription": "Arte original FMD Angel Of Death del universo Slayer, adaptado a buzo cuello redondo.",
+        "designId": "cd-slayer-fmd-originals--angel-of-death"
       },
       {
         "img": "images/slayer/fmd_originals/buzos/buzo_slayer_fmd_hell_awaits.jpg",
         "name": "Slayer FMD Originals Hell Awaits - Buzo cuello redondo",
         "garmentCategory": "Buzo Cuello Redondo",
         "fmdBadge": "ORIGINAL FMD",
-        "fmdBadgeDescription": "Arte original FMD Hell Awaits del universo Slayer, adaptado a buzo cuello redondo."
+        "fmdBadgeDescription": "Arte original FMD Hell Awaits del universo Slayer, adaptado a buzo cuello redondo.",
+        "designId": "cd-slayer-fmd-originals--hell-awaits"
       },
       {
         "img": "images/slayer/fmd_originals/buzos/buzo_slayer_fmd_logo.jpg",
         "name": "Slayer FMD Originals Logo - Buzo cuello redondo",
         "garmentCategory": "Buzo Cuello Redondo",
         "fmdBadge": "ORIGINAL FMD",
-        "fmdBadgeDescription": "Arte original FMD Logo del universo Slayer, adaptado a buzo cuello redondo."
+        "fmdBadgeDescription": "Arte original FMD Logo del universo Slayer, adaptado a buzo cuello redondo.",
+        "designId": "cd-slayer-fmd-originals--logo"
       },
       {
         "img": "images/slayer/fmd_originals/buzos/buzo_slayer_fmd_reign_in_blood_3D.jpg",
         "name": "Slayer FMD Originals Reign In Blood 3D - Buzo cuello redondo",
         "garmentCategory": "Buzo Cuello Redondo",
         "fmdBadge": "ORIGINAL FMD",
-        "fmdBadgeDescription": "Reinterpretacion exclusiva FMD de Reign In Blood adaptada a buzo cuello redondo."
+        "fmdBadgeDescription": "Reinterpretacion exclusiva FMD de Reign In Blood adaptada a buzo cuello redondo.",
+        "designId": "cd-slayer-fmd-originals--reign-in-blood-3d"
       },
       {
         "img": "images/slayer/fmd_originals/buzos/buzo_slayer_fmd_reign_in_blood_graphic.jpg",
         "name": "Slayer FMD Originals Reign In Blood Graphic - Buzo cuello redondo",
         "garmentCategory": "Buzo Cuello Redondo",
         "fmdBadge": "ORIGINAL FMD",
-        "fmdBadgeDescription": "Arte grafico exclusivo FMD de Reign In Blood adaptado a buzo cuello redondo."
+        "fmdBadgeDescription": "Arte grafico exclusivo FMD de Reign In Blood adaptado a buzo cuello redondo.",
+        "designId": "cd-slayer-fmd-originals--reign-in-blood-graphic"
       },
       {
         "img": "images/slayer/fmd_originals/buzos/buzo_slayer_fmd_seasons_in_the_abyss.jpg",
         "name": "Slayer FMD Originals Seasons In The Abyss - Buzo cuello redondo",
         "garmentCategory": "Buzo Cuello Redondo",
         "fmdBadge": "ORIGINAL FMD",
-        "fmdBadgeDescription": "Arte original FMD Seasons In The Abyss del universo Slayer, adaptado a buzo cuello redondo."
+        "fmdBadgeDescription": "Arte original FMD Seasons In The Abyss del universo Slayer, adaptado a buzo cuello redondo.",
+        "designId": "cd-slayer-fmd-originals--seasons-in-the-abyss"
       },
       {
         "img": "images/slayer/fmd_originals/buzos/buzo_slayer_fmd_show_no_mercy.jpg",
         "name": "Slayer FMD Originals Show No Mercy - Buzo cuello redondo",
         "garmentCategory": "Buzo Cuello Redondo",
         "fmdBadge": "ORIGINAL FMD",
-        "fmdBadgeDescription": "Arte original FMD Show No Mercy del universo Slayer, adaptado a buzo cuello redondo."
+        "fmdBadgeDescription": "Arte original FMD Show No Mercy del universo Slayer, adaptado a buzo cuello redondo.",
+        "designId": "cd-slayer-fmd-originals--show-no-mercy"
       },
       {
         "img": "images/slayer/fmd_originals/buzos/buzo_slayer_fmd_skull.jpg",
         "name": "Slayer FMD Originals Skull - Buzo cuello redondo",
         "garmentCategory": "Buzo Cuello Redondo",
         "fmdBadge": "ORIGINAL FMD",
-        "fmdBadgeDescription": "Arte original FMD Skull del universo Slayer, adaptado a buzo cuello redondo."
+        "fmdBadgeDescription": "Arte original FMD Skull del universo Slayer, adaptado a buzo cuello redondo.",
+        "designId": "cd-slayer-fmd-originals--skull"
       },
       {
         "img": "images/slayer/fmd_originals/buzos/buzo_slayer_fmd_soldier_v2_graphic.jpg",
         "name": "Slayer FMD Originals Soldier V2 Graphic - Buzo cuello redondo",
         "garmentCategory": "Buzo Cuello Redondo",
         "fmdBadge": "ORIGINAL FMD",
-        "fmdBadgeDescription": "Arte original FMD Soldier V2 Graphic del universo Slayer, adaptado a buzo cuello redondo."
+        "fmdBadgeDescription": "Arte original FMD Soldier V2 Graphic del universo Slayer, adaptado a buzo cuello redondo.",
+        "designId": "cd-slayer-fmd-originals--soldier-v2-graphic"
       },
       {
         "img": "images/slayer/fmd_originals/remera_slayer_blanca_throne_blanca.jpg",
@@ -11730,14 +11771,96 @@
         "garmentCategory": "Slayer",
         "color": "blanco",
         "fmdBadge": "ORIGINAL FMD",
-        "fmdBadgeDescription": "Arte original FMD Throne en remera blanca, con composicion de frente y dorso."
+        "fmdBadgeDescription": "Arte original FMD Throne en remera blanca, con composicion de frente y dorso.",
+        "designId": "cd-slayer-fmd-originals--throne-remera-blanca"
       },
       {
         "img": "images/slayer/fmd_originals/buzos/buzo_slayer_fmd_south_of_heaven_graphic.jpg",
         "name": "Slayer FMD Originals South Of Heaven Graphic - Buzo cuello redondo",
         "garmentCategory": "Buzo Cuello Redondo",
         "fmdBadge": "ORIGINAL FMD",
-        "fmdBadgeDescription": "Arte original FMD South Of Heaven Graphic del universo Slayer, adaptado a buzo cuello redondo."
+        "fmdBadgeDescription": "Arte original FMD South Of Heaven Graphic del universo Slayer, adaptado a buzo cuello redondo.",
+        "designId": "cd-slayer-fmd-originals--south-of-heaven-graphic"
+      },
+      {
+        "img": "images/slayer/dorso/slayer_angel_of_death_dorso.jpg",
+        "name": "Dorso Slayer · Logo blanco",
+        "selectionLabel": "Dorso Slayer · Logo blanco",
+        "previewLabel": "Dorso Slayer · Logo blanco",
+        "role": "back",
+        "garmentCategory": "Slayer",
+        "backTargetDesignId": "cd-slayer-fmd-originals--angel-of-death",
+        "carouselPreview": true,
+        "modalOrder": 1,
+        "stylePreviews": [
+          {
+            "img": "images/slayer/dorso/slayer_angel_of_death_dorso_sin_mangas.jpg",
+            "garmentStyle": "sin_mangas",
+            "previewLabel": "Dorso Slayer · Logo blanco · Sin mangas"
+          }
+        ]
+      },
+      {
+        "img": "images/slayer/dobles/remera_angel_of_death_doble.jpg",
+        "name": "Angel of Death · FMD - Frente y dorso",
+        "publicName": "Angel Of Death",
+        "role": "front",
+        "designId": "cd-slayer-fmd-originals--angel-of-death",
+        "garmentCategory": "Slayer",
+        "color": "negro",
+        "selectionLabel": "Frente Angel of Death · FMD",
+        "previewLabel": "Frente + dorso Slayer · Logo blanco",
+        "autoSelectBack": "Dorso Slayer · Logo blanco",
+        "defaultPrintMode": "double",
+        "orderVariantIndex": 0,
+        "modalOrder": 2,
+        "stylePreviews": [
+          {
+            "img": "images/slayer/dobles/remera_angel_of_death_doble_sin_mangas.jpg",
+            "garmentStyle": "sin_mangas",
+            "previewLabel": "Frente + dorso Slayer · Logo blanco · Sin mangas"
+          }
+        ]
+      },
+      {
+        "img": "images/slayer/dorso/slayer_angel_of_death_dorso_tracklist.jpg",
+        "name": "Dorso Angel of Death · Letra",
+        "selectionLabel": "Dorso Angel of Death · Letra",
+        "previewLabel": "Dorso Angel of Death · Letra",
+        "role": "back",
+        "garmentCategory": "Slayer",
+        "backTargetDesignId": "cd-slayer-fmd-originals--angel-of-death",
+        "carouselPreview": true,
+        "modalOrder": 1.1,
+        "stylePreviews": [
+          {
+            "img": "images/slayer/dorso/slayer_angel_of_death_dorso_tracklist_sin_mangas.jpg",
+            "garmentStyle": "sin_mangas",
+            "previewLabel": "Dorso Angel of Death · Letra · Sin mangas"
+          }
+        ]
+      },
+      {
+        "img": "images/slayer/dobles/remera_angel_of_death_doble_tracklist.jpg",
+        "name": "Angel of Death · FMD - Frente y dorso",
+        "publicName": "Angel Of Death",
+        "role": "front",
+        "designId": "cd-slayer-fmd-originals--angel-of-death",
+        "garmentCategory": "Slayer",
+        "color": "negro",
+        "selectionLabel": "Frente Angel of Death · FMD",
+        "previewLabel": "Frente + dorso Angel of Death · Letra",
+        "autoSelectBack": "Dorso Angel of Death · Letra",
+        "defaultPrintMode": "double",
+        "orderVariantIndex": 0,
+        "modalOrder": 2.1,
+        "stylePreviews": [
+          {
+            "img": "images/slayer/dobles/remera_angel_of_death_tracklist_doble_sin_mangas.jpg",
+            "garmentStyle": "sin_mangas",
+            "previewLabel": "Frente + dorso Angel of Death · Letra · Sin mangas"
+          }
+        ]
       }
     ],
     "desc": "Card especial con artes originales y reinterpretaciones exclusivas FMD del universo Slayer. Carrusel por prenda: remeras, hoodies y buzos cuello redondo.",
@@ -11787,12 +11910,26 @@
     "tipoPrecio": "simple",
     "isNew": true,
     "priority": 198,
-    "img": "images/slayer/remera_slayer_v1.jpg",
+    "img": "images/slayer/frente/slayer_goat_art_frente.jpg",
     "variants": [
       {
-        "img": "images/slayer/remera_slayer_v1.jpg",
+        "img": "images/slayer/frente/slayer_goat_art_frente.jpg",
         "name": "Slayer V1 - Remera",
-        "garmentCategory": "Slayer"
+        "garmentCategory": "Slayer",
+        "designId": "cd-slayer-slayer-v1--p7124",
+        "role": "front",
+        "color": "negro",
+        "selectionLabel": "Frente Goat · Trono",
+        "previewLabel": "Solo frente",
+        "defaultPrintMode": "simple",
+        "modalOrder": 0,
+        "stylePreviews": [
+          {
+            "img": "images/slayer/frente/slayer_goat_art_frente_sin_mangas.jpg",
+            "garmentStyle": "sin_mangas",
+            "previewLabel": "Solo frente · Sin mangas"
+          }
+        ]
       }
     ],
     "desc": "Nuevo diseño Slayer en remera con estampa frontal. Disponible para adaptar a hoodie o buzo cuello redondo a pedido.",
@@ -11827,12 +11964,26 @@
     "tipoPrecio": "simple",
     "isNew": true,
     "priority": 197,
-    "img": "images/slayer/remera_slayer_v2.jpg",
+    "img": "images/slayer/frente/slayer_art_frente.jpg",
     "variants": [
       {
-        "img": "images/slayer/remera_slayer_v2.jpg",
+        "img": "images/slayer/frente/slayer_art_frente.jpg",
         "name": "Slayer V2 - Remera",
-        "garmentCategory": "Slayer"
+        "garmentCategory": "Slayer",
+        "designId": "cd-slayer-slayer-v2--p7125",
+        "role": "front",
+        "color": "negro",
+        "selectionLabel": "Frente Slayer · Art",
+        "previewLabel": "Solo frente",
+        "defaultPrintMode": "simple",
+        "modalOrder": 0,
+        "stylePreviews": [
+          {
+            "img": "images/slayer/frente/slayer_art_frente_sin_mangas.jpg",
+            "garmentStyle": "sin_mangas",
+            "previewLabel": "Solo frente · Sin mangas"
+          }
+        ]
       }
     ],
     "desc": "Nuevo diseño Slayer en remera con estampa frontal. Disponible para adaptar a hoodie o buzo cuello redondo a pedido.",
@@ -11872,7 +12023,23 @@
       {
         "img": "images/slayer/remera_slayer_v3.jpg",
         "name": "Slayer V3 - Remera",
-        "garmentCategory": "Slayer"
+        "garmentCategory": "Slayer",
+        "designId": "cd-slayer-slayer-v3--p7126",
+        "orderCode": "SLAYERV3-7126"
+      },
+      {
+        "name": "Skull War - Remera",
+        "publicName": "Skull War",
+        "designId": "cd-slayer-skull-war--p7126",
+        "role": "front",
+        "garmentCategory": "Slayer",
+        "img": "images/slayer/frente/slayer_skull_war_frente_sin_mangas.jpg",
+        "color": "negro",
+        "selectionLabel": "Frente Skull War",
+        "previewLabel": "Solo frente",
+        "defaultPrintMode": "simple",
+        "modalOrder": 0,
+        "garmentStyle": "sin_mangas"
       }
     ],
     "desc": "Nuevo diseño Slayer en remera con estampa frontal. Disponible para adaptar a hoodie o buzo cuello redondo a pedido.",
@@ -11907,12 +12074,26 @@
     "tipoPrecio": "simple",
     "isNew": true,
     "priority": 195,
-    "img": "images/slayer/remera_slayer_v4.jpg",
+    "img": "images/slayer/frente/slayer_skull_war_fmd_frente.jpg",
     "variants": [
       {
-        "img": "images/slayer/remera_slayer_v4.jpg",
+        "img": "images/slayer/frente/slayer_skull_war_fmd_frente.jpg",
         "name": "Slayer V4 - Remera",
-        "garmentCategory": "Slayer"
+        "garmentCategory": "Slayer",
+        "designId": "cd-slayer-slayer-v4--p7127",
+        "role": "front",
+        "color": "negro",
+        "selectionLabel": "Frente Skull War · FMD",
+        "previewLabel": "Solo frente",
+        "defaultPrintMode": "simple",
+        "modalOrder": 0,
+        "stylePreviews": [
+          {
+            "img": "images/slayer/frente/slayer_skull_war_fmd_frente_sin_mangas.jpg",
+            "garmentStyle": "sin_mangas",
+            "previewLabel": "Solo frente · Sin mangas"
+          }
+        ]
       }
     ],
     "desc": "Nuevo diseño Slayer en remera con estampa frontal. Disponible para adaptar a hoodie o buzo cuello redondo a pedido.",
@@ -11964,13 +12145,15 @@
             "garmentStyle": "sin_mangas",
             "previewLabel": "Sin mangas · Solo frente"
           }
-        ]
+        ],
+        "designId": "cd-slayer-reign-in-blood--p7101"
       },
       {
         "img": "images/slayer/hoodie_reign_in_blood.jpg",
         "name": "Slayer Reign In Blood - Hoodie",
         "garmentCategory": "Hoodies Otras Bandas",
-        "modalOrder": 10
+        "modalOrder": 10,
+        "designId": "cd-slayer-reign-in-blood--p7101"
       },
       {
         "img": "images/slayer/dorso/slayer_reign_in_blood_dorso.jpg",
@@ -12006,7 +12189,8 @@
             "garmentStyle": "sin_mangas",
             "previewLabel": "Sin mangas · Frente y dorso"
           }
-        ]
+        ],
+        "designId": "cd-slayer-reign-in-blood--p7101"
       },
       {
         "img": "images/slayer/dobles/remera_reign_in_blood_doble_argentina.jpg",
@@ -12027,7 +12211,8 @@
         "autoSelectBack": "Dorso Reign in Blood · Argentina 2026",
         "defaultPrintMode": "double",
         "orderVariantIndex": 0,
-        "modalOrder": 3
+        "modalOrder": 3,
+        "designId": "cd-slayer-reign-in-blood--p7101"
       },
       {
         "img": "images/slayer/frente/slayer_reign_in_blood_show_argentina.jpg",
@@ -12037,7 +12222,8 @@
         "previewLabel": "Solo frente · Argentina 2026",
         "role": "front",
         "garmentCategory": "Slayer",
-        "defaultPrintMode": "simple"
+        "defaultPrintMode": "simple",
+        "designId": "cd-slayer-reign-in-blood-argentina-2026--p7101"
       }
     ],
     "desc": "SLAYER - REIGN IN BLOOD 40TH ANNIVERSARY 2026. Archivo Slayer FMD. Disponible en remera, hoodie y buzo cuello redondo.",
@@ -12076,17 +12262,83 @@
     "tipoPrecio": "doble",
     "isNew": true,
     "priority": 199,
-    "img": "images/slayer/remera_angel_of_death.jpg",
+    "img": "images/slayer/frente/slayer_angel_of_death_1986_frente.jpg",
     "variants": [
       {
-        "img": "images/slayer/remera_angel_of_death.jpg",
+        "img": "images/slayer/frente/slayer_angel_of_death_1986_frente.jpg",
         "name": "Slayer Angel Of Death - Remera",
-        "garmentCategory": "Slayer"
+        "garmentCategory": "Slayer",
+        "designId": "cd-slayer-angel-of-death--p7102",
+        "role": "front",
+        "color": "negro",
+        "selectionLabel": "Frente Angel of Death · 1986",
+        "previewLabel": "Solo frente",
+        "defaultPrintMode": "simple",
+        "modalOrder": 0,
+        "stylePreviews": [
+          {
+            "img": "images/slayer/frente/slayer_angel_of_death_1986_frente_sin_mangas.jpg",
+            "garmentStyle": "sin_mangas",
+            "previewLabel": "Solo frente · Sin mangas"
+          }
+        ]
       },
       {
         "img": "images/slayer/hoodie_angel_of_death.jpg",
         "name": "Slayer Angel Of Death - Hoodie",
-        "garmentCategory": "Hoodies Otras Bandas"
+        "garmentCategory": "Hoodies Otras Bandas",
+        "designId": "cd-slayer-angel-of-death--p7102"
+      },
+      {
+        "img": "images/slayer/dorso/slayer_angel_of_death_dorso_logo.jpg",
+        "name": "Dorso Angel of Death · Logo blanco",
+        "selectionLabel": "Dorso Angel of Death · Logo blanco",
+        "previewLabel": "Dorso Angel of Death · Logo blanco",
+        "role": "back",
+        "garmentCategory": "Slayer",
+        "backTargetDesignId": "cd-slayer-angel-of-death--p7102",
+        "carouselPreview": true,
+        "modalOrder": 1,
+        "stylePreviews": [
+          {
+            "img": "images/slayer/dorso/slayer_angel_of_death_dorso_logo_sin_mangas.jpg",
+            "garmentStyle": "sin_mangas",
+            "previewLabel": "Dorso Angel of Death · Logo blanco · Sin mangas"
+          }
+        ]
+      },
+      {
+        "img": "images/slayer/dorso/slayer_angel_of_death_dorso_tracklist.jpg",
+        "name": "Dorso Angel of Death · Letra",
+        "selectionLabel": "Dorso Angel of Death · Letra",
+        "previewLabel": "Dorso Angel of Death · Letra",
+        "role": "back",
+        "garmentCategory": "Slayer",
+        "backTargetDesignId": "cd-slayer-angel-of-death--p7102",
+        "carouselPreview": true,
+        "modalOrder": 1.1,
+        "stylePreviews": [
+          {
+            "img": "images/slayer/dorso/slayer_angel_of_death_dorso_tracklist_sin_mangas.jpg",
+            "garmentStyle": "sin_mangas",
+            "previewLabel": "Dorso Angel of Death · Letra · Sin mangas"
+          }
+        ]
+      },
+      {
+        "img": "images/slayer/remera_angel_of_death.jpg",
+        "name": "Angel of Death · 1986 - Frente y dorso",
+        "publicName": "Angel Of Death",
+        "role": "front",
+        "designId": "cd-slayer-angel-of-death--p7102",
+        "garmentCategory": "Slayer",
+        "color": "negro",
+        "selectionLabel": "Frente Angel of Death · 1986",
+        "previewLabel": "Frente + dorso Angel of Death · Letra",
+        "autoSelectBack": "Dorso Angel of Death · Letra",
+        "defaultPrintMode": "double",
+        "orderVariantIndex": 0,
+        "modalOrder": 2.1
       }
     ],
     "desc": "Archivo Slayer FMD 2026. Diseno Angel Of Death disponible en remera, hoodie y buzo cuello redondo.",
@@ -12123,17 +12375,132 @@
     "tipoPrecio": "doble",
     "isNew": true,
     "priority": 198,
-    "img": "images/slayer/remera_south_of_heaven.jpg",
+    "img": "images/slayer/frente/slayer_south_of_heaven_frente.jpg",
     "variants": [
       {
-        "img": "images/slayer/remera_south_of_heaven.jpg",
+        "img": "images/slayer/frente/slayer_south_of_heaven_frente.jpg",
         "name": "Slayer South Of Heaven - Remera",
-        "garmentCategory": "Slayer"
+        "garmentCategory": "Slayer",
+        "designId": "cd-slayer-south-of-heaven--p7103",
+        "role": "front",
+        "color": "negro",
+        "selectionLabel": "Frente South of Heaven · FMD",
+        "previewLabel": "Solo frente",
+        "defaultPrintMode": "simple",
+        "modalOrder": 0,
+        "stylePreviews": [
+          {
+            "img": "images/slayer/frente/slayer_south_of_heaven_frente_sin_mangas.jpg",
+            "garmentStyle": "sin_mangas",
+            "previewLabel": "Solo frente · Sin mangas"
+          }
+        ]
       },
       {
         "img": "images/slayer/hoodie_south_of_heaven.jpg",
         "name": "Slayer South Of Heaven - Hoodie",
-        "garmentCategory": "Hoodies Otras Bandas"
+        "garmentCategory": "Hoodies Otras Bandas",
+        "designId": "cd-slayer-south-of-heaven--p7103"
+      },
+      {
+        "img": "images/slayer/dorso/slayer_south_of_heaven_dorso.jpg",
+        "name": "Dorso Slayer · Logo rojo",
+        "selectionLabel": "Dorso Slayer · Logo rojo",
+        "previewLabel": "Dorso Slayer · Logo rojo",
+        "role": "back",
+        "garmentCategory": "Slayer",
+        "backTargetDesignId": "cd-slayer-south-of-heaven--p7103",
+        "carouselPreview": true,
+        "modalOrder": 1,
+        "stylePreviews": [
+          {
+            "img": "images/slayer/dorso/slayer_south_of_heaven_dorso_sin_mangas.jpg",
+            "garmentStyle": "sin_mangas",
+            "previewLabel": "Dorso Slayer · Logo rojo · Sin mangas"
+          }
+        ]
+      },
+      {
+        "img": "images/slayer/dobles/remera_south_of_heaven_doble.jpg",
+        "name": "South of Heaven · FMD - Frente y dorso",
+        "publicName": "South Of Heaven",
+        "role": "front",
+        "designId": "cd-slayer-south-of-heaven--p7103",
+        "garmentCategory": "Slayer",
+        "color": "negro",
+        "selectionLabel": "Frente South of Heaven · FMD",
+        "previewLabel": "Frente + dorso Slayer · Logo rojo",
+        "autoSelectBack": "Dorso Slayer · Logo rojo",
+        "defaultPrintMode": "double",
+        "orderVariantIndex": 0,
+        "modalOrder": 2,
+        "stylePreviews": [
+          {
+            "img": "images/slayer/dobles/remera_south_of_heaven_doble_sin_mangas.jpg",
+            "garmentStyle": "sin_mangas",
+            "previewLabel": "Frente + dorso Slayer · Logo rojo · Sin mangas"
+          }
+        ]
+      },
+      {
+        "name": "South of Heaven · 1988 - Remera",
+        "publicName": "South of Heaven · 1988",
+        "designId": "cd-slayer-south-of-heaven-1988--p7103",
+        "role": "front",
+        "garmentCategory": "Slayer",
+        "img": "images/slayer/frente/slayer_south_of_heaven_1988_frente.jpg",
+        "color": "negro",
+        "selectionLabel": "Frente South of Heaven · 1988",
+        "previewLabel": "Solo frente",
+        "defaultPrintMode": "simple",
+        "modalOrder": 0,
+        "stylePreviews": [
+          {
+            "img": "images/slayer/frente/slayer_south_of_heaven_1988_frente_sin_mangas.jpg",
+            "garmentStyle": "sin_mangas",
+            "previewLabel": "Solo frente · Sin mangas"
+          }
+        ]
+      },
+      {
+        "img": "images/slayer/dorso/slayer_south_of_heaven_1988_dorso.jpg",
+        "name": "Dorso South of Heaven · Canciones",
+        "selectionLabel": "Dorso South of Heaven · Canciones",
+        "previewLabel": "Dorso South of Heaven · Canciones",
+        "role": "back",
+        "garmentCategory": "Slayer",
+        "backTargetDesignId": "cd-slayer-south-of-heaven-1988--p7103",
+        "carouselPreview": true,
+        "modalOrder": 1,
+        "stylePreviews": [
+          {
+            "img": "images/slayer/dorso/slayer_south_of_heaven_1988_dorso_sin_mangas.jpg",
+            "garmentStyle": "sin_mangas",
+            "previewLabel": "Dorso South of Heaven · Canciones · Sin mangas"
+          }
+        ]
+      },
+      {
+        "img": "images/slayer/dobles/remera_south_of_heaven_1988_doble.jpg",
+        "name": "South of Heaven · 1988 - Frente y dorso",
+        "publicName": "South of Heaven · 1988",
+        "role": "front",
+        "designId": "cd-slayer-south-of-heaven-1988--p7103",
+        "garmentCategory": "Slayer",
+        "color": "negro",
+        "selectionLabel": "Frente South of Heaven · 1988",
+        "previewLabel": "Frente + dorso South of Heaven · Canciones",
+        "autoSelectBack": "Dorso South of Heaven · Canciones",
+        "defaultPrintMode": "double",
+        "orderVariantIndex": 4,
+        "modalOrder": 2,
+        "stylePreviews": [
+          {
+            "img": "images/slayer/dobles/remera_south_of_heaven_1988_doble_sin_mangas.jpg",
+            "garmentStyle": "sin_mangas",
+            "previewLabel": "Frente + dorso South of Heaven · Canciones · Sin mangas"
+          }
+        ]
       }
     ],
     "desc": "Archivo Slayer FMD 2026. Diseno South Of Heaven disponible en remera, hoodie y buzo cuello redondo.",
@@ -12170,17 +12537,72 @@
     "tipoPrecio": "doble",
     "isNew": true,
     "priority": 197,
-    "img": "images/slayer/remera_seasons_in_the_abbys.jpg",
+    "img": "images/slayer/frente/slayer_seasons_in_the_abyss_frente.jpg",
     "variants": [
       {
-        "img": "images/slayer/remera_seasons_in_the_abbys.jpg",
+        "img": "images/slayer/frente/slayer_seasons_in_the_abyss_frente.jpg",
         "name": "Slayer Seasons In The Abyss - Remera",
-        "garmentCategory": "Slayer"
+        "garmentCategory": "Slayer",
+        "designId": "cd-slayer-seasons-in-the-abyss--p7104",
+        "role": "front",
+        "color": "negro",
+        "selectionLabel": "Frente Seasons in the Abyss",
+        "previewLabel": "Solo frente",
+        "defaultPrintMode": "simple",
+        "modalOrder": 0,
+        "stylePreviews": [
+          {
+            "img": "images/slayer/frente/slayer_seasons_in_the_abyss_frente_sin_mangas.jpg",
+            "garmentStyle": "sin_mangas",
+            "previewLabel": "Solo frente · Sin mangas"
+          }
+        ]
       },
       {
         "img": "images/slayer/hoodie_seasons_in_the_abbys.jpg",
         "name": "Slayer Seasons In The Abyss - Hoodie",
-        "garmentCategory": "Hoodies Otras Bandas"
+        "garmentCategory": "Hoodies Otras Bandas",
+        "designId": "cd-slayer-seasons-in-the-abyss--p7104"
+      },
+      {
+        "img": "images/slayer/dorso/slayer_seasons_in_the_abyss_dorso.jpg",
+        "name": "Dorso Seasons in the Abyss · Logo",
+        "selectionLabel": "Dorso Seasons in the Abyss · Logo",
+        "previewLabel": "Dorso Seasons in the Abyss · Logo",
+        "role": "back",
+        "garmentCategory": "Slayer",
+        "backTargetDesignId": "cd-slayer-seasons-in-the-abyss--p7104",
+        "carouselPreview": true,
+        "modalOrder": 1,
+        "stylePreviews": [
+          {
+            "img": "images/slayer/dorso/slayer_seasons_in_the_abyss_dorso_sin_mangas.jpg",
+            "garmentStyle": "sin_mangas",
+            "previewLabel": "Dorso Seasons in the Abyss · Logo · Sin mangas"
+          }
+        ]
+      },
+      {
+        "img": "images/slayer/dobles/remera_seasons_in_the_abyss_doble.jpg",
+        "name": "Seasons in the Abyss - Frente y dorso",
+        "publicName": "Seasons In The Abyss",
+        "role": "front",
+        "designId": "cd-slayer-seasons-in-the-abyss--p7104",
+        "garmentCategory": "Slayer",
+        "color": "negro",
+        "selectionLabel": "Frente Seasons in the Abyss",
+        "previewLabel": "Frente + dorso Seasons in the Abyss · Logo",
+        "autoSelectBack": "Dorso Seasons in the Abyss · Logo",
+        "defaultPrintMode": "double",
+        "orderVariantIndex": 0,
+        "modalOrder": 2,
+        "stylePreviews": [
+          {
+            "img": "images/slayer/dobles/remera_seasons_in_the_abyss_doble_sin_mangas.jpg",
+            "garmentStyle": "sin_mangas",
+            "previewLabel": "Frente + dorso Seasons in the Abyss · Logo · Sin mangas"
+          }
+        ]
       }
     ],
     "desc": "Archivo Slayer FMD 2026. Diseno Seasons In The Abyss disponible en remera, hoodie y buzo cuello redondo.",
@@ -12217,13 +12639,26 @@
     "tipoPrecio": "doble",
     "isNew": true,
     "priority": 196,
-    "img": "images/slayer/remera_hell_awaits.jpg",
+    "img": "images/slayer/frente/slayer_hell_awaits_frente.jpg",
     "variants": [
       {
-        "img": "images/slayer/remera_hell_awaits.jpg",
+        "img": "images/slayer/frente/slayer_hell_awaits_frente.jpg",
         "name": "Slayer Hell Awaits",
         "garmentCategory": "Slayer",
-        "designId": "slayer-hell-awaits"
+        "designId": "slayer-hell-awaits",
+        "role": "front",
+        "color": "negro",
+        "selectionLabel": "Frente Hell Awaits",
+        "previewLabel": "Solo frente",
+        "defaultPrintMode": "simple",
+        "modalOrder": 0,
+        "stylePreviews": [
+          {
+            "img": "images/slayer/frente/slayer_hell_awaits_frente_sin_mangas.jpg",
+            "garmentStyle": "sin_mangas",
+            "previewLabel": "Solo frente · Sin mangas"
+          }
+        ]
       },
       {
         "img": "images/slayer/remera_slayer_blanca_hell_awaits.jpg",
@@ -12242,6 +12677,46 @@
         "name": "Slayer Hell Awaits",
         "garmentCategory": "Buzo Cuello Redondo",
         "designId": "slayer-hell-awaits"
+      },
+      {
+        "img": "images/slayer/dorso/slayer_hell_awaits_dorso.jpg",
+        "name": "Dorso Hell Awaits · Canciones",
+        "selectionLabel": "Dorso Hell Awaits · Canciones",
+        "previewLabel": "Dorso Hell Awaits · Canciones",
+        "role": "back",
+        "garmentCategory": "Slayer",
+        "backTargetDesignId": "slayer-hell-awaits",
+        "carouselPreview": true,
+        "modalOrder": 1,
+        "stylePreviews": [
+          {
+            "img": "images/slayer/dorso/slayer_hell_awaits_dorso_sin_mangas.jpg",
+            "garmentStyle": "sin_mangas",
+            "previewLabel": "Dorso Hell Awaits · Canciones · Sin mangas"
+          }
+        ]
+      },
+      {
+        "img": "images/slayer/dobles/remera_hell_awaits_doble.jpg",
+        "name": "Hell Awaits - Frente y dorso",
+        "publicName": "Hell Awaits",
+        "role": "front",
+        "designId": "slayer-hell-awaits",
+        "garmentCategory": "Slayer",
+        "color": "negro",
+        "selectionLabel": "Frente Hell Awaits",
+        "previewLabel": "Frente + dorso Hell Awaits · Canciones",
+        "autoSelectBack": "Dorso Hell Awaits · Canciones",
+        "defaultPrintMode": "double",
+        "orderVariantIndex": 0,
+        "modalOrder": 2,
+        "stylePreviews": [
+          {
+            "img": "images/slayer/dobles/remera_hell_awaits_doble_sin_mangas.jpg",
+            "garmentStyle": "sin_mangas",
+            "previewLabel": "Frente + dorso Hell Awaits · Canciones · Sin mangas"
+          }
+        ]
       }
     ],
     "desc": "Archivo Slayer FMD 2026. Diseno Hell Awaits disponible en remera, hoodie y buzo cuello redondo.",
@@ -12279,21 +12754,47 @@
     "tipoPrecio": "doble",
     "isNew": true,
     "priority": 208,
-    "img": "images/slayer/remera_slayer_aguila.jpg",
+    "img": "images/slayer/frente/slayer_aguila_fmd_frente.jpg",
     "variants": [
       {
-        "img": "images/slayer/remera_slayer_aguila.jpg",
+        "img": "images/slayer/frente/slayer_aguila_fmd_frente.jpg",
         "name": "Slayer Águila",
         "garmentCategory": "Slayer",
         "designId": "slayer-aguila",
-        "alt": "Remera Slayer Águila"
+        "alt": "Remera Slayer Águila",
+        "role": "front",
+        "color": "negro",
+        "selectionLabel": "Frente Águila FMD",
+        "previewLabel": "Solo frente",
+        "defaultPrintMode": "simple",
+        "modalOrder": 0,
+        "stylePreviews": [
+          {
+            "img": "images/slayer/frente/slayer_aguila_fmd_frente_sin_mangas.jpg",
+            "garmentStyle": "sin_mangas",
+            "previewLabel": "Solo frente · Sin mangas"
+          }
+        ]
       },
       {
-        "img": "images/slayer/remera_slayer_aguila_v2.jpg",
+        "img": "images/slayer/frente/slayer_anguila_frente.jpg",
         "name": "Slayer Águila",
         "garmentCategory": "Slayer",
         "designId": "slayer-aguila",
-        "alt": "Remera negra Slayer Águila"
+        "alt": "Remera negra Slayer Águila",
+        "role": "front",
+        "color": "negro",
+        "selectionLabel": "Frente Águila clásica",
+        "previewLabel": "Solo frente",
+        "defaultPrintMode": "simple",
+        "modalOrder": 10,
+        "stylePreviews": [
+          {
+            "img": "images/slayer/frente/slayer_anguila_frente_sin_mangas.jpg",
+            "garmentStyle": "sin_mangas",
+            "previewLabel": "Solo frente · Sin mangas"
+          }
+        ]
       },
       {
         "img": "images/slayer/remera_slayer_blanca_aguila.jpg",
@@ -12312,7 +12813,68 @@
       {
         "img": "images/slayer/hoodie_slayer_aguila_logo.jpg",
         "name": "Slayer Aguila Logo - Hoodie",
-        "garmentCategory": "Hoodies Otras Bandas"
+        "garmentCategory": "Hoodies Otras Bandas",
+        "designId": "cd-slayer-logo--p7106"
+      },
+      {
+        "img": "images/slayer/dorso/slayer_aguila_fmd_dorso.jpg",
+        "name": "Dorso Reign in Blood · Buenos Aires 2026",
+        "selectionLabel": "Dorso Reign in Blood · Buenos Aires 2026",
+        "previewLabel": "Dorso Reign in Blood · Buenos Aires 2026",
+        "role": "back",
+        "garmentCategory": "Slayer",
+        "backTargetDesignId": "slayer-aguila",
+        "carouselPreview": true,
+        "modalOrder": 1,
+        "stylePreviews": [
+          {
+            "img": "images/slayer/dorso/slayer_aguila_fmd_dorso_sin_mangas.jpg",
+            "garmentStyle": "sin_mangas",
+            "previewLabel": "Dorso Reign in Blood · Buenos Aires 2026 · Sin mangas"
+          }
+        ]
+      },
+      {
+        "img": "images/slayer/dobles/remera_aguila_fmd_doble.jpg",
+        "name": "Águila FMD - Frente y dorso",
+        "publicName": "Águila",
+        "role": "front",
+        "designId": "slayer-aguila",
+        "garmentCategory": "Slayer",
+        "color": "negro",
+        "selectionLabel": "Frente Águila FMD",
+        "previewLabel": "Frente + dorso Reign in Blood · Buenos Aires 2026",
+        "autoSelectBack": "Dorso Reign in Blood · Buenos Aires 2026",
+        "defaultPrintMode": "double",
+        "orderVariantIndex": 0,
+        "modalOrder": 2,
+        "stylePreviews": [
+          {
+            "img": "images/slayer/dobles/remera_aguila_fmd_doble_sin_mangas.jpg",
+            "garmentStyle": "sin_mangas",
+            "previewLabel": "Frente + dorso Reign in Blood · Buenos Aires 2026 · Sin mangas"
+          }
+        ]
+      },
+      {
+        "name": "Logo - Remera",
+        "publicName": "Logo",
+        "designId": "cd-slayer-logo--p7106",
+        "role": "front",
+        "garmentCategory": "Slayer",
+        "img": "images/slayer/frente/slayer_logo_frente.jpg",
+        "color": "negro",
+        "selectionLabel": "Frente Logo Slayer",
+        "previewLabel": "Solo frente",
+        "defaultPrintMode": "simple",
+        "modalOrder": 0,
+        "stylePreviews": [
+          {
+            "img": "images/slayer/frente/slayer_logo_sin_mangas.jpg",
+            "garmentStyle": "sin_mangas",
+            "previewLabel": "Solo frente · Sin mangas"
+          }
+        ]
       }
     ],
     "desc": "Archivo Slayer FMD 2026. Diseno Slayer Aguila disponible en remera, hoodie y buzo cuello redondo.",
@@ -17998,13 +18560,26 @@
     "tipoPrecio": "doble",
     "isNew": true,
     "priority": 205,
-    "img": "images/slayer/remera_show_no_mercy.jpg",
+    "img": "images/slayer/frente/slayer_show_no_mercy_frente.jpg",
     "variants": [
       {
-        "img": "images/slayer/remera_show_no_mercy.jpg",
+        "img": "images/slayer/frente/slayer_show_no_mercy_frente.jpg",
         "name": "Slayer Show No Mercy",
         "garmentCategory": "Slayer",
-        "designId": "slayer-show-no-mercy"
+        "designId": "slayer-show-no-mercy",
+        "role": "front",
+        "color": "negro",
+        "selectionLabel": "Frente Show No Mercy",
+        "previewLabel": "Solo frente",
+        "defaultPrintMode": "simple",
+        "modalOrder": 0,
+        "stylePreviews": [
+          {
+            "img": "images/slayer/frente/slayer_show_no_mercy_frente_sin_mangas.jpg",
+            "garmentStyle": "sin_mangas",
+            "previewLabel": "Solo frente · Sin mangas"
+          }
+        ]
       },
       {
         "img": "images/slayer/remera_slayer_show_no_mercy.jpg",
@@ -18029,6 +18604,46 @@
         "name": "Slayer Show No Mercy",
         "garmentCategory": "Buzo Cuello Redondo",
         "designId": "slayer-show-no-mercy"
+      },
+      {
+        "img": "images/slayer/dorso/slayer_show_no_mercy_dorso.jpg",
+        "name": "Dorso Show No Mercy · Logo",
+        "selectionLabel": "Dorso Show No Mercy · Logo",
+        "previewLabel": "Dorso Show No Mercy · Logo",
+        "role": "back",
+        "garmentCategory": "Slayer",
+        "backTargetDesignId": "slayer-show-no-mercy",
+        "carouselPreview": true,
+        "modalOrder": 1,
+        "stylePreviews": [
+          {
+            "img": "images/slayer/dorso/slayer_show_no_mercy_dorso_sin_mangas.jpg",
+            "garmentStyle": "sin_mangas",
+            "previewLabel": "Dorso Show No Mercy · Logo · Sin mangas"
+          }
+        ]
+      },
+      {
+        "img": "images/slayer/dobles/remera_show_no_mercy_doble.jpg",
+        "name": "Show No Mercy - Frente y dorso",
+        "publicName": "Show No Mercy",
+        "role": "front",
+        "designId": "slayer-show-no-mercy",
+        "garmentCategory": "Slayer",
+        "color": "negro",
+        "selectionLabel": "Frente Show No Mercy",
+        "previewLabel": "Frente + dorso Show No Mercy · Logo",
+        "autoSelectBack": "Dorso Show No Mercy · Logo",
+        "defaultPrintMode": "double",
+        "orderVariantIndex": 0,
+        "modalOrder": 2,
+        "stylePreviews": [
+          {
+            "img": "images/slayer/dobles/remera_show_no_mercy_doble_sin_mangas.jpg",
+            "garmentStyle": "sin_mangas",
+            "previewLabel": "Frente + dorso Show No Mercy · Logo · Sin mangas"
+          }
+        ]
       }
     ],
     "desc": "Slayer Show No Mercy frente y dorso. Disponible en remera, hoodie y buzo cuello redondo.",
@@ -18072,17 +18687,20 @@
       {
         "img": "images/slayer/remera_show_no_mercy_v2.jpg",
         "name": "Slayer Show No Mercy V2 - Remera",
-        "garmentCategory": "Slayer"
+        "garmentCategory": "Slayer",
+        "designId": "cd-slayer-show-no-mercy-v2--p7108"
       },
       {
         "img": "images/slayer/hoodie_show_no_mercy_v2.jpg",
         "name": "Slayer Show No Mercy V2 - Hoodie",
-        "garmentCategory": "Hoodies Otras Bandas"
+        "garmentCategory": "Hoodies Otras Bandas",
+        "designId": "cd-slayer-show-no-mercy-v2--p7108"
       },
       {
         "img": "images/slayer/buzo_show_no_mercy_v2.jpg",
         "name": "Slayer Show No Mercy V2 - Buzo cuello redondo",
-        "garmentCategory": "Buzo Cuello Redondo"
+        "garmentCategory": "Buzo Cuello Redondo",
+        "designId": "cd-slayer-show-no-mercy-v2--p7108"
       }
     ],
     "desc": "Slayer Show No Mercy V2 frente y dorso. Disponible en remera, hoodie y buzo cuello redondo.",
@@ -18126,7 +18744,8 @@
       {
         "img": "images/slayer/hoodie_show_no_mercy_fmd.jpg",
         "name": "Slayer Show No Mercy FMD - Hoodie",
-        "garmentCategory": "Hoodies Otras Bandas"
+        "garmentCategory": "Hoodies Otras Bandas",
+        "designId": "cd-slayer-show-no-mercy-fmd--p7109"
       }
     ],
     "desc": "Slayer Show No Mercy edicion FMD disponible en hoodie doble estampa.",
@@ -18166,12 +18785,26 @@
     "tipoPrecio": "doble",
     "isNew": true,
     "priority": 206,
-    "img": "images/slayer/remera_slayer_nation.jpg",
+    "img": "images/slayer/frente/slayer_nation_frente.jpg",
     "variants": [
       {
-        "img": "images/slayer/remera_slayer_nation.jpg",
+        "img": "images/slayer/frente/slayer_nation_frente.jpg",
         "name": "Slayer Nation - Remera",
-        "garmentCategory": "Slayer"
+        "garmentCategory": "Slayer",
+        "designId": "cd-slayer-nation--p7110",
+        "role": "front",
+        "color": "negro",
+        "selectionLabel": "Frente Slayer Nation",
+        "previewLabel": "Solo frente",
+        "defaultPrintMode": "simple",
+        "modalOrder": 0,
+        "stylePreviews": [
+          {
+            "img": "images/slayer/frente/slayer_nation_frente_sin_mangas.jpg",
+            "garmentStyle": "sin_mangas",
+            "previewLabel": "Solo frente · Sin mangas"
+          }
+        ]
       }
     ],
     "desc": "Slayer Nation doble estampa frente y dorso. Archivo Slayer FMD 2026.",
@@ -18205,12 +18838,26 @@
     "tipoPrecio": "doble",
     "isNew": true,
     "priority": 207,
-    "img": "images/slayer/remera_Demonic Admat.jpg",
+    "img": "images/slayer/frente/slayer_art_v2_frente.jpg",
     "variants": [
       {
-        "img": "images/slayer/remera_Demonic Admat.jpg",
+        "img": "images/slayer/frente/slayer_art_v2_frente.jpg",
         "name": "Slayer Demonic Admat - Remera",
-        "garmentCategory": "Slayer"
+        "garmentCategory": "Slayer",
+        "designId": "cd-slayer-demonic-admat--p7111",
+        "role": "front",
+        "color": "negro",
+        "selectionLabel": "Frente Demonic Admat",
+        "previewLabel": "Solo frente",
+        "defaultPrintMode": "simple",
+        "modalOrder": 0,
+        "stylePreviews": [
+          {
+            "img": "images/slayer/frente/slayer_art_v2_sin_mangas.jpg",
+            "garmentStyle": "sin_mangas",
+            "previewLabel": "Solo frente · Sin mangas"
+          }
+        ]
       }
     ],
     "desc": "Slayer Demonic Admat doble estampa frente y dorso. Archivo Slayer FMD 2026.",
@@ -18249,7 +18896,8 @@
       {
         "img": "images/slayer/remera_god_hates_all.jpg",
         "name": "Slayer God Hates Us All - Remera",
-        "garmentCategory": "Slayer"
+        "garmentCategory": "Slayer",
+        "designId": "cd-slayer-god-hates-us-all--p7112"
       }
     ],
     "desc": "Slayer God Hates Us All estampa frontal. Archivo Slayer FMD 2026.",
@@ -18283,17 +18931,72 @@
     "tipoPrecio": "doble",
     "isNew": true,
     "priority": 210,
-    "img": "images/slayer/remera_40anniversary.jpg",
+    "img": "images/slayer/frente/slayer_40_anniversary_frente.jpg",
     "variants": [
       {
-        "img": "images/slayer/remera_40anniversary.jpg",
+        "img": "images/slayer/frente/slayer_40_anniversary_frente.jpg",
         "name": "Slayer Reign In Blood 40th Anniversary - Remera",
-        "garmentCategory": "Slayer"
+        "garmentCategory": "Slayer",
+        "designId": "cd-slayer-reign-in-blood-40th-anniversary--p7113",
+        "role": "front",
+        "color": "negro",
+        "selectionLabel": "Frente Reign in Blood · 40th Anniversary",
+        "previewLabel": "Solo frente",
+        "defaultPrintMode": "simple",
+        "modalOrder": 0,
+        "stylePreviews": [
+          {
+            "img": "images/slayer/frente/slayer_40_anniversary_frente_sin_mangas.jpg",
+            "garmentStyle": "sin_mangas",
+            "previewLabel": "Solo frente · Sin mangas"
+          }
+        ]
       },
       {
         "img": "images/slayer/hoodie_40_anniversary.jpg",
         "name": "Slayer Reign In Blood 40th Anniversary - Hoodie",
-        "garmentCategory": "Hoodies Otras Bandas"
+        "garmentCategory": "Hoodies Otras Bandas",
+        "designId": "cd-slayer-reign-in-blood-40th-anniversary--p7113"
+      },
+      {
+        "img": "images/slayer/dorso/slayer_40_anniversary_dorso.jpg",
+        "name": "Dorso Reign in Blood · 40th Anniversary",
+        "selectionLabel": "Dorso Reign in Blood · 40th Anniversary",
+        "previewLabel": "Dorso Reign in Blood · 40th Anniversary",
+        "role": "back",
+        "garmentCategory": "Slayer",
+        "backTargetDesignId": "cd-slayer-reign-in-blood-40th-anniversary--p7113",
+        "carouselPreview": true,
+        "modalOrder": 1,
+        "stylePreviews": [
+          {
+            "img": "images/slayer/dorso/slayer_40_anniversary_dorso_sin_mangas.jpg",
+            "garmentStyle": "sin_mangas",
+            "previewLabel": "Dorso Reign in Blood · 40th Anniversary · Sin mangas"
+          }
+        ]
+      },
+      {
+        "img": "images/slayer/dobles/remera_40_anniversaryh_doble.jpg",
+        "name": "Reign in Blood · 40th Anniversary - Frente y dorso",
+        "publicName": "Reign In Blood 40th Anniversary",
+        "role": "front",
+        "designId": "cd-slayer-reign-in-blood-40th-anniversary--p7113",
+        "garmentCategory": "Slayer",
+        "color": "negro",
+        "selectionLabel": "Frente Reign in Blood · 40th Anniversary",
+        "previewLabel": "Frente + dorso Reign in Blood · 40th Anniversary",
+        "autoSelectBack": "Dorso Reign in Blood · 40th Anniversary",
+        "defaultPrintMode": "double",
+        "orderVariantIndex": 0,
+        "modalOrder": 2,
+        "stylePreviews": [
+          {
+            "img": "images/slayer/dobles/remera_40_anniversary_doble_sin_mangas.jpg",
+            "garmentStyle": "sin_mangas",
+            "previewLabel": "Frente + dorso Reign in Blood · 40th Anniversary · Sin mangas"
+          }
+        ]
       }
     ],
     "desc": "Slayer Reign In Blood 40th Anniversary 1986-2026 doble estampa frente y dorso.",
@@ -18340,7 +19043,8 @@
       {
         "img": "images/slayer/remera_seasons_v1.jpg",
         "name": "Slayer Seasons V1 - Remera",
-        "garmentCategory": "Slayer"
+        "garmentCategory": "Slayer",
+        "designId": "cd-slayer-seasons-v1--p7114"
       }
     ],
     "desc": "Slayer Seasons V1 estampa frontal. Archivo Slayer FMD 2026.",
@@ -18374,12 +19078,26 @@
     "tipoPrecio": "simple",
     "isNew": true,
     "priority": 212,
-    "img": "images/slayer/remera_god_hates_us_all.jpg",
+    "img": "images/slayer/frente/slayer_god_hates_frente.jpg",
     "variants": [
       {
-        "img": "images/slayer/remera_god_hates_us_all.jpg",
+        "img": "images/slayer/frente/slayer_god_hates_frente.jpg",
         "name": "Slayer God Hates Us All V2 - Remera",
-        "garmentCategory": "Slayer"
+        "garmentCategory": "Slayer",
+        "designId": "cd-slayer-god-hates-us-all-v2--p7115",
+        "role": "front",
+        "color": "negro",
+        "selectionLabel": "Frente God Hates Us All · Cruces",
+        "previewLabel": "Solo frente",
+        "defaultPrintMode": "simple",
+        "modalOrder": 0,
+        "stylePreviews": [
+          {
+            "img": "images/slayer/frente/slayer_god_hates_frente_sin_mangas.jpg",
+            "garmentStyle": "sin_mangas",
+            "previewLabel": "Solo frente · Sin mangas"
+          }
+        ]
       }
     ],
     "desc": "Slayer God Hates Us All V2 estampa frontal. Archivo Slayer FMD 2026.",
@@ -18413,12 +19131,26 @@
     "tipoPrecio": "simple",
     "isNew": true,
     "priority": 211,
-    "img": "images/slayer/remera_skull.jpg",
+    "img": "images/slayer/frente/slayer_skull_graphic_frente.jpg",
     "variants": [
       {
-        "img": "images/slayer/remera_skull.jpg",
+        "img": "images/slayer/frente/slayer_skull_graphic_frente.jpg",
         "name": "Slayer Skull - Remera",
-        "garmentCategory": "Slayer"
+        "garmentCategory": "Slayer",
+        "designId": "cd-slayer-skull--p7116",
+        "role": "front",
+        "color": "negro",
+        "selectionLabel": "Frente Skull Graphic",
+        "previewLabel": "Solo frente",
+        "defaultPrintMode": "simple",
+        "modalOrder": 0,
+        "stylePreviews": [
+          {
+            "img": "images/slayer/frente/slayer_skull_graphic_frente_sin_mangas.jpg",
+            "garmentStyle": "sin_mangas",
+            "previewLabel": "Solo frente · Sin mangas"
+          }
+        ]
       }
     ],
     "desc": "Slayer Skull estampa frontal. Archivo Slayer FMD 2026.",
@@ -18451,25 +19183,88 @@
     "tipoPrecio": "doble",
     "isNew": true,
     "priority": 214,
-    "img": "images/slayer/remera_live_undead.jpg",
+    "img": "images/slayer/frente/slayer_live_undead_frente.jpg",
     "variants": [
       {
-        "img": "images/slayer/remera_live_undead.jpg",
+        "img": "images/slayer/frente/slayer_live_undead_frente.jpg",
         "name": "Slayer Live Undead",
         "garmentCategory": "Slayer",
-        "designId": "slayer-live-undead"
+        "designId": "slayer-live-undead",
+        "role": "front",
+        "color": "negro",
+        "selectionLabel": "Frente Live Undead",
+        "previewLabel": "Solo frente",
+        "defaultPrintMode": "simple",
+        "modalOrder": 0,
+        "stylePreviews": [
+          {
+            "img": "images/slayer/frente/slayer_live_undead_frente_sin_mangas.jpg",
+            "garmentStyle": "sin_mangas",
+            "previewLabel": "Solo frente · Sin mangas"
+          }
+        ]
       },
       {
-        "img": "images/slayer/remera_slayer_live_undead.jpg",
+        "img": "images/slayer/frente/slayer_live_undead_frente.jpg",
         "name": "Slayer Live Undead",
         "garmentCategory": "Slayer",
-        "designId": "slayer-live-undead"
+        "designId": "slayer-live-undead",
+        "stylePreviews": [
+          {
+            "img": "images/slayer/frente/slayer_live_undead_frente_sin_mangas.jpg",
+            "garmentStyle": "sin_mangas",
+            "previewLabel": "Solo frente · Sin mangas"
+          }
+        ],
+        "selectionLabel": "Frente Live Undead",
+        "defaultPrintMode": "simple",
+        "modalOrder": 0
       },
       {
         "img": "images/slayer/remera_slayer_blanca_live_undead.jpg",
         "name": "Slayer Live Undead",
         "garmentCategory": "Slayer",
         "designId": "slayer-live-undead"
+      },
+      {
+        "img": "images/slayer/dorso/slayer_live_undead_dorso.jpg",
+        "name": "Dorso Live Undead · Logo rojo",
+        "selectionLabel": "Dorso Live Undead · Logo rojo",
+        "previewLabel": "Dorso Live Undead · Logo rojo",
+        "role": "back",
+        "garmentCategory": "Slayer",
+        "backTargetDesignId": "slayer-live-undead",
+        "carouselPreview": true,
+        "modalOrder": 1,
+        "stylePreviews": [
+          {
+            "img": "images/slayer/dorso/slayer_live_undead_dorso_sin_mangas.jpg",
+            "garmentStyle": "sin_mangas",
+            "previewLabel": "Dorso Live Undead · Logo rojo · Sin mangas"
+          }
+        ]
+      },
+      {
+        "img": "images/slayer/dobles/remera_live_undead_doble.jpg",
+        "name": "Live Undead - Frente y dorso",
+        "publicName": "Live Undead",
+        "role": "front",
+        "designId": "slayer-live-undead",
+        "garmentCategory": "Slayer",
+        "color": "negro",
+        "selectionLabel": "Frente Live Undead",
+        "previewLabel": "Frente + dorso Live Undead · Logo rojo",
+        "autoSelectBack": "Dorso Live Undead · Logo rojo",
+        "defaultPrintMode": "double",
+        "orderVariantIndex": 0,
+        "modalOrder": 2,
+        "stylePreviews": [
+          {
+            "img": "images/slayer/dobles/remera_live_undead_doble_sin_mangas.jpg",
+            "garmentStyle": "sin_mangas",
+            "previewLabel": "Frente + dorso Live Undead · Logo rojo · Sin mangas"
+          }
+        ]
       }
     ],
     "desc": "Slayer Live Undead doble estampa frente y dorso. Archivo Slayer FMD 2026.",
@@ -18504,12 +19299,26 @@
     "tipoPrecio": "simple",
     "isNew": true,
     "priority": 215,
-    "img": "images/slayer/remera_divine_intervention.jpg",
+    "img": "images/slayer/frente/slayer_divine_intervention_frente.jpg",
     "variants": [
       {
-        "img": "images/slayer/remera_divine_intervention.jpg",
+        "img": "images/slayer/frente/slayer_divine_intervention_frente.jpg",
         "name": "Slayer Divine Intervention - Remera",
-        "garmentCategory": "Slayer"
+        "garmentCategory": "Slayer",
+        "designId": "cd-slayer-divine-intervention--p7118",
+        "role": "front",
+        "color": "negro",
+        "selectionLabel": "Frente Divine Intervention",
+        "previewLabel": "Solo frente",
+        "defaultPrintMode": "simple",
+        "modalOrder": 0,
+        "stylePreviews": [
+          {
+            "img": "images/slayer/frente/slayer_divine_intervention_sin_mangas.jpg",
+            "garmentStyle": "sin_mangas",
+            "previewLabel": "Solo frente · Sin mangas"
+          }
+        ]
       }
     ],
     "desc": "Slayer Divine Intervention estampa frontal. Archivo Slayer FMD 2026.",
@@ -18543,12 +19352,26 @@
     "tipoPrecio": "doble",
     "isNew": true,
     "priority": 216,
-    "img": "images/slayer/remera_slayer_band.jpg",
+    "img": "images/slayer/frente/slayer_band_frentes.jpg",
     "variants": [
       {
-        "img": "images/slayer/remera_slayer_band.jpg",
+        "img": "images/slayer/frente/slayer_band_frentes.jpg",
         "name": "Slayer Band - Remera",
-        "garmentCategory": "Slayer"
+        "garmentCategory": "Slayer",
+        "designId": "cd-slayer-band--p7119",
+        "role": "front",
+        "color": "negro",
+        "selectionLabel": "Frente Slayer · Banda",
+        "previewLabel": "Solo frente",
+        "defaultPrintMode": "simple",
+        "modalOrder": 0,
+        "stylePreviews": [
+          {
+            "img": "images/slayer/frente/slayer_band_sin_mangas.jpg",
+            "garmentStyle": "sin_mangas",
+            "previewLabel": "Solo frente · Sin mangas"
+          }
+        ]
       }
     ],
     "desc": "Slayer Band doble estampa frente y dorso. Archivo Slayer FMD 2026.",
@@ -18582,17 +19405,45 @@
     "tipoPrecio": "simple",
     "isNew": true,
     "priority": 218,
-    "img": "images/slayer/remera_diabolus.jpg",
+    "img": "images/slayer/frente/slayer_diabolus_1998_frente.jpg",
     "variants": [
       {
-        "img": "images/slayer/remera_diabolus.jpg",
+        "img": "images/slayer/frente/slayer_diabolus_1998_frente.jpg",
         "name": "Slayer Diabolus In Musica Original - Remera",
-        "garmentCategory": "Slayer"
+        "garmentCategory": "Slayer",
+        "designId": "cd-slayer-diabolus-in-musica--p7121",
+        "role": "front",
+        "color": "negro",
+        "selectionLabel": "Frente Diabolus in Musica · 1998",
+        "previewLabel": "Solo frente",
+        "defaultPrintMode": "simple",
+        "modalOrder": 0,
+        "stylePreviews": [
+          {
+            "img": "images/slayer/frente/slayer_diabolus_1998_sin_mangas.jpg",
+            "garmentStyle": "sin_mangas",
+            "previewLabel": "Solo frente · Sin mangas"
+          }
+        ]
       },
       {
-        "img": "images/slayer/remera_diabolus_fmd.jpg",
+        "img": "images/slayer/frente/slayer_diabolus_frente.jpg",
         "name": "Slayer Diabolus In Musica Remaster FMD - Remera",
-        "garmentCategory": "Slayer"
+        "garmentCategory": "Slayer",
+        "designId": "cd-slayer-remaster-fmd--p7121",
+        "role": "front",
+        "color": "negro",
+        "selectionLabel": "Frente Diabolus in Musica · FMD",
+        "previewLabel": "Solo frente",
+        "defaultPrintMode": "simple",
+        "modalOrder": 0,
+        "stylePreviews": [
+          {
+            "img": "images/slayer/frente/slayer_diabolus_sin_mangas.jpg",
+            "garmentStyle": "sin_mangas",
+            "previewLabel": "Solo frente · Sin mangas"
+          }
+        ]
       }
     ],
     "desc": "Slayer Diabolus In Musica. Version original y remaster FMD disponibles en el mismo carrusel.",
@@ -18629,12 +19480,26 @@
     "tipoPrecio": "simple",
     "isNew": true,
     "priority": 220,
-    "img": "images/slayer/remera_slayer_replentless.jpg",
+    "img": "images/slayer/frente/slayer_repentless_frente.jpg",
     "variants": [
       {
-        "img": "images/slayer/remera_slayer_replentless.jpg",
+        "img": "images/slayer/frente/slayer_repentless_frente.jpg",
         "name": "Slayer Repentless - Remera",
-        "garmentCategory": "Slayer"
+        "garmentCategory": "Slayer",
+        "designId": "cd-slayer-repentless--p7128",
+        "role": "front",
+        "color": "negro",
+        "selectionLabel": "Frente Repentless",
+        "previewLabel": "Solo frente",
+        "defaultPrintMode": "simple",
+        "modalOrder": 0,
+        "stylePreviews": [
+          {
+            "img": "images/slayer/frente/slayer_repentless_frente_sin_mangas.jpg",
+            "garmentStyle": "sin_mangas",
+            "previewLabel": "Solo frente · Sin mangas"
+          }
+        ]
       }
     ],
     "desc": "Slayer Repentless estampa frontal. Archivo Slayer FMD 2026.",
@@ -18668,22 +19533,78 @@
     "tipoPrecio": "doble",
     "isNew": true,
     "priority": 219,
-    "img": "images/slayer/remera_slayer_goat_tour.jpg",
+    "img": "images/slayer/frente/slayer_goat_frente.jpg",
     "variants": [
       {
-        "img": "images/slayer/remera_slayer_goat_tour.jpg",
+        "img": "images/slayer/frente/slayer_goat_frente.jpg",
         "name": "Slayer Goat Tour - Remera",
-        "garmentCategory": "Slayer"
+        "garmentCategory": "Slayer",
+        "designId": "cd-slayer-goat-tour--p7122",
+        "role": "front",
+        "color": "negro",
+        "selectionLabel": "Frente Goat · Tour Argentina 2026",
+        "previewLabel": "Solo frente",
+        "defaultPrintMode": "simple",
+        "modalOrder": 0,
+        "stylePreviews": [
+          {
+            "img": "images/slayer/frente/slayer_goat_frente_sin_mangas.jpg",
+            "garmentStyle": "sin_mangas",
+            "previewLabel": "Solo frente · Sin mangas"
+          }
+        ]
       },
       {
         "img": "images/slayer/hoodie_slayer_goat.jpg",
         "name": "Slayer Goat Tour - Hoodie",
-        "garmentType": "hoodie"
+        "garmentType": "hoodie",
+        "designId": "cd-slayer-goat-tour--p7122"
       },
       {
         "img": "images/slayer/buzo_slayer_goat_tour.jpg",
         "name": "Slayer Goat Tour - Buzo cuello redondo",
-        "garmentType": "buzo_redondo"
+        "garmentType": "buzo_redondo",
+        "designId": "cd-slayer-goat-tour--p7122"
+      },
+      {
+        "img": "images/slayer/dorso/slayer_goat_dorso.jpg",
+        "name": "Dorso Goat · Argentina 14.12.26",
+        "selectionLabel": "Dorso Goat · Argentina 14.12.26",
+        "previewLabel": "Dorso Goat · Argentina 14.12.26",
+        "role": "back",
+        "garmentCategory": "Slayer",
+        "backTargetDesignId": "cd-slayer-goat-tour--p7122",
+        "carouselPreview": true,
+        "modalOrder": 1,
+        "stylePreviews": [
+          {
+            "img": "images/slayer/dorso/slayer_goat_dorso_sin_mangas.jpg",
+            "garmentStyle": "sin_mangas",
+            "previewLabel": "Dorso Goat · Argentina 14.12.26 · Sin mangas"
+          }
+        ]
+      },
+      {
+        "img": "images/slayer/dobles/remera_goat_doble.jpg",
+        "name": "Goat · Tour Argentina 2026 - Frente y dorso",
+        "publicName": "Goat Tour",
+        "role": "front",
+        "designId": "cd-slayer-goat-tour--p7122",
+        "garmentCategory": "Slayer",
+        "color": "negro",
+        "selectionLabel": "Frente Goat · Tour Argentina 2026",
+        "previewLabel": "Frente + dorso Goat · Argentina 14.12.26",
+        "autoSelectBack": "Dorso Goat · Argentina 14.12.26",
+        "defaultPrintMode": "double",
+        "orderVariantIndex": 0,
+        "modalOrder": 2,
+        "stylePreviews": [
+          {
+            "img": "images/slayer/dobles/remera_goat_doble_sin_mangas.jpg",
+            "garmentStyle": "sin_mangas",
+            "previewLabel": "Frente + dorso Goat · Argentina 14.12.26 · Sin mangas"
+          }
+        ]
       }
     ],
     "desc": "Slayer Goat Tour Argentina 2026 doble estampa. Disponible en remera, hoodie y buzo cuello redondo.",

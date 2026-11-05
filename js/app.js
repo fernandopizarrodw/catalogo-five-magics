@@ -78,7 +78,7 @@ const BAND_LANDING_ARCHIVE_CONFIG = BAND_ARCHIVE_CONFIGS.find(config =>
 const BAND_LANDING_SHOWCASE = BAND_LANDING_CONFIG?.showcase
     || BAND_LANDING_ARCHIVE_CONFIG?.showcase
     || null;
-const BAND_LANDING_GARMENTS = new Set(['remera', 'hoodie', 'buzo_cuello_redondo']);
+const BAND_LANDING_GARMENTS = new Set(['remera', 'sin_mangas', 'hoodie', 'buzo_cuello_redondo']);
 const configuredBandLandingGarment = String(BAND_LANDING_CONFIG?.defaultGarment || '').trim();
 const requestedBandLandingGarment = typeof window !== 'undefined'
     ? String(new URLSearchParams(window.location.search).get('prenda') || '').trim()
@@ -126,7 +126,11 @@ function isBandLandingMode() {
 }
 
 function usesBandLandingShownComposition() {
-    if (selectedModalGarment === 'sin_mangas' || currentProduct?.usesShownComposition === false) return false;
+    if (selectedModalGarment === 'sin_mangas') return false;
+    const isSlayerShirt = normalizeText(currentCatalogDesign?.band) === 'slayer'
+        && !['hoodie', 'buzo'].includes(selectedModalGarment);
+    if (isSlayerShirt && (currentCatalogDesign.backOptions?.length || currentCatalogDesign.front?.stylePreviews?.length || currentCatalogDesign.front?.garmentStyle === 'sin_mangas')) return false;
+    if (currentProduct?.usesShownComposition === false && (normalizeText(currentCatalogDesign?.band) !== 'slayer' || isSlayerShirt)) return false;
     const garment = selectedModalGarment === 'buzo'
         ? 'buzo_cuello_redondo'
         : selectedModalGarment === 'hoodie'
@@ -196,12 +200,14 @@ function getBandLandingUrl(band) {
 }
 
 function getBandLandingModalGarment(garment = bandLandingGarment) {
+    if (garment === 'sin_mangas') return 'sin_mangas';
     if (garment === 'hoodie') return 'hoodie';
     if (garment === 'buzo_cuello_redondo') return 'buzo';
     return 'remera_clasica';
 }
 
 function getBandLandingGarmentLabel(garment = bandLandingGarment) {
+    if (garment === 'sin_mangas') return 'SIN MANGAS';
     if (garment === 'hoodie') return 'HOODIES';
     if (garment === 'buzo_cuello_redondo') return 'BUZOS';
     return 'REMERAS';
@@ -2779,6 +2785,15 @@ function updateCatalogDesignReferenceNote() {
         : garment === 'buzo_cuello_redondo'
             ? 'buzo cuello redondo'
             : 'remera';
+    if (normalizeText(currentCatalogDesign.band) === 'slayer' && selectedColor === 'blanco' && selectedCatalogFrontRef?.color !== 'blanco') {
+        const title = document.createElement('strong');
+        title.textContent = 'PRENDA BLANCA';
+        const description = document.createElement('span');
+        description.textContent = 'La imagen muestra la versión negra. Tu pedido se prepara en blanco.';
+        note.classList.remove('is-hidden');
+        note.replaceChildren(title, description);
+        return;
+    }
     if (hasPreview && (selectedCatalogFrontRef?.isColorPreview || selectedCatalogFrontRef?.autoSelectBack) && selectedPrintMode !== 'double') {
         note.classList.remove('is-hidden');
         note.textContent = 'La imagen muestra frente y dorso. Tu pedido está configurado con solo frente.';
@@ -2812,6 +2827,7 @@ function selectCatalogDesignPreviewForGarment(modalGarment) {
     // variante de arte ni la configuración comercial elegida por el cliente.
     const preservedSelection = {
         printMode: selectedPrintMode,
+        color: selectedColor,
         backIndex: selectedBackIndex,
         catalogBackRef: selectedCatalogBackRef,
         catalogBackDeferred: selectedCatalogBackDeferred,
@@ -2898,6 +2914,13 @@ function selectCatalogDesignPreviewForGarment(modalGarment) {
         if (reference.length) goToSlide(Math.max(0, index), false);
     }
     selectedPrintMode = preservedSelection.printMode;
+    if (normalizeText(currentCatalogDesign.band) === 'slayer') {
+        selectedColor = preservedSelection.color;
+        document.querySelectorAll('#colorSelector button').forEach(button => {
+            button.classList.toggle('active', button.dataset.color === selectedColor);
+            button.style.cssText = '';
+        });
+    }
     selectedBackIndex = preservedSelection.backIndex;
     selectedCatalogBackRef = preservedSelection.catalogBackRef;
     if (selectedCatalogBackRef) {
@@ -3422,6 +3445,7 @@ class CartSystem {
     generateCode(productId, variantIndex = 0) {
         const product = db.find(p => p.id === productId);
         if (!product) return null;
+        if (product.variants?.[variantIndex]?.orderCode) return product.variants[variantIndex].orderCode;
         
         const abbrev = this.generateProductAbbreviation(product.name);
         const baseCode = `${abbrev}-${String(productId).padStart(3, '0')}`;
@@ -3444,7 +3468,7 @@ class CartSystem {
             ? product.variants[variantIndex].name
             : product.name);
         const slayerGarmentLabel = product.category === 'Slayer' ? getSlayerPreferredGarmentLabel() : '';
-        if (slayerGarmentLabel) frontName = `${product.name} - ${slayerGarmentLabel}`;
+        if (slayerGarmentLabel && !options.designId && !options.frontName) frontName = `${product.name} - ${slayerGarmentLabel}`;
 
         // Información del dorso (si es doble estampa)
         let backCode = null;
@@ -5665,7 +5689,7 @@ function getActiveVariantIndex() {
 
 function getCurrentCatalogOrderCode(fallbackVariantIndex = getActiveVariantIndex()) {
     const isEddieGaucho = currentCatalogDesign?.designId === 'cd-iron-maiden-eddie-gaucho-argentino--p7040';
-    if (isEddieGaucho && selectedCatalogFrontRef) {
+    if ((isEddieGaucho || normalizeText(currentCatalogDesign?.band) === 'slayer') && selectedCatalogFrontRef) {
         const orderVariantIndex = Number.isInteger(selectedCatalogFrontRef.orderVariantIndex)
             ? selectedCatalogFrontRef.orderVariantIndex
             : selectedCatalogFrontRef.variantIndex;
@@ -5688,7 +5712,7 @@ function getVariantGarmentType(variant) {
 
 function renderModalCarouselIndicators(modalImages, activeIndex = 0) {
     if (modalImages.length < 2) return '';
-    const showNames = currentCatalogDesign && normalizeText(currentCatalogDesign.band) === 'iron maiden';
+    const showNames = currentCatalogDesign && ['iron maiden', 'slayer'].includes(normalizeText(currentCatalogDesign.band));
     return modalImages.map((item, index) => {
         const active = index === activeIndex ? ' active' : '';
         if (!showNames) return `<button type="button" class="carousel-dot${active}" data-index="${index}" aria-label="Ver variante ${index + 1}"></button>`;
@@ -6961,6 +6985,16 @@ function onCarouselScroll() {
 }
 
 function applyCatalogPreviewSelection(ref) {
+    if (ref?.role === 'back' && normalizeText(currentCatalogDesign?.band) === 'slayer') {
+        const choice = getCatalogDesignBackChoices().find(back => back.productId === ref.productId && back.variantIndex === ref.variantIndex);
+        if (choice) {
+            selectedCatalogBackRef = choice;
+            selectedCatalogBackDeferred = false;
+            selectedBackIndex = -1;
+            selectPrintMode('double');
+        }
+        return;
+    }
     if (ref?.role !== 'front') return;
     selectedCatalogFrontRef = ref;
     if (ref.color && selectedColor !== ref.color) {
@@ -7165,12 +7199,16 @@ function updateModalInfo() {
     if (currentCatalogDesign && selectedCatalogFrontRef?.selectionLabel) {
         displayName = `${currentCatalogDesign.publicName} · ${selectedCatalogFrontRef.selectionLabel}`;
     }
+    const slayerPreview = normalizeText(currentCatalogDesign?.band) === 'slayer' ? currentModalSourceRefs[currentSlide] : null;
+    if (slayerPreview) displayName = `${currentCatalogDesign.publicName} · ${slayerPreview.previewLabel || slayerPreview.label}`;
     const slayerGarmentLabel = currentProduct.category === 'Slayer' ? getSlayerPreferredGarmentLabel() : '';
     if (slayerGarmentLabel && !activeVariantName) displayName = `${cleanPublicText(currentProduct.name)} - ${slayerGarmentLabel}`;
     document.getElementById('modalName').textContent = displayName;
     
     // Actualizar código del producto
-    const code = getCurrentCatalogOrderCode(activeVariantIndex);
+    const code = slayerPreview?.role === 'back'
+        ? cart.generateCode(slayerPreview.productId, slayerPreview.variantIndex)
+        : getCurrentCatalogOrderCode(activeVariantIndex);
     const displayCodeEl = document.getElementById('displayCode');
     if (displayCodeEl) displayCodeEl.textContent = code;
     
@@ -7371,8 +7409,12 @@ function chooseCleanCatalogPreview(previews, colorKey = '') {
 
 function getBandLandingDesignPreview(design, garment = bandLandingGarment) {
     if (!isBandLandingMode() || !garment) return design?.front || null;
+    if (garment === 'sin_mangas') {
+        return chooseCleanCatalogPreview(getCatalogDesignFrontRefs(design).filter(ref => ref.role === 'front' && ref.garmentStyle === 'sin_mangas'));
+    }
     if (!(design?.availableGarments || []).includes(garment)) return null;
     const previews = design?.previewsByGarment?.[garment] || [];
+    if (normalizeText(BAND_LANDING_BAND) === 'slayer' && garment === 'remera' && previews.length && previews.every(ref => ref.garmentStyle === 'sin_mangas')) return null;
     if (normalizeText(BAND_LANDING_BAND) === 'helloween') {
         return chooseCleanCatalogPreview(previews) || design?.front || null;
     }
@@ -7558,6 +7600,7 @@ function renderCatalogDesignResults(designs) {
         const availableGarments = new Set((design.availableGarments || []).map(garment => normalizeText(garment)));
         const garmentLabels = [
             [...availableGarments].some(garment => garment.includes('remera')) ? 'Remera' : '',
+            normalizeText(design.band) === 'slayer' && getCatalogDesignFrontRefs(design).some(ref => ref.garmentStyle === 'sin_mangas') ? 'Sin mangas' : '',
             [...availableGarments].some(garment => garment.includes('hoodie')) ? 'Hoodie' : '',
             [...availableGarments].some(garment => garment.includes('buzo')) ? 'Buzo' : ''
         ].filter(Boolean);

@@ -42,11 +42,15 @@
     document.getElementById('slayerSleevelessAccess')?.addEventListener('click', () => {
         style = 'sin_mangas'; render();
     });
-    document.querySelector('.slayer-hero-actions a[href="#reignInBlood"]')?.addEventListener('click', () => {
-        style = 'sin_mangas'; render();
+    document.querySelector('[data-slayer-browse="sin_mangas"]')?.addEventListener('click', event => {
+        event.preventDefault();
+        currentSearch = '';
+        document.getElementById('searchInput').value = '';
+        selectBandLandingCollection('');
+        selectBandLandingGarment('sin_mangas');
     });
     document.getElementById('slayerLaunchZoom')?.addEventListener('click', () => openZoom(image.src, image.alt));
-    document.querySelectorAll('.slayer-hero-actions a[href="#catalogoPrincipal"], .slayer-text-link').forEach(link => {
+    document.querySelectorAll('.slayer-hero-actions .band-landing-primary-cta, .slayer-text-link').forEach(link => {
         link.addEventListener('click', event => {
             event.preventDefault();
             currentSearch = '';
