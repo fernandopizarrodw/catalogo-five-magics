@@ -118,6 +118,24 @@ body[data-band="Slayer"] .band-landing-hero-art img {
 .slayer-launch-price strong { color: #fff; }
 .slayer-launch-copy .band-landing-primary-cta { border: 0; cursor: pointer; }
 .slayer-text-link { display: flex; width: fit-content; margin-top: 10px; font-size: .85rem; }
+.slayer-3d {
+    width: min(1100px, calc(100% - 32px));
+    margin: 28px auto;
+    padding: clamp(16px, 3vw, 32px);
+    box-sizing: border-box;
+    border: 1px solid #704039;
+    border-radius: 16px;
+    background: linear-gradient(130deg, #20100e, #090909 65%);
+    scroll-margin-top: 90px;
+}
+.slayer-3d h2 { margin: 8px 0 14px; font: clamp(2rem, 5vw, 3.7rem)/1.1 "Bebas Neue", sans-serif; }
+.slayer-3d p { max-width: 680px; line-height: 1.65; }
+.slayer-3d-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-block: 20px; }
+.slayer-3d-card { min-width: 0; overflow: hidden; border: 1px solid #50302b; border-radius: 10px; background: #080808; color: #fff; text-decoration: none; }
+.slayer-3d-card img { display: block; width: 100%; height: auto; aspect-ratio: 1080 / 1340; object-fit: contain; }
+.slayer-3d-card span { display: block; padding: 12px; font: 600 1rem "Oswald", sans-serif; }
+.slayer-3d-card:focus-visible, .slayer-3d-card:hover { border-color: #ef6451; }
+.slayer-3d .band-landing-primary-cta { max-width: 100%; box-sizing: border-box; text-align: center; }
 .slayer-outerwear { margin-top: 16px; }
 .slayer-outerwear summary { padding: 12px 0; cursor: pointer; font-family: "Oswald", sans-serif; color: #bdbdbd; }
 .slayer-outerwear .band-landing-garment-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 640px; margin: 8px 0; }
@@ -136,4 +154,7 @@ body[data-band="Slayer"] .july-shipping-promo strong { margin-top: 14px; font-si
     .slayer-kreator h2 { font-size: 1.8rem; }
     .slayer-hero-actions > *, .slayer-launch-copy .band-landing-primary-cta { width: 100%; box-sizing: border-box; text-align: center; }
     .slayer-launch-views button { padding-inline: 4px; font-size: .74rem; }
+    .slayer-3d-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .slayer-3d-card:last-child { display: none; }
+    .slayer-3d-card span { padding: 10px; font-size: .85rem; }
 }

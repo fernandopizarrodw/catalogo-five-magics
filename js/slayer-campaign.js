@@ -50,6 +50,24 @@
         selectBandLandingGarment('sin_mangas');
     });
     document.getElementById('slayerLaunchZoom')?.addEventListener('click', () => openZoom(image.src, image.alt));
+    document.querySelectorAll('[data-slayer-3d-design]').forEach(link => {
+        link.addEventListener('click', event => {
+            event.preventDefault();
+            const designId = link.getAttribute('data-slayer-3d-design');
+            if (!catalogDesignById.has(designId)) {
+                showNotification('Estamos cargando los diseños. Probá de nuevo en un momento.', 2500);
+                return;
+            }
+            openCatalogDesign(designId, 'remera_clasica');
+        });
+    });
+    document.querySelector('[data-slayer-3d-collection]')?.addEventListener('click', event => {
+        event.preventDefault();
+        currentSearch = '';
+        document.getElementById('searchInput').value = '';
+        selectBandLandingGarment('remera');
+        selectBandLandingCollectionAndScroll('3d-fmd');
+    });
     document.querySelectorAll('.slayer-hero-actions .band-landing-primary-cta, .slayer-text-link').forEach(link => {
         link.addEventListener('click', event => {
             event.preventDefault();

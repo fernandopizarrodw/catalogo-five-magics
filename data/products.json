@@ -1405,6 +1405,68 @@
       {
         "img": "images/albums/Youthanasia/train_of_consequences.jpg",
         "name": "Train of Consequences"
+      },
+      {
+        "img": "images/albums/Youthanasia/FRENTE YOUTH FMD 1.jpg",
+        "name": "Youthanasia - Edición FMD",
+        "publicName": "Youthanasia - Edición FMD",
+        "selectionLabel": "Frente Youthanasia - Edición FMD",
+        "role": "front",
+        "designId": "cd-megadeth-youthanasia--youthanasia-fmd",
+        "isNew": true,
+        "defaultPrintMode": "simple",
+        "colorPreviews": [
+          {
+            "img": "images/albums/Youthanasia/BLACNA FMD YOUTH.jpg",
+            "color": "blanco",
+            "previewLabel": "Remera blanca - Solo frente",
+            "defaultPrintMode": "simple"
+          }
+        ]
+      },
+      {
+        "img": "images/albums/Youthanasia/DORSO 1.jpg",
+        "name": "Dorso Youthanasia - Banda",
+        "role": "back",
+        "backTargetDesignId": "cd-megadeth-youthanasia--youthanasia-fmd",
+        "carouselPreview": true,
+        "isNew": true
+      },
+      {
+        "img": "images/albums/Youthanasia/YOUTH FMD 2.jpg",
+        "name": "Vic Father - Edición FMD",
+        "publicName": "Vic Father - Edición FMD",
+        "selectionLabel": "Frente Vic Father - Edición FMD",
+        "role": "front",
+        "designId": "cd-megadeth-youthanasia--vic-father-fmd",
+        "defaultPrintMode": "simple",
+        "isNew": true
+      },
+      {
+        "img": "images/albums/Youthanasia/DORSO TRACK.jpg",
+        "name": "Dorso Youthanasia - Vic Father y canciones",
+        "role": "back",
+        "backTargetDesignId": "cd-megadeth-youthanasia--vic-father-fmd",
+        "carouselPreview": true,
+        "isNew": true
+      },
+      {
+        "img": "images/albums/Youthanasia/YOUTH FMD 3.jpg",
+        "name": "Train of Consequences - Edición FMD",
+        "publicName": "Train of Consequences - Edición FMD",
+        "selectionLabel": "Frente Train of Consequences - Edición FMD",
+        "role": "front",
+        "designId": "cd-megadeth-youthanasia--train-of-consequences-fmd",
+        "defaultPrintMode": "simple",
+        "isNew": true
+      },
+      {
+        "img": "images/albums/Youthanasia/YOUTH FMD DORSO 3.jpg",
+        "name": "Dorso Youthanasia - Vic Father",
+        "role": "back",
+        "backTargetDesignId": "cd-megadeth-youthanasia--train-of-consequences-fmd",
+        "carouselPreview": true,
+        "isNew": true
       }
     ],
     "desc": "Youthanasia con variantes clÃ¡sicas, photo band, Vic Father y alternative art frente y dorso.",
@@ -12875,6 +12937,17 @@
             "previewLabel": "Solo frente · Sin mangas"
           }
         ]
+      },
+      {
+        "img": "images/slayer/frente/slayer_anguila_V2_frente.jpg",
+        "name": "Slayer Águila V2 - Remera",
+        "publicName": "Águila",
+        "selectionLabel": "Frente Águila clásica V2",
+        "previewLabel": "Frente Águila clásica V2",
+        "designId": "slayer-aguila",
+        "role": "front",
+        "defaultPrintMode": "simple",
+        "isNew": true
       }
     ],
     "desc": "Archivo Slayer FMD 2026. Diseno Slayer Aguila disponible en remera, hoodie y buzo cuello redondo.",
@@ -19038,10 +19111,10 @@
     "tipoPrecio": "simple",
     "isNew": true,
     "priority": 213,
-    "img": "images/slayer/remera_seasons_v1.jpg",
+    "img": "images/slayer/frente/slayer_seasons_V2_frente.jpg",
     "variants": [
       {
-        "img": "images/slayer/remera_seasons_v1.jpg",
+        "img": "images/slayer/frente/slayer_seasons_V2_frente.jpg",
         "name": "Slayer Seasons V1 - Remera",
         "garmentCategory": "Slayer",
         "designId": "cd-slayer-seasons-v1--p7114"
@@ -27297,5 +27370,220 @@
     "legacyCategory": "Iron Maiden",
     "fmdBadge": "ORIGINAL FMD",
     "tags": ["Iron Maiden", "Fear of the Dark", "Halloween", "Buenos Aires 2026", "Original FMD", "Run For Your Lives", "remera"]
+  },
+  {
+    "id": 7316,
+    "name": "Slayer 3D FMD",
+    "category": "Slayer",
+    "band": "Slayer",
+    "year": "2026",
+    "tipoPrecio": "simple",
+    "defaultPrintMode": "simple",
+    "usesShownComposition": false,
+    "img": "images/slayer/3D editions/slayer_reign_3D.jpg",
+    "desc": "Portadas y diseños clásicos de Slayer remasterizados en tres dimensiones por Five Magics Designs.",
+    "garments": ["remera"],
+    "collections": ["Slayer", "Ediciones 3D FMD"],
+    "fmdBadge": "ORIGINAL FMD",
+    "isNew": true,
+    "commercialPriority": 86,
+    "visibilityTier": "catalog",
+    "tags": ["Slayer", "3D", "FMD", "Five Magics Designs", "remera"],
+    "variants": [
+      {
+        "img": "images/slayer/3D editions/slayer_reign_3D.jpg",
+        "name": "Reign in Blood - 3D FMD",
+        "publicName": "Reign in Blood - 3D FMD",
+        "selectionLabel": "Frente Reign in Blood - 3D FMD",
+        "designId": "slayer-3d-fmd-reign-in-blood",
+        "collectionIds": ["3d-fmd", "reign-in-blood"],
+        "role": "front"
+      },
+      {
+        "img": "images/slayer/3D editions/slayer_reign_3D_V2.jpg",
+        "name": "Reign in Blood - 3D FMD V2",
+        "publicName": "Reign in Blood - 3D FMD V2",
+        "selectionLabel": "Frente Reign in Blood - 3D FMD V2",
+        "designId": "slayer-3d-fmd-reign-in-blood-v2",
+        "collectionIds": ["3d-fmd", "reign-in-blood"],
+        "role": "front"
+      },
+      {
+        "img": "images/slayer/3D editions/slayer_aguila_3D.jpg",
+        "name": "Águila - 3D FMD",
+        "publicName": "Águila - 3D FMD",
+        "selectionLabel": "Frente Águila - 3D FMD",
+        "designId": "slayer-3d-fmd-aguila",
+        "collectionIds": ["3d-fmd"],
+        "role": "front"
+      },
+      {
+        "img": "images/slayer/3D editions/slayer_angel_3D.jpg",
+        "name": "Angel of Death - 3D FMD",
+        "publicName": "Angel of Death - 3D FMD",
+        "selectionLabel": "Frente Angel of Death - 3D FMD",
+        "designId": "slayer-3d-fmd-angel-of-death",
+        "collectionIds": ["3d-fmd", "reign-in-blood"],
+        "role": "front"
+      },
+      {
+        "img": "images/slayer/3D editions/slayer_south_3D.jpg",
+        "name": "South of Heaven - 3D FMD",
+        "publicName": "South of Heaven - 3D FMD",
+        "selectionLabel": "Frente South of Heaven - 3D FMD",
+        "designId": "slayer-3d-fmd-south-of-heaven",
+        "collectionIds": ["3d-fmd", "classics"],
+        "role": "front"
+      },
+      {
+        "img": "images/slayer/3D editions/slayer_god_3D.jpg",
+        "name": "God Hates Us All - 3D FMD",
+        "publicName": "God Hates Us All - 3D FMD",
+        "selectionLabel": "Frente God Hates Us All - 3D FMD",
+        "designId": "slayer-3d-fmd-god-hates-us-all",
+        "collectionIds": ["3d-fmd"],
+        "role": "front"
+      },
+      {
+        "img": "images/slayer/3D editions/slayer_skull_3D.jpg",
+        "name": "Skull - 3D FMD",
+        "publicName": "Skull - 3D FMD",
+        "selectionLabel": "Frente Skull - 3D FMD",
+        "designId": "slayer-3d-fmd-skull",
+        "collectionIds": ["3d-fmd"],
+        "role": "front"
+      },
+      {
+        "img": "images/slayer/3D editions/slayer_goat_3D.jpg",
+        "name": "Goat - 3D FMD",
+        "publicName": "Goat - 3D FMD",
+        "selectionLabel": "Frente Goat - 3D FMD",
+        "designId": "slayer-3d-fmd-goat",
+        "collectionIds": ["3d-fmd"],
+        "role": "front"
+      },
+      {
+        "img": "images/slayer/3D editions/slayer_throne_3D.jpg",
+        "name": "Throne - 3D FMD",
+        "publicName": "Throne - 3D FMD",
+        "selectionLabel": "Frente Throne - 3D FMD",
+        "designId": "slayer-3d-fmd-throne",
+        "collectionIds": ["3d-fmd"],
+        "role": "front"
+      },
+      {
+        "img": "images/slayer/3D editions/slayer_goat_flame_3D.jpg",
+        "name": "Goat Flame - 3D FMD",
+        "publicName": "Goat Flame - 3D FMD",
+        "selectionLabel": "Frente Goat Flame - 3D FMD",
+        "designId": "slayer-3d-fmd-goat-flame",
+        "collectionIds": ["3d-fmd"],
+        "role": "front",
+        "modalOrder": 0
+      },
+      {
+        "img": "images/slayer/3D editions/slayer_goat_flame_3D_doble.jpg",
+        "name": "Dorso Goat Flame - Tour 2026",
+        "selectionLabel": "Dorso Goat Flame - Tour 2026",
+        "previewLabel": "Dorso Tour 2026 - Referencia frente y dorso",
+        "backTargetDesignId": "slayer-3d-fmd-goat-flame",
+        "role": "back"
+      },
+      {
+        "img": "images/slayer/3D editions/slayer_goat_flame_3D_doble.jpg",
+        "name": "Goat Flame - 3D FMD - Frente y dorso Tour 2026",
+        "publicName": "Goat Flame - 3D FMD",
+        "selectionLabel": "Frente Goat Flame - 3D FMD",
+        "previewLabel": "Frente y dorso Tour 2026",
+        "designId": "slayer-3d-fmd-goat-flame",
+        "role": "front",
+        "modalOrder": 2,
+        "orderVariantIndex": 9,
+        "defaultPrintMode": "double",
+        "autoSelectBack": "Dorso Goat Flame - Tour 2026"
+      }
+    ]
+  },
+  {
+    "id": 7317,
+    "name": "Slayer Christ Illusion",
+    "band": "Slayer",
+    "category": "Slayer",
+    "visibilityTier": "catalog",
+    "commercialPriority": 82,
+    "album": "Christ Illusion",
+    "designId": "slayer-christ-illusion",
+    "img": "images/slayer/frente/slayer_christ_illusion_frente.jpg",
+    "tipoPrecio": "simple",
+    "usesShownComposition": false,
+    "defaultPrintMode": "simple",
+    "isNew": true,
+    "garments": ["remera"],
+    "variants": [
+      {
+        "img": "images/slayer/frente/slayer_christ_illusion_frente.jpg",
+        "name": "Christ Illusion",
+        "selectionLabel": "Frente Christ Illusion",
+        "role": "front"
+      }
+    ]
+  },
+  {
+    "id": 7318,
+    "name": "Slayer Kerry King",
+    "band": "Slayer",
+    "category": "Slayer",
+    "visibilityTier": "catalog",
+    "commercialPriority": 82,
+    "designId": "slayer-kerry-king",
+    "img": "images/slayer/frente/slayer_kerry_king_frente.jpg",
+    "tipoPrecio": "simple",
+    "usesShownComposition": false,
+    "defaultPrintMode": "simple",
+    "isNew": true,
+    "garments": ["remera"],
+    "variants": [
+      {
+        "img": "images/slayer/frente/slayer_kerry_king_frente.jpg",
+        "name": "Kerry King",
+        "selectionLabel": "Frente Kerry King",
+        "role": "front"
+      }
+    ]
+  },
+  {
+    "id": 7319,
+    "name": "Slayer Reign in Blood Tres Cruces",
+    "band": "Slayer",
+    "category": "Slayer",
+    "visibilityTier": "catalog",
+    "commercialPriority": 82,
+    "album": "Reign in Blood",
+    "designId": "slayer-reign-in-blood-tres-cruces",
+    "img": "images/slayer/dobles/remera_3_cruces_doble.jpg",
+    "tipoPrecio": "doble",
+    "defaultPrintMode": "double",
+    "catalogPriceText": "Frente y dorso $45.000",
+    "isNew": true,
+    "garments": ["remera"],
+    "variants": [
+      {
+        "img": "images/slayer/dobles/remera_3_cruces_doble.jpg",
+        "name": "Reign in Blood - Tres Cruces",
+        "publicName": "Reign in Blood - Tres Cruces",
+        "selectionLabel": "Frente Slayer - Logo gris",
+        "previewLabel": "Frente y dorso",
+        "role": "front",
+        "autoSelectBack": "Dorso Reign in Blood - Tres Cruces"
+      },
+      {
+        "img": "images/slayer/dobles/remera_3_cruces_doble.jpg",
+        "name": "Dorso Reign in Blood - Tres Cruces",
+        "selectionLabel": "Dorso Reign in Blood - Tres Cruces",
+        "previewLabel": "Referencia frente y dorso",
+        "role": "back",
+        "backTargetDesignId": "slayer-reign-in-blood-tres-cruces"
+      }
+    ]
   }
 ]
