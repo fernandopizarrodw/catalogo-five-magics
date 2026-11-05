@@ -1703,29 +1703,83 @@
             band: 'Pantera',
             displayName: 'PANTERA',
             title: 'Pantera: remeras, hoodies y buzos | Five Magics Designs',
-            description: 'Diseños de Pantera en remeras, hoodies y buzos hechos a pedido. Elegí prenda, estampa, talle y color.',
+            description: 'Colección Pantera: discos clásicos, Dimebag Darrell, CFH y tours. Remeras clásicas y oversize, hoodies y buzos. Producción a pedido y envíos a todo el país.',
             canonical: 'https://catalogo.fivemagicsdesigns.com/pantera/',
             image: '/images/pantera/remera_pantera_donington.jpg',
             imageUrl: 'https://catalogo.fivemagicsdesigns.com/images/pantera/remera_pantera_donington.jpg',
-            heroTitle: 'REMERAS, HOODIES Y BUZOS',
-            heroCopy: 'Explorá diseños de Pantera y elegí tu favorito para armar el pedido.',
+            heroTitle: 'CLÁSICOS, DIMEBAG Y COWBOYS FROM HELL',
+            heroCopy: 'Discos esenciales, homenajes a Dimebag Darrell y el universo CFH. Elegí tu diseño en remera clásica u oversize, solo frente o frente + dorso.',
             finalTitle: '¿BUSCABAS OTRO DISEÑO DE PANTERA?',
             finalCopy: 'También hacemos diseños personalizados a partir de una tapa, imagen o idea.',
             whatsappMessage: 'Hola FMD! Quiero consultar por un diseño de Pantera a partir de una tapa, imagen o idea.',
             defaultGarment: 'remera',
             usesShownComposition: false,
             showSizeGuide: true,
+            collections: [
+                { id: 'albums', label: 'DISCOS CLÁSICOS', match: { designIds: [
+                    'cd-pantera-cowboys-from-hell--p4192', 'cd-pantera-vulgar-display-of-power--p4191',
+                    'cd-pantera-far-beyond-driven--p4193', 'cd-pantera-the-great-southern-trendkill--p412', 'cd-pantera-the-great-southern-trendkill--p4194',
+                    'cd-pantera-vulgar-fmd--p4191', 'pantera-cfh-the-demos', 'cd-pantera-mouth-for-war--p4194'
+                ] } },
+                { id: 'members', label: 'DIMEBAG + PHIL', match: { designIds: [
+                    'pantera-dimebag-darrell-guitar-black', 'pantera-dimebag-darrell-legend',
+                    'cd-pantera-dimebag-darrell-guitar-gold--p48', 'cd-pantera-dimebag-darrell-live--p5126',
+                    'cd-pantera-dimebag-darrell-bn--p46', 'cd-pantera-color--p47', 'cd-pantera-dimebag-darrell-homenaje--p327',
+                    'cd-pantera-dimebag-darrell-abbott-white--p326', 'cd-pantera-dimebag-logo-fuego--p410',
+                    'cd-pantera-dimebag-tribute-edition-v1--p323', 'cd-pantera-dime-cfh-fuego-edition--p324',
+                    'cd-pantera-darrell-v2--p329', 'cd-pantera-guitar-dimebag--p411', 'cd-pantera-firma-darrell--p47',
+                    'cd-pantera-firma-pantera--p47', 'cd-pantera-dimebag-fire--p6002',
+                    'cd-pantera-phil-anselmo-v1--p417', 'cd-pantera-phil-anselmo-v2--p417', 'cd-pantera-phil-emblem--p4190'
+                ] } },
+                { id: 'cfh', label: 'LOGOS / CFH', match: { designIds: [
+                    'pantera-cfh-simbolo-rojo', 'pantera-cfh-the-demos', 'pantera-pink-from-hell',
+                    'cd-pantera-dime-cfh-fuego-edition--p324', 'cd-pantera-pantera--p6008'
+                ] } },
+                { id: 'live', label: 'TOURS / EN VIVO', match: { designIds: [
+                    'pantera-live-from-donington-94', 'cd-pantera-101-live--p328', 'cd-pantera-tour-2000--p418', 'cd-pantera-band-v1--p413'
+                ] } }
+            ],
             designOrder: [
+                'cd-pantera-cowboys-from-hell--p4192',
+                'cd-pantera-vulgar-display-of-power--p4191',
+                'cd-pantera-far-beyond-driven--p4193',
+                'cd-pantera-the-great-southern-trendkill--p412', 'cd-pantera-the-great-southern-trendkill--p4194',
                 'pantera-dimebag-darrell-guitar-black',
                 'pantera-dimebag-darrell-legend',
                 'pantera-live-from-donington-94',
+                'cd-pantera-vulgar-fmd--p4191',
                 'pantera-cfh-simbolo-rojo',
                 'pantera-cfh-the-demos',
-                'pantera-pink-from-hell'
+                'pantera-pink-from-hell',
+                'cd-pantera-tour-2000--p418',
+                'cd-pantera-101-live--p328',
+                'cd-pantera-band-v1--p413',
+                'cd-pantera-dime-cfh-fuego-edition--p324',
+                'cd-pantera-dimebag-tribute-edition-v1--p323',
+                'cd-pantera-dimebag-darrell-guitar-gold--p48',
+                'cd-pantera-dimebag-darrell-live--p5126',
+                'cd-pantera-dimebag-darrell-homenaje--p327',
+                'cd-pantera-dimebag-darrell-abbott-white--p326',
+                'cd-pantera-dimebag-darrell-bn--p46',
+                'cd-pantera-color--p47',
+                'cd-pantera-darrell-v2--p329',
+                'cd-pantera-dimebag-logo-fuego--p410',
+                'cd-pantera-guitar-dimebag--p411',
+                'cd-pantera-firma-darrell--p47',
+                'cd-pantera-firma-pantera--p47',
+                'cd-pantera-phil-anselmo-v1--p417',
+                'cd-pantera-phil-anselmo-v2--p417',
+                'cd-pantera-phil-emblem--p4190',
+                'cd-pantera-snake-v1--p414',
+                'cd-pantera-snake-v2--p415',
+                'cd-pantera-mouth-for-war--p4194',
+                'cd-pantera-dimebag-fire--p6002',
+                'cd-pantera-pantera--p6008'
             ],
             garments: [
                 { key: 'remera', title: 'REMERAS', price: 'Frontal $38.000 · Doble $45.000', image: '/images/pantera/remera_pantera_donington.jpg', alt: 'Remera Pantera Live From Donington 1994' },
-                { key: 'hoodie', title: 'HOODIES', price: 'Frontal $53.000 · Doble $60.000', image: '/images/pantera/hoodie_pantera_the_great_southern_trendkill.jpg', alt: 'Hoodie Pantera The Great Southern Trendkill' }
+                { key: 'hoodie', title: 'HOODIES', price: 'Frontal $53.000 · Doble $60.000', image: '/images/pantera/hoodie_pantera_the_great_southern_trendkill.jpg', alt: 'Hoodie Pantera The Great Southern Trendkill' },
+                { key: 'buzo_cuello_redondo', title: 'BUZOS', price: 'Frontal $51.000 · Doble $56.000', image: '/images/pantera/buzo_pantera_logo_rojo.png', alt: 'Buzo Pantera CFH rojo, frente y dorso' }
             ]
         },
         {

@@ -7414,6 +7414,7 @@ function getBandLandingDesignPreview(design, garment = bandLandingGarment) {
     }
     if (!(design?.availableGarments || []).includes(garment)) return null;
     const previews = design?.previewsByGarment?.[garment] || [];
+    if (normalizeText(BAND_LANDING_BAND) === 'pantera' && !previews.length) return null;
     if (normalizeText(BAND_LANDING_BAND) === 'slayer' && garment === 'remera' && previews.length && previews.every(ref => ref.garmentStyle === 'sin_mangas')) return null;
     if (normalizeText(BAND_LANDING_BAND) === 'helloween') {
         return chooseCleanCatalogPreview(previews) || design?.front || null;

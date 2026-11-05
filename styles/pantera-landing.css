@@ -1,0 +1,27 @@
+body[data-band="Pantera"] {
+    --band-accent: #d85432;
+    --band-accent-soft: rgba(216, 84, 50, .16);
+    background: radial-gradient(circle at 76% 8%, rgba(125, 53, 26, .16), transparent 34rem), #050505;
+}
+
+body[data-band="Pantera"] .band-landing-hero-art img {
+    max-height: 510px;
+    object-fit: contain;
+}
+
+.pantera-quick-links { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin-top: 20px; }
+.pantera-quick-links a { display: flex; align-items: center; justify-content: center; min-height: 44px; padding: 8px; border: 1px solid #603c2d; border-radius: 8px; color: #f4f4f4; font: 600 .85rem "Oswald", sans-serif; text-align: center; text-decoration: none; box-sizing: border-box; }
+.pantera-quick-links a:hover, .pantera-quick-links a:focus-visible { border-color: var(--band-accent); background: var(--band-accent-soft); }
+.pantera-garment-access > button { min-height: 44px; }
+.pantera-header-chat { display: none; }
+.pantera-garment-access details { margin-top: 12px; }
+.pantera-garment-access summary { padding-block: 12px; color: #bdbdbd; font-family: "Oswald", sans-serif; cursor: pointer; }
+.pantera-garment-access .band-landing-garment-grid { max-width: 640px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+body[data-band="Pantera"] .july-shipping-promo strong { margin-top: 16px; }
+
+@media (max-width: 640px) {
+    .pantera-header-chat { display: block; }
+    body[data-band="Pantera"] .band-landing-hero-art img { max-height: 320px; }
+    .pantera-quick-links a { font-size: .78rem; }
+    body[data-band="Pantera"] .band-landing-primary-cta { width: 100%; box-sizing: border-box; text-align: center; }
+}
