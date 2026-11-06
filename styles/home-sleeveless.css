@@ -1,0 +1,30 @@
+.home-sleeveless {
+    width: min(1200px, calc(100% - 32px));
+    margin: 28px auto;
+    padding: clamp(16px, 3vw, 32px);
+    box-sizing: border-box;
+    border: 1px solid #24583b;
+    border-radius: 16px;
+    background: linear-gradient(125deg, #0c2015, #080a09 65%);
+    scroll-margin-top: 90px;
+}
+.home-sleeveless-kicker { color: #0f6; font: 700 .8rem "Oswald", sans-serif; letter-spacing: .08em; }
+.home-sleeveless h2 { margin: 8px 0 12px; font: clamp(2rem, 5vw, 3.5rem)/1.1 "Bebas Neue", sans-serif; }
+.home-sleeveless > p { max-width: 700px; line-height: 1.6; }
+.home-sleeveless-prices { margin-block: 12px 20px; color: #fff; font-weight: 600; }
+.home-sleeveless-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+.home-sleeveless-card { display: flex; flex-direction: column; min-width: 0; overflow: hidden; border: 1px solid #30483a; border-radius: 10px; background: #080a09; color: #fff; text-decoration: none; }
+.home-sleeveless-card[hidden] { display: none; }
+.home-sleeveless-card img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: contain; }
+.home-sleeveless-card small { padding: 12px 12px 0; color: #0f6; font: 600 .75rem "Oswald", sans-serif; }
+.home-sleeveless-card h3 { margin: 6px 12px 12px; font: 600 1rem/1.35 "Inter", sans-serif; }
+.home-sleeveless-card span { margin-top: auto; padding: 12px; border-top: 1px solid #26352b; font: 600 .8rem "Oswald", sans-serif; }
+.home-sleeveless-card:hover, .home-sleeveless-card:focus-visible { border-color: #0f6; }
+.home-sleeveless-more { display: block; min-height: 44px; margin: 20px auto 0; padding: 12px 22px; border: 1px solid #0f6; border-radius: 8px; background: transparent; color: #fff; font: 600 .9rem "Oswald", sans-serif; cursor: pointer; }
+.home-sleeveless-more[hidden] { display: none; }
+@media (max-width: 640px) {
+    .home-sleeveless-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+    .home-sleeveless-card h3 { font-size: .85rem; }
+    .home-sleeveless-card span { font-size: .72rem; }
+    .home-sleeveless-more { width: 100%; }
+}

@@ -43,6 +43,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="styles/main.css?v=shipping-20261102">
+    <link rel="stylesheet" href="styles/home-sleeveless.css?v=20261105">
 
     <!-- Google Analytics 4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-1H3XPM82ED"></script>
@@ -114,6 +115,7 @@
             <div class="hero-actions">
                 <a href="#catalogoPrincipal" class="hero-cta-btn" id="heroCtaBuzos" onclick="showFullCatalog(); return false;">EXPLORAR CAT&Aacute;LOGO</a>
                 <a href="#personalizado" class="hero-cta-btn hero-cta-btn-secondary" id="heroCtaWhatsapp">PEDIR DISEÑO PERSONALIZADO</a>
+                <a href="#sinMangas" class="hero-cta-btn hero-cta-btn-secondary">NUEVAS REMERAS SIN MANGAS</a>
             </div>
             <div class="hero-proof">
                 <span class="hero-proof-priority">IMPRESI&Oacute;N DTG &middot; NEGRO O BLANCO &middot; PRODUCCI&Oacute;N A PEDIDO</span>
@@ -121,6 +123,15 @@
         </div>
 
         <div class="hero-accent"></div>
+    </section>
+
+    <section class="home-sleeveless" id="sinMangas" aria-labelledby="homeSleevelessTitle">
+        <p class="home-sleeveless-kicker">NUEVAS · CLÁSICAS UNISEX</p>
+        <h2 id="homeSleevelessTitle">TU BANDA, SIN MANGAS</h2>
+        <p>Negras o blancas, con tu diseño favorito. Mirá las combinaciones de frente y dorso y elegí cómo querés la tuya.</p>
+        <p class="home-sleeveless-prices">Solo frente $38.000 · Frente + dorso $45.000</p>
+        <div class="home-sleeveless-grid" id="homeSleevelessGrid"></div>
+        <button type="button" class="home-sleeveless-more" id="homeSleevelessMore" aria-expanded="false" aria-controls="homeSleevelessGrid" hidden>VER MÁS SIN MANGAS</button>
     </section>
 
     <section class="july-shipping-promo purchase-volume-promo" aria-label="Promoción por cantidad">
@@ -1688,7 +1699,8 @@
 
     <script src="js/band-archives-config.js" defer></script>
     <script src="js/catalog-design.js" defer></script>
-    <script src="js/app.js?v=shipping-20261102" defer></script>
+    <script src="js/app.js?v=home-sleeveless-20261105" defer></script>
+    <script src="js/home-sleeveless.js?v=20261105" defer></script>
 </body>
 
 </html>

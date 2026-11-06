@@ -2914,7 +2914,7 @@ function selectCatalogDesignPreviewForGarment(modalGarment) {
         if (reference.length) goToSlide(Math.max(0, index), false);
     }
     selectedPrintMode = preservedSelection.printMode;
-    if (normalizeText(currentCatalogDesign.band) === 'slayer') {
+    if (normalizeText(currentCatalogDesign.band) === 'slayer' || modalGarment === 'sin_mangas') {
         selectedColor = preservedSelection.color;
         document.querySelectorAll('#colorSelector button').forEach(button => {
             button.classList.toggle('active', button.dataset.color === selectedColor);
@@ -3152,7 +3152,9 @@ function getSelectedOrderVisuals() {
             ref.garmentStyle === frontRef.garmentStyle && ref.variantIndex === currentCatalogDesign.front.variantIndex
         ))
         : null;
-    const frontImage = (frontRef?.autoSelectBack ? cleanStyleFront?.image || currentCatalogDesign?.front?.image : frontRef?.image)
+    const frontImage = (frontRef?.autoSelectBack
+        ? cleanStyleFront?.image || (frontRef.garmentStyle ? frontRef.image : currentCatalogDesign?.front?.image)
+        : frontRef?.image)
         || activeImage?.img
         || currentProduct.img
         || '';
@@ -4288,6 +4290,7 @@ async function loadProducts() {
         filterProducts(); // Renderizar después de cargar
         renderBandDesignShowcase();
         renderHomeNews();
+        window.FMDHomeSleeveless?.render();
         renderMaidenWhiteShirts();
         loadProductFromHash(); // Abrir producto desde URL hash si existe
         loadCategoryFromURL();  // Ir a categoría desde ?cat= si existe
@@ -5927,6 +5930,8 @@ function getCatalogDesignFrontRefs(design) {
         image: normalizeBandLandingAssetPath(preview.img),
         garmentStyle: preview.garmentStyle,
         previewLabel: preview.previewLabel || ref.previewLabel,
+        defaultPrintMode: preview.defaultPrintMode || ref.defaultPrintMode,
+        autoSelectBack: preview.autoSelectBack || ref.autoSelectBack,
         alt: preview.alt || `${design.publicName} en remera sin mangas`,
         isStylePreview: true
     })));

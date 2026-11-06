@@ -354,7 +354,8 @@
     "variants": [
       {
         "img": "images/acdc/ac_dc_holy_shit.jpg",
-        "name": "Holy Shit Frente"
+        "name": "Holy Shit Frente",
+        "designId": "cd-ac-dc-holy-shit--p5101"
       },
       {
         "img": "images/acdc/ac_dc_holy_shit_dorso.jpg",
@@ -363,6 +364,19 @@
       {
         "img": "images/acdc/acdc_holy_shit.jpg",
         "name": "Holy Shit FMD"
+      },
+      {
+        "img": "images/acdc/FRENTE BLANCA ACDC.jpg",
+        "name": "Holy Shit Frente",
+        "publicName": "Holy Shit",
+        "designId": "cd-ac-dc-holy-shit--p5101",
+        "role": "front",
+        "previewLabel": "Remera blanca - Solo frente",
+        "defaultPrintMode": "simple",
+        "orderVariantIndex": 0,
+        "preferredPreview": true,
+        "modalOrder": -20,
+        "color": "blanco"
       }
     ],
     "desc": "DiseÃ±o AC/DC Holy Shit con frente y dorso.",
@@ -1073,7 +1087,16 @@
         "name": "Rust in Peace",
         "publicName": "Rust in Peace",
         "role": "front",
-        "designId": "cd-megadeth-rust-in-peace--rust-in-peace"
+        "designId": "cd-megadeth-rust-in-peace--rust-in-peace",
+        "stylePreviews": [
+          {
+            "img": "images/remeras sin mangas/remera_rust_in_peace_doble_sin_mangas.jpg",
+            "garmentStyle": "sin_mangas",
+            "previewLabel": "Sin mangas - Frente y dorso",
+            "defaultPrintMode": "double",
+            "autoSelectBack": "Dorso Rust in Peace · Canciones"
+          }
+        ]
       },
       {
         "img": "images/albums/Rust_in_peace/rust_in_peace_dorso.jpg",
@@ -1175,6 +1198,14 @@
         "role": "back",
         "backTargetDesignId": "cd-megadeth-rust-in-peace--edicion-azul",
         "isNew": true
+      },
+      {
+        "img": "images/remeras sin mangas/remera_rust_in_peace_doble_sin_mangas.jpg",
+        "name": "Dorso Rust in Peace · Canciones",
+        "selectionLabel": "Dorso Rust in Peace · Canciones",
+        "previewLabel": "Referencia sin mangas - Frente y dorso",
+        "role": "back",
+        "backTargetDesignId": "cd-megadeth-rust-in-peace--rust-in-peace"
       }
     ],
     "desc": "La obra maestra del thrash tÃ©cnico con variantes frente y dorso de Rust in Peace.",
@@ -1519,7 +1550,29 @@
         "img": "images/fmd-edition-3d/hidden_treasures/hidden_treasures_fmd_edition.jpg",
         "name": "Hidden Treasures FMD Edition",
         "designId": "megadeth-hidden-treasures-fmd-edition",
+        "isNew": true,
+        "orderCode": "HT-018"
+      },
+      {
+        "img": "images/remeras sin mangas/megadeth_hidden_sin_mangas.jpg",
+        "name": "Hidden Treasures · Arte clásico",
+        "publicName": "Hidden Treasures · Arte clásico",
+        "role": "front",
+        "garmentStyle": "sin_mangas",
+        "designId": "megadeth-hidden-treasures-clasico",
+        "defaultPrintMode": "double",
+        "autoSelectBack": "Dorso Hidden Treasures · Canciones",
+        "selectionLabel": "Frente Hidden Treasures · Arte clásico",
+        "previewLabel": "Sin mangas - Frente y dorso",
         "isNew": true
+      },
+      {
+        "img": "images/remeras sin mangas/megadeth_hidden_sin_mangas.jpg",
+        "name": "Dorso Hidden Treasures · Canciones",
+        "selectionLabel": "Dorso Hidden Treasures · Canciones",
+        "previewLabel": "Referencia sin mangas - Frente y dorso",
+        "role": "back",
+        "backTargetDesignId": "megadeth-hidden-treasures-clasico"
       }
     ],
     "desc": "Hidden Treasures reimaginado por FMD con una lectura visual renovada del clásico de 1995.",
@@ -3887,6 +3940,33 @@
       "remera",
       "Pantera Archive",
       "Dimebag Darrell"
+    ],
+    "variants": [
+      {
+        "img": "images/pantera/dimebag_darrell_BN.jpg",
+        "name": "Dimebag Darrell BN",
+        "role": "front",
+        "designId": "cd-pantera-dimebag-darrell-bn--p46",
+        "publicName": "Dimebag Darrell BN",
+        "orderCode": "DDB-046",
+        "stylePreviews": [
+          {
+            "img": "images/remeras sin mangas/remera_pantera_doble_sin_mangas.jpg",
+            "garmentStyle": "sin_mangas",
+            "previewLabel": "Sin mangas - Frente y dorso",
+            "defaultPrintMode": "double",
+            "autoSelectBack": "Dorso Dimebag Darrell · Firma y Pantera"
+          }
+        ]
+      },
+      {
+        "img": "images/remeras sin mangas/remera_pantera_doble_sin_mangas.jpg",
+        "name": "Dorso Dimebag Darrell · Firma y Pantera",
+        "selectionLabel": "Dorso Dimebag Darrell · Firma y Pantera",
+        "previewLabel": "Referencia sin mangas - Frente y dorso",
+        "role": "back",
+        "backTargetDesignId": "cd-pantera-dimebag-darrell-bn--p46"
+      }
     ]
   },
   {
@@ -6065,6 +6145,26 @@
       "Heavy Metal Classics",
       "remera",
       "Pantera Archive"
+    ],
+    "variants": [
+      {
+        "img": "images/pantera/pantera_band_v1.jpg",
+        "name": "Band v1",
+        "publicName": "Band v1",
+        "role": "front",
+        "designId": "cd-pantera-band-v1--p413",
+        "orderCode": "PBV-413"
+      },
+      {
+        "img": "images/pantera/banda-Mock-FRENTE.jpg",
+        "name": "Banda - Calavera alada",
+        "publicName": "Banda - Calavera alada",
+        "designId": "pantera-banda-calavera-alada",
+        "selectionLabel": "Frente Banda - Calavera alada",
+        "role": "front",
+        "previewLabel": "Solo frente",
+        "defaultPrintMode": "simple"
+      }
     ]
   },
   {
@@ -6097,6 +6197,28 @@
       "Heavy Metal Classics",
       "remera",
       "Pantera Archive"
+    ],
+    "variants": [
+      {
+        "img": "images/pantera/pantera_snake_v1.jpg",
+        "name": "Snake v1",
+        "publicName": "Snake v1",
+        "role": "front",
+        "designId": "cd-pantera-snake-v1--p414",
+        "orderCode": "PSV-414"
+      },
+      {
+        "img": "images/pantera/serpt.jpg",
+        "name": "Snake v1",
+        "publicName": "Snake v1",
+        "designId": "cd-pantera-snake-v1--p414",
+        "role": "front",
+        "previewLabel": "Solo frente",
+        "defaultPrintMode": "simple",
+        "orderVariantIndex": 0,
+        "preferredPreview": true,
+        "modalOrder": -20
+      }
     ]
   },
   {
@@ -6720,14 +6842,14 @@
     "year": "2026",
     "name": "Down",
     "tipoPrecio": "simple",
-    "img": "images/personalizado/down_frente.jpg",
+    "img": "images/banda_sugeridas/down/down_frente.jpg",
     "variants": [
       {
-        "img": "images/personalizado/down_frente.jpg",
+        "img": "images/banda_sugeridas/down/down_frente.jpg",
         "name": "Frente"
       },
       {
-        "img": "images/personalizado/down_dorso.jpg",
+        "img": "images/banda_sugeridas/down/down_dorso.jpg",
         "name": "Dorso"
       }
     ],
@@ -6939,7 +7061,7 @@
     "year": "2025",
     "name": "Kurt Nirvana",
     "tipoPrecio": "simple",
-    "img": "images/personalizado/kurt_nirvana.jpg",
+    "img": "images/banda_sugeridas/nirvana/KURT COBAIN.jpg",
     "desc": "Kurt Cobain (Nirvana).",
     "band": "Nirvana",
     "universe": [
@@ -7230,6 +7352,36 @@
       "Custom Archive",
       "remera",
       "Personalizados FMD"
+    ],
+    "variants": [
+      {
+        "img": "images/personalizado/symphony_x.jpg",
+        "name": "Symphony X",
+        "publicName": "Symphony X",
+        "role": "front",
+        "designId": "cd-symphony-x-symphony-x--p43",
+        "orderCode": "SX-043"
+      },
+      {
+        "img": "images/banda_sugeridas/symphony_x/frente_symphony_x.jpg",
+        "name": "Symphony X",
+        "publicName": "Symphony X",
+        "designId": "cd-symphony-x-symphony-x--p43",
+        "role": "front",
+        "previewLabel": "Solo frente",
+        "defaultPrintMode": "simple",
+        "orderVariantIndex": 0,
+        "preferredPreview": true,
+        "modalOrder": -20
+      },
+      {
+        "img": "images/banda_sugeridas/symphony_x/dorso_symphony_x.jpg",
+        "name": "Dorso Symphony X - Underworld - 30th Anniversary",
+        "selectionLabel": "Dorso Symphony X - Underworld - 30th Anniversary",
+        "role": "back",
+        "backTargetDesignId": "cd-symphony-x-symphony-x--p43",
+        "carouselPreview": true
+      }
     ]
   },
   {
@@ -7580,7 +7732,16 @@
       },
       {
         "img": "images/metallica/metallica_master_of_puppets_realistic.jpg",
-        "name": "Master Realista"
+        "name": "Master Realista",
+        "stylePreviews": [
+          {
+            "img": "images/remeras sin mangas/remera_master_doble_sin_mangas.jpg",
+            "garmentStyle": "sin_mangas",
+            "previewLabel": "Sin mangas - Frente y dorso",
+            "defaultPrintMode": "double",
+            "autoSelectBack": "Dorso Realista"
+          }
+        ]
       },
       {
         "img": "images/metallica/metallica_master_of_puppets_realistic-dorso.jpg",
@@ -8080,11 +8241,13 @@
       },
       {
         "img": "images/avenged_sevenfold/ax7-v3.jpg",
-        "name": "v3"
+        "name": "v3",
+        "designId": "cd-avenged-sevenfold-collection-v3--p2001"
       },
       {
         "img": "images/avenged_sevenfold/ax7-v4.jpg",
-        "name": "v4"
+        "name": "v4",
+        "designId": "cd-avenged-sevenfold-collection-v4--p2001"
       },
       {
         "img": "images/avenged_sevenfold/ax7-v5.jpg",
@@ -8109,6 +8272,30 @@
       {
         "img": "images/avenged_sevenfold/ax7-v10.jpg",
         "name": "v10"
+      },
+      {
+        "img": "images/banda_sugeridas/avenged/ax7_hail_to_the_king.jpg",
+        "name": "v4",
+        "publicName": "Collection v4",
+        "designId": "cd-avenged-sevenfold-collection-v4--p2001",
+        "role": "front",
+        "previewLabel": "Solo frente",
+        "defaultPrintMode": "simple",
+        "orderVariantIndex": 3,
+        "preferredPreview": true,
+        "modalOrder": -20
+      },
+      {
+        "img": "images/banda_sugeridas/avenged/MOCK 1 AX7.jpg",
+        "name": "v3",
+        "publicName": "Collection v3",
+        "designId": "cd-avenged-sevenfold-collection-v3--p2001",
+        "role": "front",
+        "previewLabel": "Solo frente",
+        "defaultPrintMode": "simple",
+        "orderVariantIndex": 2,
+        "preferredPreview": true,
+        "modalOrder": -20
       }
     ],
     "desc": "Avenged Sevenfold - ColecciÃ³n de 10 diseÃ±os frente con arte Ã©pico de la banda.",
@@ -8765,6 +8952,30 @@
         "preferredPreview": true,
         "defaultPrintMode": "double",
         "isNew": true
+      },
+      {
+        "img": "images/banda_sugeridas/dream_theater/DREA-4-5 FOR IG MOCK REMERA.jpg",
+        "name": "Images and Words",
+        "publicName": "Images and Words",
+        "designId": "dream-theater-images-and-words",
+        "role": "front",
+        "previewLabel": "Solo frente",
+        "defaultPrintMode": "simple",
+        "orderVariantIndex": 0,
+        "preferredPreview": true,
+        "modalOrder": -20
+      },
+      {
+        "img": "images/banda_sugeridas/dream_theater/dt-para-4-5 FOR IG MOCK REMERA.jpg",
+        "name": "Parasomnia",
+        "publicName": "Parasomnia",
+        "designId": "dream-theater-parasomnia",
+        "role": "front",
+        "previewLabel": "Solo frente",
+        "defaultPrintMode": "simple",
+        "orderVariantIndex": 21,
+        "preferredPreview": true,
+        "modalOrder": -20
       }
     ],
     "desc": "Diseños de Dream Theater disponibles en remeras, hoodies y buzos.",
@@ -9114,7 +9325,16 @@
         "color": "negro",
         "preferredPreview": true,
         "defaultPrintMode": "double",
-        "isNew": true
+        "isNew": true,
+        "stylePreviews": [
+          {
+            "img": "images/remeras sin mangas/remera_helloween_doble_sin_mangas.jpg",
+            "garmentStyle": "sin_mangas",
+            "previewLabel": "Sin mangas - Frente y dorso",
+            "defaultPrintMode": "double",
+            "autoSelectBack": "Dorso Keeper of the Seven Keys Part I"
+          }
+        ]
       },
       {
         "img": "images/banda_sugeridas/helloween/dorso/dorso_keeper_I.jpg",
@@ -10597,7 +10817,16 @@
         "garmentCategory": "Bandas Sugeridas",
         "designId": "nightwish-once",
         "designSlug": "nightwish-once",
-        "alt": "Remera Nightwish Once con estampa frontal y dorso"
+        "alt": "Remera Nightwish Once con estampa frontal y dorso",
+        "stylePreviews": [
+          {
+            "img": "images/remeras sin mangas/remera_once_doble_sin_mangas.jpg",
+            "garmentStyle": "sin_mangas",
+            "previewLabel": "Sin mangas - Frente y dorso",
+            "defaultPrintMode": "double",
+            "autoSelectBack": "Dorso Once · Canciones"
+          }
+        ]
       },
       {
         "img": "images/banda_sugeridas/nightwish/remera_nightwish_century_child.jpg",
@@ -10912,6 +11141,14 @@
         "designSlug": "nightwish-yesterwynde",
         "alt": "Remera Nightwish Yesterwynde con estampa frontal y dorso",
         "isNew": true
+      },
+      {
+        "img": "images/remeras sin mangas/remera_once_doble_sin_mangas.jpg",
+        "name": "Dorso Once · Canciones",
+        "selectionLabel": "Dorso Once · Canciones",
+        "previewLabel": "Referencia sin mangas - Frente y dorso",
+        "role": "back",
+        "backTargetDesignId": "nightwish-once"
       }
     ],
     "desc": "Diseños Nightwish disponibles en remera, hoodie y buzo cuello redondo, con estampa frontal o doble.",
@@ -11080,22 +11317,26 @@
       {
         "img": "images/banda_sugeridas/epica/remera_epica_20th_anniversary.jpg",
         "name": "Epica 20th Anniversary - Remera",
-        "garmentCategory": "Bandas Sugeridas"
+        "garmentCategory": "Bandas Sugeridas",
+        "designId": "cd-epica-20th-anniversary--p5016"
       },
       {
         "img": "images/banda_sugeridas/epica/remera_epica_design_your_universe.jpg",
         "name": "Epica Design Your Universe - Remera",
-        "garmentCategory": "Bandas Sugeridas"
+        "garmentCategory": "Bandas Sugeridas",
+        "designId": "cd-epica-design-your-universe--p5016"
       },
       {
         "img": "images/banda_sugeridas/epica/remera_epica_logo.jpg",
         "name": "Epica Logo - Remera",
-        "garmentCategory": "Bandas Sugeridas"
+        "garmentCategory": "Bandas Sugeridas",
+        "designId": "cd-epica-logo--p5016"
       },
       {
         "img": "images/banda_sugeridas/epica/remera_epica_omega.jpg",
         "name": "Epica Omega - Remera",
-        "garmentCategory": "Bandas Sugeridas"
+        "garmentCategory": "Bandas Sugeridas",
+        "designId": "cd-epica-omega--p5016"
       },
       {
         "img": "images/banda_sugeridas/epica/remera_epica_omega_alive_dvd.jpg",
@@ -11105,7 +11346,8 @@
       {
         "img": "images/banda_sugeridas/epica/remera_epica_quantum.jpg",
         "name": "Epica The Quantum Enigma - Remera",
-        "garmentCategory": "Bandas Sugeridas"
+        "garmentCategory": "Bandas Sugeridas",
+        "designId": "cd-epica-the-quantum-enigma--p5016"
       },
       {
         "img": "images/banda_sugeridas/epica/remera_epica_the_holographic_principle.jpg",
@@ -11115,7 +11357,17 @@
       {
         "img": "images/banda_sugeridas/epica/remera_epica_the_phantom_agony.jpg",
         "name": "Epica The Phantom Agony - Remera",
-        "garmentCategory": "Bandas Sugeridas"
+        "garmentCategory": "Bandas Sugeridas",
+        "stylePreviews": [
+          {
+            "img": "images/remeras sin mangas/remera_epica_doble_sin_mangas.jpg",
+            "garmentStyle": "sin_mangas",
+            "previewLabel": "Sin mangas - Frente y dorso",
+            "defaultPrintMode": "double",
+            "autoSelectBack": "Dorso The Phantom Agony · Logo Epica"
+          }
+        ],
+        "designId": "cd-epica-the-phantom-agony--p5016"
       },
       {
         "img": "images/banda_sugeridas/epica/hoodie_epica_omega.jpg",
@@ -11141,6 +11393,86 @@
         "img": "images/banda_sugeridas/epica/buzo_epica_quantum_enigma.jpg",
         "name": "Epica The Quantum Enigma - Buzo cuello redondo",
         "garmentCategory": "Buzo Cuello Redondo"
+      },
+      {
+        "img": "images/remeras sin mangas/remera_epica_doble_sin_mangas.jpg",
+        "name": "Dorso The Phantom Agony · Logo Epica",
+        "selectionLabel": "Dorso The Phantom Agony · Logo Epica",
+        "previewLabel": "Referencia sin mangas - Frente y dorso",
+        "role": "back",
+        "backTargetDesignId": "cd-epica-the-phantom-agony--p5016"
+      },
+      {
+        "img": "images/banda_sugeridas/epica/DESIGNS-Mock-FRENTE.jpg",
+        "name": "Epica Design Your Universe - Remera",
+        "publicName": "Design Your Universe",
+        "designId": "cd-epica-design-your-universe--p5016",
+        "role": "front",
+        "previewLabel": "Solo frente",
+        "defaultPrintMode": "simple",
+        "orderVariantIndex": 2,
+        "preferredPreview": true,
+        "modalOrder": -20
+      },
+      {
+        "img": "images/banda_sugeridas/epica/epica - 4-5 FOR IG MOCK REMERA.jpg",
+        "name": "Epica Omega - Remera",
+        "publicName": "Omega",
+        "designId": "cd-epica-omega--p5016",
+        "role": "front",
+        "previewLabel": "Solo frente",
+        "defaultPrintMode": "simple",
+        "orderVariantIndex": 4,
+        "preferredPreview": true,
+        "modalOrder": -20
+      },
+      {
+        "img": "images/banda_sugeridas/epica/epica II - 4-5 FOR IG MOCK REMERA.jpg",
+        "name": "Epica The Quantum Enigma - Remera",
+        "publicName": "The Quantum Enigma",
+        "designId": "cd-epica-the-quantum-enigma--p5016",
+        "role": "front",
+        "previewLabel": "Solo frente",
+        "defaultPrintMode": "simple",
+        "orderVariantIndex": 6,
+        "preferredPreview": true,
+        "modalOrder": -20
+      },
+      {
+        "img": "images/banda_sugeridas/epica/epica III - 4-5 FOR IG MOCK REMERA.jpg",
+        "name": "Epica Logo - Remera",
+        "publicName": "Logo",
+        "designId": "cd-epica-logo--p5016",
+        "role": "front",
+        "previewLabel": "Solo frente",
+        "defaultPrintMode": "simple",
+        "orderVariantIndex": 3,
+        "preferredPreview": true,
+        "modalOrder": -20
+      },
+      {
+        "img": "images/banda_sugeridas/epica/epica IV - 4-5 FOR IG MOCK REMERA.jpg",
+        "name": "Epica 20th Anniversary - Remera",
+        "publicName": "20th Anniversary",
+        "designId": "cd-epica-20th-anniversary--p5016",
+        "role": "front",
+        "previewLabel": "Solo frente",
+        "defaultPrintMode": "simple",
+        "orderVariantIndex": 1,
+        "preferredPreview": true,
+        "modalOrder": -20
+      },
+      {
+        "img": "images/banda_sugeridas/epica/EPICA.jpg",
+        "name": "Epica The Phantom Agony - Remera",
+        "publicName": "The Phantom Agony",
+        "designId": "cd-epica-the-phantom-agony--p5016",
+        "role": "front",
+        "previewLabel": "Solo frente",
+        "defaultPrintMode": "simple",
+        "orderVariantIndex": 8,
+        "preferredPreview": true,
+        "modalOrder": -20
       }
     ],
     "desc": "Archivo EPICA Argentina 2027 con disenos disponibles en remera, hoodie y buzo cuello redondo segun variante. Tambien hacemos personalizados si no encontras el arte que buscas.",
@@ -11196,12 +11528,22 @@
       {
         "img": "images/banda_sugeridas/rhapsody/remera_rhapsody_dawn_of_victory.jpg",
         "name": "Rhapsody Dawn Of Victory - Remera",
-        "garmentCategory": "Bandas Sugeridas"
+        "garmentCategory": "Bandas Sugeridas",
+        "designId": "cd-rhapsody-dawn-of-victory--p5083"
       },
       {
         "img": "images/banda_sugeridas/rhapsody/remera_rhapsody_legendary_tales.jpg",
         "name": "Rhapsody Legendary Tales - Remera",
-        "garmentCategory": "Bandas Sugeridas"
+        "garmentCategory": "Bandas Sugeridas",
+        "stylePreviews": [
+          {
+            "img": "images/remeras sin mangas/remera_rhapsody_doble_sin_mangas.jpg",
+            "garmentStyle": "sin_mangas",
+            "previewLabel": "Sin mangas - Frente y dorso",
+            "defaultPrintMode": "double",
+            "autoSelectBack": "Dorso Legendary Tales · Dragón"
+          }
+        ]
       },
       {
         "img": "images/banda_sugeridas/rhapsody/remera_rhapsody_legendary_years.jpg",
@@ -11221,7 +11563,8 @@
       {
         "img": "images/banda_sugeridas/rhapsody/remera_rhapsody_symphony_of_enchanted_lands.jpg",
         "name": "Rhapsody Symphony Of Enchanted Lands - Remera",
-        "garmentCategory": "Bandas Sugeridas"
+        "garmentCategory": "Bandas Sugeridas",
+        "designId": "cd-rhapsody-symphony-of-enchanted-lands--p5083"
       },
       {
         "img": "images/banda_sugeridas/rhapsody/remera_rhapsody_symphony_of_enchanted_lands_II.jpg",
@@ -11236,7 +11579,8 @@
       {
         "img": "images/banda_sugeridas/rhapsody/remera_rhapsody_triumph_or_agony.jpg",
         "name": "Rhapsody Triumph Or Agony - Remera",
-        "garmentCategory": "Bandas Sugeridas"
+        "garmentCategory": "Bandas Sugeridas",
+        "designId": "cd-rhapsody-triumph-or-agony--p5083"
       },
       {
         "img": "images/banda_sugeridas/rhapsody/remera_rhapsody_holy_thunderforce.jpg",
@@ -11272,6 +11616,50 @@
         "img": "images/banda_sugeridas/rhapsody/buzo_rhapsody_triumph_or_agony.jpg",
         "name": "Rhapsody Triumph Or Agony - Buzo cuello redondo",
         "garmentCategory": "Buzo Cuello Redondo"
+      },
+      {
+        "img": "images/remeras sin mangas/remera_rhapsody_doble_sin_mangas.jpg",
+        "name": "Dorso Legendary Tales · Dragón",
+        "selectionLabel": "Dorso Legendary Tales · Dragón",
+        "previewLabel": "Referencia sin mangas - Frente y dorso",
+        "role": "back",
+        "backTargetDesignId": "cd-rhapsody-legendary-tales--p5083"
+      },
+      {
+        "img": "images/banda_sugeridas/rhapsody/RHAPSODY DAWN OF VICTORY.jpg",
+        "name": "Rhapsody Dawn Of Victory - Remera",
+        "publicName": "Dawn Of Victory",
+        "designId": "cd-rhapsody-dawn-of-victory--p5083",
+        "role": "front",
+        "previewLabel": "Solo frente",
+        "defaultPrintMode": "simple",
+        "orderVariantIndex": 0,
+        "preferredPreview": true,
+        "modalOrder": -20
+      },
+      {
+        "img": "images/banda_sugeridas/rhapsody/RHAPSODY SYMPHONY OF ENCHANTED LAND.jpg",
+        "name": "Rhapsody Symphony Of Enchanted Lands - Remera",
+        "publicName": "Symphony Of Enchanted Lands",
+        "designId": "cd-rhapsody-symphony-of-enchanted-lands--p5083",
+        "role": "front",
+        "previewLabel": "Solo frente",
+        "defaultPrintMode": "simple",
+        "orderVariantIndex": 5,
+        "preferredPreview": true,
+        "modalOrder": -20
+      },
+      {
+        "img": "images/banda_sugeridas/rhapsody/RHAPSODY TRIUMPH OR AGONY.jpg",
+        "name": "Rhapsody Triumph Or Agony - Remera",
+        "publicName": "Triumph Or Agony",
+        "designId": "cd-rhapsody-triumph-or-agony--p5083",
+        "role": "front",
+        "previewLabel": "Solo frente",
+        "defaultPrintMode": "simple",
+        "orderVariantIndex": 8,
+        "preferredPreview": true,
+        "modalOrder": -20
       }
     ],
     "desc": "Archivo Rhapsody Argentina 2027 con disenos disponibles en remera, hoodie y buzo cuello redondo segun variante. Tambien se puede pedir personalizado o adaptar a otras prendas.",
@@ -11387,31 +11775,38 @@
     "variants": [
       {
         "img": "images/banda_sugeridas/ozzy/ozzy.jpg",
-        "name": "Ozzy Osbourne - Remera"
+        "name": "Ozzy Osbourne - Remera",
+        "designId": "cd-ozzy-osbourne-ozzy-osbourne--p5013"
       },
       {
         "img": "images/banda_sugeridas/ozzy/remera_ozzy.jpg",
-        "name": "Ozzy - Remera"
+        "name": "Ozzy - Remera",
+        "designId": "cd-ozzy-osbourne-ozzy--p5013"
       },
       {
         "img": "images/banda_sugeridas/ozzy/remera_bark_at_the_moon.jpg",
-        "name": "Bark at the Moon - Remera"
+        "name": "Bark at the Moon - Remera",
+        "designId": "cd-ozzy-osbourne-bark-at-the-moon--p5013"
       },
       {
         "img": "images/banda_sugeridas/ozzy/remera_ozzy_blizzard_of_ozz.jpg",
-        "name": "Blizzard of Ozz - Remera"
+        "name": "Blizzard of Ozz - Remera",
+        "designId": "cd-ozzy-osbourne-blizzard-of-ozz--p5013"
       },
       {
         "img": "images/banda_sugeridas/ozzy/remera_ozzy_diary_of_a_madman.jpg",
-        "name": "Diary of a Madman - Remera"
+        "name": "Diary of a Madman - Remera",
+        "designId": "cd-ozzy-osbourne-diary-of-a-madman--p5013"
       },
       {
         "img": "images/banda_sugeridas/ozzy/remera_ozzy_speak_of_the_devil.jpg",
-        "name": "Speak of the Devil - Remera"
+        "name": "Speak of the Devil - Remera",
+        "designId": "cd-ozzy-osbourne-speak-of-the-devil--p5013"
       },
       {
         "img": "images/banda_sugeridas/ozzy/remera_ozzy_the_ultimate_sin.jpg",
-        "name": "The Ultimate Sin - Remera"
+        "name": "The Ultimate Sin - Remera",
+        "designId": "cd-ozzy-osbourne-the-ultimate-sin--p5013"
       },
       {
         "img": "images/banda_sugeridas/ozzy/hoodie_ozzy.jpg",
@@ -11437,6 +11832,119 @@
         "img": "images/banda_sugeridas/ozzy/buzo_bark_at_the_moon.jpg",
         "name": "Bark at the Moon - Buzo cuello redondo",
         "garmentCategory": "Buzo Cuello Redondo"
+      },
+      {
+        "img": "images/banda_sugeridas/ozzy/3-ozzys-Mock-FRENTE.jpg",
+        "name": "Ozzy - Remera",
+        "designId": "cd-ozzy-osbourne-ozzy--p5013",
+        "role": "front",
+        "selectionLabel": "Ozzy - Prince of Darkness",
+        "previewLabel": "Solo frente",
+        "defaultPrintMode": "simple",
+        "orderVariantIndex": 1,
+        "preferredPreview": true,
+        "modalOrder": -20
+      },
+      {
+        "img": "images/banda_sugeridas/ozzy/Blizzard-Mock-FRENTE.jpg",
+        "name": "Blizzard of Ozz - Luna azul",
+        "publicName": "Blizzard of Ozz - Luna azul",
+        "role": "front",
+        "previewLabel": "Solo frente",
+        "defaultPrintMode": "simple"
+      },
+      {
+        "img": "images/banda_sugeridas/ozzy/OZZY SOLO-4-5 FOR IG MOCK REMERA.jpg",
+        "name": "Ozzy Osbourne - Remera",
+        "designId": "cd-ozzy-osbourne-ozzy-osbourne--p5013",
+        "role": "front",
+        "previewLabel": "Solo frente",
+        "defaultPrintMode": "simple",
+        "orderVariantIndex": 0,
+        "preferredPreview": true,
+        "modalOrder": -20
+      },
+      {
+        "img": "images/banda_sugeridas/ozzy/OZZY-4-5 FOR IG MOCK REMERA.jpg",
+        "name": "Blizzard of Ozz - Remera",
+        "designId": "cd-ozzy-osbourne-blizzard-of-ozz--p5013",
+        "role": "front",
+        "previewLabel": "Solo frente",
+        "defaultPrintMode": "simple",
+        "orderVariantIndex": 3,
+        "preferredPreview": true,
+        "modalOrder": -20
+      },
+      {
+        "img": "images/banda_sugeridas/ozzy/OZZY2D-4-5 FOR IG MOCK REMERA.jpg",
+        "name": "Diary of a Madman - Remera",
+        "designId": "cd-ozzy-osbourne-diary-of-a-madman--p5013",
+        "role": "front",
+        "previewLabel": "Solo frente - Vista vertical",
+        "defaultPrintMode": "simple",
+        "orderVariantIndex": 4,
+        "modalOrder": -10
+      },
+      {
+        "img": "images/banda_sugeridas/ozzy/bark-Mock-FRENTE.jpg",
+        "name": "Bark at the Moon - Remera",
+        "designId": "cd-ozzy-osbourne-bark-at-the-moon--p5013",
+        "role": "front",
+        "previewLabel": "Solo frente",
+        "defaultPrintMode": "simple",
+        "orderVariantIndex": 2,
+        "preferredPreview": true,
+        "modalOrder": -20
+      },
+      {
+        "img": "images/banda_sugeridas/ozzy/diary-Mock-FRENTE.jpg",
+        "name": "Diary of a Madman - Remera",
+        "designId": "cd-ozzy-osbourne-diary-of-a-madman--p5013",
+        "role": "front",
+        "previewLabel": "Solo frente",
+        "defaultPrintMode": "simple",
+        "orderVariantIndex": 4,
+        "preferredPreview": true,
+        "modalOrder": -20
+      },
+      {
+        "img": "images/banda_sugeridas/ozzy/ozzy-logo-Mock-FRENTE.jpg",
+        "name": "Logo Ozzy Osbourne - Remera",
+        "publicName": "Logo Ozzy Osbourne",
+        "role": "front",
+        "previewLabel": "Solo frente",
+        "defaultPrintMode": "simple"
+      },
+      {
+        "img": "images/banda_sugeridas/ozzy/skull-Mock-FRENTE.jpg",
+        "name": "Calavera alada - Remera",
+        "publicName": "Calavera alada",
+        "role": "front",
+        "previewLabel": "Solo frente",
+        "defaultPrintMode": "simple"
+      },
+      {
+        "img": "images/banda_sugeridas/ozzy/the ultimate sin-Mock-FRENTE.jpg",
+        "name": "The Ultimate Sin - Remera",
+        "designId": "cd-ozzy-osbourne-the-ultimate-sin--p5013",
+        "role": "front",
+        "previewLabel": "Solo frente",
+        "defaultPrintMode": "simple",
+        "orderVariantIndex": 6,
+        "preferredPreview": true,
+        "modalOrder": -20
+      },
+      {
+        "img": "images/banda_sugeridas/ozzy/speak-Mock-FRENTE.jpg",
+        "name": "Speak of the Devil - Remera",
+        "publicName": "Speak of the Devil",
+        "designId": "cd-ozzy-osbourne-speak-of-the-devil--p5013",
+        "role": "front",
+        "previewLabel": "Solo frente",
+        "defaultPrintMode": "simple",
+        "orderVariantIndex": 5,
+        "preferredPreview": true,
+        "modalOrder": -20
       }
     ],
     "band": "Ozzy Osbourne",
@@ -12250,6 +12758,13 @@
             "img": "images/slayer/dobles/remera_reign_in_blood_doble_sin_mangas.jpg",
             "garmentStyle": "sin_mangas",
             "previewLabel": "Sin mangas · Frente y dorso"
+          },
+          {
+            "img": "images/remeras sin mangas/remera_reign_in_blood_doble_sin_mangas.jpg",
+            "garmentStyle": "sin_mangas",
+            "previewLabel": "Sin mangas - Frente y dorso",
+            "defaultPrintMode": "double",
+            "autoSelectBack": "Dorso Reign in Blood · Logo rojo"
           }
         ],
         "designId": "cd-slayer-reign-in-blood--p7101"
@@ -13577,14 +14092,14 @@
     "year": "2026",
     "name": "Black Label",
     "tipoPrecio": "doble",
-    "img": "images/personalizado/black_label_frente.jpg",
+    "img": "images/banda_sugeridas/black_label/Frente_black_label.jpg",
     "variants": [
       {
-        "img": "images/personalizado/black_label_frente.jpg",
+        "img": "images/banda_sugeridas/black_label/Frente_black_label.jpg",
         "name": "Frente"
       },
       {
-        "img": "images/personalizado/black_label_dorso.jpg",
+        "img": "images/banda_sugeridas/black_label/Dorso_black_label.jpg",
         "name": "Dorso"
       }
     ],
@@ -14664,6 +15179,29 @@
       "remera",
       "AC/DC Archive",
       "Argentina 2026"
+    ],
+    "variants": [
+      {
+        "img": "images/acdc/brian_camiseta_argentina.jpg",
+        "name": "Brian Camiseta Argentina",
+        "publicName": "Brian Camiseta Argentina",
+        "role": "front",
+        "designId": "cd-ac-dc-brian-camiseta-argentina--p6010",
+        "orderCode": "BCA-6010"
+      },
+      {
+        "img": "images/acdc/2-Mock-FRENTE.png",
+        "name": "Brian Camiseta Argentina",
+        "publicName": "Brian Camiseta Argentina",
+        "designId": "cd-ac-dc-brian-camiseta-argentina--p6010",
+        "role": "front",
+        "previewLabel": "Solo frente",
+        "defaultPrintMode": "simple",
+        "orderVariantIndex": 0,
+        "preferredPreview": true,
+        "modalOrder": -20,
+        "selectionLabel": "Brian Johnson - Camiseta argentina - Sin texto"
+      }
     ]
   },
   {
@@ -16234,6 +16772,32 @@
       "Heavy Metal Classics",
       "hoodie",
       "Rhapsody Archive"
+    ],
+    "variants": [
+      {
+        "img": "images/hoddies_fmd/hoodies_otras_bandas/rapshody.jpg",
+        "name": "Rhapsody",
+        "publicName": "Rhapsody",
+        "role": "front",
+        "designId": "cd-rhapsody-rhapsody--p6009",
+        "orderCode": "HR-6009"
+      },
+      {
+        "img": "images/banda_sugeridas/rhapsody/Rhapsody frente.jpg",
+        "name": "Rhapsody - Remera",
+        "publicName": "Rhapsody",
+        "designId": "cd-rhapsody-rhapsody--p6009",
+        "role": "front",
+        "previewLabel": "Solo frente",
+        "defaultPrintMode": "simple",
+        "orderVariantIndex": 0,
+        "preferredPreview": true,
+        "modalOrder": -20,
+        "garmentCategory": "Bandas Sugeridas",
+        "garments": [
+          "remera"
+        ]
+      }
     ]
   },
   {
@@ -18186,10 +18750,10 @@
     "tipoPrecio": "simple",
     "defaultPrintMode": "frontal",
     "isNew": true,
-    "img": "images/banda_sugeridas/hermetica/remera_hermetica_banda.jpg",
+    "img": "images/banda_sugeridas/hermetica/hermetica 1- 4-5 FOR IG MOCK REMERA.jpg",
     "variants": [
       {
-        "img": "images/banda_sugeridas/hermetica/remera_hermetica_banda.jpg",
+        "img": "images/banda_sugeridas/hermetica/hermetica 1- 4-5 FOR IG MOCK REMERA.jpg",
         "name": "Hermética - Formación",
         "alt": "Remera negra Hermética con la formación de la banda y logo blanco",
         "designId": "hermetica-formacion",
@@ -18302,6 +18866,18 @@
         "name": "Víctimas del Vaciamiento Banda - Buzo cuello redondo",
         "designId": "hermetica-victimas-del-vaciamiento-banda",
         "garmentCategory": "Buzo Cuello Redondo"
+      },
+      {
+        "img": "images/banda_sugeridas/hermetica/2-hermetica 1- 4-5 FOR IG MOCK REMERA.jpg",
+        "name": "Víctimas del Vaciamiento Banda - Remera",
+        "publicName": "Víctimas del Vaciamiento Banda",
+        "designId": "hermetica-victimas-del-vaciamiento-banda",
+        "role": "front",
+        "previewLabel": "Solo frente",
+        "defaultPrintMode": "simple",
+        "orderVariantIndex": 0,
+        "preferredPreview": true,
+        "modalOrder": -20
       }
     ],
     "desc": "Hermética Víctimas del Vaciamiento con formación de la banda. Disponible en remera, hoodie y buzo cuello redondo.",
@@ -18349,7 +18925,16 @@
       {
         "img": "images/banda_sugeridas/hermetica/remera_hermetica_victimas.jpg",
         "name": "Victimas del Vaciamiento - Remera",
-        "designId": "hermetica-victimas-del-vaciamiento"
+        "designId": "hermetica-victimas-del-vaciamiento",
+        "stylePreviews": [
+          {
+            "img": "images/remeras sin mangas/remera_hermetica_doble_sin_mangas.jpg",
+            "garmentStyle": "sin_mangas",
+            "previewLabel": "Sin mangas - Frente y dorso",
+            "defaultPrintMode": "double",
+            "autoSelectBack": "Dorso Hermética · Logo rojo"
+          }
+        ]
       },
       {
         "img": "images/banda_sugeridas/hermetica/remera_hermetica_victimas_blanca.jpg",
@@ -18368,6 +18953,14 @@
         "name": "Víctimas del Vaciamiento - Buzo cuello redondo",
         "designId": "hermetica-victimas-del-vaciamiento",
         "garmentCategory": "Buzo Cuello Redondo"
+      },
+      {
+        "img": "images/remeras sin mangas/remera_hermetica_doble_sin_mangas.jpg",
+        "name": "Dorso Hermética · Logo rojo",
+        "selectionLabel": "Dorso Hermética · Logo rojo",
+        "previewLabel": "Referencia sin mangas - Frente y dorso",
+        "role": "back",
+        "backTargetDesignId": "hermetica-victimas-del-vaciamiento"
       }
     ],
     "desc": "Hermética Víctimas del Vaciamiento. Disponible en remera, hoodie y buzo cuello redondo.",
@@ -18416,7 +19009,16 @@
         "name": "V8 Hermética Almafuerte Iorio - Remera negra",
         "alt": "Remera negra V8 Hermética Almafuerte Ricardo Iorio",
         "designId": "v8-hermetica-almafuerte-iorio",
-        "color": "negro"
+        "color": "negro",
+        "stylePreviews": [
+          {
+            "img": "images/remeras sin mangas/remera_iorio_doble_sin_mangas.jpg",
+            "garmentStyle": "sin_mangas",
+            "previewLabel": "Sin mangas - Frente y dorso",
+            "defaultPrintMode": "double",
+            "autoSelectBack": "Dorso Ricardo Iorio · Homenaje"
+          }
+        ]
       },
       {
         "img": "images/banda_sugeridas/ricardo_iorio/remera_v8_hermetica_almafuerte_iorio_blanca.jpg",
@@ -18448,6 +19050,14 @@
         "designId": "v8-hermetica-almafuerte-iorio",
         "garmentCategory": "Buzo Cuello Redondo",
         "color": "blanco"
+      },
+      {
+        "img": "images/remeras sin mangas/remera_iorio_doble_sin_mangas.jpg",
+        "name": "Dorso Ricardo Iorio · Homenaje",
+        "selectionLabel": "Dorso Ricardo Iorio · Homenaje",
+        "previewLabel": "Referencia sin mangas - Frente y dorso",
+        "role": "back",
+        "backTargetDesignId": "v8-hermetica-almafuerte-iorio"
       }
     ],
     "desc": "Homenaje a V8, Hermética, Almafuerte y Ricardo Iorio. Disponible en remera, hoodie y buzo cuello redondo.",
@@ -19762,7 +20372,50 @@
       {
         "img": "images/banda_sugeridas/judas_priest/remera_judas_priest.jpg",
         "name": "Judas Priest - Remera",
-        "garmentCategory": "Bandas Sugeridas"
+        "garmentCategory": "Bandas Sugeridas",
+        "orderCode": "JPDS-5078",
+        "designId": "cd-judas-priest-judas-priest--p5078"
+      },
+      {
+        "img": "images/banda_sugeridas/judas_priest/fretne_judas.jpg",
+        "name": "Judas Priest - Remera",
+        "publicName": "Judas Priest",
+        "designId": "cd-judas-priest-judas-priest--p5078",
+        "role": "front",
+        "previewLabel": "Solo frente",
+        "defaultPrintMode": "simple",
+        "orderVariantIndex": 0,
+        "preferredPreview": true,
+        "modalOrder": -20
+      },
+      {
+        "img": "images/banda_sugeridas/judas_priest/dorso_judas.jpg",
+        "name": "Dorso Judas Priest - Logo",
+        "selectionLabel": "Dorso Judas Priest - Logo",
+        "role": "back",
+        "backTargetDesignId": "cd-judas-priest-judas-priest--p5078",
+        "carouselPreview": true
+      },
+      {
+        "img": "images/banda_sugeridas/judas_priest/JUDAS_01.jpg",
+        "name": "Logo",
+        "publicName": "Logo",
+        "designId": "judas-priest-logo",
+        "selectionLabel": "Frente Logo",
+        "role": "front",
+        "previewLabel": "Solo frente",
+        "defaultPrintMode": "simple"
+      },
+      {
+        "img": "images/banda_sugeridas/judas_priest/JUDAS_02.jpg",
+        "name": "Logo",
+        "publicName": "Logo",
+        "designId": "judas-priest-logo",
+        "selectionLabel": "Logo - Vista alternativa",
+        "role": "front",
+        "previewLabel": "Solo frente",
+        "defaultPrintMode": "simple",
+        "orderVariantIndex": 3
       }
     ],
     "desc": "Seleccion inicial de Judas Priest para sumar al archivo de mas bandas. Formato rapido en remera con estampa frontal.",
@@ -20312,7 +20965,8 @@
       },
       {
         "img": "images/banda_sugeridas/dio/remera_dio_holy_diver.jpg",
-        "name": "Dio Holy Diver - Remera"
+        "name": "Dio Holy Diver - Remera",
+        "designId": "cd-dio-holy-diver--p5088"
       },
       {
         "img": "images/banda_sugeridas/dio/remera_dio_magica.jpg",
@@ -20325,6 +20979,47 @@
       {
         "img": "images/banda_sugeridas/dio/remera_dio_the_last_in_line.jpg",
         "name": "Dio The Last In Line - Remera"
+      },
+      {
+        "img": "images/banda_sugeridas/dio/DIO-001.jpg",
+        "name": "Logo rojo",
+        "publicName": "Logo rojo",
+        "designId": "dio-logo-rojo",
+        "selectionLabel": "Frente Logo rojo",
+        "role": "front",
+        "previewLabel": "Solo frente",
+        "defaultPrintMode": "simple"
+      },
+      {
+        "img": "images/banda_sugeridas/dio/DIO-02.jpg",
+        "name": "Logo rojo",
+        "publicName": "Logo rojo",
+        "designId": "dio-logo-rojo",
+        "selectionLabel": "Logo rojo - Metalizado",
+        "role": "front",
+        "previewLabel": "Solo frente",
+        "defaultPrintMode": "simple",
+        "orderVariantIndex": 5
+      },
+      {
+        "img": "images/banda_sugeridas/dio/frente_dio.jpg",
+        "name": "Dio Holy Diver - Remera",
+        "publicName": "Holy Diver",
+        "designId": "cd-dio-holy-diver--p5088",
+        "role": "front",
+        "previewLabel": "Solo frente",
+        "defaultPrintMode": "simple",
+        "orderVariantIndex": 1,
+        "preferredPreview": true,
+        "modalOrder": -20
+      },
+      {
+        "img": "images/banda_sugeridas/dio/dorso_dio.jpg",
+        "name": "Dorso Dio - Logo rojo",
+        "selectionLabel": "Dorso Dio - Logo rojo",
+        "role": "back",
+        "backTargetDesignId": "cd-dio-holy-diver--p5088",
+        "carouselPreview": true
       }
     ],
     "desc": "Selecci?n inicial de Dio para sumar al archivo de m?s bandas. Dise?os en remera para validar demanda y adaptar a hoodie o buzo a pedido.",
@@ -20454,7 +21149,8 @@
       {
         "img": "images/banda_sugeridas/kreator/remera_kreator_logo.jpg",
         "name": "Kreator Logo - Remera",
-        "garmentCategory": "Bandas Sugeridas"
+        "garmentCategory": "Bandas Sugeridas",
+        "designId": "cd-kreator-logo--p5091"
       },
       {
         "img": "images/banda_sugeridas/kreator/remera_kreator_phantom.jpg",
@@ -20485,6 +21181,18 @@
         "img": "images/banda_sugeridas/kreator/remera_kreator_v3.jpg",
         "name": "Kreator V3 - Remera",
         "garmentCategory": "Bandas Sugeridas"
+      },
+      {
+        "img": "images/banda_sugeridas/kreator/LOGO KRE-Mock-FRENTE.jpg",
+        "name": "Kreator Logo - Remera",
+        "publicName": "Logo",
+        "designId": "cd-kreator-logo--p5091",
+        "role": "front",
+        "previewLabel": "Solo frente",
+        "defaultPrintMode": "simple",
+        "orderVariantIndex": 4,
+        "preferredPreview": true,
+        "modalOrder": -20
       }
     ],
     "desc": "Kreator en remeras para sumar al archivo de más bandas. Diseños disponibles a pedido y adaptables a hoodie o buzo por WhatsApp.",
@@ -22623,7 +23331,7 @@
         "isNew": true
       },
       {
-        "img": "images/banda_sugeridas/sonata_artica/remera_sonata_artica_ecliptica_frente.jpg",
+        "img": "images/banda_sugeridas/sonata_artica/sonata frente ecliptica HERO.png.jpg",
         "name": "Sonata Arctica Ecliptica",
         "alt": "Remera negra Sonata Arctica Ecliptica con estampa frontal",
         "designId": "sonata-arctica-ecliptica",
@@ -22832,6 +23540,42 @@
         "defaultPrintMode": "simple",
         "fmdBadge": "EDICIÓN FMD",
         "isNew": true
+      },
+      {
+        "img": "images/banda_sugeridas/sonata_artica/sonata frente reckoning HERO.png.jpg",
+        "name": "Sonata Arctica Reckoning Night",
+        "publicName": "Reckoning Night",
+        "designId": "sonata-arctica-reckoning-night",
+        "role": "front",
+        "previewLabel": "Solo frente",
+        "defaultPrintMode": "simple",
+        "orderVariantIndex": 4,
+        "preferredPreview": true,
+        "modalOrder": -20
+      },
+      {
+        "img": "images/banda_sugeridas/sonata_artica/sonata frente silence HERO.png.jpg",
+        "name": "Sonata Arctica Silence",
+        "publicName": "Silence",
+        "designId": "sonata-arctica-silence",
+        "role": "front",
+        "previewLabel": "Solo frente",
+        "defaultPrintMode": "simple",
+        "orderVariantIndex": 2,
+        "preferredPreview": true,
+        "modalOrder": -20
+      },
+      {
+        "img": "images/banda_sugeridas/sonata_artica/sonata frente winterheart's HERO.png.jpg",
+        "name": "Sonata Arctica Winterheart's Guild",
+        "publicName": "Winterheart's Guild",
+        "designId": "sonata-arctica-winterhearts-guild",
+        "role": "front",
+        "previewLabel": "Solo frente",
+        "defaultPrintMode": "simple",
+        "orderVariantIndex": 3,
+        "preferredPreview": true,
+        "modalOrder": -20
       }
     ],
     "desc": "Diseños de Sonata Arctica disponibles en remeras, hoodies y buzos.",
@@ -26540,7 +27284,16 @@
         "orderVariantIndex": 0,
         "modalOrder": 3,
         "fmdBadge": "ORIGINAL FMD",
-        "fmdBadgeDescription": "Diseño original creado por Five Magics Designs para Buenos Aires 2026."
+        "fmdBadgeDescription": "Diseño original creado por Five Magics Designs para Buenos Aires 2026.",
+        "stylePreviews": [
+          {
+            "img": "images/remeras sin mangas/remera_eddie_arg_doble_sin_mangas.jpg",
+            "garmentStyle": "sin_mangas",
+            "previewLabel": "Sin mangas - Frente y dorso",
+            "defaultPrintMode": "double",
+            "autoSelectBack": "Dorso Eddie Argentina · Estadio Huracán"
+          }
+        ]
       },
       {
         "img": "images/iron_maiden/iron_maiden_eddie_argentina_blanca_frente.jpg",
@@ -27583,6 +28336,774 @@
         "previewLabel": "Referencia frente y dorso",
         "role": "back",
         "backTargetDesignId": "slayer-reign-in-blood-tres-cruces"
+      }
+    ]
+  },
+  {
+    "id": 7320,
+    "category": "AC/DC",
+    "year": "2026",
+    "name": "AC/DC - PWR UP Tour - Buenos Aires",
+    "band": "AC/DC",
+    "tipoPrecio": "simple",
+    "img": "images/acdc/2-Mock-FRENTE.jpg",
+    "desc": "PWR UP Tour - Buenos Aires. Disponible a pedido.",
+    "visibilityTier": "catalog",
+    "commercialPriority": 78,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "AC/DC Archive"
+    ],
+    "tags": [
+      "AC/DC",
+      "PWR UP Tour - Buenos Aires"
+    ],
+    "designId": "ac-dc-pwr-up-tour-buenos-aires",
+    "defaultPrintMode": "simple",
+    "variants": [
+      {
+        "img": "images/acdc/2-Mock-FRENTE.jpg",
+        "name": "PWR UP Tour - Buenos Aires",
+        "publicName": "PWR UP Tour - Buenos Aires",
+        "selectionLabel": "Frente PWR UP Tour - Buenos Aires",
+        "role": "front",
+        "defaultPrintMode": "simple"
+      },
+      {
+        "img": "images/acdc/02-Mock-DORSO.jpg",
+        "name": "Dorso PWR UP Tour - Brian y Angus",
+        "selectionLabel": "Dorso PWR UP Tour - Brian y Angus",
+        "role": "back",
+        "backTargetDesignId": "ac-dc-pwr-up-tour-buenos-aires",
+        "carouselPreview": true
+      },
+      {
+        "img": "images/acdc/DORSO FINAL ACDC.jpg",
+        "name": "Dorso PWR UP Tour - Buenos Aires",
+        "selectionLabel": "Dorso PWR UP Tour - Buenos Aires",
+        "role": "back",
+        "backTargetDesignId": "ac-dc-pwr-up-tour-buenos-aires",
+        "carouselPreview": true
+      },
+      {
+        "img": "images/acdc/DORSO BLANCA ACDC.jpg",
+        "name": "Dorso PWR UP Tour - Buenos Aires - Remera blanca",
+        "selectionLabel": "Dorso PWR UP Tour - Buenos Aires - Remera blanca",
+        "role": "back",
+        "backTargetDesignId": "ac-dc-pwr-up-tour-buenos-aires",
+        "carouselPreview": true,
+        "color": "blanco"
+      }
+    ]
+  },
+  {
+    "id": 7321,
+    "category": "AC/DC",
+    "year": "2026",
+    "name": "AC/DC - Back in Black - Logo",
+    "band": "AC/DC",
+    "tipoPrecio": "simple",
+    "img": "images/acdc/ACDC-4-5 FOR IG MOCK REMERA.jpg",
+    "desc": "Back in Black - Logo. Disponible a pedido.",
+    "visibilityTier": "catalog",
+    "commercialPriority": 78,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "AC/DC Archive"
+    ],
+    "tags": [
+      "AC/DC",
+      "Back in Black - Logo"
+    ],
+    "designId": "ac-dc-back-in-black-logo",
+    "defaultPrintMode": "simple",
+    "variants": [
+      {
+        "img": "images/acdc/ACDC-4-5 FOR IG MOCK REMERA.jpg",
+        "name": "Back in Black - Logo",
+        "publicName": "Back in Black - Logo",
+        "selectionLabel": "Frente Back in Black - Logo",
+        "role": "front",
+        "defaultPrintMode": "simple"
+      }
+    ]
+  },
+  {
+    "id": 7322,
+    "category": "Bandas Sugeridas",
+    "year": "2026",
+    "name": "Anette Olzon - Uniclub - Buenos Aires",
+    "band": "Anette Olzon",
+    "tipoPrecio": "simple",
+    "img": "images/banda_sugeridas/anette_olson/4-5 FOR IG MOCK REMERA.jpg",
+    "desc": "Uniclub - Buenos Aires. Disponible a pedido.",
+    "visibilityTier": "catalog",
+    "commercialPriority": 78,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Anette Olzon Archive"
+    ],
+    "tags": [
+      "Anette Olzon",
+      "Uniclub - Buenos Aires"
+    ],
+    "designId": "anette-olzon-uniclub-buenos-aires",
+    "defaultPrintMode": "simple",
+    "variants": [
+      {
+        "img": "images/banda_sugeridas/anette_olson/4-5 FOR IG MOCK REMERA.jpg",
+        "name": "Uniclub - Buenos Aires",
+        "publicName": "Uniclub - Buenos Aires",
+        "selectionLabel": "Frente Uniclub - Buenos Aires",
+        "role": "front",
+        "defaultPrintMode": "simple"
+      }
+    ]
+  },
+  {
+    "id": 7323,
+    "category": "Bandas Sugeridas",
+    "year": "2026",
+    "name": "Billy Idol - Retrato turquesa",
+    "band": "Billy Idol",
+    "tipoPrecio": "simple",
+    "img": "images/banda_sugeridas/billy_idol/BILLY.jpg",
+    "desc": "Retrato turquesa. Disponible a pedido.",
+    "visibilityTier": "catalog",
+    "commercialPriority": 78,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Billy Idol Archive"
+    ],
+    "tags": [
+      "Billy Idol",
+      "Retrato turquesa"
+    ],
+    "designId": "billy-idol-retrato-turquesa",
+    "defaultPrintMode": "simple",
+    "variants": [
+      {
+        "img": "images/banda_sugeridas/billy_idol/BILLY.jpg",
+        "name": "Retrato turquesa",
+        "publicName": "Retrato turquesa",
+        "selectionLabel": "Frente Retrato turquesa",
+        "role": "front",
+        "defaultPrintMode": "simple"
+      }
+    ]
+  },
+  {
+    "id": 7324,
+    "category": "Hoodies Otras Bandas",
+    "year": "2026",
+    "name": "Gary Moore - Heavy Blues",
+    "band": "Gary Moore",
+    "tipoPrecio": "doble",
+    "img": "images/banda_sugeridas/gary_moore/V1-HODDIE-MOCKUP-FRENTE.png",
+    "desc": "Heavy Blues. Disponible a pedido.",
+    "visibilityTier": "catalog",
+    "commercialPriority": 78,
+    "garments": [
+      "hoodie"
+    ],
+    "collections": [
+      "Gary Moore Archive"
+    ],
+    "tags": [
+      "Gary Moore",
+      "Heavy Blues"
+    ],
+    "designId": "gary-moore-heavy-blues",
+    "defaultPrintMode": "double",
+    "variants": [
+      {
+        "img": "images/banda_sugeridas/gary_moore/V1-HODDIE-MOCKUP-FRENTE.png",
+        "name": "Heavy Blues",
+        "publicName": "Heavy Blues",
+        "selectionLabel": "Frente Heavy Blues",
+        "role": "front",
+        "defaultPrintMode": "double",
+        "garmentCategory": "Hoodies Otras Bandas",
+        "autoSelectBack": "Dorso Gary Moore - Logo"
+      },
+      {
+        "img": "images/banda_sugeridas/gary_moore/V1-HODDIE-MOCKUP-FRENTE.png",
+        "name": "Dorso Gary Moore - Logo",
+        "selectionLabel": "Dorso Gary Moore - Logo",
+        "role": "back",
+        "backTargetDesignId": "gary-moore-heavy-blues",
+        "carouselPreview": true,
+        "previewLabel": "Referencia frente y dorso"
+      }
+    ]
+  },
+  {
+    "id": 7325,
+    "category": "Hoodies Otras Bandas",
+    "year": "2026",
+    "name": "Gary Moore - Live at Montreux",
+    "band": "Gary Moore",
+    "tipoPrecio": "doble",
+    "img": "images/banda_sugeridas/gary_moore/V2-HODDIE-MOCKUP-FRENTE.png",
+    "desc": "Live at Montreux. Disponible a pedido.",
+    "visibilityTier": "catalog",
+    "commercialPriority": 78,
+    "garments": [
+      "hoodie"
+    ],
+    "collections": [
+      "Gary Moore Archive"
+    ],
+    "tags": [
+      "Gary Moore",
+      "Live at Montreux"
+    ],
+    "designId": "gary-moore-live-at-montreux",
+    "defaultPrintMode": "double",
+    "variants": [
+      {
+        "img": "images/banda_sugeridas/gary_moore/V2-HODDIE-MOCKUP-FRENTE.png",
+        "name": "Live at Montreux",
+        "publicName": "Live at Montreux",
+        "selectionLabel": "Frente Live at Montreux",
+        "role": "front",
+        "defaultPrintMode": "double",
+        "garmentCategory": "Hoodies Otras Bandas",
+        "autoSelectBack": "Dorso Gary Moore - Logo"
+      },
+      {
+        "img": "images/banda_sugeridas/gary_moore/V2-HODDIE-MOCKUP-FRENTE.png",
+        "name": "Dorso Gary Moore - Logo",
+        "selectionLabel": "Dorso Gary Moore - Logo",
+        "role": "back",
+        "backTargetDesignId": "gary-moore-live-at-montreux",
+        "carouselPreview": true,
+        "previewLabel": "Referencia frente y dorso"
+      }
+    ]
+  },
+  {
+    "id": 7326,
+    "category": "Hoodies Otras Bandas",
+    "year": "2026",
+    "name": "Pain - Logo rojo",
+    "band": "Pain",
+    "tipoPrecio": "doble",
+    "img": "images/banda_sugeridas/pain/HODDIE-MOCKUP-FRENTE.jpg",
+    "desc": "Logo rojo. Disponible a pedido.",
+    "visibilityTier": "catalog",
+    "commercialPriority": 78,
+    "garments": [
+      "hoodie"
+    ],
+    "collections": [
+      "Pain Archive"
+    ],
+    "tags": [
+      "Pain",
+      "Logo rojo"
+    ],
+    "designId": "pain-logo-rojo",
+    "defaultPrintMode": "double",
+    "variants": [
+      {
+        "img": "images/banda_sugeridas/pain/HODDIE-MOCKUP-FRENTE.jpg",
+        "name": "Logo rojo",
+        "publicName": "Logo rojo",
+        "selectionLabel": "Frente Logo rojo",
+        "role": "front",
+        "defaultPrintMode": "double",
+        "garmentCategory": "Hoodies Otras Bandas",
+        "autoSelectBack": "Dorso Pain - Calavera roja"
+      },
+      {
+        "img": "images/banda_sugeridas/pain/HODDIE-MOCKUP-FRENTE.jpg",
+        "name": "Dorso Pain - Calavera roja",
+        "selectionLabel": "Dorso Pain - Calavera roja",
+        "role": "back",
+        "backTargetDesignId": "pain-logo-rojo",
+        "carouselPreview": true,
+        "previewLabel": "Referencia frente y dorso"
+      }
+    ]
+  },
+  {
+    "id": 7327,
+    "category": "Bandas Sugeridas",
+    "year": "2026",
+    "name": "Pain - Retrato rojo",
+    "band": "Pain",
+    "tipoPrecio": "doble",
+    "img": "images/banda_sugeridas/pain/REMERA DOBLE ESTAMPA.jpg",
+    "desc": "Retrato rojo. Disponible a pedido.",
+    "visibilityTier": "catalog",
+    "commercialPriority": 78,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Pain Archive"
+    ],
+    "tags": [
+      "Pain",
+      "Retrato rojo"
+    ],
+    "designId": "pain-retrato-rojo",
+    "defaultPrintMode": "double",
+    "variants": [
+      {
+        "img": "images/banda_sugeridas/pain/REMERA DOBLE ESTAMPA.jpg",
+        "name": "Retrato rojo",
+        "publicName": "Retrato rojo",
+        "selectionLabel": "Frente Retrato rojo",
+        "role": "front",
+        "defaultPrintMode": "double",
+        "autoSelectBack": "Dorso Pain - Calavera roja"
+      },
+      {
+        "img": "images/banda_sugeridas/pain/REMERA DOBLE ESTAMPA.jpg",
+        "name": "Dorso Pain - Calavera roja",
+        "selectionLabel": "Dorso Pain - Calavera roja",
+        "role": "back",
+        "backTargetDesignId": "pain-retrato-rojo",
+        "carouselPreview": true,
+        "previewLabel": "Referencia frente y dorso"
+      }
+    ]
+  },
+  {
+    "id": 7328,
+    "category": "Bandas Sugeridas",
+    "year": "2026",
+    "name": "Ricardo Iorio - Almafuerte - En Vida",
+    "band": "Ricardo Iorio",
+    "tipoPrecio": "simple",
+    "img": "images/banda_sugeridas/ricardo_iorio/almafuerte_en_vida.jpg",
+    "desc": "Almafuerte - En Vida. Disponible a pedido.",
+    "visibilityTier": "catalog",
+    "commercialPriority": 78,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Ricardo Iorio Archive"
+    ],
+    "tags": [
+      "Ricardo Iorio",
+      "Almafuerte - En Vida"
+    ],
+    "designId": "ricardo-iorio-almafuerte-en-vida",
+    "defaultPrintMode": "simple",
+    "variants": [
+      {
+        "img": "images/banda_sugeridas/ricardo_iorio/almafuerte_en_vida.jpg",
+        "name": "Almafuerte - En Vida",
+        "publicName": "Almafuerte - En Vida",
+        "selectionLabel": "Frente Almafuerte - En Vida",
+        "role": "front",
+        "defaultPrintMode": "simple"
+      }
+    ]
+  },
+  {
+    "id": 7329,
+    "category": "Bandas Sugeridas",
+    "year": "2026",
+    "name": "Slaughter to Prevail - Kostolom",
+    "band": "Slaughter to Prevail",
+    "tipoPrecio": "simple",
+    "img": "images/banda_sugeridas/Slaughter to Prevail/Kostolom.jpg",
+    "desc": "Kostolom. Disponible a pedido.",
+    "visibilityTier": "catalog",
+    "commercialPriority": 78,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Slaughter to Prevail Archive"
+    ],
+    "tags": [
+      "Slaughter to Prevail",
+      "Kostolom"
+    ],
+    "designId": "slaughter-to-prevail-kostolom",
+    "defaultPrintMode": "simple",
+    "variants": [
+      {
+        "img": "images/banda_sugeridas/Slaughter to Prevail/Kostolom.jpg",
+        "name": "Kostolom",
+        "publicName": "Kostolom",
+        "selectionLabel": "Frente Kostolom",
+        "role": "front",
+        "defaultPrintMode": "simple"
+      }
+    ]
+  },
+  {
+    "id": 7330,
+    "category": "Bandas Sugeridas",
+    "year": "2026",
+    "name": "Slipknot - People = Shit",
+    "band": "Slipknot",
+    "tipoPrecio": "simple",
+    "img": "images/banda_sugeridas/slipknot/slipknot_frente.jpg",
+    "desc": "People = Shit. Disponible a pedido.",
+    "visibilityTier": "catalog",
+    "commercialPriority": 78,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Slipknot Archive"
+    ],
+    "tags": [
+      "Slipknot",
+      "People = Shit"
+    ],
+    "designId": "slipknot-people-shit",
+    "defaultPrintMode": "simple",
+    "variants": [
+      {
+        "img": "images/banda_sugeridas/slipknot/slipknot_frente.jpg",
+        "name": "People = Shit",
+        "publicName": "People = Shit",
+        "selectionLabel": "Frente People = Shit",
+        "role": "front",
+        "defaultPrintMode": "simple"
+      },
+      {
+        "img": "images/banda_sugeridas/slipknot/slipknot.jpg",
+        "name": "Dorso Slipknot - People = Shit",
+        "selectionLabel": "Dorso Slipknot - People = Shit",
+        "role": "back",
+        "backTargetDesignId": "slipknot-people-shit",
+        "carouselPreview": true,
+        "previewLabel": "Referencia frente y dorso"
+      },
+      {
+        "img": "images/banda_sugeridas/slipknot/slipknot.jpg",
+        "name": "People = Shit",
+        "publicName": "People = Shit",
+        "selectionLabel": "Frente People = Shit",
+        "role": "front",
+        "defaultPrintMode": "double",
+        "previewLabel": "Frente y dorso",
+        "autoSelectBack": "Dorso Slipknot - People = Shit",
+        "orderVariantIndex": 0,
+        "modalOrder": 2
+      }
+    ]
+  },
+  {
+    "id": 7331,
+    "category": "Bandas Sugeridas",
+    "year": "2026",
+    "name": "Within Temptation - Enter",
+    "band": "Within Temptation",
+    "tipoPrecio": "doble",
+    "img": "images/banda_sugeridas/within_temptation/ENTER.jpg",
+    "desc": "Enter. Disponible a pedido.",
+    "visibilityTier": "catalog",
+    "commercialPriority": 78,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Within Temptation Archive"
+    ],
+    "tags": [
+      "Within Temptation",
+      "Enter"
+    ],
+    "designId": "within-temptation-enter",
+    "defaultPrintMode": "double",
+    "variants": [
+      {
+        "img": "images/banda_sugeridas/within_temptation/ENTER.jpg",
+        "name": "Enter",
+        "publicName": "Enter",
+        "selectionLabel": "Frente Enter",
+        "role": "front",
+        "defaultPrintMode": "double",
+        "autoSelectBack": "Dorso Enter - Logo Within Temptation"
+      },
+      {
+        "img": "images/banda_sugeridas/within_temptation/ENTER.jpg",
+        "name": "Dorso Enter - Logo Within Temptation",
+        "selectionLabel": "Dorso Enter - Logo Within Temptation",
+        "role": "back",
+        "backTargetDesignId": "within-temptation-enter",
+        "carouselPreview": true,
+        "previewLabel": "Referencia frente y dorso"
+      }
+    ]
+  },
+  {
+    "id": 7332,
+    "category": "Bandas Sugeridas",
+    "year": "2026",
+    "name": "Within Temptation - Mother Earth",
+    "band": "Within Temptation",
+    "tipoPrecio": "doble",
+    "img": "images/banda_sugeridas/within_temptation/MOTHER EARTH.jpg",
+    "desc": "Mother Earth. Disponible a pedido.",
+    "visibilityTier": "catalog",
+    "commercialPriority": 78,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Within Temptation Archive"
+    ],
+    "tags": [
+      "Within Temptation",
+      "Mother Earth"
+    ],
+    "designId": "within-temptation-mother-earth",
+    "defaultPrintMode": "double",
+    "variants": [
+      {
+        "img": "images/banda_sugeridas/within_temptation/MOTHER EARTH.jpg",
+        "name": "Mother Earth",
+        "publicName": "Mother Earth",
+        "selectionLabel": "Frente Mother Earth",
+        "role": "front",
+        "defaultPrintMode": "double",
+        "autoSelectBack": "Dorso Mother Earth - Logo Within Temptation"
+      },
+      {
+        "img": "images/banda_sugeridas/within_temptation/MOTHER EARTH.jpg",
+        "name": "Dorso Mother Earth - Logo Within Temptation",
+        "selectionLabel": "Dorso Mother Earth - Logo Within Temptation",
+        "role": "back",
+        "backTargetDesignId": "within-temptation-mother-earth",
+        "carouselPreview": true,
+        "previewLabel": "Referencia frente y dorso"
+      }
+    ]
+  },
+  {
+    "id": 7333,
+    "category": "Bandas Sugeridas",
+    "year": "2026",
+    "name": "Within Temptation - The Silent Force",
+    "band": "Within Temptation",
+    "tipoPrecio": "doble",
+    "img": "images/banda_sugeridas/within_temptation/SILENT FORCE.jpg",
+    "desc": "The Silent Force. Disponible a pedido.",
+    "visibilityTier": "catalog",
+    "commercialPriority": 78,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Within Temptation Archive"
+    ],
+    "tags": [
+      "Within Temptation",
+      "The Silent Force"
+    ],
+    "designId": "within-temptation-the-silent-force",
+    "defaultPrintMode": "double",
+    "variants": [
+      {
+        "img": "images/banda_sugeridas/within_temptation/SILENT FORCE.jpg",
+        "name": "The Silent Force",
+        "publicName": "The Silent Force",
+        "selectionLabel": "Frente The Silent Force",
+        "role": "front",
+        "defaultPrintMode": "double",
+        "autoSelectBack": "Dorso The Silent Force - Logo Within Temptation"
+      },
+      {
+        "img": "images/banda_sugeridas/within_temptation/SILENT FORCE.jpg",
+        "name": "Dorso The Silent Force - Logo Within Temptation",
+        "selectionLabel": "Dorso The Silent Force - Logo Within Temptation",
+        "role": "back",
+        "backTargetDesignId": "within-temptation-the-silent-force",
+        "carouselPreview": true,
+        "previewLabel": "Referencia frente y dorso"
+      }
+    ]
+  },
+  {
+    "id": 7334,
+    "category": "Bandas Sugeridas",
+    "year": "2026",
+    "name": "Within Temptation - The Heart of Everything",
+    "band": "Within Temptation",
+    "tipoPrecio": "doble",
+    "img": "images/banda_sugeridas/within_temptation/THE HEART.jpg",
+    "desc": "The Heart of Everything. Disponible a pedido.",
+    "visibilityTier": "catalog",
+    "commercialPriority": 78,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Within Temptation Archive"
+    ],
+    "tags": [
+      "Within Temptation",
+      "The Heart of Everything"
+    ],
+    "designId": "within-temptation-the-heart-of-everything",
+    "defaultPrintMode": "double",
+    "variants": [
+      {
+        "img": "images/banda_sugeridas/within_temptation/THE HEART.jpg",
+        "name": "The Heart of Everything",
+        "publicName": "The Heart of Everything",
+        "selectionLabel": "Frente The Heart of Everything",
+        "role": "front",
+        "defaultPrintMode": "double",
+        "autoSelectBack": "Dorso The Heart of Everything - Logo Within Temptation"
+      },
+      {
+        "img": "images/banda_sugeridas/within_temptation/THE HEART.jpg",
+        "name": "Dorso The Heart of Everything - Logo Within Temptation",
+        "selectionLabel": "Dorso The Heart of Everything - Logo Within Temptation",
+        "role": "back",
+        "backTargetDesignId": "within-temptation-the-heart-of-everything",
+        "carouselPreview": true,
+        "previewLabel": "Referencia frente y dorso"
+      }
+    ]
+  },
+  {
+    "id": 7335,
+    "category": "Bandas Sugeridas",
+    "year": "2026",
+    "name": "Within Temptation - The Unforgiving",
+    "band": "Within Temptation",
+    "tipoPrecio": "doble",
+    "img": "images/banda_sugeridas/within_temptation/THE UNFORGIVEN.jpg",
+    "desc": "The Unforgiving. Disponible a pedido.",
+    "visibilityTier": "catalog",
+    "commercialPriority": 78,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Within Temptation Archive"
+    ],
+    "tags": [
+      "Within Temptation",
+      "The Unforgiving"
+    ],
+    "designId": "within-temptation-the-unforgiving",
+    "defaultPrintMode": "double",
+    "variants": [
+      {
+        "img": "images/banda_sugeridas/within_temptation/THE UNFORGIVEN.jpg",
+        "name": "The Unforgiving",
+        "publicName": "The Unforgiving",
+        "selectionLabel": "Frente The Unforgiving",
+        "role": "front",
+        "defaultPrintMode": "double",
+        "autoSelectBack": "Dorso The Unforgiving - Logo Within Temptation"
+      },
+      {
+        "img": "images/banda_sugeridas/within_temptation/THE UNFORGIVEN.jpg",
+        "name": "Dorso The Unforgiving - Logo Within Temptation",
+        "selectionLabel": "Dorso The Unforgiving - Logo Within Temptation",
+        "role": "back",
+        "backTargetDesignId": "within-temptation-the-unforgiving",
+        "carouselPreview": true,
+        "previewLabel": "Referencia frente y dorso"
+      }
+    ]
+  },
+  {
+    "id": 7336,
+    "category": "Pantera",
+    "year": "2026",
+    "name": "Pantera - Dimebag y Vinnie - Homenaje y firma",
+    "band": "Pantera",
+    "tipoPrecio": "simple",
+    "img": "images/pantera/CFH-4-5 FOR IG MOCK REMERA.jpg",
+    "desc": "Dimebag y Vinnie - Homenaje y firma. Disponible a pedido.",
+    "visibilityTier": "catalog",
+    "commercialPriority": 78,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Pantera Archive"
+    ],
+    "tags": [
+      "Pantera",
+      "Dimebag y Vinnie - Homenaje y firma"
+    ],
+    "designId": "pantera-dimebag-y-vinnie-homenaje-y-firma",
+    "defaultPrintMode": "simple",
+    "variants": [
+      {
+        "img": "images/pantera/CFH-4-5 FOR IG MOCK REMERA.jpg",
+        "name": "Dimebag y Vinnie - Homenaje y firma",
+        "publicName": "Dimebag y Vinnie - Homenaje y firma",
+        "selectionLabel": "Frente Dimebag y Vinnie - Homenaje y firma",
+        "role": "front",
+        "defaultPrintMode": "simple"
+      },
+      {
+        "img": "images/pantera/Dorso firma + Vinnie.jpg",
+        "name": "Dorso Dimebag Darrell - Firma y Vinnie",
+        "selectionLabel": "Dorso Dimebag Darrell - Firma y Vinnie",
+        "role": "back",
+        "backTargetDesignId": "pantera-dimebag-y-vinnie-homenaje-y-firma",
+        "carouselPreview": true
+      },
+      {
+        "img": "images/pantera/op 1 pantera.png",
+        "name": "Dorso Dimebag Darrell - Firma y Pantera - Remera blanca",
+        "selectionLabel": "Dorso Dimebag Darrell - Firma y Pantera - Remera blanca",
+        "role": "back",
+        "backTargetDesignId": "pantera-dimebag-y-vinnie-homenaje-y-firma",
+        "carouselPreview": true,
+        "color": "blanco"
+      }
+    ]
+  },
+  {
+    "id": 7337,
+    "category": "Pantera",
+    "year": "2026",
+    "name": "Pantera - Serpiente - Colmillos",
+    "band": "Pantera",
+    "tipoPrecio": "simple",
+    "img": "images/pantera/sert 2.jpg",
+    "desc": "Serpiente - Colmillos. Disponible a pedido.",
+    "visibilityTier": "catalog",
+    "commercialPriority": 78,
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Pantera Archive"
+    ],
+    "tags": [
+      "Pantera",
+      "Serpiente - Colmillos"
+    ],
+    "designId": "pantera-serpiente-colmillos",
+    "defaultPrintMode": "simple",
+    "variants": [
+      {
+        "img": "images/pantera/sert 2.jpg",
+        "name": "Serpiente - Colmillos",
+        "publicName": "Serpiente - Colmillos",
+        "selectionLabel": "Frente Serpiente - Colmillos",
+        "role": "front",
+        "defaultPrintMode": "simple"
       }
     ]
   }
