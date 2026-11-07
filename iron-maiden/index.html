@@ -29,7 +29,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/styles/main.css?v=shipping-20261102">
-    <link rel="stylesheet" href="/styles/band-landing.css?v=maiden-white-20261102">
+    <link rel="stylesheet" href="/styles/band-landing.css?v=maiden-fear-feature-20261107">
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-1H3XPM82ED"></script>
     <script>
@@ -55,9 +55,7 @@
             });
             const existingIndex = config.designOrder.indexOf(designId);
             if (existingIndex >= 0) config.designOrder.splice(existingIndex, 1);
-            const featuredAfter = 'iron-maiden-eddie-argentina-estadio-huracan-fmd';
-            const orderIndex = config.designOrder.indexOf(featuredAfter);
-            if (orderIndex >= 0) config.designOrder.splice(orderIndex + 1, 0, designId);
+            config.designOrder.unshift(designId);
             delete config.editorialBadges['iron-maiden-eddie-argentina-estadio-huracan-fmd'];
             config.editorialBadges[designId] = 'ORIGINAL FMD';
         })();
@@ -129,6 +127,24 @@
         </section>
 
 
+        <section class="band-featured-collection" id="bandFearFeature" aria-labelledby="bandFearFeatureTitle">
+            <div class="band-featured-collection-head">
+                <p>CREACIÓN ORIGINAL FIVE MAGICS DESIGNS</p>
+                <h2 id="bandFearFeatureTitle">FEAR OF THE DARK · EDICIÓN FMD</h2>
+                <span>Bruce Dickinson, la luna y el farol. Elegí estampa frontal o frente y dorso conmemorativo.</span>
+            </div>
+            <div class="band-featured-collection-grid">
+                <button type="button" class="band-featured-collection-card" data-design-id="iron-maiden-fear-of-the-dark-halloween-2026-original-fmd" onclick="openCatalogDesignPreview('iron-maiden-fear-of-the-dark-halloween-2026-original-fmd', 'remera', 'simple', '/images/iron_maiden/iron maiden - fear of the dark/FOTD FRENTE.jpg')" aria-label="Elegir Fear of the Dark edición FMD solo frente">
+                    <img src="/images/iron_maiden/iron maiden - fear of the dark/FOTD FRENTE.jpg" alt="Fear of the Dark edición FMD con Bruce Dickinson y farol - Solo frente" width="1080" height="1350" loading="eager" decoding="async">
+                    <strong>SOLO FRENTE</strong>
+                </button>
+                <button type="button" class="band-featured-collection-card" data-design-id="iron-maiden-fear-of-the-dark-halloween-2026-original-fmd" onclick="openCatalogDesignPreview('iron-maiden-fear-of-the-dark-halloween-2026-original-fmd', 'remera', 'double', '/images/iron_maiden/iron maiden - fear of the dark/FOTD DOBLE FECHAS.jpg')" aria-label="Elegir Fear of the Dark edición FMD frente y dorso con set list">
+                    <img src="/images/iron_maiden/iron maiden - fear of the dark/FOTD DOBLE FECHAS.jpg" alt="Fear of the Dark edición FMD - Frente Bruce Dickinson y dorso Set List Argentina 2026" width="1080" height="1350" loading="lazy" decoding="async">
+                    <strong>FRENTE + DORSO SET LIST</strong>
+                </button>
+            </div>
+            <button type="button" class="band-featured-collection-cta" onclick="openCatalogDesignPreview('iron-maiden-fear-of-the-dark-halloween-2026-original-fmd', 'remera', 'simple', '/images/iron_maiden/iron maiden - fear of the dark/FOTD FRENTE.jpg')">ELEGIR FEAR OF THE DARK</button>
+        </section>
         <section class="band-featured-collection band-anniversary-collection" id="bandAnniversaryCollection" aria-labelledby="bandAnniversaryCollectionTitle">
             <div class="band-featured-collection-head">
                 <p>CREACIÓN ORIGINAL FIVE MAGICS DESIGNS · EDICIÓN ANIVERSARIO</p>
@@ -935,7 +951,7 @@
             syncPostShowState();
         })();
     </script>
-    <script src="/js/band-archives-config.js?v=maiden-white-20261102" defer></script>
+    <script src="/js/band-archives-config.js?v=maiden-fear-feature-20261107" defer></script>
     <script src="/js/catalog-design.js?v=maiden-white-20261102" defer></script>
     <script src="/js/app.js?v=maiden-white-20261102" defer></script>
 </body>

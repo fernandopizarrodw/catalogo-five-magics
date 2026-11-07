@@ -728,6 +728,7 @@
                 'iron-maiden-legacy-of-the-beast-grid'
             ],
             designOrder: [
+                'iron-maiden-fear-of-the-dark-halloween-2026-original-fmd',
                 'cd-iron-maiden-eddie-gaucho-argentino--p7040',
                 'iron-maiden-eddie-gaucho-tempestad-original-fmd',
                 'iron-maiden-eddie-tanguero-original-fmd',
@@ -737,7 +738,6 @@
                 'iron-maiden-eddie-cuatro-jinetes-del-apocalipsis-original-fmd',
                 'iron-maiden-eddie-argentina-seleccion-fmd',
                 'iron-maiden-eddie-argentina-estadio-huracan-fmd',
-                'iron-maiden-fear-of-the-dark-halloween-2026-original-fmd',
                 'iron-maiden-run-for-your-lives-2026-oficial',
                 'iron-maiden-run-for-your-lives-buenos-aires',
                 'iron-maiden-run-for-your-lives-fmd-2026',

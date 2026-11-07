@@ -7758,23 +7758,17 @@ function getCatalogDirectoryImage(product) {
 }
 
 const FEATURED_COLLECTION_ART = Object.freeze({
-    megadeth: { image: 'images/albums/Megadeth/megadeth_2026_vic_llamas_v3.jpg', alt: 'Diseño representativo de Megadeth' },
-    slayer: { image: 'images/slayer/remera_slayer_aguila.jpg', alt: 'Diseño representativo de Slayer' },
-    'iron maiden': { image: 'images/iron_maiden/eddie_run_for_your_lives_tour/remera_iron_maiden_run_oficial.jpg', alt: 'Run For Your Lives World Tour 2026 de Iron Maiden' },
-    'ricardo iorio': { image: 'images/banda_sugeridas/ricardo_iorio/remera_almafuerte_obras.jpg', alt: 'Almafuerte - En Obras' },
+    megadeth: { image: 'images/doble_estampa_ejemplos/megadeth_rip_dbl.png', alt: 'Remera Megadeth Rust in Peace - Frente y dorso' },
+    slayer: { image: 'images/slayer/dobles/remera_reign_in_blood_doble.jpg', alt: 'Remera Slayer Reign in Blood - Frente y dorso' },
+    'iron maiden': { image: 'images/iron_maiden/iron_maiden_eddie_argentina_doble_estampa.jpg', alt: 'Remera Iron Maiden Eddie Argentina - Frente y dorso' },
+    'ricardo iorio': { image: 'images/banda_sugeridas/ricardo_iorio/remera_v8_hermetica_almafuerte_iorio.jpg', alt: 'Remera Ricardo Iorio - V8, Hermética y Almafuerte - Frente y dorso' },
     epica: { image: 'images/banda_sugeridas/epica/hoodie_epica_the_phantom_agony.jpg', alt: 'Hoodie EPICA The Phantom Agony' },
     helloween: {
-        image: 'images/banda_sugeridas/helloween/show_2026_verticales/remera_helloween_07_logo.jpg',
-        alt: 'Remera Helloween Pumpkin Logo',
-        badge: 'SHOW ARGENTINA · 13 SEP'
+        image: 'images/banda_sugeridas/helloween/helloween_40_tour.jpg',
+        alt: 'Remera Helloween 40 Years Anniversary Tour - Frente y dorso'
     },
-    'def leppard': {
-        image: 'images/banda_sugeridas/def_leppard/def 3.jpg',
-        alt: 'Def Leppard Hysteria 1988 Tour',
-        badge: 'ARGENTINA · 5 NOV'
-    },
-    pantera: { image: 'images/pantera/remera_pantera_the_great_southern_trendkill.jpg', alt: 'Diseño representativo de Pantera' },
-    metallica: { image: 'images/metallica/metallica_master_of_puppets_realistic.jpg', alt: 'Master Realista de Metallica' }
+    pantera: { image: 'images/pantera/pantera_tour_2000_frente_dorso.jpg', alt: 'Remera Pantera Reinventing the Steel - Tour 2000 - Frente y dorso' },
+    metallica: { image: 'images/metallica/remera_metallica_ride_the_lightning.jpg', alt: 'Remera Metallica Ride the Lightning - Frente y dorso' }
 });
 
 function renderCatalogBandDirectory(products) {
@@ -7788,7 +7782,7 @@ function renderCatalogBandDirectory(products) {
     groups.forEach(group => group.sort(compareProductsByVisibilityThenPriority));
 
     const findLabel = label => [...groups.keys()].find(groupLabel => normalizeText(groupLabel) === normalizeText(label));
-    const initialLabels = ['Megadeth', 'Slayer', 'Iron Maiden', 'Ricardo Iorio', 'Helloween', 'Metallica', 'Def Leppard']
+    const initialLabels = ['Megadeth', 'Slayer', 'Iron Maiden', 'Ricardo Iorio', 'Helloween', 'Metallica', 'Pantera']
         .map(findLabel)
         .filter(Boolean);
     const initialLabelKeys = new Set(initialLabels.map(normalizeText));
@@ -7864,15 +7858,6 @@ function renderCatalogBandDirectory(products) {
     document.getElementById('productsCount').textContent = 'ELEGÍ UNA BANDA PARA VER SUS DISEÑOS';
     productsGrid.innerHTML = [
         renderSection('featured', 'COLECCIONES DESTACADAS', 'Una selección de nuestras colecciones para empezar a explorar.', initialLabels, 'is-primary'),
-        `<section class="home-news-section home-news-section-in-catalog" aria-labelledby="homeNewsTitle">
-            <div class="home-simple-head">
-                <p>NOVEDADES FMD</p>
-                <h2 id="homeNewsTitle">ÚLTIMOS DISEÑOS</h2>
-                <span>Ricardo Iorio · Almafuerte · Hermética</span>
-            </div>
-            <div class="home-news-grid" id="homeNewsGrid"></div>
-            <a class="home-news-more" href="/ricardo-iorio/">VER MÁS DE RICARDO IORIO</a>
-        </section>`,
         renderSection('more', 'MÁS BANDAS', 'Todo el catálogo sigue disponible.', allLabels)
     ].join('');
     productsGrid.querySelectorAll('[data-band-filter]').forEach(button => {
