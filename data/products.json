@@ -3705,6 +3705,10 @@
         "img": "images/musicians/Marty_Friedman/INTRODUCTION.jpg",
         "name": "Introduction",
         "designId": "marty-friedman-introduction",
+        "role": "front",
+        "previewLabel": "Frente solo",
+        "modalOrder": 1,
+        "defaultPrintMode": "simple",
         "isNew": true
       },
       {
@@ -3736,6 +3740,29 @@
         "name": "Marty Friedman · Live Smoke",
         "designId": "marty-friedman-live-smoke",
         "isNew": true
+      },
+      {
+        "img": "images/musicians/Marty_Friedman/INTRODUCTION-DORSO.jpg",
+        "name": "Dorso Introduction",
+        "selectionLabel": "Dorso Introduction",
+        "previewLabel": "Dorso solo",
+        "role": "back",
+        "backTargetDesignId": "marty-friedman-introduction",
+        "carouselPreview": true,
+        "modalOrder": 2
+      },
+      {
+        "img": "images/musicians/Marty_Friedman/marty_introduction_doble.jpg",
+        "name": "Introduction · Frente y dorso",
+        "publicName": "Introduction",
+        "selectionLabel": "Frente Introduction",
+        "previewLabel": "Frente y dorso",
+        "designId": "marty-friedman-introduction",
+        "role": "front",
+        "defaultPrintMode": "double",
+        "autoSelectBack": "Dorso Introduction",
+        "orderVariantIndex": 9,
+        "modalOrder": 3
       }
     ],
     "desc": "Colección especial Marty Friedman en Argentina: 34 años de Scenes, clásicos solistas, Cacophony y diseños para Buenos Aires 2026.",
