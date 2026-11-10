@@ -605,6 +605,168 @@
     display: block;
 }
 
+.modal-preview-reference-note.is-configuration-hint {
+    position: static;
+    margin: 12px 0;
+    padding: 8px 10px;
+    border: 1px solid #333;
+    background: #171717;
+    box-shadow: none;
+    color: #ccc;
+    font-size: .8rem;
+    font-weight: 400;
+}
+
+#modal.guided-purchase-modal .purchase-flow {
+    margin-top: 18px;
+    scroll-margin-top: 12px;
+}
+
+#modal.guided-purchase-modal .purchase-flow-progress {
+    margin: 0 0 6px;
+    color: #aaa;
+    font-size: .95rem;
+}
+
+#modal.guided-purchase-modal .purchase-flow h3 {
+    margin: 0 0 20px;
+    color: #fff;
+    font: 700 1.4rem/1.3 var(--font-body, Arial, sans-serif);
+}
+
+#modal.guided-purchase-modal .purchase-flow-panel[hidden],
+#modal.guided-purchase-modal .purchase-flow [hidden] {
+    display: none !important;
+}
+
+#modal.guided-purchase-modal .purchase-flow .option-btn,
+#modal.guided-purchase-modal .purchase-flow .print-mode-btn {
+    min-height: 48px;
+    padding: 10px 14px !important;
+    font-size: 1rem !important;
+    line-height: 1.35;
+}
+
+#modal.guided-purchase-modal .purchase-flow .option-buttons {
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+#modal.guided-purchase-modal .purchase-flow .option-label,
+#modal.guided-purchase-modal .purchase-flow .print-mode-title {
+    font-size: 1rem;
+}
+
+#modal.guided-purchase-modal .purchase-flow-nav {
+    display: flex;
+    gap: 10px;
+    position: sticky;
+    bottom: 0;
+    z-index: 6;
+    margin-top: 20px;
+    padding: 10px 0;
+    background: #101010;
+}
+
+#modal.guided-purchase-modal .purchase-flow-nav button,
+#modal.guided-purchase-modal .purchase-flow-edits button,
+#modal.guided-purchase-modal .purchase-flow-help,
+#modal.guided-purchase-modal .purchase-flow-defer {
+    min-height: 48px;
+    padding: 10px 14px;
+    border: 1px solid #555;
+    border-radius: 8px;
+    background: #191919;
+    color: #fff;
+    font: 600 1rem/1.35 Arial, sans-serif;
+    cursor: pointer;
+    white-space: normal;
+}
+
+#modal.guided-purchase-modal .purchase-flow-nav button {
+    flex: 1;
+}
+
+#modal.guided-purchase-modal .purchase-flow-nav [data-flow-action="next"] {
+    flex: 2;
+    background: #39ff14;
+    border-color: #39ff14;
+    color: #080808;
+}
+
+#modal.guided-purchase-modal .purchase-flow-error {
+    padding: 12px;
+    border: 1px solid #ffc75f;
+    border-radius: 8px;
+    color: #ffe4b3;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+#modal.guided-purchase-modal .purchase-flow-help,
+#modal.guided-purchase-modal .purchase-flow-defer {
+    width: 100%;
+    margin-top: 10px;
+}
+
+#modal.guided-purchase-modal .purchase-flow-edits {
+    display: grid;
+    gap: 8px;
+    margin: 14px 0;
+}
+
+#modal.guided-purchase-modal #modalOrderSummaryText {
+    display: grid;
+    gap: 10px;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+#modal.guided-purchase-modal #modalOrderSummaryText > span {
+    color: #eee;
+    font-size: 1rem;
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: normal;
+}
+
+#modal.guided-purchase-modal .purchase-flow[data-step="4"] .purchase-flow-nav {
+    position: static;
+}
+
+#modal.guided-purchase-modal .purchase-flow-composition {
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+#modal.guided-purchase-modal #btnAddCart {
+    display: none;
+}
+
+#modal.guided-purchase-modal .purchase-flow .modal-actions-primary {
+    width: 100%;
+    grid-template-columns: 1fr;
+}
+
+#modal.guided-purchase-modal .purchase-flow #btnBuyNow {
+    width: 100%;
+    min-height: 48px;
+    font-size: 1rem;
+}
+
+#modal.guided-purchase-modal .purchase-flow .dorso-help-box,
+#modal.guided-purchase-modal .purchase-flow .catalog-design-dorso-heading {
+    display: none;
+}
+
+#modal.guided-purchase-modal .purchase-flow button:focus-visible,
+#modal.guided-purchase-modal .purchase-flow input:focus-visible,
+#modal.guided-purchase-modal .purchase-flow h3:focus-visible {
+    outline: 3px solid #8fc7ee;
+    outline-offset: 3px;
+}
+
 .modal-preview-reference-note strong {
     margin-bottom: 3px;
     color: #ffc75f;

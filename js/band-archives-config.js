@@ -77,10 +77,11 @@
                     'slayer-3d-fmd-reign-in-blood', 'slayer-3d-fmd-reign-in-blood-v2',
                     'slayer-3d-fmd-aguila', 'slayer-3d-fmd-angel-of-death',
                     'slayer-3d-fmd-south-of-heaven', 'slayer-3d-fmd-god-hates-us-all',
+                    'slayer-3d-fmd-south-of-heaven-original-1988',
                     'slayer-3d-fmd-skull', 'slayer-3d-fmd-goat', 'slayer-3d-fmd-throne',
                     'slayer-3d-fmd-goat-flame', 'cd-slayer-fmd-originals--reign-in-blood-3d'
                 ] } },
-                {"id":"fmd-originals","label":"EDICIONES FMD","match":{"designIds":["cd-slayer-fmd-originals--angel-of-death","cd-slayer-fmd-originals--hell-awaits","cd-slayer-fmd-originals--live-undead","cd-slayer-fmd-originals--logo","cd-slayer-fmd-originals--reign-in-blood-3d","cd-slayer-fmd-originals--reign-in-blood-graphic","cd-slayer-fmd-originals--seasons-in-the-abyss","cd-slayer-fmd-originals--seasons-in-the-abyss-v2","cd-slayer-fmd-originals--show-no-mercy","cd-slayer-fmd-originals--skull","cd-slayer-fmd-originals--soldiers","cd-slayer-fmd-originals--soldier-v2-graphic","cd-slayer-fmd-originals--south-of-heaven","cd-slayer-fmd-originals--south-of-heaven-graphic","cd-slayer-fmd-originals--throne","cd-slayer-fmd-originals--throne-remera-blanca","cd-slayer-remaster-fmd--p7121","cd-slayer-show-no-mercy-fmd--p7109","slayer-3d-fmd-reign-in-blood","slayer-3d-fmd-reign-in-blood-v2","slayer-3d-fmd-aguila","slayer-3d-fmd-angel-of-death","slayer-3d-fmd-south-of-heaven","slayer-3d-fmd-god-hates-us-all","slayer-3d-fmd-skull","slayer-3d-fmd-goat","slayer-3d-fmd-throne","slayer-3d-fmd-goat-flame"]}}
+                {"id":"fmd-originals","label":"EDICIONES FMD","match":{"designIds":["cd-slayer-fmd-originals--angel-of-death","cd-slayer-fmd-originals--hell-awaits","cd-slayer-fmd-originals--live-undead","cd-slayer-fmd-originals--logo","cd-slayer-fmd-originals--reign-in-blood-3d","cd-slayer-fmd-originals--reign-in-blood-graphic","cd-slayer-fmd-originals--seasons-in-the-abyss","cd-slayer-fmd-originals--seasons-in-the-abyss-v2","cd-slayer-fmd-originals--show-no-mercy","cd-slayer-fmd-originals--skull","cd-slayer-fmd-originals--soldiers","cd-slayer-fmd-originals--soldier-v2-graphic","cd-slayer-fmd-originals--south-of-heaven","cd-slayer-fmd-originals--south-of-heaven-graphic","cd-slayer-fmd-originals--throne","cd-slayer-fmd-originals--throne-remera-blanca","cd-slayer-remaster-fmd--p7121","cd-slayer-show-no-mercy-fmd--p7109","slayer-3d-fmd-reign-in-blood","slayer-3d-fmd-reign-in-blood-v2","slayer-3d-fmd-aguila","slayer-3d-fmd-angel-of-death","slayer-3d-fmd-south-of-heaven","slayer-3d-fmd-south-of-heaven-original-1988","slayer-3d-fmd-god-hates-us-all","slayer-3d-fmd-skull","slayer-3d-fmd-goat","slayer-3d-fmd-throne","slayer-3d-fmd-goat-flame"]}}
             ],
             designOrder: [
                 'cd-slayer-reign-in-blood--p7101',
@@ -91,6 +92,7 @@
                 'slayer-3d-fmd-angel-of-death',
                 'slayer-3d-fmd-aguila',
                 'slayer-3d-fmd-south-of-heaven',
+                'slayer-3d-fmd-south-of-heaven-original-1988',
                 'slayer-3d-fmd-god-hates-us-all',
                 'slayer-3d-fmd-goat-flame',
                 'slayer-3d-fmd-goat',
@@ -442,6 +444,7 @@
                     'iron-maiden-eddie-tanguero-original-fmd', 'iron-maiden-eddie-huracan-original-fmd', 'iron-maiden-eddie-gaucho-tempestad-original-fmd', 'iron-maiden-eddie-libertador-cruce-de-los-andes-original-fmd', 'iron-maiden-eddie-libertador-cordillera-original-fmd', 'iron-maiden-eddie-cuatro-jinetes-del-apocalipsis-original-fmd',
                     'iron-maiden-run-for-your-lives-2026-oficial', 'iron-maiden-run-for-your-lives-fmd-2026', 'iron-maiden-run-for-your-lives-buenos-aires',
                     'iron-maiden-eddie-reaper-original-fmd', 'iron-maiden-fear-of-the-dark-halloween-edition-fmd', 'iron-maiden-fear-of-the-dark-halloween-2026-original-fmd',
+                    'iron-maiden-run-for-your-lives-logo-fear-set-list-argentina-2026',
                     'iron-maiden-eddie-argentina-seleccion-fmd', 'iron-maiden-eddie-argentina-estadio-huracan-fmd',
                     'iron-maiden-eddies-run-for-your-lives', 'cd-iron-maiden-eddie-argentina-v1-fmd--p7015',
                     'cd-iron-maiden-eddie-argentina-v2-fmd--p7016', 'cd-iron-maiden-eddie-circular-fmd--p7019',
@@ -729,6 +732,7 @@
             ],
             designOrder: [
                 'iron-maiden-fear-of-the-dark-halloween-2026-original-fmd',
+                'iron-maiden-run-for-your-lives-logo-fear-set-list-argentina-2026',
                 'cd-iron-maiden-eddie-gaucho-argentino--p7040',
                 'iron-maiden-eddie-gaucho-tempestad-original-fmd',
                 'iron-maiden-eddie-tanguero-original-fmd',

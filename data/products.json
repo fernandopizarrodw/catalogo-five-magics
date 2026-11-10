@@ -11379,7 +11379,10 @@
       {
         "img": "images/banda_sugeridas/epica/remera_epica_the_holographic_principle.jpg",
         "name": "Epica The Holographic Principle - Remera",
-        "garmentCategory": "Bandas Sugeridas"
+        "garmentCategory": "Bandas Sugeridas",
+        "designId": "cd-epica-the-holographic-principle--p5016",
+        "defaultPrintMode": "double",
+        "autoSelectBack": "Dorso The Holographic Principle · Logo Epica"
       },
       {
         "img": "images/banda_sugeridas/epica/remera_epica_the_phantom_agony.jpg",
@@ -11500,6 +11503,35 @@
         "orderVariantIndex": 8,
         "preferredPreview": true,
         "modalOrder": -20
+      },
+      {
+        "img": "images/banda_sugeridas/epica/Epica_retrospect.jpg",
+        "name": "Epica Retrospect - Frente y dorso",
+        "publicName": "Retrospect",
+        "designId": "epica-retrospect",
+        "selectionLabel": "Frente Retrospect",
+        "previewLabel": "Frente y dorso",
+        "role": "front",
+        "garmentCategory": "Bandas Sugeridas",
+        "defaultPrintMode": "double",
+        "autoSelectBack": "Dorso Retrospect - Simone Simons",
+        "isNew": true
+      },
+      {
+        "img": "images/banda_sugeridas/epica/Epica_retrospect.jpg",
+        "name": "Dorso Retrospect - Simone Simons",
+        "selectionLabel": "Dorso Retrospect - Simone Simons",
+        "previewLabel": "Referencia frente y dorso",
+        "role": "back",
+        "backTargetDesignId": "epica-retrospect"
+      },
+      {
+        "img": "images/banda_sugeridas/epica/remera_epica_the_holographic_principle.jpg",
+        "name": "Dorso The Holographic Principle · Logo Epica",
+        "selectionLabel": "Dorso The Holographic Principle · Logo Epica",
+        "previewLabel": "Referencia frente y dorso",
+        "role": "back",
+        "backTargetDesignId": "cd-epica-the-holographic-principle--p5016"
       }
     ],
     "desc": "Archivo EPICA Argentina 2027 con disenos disponibles en remera, hoodie y buzo cuello redondo segun variante. Tambien hacemos personalizados si no encontras el arte que buscas.",
@@ -27878,7 +27910,8 @@
     "year": "2026",
     "album": null,
     "tipoPrecio": "simple",
-    "defaultPrintMode": "double",
+    "defaultPrintMode": "simple",
+    "carouselPreviewOnly": true,
     "catalogStartingPrice": 40000,
     "catalogGarments": ["remera"],
     "modalPriceOverrides": {
@@ -27934,10 +27967,11 @@
         ],
         "publicName": "IRON MAIDEN - RUN FOR ARGENTINA • 50 YEARS",
         "selectionLabel": "Frente RUN FOR ARGENTINA • 50 YEARS",
+        "previewLabel": "Negra · Frente",
         "role": "front",
         "preferredPreview": true,
-        "defaultPrintMode": "double",
-        "autoSelectBack": "Dorso Eddie · Set List Argentina 2026",
+        "defaultPrintMode": "simple",
+        "modalOrder": 0,
         "fmdBadge": "ORIGINAL FMD"
       },
       {
@@ -27960,6 +27994,42 @@
         "selectionLabel": "Dorso Eddie · Set List Argentina 2026",
         "role": "back",
         "tourRecommendation": true
+      },
+      {
+        "img": "images/iron_maiden/iron maiden fmd edition/IRON DOBLE 3.jpg",
+        "name": "RUN FOR ARGENTINA · Frente y dorso Set List",
+        "publicName": "IRON MAIDEN - RUN FOR ARGENTINA • 50 YEARS",
+        "selectionLabel": "Frente RUN FOR ARGENTINA • 50 YEARS",
+        "previewLabel": "Negra · Dorso Set List",
+        "role": "front",
+        "orderVariantIndex": 0,
+        "defaultPrintMode": "double",
+        "autoSelectBack": "Dorso Set List Argentina 2026",
+        "modalOrder": 1
+      },
+      {
+        "img": "images/iron_maiden/iron maiden fmd edition/IRON DOBLE 2.jpg",
+        "name": "RUN FOR ARGENTINA · Frente y dorso Afiche",
+        "publicName": "IRON MAIDEN - RUN FOR ARGENTINA • 50 YEARS",
+        "selectionLabel": "Frente RUN FOR ARGENTINA • 50 YEARS",
+        "previewLabel": "Negra · Dorso Afiche",
+        "role": "front",
+        "orderVariantIndex": 0,
+        "defaultPrintMode": "double",
+        "autoSelectBack": "Dorso Afiche Conmemorativo",
+        "modalOrder": 2
+      },
+      {
+        "img": "images/iron_maiden/iron maiden fmd edition/IRON DOBLE 1.jpg",
+        "name": "RUN FOR ARGENTINA · Frente y dorso Eddie",
+        "publicName": "IRON MAIDEN - RUN FOR ARGENTINA • 50 YEARS",
+        "selectionLabel": "Frente RUN FOR ARGENTINA • 50 YEARS",
+        "previewLabel": "Negra · Dorso Eddie",
+        "role": "front",
+        "orderVariantIndex": 0,
+        "defaultPrintMode": "double",
+        "autoSelectBack": "Dorso Eddie · Set List Argentina 2026",
+        "modalOrder": 3
       }
     ],
     "garments": ["remera"],
@@ -28281,6 +28351,16 @@
         "orderVariantIndex": 9,
         "defaultPrintMode": "double",
         "autoSelectBack": "Dorso Goat Flame - Tour 2026"
+      },
+      {
+        "img": "images/slayer/3D editions/slayer_south_3D_original_1988.jpg",
+        "name": "South of Heaven - Original 1988 - 3D FMD",
+        "publicName": "South of Heaven - Original 1988 - 3D FMD",
+        "selectionLabel": "Frente South of Heaven - Original 1988 - 3D FMD",
+        "designId": "slayer-3d-fmd-south-of-heaven-original-1988",
+        "collectionIds": ["3d-fmd", "classics"],
+        "role": "front",
+        "isNew": true
       }
     ]
   },
@@ -29131,6 +29211,38 @@
         "selectionLabel": "Frente Serpiente - Colmillos",
         "role": "front",
         "defaultPrintMode": "simple"
+      }
+    ]
+  },
+  {
+    "id": 7338,
+    "designId": "iron-maiden-run-for-your-lives-logo-fear-set-list-argentina-2026",
+    "category": "Iron Maiden",
+    "band": "Iron Maiden",
+    "name": "Run For Your Lives · Logo + Fear Set List Argentina 2026",
+    "year": "2026",
+    "album": "Fear of the Dark",
+    "tipoPrecio": "simple",
+    "defaultPrintMode": "double",
+    "catalogStartingPrice": 38000,
+    "catalogGarments": ["remera"],
+    "img": "images/iron_maiden/iron maiden - fear of the dark/iron_maiden_fear_set_list_argentina_2026.jpg",
+    "desc": "Logo de Run For Your Lives al frente y dorso Fear of the Dark con Bruce Dickinson y el set list de Buenos Aires 2026.",
+    "visibilityTier": "catalog",
+    "commercialPriority": 88,
+    "garments": ["remera"],
+    "collections": ["Archivo Maiden", "Run For Your Lives 2026"],
+    "tags": ["Iron Maiden", "Fear of the Dark", "Run For Your Lives", "Set List", "Buenos Aires 2026"],
+    "isNew": true,
+    "variants": [
+      {
+        "img": "images/iron_maiden/iron maiden - fear of the dark/iron_maiden_fear_set_list_argentina_2026.jpg",
+        "name": "Run For Your Lives · Logo + Fear Set List Argentina 2026",
+        "selectionLabel": "Frente Logo Run For Your Lives",
+        "previewLabel": "Frente y dorso Fear Set List",
+        "role": "front",
+        "defaultPrintMode": "double",
+        "autoSelectBack": "Dorso Fear of the Dark · Set List Argentina 2026"
       }
     ]
   }

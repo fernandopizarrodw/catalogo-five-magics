@@ -2770,6 +2770,11 @@ function updateCatalogDesignReferenceNote() {
     const note = document.getElementById('modalPreviewReferenceNote');
     if (!note || !currentCatalogDesign) return;
     document.querySelector('.modal-adaptable-note')?.classList.add('is-hidden');
+    if (currentProduct?.carouselPreviewOnly && selectedModalGarment !== 'sin_mangas') {
+        note.classList.remove('is-hidden');
+        note.textContent = 'Las imágenes son referencias. Elegí la prenda, el color y la estampa para armar tu pedido.';
+        return;
+    }
     const garment = getCatalogDesignGarmentKey();
     const garmentPreviews = getCatalogDesignFrontRefs(currentCatalogDesign).filter(ref => (
         ref.garment === garment
@@ -2778,8 +2783,15 @@ function updateCatalogDesignReferenceNote() {
     const hasPreview = garmentPreviews.some(preview => (
         Number(preview.productId) === Number(selectedCatalogFrontRef?.productId)
         && Number(preview.variantIndex) === Number(selectedCatalogFrontRef?.variantIndex)
-        && (selectedModalGarment !== 'sin_mangas' || normalizeText(preview.color || 'negro') === normalizeText(selectedColor))
+        && (selectedModalGarment !== 'sin_mangas' || !selectedColor || normalizeText(preview.color || 'negro') === normalizeText(selectedColor))
     ));
+    if (selectedModalGarment === 'sin_mangas' && !hasPreview) {
+        note.classList.remove('is-hidden');
+        note.textContent = selectedCatalogFrontRef?.garmentStyle === 'sin_mangas'
+            ? `Imagen de referencia en ${selectedCatalogFrontRef.color === 'blanco' ? 'blanco' : 'negro'}. Disponible en ${selectedColor === 'blanco' ? 'blanco' : 'negro'}.`
+            : 'Imagen de referencia con mangas. Disponible sin mangas.';
+        return;
+    }
     const garmentLabel = selectedModalGarment === 'sin_mangas' ? 'remera sin mangas' : garment === 'hoodie'
         ? 'hoodie'
         : garment === 'buzo_cuello_redondo'
@@ -2807,11 +2819,7 @@ function updateCatalogDesignReferenceNote() {
     const title = document.createElement('strong');
     title.textContent = `DISPONIBLE EN ${garmentLabel.toUpperCase()}`;
     const description = document.createElement('span');
-    description.textContent = selectedModalGarment === 'sin_mangas'
-        ? (selectedCatalogFrontRef?.garmentStyle === 'sin_mangas'
-            ? 'La imagen muestra la prenda negra. Tu pedido está configurado en blanco.'
-            : `La imagen muestra la versión con mangas. Tu pedido se prepara sin mangas${selectedColor === 'blanco' ? ', en blanco' : ''}.`)
-        : 'Podés personalizar la ubicación y combinación de estampas.';
+    description.textContent = 'Podés personalizar la ubicación y combinación de estampas.';
     const consultation = document.createElement('button');
     consultation.type = 'button';
     consultation.className = 'modal-preview-reference-consult';
@@ -2952,7 +2960,7 @@ function updateModalGarmentUI() {
     }
     if (garmentGroup) {
         const label = garmentGroup.querySelector('.option-label');
-        if (label) label.textContent = 'Prenda:';
+        if (label) label.textContent = currentProduct?.carouselPreviewOnly ? '1. Prenda:' : 'Prenda:';
         garmentGroup.classList.toggle('modal-garment-group-locked', availableTypes.length === 1);
         garmentGroup.style.display = shouldShowGarmentChoice ? '' : 'none';
     }
@@ -3126,6 +3134,7 @@ function getModalOrderSummaryParts() {
     const garmentType = getSelectedModalGarmentType();
     const garment = garmentType === 'remera'
         ? (MODAL_REMERA_VARIANTS.find(item => item.id === getSelectedRemeraVariantId())?.label || 'Remera')
+        : garmentType === 'sin_mangas' ? 'Remera sin mangas unisex'
         : garmentType === 'hoodie' ? 'Hoodie' : 'Buzo cuello redondo';
     const print = selectedPrintMode === 'double' ? 'frente y dorso' : 'solo frente';
     const color = selectedColor === 'blanco' ? 'blanca' : selectedColor === 'negro' ? 'negra' : 'color pendiente';
@@ -3136,8 +3145,26 @@ function getModalOrderSummaryParts() {
 
 function updateModalOrderSummary() {
     const summary = document.getElementById('modalOrderSummaryText');
-    if (summary) summary.textContent = getModalOrderSummaryParts().join(' · ');
+    const parts = getModalOrderSummaryParts();
+    if (summary) {
+        summary.textContent = parts.join(' · ');
+        if (document.getElementById('modalPurchaseFlow')) {
+            const rows = [['Prenda', parts[0]], ['Color', parts[3]], ['Talle', selectedSize || 'Por elegir'], ['Estampa', parts[1]]];
+            if (selectedPrintMode === 'double') {
+                rows.push(['Dorso', selectedCatalogBackRef?.selectionLabel || selectedCatalogBackRef?.label
+                    || (usesBandLandingShownComposition() ? 'Como se muestra en el mock' : 'A definir por WhatsApp')]);
+            }
+            summary.replaceChildren(...rows.map(([label, value]) => {
+                const row = document.createElement('span');
+                const title = document.createElement('b');
+                title.textContent = `${label}: `;
+                row.append(title, document.createTextNode(value || 'Por elegir'));
+                return row;
+            }));
+        }
+    }
     updateModalOrderVisualPreview();
+    updateModalPurchaseFlow();
 }
 
 function getSelectedOrderVisuals() {
@@ -3306,6 +3333,13 @@ function updatePrintModeUI() {
     const isDouble = selectedPrintMode === 'double';
     const usesShownComposition = usesBandLandingShownComposition();
 
+    if (currentProduct.carouselPreviewOnly) {
+        const sizeLabel = document.querySelector('#sizeGroup .option-label');
+        if (sizeLabel) sizeLabel.textContent = isDouble ? '5. Talle:' : '4. Talle:';
+        const doubleBadge = document.getElementById('badgeDoble');
+        if (doubleBadge) doubleBadge.style.display = isDouble ? 'block' : 'none';
+    }
+
     if (simplePrice) simplePrice.textContent = `$${prices.simple.toLocaleString('es-AR')}`;
     if (doublePrice) doublePrice.textContent = `$${prices.doble.toLocaleString('es-AR')}`;
     document.querySelectorAll('[data-print-mode]').forEach(button => {
@@ -3349,7 +3383,7 @@ function selectPrintMode(mode) {
     }
 
     updatePrintModeUI();
-    if (selectedPrintMode === 'double' && !usesBandLandingShownComposition() && !selectedCatalogBackRef) {
+    if (selectedPrintMode === 'double' && !usesBandLandingShownComposition() && !selectedCatalogBackRef && !document.getElementById('modalPurchaseFlow')) {
         const advancedPanel = document.getElementById('modalAdvancedPanel');
         const dorsoPanel = document.getElementById('upsellDorso');
         if (advancedPanel) advancedPanel.open = true;
@@ -5239,12 +5273,13 @@ function renderDorsoSelector() {
     if (currentCatalogDesign) {
         const choices = getCatalogDesignBackChoices();
         const isEddieGaucho = currentCatalogDesign.designId === 'cd-iron-maiden-eddie-gaucho-argentino--p7040';
-        const collapseHistoricalBacks = normalizeText(currentCatalogDesign.band) === 'iron maiden';
+        const collapseHistoricalBacks = normalizeText(currentCatalogDesign.band) === 'iron maiden' || Boolean(document.getElementById('modalPurchaseFlow'));
+        const compactSuggestions = Boolean(currentProduct.carouselPreviewOnly || document.getElementById('modalPurchaseFlow'));
         const recommended = choices.filter(ref => ref.backType === 'Recomendado');
         const commemorative = choices.filter(ref => ref.backType === 'Conmemorativo');
         const hasTourRecommendation = recommended.some(ref => ref.tourRecommendation);
         const historical = choices
-            .filter(ref => ref.backType === 'Archivo')
+            .filter(ref => ref.backType === 'Archivo' || (compactSuggestions && ref.backType === 'Conmemorativo'))
             .sort((a, b) => {
                 const genericScore = ref => /(?:dorso_logo_rojo|iron_maiden_dorso\.jpg)$/i.test(ref.image || '') ? 0 : 1;
                 return genericScore(a) - genericScore(b);
@@ -5278,15 +5313,16 @@ function renderDorsoSelector() {
         customSection.style.display = choices.length ? 'none' : 'block';
         variantsGrid.classList.add('catalog-design-dorso-grid');
         variantsGrid.innerHTML = `
-            <div class="catalog-design-dorso-heading"><b>2. ELEG&Iacute; EL DORSO</b><span>Busc&aacute; por nombre, tour o c&oacute;digo. Toc&aacute; VER GRANDE para revisarlo.</span></div>
+            <div class="catalog-design-dorso-heading"><b>${compactSuggestions ? 'DORSOS PARA ESTE DISE&Ntilde;O' : '2. ELEG&Iacute; EL DORSO'}</b><span>Busc&aacute; por nombre, tour o c&oacute;digo. Toc&aacute; VER GRANDE para revisarlo.</span></div>
             <label class="catalog-design-dorso-search"><span>BUSCAR DORSO</span><input type="search" placeholder="Ej: Set List, Hurac&aacute;n o 7308.V4" oninput="filterCatalogDesignBacks(this.value)" autocomplete="off"></label>
             ${recommended.length ? `<div class="catalog-design-dorso-recommended"><p><b>${isEddieGaucho || hasTourRecommendation ? 'DORSO RECOMENDADO' : 'RECOMENDADOS PARA ESTE DISE&Ntilde;O'}</b><span>${isEddieGaucho ? 'La opci&oacute;n Buenos Aires 2026 completa este dise&ntilde;o.' : hasTourRecommendation ? 'Opciones pensadas para completar los dise&ntilde;os del tour.' : 'Opciones creadas para combinar con este frente.'}</span></p><div>${recommended.map(renderChoice).join('')}</div></div>` : ''}
-            ${commemorative.length ? `<div class="catalog-design-dorso-recommended catalog-design-dorso-commemorative"><p><b>DORSOS CONMEMORATIVOS · ARGENTINA 2026</b><span>Combinables con este frente.</span></p><div>${commemorative.map(renderChoice).join('')}</div></div>` : ''}
+            ${commemorative.length && !compactSuggestions ? `<div class="catalog-design-dorso-recommended catalog-design-dorso-commemorative"><p><b>DORSOS CONMEMORATIVOS · ARGENTINA 2026</b><span>Combinables con este frente.</span></p><div>${commemorative.map(renderChoice).join('')}</div></div>` : ''}
             ${historical.length ? (collapseHistoricalBacks
                 ? `<details class="catalog-design-dorso-all"><summary>${recommended.length ? `VER OTROS DORSOS DE ${currentCatalogDesign.band.toUpperCase()}` : `VER DORSOS DISPONIBLES DE ${currentCatalogDesign.band.toUpperCase()}`} <span>${historical.length}</span></summary><div>${historical.map(renderChoice).join('')}</div></details>`
                 : `<div class="catalog-design-dorso-all"><p><b>${recommended.length ? `TODOS LOS DEM&Aacute;S DORSOS DE ${currentCatalogDesign.band.toUpperCase()}` : `DORSOS DISPONIBLES DE ${currentCatalogDesign.band.toUpperCase()}`}</b></p><div>${historical.map(renderChoice).join('')}</div></div>`
             ) : ''}
             <button type="button" class="catalog-design-dorso-help catalog-design-dorso-whatsapp" onclick="consultCatalogBackChoice()">ELEGIR OTRO DORSO POR WHATSAPP</button>
+            ${document.getElementById('modalPurchaseFlow') ? '<button type="button" class="purchase-flow-defer" onclick="deferCatalogDesignBack()">Prefiero definir el dorso por WhatsApp</button>' : ''}
         `;
         if (summarySection) {
             const summaryText = document.getElementById('dorsoSelectionText');
@@ -5563,7 +5599,167 @@ let modalImageZoom = {
     pinchLastCenterY: 0
 };
 
-function configureCatalogConversionModalLayout() {
+function removeModalPurchaseFlow() {
+    const flow = document.getElementById('modalPurchaseFlow');
+    if (!flow) return;
+    // Return the existing controls before mounting another product. Never clone inputs.
+    flow.querySelectorAll('.purchase-flow-panel').forEach(panel => {
+        [...panel.children].filter(node => !node.hasAttribute('data-flow-only')).forEach(node => flow.before(node));
+    });
+    flow.remove();
+    modal.classList.remove('guided-purchase-modal');
+}
+
+function getModalPurchaseProblem(throughStep) {
+    if (!getAvailableModalGarmentTypes().includes(getSelectedModalGarmentType())) {
+        return { step: 1, group: 'modalGarmentGroup', message: 'Elegí qué prenda querés.' };
+    }
+    if (throughStep >= 2) {
+        if (!selectedColor) return { step: 2, group: 'colorGroup', message: 'Elegí el color de la prenda para continuar.' };
+        if (!selectedSize) return { step: 2, group: 'sizeGroup', message: 'Elegí el talle para continuar. Podés consultar la tabla de medidas.' };
+    }
+    if (throughStep >= 3 && selectedPrintMode === 'double' && !usesBandLandingShownComposition()
+        && getCatalogDesignBackChoices().length && !selectedCatalogBackRef && !selectedCatalogBackDeferred) {
+        return { step: 3, group: 'dorsoVariantsSection', message: 'Elegí un dorso o marcá que preferís definirlo por WhatsApp.' };
+    }
+    return null;
+}
+
+function setModalPurchaseStep(step, focus = true) {
+    const flow = document.getElementById('modalPurchaseFlow');
+    if (!flow) return;
+    const problem = step > 1 ? getModalPurchaseProblem(step - 1) : null;
+    const activeStep = problem?.step || Math.max(1, Math.min(step, 4));
+    flow.dataset.step = String(activeStep);
+    flow.querySelectorAll('.purchase-flow-panel').forEach(panel => {
+        panel.hidden = Number(panel.dataset.step) !== activeStep;
+    });
+    const titles = ['Elegí la prenda', 'Elegí el color y el talle', 'Elegí la estampa', 'Revisá tu pedido'];
+    flow.querySelector('.purchase-flow-progress').textContent = `Paso ${activeStep} de 4`;
+    const title = flow.querySelector('h3');
+    title.textContent = titles[activeStep - 1];
+    flow.querySelector('[data-flow-action="back"]').hidden = activeStep === 1;
+    flow.querySelector('[data-flow-action="next"]').hidden = activeStep === 4;
+    const error = flow.querySelector('.purchase-flow-error');
+    error.textContent = problem?.message || '';
+    error.hidden = !problem;
+    error.dataset.group = problem?.group || '';
+    if (problem) {
+        const target = [...(document.getElementById(problem.group)?.querySelectorAll('button, input') || [])]
+            .find(node => node.offsetParent !== null);
+        target?.focus({ preventScroll: true });
+    } else if (focus) title.focus({ preventScroll: true });
+    if (focus) flow.scrollIntoView({ behavior: 'instant', block: 'start' });
+    updateModalPurchaseFlow();
+}
+
+function updateModalPurchaseFlow() {
+    const flow = document.getElementById('modalPurchaseFlow');
+    if (!flow) return;
+    const shownComposition = selectedPrintMode === 'double' && usesBandLandingShownComposition();
+    const composition = flow.querySelector('.purchase-flow-composition');
+    composition.hidden = !shownComposition;
+    composition.textContent = shownComposition ? 'El frente y el dorso son los que se muestran en la imagen de este diseño.' : '';
+    const sizeLabel = document.querySelector('#sizeGroup .option-label');
+    if (sizeLabel) sizeLabel.textContent = 'Talle:';
+    const garmentLabel = document.querySelector('#modalGarmentGroup .option-label');
+    if (garmentLabel) garmentLabel.textContent = 'Prenda:';
+    const help = document.querySelector('#upsellDorso .dorso-help-box strong');
+    if (help) help.textContent = 'Elegí el dorso';
+    const error = flow.querySelector('.purchase-flow-error');
+    if (!error.hidden) {
+        const resolved = error.dataset.group === 'colorGroup' ? Boolean(selectedColor)
+            : error.dataset.group === 'sizeGroup' ? Boolean(selectedSize)
+            : error.dataset.group === 'dorsoVariantsSection'
+                ? selectedPrintMode !== 'double' || Boolean(selectedCatalogBackRef) || selectedCatalogBackDeferred || usesBandLandingShownComposition()
+                : getAvailableModalGarmentTypes().includes(getSelectedModalGarmentType());
+        if (resolved) {
+            error.textContent = '';
+            error.hidden = true;
+        }
+    }
+}
+
+function setupModalPurchaseFlow() {
+    if (!currentCatalogDesign) return;
+    const garment = document.getElementById('modalGarmentGroup');
+    const info = document.querySelector('.modal-product-info');
+    if (!garment || !info) return;
+    const flow = document.createElement('section');
+    flow.id = 'modalPurchaseFlow';
+    flow.className = 'purchase-flow';
+    flow.setAttribute('aria-label', 'Configurá tu prenda en cuatro pasos');
+    flow.innerHTML = '<p class="purchase-flow-progress" aria-live="polite"></p><h3 tabindex="-1"></h3>';
+    const controls = [
+        ['modalGarmentGroup', 'modalRemeraVariantGroup'],
+        ['colorGroup', 'sizeGroup'],
+        ['printModeSelector', 'upsellDorso'],
+        ['modalPrice', 'modalOrderSummary', 'modalOrderVisualPreview']
+    ];
+    garment.before(flow);
+    controls.forEach((ids, index) => {
+        const panel = document.createElement('div');
+        panel.className = 'purchase-flow-panel';
+        panel.dataset.step = String(index + 1);
+        ids.forEach(id => {
+            const node = document.getElementById(id);
+            if (node) panel.appendChild(node);
+        });
+        flow.appendChild(panel);
+    });
+    const composition = document.createElement('p');
+    composition.className = 'purchase-flow-composition';
+    composition.setAttribute('data-flow-only', '');
+    flow.querySelector('[data-step="3"]').appendChild(composition);
+    const review = flow.querySelector('[data-step="4"]');
+    const edits = document.createElement('div');
+    edits.className = 'purchase-flow-edits';
+    edits.setAttribute('data-flow-only', '');
+    ['Modificar prenda', 'Modificar color o talle', 'Modificar estampa'].forEach((label, index) => {
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.textContent = label;
+        button.addEventListener('click', () => setModalPurchaseStep(index + 1));
+        edits.appendChild(button);
+    });
+    review.appendChild(edits);
+    ['.modal-actions', '.modal-shipping-promo', '.modal-show-delivery-note', '#modalAdvancedPanel'].forEach(selector => {
+        const node = info.querySelector(selector);
+        if (node) review.appendChild(node);
+    });
+    const actions = review.querySelector('.modal-actions');
+    if (actions) document.getElementById('modalOrderSummary').after(actions);
+    const error = document.createElement('p');
+    error.className = 'purchase-flow-error';
+    error.setAttribute('role', 'alert');
+    error.hidden = true;
+    const nav = document.createElement('div');
+    nav.className = 'purchase-flow-nav';
+    nav.innerHTML = '<button type="button" data-flow-action="back">Volver</button><button type="button" data-flow-action="next">CONTINUAR</button>';
+    nav.addEventListener('click', event => {
+        const action = event.target.closest('[data-flow-action]')?.dataset.flowAction;
+        if (action) setModalPurchaseStep(Number(flow.dataset.step) + (action === 'next' ? 1 : -1));
+    });
+    const help = document.createElement('button');
+    help.type = 'button';
+    help.className = 'purchase-flow-help';
+    help.textContent = '¿Tenés una duda? Consultanos';
+    help.addEventListener('click', consultCurrentDesign);
+    flow.querySelector('h3').after(error);
+    flow.append(nav, help);
+    document.querySelector('.product-options-tight')?.classList.add('is-hidden');
+    document.querySelector('#colorGroup .option-label').textContent = 'Color de la prenda:';
+    document.querySelector('#printModeSelector .print-mode-title').textContent = '¿Cómo querés la estampa?';
+    modal.classList.add('guided-purchase-modal');
+    setModalPurchaseStep(1, false);
+    updatePrintModeUI();
+    updateModalOrderSummary();
+    info.scrollTop = 0;
+    modal.querySelector('.modal-body').scrollTop = 0;
+}
+
+function configureCatalogConversionModalLayout(previewOnly = false) {
+    removeModalPurchaseFlow();
     const garment = document.getElementById('modalGarmentGroup');
     const remeraVariant = document.getElementById('modalRemeraVariantGroup');
     const printMode = document.getElementById('printModeSelector');
@@ -5583,8 +5779,20 @@ function configureCatalogConversionModalLayout() {
     const legacyHelpAction = document.getElementById('modalWaBtn');
     const dorsoHelp = dorso?.querySelector('.dorso-help-box');
     const dorsoLabel = dorso?.querySelector('.dorso-label-green');
+    const colorGroup = document.getElementById('colorGroup');
+    const sizeGroup = document.getElementById('sizeGroup');
+    const cutGroup = document.getElementById('cutGroup');
 
-    if (!garment || !printMode || !dorso || !productOptions || !price || !actions) return;
+    if (!garment || !remeraVariant || !printMode || !doubleNote || !dorso || !productOptions || !price || !actions || !colorGroup || !sizeGroup) return;
+    const referenceNote = document.getElementById('modalPreviewReferenceNote');
+    if (referenceNote) {
+        referenceNote.classList.toggle('is-configuration-hint', previewOnly);
+        if (previewOnly) garment.before(referenceNote);
+        else document.querySelector('.carousel-container')?.appendChild(referenceNote);
+    }
+    // Restore the shared layout when leaving a product with a guided purchase flow.
+    [sizeGroup, cutGroup, colorGroup].filter(Boolean).forEach(group => productOptions.appendChild(group));
+    productOptions.classList.toggle('is-hidden', previewOnly);
     garment.after(remeraVariant);
     remeraVariant.after(printMode);
     printMode.after(doubleNote);
@@ -5611,6 +5819,18 @@ function configureCatalogConversionModalLayout() {
     if (dorsoLabel) dorsoLabel.hidden = true;
     legacyHelpAction?.remove();
     dorso.style.display = 'none';
+    garment.querySelector('.option-label').textContent = previewOnly ? '1. Prenda:' : 'Prenda:';
+    colorGroup.querySelector('.option-label').textContent = previewOnly ? '2. Color de la prenda:' : 'Color:';
+    printMode.querySelector('.print-mode-title').textContent = previewOnly ? '3. Estampa:' : 'Elegí el tipo de estampa:';
+    sizeGroup.querySelector('.option-label').textContent = previewOnly ? '5. Talle:' : 'Talle:';
+    if (previewOnly) {
+        remeraVariant.after(colorGroup);
+        colorGroup.after(printMode);
+        printMode.after(dorso);
+        dorso.after(sizeGroup);
+        sizeGroup.after(price);
+        if (dorsoHelp) dorsoHelp.querySelector('strong').textContent = '4. ELEGÍ EL DORSO';
+    }
 }
 
 configureCatalogConversionModalLayout();
@@ -5914,7 +6134,7 @@ function getCatalogDesignFrontRefs(design) {
     });
     const colorRefs = frontRefs.flatMap(ref => (ref.colorPreviews || []).map(preview => ({
         ...ref,
-        image: preview.img,
+        image: normalizeBandLandingAssetPath(preview.img),
         previewLabel: preview.previewLabel || 'Remera blanca · Frente y dorso',
         alt: preview.alt || `${design.publicName} en remera blanca`,
         color: preview.color || 'blanco',
@@ -6030,7 +6250,10 @@ function openCatalogDesignPreview(designId, initialGarment = '', initialPrintMod
         previewIndex = currentModalSourceRefs.findIndex(ref => (
             String(ref.image || '').replace(/^\/+/, '') === normalizedPreviewImage
         ));
-        if (previewIndex >= 0) goToSlide(previewIndex, false);
+        if (previewIndex >= 0) {
+            goToSlide(previewIndex, false);
+            if (currentProduct?.carouselPreviewOnly) applyCatalogPreviewSelection(currentModalSourceRefs[previewIndex]);
+        }
     }
 
     const printMode = normalizeText(initialPrintMode);
@@ -6108,6 +6331,7 @@ function openModal(id, variantIndex = undefined, scopedVariantIndexes = undefine
     const product = db.find(p => p.id === canonicalProductId);
     if (!product || !isPublicProduct(product)) return;
     currentProduct = product;
+    configureCatalogConversionModalLayout(Boolean(product.carouselPreviewOnly));
     const adaptableNote = document.querySelector('.modal-adaptable-note');
     const previewReferenceNote = document.getElementById('modalPreviewReferenceNote');
     if (adaptableNote && !currentCatalogDesign) {
@@ -6420,6 +6644,7 @@ function openModal(id, variantIndex = undefined, scopedVariantIndexes = undefine
     }
 
     if (currentCatalogDesign) selectCatalogDesignPreviewForGarment(selectedModalGarment);
+    setupModalPurchaseFlow();
     modal.classList.add('active');
     // Adjuntar listeners del carrusel una vez el modal está listo
     attachCarouselListeners();
@@ -6983,13 +7208,14 @@ function onCarouselScroll() {
     if (newSlide !== currentSlide && newSlide >= 0 && newSlide <= maxSlide) {
         currentSlide = newSlide;
         const activeCatalogRef = currentModalSourceRefs[newSlide];
-        applyCatalogPreviewSelection(activeCatalogRef);
+        applyCatalogPreviewSelection(activeCatalogRef, true);
         resetModalImageZoom();
         updateModalInfo();
     }
 }
 
-function applyCatalogPreviewSelection(ref) {
+function applyCatalogPreviewSelection(ref, fromCarousel = false) {
+    if (fromCarousel && currentProduct?.carouselPreviewOnly) return;
     if (ref?.role === 'back' && normalizeText(currentCatalogDesign?.band) === 'slayer') {
         const choice = getCatalogDesignBackChoices().find(back => back.productId === ref.productId && back.variantIndex === ref.variantIndex);
         if (choice) {
@@ -7047,7 +7273,7 @@ function goToSlide(index, smooth = true) {
     const validIndex = Math.max(0, Math.min(index, images.length - 1));
     currentSlide = validIndex;
     const activeCatalogRef = currentModalSourceRefs[validIndex];
-    applyCatalogPreviewSelection(activeCatalogRef);
+    applyCatalogPreviewSelection(activeCatalogRef, true);
     resetModalImageZoom();
     
     // Calcular la posición de scroll
@@ -7201,7 +7427,7 @@ function updateModalInfo() {
     const activeVariantIndex = getActiveVariantIndex();
     const activeVariantName = images?.[currentSlide]?.name?.trim() || '';
     let displayName = currentCatalogDesign?.publicName || getProductDisplayName(currentProduct, activeVariantName);
-    if (currentCatalogDesign && selectedCatalogFrontRef?.selectionLabel) {
+    if (currentCatalogDesign && selectedCatalogFrontRef?.selectionLabel && !currentProduct.carouselPreviewOnly) {
         displayName = `${currentCatalogDesign.publicName} · ${selectedCatalogFrontRef.selectionLabel}`;
     }
     const slayerPreview = normalizeText(currentCatalogDesign?.band) === 'slayer' ? currentModalSourceRefs[currentSlide] : null;
@@ -7244,7 +7470,9 @@ function updateModalInfo() {
     updateModalPrices();
     
     document.getElementById('modalCounter').textContent = `${currentSlide + 1}/${images.length}`;
-    const shouldShowBadge = isDoubleByDefault(currentProduct) || DORSO_CATEGORIES.has(currentProduct.category);
+    const shouldShowBadge = currentProduct.carouselPreviewOnly
+        ? selectedPrintMode === 'double'
+        : isDoubleByDefault(currentProduct) || DORSO_CATEGORIES.has(currentProduct.category);
     document.getElementById('badgeDoble').style.display = shouldShowBadge ? 'block' : 'none';
     const variantNameEl = document.getElementById('variantName');
     if (variantNameEl) {
@@ -9422,6 +9650,14 @@ function consultCurrentDesign() {
 
 function addToCartFromModal() {
     if (!currentProduct) return false;
+
+    if (document.getElementById('modalPurchaseFlow')) {
+        const problem = getModalPurchaseProblem(3);
+        if (problem) {
+            setModalPurchaseStep(problem.step + 1);
+            return false;
+        }
+    }
 
     if (!validateModalSelectionsBeforeWhatsapp()) return false;
 
