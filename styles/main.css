@@ -8624,6 +8624,12 @@ body.band-landing-page[data-band="Iron Maiden"] #modal.catalog-design-modal .car
     border-radius: 10px;
 }
 
+#cartPreviewModal .modal-delivery-btn {
+    min-height: 44px;
+    font-size: 1rem;
+    line-height: 1.4;
+}
+
 .modal-delivery-btn.modal-delivery-free {
     border-color: rgba(57, 255, 20, 0.5);
 }
@@ -13960,15 +13966,39 @@ footer p {
     font-size: 1rem;
     font-weight: 600;
     color: var(--text);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    white-space: normal;
+    overflow-wrap: anywhere;
 }
 
 .cart-preview-item-variant {
     font-size: 0.85rem;
     color: var(--text-muted);
     margin-top: 2px;
+}
+
+@media (max-width: 600px) {
+    .cart-preview-item {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 44px;
+        gap: 10px;
+    }
+
+    .cart-preview-item-visuals {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    .cart-preview-item-info {
+        grid-column: 1 / -1;
+        grid-row: 2;
+    }
+
+    .cart-preview-item-remove {
+        grid-column: 2;
+        grid-row: 1;
+        width: 44px;
+        min-height: 44px;
+    }
 }
 
 .cart-preview-item-double {

@@ -4861,10 +4861,13 @@ function openPackWhatsapp(packName, packIncludes, packPrice) {
 // Mostrar notificación flotante
 function showNotification(text, duration = 2000) {
     const notification = document.createElement('div');
+    notification.setAttribute('role', 'status');
     notification.style.cssText = `
         position: fixed;
-        bottom: 20px;
+        top: calc(env(safe-area-inset-top, 0px) + 16px);
         right: 20px;
+        max-width: calc(100vw - 40px);
+        box-sizing: border-box;
         background: var(--magic-green);
         color: #000;
         padding: 12px 20px;
@@ -4872,6 +4875,7 @@ function showNotification(text, duration = 2000) {
         font-weight: 600;
         z-index: 10001;
         animation: slideIn 0.3s ease;
+        pointer-events: none;
     `;
     notification.textContent = text;
     document.body.appendChild(notification);
@@ -8853,7 +8857,23 @@ function loadShippingCustomerDataFromStorage() {
 
 function saveShippingCustomerDataToStorage(data) {
     try {
-        localStorage.setItem(SHIPPING_FORM_STORAGE_KEY, JSON.stringify(data || {}));
+        const saved = loadShippingCustomerDataFromStorage();
+        const next = { ...saved };
+        // Switching delivery forms must not erase fields that are temporarily hidden.
+        Object.entries(SHIPPING_FORM_FIELD_MAP).forEach(([key, inputId]) => {
+            if (document.getElementById(inputId)) next[key] = data?.[key] || '';
+        });
+        if (document.getElementById('inputNombre') && !document.getElementById('inputApellido')) {
+            const previousFullName = [saved.nombre, saved.apellido].filter(Boolean).join(' ');
+            if (data?.nombre === previousFullName) {
+                next.nombre = saved.nombre || '';
+                next.apellido = saved.apellido || '';
+            } else {
+                next.nombre = data?.nombre || '';
+                next.apellido = '';
+            }
+        }
+        localStorage.setItem(SHIPPING_FORM_STORAGE_KEY, JSON.stringify(next));
     } catch (error) {
         // Ignorar errores de storage para no romper el checkout
     }
@@ -8882,8 +8902,11 @@ function hydrateAndBindShippingForm() {
         const input = document.getElementById(inputId);
         if (!input) return;
 
-        if (saved[key]) {
-            input.value = String(saved[key]);
+        const value = key === 'nombre' && !document.getElementById('inputApellido')
+            ? [saved.nombre, saved.apellido].filter(Boolean).join(' ')
+            : saved[key];
+        if (value) {
+            input.value = String(value);
         }
 
         input.addEventListener('input', () => {
@@ -9095,7 +9118,7 @@ function closeCartPreview() {
     if (Number.isFinite(cartReturnScrollPosition)) {
         const returnPosition = cartReturnScrollPosition;
         cartReturnScrollPosition = null;
-        requestAnimationFrame(() => window.scrollTo(0, returnPosition));
+        requestAnimationFrame(() => window.scrollTo({ top: returnPosition, behavior: 'instant' }));
     }
 }
 
