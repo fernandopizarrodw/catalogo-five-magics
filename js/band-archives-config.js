@@ -1950,8 +1950,17 @@
             showSizeGuide: true,
             catalogNoteTitle: 'REMERAS HECHAS A PEDIDO',
             catalogNoteCopy: 'Eleg\u00ed tu dise\u00f1o, talle y estampa: solo frente o frente y dorso.',
+            sharedDesignIds: [
+                'cd-megadeth-1990-cte--p29',
+                'cd-megadeth-1990-rip--p29',
+                'cd-megadeth-1992-firma--p29',
+                'cd-megadeth-marty-bn--p29'
+            ],
             designOrder: [
                 'marty-friedman-scenes-34th-anniversary-buenos-aires-2026',
+                'marty-friedman-camiseta-argentina',
+                'marty-friedman-retrato-1992',
+                'marty-friedman-en-vivo-luces-rojas',
                 'marty-friedman-scenes-34th-anniversary-tour',
                 'marty-friedman-scenes-buenos-aires-2026-doble-estampa',
                 'marty-friedman-buenos-aires-2026-live',
@@ -1965,7 +1974,11 @@
                 'marty-friedman-simbolo',
                 'marty-friedman-band',
                 'marty-friedman-live',
-                'marty-friedman-live-smoke'
+                'marty-friedman-live-smoke',
+                'cd-megadeth-1990-cte--p29',
+                'cd-megadeth-1990-rip--p29',
+                'cd-megadeth-1992-firma--p29',
+                'cd-megadeth-marty-bn--p29'
             ],
             garments: [
                 { key: 'remera', title: 'REMERAS', price: 'Frontal $38.000 \u00b7 Doble $45.000', image: '/images/musicians/Marty_Friedman/TOUR 4.jpg', alt: 'Remera Marty Friedman Scenes 34th Anniversary Buenos Aires 2026' }

@@ -16,7 +16,10 @@ async function main() {
     assert.deepEqual(products.filter(p=>p.id!==7314),previous.filter(p=>p.id!==7314));
     const old = previous.find(p=>p.id===7314), current=products.find(p=>p.id===7314);
     for(let i=0;i<old.variants.length;i++){assert.equal(current.variants[i].img,old.variants[i].img);assert.equal(current.variants[i].name,old.variants[i].name);assert.equal(current.variants[i].designId,old.variants[i].designId);}
-    assert.equal(current.variants.length,old.variants.length+2);
+    assert.equal(current.variants[15].backTargetDesignId, designId);
+    assert.equal(current.variants[16].orderVariantIndex, 9);
+    const newDesigns = ['marty-friedman-retrato-1992', 'marty-friedman-camiseta-argentina', 'marty-friedman-en-vivo-luces-rojas'];
+    for (const id of newDesigns) assert.equal(current.variants.filter(v => v.designId === id).length, 1);
     const mime = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.css': 'text/css', '.json': 'application/json', '.jpg': 'image/jpeg', '.png': 'image/png', '.webp': 'image/webp' };
     const server = http.createServer((req, res) => {
         try {
@@ -72,6 +75,10 @@ async function main() {
                 await send('Emulation.setDeviceMetricsOverride',{width,height:1000,deviceScaleFactor:1,mobile:width<500});
                 await send('Page.navigate',{url:origin+page});
                 await waitFor('catalogDesigns.length>0&&document.querySelectorAll(".catalog-design-card").length>0');
+                if (page === '/marty-friedman/') {
+                    assert.equal(await evaluate('catalogDesigns.filter(isCatalogDesignInScope).length'), 22);
+                    assert.equal(await evaluate('catalogDesigns.filter(d => d.front.productId === 29 && isCatalogDesignInScope(d)).length'), 4);
+                }
                 assert.equal(await evaluate(`document.querySelectorAll('.catalog-design-card[data-design-id="${designId}"]').length`),1);
                 await evaluate(`document.querySelector('.catalog-design-card[data-design-id="${designId}"] .catalog-design-card-main').click()`);
                 const refs=await evaluate('currentModalSourceRefs.map(r=>({image:r.image,role:r.role}))');
@@ -97,10 +104,28 @@ async function main() {
                 }
                 assert(await evaluate('document.documentElement.scrollWidth<=innerWidth+1'),'Overflow '+width);
                 await evaluate('closeModal(false,false);cart.clearCart()');
+                for (const id of newDesigns) {
+                    assert.equal(await evaluate(`catalogDesigns.filter(d => d.designId === '${id}').length`), 1);
+                    await evaluate(`openCatalogDesign('${id}')`);
+                    for (const color of id === 'marty-friedman-retrato-1992' ? ['negro', 'blanco'] : ['negro']) {
+                        await evaluate(`selectRemeraVariant('hombre_clasica');selectPrintMode('simple');selectColor('${color}');selectSize('M');cart.clearCart()`);
+                        await waitFor('document.querySelectorAll(".carousel-slide img")[currentSlide]?.complete&&document.querySelectorAll(".carousel-slide img")[currentSlide]?.naturalWidth>0');
+                        if (id === 'marty-friedman-retrato-1992') {
+                            const src = await evaluate('document.querySelectorAll(".carousel-slide img")[currentSlide].src');
+                            assert(src.endsWith(color === 'blanco' ? '/Marty_1992_blanca.jpg' : '/Marty_1992_negra.jpg'), src);
+                        }
+                        const order = await evaluate('({added:addToCartFromModal(),summary:cart.generateSummary()})');
+                        assert(order.added, JSON.stringify(order));
+                        assert(order.summary.includes('* Precio: $38.000'), order.summary);
+                        assert(order.summary.includes('Solo frente'), order.summary);
+                        assert(order.summary.includes(color === 'blanco' ? 'Blanca' : 'Negra'), order.summary);
+                    }
+                    await evaluate('closeModal(false,false);cart.clearCart()');
+                }
             }
         }
         assert.deepEqual(errors, []); assert.deepEqual(failedAssets, []);
-        console.log(JSON.stringify({status:'PASS',designId,views:['front','back','double'],pages:['general','marty'],widths:[390,1440],prices:{classic:[38000,45000],oversize:[41000,48000]},cartWhatsapp:true,oldVariantsPreserved:true,errors,failedAssets}));
+        console.log(JSON.stringify({status:'PASS',designId,newDesigns,martyTotal:22,portraitBothColors:true,views:['front','back','double'],pages:['general','marty'],widths:[390,1440],prices:{classic:[38000,45000],oversize:[41000,48000]},cartWhatsapp:true,oldVariantsPreserved:true,errors,failedAssets}));
     } finally {
         if (send) await send('Browser.close').catch(() => {});
         socket?.close();

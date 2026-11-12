@@ -5317,8 +5317,8 @@ function renderDorsoSelector() {
         customSection.style.display = choices.length ? 'none' : 'block';
         variantsGrid.classList.add('catalog-design-dorso-grid');
         variantsGrid.innerHTML = `
-            <div class="catalog-design-dorso-heading"><b>${compactSuggestions ? 'DORSOS PARA ESTE DISE&Ntilde;O' : '2. ELEG&Iacute; EL DORSO'}</b><span>Busc&aacute; por nombre, tour o c&oacute;digo. Toc&aacute; VER GRANDE para revisarlo.</span></div>
-            <label class="catalog-design-dorso-search"><span>BUSCAR DORSO</span><input type="search" placeholder="Ej: Set List, Hurac&aacute;n o 7308.V4" oninput="filterCatalogDesignBacks(this.value)" autocomplete="off"></label>
+            <div class="catalog-design-dorso-heading"><b>${compactSuggestions ? 'DORSOS PARA ESTE DISE&Ntilde;O' : '2. ELEG&Iacute; EL DORSO'}</b><span>Toc&aacute; el dorso que te guste para elegirlo. Pod&eacute;s ampliarlo con VER DORSO GRANDE.</span></div>
+            <label class="catalog-design-dorso-search"><span>BUSCAR DORSO</span><input type="search" placeholder="Buscar dorso por nombre" oninput="filterCatalogDesignBacks(this.value)" autocomplete="off"></label>
             ${recommended.length ? `<div class="catalog-design-dorso-recommended"><p><b>${isEddieGaucho || hasTourRecommendation ? 'DORSO RECOMENDADO' : 'RECOMENDADOS PARA ESTE DISE&Ntilde;O'}</b><span>${isEddieGaucho ? 'La opci&oacute;n Buenos Aires 2026 completa este dise&ntilde;o.' : hasTourRecommendation ? 'Opciones pensadas para completar los dise&ntilde;os del tour.' : 'Opciones creadas para combinar con este frente.'}</span></p><div>${recommended.map(renderChoice).join('')}</div></div>` : ''}
             ${commemorative.length && !compactSuggestions ? `<div class="catalog-design-dorso-recommended catalog-design-dorso-commemorative"><p><b>DORSOS CONMEMORATIVOS · ARGENTINA 2026</b><span>Combinables con este frente.</span></p><div>${commemorative.map(renderChoice).join('')}</div></div>` : ''}
             ${historical.length ? (collapseHistoricalBacks

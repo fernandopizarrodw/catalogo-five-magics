@@ -79,6 +79,7 @@ async function main() {
             {page:'/iron-maiden/',product:7041,garment:'remera_clasica',color:'negro',mode:'double',price:45000},
             {page:'/slayer/',id:'slayer-3d-fmd-south-of-heaven-original-1988',garment:'remera_clasica',color:'negro',mode:'simple',price:38000},
             {page:'/slayer/',id:'slayer-3d-fmd-south-of-heaven-original-1988',garment:'remera_clasica',color:'negro',mode:'double',price:45000},
+            {page:'/slayer/',product:7101,garment:'remera_clasica',color:'negro',mode:'double',price:45000},
             {page:'/epica/',id:'epica-retrospect',garment:'remera_clasica',color:'negro',mode:'double',price:45000}
         ];
         for(const width of [390,1440]){
@@ -108,6 +109,10 @@ async function main() {
                 await evaluate('closeModalSizeGuide()');
                 await next();await step(3);
                 await click('[data-print-mode="'+test.mode+'"]');
+                if (test.mode === 'double') {
+                    const placeholder = await evaluate('document.querySelector(".catalog-design-dorso-search input")?.placeholder');
+                    if (placeholder) assert.equal(placeholder, 'Buscar dorso por nombre');
+                }
                 if(test.back){
                     await next();await step(3);
                     assert((await evaluate('document.querySelector(".purchase-flow-error").textContent')).includes('dorso'));
@@ -121,6 +126,13 @@ async function main() {
                     await click(selector);
                 }
                 await next();await step(4);
+                assert(await evaluate(`(() => {
+                    const indicators = document.getElementById('carouselDots');
+                    const tabs = [...indicators.querySelectorAll('.carousel-variant-tab')];
+                    if (!tabs.length || !indicators.offsetParent) return true;
+                    return indicators.getBoundingClientRect().top >= document.getElementById('carousel').getBoundingClientRect().bottom - 1
+                        && tabs.every(tab => tab.getBoundingClientRect().height >= 44 && tab.scrollWidth <= tab.clientWidth + 1);
+                })()`), 'Carousel labels must be readable below the mock, not over it');
                 assert(await evaluate('document.getElementById("btnBuyNow").getBoundingClientRect().width >= document.getElementById("modalOrderSummary").getBoundingClientRect().width * .95'),'Primary purchase button width');
                 assert((await evaluate('document.getElementById("modalPrice").textContent')).includes(test.price.toLocaleString('es-AR')));
                 if(test.back){

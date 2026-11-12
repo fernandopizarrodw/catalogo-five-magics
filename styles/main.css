@@ -8277,19 +8277,23 @@ header {
     background: var(--rust);
 }
 
-body.band-landing-page[data-band="Iron Maiden"] #modal.catalog-design-modal .carousel-indicators {
-    bottom: 14px;
-    max-width: calc(100% - 84px);
+#modal.catalog-design-modal .carousel-indicators {
+    position: static;
+    transform: none;
+    padding: 10px;
+    background: #080808;
     flex-wrap: wrap;
     justify-content: center;
     gap: 6px;
     z-index: 5;
 }
 
-body.band-landing-page[data-band="Iron Maiden"] #modal.catalog-design-modal .carousel-variant-tab {
+#modal.catalog-design-modal .carousel-variant-tab {
     width: auto;
     height: auto;
-    min-height: 34px;
+    min-height: 44px;
+    max-width: 100%;
+    overflow-wrap: anywhere;
     padding: 7px 10px;
     border: 1px solid rgba(255,255,255,.45);
     border-radius: 999px;
@@ -8299,7 +8303,7 @@ body.band-landing-page[data-band="Iron Maiden"] #modal.catalog-design-modal .car
     cursor: pointer;
 }
 
-body.band-landing-page[data-band="Iron Maiden"] #modal.catalog-design-modal .carousel-variant-tab.active {
+#modal.catalog-design-modal .carousel-variant-tab.active {
     border-color: #8fc7ee;
     color: #07111a;
     background: #8fc7ee;

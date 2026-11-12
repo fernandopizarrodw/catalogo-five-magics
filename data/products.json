@@ -3763,6 +3763,39 @@
         "autoSelectBack": "Dorso Introduction",
         "orderVariantIndex": 9,
         "modalOrder": 3
+      },
+      {
+        "img": "images/musicians/Marty_Friedman/Marty_1992_negra.jpg",
+        "name": "Marty Friedman · Retrato 1992",
+        "designId": "marty-friedman-retrato-1992",
+        "role": "front",
+        "color": "negro",
+        "defaultPrintMode": "simple",
+        "isNew": true,
+        "colorPreviews": [
+          {
+            "img": "images/musicians/Marty_Friedman/Marty_1992_blanca.jpg",
+            "color": "blanco",
+            "previewLabel": "Remera blanca · Solo frente",
+            "defaultPrintMode": "simple"
+          }
+        ]
+      },
+      {
+        "img": "images/musicians/Marty_Friedman/Marty_camiseta_argentina.jpg",
+        "name": "Marty Friedman · Camiseta Argentina",
+        "designId": "marty-friedman-camiseta-argentina",
+        "role": "front",
+        "defaultPrintMode": "simple",
+        "isNew": true
+      },
+      {
+        "img": "images/musicians/Marty_Friedman/marty_live.jpg",
+        "name": "Marty Friedman · En vivo · Luces rojas",
+        "designId": "marty-friedman-en-vivo-luces-rojas",
+        "role": "front",
+        "defaultPrintMode": "simple",
+        "isNew": true
       }
     ],
     "desc": "Colección especial Marty Friedman en Argentina: 34 años de Scenes, clásicos solistas, Cacophony y diseños para Buenos Aires 2026.",
