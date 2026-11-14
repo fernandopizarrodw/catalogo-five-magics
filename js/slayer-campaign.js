@@ -50,6 +50,23 @@
         selectBandLandingGarment('sin_mangas');
     });
     document.getElementById('slayerLaunchZoom')?.addEventListener('click', () => openZoom(image.src, image.alt));
+    document.querySelectorAll('[data-slayer-show-design]').forEach(link => {
+        link.addEventListener('click', event => {
+            if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+            event.preventDefault();
+            const designId = link.dataset.slayerShowDesign;
+            if (!catalogDesignById.has(designId)) {
+                showNotification('Estamos cargando los diseños. Probá de nuevo en un momento.', 2500);
+                return;
+            }
+            openCatalogDesign(designId, 'remera_clasica');
+            selectColor('negro');
+            const combination = currentModalSourceRefs.findIndex(ref =>
+                Number(ref.productId) === Number(link.dataset.showProduct)
+                && Number(ref.variantIndex) === Number(link.dataset.showVariant));
+            if (combination >= 0) goToSlide(combination, false);
+        });
+    });
     document.querySelectorAll('[data-slayer-3d-design]').forEach(link => {
         link.addEventListener('click', event => {
             event.preventDefault();

@@ -137,6 +137,19 @@ body[data-band="Slayer"] .band-landing-hero-art img {
 .slayer-3d-card:focus-visible, .slayer-3d-card:hover { border-color: #ef6451; }
 .slayer-3d .band-landing-primary-cta { max-width: 100%; box-sizing: border-box; text-align: center; }
 .slayer-outerwear { margin-top: 16px; }
+.slayer-show-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 20px; }
+.slayer-show-card { display: flex; flex-direction: column; min-width: 0; overflow: hidden; border: 1px solid #50302b; border-radius: 10px; background: #080808; color: #fff; text-decoration: none; }
+.slayer-show-card img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: contain; background: #080808; }
+.slayer-show-card h3 { margin: 14px 14px 8px; font: 600 1.15rem/1.35 "Oswald", sans-serif; }
+.slayer-show-card p { margin: 0 14px 14px; color: #ccc; font-size: .85rem; }
+.slayer-show-card span { display: flex; align-items: center; min-height: 44px; margin-top: auto; padding: 8px 14px; border-top: 1px solid #50302b; color: #ff806d; font: 600 .9rem "Oswald", sans-serif; }
+.slayer-show-card:hover, .slayer-show-card:focus-visible { border-color: #ef6451; outline: 2px solid #ef6451; outline-offset: 2px; }
+@media (max-width: 760px) {
+    .slayer-show-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 480px) {
+    .slayer-show-grid { grid-template-columns: minmax(0, 1fr); }
+}
 .slayer-outerwear summary { padding: 12px 0; cursor: pointer; font-family: "Oswald", sans-serif; color: #bdbdbd; }
 .slayer-outerwear .band-landing-garment-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 640px; margin: 8px 0; }
 .slayer-kreator { background: #0d0d0d; border-color: #343434; grid-template-columns: minmax(0, 1.5fr) minmax(0, .6fr); }
