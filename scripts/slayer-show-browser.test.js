@@ -60,6 +60,17 @@ async function main() {
             throw new Error(`Not ready: ${expression}`);
         };
         await send('Runtime.enable'); await send('Network.enable');
+        const click = async selector => {
+            const point = await evaluate(`(() => {
+                const node = document.querySelector(${JSON.stringify(selector)});
+                node.scrollIntoView({block:'center',behavior:'instant'});
+                const r=node.getBoundingClientRect(), x=r.x+r.width/2, y=r.y+r.height/2;
+                if(!node.contains(document.elementFromPoint(x,y))) throw new Error('Obstructed control '+${JSON.stringify(selector)}+' step='+document.getElementById('modalPurchaseFlow').dataset.step+' hit='+document.elementFromPoint(x,y)?.outerHTML.slice(0,200));
+                return {x,y};
+            })()`);
+            await send('Input.dispatchMouseEvent',{type:'mousePressed',button:'left',clickCount:1,...point});
+            await send('Input.dispatchMouseEvent',{type:'mouseReleased',button:'left',clickCount:1,...point});
+        };
 
         const expected = [
             {product:7101,variant:5,front:0,back:4,title:'Reign in Blood · Argentina 2026'},
@@ -86,6 +97,7 @@ async function main() {
             await waitFor('catalogDesigns.length>0 && document.readyState==="complete"');
             await pause(800);
             await checkAnchor();
+            await evaluate('window.auditEvents=[];window.gtag=(type,name,params)=>{if(type==="event")auditEvents.push({name,params})}');
             assert(await evaluate("document.querySelector('.band-landing-hero').compareDocumentPosition(document.getElementById('argentina-2026')) & Node.DOCUMENT_POSITION_FOLLOWING"));
             assert(await evaluate("document.getElementById('argentina-2026').compareDocumentPosition(document.getElementById('catalogoPrincipal')) & Node.DOCUMENT_POSITION_FOLLOWING"));
             assert.deepEqual(await evaluate("[...document.querySelectorAll('.slayer-show-card h3')].map(n=>n.textContent)"),expected.map(e=>e.title));
@@ -104,6 +116,22 @@ async function main() {
                 assert.equal(state.mode,'double');
                 const cardImage=await evaluate('document.querySelector('+JSON.stringify(selector+' img')+').getAttribute("src")');
                 assert.equal(state.view.replace(/^\//,''),cardImage.replace(/^\//,''));
+                assert.equal(await evaluate('document.querySelector(".purchase-flow-progress").textContent'),'Paso 1 de 3');
+                await click('[data-flow-action="next"]');
+                assert.equal(await evaluate('document.getElementById("modalPurchaseFlow").dataset.step'),'2');
+                await click('[data-flow-action="next"]');
+                assert.equal(await evaluate('document.getElementById("modalPurchaseFlow").dataset.step'),'2');
+                await click('#sizeSelector [data-size="M"]');
+                await click('[data-flow-action="next"]');
+                assert.equal(await evaluate('document.querySelector(".purchase-flow-progress").textContent'),'Paso 3 de 3');
+                assert(await evaluate(`document.querySelector('.purchase-flow-panel[data-step="3"]').hidden`));
+                await click('[data-flow-action="back"]');
+                assert.equal(await evaluate('document.getElementById("modalPurchaseFlow").dataset.step'),'2');
+                await click('[data-flow-action="next"]');
+                if(i===0){
+                    const review=await send('Page.captureScreenshot',{format:'png'});
+                    fs.writeFileSync(path.join(reports,'quick-review-'+width+'.png'),Buffer.from(review.data,'base64'));
+                }
                 for(const cut of ['hombre_clasica','mujer_clasica','oversize_unisex','sin_mangas']) {
                     await evaluate(cut==='sin_mangas'?"selectModalGarmentType('sin_mangas')":"selectRemeraVariant('"+cut+"')");
                     await evaluate("selectSize('M');cart.clearCart()");
@@ -115,8 +143,38 @@ async function main() {
                     assert.equal(order.item.backCode,order.backCode);
                     assert(order.summary.includes(cut==='oversize_unisex'?'$48.000':'$45.000'),order.summary);
                 }
+                await evaluate('setModalPurchaseStep(4)');
+                await click('.purchase-flow-edits button:nth-child(3)');
+                assert.equal(await evaluate('document.querySelector(".purchase-flow-progress").textContent'),'Paso 3 de 4');
+                if (i === 0) {
+                    await evaluate('selectCatalogDesignBack(7101,2)');
+                    await click('[data-flow-action="next"]');
+                    const changed = await evaluate('({added:addToCartFromModal(),item:cart.getCart().at(-1),code:cart.generateCode(7101,2)})');
+                    assert(changed.added);
+                    assert.equal(changed.item.backCode,changed.code);
+                    await click('.purchase-flow-edits button:nth-child(3)');
+                }
+                await evaluate("selectPrintMode('simple')");
+                await click('[data-flow-action="next"]');
+                assert.equal(await evaluate('selectedPrintMode'),'simple');
                 await evaluate('closeModal(false,false);cart.clearCart()');
             }
+            const events=await evaluate('auditEvents');
+            assert.equal(events.filter(e=>e.name==='design_open'&&e.params.purchase_route==='combination').length,5);
+            assert.equal(events.filter(e=>e.name==='purchase_step_view'&&e.params.step_name==='garment'&&e.params.purchase_route==='combination').length,5);
+            assert(events.some(e=>e.name==='purchase_step_view'&&e.params.step_name==='review'&&e.params.purchase_route==='combination'));
+            assert(events.some(e=>e.name==='add_to_cart'&&e.params.purchase_route==='combination'));
+            assert.equal(events.filter(e=>e.name==='combination_customize').length,5);
+            assert(events.some(e=>e.name==='purchase_modal_close'&&e.params.added_to_cart===true));
+            await evaluate("openCatalogDesign('cd-slayer-reign-in-blood--p7101')");
+            assert.equal(await evaluate('document.querySelector(".purchase-flow-progress").textContent'),'Paso 1 de 4');
+            assert(await evaluate('document.querySelector(".purchase-flow-preset").hidden'));
+            await evaluate('closeModal(false,false)');
+            await evaluate('document.querySelector("[data-slayer-view=double]").click();document.getElementById("slayerLaunchChoose").click()');
+            assert.equal(await evaluate('document.querySelector(".purchase-flow-progress").textContent'),'Paso 1 de 3');
+            assert.equal(await evaluate('selectedCatalogBackRef.variantIndex'),2);
+            await evaluate('closeModal(false,false)');
+            await pause(2200);
             await evaluate("document.getElementById('argentina-2026').scrollIntoView({behavior:'instant'})");
             assert(await evaluate('document.documentElement.scrollWidth<=innerWidth+1'),'Horizontal overflow');
             const shot=await send('Page.captureScreenshot',{format:'png'});
@@ -124,7 +182,7 @@ async function main() {
         }
         assert.deepEqual(errors,[]);
         assert.deepEqual(failedAssets,[]);
-        console.log(JSON.stringify({status:'PASS',cards:5,widths:[390,1440],anchorFreshAndReload:true,exactCombinations:true,cuts:['classicMen','classicWomen','oversize','sleeveless'],cartAndPrices:true,errors,failedAssets}));
+        console.log(JSON.stringify({status:'PASS',cards:5,widths:[390,1440],anchorFreshAndReload:true,exactCombinations:true,threeStepRoute:true,optionalBackChange:true,regularFourSteps:true,funnelEvents:true,cuts:['classicMen','classicWomen','oversize','sleeveless'],cartAndPrices:true,errors,failedAssets}));
     } finally {
         if (send) await send('Browser.close').catch(() => {});
         socket?.close();

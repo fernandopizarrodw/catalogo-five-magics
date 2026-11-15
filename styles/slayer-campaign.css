@@ -4,6 +4,9 @@ body[data-band="Slayer"] {
 }
 
 .slayer-header-chat { display: none; }
+.purchase-flow-preset:not([hidden]) { margin: 12px 0; padding: 12px; border: 1px solid #50302b; border-radius: 8px; }
+.purchase-flow-preset p { margin: 0 0 6px; font-size: .9rem; }
+.purchase-flow-preset button { min-height: 44px; padding: 8px 12px; background: #15100f; border: 1px solid #704039; border-radius: 6px; color: #fff; cursor: pointer; }
 
 body[data-band="Slayer"] .band-landing-hero {
     min-height: 0;

@@ -59,12 +59,13 @@
                 showNotification('Estamos cargando los diseños. Probá de nuevo en un momento.', 2500);
                 return;
             }
-            openCatalogDesign(designId, 'remera_clasica');
+            openCatalogDesign(designId, 'remera_clasica', 'argentina_2026');
             selectColor('negro');
             const combination = currentModalSourceRefs.findIndex(ref =>
                 Number(ref.productId) === Number(link.dataset.showProduct)
                 && Number(ref.variantIndex) === Number(link.dataset.showVariant));
             if (combination >= 0) goToSlide(combination, false);
+            enableSlayerCombinationPurchase();
         });
     });
     document.querySelectorAll('[data-slayer-3d-design]').forEach(link => {
@@ -75,7 +76,7 @@
                 showNotification('Estamos cargando los diseños. Probá de nuevo en un momento.', 2500);
                 return;
             }
-            openCatalogDesign(designId, 'remera_clasica');
+            openCatalogDesign(designId, 'remera_clasica', 'ediciones_3d');
         });
     });
     document.querySelector('[data-slayer-3d-collection]')?.addEventListener('click', event => {
@@ -101,7 +102,7 @@
             showNotification('Estamos cargando los diseños. Probá de nuevo en un momento.', 2500);
             return;
         }
-        openCatalogDesign(designId, style === 'sin_mangas' ? 'sin_mangas' : 'remera_clasica');
+        openCatalogDesign(designId, style === 'sin_mangas' ? 'sin_mangas' : 'remera_clasica', view !== 'front' ? 'launch_double' : 'launch_front');
         selectColor('negro');
         if (view !== 'front') {
             const backName = view === 'argentina' ? 'Dorso Reign in Blood · Argentina 2026' : 'Dorso Reign in Blood · Logo rojo';
@@ -109,6 +110,7 @@
             if (doubleIndex >= 0) goToSlide(doubleIndex, false);
             selectPrintMode('double');
             if (!selectedCatalogBackRef) selectCatalogDesignBack(7101, 2);
+            enableSlayerCombinationPurchase();
         } else {
             selectPrintMode('simple');
         }

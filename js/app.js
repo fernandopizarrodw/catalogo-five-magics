@@ -3103,7 +3103,8 @@ function getModalAnalyticsContext() {
         design_id: currentCatalogDesign?.designId || currentProduct.id,
         design_name: currentCatalogDesign?.publicName || currentProduct.name,
         garment: getSelectedModalGarmentType(),
-        print_mode: selectedPrintMode
+        print_mode: selectedPrintMode,
+        ...getSlayerPurchaseContext()
     };
 }
 
@@ -4925,6 +4926,7 @@ function openWhatsapp(message, source = 'general') {
     const finalMessage = (message && String(message).trim()) ? message : buildWhatsappFallbackMessage();
 
     trackCatalogEvent('whatsapp_click', {
+        ...getSlayerPurchaseContext(),
         event_category: 'engagement',
         event_label: source,
         band: currentCatalogDesign?.band || (currentProduct ? getCatalogBandLabel(currentProduct) : undefined),
@@ -5614,6 +5616,38 @@ function removeModalPurchaseFlow() {
     modal.classList.remove('guided-purchase-modal');
 }
 
+function getSlayerPurchaseContext() {
+    if (BAND_LANDING_BAND !== 'Slayer') return {};
+    const flow = document.getElementById('modalPurchaseFlow');
+    return {
+        purchase_route: flow?.dataset.purchaseRoute || 'custom',
+        entry_source: flow?.dataset.entrySource || 'catalog'
+    };
+}
+
+function trackSlayerPurchaseStep() {
+    if (BAND_LANDING_BAND !== 'Slayer') return;
+    const flow = document.getElementById('modalPurchaseFlow');
+    if (!flow?.dataset.entrySource) return;
+    const key = `${flow.dataset.purchaseRoute}:${flow.dataset.step}`;
+    if (flow.dataset.lastTrackedStep === key) return;
+    flow.dataset.lastTrackedStep = key;
+    trackCatalogEvent('purchase_step_view', {
+        ...getModalAnalyticsContext(),
+        step_name: ['garment', 'color_size', 'print_back', 'review'][Number(flow.dataset.step) - 1]
+    });
+}
+
+function enableSlayerCombinationPurchase() {
+    if (BAND_LANDING_BAND !== 'Slayer' || selectedPrintMode !== 'double' || !selectedCatalogBackRef) return;
+    const flow = document.getElementById('modalPurchaseFlow');
+    if (!flow) return;
+    flow.dataset.combination = 'true';
+    flow.dataset.purchaseRoute = 'combination';
+    setModalPurchaseStep(1, false);
+    trackSlayerPurchaseStep();
+}
+
 function getModalPurchaseProblem(throughStep) {
     if (!getAvailableModalGarmentTypes().includes(getSelectedModalGarmentType())) {
         return { step: 1, group: 'modalGarmentGroup', message: 'Elegí qué prenda querés.' };
@@ -5632,6 +5666,11 @@ function getModalPurchaseProblem(throughStep) {
 function setModalPurchaseStep(step, focus = true) {
     const flow = document.getElementById('modalPurchaseFlow');
     if (!flow) return;
+    if (step === 3 && flow.dataset.combination === 'true') {
+        flow.dataset.combination = 'false';
+        flow.dataset.purchaseRoute = 'custom';
+        trackCatalogEvent('combination_customize', getModalAnalyticsContext());
+    }
     const problem = step > 1 ? getModalPurchaseProblem(step - 1) : null;
     const activeStep = problem?.step || Math.max(1, Math.min(step, 4));
     flow.dataset.step = String(activeStep);
@@ -5639,7 +5678,9 @@ function setModalPurchaseStep(step, focus = true) {
         panel.hidden = Number(panel.dataset.step) !== activeStep;
     });
     const titles = ['Elegí la prenda', 'Elegí el color y el talle', 'Elegí la estampa', 'Revisá tu pedido'];
-    flow.querySelector('.purchase-flow-progress').textContent = `Paso ${activeStep} de 4`;
+    const steps = flow.dataset.combination === 'true' ? [1, 2, 4] : [1, 2, 3, 4];
+    flow.setAttribute('aria-label', `Configurá tu prenda en ${steps.length} pasos`);
+    flow.querySelector('.purchase-flow-progress').textContent = `Paso ${steps.indexOf(activeStep) + 1} de ${steps.length}`;
     const title = flow.querySelector('h3');
     title.textContent = titles[activeStep - 1];
     flow.querySelector('[data-flow-action="back"]').hidden = activeStep === 1;
@@ -5655,12 +5696,20 @@ function setModalPurchaseStep(step, focus = true) {
     } else if (focus) title.focus({ preventScroll: true });
     if (focus) flow.scrollIntoView({ behavior: 'instant', block: 'start' });
     updateModalPurchaseFlow();
+    if (focus) {
+        trackSlayerPurchaseStep();
+        if (problem && BAND_LANDING_BAND === 'Slayer') {
+            trackCatalogEvent('purchase_step_blocked', { ...getModalAnalyticsContext(), missing_choice: problem.group });
+        }
+    }
 }
 
 function updateModalPurchaseFlow() {
     const flow = document.getElementById('modalPurchaseFlow');
     if (!flow) return;
     const shownComposition = selectedPrintMode === 'double' && usesBandLandingShownComposition();
+    const preset = flow.querySelector('.purchase-flow-preset');
+    if (preset) preset.hidden = flow.dataset.combination !== 'true' || flow.dataset.step === '4' || selectedPrintMode !== 'double' || !selectedCatalogBackRef;
     const composition = flow.querySelector('.purchase-flow-composition');
     composition.hidden = !shownComposition;
     composition.textContent = shownComposition ? 'El frente y el dorso son los que se muestran en la imagen de este diseño.' : '';
@@ -5715,11 +5764,19 @@ function setupModalPurchaseFlow() {
     composition.className = 'purchase-flow-composition';
     composition.setAttribute('data-flow-only', '');
     flow.querySelector('[data-step="3"]').appendChild(composition);
+    if (BAND_LANDING_BAND === 'Slayer') {
+        const preset = document.createElement('div');
+        preset.className = 'purchase-flow-preset';
+        preset.hidden = true;
+        preset.innerHTML = '<p>Frente + dorso: la combinación que elegiste.</p><button type="button">Cambiar dorso o estampa</button>';
+        preset.querySelector('button').addEventListener('click', () => setModalPurchaseStep(3));
+        flow.appendChild(preset);
+    }
     const review = flow.querySelector('[data-step="4"]');
     const edits = document.createElement('div');
     edits.className = 'purchase-flow-edits';
     edits.setAttribute('data-flow-only', '');
-    ['Modificar prenda', 'Modificar color o talle', 'Modificar estampa'].forEach((label, index) => {
+    ['Modificar prenda', 'Modificar color o talle', BAND_LANDING_BAND === 'Slayer' ? 'Cambiar dorso o estampa' : 'Modificar estampa'].forEach((label, index) => {
         const button = document.createElement('button');
         button.type = 'button';
         button.textContent = label;
@@ -5742,7 +5799,14 @@ function setupModalPurchaseFlow() {
     nav.innerHTML = '<button type="button" data-flow-action="back">Volver</button><button type="button" data-flow-action="next">CONTINUAR</button>';
     nav.addEventListener('click', event => {
         const action = event.target.closest('[data-flow-action]')?.dataset.flowAction;
-        if (action) setModalPurchaseStep(Number(flow.dataset.step) + (action === 'next' ? 1 : -1));
+        if (action) {
+            if (flow.dataset.combination === 'true' && (selectedPrintMode !== 'double' || !selectedCatalogBackRef)) {
+                flow.dataset.combination = 'false';
+                flow.dataset.purchaseRoute = 'custom';
+            }
+            const steps = flow.dataset.combination === 'true' ? [1, 2, 4] : [1, 2, 3, 4];
+            setModalPurchaseStep(steps[steps.indexOf(Number(flow.dataset.step)) + (action === 'next' ? 1 : -1)]);
+        }
     });
     const help = document.createElement('button');
     help.type = 'button';
@@ -6189,17 +6253,29 @@ function renderModalDesignBadge(sourceIndex) {
     return badge ? `<span class="fmd-original-badge carousel-fmd-original-badge">${badge}</span>` : '';
 }
 
-function openCatalogDesign(designId, initialGarment = '') {
+function openCatalogDesign(designId, initialGarment = '', entrySource = 'catalog') {
     const design = catalogDesignById.get(designId);
     if (!design?.front || !isCatalogDesignInScope(design)) return;
     const requestedGarment = initialGarment || (isBandLandingMode() ? getBandLandingModalGarment() : '');
     trackCatalogEvent('design_open', {
+        ...(BAND_LANDING_BAND === 'Slayer' ? {
+            entry_source: entrySource,
+            purchase_route: ['argentina_2026', 'launch_double'].includes(entrySource) ? 'combination' : 'custom'
+        } : {}),
         band: design.band,
         design_id: design.designId,
         design_name: design.publicName,
         initial_garment: requestedGarment || undefined
     });
     openModal(design.front.productId, design.front.variantIndex, undefined, 'catalog_design', designId, requestedGarment);
+    if (BAND_LANDING_BAND === 'Slayer') {
+        const flow = document.getElementById('modalPurchaseFlow');
+        if (flow) {
+            flow.dataset.entrySource = entrySource;
+            flow.dataset.purchaseRoute = ['argentina_2026', 'launch_double'].includes(entrySource) ? 'combination' : 'custom';
+            if (flow.dataset.purchaseRoute === 'custom') trackSlayerPurchaseStep();
+        }
+    }
     const pendingBack = pendingCatalogBackRef && normalizeText(pendingCatalogBackRef.band) === normalizeText(design.band)
         ? getCatalogDesignBackChoices().find(ref => (
             Number(ref.productId) === Number(pendingCatalogBackRef.productId)
@@ -6721,6 +6797,14 @@ function restoreModalCatalogPosition(returnScrollPosition) {
 
 function closeModal(fromHistory = false, shouldRestorePosition = true) {
     if (!modal.classList.contains('active')) return;
+    if (BAND_LANDING_BAND === 'Slayer' && currentCatalogDesign) {
+        const flow = document.getElementById('modalPurchaseFlow');
+        trackCatalogEvent('purchase_modal_close', {
+            ...getModalAnalyticsContext(),
+            step_name: ['garment', 'color_size', 'print_back', 'review'][Number(flow?.dataset.step || 1) - 1],
+            added_to_cart: flow?.dataset.addedToCart === 'true'
+        });
+    }
     const returnScrollPosition = scrollPosition;
     const root = document.documentElement;
     const previousInlineScrollBehavior = root.style.scrollBehavior;
@@ -9085,6 +9169,7 @@ function sendViaWhatsapp(postalCode = '', customerData = null) {
 function openCartPreview(returnScrollPosition = null) {
     cartReturnScrollPosition = Number.isFinite(returnScrollPosition) ? returnScrollPosition : null;
     trackCatalogEvent('cart_open', {
+        ...getSlayerPurchaseContext(),
         cart_items: cart.getCart().length,
         band: currentCatalogDesign?.band || (currentProduct ? getCatalogBandLabel(currentProduct) : undefined),
         design_id: currentCatalogDesign?.designId
@@ -9765,8 +9850,11 @@ function addToCartFromModal() {
     const success = cart.addToCart(currentProduct.id, variantIndex, isDouble, options);
     
     if (success) {
+        const purchaseFlow = document.getElementById('modalPurchaseFlow');
+        if (purchaseFlow) purchaseFlow.dataset.addedToCart = 'true';
         const prices = resolveModalPriceConfig(currentProduct);
         trackCatalogEvent('add_to_cart', {
+            ...getSlayerPurchaseContext(),
             band: currentCatalogDesign?.band || getCatalogBandLabel(currentProduct),
             design_id: currentCatalogDesign?.designId,
             design_name: currentCatalogDesign?.publicName || currentProduct.name,
