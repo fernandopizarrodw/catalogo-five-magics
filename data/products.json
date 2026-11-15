@@ -11565,6 +11565,28 @@
         "previewLabel": "Referencia frente y dorso",
         "role": "back",
         "backTargetDesignId": "cd-epica-the-holographic-principle--p5016"
+      },
+      {
+        "img": "images/banda_sugeridas/epica/RETROSPECT.jpg",
+        "name": "Dorso Retrospect · Violín",
+        "selectionLabel": "Dorso Retrospect · Violín",
+        "previewLabel": "Referencia frente y dorso · Violín",
+        "role": "back",
+        "backTargetDesignId": "epica-retrospect"
+      },
+      {
+        "img": "images/banda_sugeridas/epica/RETROSPECT.jpg",
+        "name": "Epica Retrospect - Frente y dorso Violín",
+        "publicName": "Retrospect",
+        "designId": "epica-retrospect",
+        "selectionLabel": "Frente Retrospect",
+        "previewLabel": "Frente y dorso · Violín",
+        "role": "front",
+        "garmentCategory": "Bandas Sugeridas",
+        "defaultPrintMode": "double",
+        "autoSelectBack": "Dorso Retrospect · Violín",
+        "orderVariantIndex": 21,
+        "isNew": true
       }
     ],
     "desc": "Archivo EPICA Argentina 2027 con disenos disponibles en remera, hoodie y buzo cuello redondo segun variante. Tambien hacemos personalizados si no encontras el arte que buscas.",
@@ -29278,5 +29300,278 @@
         "autoSelectBack": "Dorso Fear of the Dark · Set List Argentina 2026"
       }
     ]
+  },
+  {
+    "id": 7339,
+    "designId": "slayer-god-hates-us-all-corona-de-espinas",
+    "name": "God Hates Us All · Corona de espinas",
+    "band": "Slayer",
+    "category": "Slayer",
+    "year": null,
+    "album": "God Hates Us All",
+    "tipoPrecio": "simple",
+    "defaultPrintMode": "simple",
+    "usesShownComposition": false,
+    "img": "images/slayer/frente/god_hates_us_all_frente.jpg",
+    "desc": "God Hates Us All · Corona de espinas. Disponible a pedido.",
+    "variants": [
+      {
+        "img": "images/slayer/frente/god_hates_us_all_frente.jpg",
+        "name": "God Hates Us All · Corona de espinas",
+        "selectionLabel": "Frente God Hates Us All · Corona de espinas",
+        "designId": "slayer-god-hates-us-all-corona-de-espinas",
+        "role": "front",
+        "color": "negro",
+        "defaultPrintMode": "simple",
+        "isNew": true
+      },
+      {
+        "img": "images/slayer/dobles/god_hates_us_all_doble.jpg",
+        "name": "Dorso God Hates Us All · Libro",
+        "selectionLabel": "Dorso God Hates Us All · Libro",
+        "role": "back",
+        "backTargetDesignId": "slayer-god-hates-us-all-corona-de-espinas"
+      },
+      {
+        "img": "images/slayer/dobles/god_hates_us_all_doble.jpg",
+        "name": "God Hates Us All · Corona de espinas - Frente y dorso",
+        "publicName": "God Hates Us All · Corona de espinas",
+        "designId": "slayer-god-hates-us-all-corona-de-espinas",
+        "role": "front",
+        "defaultPrintMode": "double",
+        "autoSelectBack": "Dorso God Hates Us All · Libro",
+        "orderVariantIndex": 0,
+        "previewLabel": "Frente y dorso"
+      }
+    ],
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Slayer Archive"
+    ],
+    "campaigns": [],
+    "tags": [
+      "Slayer",
+      "God Hates Us All · Corona de espinas",
+      "remera"
+    ],
+    "visibilityTier": "catalog",
+    "commercialPriority": 80,
+    "isNew": true
+  },
+  {
+    "id": 7340,
+    "designId": "slayer-logo-verde-calaveras-doradas",
+    "name": "Logo verde · Calaveras doradas",
+    "band": "Slayer",
+    "category": "Slayer",
+    "year": null,
+    "album": null,
+    "tipoPrecio": "simple",
+    "defaultPrintMode": "simple",
+    "usesShownComposition": false,
+    "img": "images/slayer/frente/slayer_green_logo.jpg",
+    "desc": "Logo verde · Calaveras doradas. Disponible a pedido.",
+    "variants": [
+      {
+        "img": "images/slayer/frente/slayer_green_logo.jpg",
+        "name": "Logo verde · Calaveras doradas",
+        "selectionLabel": "Frente Logo verde · Calaveras doradas",
+        "designId": "slayer-logo-verde-calaveras-doradas",
+        "role": "front",
+        "color": "negro",
+        "defaultPrintMode": "simple",
+        "isNew": true
+      }
+    ],
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Slayer Archive"
+    ],
+    "campaigns": [],
+    "tags": [
+      "Slayer",
+      "Logo verde · Calaveras doradas",
+      "remera"
+    ],
+    "visibilityTier": "catalog",
+    "commercialPriority": 80,
+    "isNew": true
+  },
+  {
+    "id": 7341,
+    "designId": "slayer-skull-rojo-logo-azul",
+    "name": "Skull rojo · Logo azul",
+    "band": "Slayer",
+    "category": "Slayer",
+    "year": null,
+    "album": null,
+    "tipoPrecio": "simple",
+    "defaultPrintMode": "simple",
+    "usesShownComposition": false,
+    "img": "images/slayer/frente/slayer_skull_logo.jpg",
+    "desc": "Skull rojo · Logo azul. Disponible a pedido.",
+    "variants": [
+      {
+        "img": "images/slayer/frente/slayer_skull_logo.jpg",
+        "name": "Skull rojo · Logo azul",
+        "selectionLabel": "Frente Skull rojo · Logo azul",
+        "designId": "slayer-skull-rojo-logo-azul",
+        "role": "front",
+        "color": "negro",
+        "defaultPrintMode": "simple",
+        "isNew": true
+      }
+    ],
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Slayer Archive"
+    ],
+    "campaigns": [],
+    "tags": [
+      "Slayer",
+      "Skull rojo · Logo azul",
+      "remera"
+    ],
+    "visibilityTier": "catalog",
+    "commercialPriority": 80,
+    "isNew": true
+  },
+  {
+    "id": 7342,
+    "designId": "slayer-soldier-en-llamas",
+    "name": "Soldier · En llamas",
+    "band": "Slayer",
+    "category": "Slayer",
+    "year": null,
+    "album": null,
+    "tipoPrecio": "simple",
+    "defaultPrintMode": "simple",
+    "usesShownComposition": false,
+    "img": "images/slayer/frente/slayer_soldier_logo.jpg",
+    "desc": "Soldier · En llamas. Disponible a pedido.",
+    "variants": [
+      {
+        "img": "images/slayer/frente/slayer_soldier_logo.jpg",
+        "name": "Soldier · En llamas",
+        "selectionLabel": "Frente Soldier · En llamas",
+        "designId": "slayer-soldier-en-llamas",
+        "role": "front",
+        "color": "negro",
+        "defaultPrintMode": "simple",
+        "isNew": true
+      }
+    ],
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Slayer Archive"
+    ],
+    "campaigns": [],
+    "tags": [
+      "Slayer",
+      "Soldier · En llamas",
+      "remera"
+    ],
+    "visibilityTier": "catalog",
+    "commercialPriority": 80,
+    "isNew": true
+  },
+  {
+    "id": 7343,
+    "designId": "pantera-dimebag-darrell-guitarra-naranja",
+    "name": "Dimebag Darrell · Guitarra naranja",
+    "band": "Pantera",
+    "category": "Pantera",
+    "year": null,
+    "album": null,
+    "tipoPrecio": "simple",
+    "defaultPrintMode": "simple",
+    "usesShownComposition": false,
+    "img": "images/pantera/dimebag_darrell_orange.jpg",
+    "desc": "Dimebag Darrell · Guitarra naranja. Disponible a pedido.",
+    "variants": [
+      {
+        "img": "images/pantera/dimebag_darrell_orange.jpg",
+        "name": "Dimebag Darrell · Guitarra naranja",
+        "selectionLabel": "Frente Dimebag Darrell · Guitarra naranja",
+        "designId": "pantera-dimebag-darrell-guitarra-naranja",
+        "role": "front",
+        "color": "negro",
+        "defaultPrintMode": "simple",
+        "isNew": true
+      }
+    ],
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Pantera Archive"
+    ],
+    "campaigns": [],
+    "tags": [
+      "Pantera",
+      "Dimebag Darrell · Guitarra naranja",
+      "remera"
+    ],
+    "visibilityTier": "catalog",
+    "commercialPriority": 80,
+    "isNew": true
+  },
+  {
+    "id": 7344,
+    "designId": "iron-maiden-a-matter-emblema-y-soldados",
+    "name": "A Matter of Life and Death · Emblema y soldados",
+    "band": "Iron Maiden",
+    "category": "Iron Maiden",
+    "year": "2006",
+    "album": "A Matter of Life and Death",
+    "tipoPrecio": "doble",
+    "defaultPrintMode": "double",
+    "usesShownComposition": false,
+    "img": "images/iron_maiden/iron_maiden_a_matter_v2.jpg",
+    "desc": "A Matter of Life and Death · Emblema y soldados. Disponible a pedido.",
+    "variants": [
+      {
+        "img": "images/iron_maiden/iron_maiden_a_matter_v2.jpg",
+        "name": "A Matter of Life and Death · Emblema y soldados",
+        "selectionLabel": "Frente Emblema A Matter of Life and Death",
+        "designId": "iron-maiden-a-matter-emblema-y-soldados",
+        "role": "front",
+        "color": "negro",
+        "defaultPrintMode": "double",
+        "isNew": true,
+        "autoSelectBack": "Dorso A Matter of Life and Death · Soldados",
+        "previewLabel": "Frente y dorso"
+      },
+      {
+        "img": "images/iron_maiden/iron_maiden_a_matter_v2.jpg",
+        "name": "Dorso A Matter of Life and Death · Soldados",
+        "selectionLabel": "Dorso A Matter of Life and Death · Soldados",
+        "role": "back",
+        "backTargetDesignId": "iron-maiden-a-matter-emblema-y-soldados"
+      }
+    ],
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Iron Maiden Archive"
+    ],
+    "campaigns": [],
+    "tags": [
+      "Iron Maiden",
+      "A Matter of Life and Death · Emblema y soldados",
+      "remera"
+    ],
+    "visibilityTier": "catalog",
+    "commercialPriority": 80,
+    "isNew": true
   }
 ]

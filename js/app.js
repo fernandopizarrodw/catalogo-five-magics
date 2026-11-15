@@ -127,6 +127,7 @@ function isBandLandingMode() {
 
 function usesBandLandingShownComposition() {
     if (selectedModalGarment === 'sin_mangas') return false;
+    if (currentCatalogDesign?.designId === 'epica-retrospect') return false;
     const isSlayerShirt = normalizeText(currentCatalogDesign?.band) === 'slayer'
         && !['hoodie', 'buzo'].includes(selectedModalGarment);
     if (isSlayerShirt && (currentCatalogDesign.backOptions?.length || currentCatalogDesign.front?.stylePreviews?.length || currentCatalogDesign.front?.garmentStyle === 'sin_mangas')) return false;

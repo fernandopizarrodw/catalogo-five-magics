@@ -30,6 +30,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/styles/main.css?v=purchase-steps-20261109">
     <link rel="stylesheet" href="/styles/band-landing.css">
+    <link rel="stylesheet" href="/styles/epica-feature.css?v=20261115">
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-1H3XPM82ED"></script>
     <script>
@@ -37,7 +38,7 @@
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
         gtag('config', 'G-1H3XPM82ED');
-        window.FMD_BAND_LANDING = Object.freeze({"band":"Epica","slug":"epica","defaultGarment":"hoodie","defaultCollection":"","usesShownComposition":true,"usesShownCompositionGarments":[],"collections":[],"designOrder":["cd-epica-the-phantom-agony--p5016","cd-epica-omega--p5016","cd-epica-the-holographic-principle--p5016"],"prominentAllDesigns":null,"retiredDesignIds":[],"curatedDesignCategories":{},"sharedDesignIds":[],"sharedBands":[],"albumOrder":[],"productionNotice":"","modalBackCarouselDesignIds":[],"suppressNewBadges":false,"cardImageOverrides":{},"editorialBadges":{},"showcase":null});
+        window.FMD_BAND_LANDING = Object.freeze({"band":"Epica","slug":"epica","defaultGarment":"remera","defaultCollection":"","usesShownComposition":true,"usesShownCompositionGarments":[],"collections":[],"designOrder":["cd-epica-the-phantom-agony--p5016","epica-retrospect","cd-epica-omega--p5016","cd-epica-the-holographic-principle--p5016"],"prominentAllDesigns":null,"retiredDesignIds":[],"curatedDesignCategories":{},"sharedDesignIds":[],"sharedBands":[],"albumOrder":[],"productionNotice":"","modalBackCarouselDesignIds":[],"suppressNewBadges":false,"cardImageOverrides":{},"editorialBadges":{},"showcase":null});
 
 
     </script>
@@ -92,6 +93,28 @@
 
 
 
+        <section class="band-featured-collection epica-retrospect" id="retrospect" aria-labelledby="epicaRetrospectTitle">
+            <div class="band-featured-collection-head">
+                <p>DESTACADO · EPICA</p>
+                <h2 id="epicaRetrospectTitle">RETROSPECT · DOS COMBINACIONES</h2>
+                <span>El mismo frente, dos dorsos para elegir. Clásica hombre o mujer, oversize y sin mangas.</span>
+            </div>
+            <div class="band-featured-collection-grid">
+                <a class="band-featured-collection-card" href="#diseno-epica-retrospect" onclick="openCatalogDesignPreview('epica-retrospect', 'remera_clasica', 'double', '/images/banda_sugeridas/epica/RETROSPECT.jpg'); return false;">
+                    <img src="/images/banda_sugeridas/epica/RETROSPECT.jpg" alt="Retrospect: frente aniversario y dorso con violín" width="1080" height="1350" loading="lazy" decoding="async">
+                    <strong>NUEVA COMBINACIÓN · DORSO VIOLÍN</strong>
+                    <span>ELEGIR ESTA COMBINACIÓN</span>
+                </a>
+                <a class="band-featured-collection-card" href="#diseno-epica-retrospect" onclick="openCatalogDesignPreview('epica-retrospect', 'remera_clasica', 'double', '/images/banda_sugeridas/epica/Epica_retrospect.jpg'); return false;">
+                    <img src="/images/banda_sugeridas/epica/Epica_retrospect.jpg" alt="Retrospect: frente aniversario y dorso con Simone Simons" width="1080" height="1350" loading="lazy" decoding="async">
+                    <strong>FRENTE + DORSO SIMONE SIMONS</strong>
+                    <span>ELEGIR ESTA COMBINACIÓN</span>
+                </a>
+            </div>
+            <p class="band-featured-collection-note">Elegí una combinación o cambiá el dorso desde la ficha.</p>
+            <a class="band-featured-collection-cta" href="#catalogoPrincipal">VER TODOS LOS DISEÑOS DE EPICA</a>
+        </section>
+
         <section class="july-shipping-promo purchase-volume-promo" aria-label="Promoción por cantidad">
             <p>ENVÍOS A TODO EL PAÍS 🇦🇷</p>
             <strong>SUMÁ PRENDAS <em>Y APROVECHÁ LOS BENEFICIOS</em></strong>
@@ -113,7 +136,7 @@
         <section class="band-landing-garment-selector" id="catalogoPrincipal" aria-label="Elegir prenda Epica">
             <div class="band-landing-garment-grid" role="tablist" aria-label="Prendas disponibles">
 
-                <button type="button" class="band-landing-garment-card active" data-band-landing-garment="hoodie" role="tab" aria-selected="true" onclick="selectBandLandingGarment('hoodie')">
+                <button type="button" class="band-landing-garment-card" data-band-landing-garment="hoodie" role="tab" aria-selected="false" onclick="selectBandLandingGarment('hoodie')">
                     <span class="band-landing-garment-media">
                         <img src="/images/banda_sugeridas/epica/hoodie_epica_the_phantom_agony.jpg" alt="Hoodie EPICA The Phantom Agony" loading="eager" decoding="async">
                     </span>
@@ -133,7 +156,7 @@
                         <span class="band-landing-garment-cta">VER DISEÑOS</span>
                     </span>
                 </button>
-                <button type="button" class="band-landing-garment-card" data-band-landing-garment="remera" role="tab" aria-selected="false" onclick="selectBandLandingGarment('remera')">
+                <button type="button" class="band-landing-garment-card active" data-band-landing-garment="remera" role="tab" aria-selected="true" onclick="selectBandLandingGarment('remera')">
                     <span class="band-landing-garment-media">
                         <img src="/images/banda_sugeridas/epica/remera_epica_aspiral.jpg" alt="Remera EPICA Aspiral" loading="lazy" decoding="async">
                     </span>
@@ -551,6 +574,6 @@
 
     <script src="/js/band-archives-config.js" defer></script>
     <script src="/js/catalog-design.js" defer></script>
-    <script src="/js/app.js?v=purchase-steps-20261109b" defer></script>
+    <script src="/js/app.js?v=epica-retrospect-20261115" defer></script>
 </body>
 </html>

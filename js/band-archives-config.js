@@ -144,7 +144,11 @@
                 'cd-slayer-fmd-originals--soldier-v2-graphic',
                 'cd-slayer-fmd-originals--soldiers',
                 'cd-slayer-fmd-originals--throne',
-                'cd-slayer-fmd-originals--throne-remera-blanca'
+                'cd-slayer-fmd-originals--throne-remera-blanca',
+                'slayer-god-hates-us-all-corona-de-espinas',
+                'slayer-logo-verde-calaveras-doradas',
+                'slayer-skull-rojo-logo-azul',
+                'slayer-soldier-en-llamas'
             ],
             garments: [
                 { key: 'remera', title: 'REMERAS', price: 'Desde $38.000', image: '/images/slayer/frente/slayer_reign_in_blood_frente.jpg', alt: 'Remera Slayer Reign in Blood' },
@@ -837,7 +841,8 @@
                 'iron-maiden-eddie-v1',
                 'iron-maiden-eddie-v2',
                 'iron-maiden-eddie-v3',
-                'iron-maiden-eddie-v4'
+                'iron-maiden-eddie-v4',
+                'iron-maiden-a-matter-emblema-y-soldados'
             ],
             suppressNewBadges: true,
             cardImageOverrides: {
@@ -1778,7 +1783,8 @@
                 'cd-pantera-snake-v2--p415',
                 'cd-pantera-mouth-for-war--p4194',
                 'cd-pantera-dimebag-fire--p6002',
-                'cd-pantera-pantera--p6008'
+                'cd-pantera-pantera--p6008',
+                'pantera-dimebag-darrell-guitarra-naranja'
             ],
             garments: [
                 { key: 'remera', title: 'REMERAS', price: 'Frontal $38.000 · Doble $45.000', image: '/images/pantera/remera_pantera_donington.jpg', alt: 'Remera Pantera Live From Donington 1994' },
@@ -1827,11 +1833,12 @@
             finalTitle: '¿BUSCABAS OTRO DISEÑO DE EPICA?',
             finalCopy: 'También hacemos diseños personalizados a partir de una tapa, imagen o idea.',
             whatsappMessage: 'Hola FMD! Quiero consultar por un diseño de EPICA a partir de una tapa, imagen o idea.',
-            defaultGarment: 'hoodie',
+            defaultGarment: 'remera',
             usesShownComposition: true,
             showSizeGuide: true,
             designOrder: [
                 'cd-epica-the-phantom-agony--p5016',
+                'epica-retrospect',
                 'cd-epica-omega--p5016',
                 'cd-epica-the-holographic-principle--p5016'
             ],
