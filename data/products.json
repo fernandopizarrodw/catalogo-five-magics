@@ -4026,6 +4026,20 @@
         "previewLabel": "Referencia sin mangas - Frente y dorso",
         "role": "back",
         "backTargetDesignId": "cd-pantera-dimebag-darrell-bn--p46"
+      },
+      {
+        "img": "images/doble más vendidos/DARRELL 4-5 IG DOBLE.jpg",
+        "name": "Dimebag Darrell - Frente y dorso",
+        "publicName": "Dimebag Darrell BN",
+        "selectionLabel": "Frente Dimebag Darrell",
+        "previewLabel": "Frente y dorso",
+        "role": "front",
+        "designId": "cd-pantera-dimebag-darrell-bn--p46",
+        "color": "negro",
+        "garmentCategory": "Pantera",
+        "orderVariantIndex": 0,
+        "defaultPrintMode": "double",
+        "autoSelectBack": "Dorso Dimebag Darrell · Firma y Pantera"
       }
     ]
   },
@@ -10738,6 +10752,20 @@
         "backTargetDesignId": "helloween-keeper-i-setlist-buenos-aires-2026",
         "garmentCategory": "Bandas Sugeridas",
         "isNew": true
+      },
+      {
+        "img": "images/doble más vendidos/KEEPER 1 4-5 IG DOBLE.jpg",
+        "name": "Keeper of the Seven Keys Part I - Frente y dorso",
+        "publicName": "Keeper of the Seven Keys Part I",
+        "selectionLabel": "Frente Keeper of the Seven Keys Part I",
+        "previewLabel": "Frente y dorso",
+        "role": "front",
+        "designId": "helloween-keeper-of-the-seven-keys-part-i",
+        "color": "negro",
+        "garmentCategory": "Bandas Sugeridas",
+        "orderVariantIndex": 21,
+        "defaultPrintMode": "double",
+        "autoSelectBack": "Dorso Keeper of the Seven Keys Part I"
       }
     ],
     "desc": "Selección de diseños de Helloween disponibles en remeras, hoodies y buzos.",
@@ -11587,6 +11615,20 @@
         "autoSelectBack": "Dorso Retrospect · Violín",
         "orderVariantIndex": 21,
         "isNew": true
+      },
+      {
+        "img": "images/doble más vendidos/EPICA - 4-5 IG DOBLE.jpg",
+        "name": "The Phantom Agony - Frente y dorso",
+        "publicName": "The Phantom Agony",
+        "selectionLabel": "Frente The Phantom Agony",
+        "previewLabel": "Frente y dorso",
+        "role": "front",
+        "designId": "cd-epica-the-phantom-agony--p5016",
+        "color": "negro",
+        "garmentCategory": "Bandas Sugeridas",
+        "orderVariantIndex": 8,
+        "defaultPrintMode": "double",
+        "autoSelectBack": "Dorso The Phantom Agony · Logo Epica"
       }
     ],
     "desc": "Archivo EPICA Argentina 2027 con disenos disponibles en remera, hoodie y buzo cuello redondo segun variante. Tambien hacemos personalizados si no encontras el arte que buscas.",
@@ -11774,6 +11816,28 @@
         "orderVariantIndex": 8,
         "preferredPreview": true,
         "modalOrder": -20
+      },
+      {
+        "img": "images/doble más vendidos/DOWN OF VIC-4-5 IG DOBLE.jpg",
+        "name": "Dorso Dawn of Victory · Dragón",
+        "selectionLabel": "Dorso Dawn of Victory · Dragón",
+        "previewLabel": "Referencia frente y dorso",
+        "role": "back",
+        "backTargetDesignId": "cd-rhapsody-dawn-of-victory--p5083"
+      },
+      {
+        "img": "images/doble más vendidos/DOWN OF VIC-4-5 IG DOBLE.jpg",
+        "name": "Dawn of Victory - Frente y dorso",
+        "publicName": "Dawn of Victory",
+        "selectionLabel": "Frente Dawn of Victory",
+        "previewLabel": "Frente y dorso",
+        "role": "front",
+        "designId": "cd-rhapsody-dawn-of-victory--p5083",
+        "color": "negro",
+        "garmentCategory": "Bandas Sugeridas",
+        "orderVariantIndex": 0,
+        "defaultPrintMode": "double",
+        "autoSelectBack": "Dorso Dawn of Victory · Dragón"
       }
     ],
     "desc": "Archivo Rhapsody Argentina 2027 con disenos disponibles en remera, hoodie y buzo cuello redondo segun variante. Tambien se puede pedir personalizado o adaptar a otras prendas.",
@@ -12545,6 +12609,20 @@
             "previewLabel": "Frente + dorso Angel of Death · Letra · Sin mangas"
           }
         ]
+      },
+      {
+        "img": "images/doble más vendidos/doble con fecha en arg.jpg",
+        "name": "Angel of Death · Buenos Aires - Frente y dorso",
+        "publicName": "Angel of Death · Buenos Aires",
+        "selectionLabel": "Frente Angel of Death · FMD",
+        "previewLabel": "Frente y dorso",
+        "role": "front",
+        "designId": "cd-slayer-fmd-originals--angel-of-death",
+        "color": "negro",
+        "garmentCategory": "Slayer",
+        "orderVariantIndex": 0,
+        "defaultPrintMode": "double",
+        "autoSelectBack": "Dorso Reign in Blood · Buenos Aires 2026"
       }
     ],
     "desc": "Card especial con artes originales y reinterpretaciones exclusivas FMD del universo Slayer. Carrusel por prenda: remeras, hoodies y buzos cuello redondo.",
@@ -12915,6 +12993,38 @@
         "garmentCategory": "Slayer",
         "defaultPrintMode": "simple",
         "designId": "cd-slayer-reign-in-blood-argentina-2026--p7101"
+      },
+      {
+        "img": "images/slayer/frente/reign_in_blood_v2.jpg",
+        "name": "Reign in Blood · Goat",
+        "publicName": "Reign in Blood · Goat",
+        "selectionLabel": "Frente Reign in Blood · Goat",
+        "role": "front",
+        "designId": "cd-slayer-reign-in-blood--p7101",
+        "color": "negro",
+        "defaultPrintMode": "simple"
+      },
+      {
+        "img": "images/doble más vendidos/goat 4-5 IG DOBLE.jpg",
+        "name": "Dorso Reign in Blood · Goat",
+        "selectionLabel": "Dorso Reign in Blood · Goat",
+        "previewLabel": "Referencia frente y dorso",
+        "role": "back",
+        "backTargetDesignId": "cd-slayer-reign-in-blood--p7101"
+      },
+      {
+        "img": "images/doble más vendidos/goat 4-5 IG DOBLE.jpg",
+        "name": "Reign in Blood · Goat - Frente y dorso",
+        "publicName": "Reign in Blood · Goat",
+        "selectionLabel": "Frente Reign in Blood · Goat",
+        "previewLabel": "Frente y dorso",
+        "role": "front",
+        "designId": "cd-slayer-reign-in-blood--p7101",
+        "color": "negro",
+        "garmentCategory": "Slayer",
+        "orderVariantIndex": 7,
+        "defaultPrintMode": "double",
+        "autoSelectBack": "Dorso Reign in Blood · Goat"
       }
     ],
     "desc": "SLAYER - REIGN IN BLOOD 40TH ANNIVERSARY 2026. Archivo Slayer FMD. Disponible en remera, hoodie y buzo cuello redondo.",
@@ -13744,6 +13854,28 @@
       {
         "img": "images/banda_sugeridas/testament/testament_brootherhood_of_the_snake.jpg",
         "name": "Brotherhood of the Snake"
+      },
+      {
+        "img": "images/doble más vendidos/TESTAMENT 4-5 IG DOBLE.jpg",
+        "name": "Dorso Brotherhood of the Snake",
+        "selectionLabel": "Dorso Brotherhood of the Snake",
+        "previewLabel": "Referencia frente y dorso",
+        "role": "back",
+        "backTargetDesignId": "cd-testament-brotherhood-of-the-snake--p5123"
+      },
+      {
+        "img": "images/doble más vendidos/TESTAMENT 4-5 IG DOBLE.jpg",
+        "name": "Brotherhood of the Snake - Frente y dorso",
+        "publicName": "Brotherhood of the Snake",
+        "selectionLabel": "Frente Brotherhood of the Snake",
+        "previewLabel": "Frente y dorso",
+        "role": "front",
+        "designId": "cd-testament-brotherhood-of-the-snake--p5123",
+        "color": "negro",
+        "garmentCategory": "Bandas Sugeridas",
+        "orderVariantIndex": 3,
+        "defaultPrintMode": "double",
+        "autoSelectBack": "Dorso Brotherhood of the Snake"
       }
     ],
     "desc": "Testament - Thrash metal legendario con 4 diseÃ±os de sus Ã¡lbumes clÃ¡sicos.",
@@ -21307,6 +21439,28 @@
         "orderVariantIndex": 4,
         "preferredPreview": true,
         "modalOrder": -20
+      },
+      {
+        "img": "images/doble más vendidos/KREATOR 4-5 IG DOBLE.jpg",
+        "name": "Dorso Pleasure to Kill · Logo rojo",
+        "selectionLabel": "Dorso Pleasure to Kill · Logo rojo",
+        "previewLabel": "Referencia frente y dorso",
+        "role": "back",
+        "backTargetDesignId": "cd-kreator-pleasure--p5091"
+      },
+      {
+        "img": "images/doble más vendidos/KREATOR 4-5 IG DOBLE.jpg",
+        "name": "Pleasure to Kill - Frente y dorso",
+        "publicName": "Pleasure to Kill",
+        "selectionLabel": "Frente Pleasure to Kill",
+        "previewLabel": "Frente y dorso",
+        "role": "front",
+        "designId": "cd-kreator-pleasure--p5091",
+        "color": "negro",
+        "garmentCategory": "Bandas Sugeridas",
+        "orderVariantIndex": 6,
+        "defaultPrintMode": "double",
+        "autoSelectBack": "Dorso Pleasure to Kill · Logo rojo"
       }
     ],
     "desc": "Kreator en remeras para sumar al archivo de más bandas. Diseños disponibles a pedido y adaptables a hoodie o buzo por WhatsApp.",
@@ -23690,6 +23844,28 @@
         "orderVariantIndex": 3,
         "preferredPreview": true,
         "modalOrder": -20
+      },
+      {
+        "img": "images/doble más vendidos/SONATA - 4-5 IG DOBLE.jpg",
+        "name": "Dorso Ecliptica · Logo Sonata Arctica",
+        "selectionLabel": "Dorso Ecliptica · Logo Sonata Arctica",
+        "previewLabel": "Referencia frente y dorso",
+        "role": "back",
+        "backTargetDesignId": "sonata-arctica-ecliptica"
+      },
+      {
+        "img": "images/doble más vendidos/SONATA - 4-5 IG DOBLE.jpg",
+        "name": "Ecliptica - Frente y dorso",
+        "publicName": "Ecliptica",
+        "selectionLabel": "Frente Ecliptica",
+        "previewLabel": "Frente y dorso",
+        "role": "front",
+        "designId": "sonata-arctica-ecliptica",
+        "color": "negro",
+        "garmentCategory": "Bandas Sugeridas",
+        "orderVariantIndex": 0,
+        "defaultPrintMode": "double",
+        "autoSelectBack": "Dorso Ecliptica · Logo Sonata Arctica"
       }
     ],
     "desc": "Diseños de Sonata Arctica disponibles en remeras, hoodies y buzos.",
@@ -25263,6 +25439,20 @@
         "selectionLabel": "Dorso The Trooper · Eddie",
         "role": "back",
         "backTargetDesignId": "iron-maiden-the-trooper-classic"
+      },
+      {
+        "img": "images/doble más vendidos/frente y dorso 4-5 IG DOBLE.jpg",
+        "name": "The Trooper - Frente y dorso",
+        "publicName": "The Trooper",
+        "selectionLabel": "Frente The Trooper",
+        "previewLabel": "Frente y dorso",
+        "role": "front",
+        "designId": "iron-maiden-the-trooper-classic",
+        "color": "negro",
+        "garmentCategory": "Iron Maiden",
+        "orderVariantIndex": 0,
+        "defaultPrintMode": "double",
+        "autoSelectBack": "Dorso The Trooper · Eddie"
       }
     ],
     "garments": [
@@ -25476,6 +25666,20 @@
         "backTargetDesignId": "iron-maiden-eddie-tanguero-original-fmd",
         "carouselPreview": true,
         "modalOrder": 2
+      },
+      {
+        "img": "images/doble más vendidos/1(1).jpg",
+        "name": "Eddie Tanguero - Frente y dorso",
+        "publicName": "Eddie Tanguero",
+        "selectionLabel": "Frente Eddie Tanguero",
+        "previewLabel": "Frente y dorso",
+        "role": "front",
+        "designId": "iron-maiden-eddie-tanguero-original-fmd",
+        "color": "negro",
+        "garmentCategory": "Iron Maiden",
+        "orderVariantIndex": 0,
+        "defaultPrintMode": "double",
+        "autoSelectBack": "Dorso Eddie Tanguero · Buenos Aires 2026"
       }
     ],
     "garments": [
@@ -25920,6 +26124,20 @@
         "fmdBadge": "ORIGINAL FMD",
         "fmdBadgeDescription": "Tercer capítulo de la saga Eddies Argentinos creada por Five Magics Designs.",
         "publicName": "Eddie en Huracán"
+      },
+      {
+        "img": "images/doble más vendidos/Frente + dorso juntos.jpg",
+        "name": "Eddie en Huracán - Frente y dorso",
+        "publicName": "Eddie en Huracán",
+        "selectionLabel": "Frente Eddie en Huracán",
+        "previewLabel": "Frente y dorso",
+        "role": "front",
+        "designId": "iron-maiden-eddie-huracan-original-fmd",
+        "color": "negro",
+        "garmentCategory": "Iron Maiden",
+        "orderVariantIndex": 0,
+        "defaultPrintMode": "double",
+        "autoSelectBack": "Dorso Eddie en Huracán · Buenos Aires 2026"
       }
     ],
     "garments": [
@@ -27422,6 +27640,20 @@
         "modalOrder": 4,
         "fmdBadge": "ORIGINAL FMD",
         "fmdBadgeDescription": "Diseño original creado por Five Magics Designs para Buenos Aires 2026."
+      },
+      {
+        "img": "images/doble más vendidos/EDDIARG4-5 IG DOBLE.jpg",
+        "name": "Eddie Argentina · Estadio Huracán - Frente y dorso",
+        "publicName": "Eddie Argentina · Estadio Huracán",
+        "selectionLabel": "Frente Eddie Argentina · Estadio Huracán",
+        "previewLabel": "Frente y dorso",
+        "role": "front",
+        "designId": "iron-maiden-eddie-argentina-estadio-huracan-fmd",
+        "color": "negro",
+        "garmentCategory": "Iron Maiden",
+        "orderVariantIndex": 0,
+        "defaultPrintMode": "double",
+        "autoSelectBack": "Dorso Eddie Argentina · Estadio Huracán"
       }
     ],
     "garments": ["remera", "hoodie", "buzo_cuello_redondo"],
@@ -27560,6 +27792,20 @@
         "modalOrder": 3,
         "fmdBadge": "ORIGINAL FMD",
         "fmdBadgeDescription": "Diseño original creado por Five Magics Designs para Argentina 2026."
+      },
+      {
+        "img": "images/doble más vendidos/OTRA ALTERNATIVA PARA LA DOBLE POST.jpg",
+        "name": "Los 4 Jinetes del Apocalipsis - Frente y dorso",
+        "publicName": "Eddie · Los 4 Jinetes del Apocalipsis",
+        "selectionLabel": "Frente Los 4 Jinetes del Apocalipsis",
+        "previewLabel": "Frente y dorso",
+        "role": "front",
+        "designId": "iron-maiden-eddie-cuatro-jinetes-del-apocalipsis-original-fmd",
+        "color": "negro",
+        "garmentCategory": "Iron Maiden",
+        "orderVariantIndex": 0,
+        "defaultPrintMode": "double",
+        "autoSelectBack": "Dorso Los 4 Jinetes del Apocalipsis"
       }
     ],
     "garments": ["remera", "hoodie", "buzo_cuello_redondo"],
@@ -29572,6 +29818,42 @@
     ],
     "visibilityTier": "catalog",
     "commercialPriority": 80,
+    "isNew": true
+  },
+  {
+    "id": 7345,
+    "visibilityTier": "catalog",
+    "commercialPriority": 80,
+    "designId": "iron-maiden-new-zealand-tour-2026",
+    "name": "New Zealand Tour 2026",
+    "band": "Iron Maiden",
+    "category": "Iron Maiden",
+    "tipoPrecio": "simple",
+    "defaultPrintMode": "double",
+    "usesShownComposition": false,
+    "img": "images/doble más vendidos/DOBLE NEW ZEALAND.jpg",
+    "variants": [
+      {
+        "img": "images/doble más vendidos/DOBLE NEW ZEALAND.jpg",
+        "name": "New Zealand Tour 2026",
+        "designId": "iron-maiden-new-zealand-tour-2026",
+        "role": "front",
+        "color": "negro",
+        "defaultPrintMode": "double",
+        "autoSelectBack": "Dorso New Zealand · Auckland 2026"
+      },
+      {
+        "img": "images/doble más vendidos/DOBLE NEW ZEALAND.jpg",
+        "name": "Dorso New Zealand · Auckland 2026",
+        "selectionLabel": "Dorso New Zealand · Auckland 2026",
+        "previewLabel": "Referencia frente y dorso",
+        "role": "back",
+        "backTargetDesignId": "iron-maiden-new-zealand-tour-2026"
+      }
+    ],
+    "garments": [
+      "remera"
+    ],
     "isNew": true
   }
 ]

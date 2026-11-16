@@ -4327,6 +4327,7 @@ async function loadProducts() {
         renderBandDesignShowcase();
         renderHomeNews();
         window.FMDHomeSleeveless?.render();
+        window.FMDHomeCombinations?.render();
         renderMaidenWhiteShirts();
         loadProductFromHash(); // Abrir producto desde URL hash si existe
         loadCategoryFromURL();  // Ir a categoría desde ?cat= si existe
@@ -5765,7 +5766,7 @@ function setupModalPurchaseFlow() {
     composition.className = 'purchase-flow-composition';
     composition.setAttribute('data-flow-only', '');
     flow.querySelector('[data-step="3"]').appendChild(composition);
-    if (BAND_LANDING_BAND === 'Slayer') {
+    if (BAND_LANDING_BAND === 'Slayer' || document.getElementById('homeCombinationsGrid')) {
         const preset = document.createElement('div');
         preset.className = 'purchase-flow-preset';
         preset.hidden = true;
