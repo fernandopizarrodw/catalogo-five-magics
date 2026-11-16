@@ -29831,10 +29831,10 @@
     "tipoPrecio": "simple",
     "defaultPrintMode": "double",
     "usesShownComposition": false,
-    "img": "images/doble más vendidos/DOBLE NEW ZEALAND.jpg",
+    "img": "images/iron_maiden/iron_maiden_new_zealand_doble_estampa.jpg",
     "variants": [
       {
-        "img": "images/doble más vendidos/DOBLE NEW ZEALAND.jpg",
+        "img": "images/iron_maiden/iron_maiden_new_zealand_doble_estampa.jpg",
         "name": "New Zealand Tour 2026",
         "designId": "iron-maiden-new-zealand-tour-2026",
         "role": "front",
@@ -29843,7 +29843,7 @@
         "autoSelectBack": "Dorso New Zealand · Auckland 2026"
       },
       {
-        "img": "images/doble más vendidos/DOBLE NEW ZEALAND.jpg",
+        "img": "images/iron_maiden/iron_maiden_new_zealand_doble_estampa.jpg",
         "name": "Dorso New Zealand · Auckland 2026",
         "selectionLabel": "Dorso New Zealand · Auckland 2026",
         "previewLabel": "Referencia frente y dorso",
@@ -29855,5 +29855,42 @@
       "remera"
     ],
     "isNew": true
+  },
+  {
+    "id": 7346,
+    "visibilityTier": "catalog",
+    "commercialPriority": 82,
+    "designId": "testament-argentina-2026",
+    "name": "Testament · Argentina 2026",
+    "band": "Testament",
+    "category": "Bandas Sugeridas",
+    "year": "2026",
+    "tipoPrecio": "simple",
+    "defaultPrintMode": "simple",
+    "usesShownComposition": false,
+    "img": "images/banda_sugeridas/testament/testament_flayer_argentina.jpg",
+    "desc": "Testament · Latin America Tour 2026 · Buenos Aires. Disponible a pedido.",
+    "garments": [
+      "remera"
+    ],
+    "collections": [
+      "Testament Archive"
+    ],
+    "tags": [
+      "Testament",
+      "Argentina 2026",
+      "Thrash Metal"
+    ],
+    "isNew": true,
+    "variants": [
+      {
+        "img": "images/banda_sugeridas/testament/testament_flayer_argentina.jpg",
+        "name": "Testament · Argentina 2026",
+        "selectionLabel": "Frente Testament · Argentina 2026",
+        "role": "front",
+        "color": "negro",
+        "defaultPrintMode": "simple"
+      }
+    ]
   }
 ]
