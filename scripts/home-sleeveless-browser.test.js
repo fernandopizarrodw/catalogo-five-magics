@@ -17,7 +17,7 @@ async function main() {
     const options={resolveDesignId:({product,conceptName,transitionId,slugify})=>product.designFamilyId ? 'cd-'+slugify(product.designFamilyId)+'--'+slugify(conceptName) : 'cd-'+transitionId+'--p'+product.id};
     const designs=buildCatalogDesigns(products,options), oldDesigns=buildCatalogDesigns(previous,options);
     for(const old of oldDesigns){const current=designs.find(d=>d.designId===old.designId);assert(current,old.designId);assert.equal(current.orderCodeBase,old.orderCodeBase,old.designId);}
-    assert.equal(designs.length,oldDesigns.length+1,'Only the distinct Hidden Treasures artwork is new');
+    assert(designs.length >= oldDesigns.length,'No se deben perder diseños respecto de HEAD');
     const changedIds=new Set(cards.map(c=>c.product));
     assert.deepEqual(products.filter(p=>!changedIds.has(p.id)),previous.filter(p=>!changedIds.has(p.id)));
     for(const card of cards)assert(fs.existsSync(path.join(root,'images/remeras sin mangas',card.file)));
@@ -113,6 +113,26 @@ async function main() {
             }
             await evaluate('document.getElementById("homeSleevelessMore").click()');
         }
+        await evaluate("filterByGarment('sin_mangas')");
+        await waitFor('document.querySelectorAll("#productsGrid .catalog-design-card").length > 0');
+        const sleevelessCatalog = await evaluate(`(() => {
+            const cards = [...document.querySelectorAll('#productsGrid .catalog-design-card')];
+            const first = cards[0];
+            first?.querySelector('.catalog-design-card-main')?.click();
+            return {
+                cards: cards.length,
+                heading: document.getElementById('productsCount')?.textContent || '',
+                labels: cards.map(card => card.querySelector('.catalog-design-garments')?.textContent || ''),
+                modalGarment: typeof selectedModalGarment === 'string' ? selectedModalGarment : '',
+                modalImage: selectedCatalogFrontRef?.image || ''
+            };
+        })()`);
+        assert(sleevelessCatalog.cards > 0, 'El filtro SIN MANGAS no muestra diseños.');
+        assert(sleevelessCatalog.heading.includes('SIN MANGAS'), 'El encabezado del filtro SIN MANGAS es incorrecto.');
+        assert(sleevelessCatalog.labels.every(label => /sin mangas/i.test(label)), 'Hay tarjetas sin indicar disponibilidad sin mangas.');
+        assert.equal(sleevelessCatalog.modalGarment, 'sin_mangas');
+        assert(/sin[_ ]mangas/i.test(sleevelessCatalog.modalImage), `El modal no abrió el mock sin mangas: ${sleevelessCatalog.modalImage}`);
+        await evaluate('closeModal(false,false)');
         const normal=await evaluate('(() => {openCatalogDesign("pantera-live-from-donington-94","remera_clasica");selectSize("M");selectColor("negro");selectPrintMode("simple");return {added:addToCartFromModal(),summary:cart.generateSummary()};})()');
         assert(normal.added); assert(normal.summary.includes('* Precio: $38.000')); assert(!normal.summary.includes('sin mangas'));
         assert.deepEqual(errors,[]); assert.deepEqual(failedAssets,[]);

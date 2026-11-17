@@ -6363,6 +6363,18 @@ function openCatalogDesignPreview(designId, initialGarment = '', initialPrintMod
 
 window.openCatalogDesignPreview = openCatalogDesignPreview;
 
+function openCatalogDesignForGarment(designId, garment) {
+    openCatalogDesign(designId, garment);
+    if (garment !== 'sin_mangas' || !currentCatalogDesign) return;
+    const preview = getCatalogDesignSleevelessPreview(currentCatalogDesign);
+    const index = preview
+        ? currentModalSourceRefs.findIndex(ref => isSameAssetPath(ref.image, preview.image))
+        : -1;
+    if (index >= 0) goToSlide(index, false);
+}
+
+window.openCatalogDesignForGarment = openCatalogDesignForGarment;
+
 function showMaidenWhiteShirts() {
     const section = document.getElementById('bandWhiteShirts');
     if (!section) return;
@@ -7748,6 +7760,12 @@ function getBandLandingDesignPreview(design, garment = bandLandingGarment) {
         || null;
 }
 
+function getCatalogDesignSleevelessPreview(design) {
+    return chooseCleanCatalogPreview(getCatalogDesignFrontRefs(design).filter(ref => (
+        ref.role === 'front' && ref.garmentStyle === 'sin_mangas'
+    )));
+}
+
 function getCatalogDesignSearchText(design) {
     const sourceProducts = (design?.sourceProductIds || [])
         .map(id => db.find(product => Number(product.id) === Number(id)))
@@ -7818,6 +7836,9 @@ function getCatalogDesignResults() {
     let scopedDesigns = isBandLandingMode()
         ? catalogDesigns.filter(isCatalogDesignInScope)
         : catalogDesigns;
+    if (currentGarmentFilter === 'sin_mangas') {
+        scopedDesigns = scopedDesigns.filter(design => Boolean(getCatalogDesignSleevelessPreview(design)));
+    }
     if (isBandLandingMode() && bandLandingGarment) {
         scopedDesigns = scopedDesigns.filter(design => Boolean(getBandLandingDesignPreview(design)));
     }
@@ -7839,6 +7860,8 @@ function getCatalogDesignResults() {
             : scopedDesigns.filter(design => getCatalogDesignSearchText(design).includes(query));
     } else if (normalizeText(currentCategory) === 'personalizados') {
         designs = scopedDesigns.filter(design => design.isPersonalized);
+    } else if (currentGarmentFilter === 'sin_mangas') {
+        designs = scopedDesigns;
     } else if (isBandLandingMode()) {
         designs = scopedDesigns;
     } else if (catalogDesignBandExists(currentCategory)) {
@@ -7905,6 +7928,7 @@ function renderCatalogDesignResults(designs) {
 
     let heading = `${designs.length} DISEÑOS DISPONIBLES`;
     if (currentSearch) heading = `${designs.length} RESULTADOS`;
+    else if (currentGarmentFilter === 'sin_mangas') heading = `${designs.length} DISEÑOS · SIN MANGAS`;
     else if (bandLandingOuterwear) heading = `${designs.length} OPCIONES · HOODIES Y BUZOS HELLOWEEN`;
     else if (isBandLandingMode() && bandLandingGarment) heading = `${designs.length} DISEÑOS · ${getBandLandingGarmentLabel()} ${BAND_LANDING_BAND.toUpperCase()}`;
     else if (currentCategory) heading = `${designs.length} DISEÑOS · ${String(currentCategory).toUpperCase()}`;
@@ -7915,21 +7939,28 @@ function renderCatalogDesignResults(designs) {
         const exactCodeRef = currentSearch ? getCatalogDesignExactCodeRef(design, currentSearch) : null;
         const searchRef = currentSearch ? getCatalogDesignSearchRef(design, currentSearch) : null;
         const backPreview = exactCodeRef?.role === 'back' ? exactCodeRef : (searchRef?.role === 'back' ? searchRef : null);
+        const sleevelessPreview = currentGarmentFilter === 'sin_mangas'
+            ? getCatalogDesignSleevelessPreview(design)
+            : null;
         const preview = backPreview
             ? backPreview
-            : (getBandLandingDesignPreview(design, cardGarment) || design.front);
+            : (sleevelessPreview || getBandLandingDesignPreview(design, cardGarment) || design.front);
         const cardImage = backPreview
             ? backPreview.image
-            : (BAND_LANDING_CONFIG?.cardImageOverrides?.[design.designId] || preview.image);
+            : (currentGarmentFilter === 'sin_mangas'
+                ? preview.image
+                : (BAND_LANDING_CONFIG?.cardImageOverrides?.[design.designId] || preview.image));
         const availableGarments = new Set((design.availableGarments || []).map(garment => normalizeText(garment)));
         const garmentLabels = [
             [...availableGarments].some(garment => garment.includes('remera')) ? 'Remera' : '',
-            normalizeText(design.band) === 'slayer' && getCatalogDesignFrontRefs(design).some(ref => ref.garmentStyle === 'sin_mangas') ? 'Sin mangas' : '',
+            getCatalogDesignSleevelessPreview(design) ? 'Sin mangas' : '',
             [...availableGarments].some(garment => garment.includes('hoodie')) ? 'Hoodie' : '',
             [...availableGarments].some(garment => garment.includes('buzo')) ? 'Buzo' : ''
         ].filter(Boolean);
         const priceText = getCatalogDesignCardPriceText(design, preview, cardGarment);
-        const initialGarment = isBandLandingMode() ? getBandLandingModalGarment(cardGarment) : '';
+        const initialGarment = currentGarmentFilter === 'sin_mangas'
+            ? 'sin_mangas'
+            : (isBandLandingMode() ? getBandLandingModalGarment(cardGarment) : '');
         const previewPrintMode = normalizeText(preview?.defaultPrintMode || '');
         const campaignFeatureElement = document.getElementById('bandCampaignFeature');
         const campaignFeatureDesignIds = String(campaignFeatureElement?.dataset.designIds || campaignFeatureElement?.dataset.designId || '')
@@ -7946,6 +7977,8 @@ function renderCatalogDesignResults(designs) {
             ? `openModal(${exactCodeRef.productId}, ${exactCodeRef.variantIndex})`
             : isCampaignFeatureDesign && (previewPrintMode === 'double' || previewPrintMode === 'doble')
             ? `openCatalogDesignPreview('${design.designId}', '${initialGarment}', 'double', '${cardImage}')`
+            : currentGarmentFilter === 'sin_mangas'
+            ? `openCatalogDesignForGarment('${design.designId}', 'sin_mangas')`
             : `openCatalogDesign('${design.designId}', '${initialGarment}')`;
         // Eddie Argentina has its own featured section; do not repeat the FMD badge on its catalog card.
         const editorialBadge = design.designId === 'iron-maiden-eddie-argentina-estadio-huracan-fmd'
@@ -10292,7 +10325,7 @@ function filterByCategory(category) {
 window.filterByCategory = filterByCategory;
 
 function filterByGarment(garment) {
-    currentGarmentFilter = ['remera', 'hoodie', 'buzo', 'abrigo'].includes(garment) ? garment : null;
+    currentGarmentFilter = ['remera', 'sin_mangas', 'hoodie', 'buzo', 'abrigo'].includes(garment) ? garment : null;
     currentUniverse = null;
     currentCategory = null;
     currentSearch = '';
@@ -10300,7 +10333,7 @@ function filterByGarment(garment) {
     if (searchClear) searchClear.classList.remove('visible');
     resetCatalogPagination();
     document.querySelectorAll('.cat-btn, .filter-pill').forEach(button => button.classList.remove('active'));
-    syncCatalogQuickFilters(null);
+    syncCatalogQuickFilters(garment === 'sin_mangas' ? garment : null);
     filterProducts();
     scrollToSection('catalogoPrincipal');
 }
