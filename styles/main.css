@@ -367,6 +367,47 @@
     transform: scale(1.025);
 }
 
+.catalog-band-sleeveless {
+    margin-bottom: 28px;
+    padding: 16px;
+    border: 1px solid rgba(57, 255, 20, .35);
+    border-radius: 12px;
+    background: rgba(57, 255, 20, .035);
+    scroll-margin-top: 90px;
+}
+
+.catalog-band-sleeveless h2 {
+    margin: 0 0 6px;
+    font-size: 1.25rem;
+    line-height: 1.3;
+}
+
+.catalog-band-sleeveless p {
+    margin: 0 0 14px;
+    color: #ccc;
+    font-size: .85rem;
+}
+
+.catalog-band-sleeveless .products-grid {
+    padding: 0;
+    margin-bottom: 14px;
+}
+
+.catalog-band-sleeveless .products-grid.catalog-design-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.catalog-band-sleeveless > button {
+    max-width: 100%;
+    white-space: normal;
+}
+
+@media (max-width: 700px) {
+    .catalog-band-sleeveless .products-grid.catalog-design-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
 .catalog-design-badges {
     position: absolute;
     z-index: 2;

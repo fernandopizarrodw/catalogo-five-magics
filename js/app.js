@@ -7766,6 +7766,64 @@ function getCatalogDesignSleevelessPreview(design) {
     )));
 }
 
+function selectCatalogBandGarment(garment = '') {
+    if (isBandLandingMode()) {
+        selectBandLandingCollection('');
+        selectBandLandingGarment(garment === 'sin_mangas' ? garment : 'remera');
+        return;
+    }
+    currentGarmentFilter = garment === 'sin_mangas' ? garment : null;
+    resetCatalogPagination();
+    filterProducts();
+    scrollToSection('catalogBandSleeveless');
+}
+
+window.selectCatalogBandGarment = selectCatalogBandGarment;
+
+function renderBandSleevelessShowcase(designs) {
+    let section = document.getElementById('catalogBandSleeveless');
+    const band = isBandLandingMode() ? BAND_LANDING_BAND : currentCategory;
+    const garment = isBandLandingMode() ? bandLandingGarment : currentGarmentFilter;
+    const canShow = band && !currentSearch && !bandLandingOuterwear && currentGarmentFilter !== 'abrigo';
+    const sleeveDesigns = canShow ? catalogDesigns.filter(design => (
+        (isBandLandingMode() ? isCatalogDesignInScope(design) : normalizeText(design.band) === normalizeText(band))
+        && getCatalogDesignSleevelessPreview(design)
+    )) : [];
+    if (!sleeveDesigns.length) {
+        section?.remove();
+        return;
+    }
+    if (!section) {
+        section = document.createElement('section');
+        section.id = 'catalogBandSleeveless';
+        section.className = 'catalog-band-sleeveless';
+        section.setAttribute('aria-labelledby', 'catalogBandSleevelessTitle');
+        productsGrid.before(section);
+    }
+    const order = new Map(designs.map((design, index) => [design.designId, index]));
+    sleeveDesigns.sort((a, b) => (order.get(a.designId) ?? Infinity) - (order.get(b.designId) ?? Infinity));
+    const isSleeveless = garment === 'sin_mangas';
+    section.innerHTML = `<div>
+        <h2 id="catalogBandSleevelessTitle">REMERAS SIN MANGAS &middot; ${band}</h2>
+        <p>${sleeveDesigns.length} ${sleeveDesigns.length === 1 ? 'dise&ntilde;o disponible' : 'dise&ntilde;os disponibles'} en remera sin mangas.</p>
+    </div>
+    ${isSleeveless ? '' : `<div class="products-grid catalog-design-grid">${sleeveDesigns.slice(0, 4).map(design => {
+        const preview = getCatalogDesignSleevelessPreview(design);
+        return `<article class="catalog-design-card" data-sleeveless-design-id="${design.designId}">
+            <button type="button" class="catalog-design-card-main" onclick="openCatalogDesignForGarment('${design.designId}', 'sin_mangas')" aria-label="Ver ${design.publicName} en remera sin mangas">
+                <span class="catalog-design-media"><img src="${preview.image}" alt="${preview.alt || `${design.publicName} en remera sin mangas`}" loading="lazy" decoding="async"></span>
+                <span class="catalog-design-copy">
+                    <span class="catalog-design-band">SIN MANGAS</span>
+                    <strong>${design.publicName}</strong>
+                    <span class="catalog-design-price">${getCatalogDesignCardPriceText(design, preview, 'sin_mangas')}</span>
+                    <span class="catalog-design-cta">ELEGIR SIN MANGAS</span>
+                </span>
+            </button>
+        </article>`;
+    }).join('')}</div>`}
+    <button type="button" class="catalog-quick-filter" data-band-sleeveless-browse onclick="selectCatalogBandGarment('${isSleeveless ? '' : 'sin_mangas'}')">${isSleeveless ? 'VER TODA LA COLECCI&Oacute;N' : `VER TODAS LAS SIN MANGAS (${sleeveDesigns.length})`}</button>`;
+}
+
 function getCatalogDesignSearchText(design) {
     const sourceProducts = (design?.sourceProductIds || [])
         .map(id => db.find(product => Number(product.id) === Number(id)))
@@ -7838,6 +7896,9 @@ function getCatalogDesignResults() {
         : catalogDesigns;
     if (currentGarmentFilter === 'sin_mangas') {
         scopedDesigns = scopedDesigns.filter(design => Boolean(getCatalogDesignSleevelessPreview(design)));
+        if (!isBandLandingMode() && currentCategory) {
+            scopedDesigns = scopedDesigns.filter(design => normalizeText(design.band) === normalizeText(currentCategory));
+        }
     }
     if (isBandLandingMode() && bandLandingGarment) {
         scopedDesigns = scopedDesigns.filter(design => Boolean(getBandLandingDesignPreview(design)));
@@ -7939,7 +8000,8 @@ function renderCatalogDesignResults(designs) {
         const exactCodeRef = currentSearch ? getCatalogDesignExactCodeRef(design, currentSearch) : null;
         const searchRef = currentSearch ? getCatalogDesignSearchRef(design, currentSearch) : null;
         const backPreview = exactCodeRef?.role === 'back' ? exactCodeRef : (searchRef?.role === 'back' ? searchRef : null);
-        const sleevelessPreview = currentGarmentFilter === 'sin_mangas'
+        const isSleeveless = currentGarmentFilter === 'sin_mangas' || cardGarment === 'sin_mangas';
+        const sleevelessPreview = isSleeveless
             ? getCatalogDesignSleevelessPreview(design)
             : null;
         const preview = backPreview
@@ -7947,7 +8009,7 @@ function renderCatalogDesignResults(designs) {
             : (sleevelessPreview || getBandLandingDesignPreview(design, cardGarment) || design.front);
         const cardImage = backPreview
             ? backPreview.image
-            : (currentGarmentFilter === 'sin_mangas'
+            : (isSleeveless
                 ? preview.image
                 : (BAND_LANDING_CONFIG?.cardImageOverrides?.[design.designId] || preview.image));
         const availableGarments = new Set((design.availableGarments || []).map(garment => normalizeText(garment)));
@@ -7958,7 +8020,7 @@ function renderCatalogDesignResults(designs) {
             [...availableGarments].some(garment => garment.includes('buzo')) ? 'Buzo' : ''
         ].filter(Boolean);
         const priceText = getCatalogDesignCardPriceText(design, preview, cardGarment);
-        const initialGarment = currentGarmentFilter === 'sin_mangas'
+        const initialGarment = isSleeveless
             ? 'sin_mangas'
             : (isBandLandingMode() ? getBandLandingModalGarment(cardGarment) : '');
         const previewPrintMode = normalizeText(preview?.defaultPrintMode || '');
@@ -7977,7 +8039,7 @@ function renderCatalogDesignResults(designs) {
             ? `openModal(${exactCodeRef.productId}, ${exactCodeRef.variantIndex})`
             : isCampaignFeatureDesign && (previewPrintMode === 'double' || previewPrintMode === 'doble')
             ? `openCatalogDesignPreview('${design.designId}', '${initialGarment}', 'double', '${cardImage}')`
-            : currentGarmentFilter === 'sin_mangas'
+            : isSleeveless
             ? `openCatalogDesignForGarment('${design.designId}', 'sin_mangas')`
             : `openCatalogDesign('${design.designId}', '${initialGarment}')`;
         // Eddie Argentina has its own featured section; do not repeat the FMD badge on its catalog card.
@@ -8044,6 +8106,7 @@ function renderCatalogDesignResults(designs) {
 
 function filterProducts() {
     const catalogDesignResults = getCatalogDesignResults();
+    renderBandSleevelessShowcase(catalogDesignResults || []);
     if (catalogDesignResults) {
         renderCatalogDesignResults(catalogDesignResults);
         return;

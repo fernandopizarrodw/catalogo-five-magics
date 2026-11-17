@@ -173,6 +173,7 @@
             whatsappMessage: 'Hola FMD! Quiero consultar por un diseño de Megadeth a partir de una tapa, imagen o idea.',
             defaultGarment: 'remera',
             defaultCollection: 'featured',
+            designOrder: ['megadeth-hangar-18-outbreak-vaccination'],
             allCollectionLabel: 'VER TODOS',
             prominentAllDesigns: {
                 kicker: 'ARCHIVO COMPLETO',
@@ -270,6 +271,7 @@
             ],
             collections: [
                 { id: 'featured', label: 'DESTACADOS MEGADETH FMD', match: { designIds: [
+                    'megadeth-hangar-18-outbreak-vaccination',
                     'cd-megadeth-aguante-megadeth--p6020',
                     'cd-megadeth-argentina-v1--p6014',
                     'cd-megadeth-blanca-v1--p6022',

@@ -30113,5 +30113,133 @@
       "defaultPrintMode": "simple",
       "stylePreviews": [{ "img": "images/banda_sugeridas/testament/testament sin mangas/the gathering sin mangas.jpg", "garmentStyle": "sin_mangas", "previewLabel": "Sin mangas - Solo frente", "defaultPrintMode": "simple" }]
     }]
+  },
+  {
+    "id": 7351,
+    "visibilityTier": "featured",
+    "commercialPriority": 140,
+    "designId": "megadeth-hangar-18-outbreak-vaccination",
+    "name": "Hangar 18 · Outbreak: Vaccination of the Nations",
+    "band": "Megadeth",
+    "category": "Tour",
+    "year": "2026",
+    "tipoPrecio": "doble",
+    "defaultPrintMode": "double",
+    "img": "images/tours/Outbreak Vaccination of the Nations/HANGAR FRENTE 4_5 MOCK OFICIAL.jpg",
+    "desc": "Hangar 18 · Outbreak: Vaccination of the Nations. Disponible solo frente o frente y dorso.",
+    "garments": ["remera"],
+    "collections": ["Megadeth Archive", "Tour Archive"],
+    "tags": ["Megadeth", "Hangar 18", "Outbreak", "Vaccination of the Nations", "Tour"],
+    "isNew": true,
+    "variants": [
+      {
+        "img": "images/tours/Outbreak Vaccination of the Nations/HANGAR FRENTE 4_5 MOCK OFICIAL.jpg",
+        "name": "Hangar 18 · Outbreak: Vaccination of the Nations",
+        "selectionLabel": "Frente Hangar 18 · Outbreak",
+        "role": "front",
+        "color": "negro",
+        "defaultPrintMode": "simple",
+        "preferredPreview": true
+      },
+      {
+        "img": "images/tours/Outbreak Vaccination of the Nations/HANGARDORSO  4_5 MOCK OFICIAL.jpg",
+        "name": "Dorso Outbreak: Vaccination of the Nations",
+        "selectionLabel": "Dorso Outbreak: Vaccination of the Nations",
+        "role": "back",
+        "carouselPreview": true,
+        "backTargetDesignId": "megadeth-hangar-18-outbreak-vaccination"
+      },
+      {
+        "img": "images/tours/Outbreak Vaccination of the Nations/vacc4-5 IG DOBLE.jpg",
+        "name": "Hangar 18 · Outbreak: Vaccination of the Nations - Frente y dorso",
+        "role": "front",
+        "color": "negro",
+        "defaultPrintMode": "double",
+        "autoSelectBack": "Dorso Outbreak: Vaccination of the Nations",
+        "previewLabel": "Frente y dorso"
+      }
+    ]
+  },
+  {
+    "id": 7352,
+    "visibilityTier": "catalog",
+    "commercialPriority": 82,
+    "designId": "kreator-coma-of-souls",
+    "name": "Coma of Souls",
+    "band": "Kreator",
+    "category": "Bandas Sugeridas",
+    "year": "1990",
+    "tipoPrecio": "simple",
+    "img": "images/banda_sugeridas/kreator/kreator coma of souls.jpg",
+    "desc": "Coma of Souls · Kreator. Disponible a pedido.",
+    "garments": ["remera"],
+    "collections": ["Kreator Archive"],
+    "tags": ["Kreator", "Coma of Souls", "Thrash Metal"],
+    "isNew": true,
+    "variants": [{ "img": "images/banda_sugeridas/kreator/kreator coma of souls.jpg", "name": "Coma of Souls", "role": "front", "color": "negro", "defaultPrintMode": "simple" }]
+  },
+  {
+    "id": 7353,
+    "visibilityTier": "catalog",
+    "commercialPriority": 83,
+    "designId": "kreator-enemy-of-god",
+    "name": "Enemy of God",
+    "band": "Kreator",
+    "category": "Bandas Sugeridas",
+    "year": "2005",
+    "tipoPrecio": "simple",
+    "img": "images/banda_sugeridas/kreator/kreator_enemy_of_god.jpg",
+    "desc": "Enemy of God · Kreator. Disponible a pedido.",
+    "garments": ["remera"],
+    "collections": ["Kreator Archive"],
+    "tags": ["Kreator", "Enemy of God", "Thrash Metal"],
+    "isNew": true,
+    "variants": [{ "img": "images/banda_sugeridas/kreator/kreator_enemy_of_god.jpg", "name": "Enemy of God", "role": "front", "color": "negro", "defaultPrintMode": "simple" }]
+  },
+  {
+    "id": 7354,
+    "visibilityTier": "catalog",
+    "commercialPriority": 84,
+    "designId": "kreator-extreme-aggression",
+    "name": "Extreme Aggression",
+    "band": "Kreator",
+    "category": "Bandas Sugeridas",
+    "year": "1989",
+    "tipoPrecio": "doble",
+    "img": "images/banda_sugeridas/kreator/kreator_extreme_aggression.jpg",
+    "desc": "Extreme Aggression · Kreator. Frente y dorso o solo frente.",
+    "garments": ["remera"],
+    "collections": ["Kreator Archive"],
+    "tags": ["Kreator", "Extreme Aggression", "Thrash Metal"],
+    "isNew": true,
+    "variants": [
+      {
+        "img": "images/banda_sugeridas/kreator/kreator_extreme_aggression.jpg",
+        "name": "Extreme Aggression - Frente y dorso",
+        "role": "front",
+        "color": "negro",
+        "defaultPrintMode": "double",
+        "preferredPreview": true,
+        "stylePreviews": [{ "img": "images/banda_sugeridas/kreator/kreator sin mangas/extreme sin mangas.jpg", "garmentStyle": "sin_mangas", "previewLabel": "Sin mangas - Solo frente", "defaultPrintMode": "simple" }]
+      }
+    ]
+  },
+  {
+    "id": 7355,
+    "visibilityTier": "catalog",
+    "commercialPriority": 85,
+    "designId": "kreator-violent-revolution",
+    "name": "Violent Revolution",
+    "band": "Kreator",
+    "category": "Bandas Sugeridas",
+    "year": "2001",
+    "tipoPrecio": "simple",
+    "img": "images/banda_sugeridas/kreator/violent sin mangas.jpg",
+    "desc": "Violent Revolution · Kreator en remera sin mangas. Disponible a pedido.",
+    "garments": ["sin_mangas"],
+    "collections": ["Kreator Archive"],
+    "tags": ["Kreator", "Violent Revolution", "Thrash Metal", "sin mangas"],
+    "isNew": true,
+    "variants": [{ "img": "images/banda_sugeridas/kreator/violent sin mangas.jpg", "name": "Violent Revolution", "role": "front", "color": "negro", "garmentStyle": "sin_mangas", "defaultPrintMode": "simple" }]
   }
 ]
