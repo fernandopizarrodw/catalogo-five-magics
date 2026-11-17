@@ -8,7 +8,7 @@
             front: '/images/slayer/frente/slayer_reign_in_blood_frente.jpg',
             back: '/images/slayer/dorso/slayer_reign_in_blood_dorso.jpg',
             double: '/images/slayer/dobles/remera_reign_in_blood_doble.jpg',
-            argentina: '/images/slayer/dobles/remera_reign_in_blood_doble_argentina.jpg'
+            argentina: '/images/slayer/dobles argentina 2026/slayer_reign_argentina.jpg'
         },
         sin_mangas: {
             front: '/images/slayer/frente/slayer_reign_in_blood_frente_sin_mangas.jpg',

@@ -13025,6 +13025,32 @@
         "orderVariantIndex": 7,
         "defaultPrintMode": "double",
         "autoSelectBack": "Dorso Reign in Blood · Goat"
+      },
+      {
+        "img": "images/slayer/dobles argentina 2026/slayer_reign_argentina.jpg",
+        "name": "Reign in Blood - Argentina 2026 - Doble estampa",
+        "publicName": "Reign in Blood - Argentina 2026",
+        "selectionLabel": "Frente Reign in Blood - Argentina 2026",
+        "previewLabel": "Frente y dorso Argentina 2026 - Mock nuevo",
+        "designId": "cd-slayer-reign-in-blood-argentina-2026--p7101",
+        "role": "front",
+        "garmentCategory": "Slayer",
+        "defaultPrintMode": "double",
+        "autoSelectBack": "Dorso Reign in Blood - Argentina 2026",
+        "isNew": true
+      },
+      {
+        "img": "images/slayer/dobles argentina 2026/slayer_reign_argentina_v2.jpg",
+        "name": "Reign in Blood - Argentina 2026 V2 - Doble estampa",
+        "publicName": "Reign in Blood - Argentina 2026 V2",
+        "selectionLabel": "Frente Reign in Blood - Argentina 2026 V2",
+        "previewLabel": "Frente y dorso Argentina 2026 V2 - Mock nuevo",
+        "designId": "cd-slayer-reign-in-blood-argentina-2026--p7101",
+        "role": "front",
+        "garmentCategory": "Slayer",
+        "defaultPrintMode": "double",
+        "autoSelectBack": "Dorso Reign in Blood - Argentina 2026",
+        "isNew": true
       }
     ],
     "desc": "SLAYER - REIGN IN BLOOD 40TH ANNIVERSARY 2026. Archivo Slayer FMD. Disponible en remera, hoodie y buzo cuello redondo.",
@@ -13686,6 +13712,19 @@
         "designId": "slayer-aguila",
         "role": "front",
         "defaultPrintMode": "simple",
+        "isNew": true
+      },
+      {
+        "img": "images/slayer/dobles argentina 2026/slayer_reign_argentina_aguila.jpg",
+        "name": "Aguila - Argentina 2026 - Frente y dorso",
+        "publicName": "Aguila - Argentina 2026",
+        "selectionLabel": "Frente Aguila FMD - Argentina 2026",
+        "previewLabel": "Frente y dorso Argentina 2026 - Mock nuevo",
+        "designId": "slayer-aguila",
+        "role": "front",
+        "garmentCategory": "Slayer",
+        "defaultPrintMode": "double",
+        "autoSelectBack": "Dorso Reign in Blood - Buenos Aires 2026",
         "isNew": true
       }
     ],
@@ -20534,6 +20573,19 @@
             "previewLabel": "Frente + dorso Goat · Argentina 14.12.26 · Sin mangas"
           }
         ]
+      },
+      {
+        "img": "images/slayer/dobles argentina 2026/slayer_reign_argentina_goat_doble.jpg",
+        "name": "Goat - Argentina 2026 - Frente y dorso",
+        "publicName": "Goat Tour - Argentina 2026",
+        "selectionLabel": "Frente Goat - Tour Argentina 2026",
+        "previewLabel": "Frente y dorso Argentina 2026 - Mock nuevo",
+        "designId": "cd-slayer-goat-tour--p7122",
+        "role": "front",
+        "garmentCategory": "Slayer",
+        "defaultPrintMode": "double",
+        "autoSelectBack": "Dorso Goat - Argentina 14.12.26",
+        "isNew": true
       }
     ],
     "desc": "Slayer Goat Tour Argentina 2026 doble estampa. Disponible en remera, hoodie y buzo cuello redondo.",
@@ -21375,38 +21427,45 @@
       {
         "img": "images/banda_sugeridas/kreator/remera_kreator_god_of_violence.jpg",
         "name": "Kreator God of Violence - Remera",
-        "garmentCategory": "Bandas Sugeridas"
+        "garmentCategory": "Bandas Sugeridas",
+        "stylePreviews": [{ "img": "images/banda_sugeridas/kreator/kreator sin mangas/gods sin mangas.jpg", "garmentStyle": "sin_mangas", "previewLabel": "Sin mangas - Solo frente", "defaultPrintMode": "simple" }]
       },
       {
         "img": "images/banda_sugeridas/kreator/remera_kreator_hate.jpg",
         "name": "Kreator Hate - Remera",
-        "garmentCategory": "Bandas Sugeridas"
+        "garmentCategory": "Bandas Sugeridas",
+        "stylePreviews": [{ "img": "images/banda_sugeridas/kreator/kreator sin mangas/hate sin mangas.jpg", "garmentStyle": "sin_mangas", "previewLabel": "Sin mangas - Solo frente", "defaultPrintMode": "simple" }]
       },
       {
         "img": "images/banda_sugeridas/kreator/remera_kreator_krushers.jpg",
         "name": "Kreator Krushers - Remera",
-        "garmentCategory": "Bandas Sugeridas"
+        "garmentCategory": "Bandas Sugeridas",
+        "stylePreviews": [{ "img": "images/banda_sugeridas/kreator/kreator sin mangas/krushers sin mangas.jpg", "garmentStyle": "sin_mangas", "previewLabel": "Sin mangas - Solo frente", "defaultPrintMode": "simple" }]
       },
       {
         "img": "images/banda_sugeridas/kreator/remera_kreator_krushers_v2.jpg",
         "name": "Kreator Krushers V2 - Remera",
-        "garmentCategory": "Bandas Sugeridas"
+        "garmentCategory": "Bandas Sugeridas",
+        "stylePreviews": [{ "img": "images/banda_sugeridas/kreator/kreator sin mangas/krushers v2 sin mangas.jpg", "garmentStyle": "sin_mangas", "previewLabel": "Sin mangas - Solo frente", "defaultPrintMode": "simple" }]
       },
       {
         "img": "images/banda_sugeridas/kreator/remera_kreator_logo.jpg",
         "name": "Kreator Logo - Remera",
         "garmentCategory": "Bandas Sugeridas",
-        "designId": "cd-kreator-logo--p5091"
+        "designId": "cd-kreator-logo--p5091",
+        "stylePreviews": [{ "img": "images/banda_sugeridas/kreator/kreator sin mangas/logo sin mangas.jpg", "garmentStyle": "sin_mangas", "previewLabel": "Sin mangas - Solo frente", "defaultPrintMode": "simple" }]
       },
       {
         "img": "images/banda_sugeridas/kreator/remera_kreator_phantom.jpg",
         "name": "Kreator Phantom - Remera",
-        "garmentCategory": "Bandas Sugeridas"
+        "garmentCategory": "Bandas Sugeridas",
+        "stylePreviews": [{ "img": "images/banda_sugeridas/kreator/kreator sin mangas/phantoml sin mangas.jpg", "garmentStyle": "sin_mangas", "previewLabel": "Sin mangas - Solo frente", "defaultPrintMode": "simple" }]
       },
       {
         "img": "images/banda_sugeridas/kreator/remera_kreator_pleasure.jpg",
         "name": "Kreator Pleasure - Remera",
-        "garmentCategory": "Bandas Sugeridas"
+        "garmentCategory": "Bandas Sugeridas",
+        "stylePreviews": [{ "img": "images/banda_sugeridas/kreator/kreator sin mangas/pleasure to kill sin mangas.jpg", "garmentStyle": "sin_mangas", "previewLabel": "Sin mangas - Solo frente", "defaultPrintMode": "simple" }]
       },
       {
         "img": "images/banda_sugeridas/kreator/remera_kreator_pleasure_v2.jpg",
@@ -28662,6 +28721,27 @@
         "collectionIds": ["3d-fmd", "classics"],
         "role": "front",
         "isNew": true
+      },
+      {
+        "img": "images/slayer/dobles argentina 2026/slayer_reign_argentina_3D_doble.jpg",
+        "name": "Reign in Blood - 3D FMD - Argentina 2026",
+        "publicName": "Reign in Blood - 3D FMD",
+        "selectionLabel": "Frente Reign in Blood - 3D FMD",
+        "previewLabel": "Frente y dorso Argentina 2026 - Mock nuevo",
+        "designId": "slayer-3d-fmd-reign-in-blood",
+        "role": "front",
+        "defaultPrintMode": "double",
+        "autoSelectBack": "Dorso Reign in Blood - 3D FMD - Argentina 2026",
+        "isNew": true
+      },
+      {
+        "img": "images/slayer/dobles argentina 2026/slayer_reign_argentina_3D_doble.jpg",
+        "name": "Dorso Reign in Blood - 3D FMD - Argentina 2026",
+        "selectionLabel": "Dorso Reign in Blood - 3D FMD - Argentina 2026",
+        "previewLabel": "Dorso Argentina 2026 - Mock nuevo",
+        "backTargetDesignId": "slayer-3d-fmd-reign-in-blood",
+        "role": "back",
+        "isNew": true
       }
     ]
   },
@@ -29967,7 +30047,8 @@
         "role": "front",
         "color": "negro",
         "defaultPrintMode": "double",
-        "autoSelectBack": "Dorso Brotherhood of the Snake"
+        "autoSelectBack": "Dorso Brotherhood of the Snake",
+        "stylePreviews": [{ "img": "images/banda_sugeridas/testament/testament_brootherhood_of_the_snake_sin_mangas.jpg", "garmentStyle": "sin_mangas", "previewLabel": "Sin mangas - Frente y dorso", "defaultPrintMode": "double", "autoSelectBack": "Dorso Brotherhood of the Snake" }]
       },
       {
         "img": "images/banda_sugeridas/testament/testament_brootherhood_of_the_snake_doble.jpg",
@@ -29978,5 +30059,59 @@
         "backTargetDesignId": "testament-brotherhood-of-the-snake-2026"
       }
     ]
+  },
+  {
+    "id": 7349,
+    "visibilityTier": "catalog",
+    "commercialPriority": 80,
+    "designId": "testament-practice-what-you-preach",
+    "name": "Practice What You Preach",
+    "band": "Testament",
+    "category": "Bandas Sugeridas",
+    "year": "1989",
+    "tipoPrecio": "simple",
+    "defaultPrintMode": "simple",
+    "img": "images/banda_sugeridas/testament/testament_practice.jpg",
+    "desc": "Practice What You Preach · Testament. Disponible a pedido.",
+    "garments": ["remera"],
+    "collections": ["Testament Archive"],
+    "tags": ["Testament", "Practice What You Preach", "Thrash Metal"],
+    "isNew": true,
+    "variants": [{
+      "img": "images/banda_sugeridas/testament/testament_practice.jpg",
+      "name": "Practice What You Preach",
+      "selectionLabel": "Frente Practice What You Preach",
+      "role": "front",
+      "color": "negro",
+      "defaultPrintMode": "simple",
+      "stylePreviews": [{ "img": "images/banda_sugeridas/testament/testament sin mangas/practice what your preach sin mangas.jpg", "garmentStyle": "sin_mangas", "previewLabel": "Sin mangas - Solo frente", "defaultPrintMode": "simple" }]
+    }]
+  },
+  {
+    "id": 7350,
+    "visibilityTier": "catalog",
+    "commercialPriority": 80,
+    "designId": "testament-the-gathering",
+    "name": "The Gathering",
+    "band": "Testament",
+    "category": "Bandas Sugeridas",
+    "year": "1999",
+    "tipoPrecio": "simple",
+    "defaultPrintMode": "simple",
+    "img": "images/banda_sugeridas/testament/testament_the_gathering.jpg",
+    "desc": "The Gathering · Testament. Disponible a pedido.",
+    "garments": ["remera"],
+    "collections": ["Testament Archive"],
+    "tags": ["Testament", "The Gathering", "Thrash Metal"],
+    "isNew": true,
+    "variants": [{
+      "img": "images/banda_sugeridas/testament/testament_the_gathering.jpg",
+      "name": "The Gathering",
+      "selectionLabel": "Frente The Gathering",
+      "role": "front",
+      "color": "negro",
+      "defaultPrintMode": "simple",
+      "stylePreviews": [{ "img": "images/banda_sugeridas/testament/testament sin mangas/the gathering sin mangas.jpg", "garmentStyle": "sin_mangas", "previewLabel": "Sin mangas - Solo frente", "defaultPrintMode": "simple" }]
+    }]
   }
 ]
