@@ -72,12 +72,19 @@ async function main() {
             await send('Input.dispatchMouseEvent',{type:'mouseReleased',button:'left',clickCount:1,...point});
         };
 
-        const expected = [
+        const legacyExpected = [
             {product:7101,variant:5,front:0,back:4,title:'Reign in Blood · Argentina 2026'},
             {product:7122,variant:4,front:0,back:3,title:'Goat Tour · Buenos Aires'},
             {product:7106,variant:6,front:0,back:5,title:'Águila FMD · Buenos Aires'},
             {product:7113,variant:3,front:0,back:2,title:'Reign in Blood · 40th Anniversary'},
             {product:7316,variant:11,front:9,back:10,title:'Goat Flame 3D · Fechas 2026'}
+        ];
+        const expected = [
+            {product:7101,variant:10,front:10,back:4,title:'Reign in Blood · Argentina 2026'},
+            {product:7122,variant:5,front:5,back:3,title:'Goat Tour · Buenos Aires'},
+            {product:7106,variant:9,front:9,back:5,title:'Águila FMD · Buenos Aires'},
+            {product:7101,variant:11,front:11,back:4,title:'Reign in Blood V2 · Argentina 2026'},
+            {product:7316,variant:13,front:13,back:14,title:'Reign in Blood 3D · Argentina 2026'}
         ];
         const reports = path.join(root,'reports/slayer-show');
         fs.mkdirSync(reports,{recursive:true});
