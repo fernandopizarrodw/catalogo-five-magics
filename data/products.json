@@ -30176,7 +30176,14 @@
     "collections": ["Kreator Archive"],
     "tags": ["Kreator", "Coma of Souls", "Thrash Metal"],
     "isNew": true,
-    "variants": [{ "img": "images/banda_sugeridas/kreator/kreator coma of souls.jpg", "name": "Coma of Souls", "role": "front", "color": "negro", "defaultPrintMode": "simple" }]
+    "variants": [{
+      "img": "images/banda_sugeridas/kreator/kreator coma of souls.jpg",
+      "name": "Coma of Souls",
+      "role": "front",
+      "color": "negro",
+      "defaultPrintMode": "simple",
+      "stylePreviews": [{ "img": "images/banda_sugeridas/kreator/kreator sin mangas/kreator coma of souls.jpg", "garmentStyle": "sin_mangas", "previewLabel": "Sin mangas - Solo frente", "defaultPrintMode": "simple" }]
+    }]
   },
   {
     "id": 7353,
@@ -30234,12 +30241,12 @@
     "category": "Bandas Sugeridas",
     "year": "2001",
     "tipoPrecio": "simple",
-    "img": "images/banda_sugeridas/kreator/violent sin mangas.jpg",
+    "img": "images/banda_sugeridas/kreator/kreator sin mangas/violent sin mangas.jpg",
     "desc": "Violent Revolution · Kreator en remera sin mangas. Disponible a pedido.",
     "garments": ["sin_mangas"],
     "collections": ["Kreator Archive"],
     "tags": ["Kreator", "Violent Revolution", "Thrash Metal", "sin mangas"],
     "isNew": true,
-    "variants": [{ "img": "images/banda_sugeridas/kreator/violent sin mangas.jpg", "name": "Violent Revolution", "role": "front", "color": "negro", "garmentStyle": "sin_mangas", "defaultPrintMode": "simple" }]
+    "variants": [{ "img": "images/banda_sugeridas/kreator/kreator sin mangas/violent sin mangas.jpg", "name": "Violent Revolution", "role": "front", "color": "negro", "garmentStyle": "sin_mangas", "defaultPrintMode": "simple" }]
   }
 ]
