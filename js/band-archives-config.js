@@ -7,6 +7,28 @@
 
     return Object.freeze([
         {
+            output: 'kreator/index.html',
+            slug: 'kreator',
+            band: 'Kreator',
+            displayName: 'KREATOR',
+            title: 'Kreator: remeras y sin mangas | Five Magics Designs',
+            description: 'Explorá los diseños de Kreator de Five Magics Designs en remeras clásicas, oversize y sin mangas, hechos a pedido.',
+            canonical: 'https://catalogo.fivemagicsdesigns.com/kreator/',
+            image: '/images/banda_sugeridas/kreator/kreator_extreme_aggression.jpg',
+            imageUrl: 'https://catalogo.fivemagicsdesigns.com/images/banda_sugeridas/kreator/kreator_extreme_aggression.jpg',
+            heroTitle: 'REMERAS Y SIN MANGAS',
+            heroCopy: 'De Pleasure to Kill a Violent Revolution. Elegí tu diseño de Kreator y armá tu pedido.',
+            finalTitle: '¿BUSCABAS OTRO DISEÑO DE KREATOR?',
+            finalCopy: 'También hacemos diseños personalizados a partir de una tapa, imagen o idea.',
+            whatsappMessage: 'Hola Five Magics! Quiero consultar por los diseños de Kreator.',
+            defaultGarment: 'remera',
+            showSizeGuide: true,
+            garments: [
+                { key: 'remera', title: 'REMERAS', price: 'Desde $38.000', image: '/images/banda_sugeridas/kreator/kreator_extreme_aggression.jpg', alt: 'Remera Kreator Extreme Aggression frente y dorso' },
+                { key: 'sin_mangas', title: 'SIN MANGAS', price: 'Desde $38.000', image: '/images/banda_sugeridas/kreator/kreator sin mangas/violent sin mangas.jpg', alt: 'Remera sin mangas Kreator Violent Revolution' }
+            ]
+        },
+        {
             output: 'nightwish/index.html',
             slug: 'nightwish',
             band: 'Nightwish',
