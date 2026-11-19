@@ -121,6 +121,18 @@ async function main() {
 
         for (const width of [360, 1440]) {
             await send('Emulation.setDeviceMetricsOverride', { width, height: 1000, deviceScaleFactor: 1, mobile: width < 500 });
+            for (const [slug, band] of [['acdc', 'AC/DC'], ['metallica', 'Metallica']]) {
+                await navigate('/' + slug + '/');
+                assert.equal(await evaluate('BAND_LANDING_BAND'), band);
+                assert(await evaluate('getCatalogDesignResults().length > 15 && getCatalogDesignResults().every(isCatalogDesignInScope)'));
+                assert(await evaluate('document.documentElement.scrollWidth <= innerWidth + 1'));
+                if (slug === 'metallica') {
+                    assert(await evaluate('["metallica-hardwired-clasica", "metallica-hardwired-alternativa", "metallica-skull-heart"].every(id => getCatalogDesignResults().some(design => design.designId === id))'));
+                }
+                await evaluate('document.querySelector("#productsGrid .catalog-design-card-main").click()');
+                assert.equal(await evaluate('currentCatalogDesign.band'), band);
+                await evaluate('closeModal(false,false)');
+            }
             await navigate('/megadeth/');
             assert.equal(await evaluate('document.querySelector("#productsGrid [data-design-id]")?.dataset.designId'), 'megadeth-hangar-18-outbreak-vaccination');
             await evaluate('document.querySelector("#productsGrid .catalog-design-card-main").click()');
@@ -141,7 +153,7 @@ async function main() {
             assert.equal(await evaluate('selectedModalGarment'), 'sin_mangas');
             assert(await evaluate('getCatalogDesignSleevelessPreview(currentCatalogDesign)?.image.includes("extreme sin mangas.jpg")'));
             await evaluate('closeModal(false,false)');
-            await evaluate('openCatalogDesign("kreator-violent-revolution","sin_mangas")');
+            await evaluate('openCatalogDesignForGarment("kreator-violent-revolution","sin_mangas")');
             assert(await evaluate('selectedCatalogFrontRef?.image.includes("violent sin mangas.jpg")'));
             await evaluate('closeModal(false,false)');
             for (const band of bands) {
@@ -157,6 +169,16 @@ async function main() {
             assert(await evaluate('new Set(getCatalogDesignResults().map(design => design.band)).size') >= bands.length);
             for (const config of configs.filter(config => bands.some(band => band.toLowerCase() === config.band.toLowerCase()))) {
                 await navigate(`/${config.slug}/`);
+                if (config.slug === 'kreator') {
+                    assert.equal(await evaluate('document.querySelector("#bandLandingTitle").textContent'), 'KREATOR · BUENOS AIRES 2026');
+                    assert.equal(await evaluate('document.querySelector(".band-landing-hero .band-landing-primary-cta").textContent'), 'ELEGIR MI REMERA');
+                    assert(await evaluate('document.querySelector(".band-landing-catalog").compareDocumentPosition(document.querySelector(".purchase-volume-promo")) & Node.DOCUMENT_POSITION_FOLLOWING'));
+                    assert.deepEqual(await evaluate('[...document.querySelectorAll("#productsGrid [data-design-id]")].slice(0,6).map(card => card.dataset.designId)'), [
+                        'kreator-extreme-aggression', 'cd-kreator-pleasure--p5091', 'kreator-coma-of-souls',
+                        'kreator-enemy-of-god', 'kreator-violent-revolution', 'cd-kreator-krushers--p5091'
+                    ]);
+                    assert(await evaluate('["Gods of Violence","Phantom Antichrist","Pleasure to Kill"].every(name => getCatalogDesignResults().some(design => design.publicName === name))'));
+                }
                 await checkBand(config.band, width, true);
             }
         }

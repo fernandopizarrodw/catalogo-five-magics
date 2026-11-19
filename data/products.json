@@ -1015,7 +1015,8 @@
     "variants": [
       {
         "img": "images/albums/SFSGSW/1-sfsgsw_tapa.jpg",
-        "name": "Tapa"
+        "name": "Tapa",
+        "stylePreviews": [{ "img": "images/remeras sin mangas/megadeth_sin_mangas/so_far_sin_mangas.png", "garmentStyle": "sin_mangas", "previewLabel": "Sin mangas - Solo frente", "defaultPrintMode": "simple" }]
       },
       {
         "img": "images/albums/SFSGSW/2-sfsgsw_alternative.jpg",
@@ -21421,12 +21422,14 @@
     "year": "2026",
     "name": "Kreator - diseños sugeridos",
     "tipoPrecio": "simple",
-    "isNew": true,
+    "isNew": false,
     "img": "images/banda_sugeridas/kreator/remera_kreator_god_of_violence.jpg",
     "variants": [
       {
         "img": "images/banda_sugeridas/kreator/remera_kreator_god_of_violence.jpg",
         "name": "Kreator God of Violence - Remera",
+        "publicName": "Gods of Violence",
+        "designId": "cd-kreator-god-of-violence--p5091",
         "garmentCategory": "Bandas Sugeridas",
         "stylePreviews": [{ "img": "images/banda_sugeridas/kreator/kreator sin mangas/gods sin mangas.jpg", "garmentStyle": "sin_mangas", "previewLabel": "Sin mangas - Solo frente", "defaultPrintMode": "simple" }]
       },
@@ -21458,33 +21461,45 @@
       {
         "img": "images/banda_sugeridas/kreator/remera_kreator_phantom.jpg",
         "name": "Kreator Phantom - Remera",
+        "publicName": "Phantom Antichrist",
+        "designId": "cd-kreator-phantom--p5091",
         "garmentCategory": "Bandas Sugeridas",
         "stylePreviews": [{ "img": "images/banda_sugeridas/kreator/kreator sin mangas/phantoml sin mangas.jpg", "garmentStyle": "sin_mangas", "previewLabel": "Sin mangas - Solo frente", "defaultPrintMode": "simple" }]
       },
       {
         "img": "images/banda_sugeridas/kreator/remera_kreator_pleasure.jpg",
         "name": "Kreator Pleasure - Remera",
+        "publicName": "Pleasure to Kill",
+        "designId": "cd-kreator-pleasure--p5091",
         "garmentCategory": "Bandas Sugeridas",
         "stylePreviews": [{ "img": "images/banda_sugeridas/kreator/kreator sin mangas/pleasure to kill sin mangas.jpg", "garmentStyle": "sin_mangas", "previewLabel": "Sin mangas - Solo frente", "defaultPrintMode": "simple" }]
       },
       {
         "img": "images/banda_sugeridas/kreator/remera_kreator_pleasure_v2.jpg",
         "name": "Kreator Pleasure V2 - Remera",
+        "publicName": "Pleasure to Kill V2",
+        "designId": "cd-kreator-pleasure-v2--p5091",
         "garmentCategory": "Bandas Sugeridas"
       },
       {
         "img": "images/banda_sugeridas/kreator/remera_kreator_v1.jpg",
         "name": "Kreator V1 - Remera",
+        "publicName": "V1",
+        "designId": "cd-kreator-kreator-v1--p5091",
         "garmentCategory": "Bandas Sugeridas"
       },
       {
         "img": "images/banda_sugeridas/kreator/remera_kreator_v2.jpg",
         "name": "Kreator V2 - Remera",
+        "publicName": "V2",
+        "designId": "cd-kreator-kreator-v2--p5091",
         "garmentCategory": "Bandas Sugeridas"
       },
       {
         "img": "images/banda_sugeridas/kreator/remera_kreator_v3.jpg",
         "name": "Kreator V3 - Remera",
+        "publicName": "V3",
+        "designId": "cd-kreator-kreator-v3--p5091",
         "garmentCategory": "Bandas Sugeridas"
       },
       {
@@ -30241,12 +30256,115 @@
     "category": "Bandas Sugeridas",
     "year": "2001",
     "tipoPrecio": "simple",
-    "img": "images/banda_sugeridas/kreator/kreator sin mangas/violent sin mangas.jpg",
+    "img": "images/banda_sugeridas/kreator/violent clasica.jpg",
     "desc": "Violent Revolution · Kreator en remera sin mangas. Disponible a pedido.",
-    "garments": ["sin_mangas"],
+    "garments": ["remera", "sin_mangas"],
     "collections": ["Kreator Archive"],
     "tags": ["Kreator", "Violent Revolution", "Thrash Metal", "sin mangas"],
     "isNew": true,
-    "variants": [{ "img": "images/banda_sugeridas/kreator/kreator sin mangas/violent sin mangas.jpg", "name": "Violent Revolution", "role": "front", "color": "negro", "garmentStyle": "sin_mangas", "defaultPrintMode": "simple" }]
+    "variants": [{
+      "img": "images/banda_sugeridas/kreator/violent clasica.jpg",
+      "name": "Violent Revolution",
+      "role": "front",
+      "color": "negro",
+      "defaultPrintMode": "simple",
+      "stylePreviews": [{ "img": "images/banda_sugeridas/kreator/kreator sin mangas/violent sin mangas.jpg", "garmentStyle": "sin_mangas", "previewLabel": "Sin mangas - Solo frente", "defaultPrintMode": "simple" }]
+    }]
+  },
+  {
+    "id": 7356,
+    "band": "Metallica",
+    "designId": "metallica-hardwired-clasica",
+    "name": "Hardwired... to Self-Destruct · Clásica",
+    "img": "images/metallica/metallica_hardwired_versión_clásica.jpg",
+    "category": "Metallica",
+    "visibilityTier": "catalog",
+    "commercialPriority": 95,
+    "isNew": true,
+    "tipoPrecio": "simple",
+    "garments": [
+      "remera"
+    ],
+    "variants": [
+      {
+        "img": "images/metallica/metallica_hardwired_versión_clásica.jpg",
+        "name": "Hardwired... to Self-Destruct · Clásica",
+        "role": "front",
+        "color": "negro",
+        "defaultPrintMode": "simple"
+      }
+    ]
+  },
+  {
+    "id": 7357,
+    "band": "Metallica",
+    "designId": "metallica-hardwired-alternativa",
+    "name": "Hardwired... to Self-Destruct · Alternativa",
+    "img": "images/metallica/metallica_hardwired_versión_alternative.jpg",
+    "category": "Metallica",
+    "visibilityTier": "catalog",
+    "commercialPriority": 95,
+    "isNew": true,
+    "tipoPrecio": "simple",
+    "garments": [
+      "remera"
+    ],
+    "variants": [
+      {
+        "img": "images/metallica/metallica_hardwired_versión_alternative.jpg",
+        "name": "Hardwired... to Self-Destruct · Alternativa",
+        "role": "front",
+        "color": "negro",
+        "defaultPrintMode": "simple"
+      }
+    ]
+  },
+  {
+    "id": 7358,
+    "band": "Metallica",
+    "designId": "metallica-skull-heart",
+    "name": "Heart Explosive",
+    "img": "images/metallica/metallica_skull_heart.jpg",
+    "category": "Metallica",
+    "visibilityTier": "catalog",
+    "commercialPriority": 95,
+    "isNew": true,
+    "tipoPrecio": "simple",
+    "garments": [
+      "remera"
+    ],
+    "variants": [
+      {
+        "img": "images/metallica/metallica_skull_heart.jpg",
+        "name": "Heart Explosive",
+        "role": "front",
+        "color": "negro",
+        "defaultPrintMode": "simple"
+      }
+    ]
+  },
+  {
+    "id": 7359,
+    "band": "Slayer",
+    "designId": "slayer-orange-skull-devil",
+    "name": "Orange Skull Devil",
+    "img": "images/slayer/frente/slayer_orange_sull_devil.jpg",
+    "category": "Slayer",
+    "visibilityTier": "catalog",
+    "commercialPriority": 95,
+    "isNew": true,
+    "tipoPrecio": "simple",
+    "garments": [
+      "remera"
+    ],
+    "variants": [
+      {
+        "img": "images/slayer/frente/slayer_orange_sull_devil.jpg",
+        "name": "Orange Skull Devil",
+        "role": "front",
+        "color": "negro",
+        "defaultPrintMode": "simple"
+      }
+    ]
   }
 ]

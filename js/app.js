@@ -7748,9 +7748,12 @@ function getBandLandingDesignPreview(design, garment = bandLandingGarment) {
         return chooseCleanCatalogPreview(getCatalogDesignFrontRefs(design).filter(ref => ref.role === 'front' && ref.garmentStyle === 'sin_mangas'));
     }
     if (!(design?.availableGarments || []).includes(garment)) return null;
-    const previews = design?.previewsByGarment?.[garment] || [];
+    const garmentPreviews = design?.previewsByGarment?.[garment] || [];
+    const previews = garment === 'remera' && ['slayer', 'kreator'].includes(normalizeText(BAND_LANDING_BAND))
+        ? garmentPreviews.filter(ref => ref.garmentStyle !== 'sin_mangas')
+        : garmentPreviews;
+    if (garmentPreviews.length && !previews.length) return null;
     if (normalizeText(BAND_LANDING_BAND) === 'pantera' && !previews.length) return null;
-    if (normalizeText(BAND_LANDING_BAND) === 'slayer' && garment === 'remera' && previews.length && previews.every(ref => ref.garmentStyle === 'sin_mangas')) return null;
     if (normalizeText(BAND_LANDING_BAND) === 'helloween') {
         return chooseCleanCatalogPreview(previews) || design?.front || null;
     }
