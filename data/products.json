@@ -30154,7 +30154,8 @@
         "role": "front",
         "color": "negro",
         "defaultPrintMode": "simple",
-        "preferredPreview": true
+        "preferredPreview": true,
+        "stylePreviews": [{ "img": "images/tours/Outbreak Vaccination of the Nations/Hangar 18 frente sin mangas.jpg", "garmentStyle": "sin_mangas", "previewLabel": "Sin mangas - Solo frente", "defaultPrintMode": "simple" }]
       },
       {
         "img": "images/tours/Outbreak Vaccination of the Nations/HANGARDORSO  4_5 MOCK OFICIAL.jpg",
@@ -30171,7 +30172,8 @@
         "color": "negro",
         "defaultPrintMode": "double",
         "autoSelectBack": "Dorso Outbreak: Vaccination of the Nations",
-        "previewLabel": "Frente y dorso"
+        "previewLabel": "Frente y dorso",
+        "stylePreviews": [{ "img": "images/tours/Outbreak Vaccination of the Nations/Hangar 18 frente y dorso sin mangas.jpg", "garmentStyle": "sin_mangas", "previewLabel": "Sin mangas - Frente y dorso", "defaultPrintMode": "double", "autoSelectBack": "Dorso Outbreak: Vaccination of the Nations" }]
       }
     ]
   },

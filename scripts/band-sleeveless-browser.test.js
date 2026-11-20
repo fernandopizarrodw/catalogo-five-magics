@@ -134,10 +134,18 @@ async function main() {
                 await evaluate('closeModal(false,false)');
             }
             await navigate('/megadeth/');
+            await evaluate('document.querySelector(".band-landing-hero a[href=\'#diseno-megadeth-hangar-18-outbreak-vaccination\']").click()');
+            await waitFor('currentCatalogDesign?.designId === "megadeth-hangar-18-outbreak-vaccination"');
+            await evaluate('closeModal(false,false)');
             assert.equal(await evaluate('document.querySelector("#productsGrid [data-design-id]")?.dataset.designId'), 'megadeth-hangar-18-outbreak-vaccination');
             await evaluate('document.querySelector("#productsGrid .catalog-design-card-main").click()');
             const megadeth = await evaluate('({images:currentModalSourceRefs.map(ref=>ref.image),back:currentCatalogDesign.backOptions.map(ref=>ref.image),selected:selectedCatalogFrontRef?.image})');
             assert.equal(megadeth.images.length, 3, JSON.stringify(megadeth));
+            await evaluate('selectModalGarment("sin_mangas")');
+            const sleevelessHangar = await evaluate('currentModalSourceRefs.map(ref => ref.image)');
+            assert(sleevelessHangar.some(image => image.endsWith('Hangar 18 frente sin mangas.jpg')));
+            assert(sleevelessHangar.some(image => image.endsWith('Hangar 18 frente y dorso sin mangas.jpg')));
+            await evaluate('selectModalGarment("remera_clasica")');
             assert(megadeth.back.some(image => image.includes('HANGARDORSO')));
             assert(megadeth.selected.includes('HANGAR FRENTE'));
             await evaluate('selectColor("negro");selectSize("M");selectPrintMode("double")');
