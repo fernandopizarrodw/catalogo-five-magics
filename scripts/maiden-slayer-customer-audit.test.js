@@ -134,7 +134,7 @@ async function main() {
                     const message=new URL(url).searchParams.get('text');
                     assert(message.includes(chosen.back),'Wrong back in WhatsApp');
                     assert(message.toLowerCase().includes('sin mangas'),'Wrong garment in WhatsApp');
-                    assert(message.includes('Envío a domicilio: $10.000'),message);
+                    assert(message.includes('Envío a domicilio: $9.000'),message);
                     await evaluate('openCartPreview()');
                     const name=await evaluate('document.getElementById("inputNombre").value+" "+document.getElementById("inputApellido").value');
                     await tap('[data-order-delivery][data-delivery="retiro_andreani"]');
@@ -157,13 +157,13 @@ async function main() {
                     await evaluate('window.__auditBase=cart.getCart()[0];cart.cart=[__auditBase,{...__auditBase,timestamp:1}];cart.saveCart();renderCartPreview();selectDeliveryMethod("retiro_andreani")');
                     assert.equal(await evaluate('calculateCartTotal().envio'),0);
                     await tap('[data-order-delivery][data-delivery="domicilio"]');
-                    assert.equal(await evaluate('calculateCartTotal().envio'),10000);
+                    assert.equal(await evaluate('calculateCartTotal().envio'),9000);
                     await evaluate('cart.cart.push({...__auditBase,timestamp:2});cart.saveCart();renderCartPreview()');
                     assert.equal(await evaluate('calculateCartTotal().descuento'),price*3*.1);
                     assert.equal(await evaluate('calculateCartTotal().envio'),0);
                     await tap('.cart-preview-item-remove');
                     assert.equal(await evaluate('calculateCartTotal().descuento'),0);
-                    assert.equal(await evaluate('calculateCartTotal().envio'),10000);
+                    assert.equal(await evaluate('calculateCartTotal().envio'),9000);
                     assert(await evaluate('document.querySelector(".cart-preview-item-name").scrollWidth<=document.querySelector(".cart-preview-item-name").clientWidth+1'));
                     await shot(band+'-cart-readable-'+width);
                     results.push({band,width,chosen,whatsapp:true,deliveryName:{name,branchName,restoredName}});

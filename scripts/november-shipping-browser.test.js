@@ -11,7 +11,7 @@ const configs = require('../js/band-archives-config.js');
 
 const root = path.resolve(__dirname, '..');
 const pause = ms => new Promise(resolve => setTimeout(resolve, ms));
-const expectedZones = { amba: [6000, 10000], centro: [7000, 11000], resto: [8000, 12000] };
+const expectedZones = { amba: [6000, 9000], centro: [8000, 11000], resto: [9000, 12000] };
 const money = value => `$${value.toLocaleString('es-AR')}`;
 
 async function main() {
@@ -119,7 +119,7 @@ async function main() {
                     await evaluate('document.getElementById("btnConfirmCartWhatsapp").click()');
                     const url = await evaluate('window.__shippingMessages.at(-1)');
                     const message = new URL(url).searchParams.get('text');
-                    const shippingLabel = method === 'domicilio' ? 'Envío a domicilio' : method === 'retiro_andreani' ? 'Envío a sucursal/punto Andreani' : 'Retiro en Villa Martelli';
+                    const shippingLabel = method === 'domicilio' ? 'Envío a domicilio' : method === 'retiro_andreani' ? 'Envío a sucursal/punto de retiro' : 'Retiro en Villa Martelli';
                     assert(message.includes(`${shippingLabel}: ${shipping ? money(shipping) : 'GRATIS'}`));
                     assert(message.includes(`Total: ${money(subtotal - discount + shipping)}`));
                     if (method !== 'taller') assert(message.includes(`Zona: ${await evaluate(`SHIPPING_ZONES['${zoneId}'].label` )}`));
@@ -157,7 +157,7 @@ async function main() {
             assert(layout.checkoutWidth <= width + 1, `${pathname}: checkout overflow`);
             assert(layout.selectLeft >= 0 && layout.selectRight <= width + 1, `${pathname}: zone selector overflow`);
             assert(layout.visibleText.includes('$8.000') && layout.visibleText.includes('$12.000'));
-            assert.equal(layout.fee, 7000);
+            assert.equal(layout.fee, 8000);
             results.pages.push({ pathname, width, layout });
             await evaluate(`document.getElementById('cartDeliveryGroup').scrollIntoView({block: 'start'})`);
             const shot = await send('Page.captureScreenshot', { format: 'png' });
@@ -186,8 +186,8 @@ async function main() {
         }
         for (const file of ['index.html', ...configs.map(config => config.output)]) {
             const html = fs.readFileSync(path.join(root, file), 'utf8');
-            assert(!/punto Andreani \$5\.000|domicilio \$9\.000|Andreani · \$5\.000|Domicilio · \$9\.000/.test(html), `Old shipping copy: ${file}`);
-            assert(html.includes('customOrderZone') && html.includes('shipping-20261102'), `Missing updated form/assets: ${file}`);
+            assert(!/andreani|\$10\.000/i.test(html.replaceAll('value="andreani"', '')), `Old shipping copy: ${file}`);
+            assert(html.includes('customOrderZone') && html.includes('Domicilio · desde $9.000'), `Missing updated shipping form: ${file}`);
         }
         const pricing = await promisify(execFile)(process.execPath, [path.join(__dirname, 'pricing-browser.test.js')], {
             env: { ...process.env, CDP_URL: `http://127.0.0.1:${port}`, PAGE_URL: baseUrl + '/' }, windowsHide: true, timeout: 30000

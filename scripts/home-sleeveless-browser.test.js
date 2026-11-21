@@ -105,7 +105,7 @@ async function main() {
                 const white=await evaluate('selectColor("blanco");selectSize("L");({color:selectedColor,mode:selectedPrintMode,back:selectedCatalogBackRef?.variantIndex})');
                 assert.equal(white.color,'blanco',card.file); assert.equal(white.mode,'double'); assert.equal(white.back,state.back.variantIndex);
                 const simple=await evaluate('cart.clearCart();selectPrintMode("simple");({added:addToCartFromModal(),summary:cart.generateSummary()})');
-                assert(simple.added); assert(simple.summary.includes('* Precio: $38.000')); assert(simple.summary.includes('* Color: Blanca'));
+                assert(simple.added); assert(simple.summary.includes('* Precio: $35.000')); assert(simple.summary.includes('* Color: Blanca'));
                 assert.equal(await evaluate('cart.getCart().length'),1);
                 if(i===0){await evaluate('openSizeGuideForCurrentGarment()'); assert((await evaluate('document.getElementById("modalSizeGuideTitle").textContent')).includes('sin mangas')); await evaluate('closeModalSizeGuide()');}
                 summaries.push({file:card.file,width,message:order.summary});

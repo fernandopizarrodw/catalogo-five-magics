@@ -15841,7 +15841,7 @@
         "name": "Negra â€” Dorso Flyer 1984"
       }
     ],
-    "desc": "ðŸŽ¸ SKULL SPLITTING METAL ðŸ’€\n\nHace unas horas el Colo mostrÃ³ una de las primeras remeras que diseÃ±Ã³ para Megadeth. 'Fast... Loud... and Rude!' Tomamos ese concepto original y lo llevamos al siguiente nivel con el enfoque de Five Magics Designs.\n\nUn homenaje directo al nacimiento de Megadeth, nada menos que para su despedida. PoÃ©tico. âœï¸\n\nY en el dorso: el flyer original de las primeras fechas de 1984. ðŸ¤¯\n\nLa historia completa, frente y dorso. Don't just wear a shirt, wear the history.\n\nðŸŽ¨ Talles del S al XXL\nâœ¨ ImpresiÃ³n DTG Premium\nðŸ“¦ EnvÃ­o Andreani a todo el paÃ­s",
+    "desc": "ðŸŽ¸ SKULL SPLITTING METAL ðŸ’€\n\nHace unas horas el Colo mostrÃ³ una de las primeras remeras que diseÃ±Ã³ para Megadeth. 'Fast... Loud... and Rude!' Tomamos ese concepto original y lo llevamos al siguiente nivel con el enfoque de Five Magics Designs.\n\nUn homenaje directo al nacimiento de Megadeth, nada menos que para su despedida. PoÃ©tico. âœï¸\n\nY en el dorso: el flyer original de las primeras fechas de 1984. ðŸ¤¯\n\nLa historia completa, frente y dorso. Don't just wear a shirt, wear the history.\n\nðŸŽ¨ Talles del S al XXL\nâœ¨ ImpresiÃ³n DTG Premium\nðŸ“¦ EnvÃ­o a todo el paÃ­s",
     "band": "Megadeth",
     "universe": [
       "Megadeth Vault",
@@ -30155,6 +30155,10 @@
         "color": "negro",
         "defaultPrintMode": "simple",
         "preferredPreview": true,
+        "colorPreviews": [
+          { "img": "images/tours/Outbreak Vaccination of the Nations/HANGAR FRENTE 4_5 MOCK OFICIAL_BLANCA.jpg", "color": "blanco", "previewLabel": "Blanca - Solo frente", "defaultPrintMode": "simple" },
+          { "img": "images/tours/Outbreak Vaccination of the Nations/Hangar 18 frente sin mangas_blanca.jpg", "color": "blanco", "garmentStyle": "sin_mangas", "previewLabel": "Sin mangas blanca - Solo frente", "defaultPrintMode": "simple" }
+        ],
         "stylePreviews": [{ "img": "images/tours/Outbreak Vaccination of the Nations/Hangar 18 frente sin mangas.jpg", "garmentStyle": "sin_mangas", "previewLabel": "Sin mangas - Solo frente", "defaultPrintMode": "simple" }]
       },
       {
@@ -30173,6 +30177,10 @@
         "defaultPrintMode": "double",
         "autoSelectBack": "Dorso Outbreak: Vaccination of the Nations",
         "previewLabel": "Frente y dorso",
+        "colorPreviews": [
+          { "img": "images/tours/Outbreak Vaccination of the Nations/h18BLANCA-REMERA DOBLE ESTAMPA copia.jpg", "color": "blanco", "previewLabel": "Blanca - Frente y dorso", "defaultPrintMode": "double", "autoSelectBack": "Dorso Outbreak: Vaccination of the Nations" },
+          { "img": "images/tours/Outbreak Vaccination of the Nations/H18BLANCAS DOBLES.jpg", "color": "blanco", "garmentStyle": "sin_mangas", "previewLabel": "Sin mangas blanca - Frente y dorso", "defaultPrintMode": "double", "autoSelectBack": "Dorso Outbreak: Vaccination of the Nations" }
+        ],
         "stylePreviews": [{ "img": "images/tours/Outbreak Vaccination of the Nations/Hangar 18 frente y dorso sin mangas.jpg", "garmentStyle": "sin_mangas", "previewLabel": "Sin mangas - Frente y dorso", "defaultPrintMode": "double", "autoSelectBack": "Dorso Outbreak: Vaccination of the Nations" }]
       }
     ]

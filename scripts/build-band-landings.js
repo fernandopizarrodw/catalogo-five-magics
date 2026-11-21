@@ -268,7 +268,7 @@ ${postShow.secondaryCtaLabel ? `                    <a class="band-landing-secon
             <p>${config.promoKicker || 'ENVÍOS A TODO EL PAÍS 🇦🇷'}</p>
             <strong>${config.promoTitle || 'SUMÁ PRENDAS <em>Y APROVECHÁ LOS BENEFICIOS</em>'}</strong>
             <div class="shipping-promo-options">
-                <span><b>2 PRENDAS</b><em>ENVÍO GRATIS a sucursal o punto Andreani</em></span>
+                <span><b>2 PRENDAS</b><em>ENVÍO GRATIS a sucursal o punto de retiro</em></span>
                 <span class="is-best"><b>3 PRENDAS O MÁS</b><em>10% OFF + ENVÍO GRATIS</em></span>
             </div>
         </section>`;

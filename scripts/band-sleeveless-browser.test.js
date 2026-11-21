@@ -140,11 +140,38 @@ async function main() {
             assert.equal(await evaluate('document.querySelector("#productsGrid [data-design-id]")?.dataset.designId'), 'megadeth-hangar-18-outbreak-vaccination');
             await evaluate('document.querySelector("#productsGrid .catalog-design-card-main").click()');
             const megadeth = await evaluate('({images:currentModalSourceRefs.map(ref=>ref.image),back:currentCatalogDesign.backOptions.map(ref=>ref.image),selected:selectedCatalogFrontRef?.image})');
-            assert.equal(megadeth.images.length, 3, JSON.stringify(megadeth));
+            assert.equal(megadeth.images.length, 5, JSON.stringify(megadeth));
             await evaluate('selectModalGarment("sin_mangas")');
             const sleevelessHangar = await evaluate('currentModalSourceRefs.map(ref => ref.image)');
             assert(sleevelessHangar.some(image => image.endsWith('Hangar 18 frente sin mangas.jpg')));
             assert(sleevelessHangar.some(image => image.endsWith('Hangar 18 frente y dorso sin mangas.jpg')));
+            for (const [garment, color, simple, double] of [
+                ['remera_clasica', 'negro', 38000, 45000],
+                ['remera_clasica', 'blanco', 38000, 45000],
+                ['sin_mangas', 'negro', 38000, 45000],
+                ['sin_mangas', 'blanco', 35000, 42000]
+            ]) {
+                await evaluate(`selectModalGarment('${garment}'); selectColor('${color}'); selectSize('M')`);
+                for (const [mode, expected] of [['simple', simple], ['double', double]]) {
+                    const price = '$' + expected.toLocaleString('es-AR');
+                    const result = await evaluate(`cart.clearCart(); selectPrintMode('${mode}'); ({
+                        price: document.getElementById('modalPrice').textContent,
+                        image: selectedCatalogFrontRef?.image,
+                        consultation: buildModalConsultationWhatsappMessage(),
+                        added: addToCartFromModal(), order: cart.generateSummary()
+                    })`);
+                    assert(result.price.endsWith(price), JSON.stringify(result));
+                    assert(result.added && result.order.includes(price), JSON.stringify(result));
+                    if (color === 'blanco') {
+                        const expectedImage = garment === 'sin_mangas'
+                            ? (mode === 'simple' ? 'Hangar 18 frente sin mangas_blanca.jpg' : 'H18BLANCAS DOBLES.jpg')
+                            : (mode === 'simple' ? 'HANGAR FRENTE 4_5 MOCK OFICIAL_BLANCA.jpg' : 'h18BLANCA-REMERA DOBLE ESTAMPA copia.jpg');
+                        assert(result.image.endsWith(expectedImage), JSON.stringify(result));
+                    }
+                    if (garment === 'sin_mangas' && color === 'blanco') assert(result.consultation.includes(price));
+                }
+            }
+            await evaluate('cart.clearCart()');
             await evaluate('selectModalGarment("remera_clasica")');
             assert(megadeth.back.some(image => image.includes('HANGARDORSO')));
             assert(megadeth.selected.includes('HANGAR FRENTE'));
