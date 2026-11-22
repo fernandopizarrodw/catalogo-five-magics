@@ -134,6 +134,13 @@ async function main() {
                 await evaluate('closeModal(false,false)');
             }
             await navigate('/megadeth/');
+            await evaluate('selectBandLandingCollection("so-far")');
+            assert(await evaluate('getCatalogDesignResults().some(design => design.designId === "megadeth-so-far-1988-live")'));
+            await evaluate('openCatalogDesign("cd-megadeth-so-far-so-good--alternative", "sin_mangas"); selectColor("blanco"); selectPrintMode("double"); selectSize("M")');
+            const soFar = await evaluate('({image:selectedCatalogFrontRef?.image, back:selectedCatalogBackRef?.label, price:resolveModalPriceConfig().doble, added:addToCartFromModal()})');
+            assert(soFar.image?.endsWith('sin mangas blanca so far.jpg'), JSON.stringify(soFar));
+            assert(soFar.back?.includes('So What!') && soFar.price === 42000 && soFar.added, JSON.stringify(soFar));
+            await evaluate('closeModal(false,false); cart.clearCart(); selectBandLandingCollection("featured")');
             await evaluate('document.querySelector(".band-landing-hero a[href=\'#diseno-megadeth-hangar-18-outbreak-vaccination\']").click()');
             await waitFor('currentCatalogDesign?.designId === "megadeth-hangar-18-outbreak-vaccination"');
             await evaluate('closeModal(false,false)');

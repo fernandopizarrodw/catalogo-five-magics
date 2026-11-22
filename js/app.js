@@ -2896,10 +2896,10 @@ function selectCatalogDesignPreviewForGarment(modalGarment) {
     const currentSelection = previews.find(item => (
         isSameAssetPath(item.image, selectedCatalogFrontRef?.image || '')
     ));
-    const matchingHangarPreview = currentCatalogDesign.designId === 'megadeth-hangar-18-outbreak-vaccination'
+    const matchingPrintPreview = usesMatchedPrintPreview(currentCatalogDesign)
         ? garmentRefs.find(ref => ref.role === 'front' && ref.color === selectedColorKey && ref.defaultPrintMode === selectedPrintMode)
         : null;
-    let preview = matchingHangarPreview || colorPreview || currentSelection || targetGarmentRef || previousSelection || (preferCleanFront
+    let preview = matchingPrintPreview || colorPreview || currentSelection || targetGarmentRef || previousSelection || (preferCleanFront
         ? chooseCleanCatalogPreview(previews, selectedColorKey)
         : previews.find(item => selectedColorKey && normalizeText(item.color) === selectedColorKey)
             || previews.find(item => item.preferredPreview)
@@ -3366,9 +3366,14 @@ function updatePrintModeUI() {
     }
 }
 
+function usesMatchedPrintPreview(design) {
+    return design?.designId === 'megadeth-hangar-18-outbreak-vaccination'
+        || design?.designId === 'cd-megadeth-so-far-so-good--alternative';
+}
+
 function selectPrintMode(mode) {
     selectedPrintMode = mode === 'double' ? 'double' : 'simple';
-    if (currentCatalogDesign?.designId === 'megadeth-hangar-18-outbreak-vaccination'
+    if (usesMatchedPrintPreview(currentCatalogDesign)
         && selectedCatalogFrontRef?.defaultPrintMode !== selectedPrintMode && selectedColor) {
         selectCatalogDesignPreviewForGarment(selectedModalGarment);
     }

@@ -1015,12 +1015,21 @@
     "variants": [
       {
         "img": "images/albums/SFSGSW/1-sfsgsw_tapa.jpg",
-        "name": "Tapa",
-        "stylePreviews": [{ "img": "images/remeras sin mangas/megadeth_sin_mangas/so_far_sin_mangas.png", "garmentStyle": "sin_mangas", "previewLabel": "Sin mangas - Solo frente", "defaultPrintMode": "simple" }]
+        "name": "Tapa"
       },
       {
-        "img": "images/albums/SFSGSW/2-sfsgsw_alternative.jpg",
-        "name": "Alternative"
+        "img": "images/albums/SFSGSW/2-sfsgsw_alternative_clasica.jpg",
+        "name": "Alternative",
+        "color": "negro",
+        "defaultPrintMode": "simple",
+        "isNew": true,
+        "stylePreviews": [
+          { "img": "images/albums/SFSGSW/FRENTE.png", "garmentStyle": "sin_mangas", "previewLabel": "Sin mangas - Solo frente", "defaultPrintMode": "simple" },
+          { "img": "images/albums/SFSGSW/megadeth_sfsgsw_sin_mangas.jpg", "garmentStyle": "sin_mangas", "previewLabel": "Sin mangas - Frente y dorso", "defaultPrintMode": "double", "autoSelectBack": "Dorso So Far, So Good... So What!" }
+        ],
+        "colorPreviews": [
+          { "img": "images/albums/SFSGSW/sin mangas blanca so far.jpg", "color": "blanco", "garmentStyle": "sin_mangas", "previewLabel": "Sin mangas blanca - Frente y dorso", "defaultPrintMode": "double", "autoSelectBack": "Dorso So Far, So Good... So What!" }
+        ]
       },
       {
         "img": "images/albums/SFSGSW/3-mary_jane.jpg",
@@ -1036,6 +1045,24 @@
         "isNew": true,
         "fmdBadge": "ORIGINAL FMD",
         "fmdBadgeDescription": "Arte exclusivo FMD con impronta de colección, pensado para llevar la era del disco a una prenda con presencia."
+      },
+      {
+        "img": "images/albums/SFSGSW/2-sfsgsw_alternative.jpg",
+        "name": "So Far 1988 Live",
+        "publicName": "So Far, So Good... So What! · 1988 Live",
+        "designId": "megadeth-so-far-1988-live",
+        "role": "front",
+        "color": "negro",
+        "defaultPrintMode": "simple",
+        "isNew": true
+      },
+      {
+        "img": "images/albums/SFSGSW/megadeth_sfsgsw_sin_mangas.jpg",
+        "name": "Dorso So Far, So Good... So What!",
+        "selectionLabel": "Dorso So Far, So Good... So What!",
+        "previewLabel": "Referencia frente y dorso",
+        "role": "back",
+        "backTargetDesignId": "cd-megadeth-so-far-so-good--alternative"
       }
     ],
     "desc": "Thrash Ã¡spero, oscuro y visceral con variantes del arte clÃ¡sico de So Far, So Good... So What!",
