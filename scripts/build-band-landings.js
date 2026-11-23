@@ -165,7 +165,7 @@ ${completeArchive ? `            <div class="band-landing-all-designs">
                     <span>${completeArchive.kicker || 'CATÁLOGO COMPLETO'}</span>
                     <strong>${completeArchive.copy || `Explorá todos los diseños de ${config.band}.`}</strong>
                 </div>
-                <button type="button" data-band-landing-collection="" onclick="selectBandLandingCollection('')">${completeArchive.label || 'VER TODOS LOS DISEÑOS'} <span data-collection-count=""></span></button>
+                <button type="button" class="active" data-band-landing-collection="" aria-pressed="true" onclick="showBandLandingFullArchive()">${completeArchive.label || 'VER TODOS LOS DISEÑOS'} <span data-collection-count=""></span></button>
             </div>` : ''}
 ${collections.length ? `            <div class="band-landing-collections" id="bandLandingCollections" aria-label="Explorar ${config.band} por colección">
 ${!completeArchive || config.band === 'Helloween' ? `                <button type="button" class="band-landing-collection-btn${config.defaultCollection ? '' : ' active'}" data-band-landing-collection="" onclick="selectBandLandingCollection('')">${config.allCollectionLabel || 'TODOS'} <span data-collection-count=""></span></button>` : ''}

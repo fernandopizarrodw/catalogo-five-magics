@@ -121,6 +121,24 @@ async function main() {
 
         for (const width of [360, 1440]) {
             await send('Emulation.setDeviceMetricsOverride', { width, height: 1000, deviceScaleFactor: 1, mobile: width < 500 });
+            for (const [band, id, back] of [
+                ['Exodus', 'exodus-hammer-and-life', 'Dorso Exodus - Logo rojo'],
+                ['System of a Down', 'system-of-a-down-hypnotize', 'Dorso Hypnotize - Logo y título']
+            ]) {
+                await navigate('/?banda=' + encodeURIComponent(band) + '#catalogoPrincipal');
+                assert(await evaluate(`getCatalogDesignResults().some(design => design.designId === '${id}')`), band);
+                await evaluate(`document.querySelector('[data-design-id="${id}"] .catalog-design-card-main').click(); selectColor('negro'); selectPrintMode('double'); selectSize('M')`);
+                const order = await evaluate('({back:selectedCatalogBackRef?.label, added:addToCartFromModal(), summary:cart.generateSummary()})');
+                assert.equal(order.back, back);
+                assert(order.added && order.summary.includes('$45.000'), JSON.stringify(order));
+                await evaluate('cart.clearCart(); closeModal(false,false)');
+            }
+            await navigate('/helloween/');
+            await evaluate('openCatalogDesign("helloween-keeper-of-the-seven-keys-part-i", "remera_clasica"); selectColor("blanco")');
+            assert(await evaluate('selectedCatalogFrontRef?.image.endsWith("keeper_I_blanca.jpg")'));
+            await evaluate('selectColor("negro"); selectModalGarment("sin_mangas"); selectPrintMode("double")');
+            assert(await evaluate('currentModalSourceRefs.some(ref => ref.image.endsWith("keeper_I_sin_mangas.jpg"))'));
+            await evaluate('closeModal(false,false)');
             for (const [slug, band] of [['acdc', 'AC/DC'], ['metallica', 'Metallica']]) {
                 await navigate('/' + slug + '/');
                 assert.equal(await evaluate('BAND_LANDING_BAND'), band);
@@ -134,6 +152,8 @@ async function main() {
                 await evaluate('closeModal(false,false)');
             }
             await navigate('/megadeth/');
+            await evaluate('selectBandLandingGarment("hoodie"); selectBandLandingCollection("originals"); document.querySelector(".band-landing-all-designs button").click()');
+            assert(await evaluate('getCatalogDesignResults().length === catalogDesigns.filter(isCatalogDesignInScope).length'));
             await evaluate('selectBandLandingCollection("so-far")');
             assert(await evaluate('getCatalogDesignResults().some(design => design.designId === "megadeth-so-far-1988-live")'));
             await evaluate('openCatalogDesign("cd-megadeth-so-far-so-good--alternative", "sin_mangas"); selectColor("blanco"); selectPrintMode("double"); selectSize("M")');
@@ -152,6 +172,16 @@ async function main() {
             const sleevelessHangar = await evaluate('currentModalSourceRefs.map(ref => ref.image)');
             assert(sleevelessHangar.some(image => image.endsWith('Hangar 18 frente sin mangas.jpg')));
             assert(sleevelessHangar.some(image => image.endsWith('Hangar 18 frente y dorso sin mangas.jpg')));
+            await evaluate(`(() => {
+                selectColor('negro');
+                selectSize('M');
+                const back = getCatalogDesignBackChoices().find(ref => ref.label.includes('1990'));
+                selectCatalogDesignBack(back.productId, back.variantIndex);
+            })()`);
+            const lineup = await evaluate('({image:selectedCatalogFrontRef?.image, added:addToCartFromModal(), summary:cart.generateSummary()})');
+            assert(lineup.image?.endsWith('dorso rust in peace lineup.jpg'), JSON.stringify(lineup));
+            assert(lineup.added && lineup.summary.includes('1990') && lineup.summary.includes('$45.000'), JSON.stringify(lineup));
+            await evaluate('cart.clearCart(); selectPrintMode("simple")');
             for (const [garment, color, simple, double] of [
                 ['remera_clasica', 'negro', 38000, 45000],
                 ['remera_clasica', 'blanco', 38000, 45000],
@@ -209,8 +239,9 @@ async function main() {
             await evaluate('filterByGarment("sin_mangas")');
             assert(await evaluate('getCatalogDesignResults().every(design => Boolean(getCatalogDesignSleevelessPreview(design)))'));
             assert(await evaluate('new Set(getCatalogDesignResults().map(design => design.band)).size') >= bands.length);
-            for (const config of configs.filter(config => bands.some(band => band.toLowerCase() === config.band.toLowerCase()))) {
+            for (const config of configs) {
                 await navigate(`/${config.slug}/`);
+                assert(await evaluate('!bandLandingCollection && !bandLandingGarment && getCatalogDesignResults().length === catalogDesigns.filter(isCatalogDesignInScope).length'), config.slug);
                 if (config.slug === 'kreator') {
                     assert.equal(await evaluate('document.querySelector("#bandLandingTitle").textContent'), 'KREATOR · BUENOS AIRES 2026');
                     assert.equal(await evaluate('document.querySelector(".band-landing-hero .band-landing-primary-cta").textContent'), 'ELEGIR MI REMERA');
@@ -221,7 +252,7 @@ async function main() {
                     ]);
                     assert(await evaluate('["Gods of Violence","Phantom Antichrist","Pleasure to Kill"].every(name => getCatalogDesignResults().some(design => design.publicName === name))'));
                 }
-                await checkBand(config.band, width, true);
+                if (bands.some(band => band.toLowerCase() === config.band.toLowerCase())) await checkBand(config.band, width, true);
             }
         }
         assert.deepEqual(errors, []); assert.deepEqual(failedAssets, []);

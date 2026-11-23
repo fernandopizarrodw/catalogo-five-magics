@@ -80,7 +80,6 @@ const BAND_LANDING_SHOWCASE = BAND_LANDING_CONFIG?.showcase
     || BAND_LANDING_ARCHIVE_CONFIG?.showcase
     || null;
 const BAND_LANDING_GARMENTS = new Set(['remera', 'sin_mangas', 'hoodie', 'buzo_cuello_redondo']);
-const configuredBandLandingGarment = String(BAND_LANDING_CONFIG?.defaultGarment || '').trim();
 const requestedBandLandingGarment = typeof window !== 'undefined'
     ? String(new URLSearchParams(window.location.search).get('prenda') || '').trim()
     : '';
@@ -90,13 +89,10 @@ const requestedBandLandingCollection = typeof window !== 'undefined'
 let bandLandingOuterwear = BAND_LANDING_BAND === 'Helloween' && requestedBandLandingGarment === 'abrigos';
 let bandLandingGarment = BAND_LANDING_GARMENTS.has(requestedBandLandingGarment)
     ? requestedBandLandingGarment
-    : bandLandingOuterwear ? ''
-    : BAND_LANDING_GARMENTS.has(configuredBandLandingGarment)
-        ? configuredBandLandingGarment
-    : (BAND_LANDING_BAND ? 'remera' : '');
+    : '';
 let bandLandingCollection = BAND_LANDING_COLLECTIONS.some(collection => collection.id === requestedBandLandingCollection)
     ? requestedBandLandingCollection
-    : String(BAND_LANDING_CONFIG?.defaultCollection || '');
+    : '';
 const BAND_LANDING_URLS = Object.fromEntries(BAND_ARCHIVE_CONFIGS.map(config => [
     normalizeText(config.band),
     `/${String(config.slug || '').replace(/^\/+|\/+$/g, '')}/`
@@ -308,6 +304,30 @@ function selectBandLandingCollection(collectionId = '') {
 }
 
 window.selectBandLandingCollection = selectBandLandingCollection;
+
+function showBandLandingFullArchive() {
+    if (!isBandLandingMode()) return;
+    bandLandingGarment = '';
+    bandLandingOuterwear = false;
+    currentSearch = '';
+    if (searchInput) searchInput.value = '';
+    searchClear?.classList.remove('visible');
+    syncBandLandingFilterButtons();
+    selectBandLandingCollection('');
+}
+
+function syncBandLandingFilterButtons() {
+    document.querySelectorAll('[data-band-landing-garment]').forEach(button => {
+        const active = button.dataset.bandLandingGarment === bandLandingGarment;
+        button.classList.toggle('active', active);
+        button.setAttribute('aria-selected', String(active));
+    });
+    document.querySelectorAll('[data-band-landing-collection]').forEach(button => {
+        const active = button.dataset.bandLandingCollection === bandLandingCollection;
+        button.classList.toggle('active', active);
+        button.setAttribute('aria-pressed', String(active));
+    });
+}
 
 function selectBandLandingCollectionAndScroll(collectionId = '') {
     selectBandLandingCollection(collectionId);
@@ -2896,9 +2916,12 @@ function selectCatalogDesignPreviewForGarment(modalGarment) {
     const currentSelection = previews.find(item => (
         isSameAssetPath(item.image, selectedCatalogFrontRef?.image || '')
     ));
-    const matchingPrintPreview = usesMatchedPrintPreview(currentCatalogDesign)
-        ? garmentRefs.find(ref => ref.role === 'front' && ref.color === selectedColorKey && ref.defaultPrintMode === selectedPrintMode)
-        : null;
+    const matchingPrintPreviews = usesMatchedPrintPreview(currentCatalogDesign)
+        ? garmentRefs.filter(ref => ref.role === 'front' && ref.color === selectedColorKey && ref.defaultPrintMode === selectedPrintMode)
+        : [];
+    const backLabel = normalizeText(selectedCatalogBackRef?.selectionLabel || selectedCatalogBackRef?.label || '');
+    const matchingPrintPreview = (backLabel && matchingPrintPreviews.find(ref => normalizeText(ref.autoSelectBack) === backLabel))
+        || matchingPrintPreviews[0];
     let preview = matchingPrintPreview || colorPreview || currentSelection || targetGarmentRef || previousSelection || (preferCleanFront
         ? chooseCleanCatalogPreview(previews, selectedColorKey)
         : previews.find(item => selectedColorKey && normalizeText(item.color) === selectedColorKey)
@@ -3393,8 +3416,9 @@ function selectPrintMode(mode) {
     } else if (currentCatalogDesign
         && !selectedCatalogBackRef
         && !selectedCatalogBackDeferred
-        && currentCatalogDesign.backOptions?.length === 1) {
-        const recommended = currentCatalogDesign.backOptions[0];
+        && (currentCatalogDesign.backOptions?.length === 1 || currentCatalogDesign.designId === 'megadeth-hangar-18-outbreak-vaccination')) {
+        const recommended = currentCatalogDesign.backOptions.find(ref => ref.selectionLabel === selectedCatalogFrontRef?.autoSelectBack)
+            || currentCatalogDesign.backOptions[0];
         selectedCatalogBackRef = getCatalogDesignBackChoices().find(ref => (
             ref.productId === recommended.productId && ref.variantIndex === recommended.variantIndex
         )) || recommended;
@@ -5247,6 +5271,9 @@ function selectCatalogDesignBack(productId, variantIndex) {
     selectedCatalogBackDeferred = false;
     selectedBackIndex = -1;
     if (selectedCatalogBackRef) selectedPrintMode = 'double';
+    if (selectedCatalogBackRef && currentCatalogDesign.designId === 'megadeth-hangar-18-outbreak-vaccination') {
+        selectCatalogDesignPreviewForGarment(selectedModalGarment);
+    }
     clearSelectionError('dorsoVariantsSection');
     renderDorsoSelector();
     updateModalPrices();
@@ -8043,7 +8070,7 @@ function renderCatalogDesignResults(designs) {
         const priceText = getCatalogDesignCardPriceText(design, preview, cardGarment);
         const initialGarment = isSleeveless
             ? 'sin_mangas'
-            : (isBandLandingMode() ? getBandLandingModalGarment(cardGarment) : '');
+            : (isBandLandingMode() ? getBandLandingModalGarment(cardGarment || (preview.garmentStyle === 'sin_mangas' ? 'sin_mangas' : preview.garment)) : '');
         const previewPrintMode = normalizeText(preview?.defaultPrintMode || '');
         const campaignFeatureElement = document.getElementById('bandCampaignFeature');
         const campaignFeatureDesignIds = String(campaignFeatureElement?.dataset.designIds || campaignFeatureElement?.dataset.designId || '')
@@ -10641,14 +10668,8 @@ document.addEventListener('DOMContentLoaded', () => {
     renderLandingSizeGuide('hombre');
     initRealProductProofCarousel();
 
-    if (bandLandingOuterwear) {
-        document.querySelectorAll('[data-band-landing-garment]').forEach(button => {
-            button.classList.remove('active');
-            button.setAttribute('aria-selected', 'false');
-        });
-    }
-
     if (isBandLandingMode()) {
+        syncBandLandingFilterButtons();
         trackCatalogEvent('archive_view', {
             band: BAND_LANDING_BAND,
             archive_slug: BAND_LANDING_CONFIG?.slug,

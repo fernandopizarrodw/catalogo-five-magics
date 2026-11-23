@@ -9418,7 +9418,7 @@
         "garmentCategory": "Bandas Sugeridas"
       },
       {
-        "img": "images/banda_sugeridas/helloween/remera_helloween_keeper_I.jpg",
+        "img": "images/banda_sugeridas/helloween/show_2026_verticales/remera_helloween_18_keeper_I_doble.jpg",
         "name": "Helloween Keeper of the Seven Keys Part I",
         "alt": "Remera negra Helloween Keeper of the Seven Keys Part I frente y dorso",
         "designId": "helloween-keeper-of-the-seven-keys-part-i",
@@ -9429,6 +9429,13 @@
         "defaultPrintMode": "double",
         "isNew": true,
         "stylePreviews": [
+          {
+            "img": "images/banda_sugeridas/helloween/show_2026_verticales/remera_helloween_18_keeper_I_sin_mangas.jpg",
+            "garmentStyle": "sin_mangas",
+            "previewLabel": "Sin mangas - Frente y dorso",
+            "defaultPrintMode": "double",
+            "autoSelectBack": "Dorso Keeper of the Seven Keys Part I"
+          },
           {
             "img": "images/remeras sin mangas/remera_helloween_doble_sin_mangas.jpg",
             "garmentStyle": "sin_mangas",
@@ -10012,6 +10019,7 @@
         "defaultPrintMode": "simple",
         "campaignPreview": "helloween-show-2026",
         "campaignThumbnail": "images/banda_sugeridas/helloween/show_2026_verticales/thumbs/remera_helloween_18_keeper_I.jpg",
+        "colorPreviews": [{ "img": "images/banda_sugeridas/helloween/show_2026_verticales/remera_helloween_18_keeper_I_blanca.jpg", "color": "blanco", "previewLabel": "Blanca - Solo frente", "defaultPrintMode": "simple" }],
         "isNew": true
       },
       {
@@ -30208,7 +30216,18 @@
           { "img": "images/tours/Outbreak Vaccination of the Nations/h18BLANCA-REMERA DOBLE ESTAMPA copia.jpg", "color": "blanco", "previewLabel": "Blanca - Frente y dorso", "defaultPrintMode": "double", "autoSelectBack": "Dorso Outbreak: Vaccination of the Nations" },
           { "img": "images/tours/Outbreak Vaccination of the Nations/H18BLANCAS DOBLES.jpg", "color": "blanco", "garmentStyle": "sin_mangas", "previewLabel": "Sin mangas blanca - Frente y dorso", "defaultPrintMode": "double", "autoSelectBack": "Dorso Outbreak: Vaccination of the Nations" }
         ],
-        "stylePreviews": [{ "img": "images/tours/Outbreak Vaccination of the Nations/Hangar 18 frente y dorso sin mangas.jpg", "garmentStyle": "sin_mangas", "previewLabel": "Sin mangas - Frente y dorso", "defaultPrintMode": "double", "autoSelectBack": "Dorso Outbreak: Vaccination of the Nations" }]
+        "stylePreviews": [
+          { "img": "images/tours/Outbreak Vaccination of the Nations/Hangar 18 frente y dorso sin mangas.jpg", "garmentStyle": "sin_mangas", "previewLabel": "Sin mangas - Frente y dorso", "defaultPrintMode": "double", "autoSelectBack": "Dorso Outbreak: Vaccination of the Nations" },
+          { "img": "images/tours/Outbreak Vaccination of the Nations/Hangar 18 frente y dorso sin mangas_dorso rust in peace lineup.jpg", "garmentStyle": "sin_mangas", "previewLabel": "Sin mangas - Frente y dorso Formación 1990", "defaultPrintMode": "double", "autoSelectBack": "Dorso Rust in Peace - Formación 1990" }
+        ]
+      },
+      {
+        "img": "images/tours/Outbreak Vaccination of the Nations/Hangar 18 frente y dorso sin mangas_dorso rust in peace lineup.jpg",
+        "name": "Dorso Rust in Peace - Formación 1990",
+        "selectionLabel": "Dorso Rust in Peace - Formación 1990",
+        "previewLabel": "Referencia frente y dorso",
+        "role": "back",
+        "backTargetDesignId": "megadeth-hangar-18-outbreak-vaccination"
       }
     ]
   },
@@ -30402,6 +30421,85 @@
         "color": "negro",
         "defaultPrintMode": "simple"
       }
+    ]
+  },
+  {
+    "category": "Bandas Sugeridas",
+    "visibilityTier": "catalog",
+    "commercialPriority": 95,
+    "isNew": true,
+    "tipoPrecio": "simple",
+    "garments": [
+      "remera"
+    ],
+    "id": 7360,
+    "band": "Exodus",
+    "designId": "exodus-hammer-and-life",
+    "name": "Hammer and Life",
+    "img": "images/banda_sugeridas/exodus/exodus_hammer_and_life_frente.jpg",
+    "variants": [
+      {
+        "img": "images/banda_sugeridas/exodus/exodus_hammer_and_life_frente.jpg",
+        "name": "Hammer and Life",
+        "role": "front",
+        "color": "negro",
+        "defaultPrintMode": "simple"
+      },
+      {
+        "img": "images/banda_sugeridas/exodus/exodus_hammer_and_life_dorso.jpg",
+        "name": "Dorso Exodus - Logo rojo",
+        "role": "back",
+        "carouselPreview": true,
+        "backTargetDesignId": "exodus-hammer-and-life"
+      }
+    ],
+    "collections": [
+      "Exodus Archive"
+    ],
+    "tags": [
+      "Exodus",
+      "Hammer and Life"
+    ]
+  },
+  {
+    "category": "Bandas Sugeridas",
+    "visibilityTier": "catalog",
+    "commercialPriority": 95,
+    "isNew": true,
+    "tipoPrecio": "doble",
+    "garments": [
+      "remera"
+    ],
+    "id": 7361,
+    "band": "System of a Down",
+    "designId": "system-of-a-down-hypnotize",
+    "name": "Hypnotize",
+    "img": "images/banda_sugeridas/system of a down/SYSTEM HYPNOTIZE 4-5 IG DOBLE.jpg",
+    "defaultPrintMode": "double",
+    "variants": [
+      {
+        "img": "images/banda_sugeridas/system of a down/SYSTEM HYPNOTIZE 4-5 IG DOBLE.jpg",
+        "name": "Hypnotize",
+        "previewLabel": "Frente y dorso",
+        "role": "front",
+        "color": "negro",
+        "defaultPrintMode": "double",
+        "autoSelectBack": "Dorso Hypnotize - Logo y título"
+      },
+      {
+        "img": "images/banda_sugeridas/system of a down/SYSTEM HYPNOTIZE 4-5 IG DOBLE.jpg",
+        "name": "Dorso Hypnotize - Logo y título",
+        "previewLabel": "Referencia frente y dorso",
+        "role": "back",
+        "backTargetDesignId": "system-of-a-down-hypnotize"
+      }
+    ],
+    "collections": [
+      "System of a Down Archive"
+    ],
+    "tags": [
+      "System of a Down",
+      "Hypnotize"
     ]
   }
 ]

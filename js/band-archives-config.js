@@ -257,7 +257,6 @@
             finalCopy: 'También hacemos diseños personalizados a partir de una tapa, imagen o idea.',
             whatsappMessage: 'Hola FMD! Quiero consultar por un diseño de Megadeth a partir de una tapa, imagen o idea.',
             defaultGarment: 'remera',
-            defaultCollection: 'featured',
             designOrder: ['megadeth-hangar-18-outbreak-vaccination'],
             allCollectionLabel: 'VER TODOS',
             prominentAllDesigns: {
