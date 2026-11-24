@@ -235,14 +235,14 @@ function matchesBandLandingCollection(design, collection) {
     // Evita que las reglas automáticas vuelvan a mostrarlo en otra colección.
     if (curatedCategory) return curatedCategory === collectionCategory;
 
+    if ((design?.collectionIds || []).some(id => normalizeText(id) === collectionId)) return true;
+
     const sourceAlbums = getBandLandingDesignAlbums(design);
     const albumMatches = (collection.match?.albums || []).map(normalizeText);
     if (albumMatches.length) return sourceAlbums.some(album => albumMatches.includes(album));
 
     // Un diseño asociado a un disco vive en ese álbum, aunque también tenga badge FMD.
     if (sourceAlbums.length) return false;
-
-    if ((design?.collectionIds || []).some(id => normalizeText(id) === collectionId)) return true;
 
     const normalizedBadges = (design?.badges || []).map(normalizeText);
     const isOriginalFmd = normalizedBadges.includes('original fmd');

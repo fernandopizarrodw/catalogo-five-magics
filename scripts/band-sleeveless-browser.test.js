@@ -158,6 +158,32 @@ async function main() {
                 await evaluate('closeModal(false,false)');
             }
             await navigate('/megadeth/');
+            await evaluate('selectBandLandingCollection("rust"); selectBandLandingGarment("sin_mangas")');
+            const rustMocks = await evaluate(`getCatalogDesignResults().flatMap(design =>
+                getCatalogDesignFrontRefs(design)
+                    .filter(ref => ref.image.includes('/megadeth_sin_mangas/'))
+                    .map(ref => ({
+                        file: ref.image.split('/').pop(),
+                        id: design.designId,
+                        back: design.backOptions.some(back => normalizeText(back.selectionLabel || back.label) === normalizeText(ref.autoSelectBack))
+                    }))
+            )`);
+            assert.equal(rustMocks.length, 10, JSON.stringify(rustMocks));
+            assert(rustMocks.every(mock => mock.back), JSON.stringify(rustMocks));
+            for (const mock of rustMocks.filter(mock => mock.file !== '-RIP H18.jpg')) {
+                const result = await evaluate(`(async () => {
+                    openCatalogDesign(${JSON.stringify(mock.id)}, 'sin_mangas');
+                    const index = currentModalSourceRefs.findIndex(ref => ref.image.endsWith(${JSON.stringify('/' + mock.file)}));
+                    if (index < 0) return {index};
+                    goToSlide(index);
+                    const ref = currentModalSourceRefs[index];
+                    const asset = await fetch(ref.image);
+                    const result = {loaded:asset.ok, image:selectedCatalogFrontRef?.image, back:selectedCatalogBackRef?.label, expected:ref.autoSelectBack, price:resolveModalPriceConfig().doble};
+                    closeModal(false,false);
+                    return result;
+                })()`);
+                assert(result.loaded && result.image?.endsWith('/' + mock.file) && result.back === result.expected && result.price === 45000, JSON.stringify({mock, result}));
+            }
             await evaluate('selectBandLandingGarment("hoodie"); selectBandLandingCollection("originals"); document.querySelector(".band-landing-all-designs button").click()');
             assert(await evaluate('getCatalogDesignResults().length === catalogDesigns.filter(isCatalogDesignInScope).length'));
             await evaluate('selectBandLandingCollection("so-far")');
@@ -185,7 +211,7 @@ async function main() {
                 selectCatalogDesignBack(back.productId, back.variantIndex);
             })()`);
             const lineup = await evaluate('({image:selectedCatalogFrontRef?.image, added:addToCartFromModal(), summary:cart.generateSummary()})');
-            assert(lineup.image?.endsWith('dorso rust in peace lineup.jpg'), JSON.stringify(lineup));
+            assert(lineup.image?.endsWith('/-RIP H18.jpg'), JSON.stringify(lineup));
             assert(lineup.added && lineup.summary.includes('1990') && lineup.summary.includes('$45.000'), JSON.stringify(lineup));
             await evaluate('cart.clearCart(); selectPrintMode("simple")');
             for (const [garment, color, simple, double] of [

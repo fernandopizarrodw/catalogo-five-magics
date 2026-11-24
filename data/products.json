@@ -1117,6 +1117,7 @@
         "role": "front",
         "designId": "cd-megadeth-rust-in-peace--rust-in-peace",
         "stylePreviews": [
+          { "img": "images/remeras sin mangas/megadeth_sin_mangas/RIP TRACKLIST.jpg", "garmentStyle": "sin_mangas", "previewLabel": "Sin mangas - Frente y dorso", "defaultPrintMode": "double", "autoSelectBack": "Dorso Rust in Peace · Canciones" },
           {
             "img": "images/remeras sin mangas/remera_rust_in_peace_doble_sin_mangas.jpg",
             "garmentStyle": "sin_mangas",
@@ -1144,9 +1145,17 @@
         "publicName": "Rust in Peace - Edición FMD",
         "role": "front",
         "designId": "cd-megadeth-rust-in-peace--rust-in-peace-fmd",
+        "stylePreviews": [{ "img": "images/remeras sin mangas/megadeth_sin_mangas/RIP ALTERNATIVE.jpg", "garmentStyle": "sin_mangas", "previewLabel": "Sin mangas - Frente y dorso", "defaultPrintMode": "double", "autoSelectBack": "Dorso Rust in Peace - Formación clásica" }],
         "isNew": true,
         "fmdBadge": "ORIGINAL FMD",
         "fmdBadgeDescription": "Creación FMD inspirada en la estética de Rust in Peace."
+      },
+      {
+        "img": "images/albums/Rust_in_peace/rust_in_peace_lineup-dorso.png",
+        "name": "Dorso Rust in Peace - Formación clásica",
+        "selectionLabel": "Dorso Rust in Peace - Formación clásica",
+        "role": "back",
+        "backTargetDesignId": "cd-megadeth-rust-in-peace--rust-in-peace-fmd"
       },
       {
         "img": "images/albums/Rust_in_peace/alternate-rip.jpg",
@@ -1186,6 +1195,7 @@
         "publicName": "Rust in Peace - Edición 3D",
         "role": "front",
         "designId": "cd-megadeth-rust-in-peace--rust-in-peace-3d",
+        "stylePreviews": [{ "img": "images/remeras sin mangas/megadeth_sin_mangas/RIP FMD EDITION.jpg", "garmentStyle": "sin_mangas", "previewLabel": "Sin mangas - Frente y dorso", "defaultPrintMode": "double", "autoSelectBack": "Dorso Rust in Peace - Edición 3D" }],
         "isNew": true,
         "fmdBadge": "ORIGINAL FMD",
         "fmdBadgeDescription": "Creación FMD de autor con foco en impacto visual, espíritu thrash y lectura premium en prenda."
@@ -2892,7 +2902,8 @@
       {
         "img": "images/musicians/Dave_Mustaine/dave_90s_rip_live.jpg",
         "name": "Frente",
-        "role": "front"
+        "role": "front",
+        "stylePreviews": [{ "img": "images/remeras sin mangas/megadeth_sin_mangas/DAVE MUS 90S DOBLE.jpg", "garmentStyle": "sin_mangas", "previewLabel": "Sin mangas - Frente y dorso", "defaultPrintMode": "double", "autoSelectBack": "Dorso Dave Mustaine - Silueta y firma" }]
       },
       {
         "img": "images/musicians/Dave_Mustaine/Dave_Mustaine_BN_90s.jpg",
@@ -2903,6 +2914,12 @@
         "img": "images/musicians/Dave_Mustaine/dave_dorso_figure.jpg",
         "name": "Dorso",
         "role": "back"
+      },
+      {
+        "img": "images/musicians/Dave_Mustaine/dave_dorso_figure.jpg",
+        "name": "Dorso Dave Mustaine - Silueta y firma",
+        "role": "back",
+        "backTargetDesignId": "cd-megadeth-dave-90s-rip-live--p2802"
       }
     ],
     "desc": "Dave en vivo durante la era Rust in Peace.",
@@ -3617,7 +3634,9 @@
       },
       {
         "img": "images/musicians/Marty_Friedman/Marty_1990_RIP.jpg",
-        "name": "1990 RIP"
+        "name": "1990 RIP",
+        "collectionIds": ["rust"],
+        "stylePreviews": [{ "img": "images/remeras sin mangas/megadeth_sin_mangas/NARTY DOBLE.jpg", "garmentStyle": "sin_mangas", "previewLabel": "Sin mangas - Frente y dorso", "defaultPrintMode": "double", "autoSelectBack": "Dorso logo Rust in Peace dorado" }]
       },
       {
         "img": "images/musicians/Marty_Friedman/Marty_1992_FIRMA.jpg",
@@ -3626,6 +3645,14 @@
       {
         "img": "images/musicians/Marty_Friedman/marty_bn.jpg",
         "name": "Marty BN"
+      },
+      {
+        "img": "images/remeras sin mangas/megadeth_sin_mangas/NARTY DOBLE.jpg",
+        "name": "Dorso logo Rust in Peace dorado",
+        "selectionLabel": "Dorso logo Rust in Peace dorado",
+        "previewLabel": "Referencia sin mangas - Frente y dorso",
+        "role": "back",
+        "backTargetDesignId": "cd-megadeth-1990-rip--p29"
       }
     ],
     "desc": "El guitarrista exÃ³tico. Estilo japonÃ©s.",
@@ -3867,7 +3894,9 @@
     "variants": [
       {
         "img": "images/musicians/Nick_Menza/nick_menza_rip_tour.jpg",
-        "name": "RIP Tour Frente"
+        "name": "RIP Tour Frente",
+        "collectionIds": ["rust"],
+        "stylePreviews": [{ "img": "images/remeras sin mangas/megadeth_sin_mangas/NICK DOBLE.jpg", "garmentStyle": "sin_mangas", "previewLabel": "Sin mangas - Frente y dorso", "defaultPrintMode": "double", "autoSelectBack": "RIP Tour Dorso" }]
       },
       {
         "img": "images/musicians/Nick_Menza/nick_menza_rip_tour_dorso.jpg",
@@ -3890,6 +3919,8 @@
         "name": "Nick Menza Live",
         "alt": "Remera negra Megadeth Nick Menza tocando en vivo",
         "designId": "megadeth-nick-menza-live",
+        "collectionIds": ["rust"],
+        "stylePreviews": [{ "img": "images/remeras sin mangas/megadeth_sin_mangas/NICK-2-DOBLE.jpg", "garmentStyle": "sin_mangas", "previewLabel": "Sin mangas - Frente y dorso", "defaultPrintMode": "double", "autoSelectBack": "Dorso logo Megadeth azul metálico" }],
         "color": "negro",
         "isNew": true,
         "fmdBadge": "ORIGINAL FMD",
@@ -3902,6 +3933,14 @@
       {
         "img": "images/musicians/Nick_Menza/megadeth_nick_baquetas.jpg",
         "name": "Idea para Dorso-2"
+      },
+      {
+        "img": "images/remeras sin mangas/megadeth_sin_mangas/NICK-2-DOBLE.jpg",
+        "name": "Dorso logo Megadeth azul metálico",
+        "selectionLabel": "Dorso logo Megadeth azul metálico",
+        "previewLabel": "Referencia sin mangas - Frente y dorso",
+        "role": "back",
+        "backTargetDesignId": "megadeth-nick-menza-live"
       }
     ],
     "desc": "El motor de la banda: Nick Menza, baterista legendario.",
@@ -15576,7 +15615,8 @@
     "variants": [
       {
         "img": "images/singles/hangar_18_single_frente.jpg",
-        "name": "Frente"
+        "name": "Frente",
+        "stylePreviews": [{ "img": "images/remeras sin mangas/megadeth_sin_mangas/HANGAR SINGLE.jpg", "garmentStyle": "sin_mangas", "previewLabel": "Sin mangas - Frente y dorso", "defaultPrintMode": "double", "autoSelectBack": "Dorso Rust in Peace circular" }]
       },
       {
         "img": "images/singles/hangar_18_single_dorso.jpg",
@@ -15585,6 +15625,14 @@
       {
         "img": "images/singles/hangar_18.png",
         "name": "FMD"
+      },
+      {
+        "img": "images/remeras sin mangas/megadeth_sin_mangas/HANGAR SINGLE.jpg",
+        "name": "Dorso Rust in Peace circular",
+        "selectionLabel": "Dorso Rust in Peace circular",
+        "previewLabel": "Referencia sin mangas - Frente y dorso",
+        "role": "back",
+        "backTargetDesignId": "cd-megadeth-hangar-18--p5053"
       }
     ],
     "desc": "Hangar 18 - Single exclusivo de Megadeth con arte frente y dorso. EdiciÃ³n especial Five Magics Designs.",
@@ -30170,6 +30218,7 @@
     "visibilityTier": "featured",
     "commercialPriority": 140,
     "designId": "megadeth-hangar-18-outbreak-vaccination",
+    "collectionIds": ["rust"],
     "name": "Hangar 18 · Outbreak: Vaccination of the Nations",
     "band": "Megadeth",
     "category": "Tour",
@@ -30219,11 +30268,11 @@
         ],
         "stylePreviews": [
           { "img": "images/tours/Outbreak Vaccination of the Nations/Hangar 18 frente y dorso sin mangas.jpg", "garmentStyle": "sin_mangas", "previewLabel": "Sin mangas - Frente y dorso", "defaultPrintMode": "double", "autoSelectBack": "Dorso Outbreak: Vaccination of the Nations" },
-          { "img": "images/tours/Outbreak Vaccination of the Nations/Hangar 18 frente y dorso sin mangas_dorso rust in peace lineup.jpg", "garmentStyle": "sin_mangas", "previewLabel": "Sin mangas - Frente y dorso Formación 1990", "defaultPrintMode": "double", "autoSelectBack": "Dorso Rust in Peace - Formación 1990" }
+          { "img": "images/remeras sin mangas/megadeth_sin_mangas/-RIP H18.jpg", "garmentStyle": "sin_mangas", "previewLabel": "Sin mangas - Frente y dorso Formación 1990", "defaultPrintMode": "double", "autoSelectBack": "Dorso Rust in Peace - Formación 1990" }
         ]
       },
       {
-        "img": "images/tours/Outbreak Vaccination of the Nations/Hangar 18 frente y dorso sin mangas_dorso rust in peace lineup.jpg",
+        "img": "images/remeras sin mangas/megadeth_sin_mangas/-RIP H18.jpg",
         "name": "Dorso Rust in Peace - Formación 1990",
         "selectionLabel": "Dorso Rust in Peace - Formación 1990",
         "previewLabel": "Referencia frente y dorso",
@@ -30501,6 +30550,38 @@
     "tags": [
       "System of a Down",
       "Hypnotize"
+    ]
+  },
+  {
+    "id": 7362,
+    "band": "Megadeth",
+    "category": "Vic Rattlehead",
+    "album": "Rust in Peace",
+    "visibilityTier": "catalog",
+    "isNew": true,
+    "tipoPrecio": "doble",
+    "name": "Vic Nuclear - Emblema",
+    "designId": "megadeth-vic-nuclear-emblema",
+    "garments": ["remera"],
+    "img": "images/remeras sin mangas/megadeth_sin_mangas/NUCLEAR EMB.jpg",
+    "variants": [
+      {
+        "img": "images/remeras sin mangas/megadeth_sin_mangas/NUCLEAR EMB.jpg",
+        "name": "Vic Nuclear - Emblema",
+        "role": "front",
+        "color": "negro",
+        "garmentStyle": "sin_mangas",
+        "previewLabel": "Sin mangas - Frente y dorso",
+        "defaultPrintMode": "double",
+        "autoSelectBack": "Dorso logo Megadeth dorado"
+      },
+      {
+        "img": "images/remeras sin mangas/megadeth_sin_mangas/NUCLEAR EMB.jpg",
+        "name": "Dorso logo Megadeth dorado",
+        "previewLabel": "Referencia sin mangas - Frente y dorso",
+        "role": "back",
+        "backTargetDesignId": "megadeth-vic-nuclear-emblema"
+      }
     ]
   }
 ]
