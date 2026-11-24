@@ -30033,11 +30033,12 @@
         "autoSelectBack": "Dorso Testament · Argentina 2026"
       },
       {
-        "img": "images/banda_sugeridas/testament/portada_catalogo_testament_flayer_argentina_doble.jpg",
+        "img": "images/banda_sugeridas/testament/testament_flayer_argentina_dorso.jpg",
         "name": "Dorso Testament · Argentina 2026",
         "selectionLabel": "Dorso Testament · Argentina 2026",
-        "previewLabel": "Referencia frente y dorso",
+        "previewLabel": "Solo dorso",
         "role": "back",
+        "carouselPreview": true,
         "backTargetDesignId": "testament-argentina-2026"
       }
     ]

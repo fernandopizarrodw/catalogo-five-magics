@@ -121,6 +121,12 @@ async function main() {
 
         for (const width of [360, 1440]) {
             await send('Emulation.setDeviceMetricsOverride', { width, height: 1000, deviceScaleFactor: 1, mobile: width < 500 });
+            await navigate('/?banda=Testament#catalogoPrincipal');
+            await evaluate('searchInput.value = "TA2-7346.V3"; searchInput.dispatchEvent(new Event("input", {bubbles:true}))');
+            await waitFor('document.querySelector("[data-design-id=testament-argentina-2026] img")?.getAttribute("src").endsWith("testament_flayer_argentina_dorso.jpg")');
+            await evaluate('document.querySelector("[data-design-id=testament-argentina-2026] .catalog-design-card-main").click()');
+            assert(await evaluate('currentModalSourceRefs[currentSlide]?.image.endsWith("testament_flayer_argentina_dorso.jpg")'));
+            await evaluate('closeModal(false,false)');
             for (const [band, id, back] of [
                 ['Exodus', 'exodus-hammer-and-life', 'Dorso Exodus - Logo rojo'],
                 ['System of a Down', 'system-of-a-down-hypnotize', 'Dorso Hypnotize - Logo y título']
