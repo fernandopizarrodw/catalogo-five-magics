@@ -156,6 +156,23 @@ async function main() {
                 if (page === '/slayer/') {
                     await evaluate('selectBandLandingCollection("3d-fmd")');
                     assert(await evaluate('getCatalogDesignResults().some(design => design.designId === "slayer-3d-fmd-seasons-in-the-abyss")'));
+                    assert(await evaluate('["slayer-3d-fmd-hell-awaits-roja", "slayer-3d-fmd-hell-awaits-dorada"].every(id => getCatalogDesignResults().some(design => design.designId === id))'));
+                    await evaluate('openCatalogDesign("slayer-3d-fmd-hell-awaits-roja"); selectColor("blanco")');
+                    assert(await evaluate('selectedCatalogFrontRef?.image.endsWith("slayer_hell_awaits_white_frente_3d.jpg") && selectedPrintMode === "simple"'));
+                    await evaluate('closeModal(false,false); openCatalogDesign("cd-slayer-fmd-originals--hell-awaits")');
+                    for (const [garment, color, file, price] of [
+                        ['remera_clasica', 'negro', 'remera_hell_awaits_doble_fmd_edition.jpg', '$45.000'],
+                        ['sin_mangas', 'blanco', 'slayer_hell_awaits_sin_mangas_fmd_blanca.jpg', '$42.000']
+                    ]) {
+                        const hell = await evaluate(`selectModalGarment('${garment}'); selectColor('${color}'); selectPrintMode('double'); selectSize('M'); ({
+                            image:selectedCatalogFrontRef?.image, added:addToCartFromModal(), order:cart.generateSummary()
+                        })`);
+                        assert(hell.image?.endsWith(file) && hell.added && hell.order.includes('Hell Awaits · Emblema FMD') && hell.order.includes(price), JSON.stringify(hell));
+                        await evaluate('cart.clearCart()');
+                    }
+                    await evaluate('closeModal(false,false); openCatalogDesignForGarment("slayer-hell-awaits-arte-alternativo", "sin_mangas")');
+                    assert(await evaluate('selectedCatalogFrontRef?.image.endsWith("slayer_hell_awaits_frente_V2_sin_mangas.jpg")'));
+                    await evaluate('closeModal(false,false)');
                 }
                 await evaluate(`openCatalogDesign('${id}')`);
                 for (const [i, file] of mocks.entries()) {

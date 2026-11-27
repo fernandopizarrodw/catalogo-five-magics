@@ -164,10 +164,12 @@
                     'slayer-3d-fmd-south-of-heaven', 'slayer-3d-fmd-god-hates-us-all',
                     'slayer-3d-fmd-south-of-heaven-original-1988',
                     'slayer-3d-fmd-seasons-in-the-abyss',
+                    'slayer-3d-fmd-hell-awaits-roja',
+                    'slayer-3d-fmd-hell-awaits-dorada',
                     'slayer-3d-fmd-skull', 'slayer-3d-fmd-goat', 'slayer-3d-fmd-throne',
                     'slayer-3d-fmd-goat-flame', 'cd-slayer-fmd-originals--reign-in-blood-3d'
                 ] } },
-                {"id":"fmd-originals","label":"EDICIONES FMD","match":{"designIds":["cd-slayer-fmd-originals--angel-of-death","cd-slayer-fmd-originals--hell-awaits","cd-slayer-fmd-originals--live-undead","cd-slayer-fmd-originals--logo","cd-slayer-fmd-originals--reign-in-blood-3d","cd-slayer-fmd-originals--reign-in-blood-graphic","cd-slayer-fmd-originals--seasons-in-the-abyss","cd-slayer-fmd-originals--seasons-in-the-abyss-v2","cd-slayer-fmd-originals--show-no-mercy","cd-slayer-fmd-originals--skull","cd-slayer-fmd-originals--soldiers","cd-slayer-fmd-originals--soldier-v2-graphic","cd-slayer-fmd-originals--south-of-heaven","cd-slayer-fmd-originals--south-of-heaven-graphic","cd-slayer-fmd-originals--throne","cd-slayer-fmd-originals--throne-remera-blanca","cd-slayer-remaster-fmd--p7121","cd-slayer-show-no-mercy-fmd--p7109","slayer-3d-fmd-reign-in-blood","slayer-3d-fmd-reign-in-blood-v2","slayer-3d-fmd-aguila","slayer-3d-fmd-angel-of-death","slayer-3d-fmd-south-of-heaven","slayer-3d-fmd-south-of-heaven-original-1988","slayer-3d-fmd-seasons-in-the-abyss","slayer-3d-fmd-god-hates-us-all","slayer-3d-fmd-skull","slayer-3d-fmd-goat","slayer-3d-fmd-throne","slayer-3d-fmd-goat-flame"]}}
+                {"id":"fmd-originals","label":"EDICIONES FMD","match":{"designIds":["cd-slayer-fmd-originals--angel-of-death","cd-slayer-fmd-originals--hell-awaits","cd-slayer-fmd-originals--live-undead","cd-slayer-fmd-originals--logo","cd-slayer-fmd-originals--reign-in-blood-3d","cd-slayer-fmd-originals--reign-in-blood-graphic","cd-slayer-fmd-originals--seasons-in-the-abyss","cd-slayer-fmd-originals--seasons-in-the-abyss-v2","cd-slayer-fmd-originals--show-no-mercy","cd-slayer-fmd-originals--skull","cd-slayer-fmd-originals--soldiers","cd-slayer-fmd-originals--soldier-v2-graphic","cd-slayer-fmd-originals--south-of-heaven","cd-slayer-fmd-originals--south-of-heaven-graphic","cd-slayer-fmd-originals--throne","cd-slayer-fmd-originals--throne-remera-blanca","cd-slayer-remaster-fmd--p7121","cd-slayer-show-no-mercy-fmd--p7109","slayer-3d-fmd-reign-in-blood","slayer-3d-fmd-reign-in-blood-v2","slayer-3d-fmd-aguila","slayer-3d-fmd-angel-of-death","slayer-3d-fmd-south-of-heaven","slayer-3d-fmd-south-of-heaven-original-1988","slayer-3d-fmd-seasons-in-the-abyss","slayer-3d-fmd-hell-awaits-roja","slayer-3d-fmd-hell-awaits-dorada","slayer-3d-fmd-god-hates-us-all","slayer-3d-fmd-skull","slayer-3d-fmd-goat","slayer-3d-fmd-throne","slayer-3d-fmd-goat-flame"]}}
             ],
             designOrder: [
                 'cd-slayer-reign-in-blood--p7101',
@@ -180,6 +182,8 @@
                 'slayer-3d-fmd-south-of-heaven',
                 'slayer-3d-fmd-south-of-heaven-original-1988',
                 'slayer-3d-fmd-seasons-in-the-abyss',
+                'slayer-3d-fmd-hell-awaits-roja',
+                'slayer-3d-fmd-hell-awaits-dorada',
                 'slayer-3d-fmd-god-hates-us-all',
                 'slayer-3d-fmd-goat-flame',
                 'slayer-3d-fmd-goat',
@@ -194,6 +198,7 @@
                 'cd-slayer-south-of-heaven-1988--p7103',
                 'cd-slayer-seasons-in-the-abyss--p7104',
                 'slayer-hell-awaits',
+                'slayer-hell-awaits-arte-alternativo',
                 'slayer-show-no-mercy',
                 'cd-slayer-show-no-mercy-v2--p7108',
                 'cd-slayer-show-no-mercy-fmd--p7109',

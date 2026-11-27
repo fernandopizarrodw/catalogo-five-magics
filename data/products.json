@@ -12373,8 +12373,16 @@
         ]
       },
       {
-        "img": "images/slayer/fmd_originals/remeras/remera_slayer_fmd_hell_awaits.jpg",
+        "img": "images/slayer/frente/slayer_hell_awaits_frente_fmd.jpg",
         "name": "Slayer FMD Originals Hell Awaits - Remera",
+        "publicName": "Hell Awaits · Emblema FMD",
+        "selectionLabel": "Frente Hell Awaits · Emblema FMD",
+        "previewLabel": "Solo frente",
+        "role": "front",
+        "color": "negro",
+        "defaultPrintMode": "simple",
+        "modalOrder": 0,
+        "stylePreviews": [{"img":"images/slayer/frente/slayer_hell_awaits_frente_fmd_sin_mangas.jpg","garmentStyle":"sin_mangas","previewLabel":"Sin mangas - Solo frente","defaultPrintMode":"simple"}],
         "garmentCategory": "Slayer",
         "fmdBadge": "ORIGINAL FMD",
         "fmdBadgeDescription": "Arte original FMD Hell Awaits del universo Slayer, adaptado a remera.",
@@ -12698,6 +12706,39 @@
         "orderVariantIndex": 0,
         "defaultPrintMode": "double",
         "autoSelectBack": "Dorso Reign in Blood · Buenos Aires 2026"
+      },
+      {
+        "img": "images/slayer/dobles/remera_hell_awaits_doble_fmd_edition.jpg",
+        "name": "Hell Awaits · FMD - Frente y dorso",
+        "publicName": "Hell Awaits · Emblema FMD",
+        "selectionLabel": "Frente Hell Awaits · Emblema FMD",
+        "previewLabel": "Frente y dorso",
+        "role": "front",
+        "garmentCategory": "Slayer",
+        "designId": "cd-slayer-fmd-originals--hell-awaits",
+        "color": "negro",
+        "orderVariantIndex": 1,
+        "defaultPrintMode": "double",
+        "autoSelectBack": "Dorso Hell Awaits · Emblema FMD",
+        "modalOrder": 2,
+        "colorPreviews": [
+          {
+            "img": "images/slayer/slayer_hell_awaits_sin_mangas_fmd_blanca.jpg",
+            "color": "blanco",
+            "garmentStyle": "sin_mangas",
+            "previewLabel": "Sin mangas blanca - Frente y dorso",
+            "defaultPrintMode": "double",
+            "autoSelectBack": "Dorso Hell Awaits · Emblema FMD"
+          }
+        ]
+      },
+      {
+        "img": "images/slayer/dobles/remera_hell_awaits_doble_fmd_edition.jpg",
+        "name": "Dorso Hell Awaits · Emblema FMD",
+        "selectionLabel": "Dorso Hell Awaits · Emblema FMD",
+        "previewLabel": "Referencia frente y dorso",
+        "role": "back",
+        "backTargetDesignId": "cd-slayer-fmd-originals--hell-awaits"
       }
     ],
     "desc": "Card especial con artes originales y reinterpretaciones exclusivas FMD del universo Slayer. Carrusel por prenda: remeras, hoodies y buzos cuello redondo.",
@@ -13646,6 +13687,71 @@
             "previewLabel": "Frente + dorso Hell Awaits · Canciones · Sin mangas"
           }
         ]
+      },
+      {
+        "img": "images/slayer/frente/slayer_hell_awaits_frente_V2.jpg",
+        "name": "Hell Awaits · Arte alternativo",
+        "publicName": "Hell Awaits · Arte alternativo",
+        "selectionLabel": "Frente Hell Awaits · Arte alternativo",
+        "role": "front",
+        "designId": "slayer-hell-awaits-arte-alternativo",
+        "color": "negro",
+        "defaultPrintMode": "simple",
+        "isNew": true,
+        "stylePreviews": [
+          {
+            "img": "images/slayer/frente/slayer_hell_awaits_frente_V2_sin_mangas.jpg",
+            "garmentStyle": "sin_mangas",
+            "previewLabel": "Sin mangas - Solo frente",
+            "defaultPrintMode": "simple"
+          }
+        ]
+      },
+      {
+        "img": "images/slayer/frente/slayer_hell_awaits_frente_3D.jpg",
+        "name": "Hell Awaits · 3D FMD · Roja",
+        "publicName": "Hell Awaits · 3D FMD · Roja",
+        "selectionLabel": "Frente Hell Awaits · 3D FMD · Roja",
+        "role": "front",
+        "designId": "slayer-3d-fmd-hell-awaits-roja",
+        "color": "negro",
+        "defaultPrintMode": "simple",
+        "isNew": true,
+        "collectionIds": [
+          "3d-fmd"
+        ],
+        "fmdBadge": "ORIGINAL FMD",
+        "stylePreviews": [
+          {
+            "img": "images/slayer/frente/slayer_hell_awaits_sin_mangas_3D.jpg",
+            "garmentStyle": "sin_mangas",
+            "previewLabel": "Sin mangas - Solo frente",
+            "defaultPrintMode": "simple"
+          }
+        ],
+        "colorPreviews": [
+          {
+            "img": "images/slayer/frente/slayer_hell_awaits_white_frente_3d.jpg",
+            "color": "blanco",
+            "previewLabel": "Blanca - Solo frente",
+            "defaultPrintMode": "simple"
+          }
+        ]
+      },
+      {
+        "img": "images/slayer/frente/slayer_hell_awaits_frente_3D_V2.jpg",
+        "name": "Hell Awaits · 3D FMD · Dorada",
+        "publicName": "Hell Awaits · 3D FMD · Dorada",
+        "selectionLabel": "Frente Hell Awaits · 3D FMD · Dorada",
+        "role": "front",
+        "designId": "slayer-3d-fmd-hell-awaits-dorada",
+        "color": "negro",
+        "defaultPrintMode": "simple",
+        "isNew": true,
+        "collectionIds": [
+          "3d-fmd"
+        ],
+        "fmdBadge": "ORIGINAL FMD"
       }
     ],
     "desc": "Archivo Slayer FMD 2026. Diseno Hell Awaits disponible en remera, hoodie y buzo cuello redondo.",
