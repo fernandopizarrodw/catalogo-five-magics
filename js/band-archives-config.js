@@ -163,10 +163,11 @@
                     'slayer-3d-fmd-aguila', 'slayer-3d-fmd-angel-of-death',
                     'slayer-3d-fmd-south-of-heaven', 'slayer-3d-fmd-god-hates-us-all',
                     'slayer-3d-fmd-south-of-heaven-original-1988',
+                    'slayer-3d-fmd-seasons-in-the-abyss',
                     'slayer-3d-fmd-skull', 'slayer-3d-fmd-goat', 'slayer-3d-fmd-throne',
                     'slayer-3d-fmd-goat-flame', 'cd-slayer-fmd-originals--reign-in-blood-3d'
                 ] } },
-                {"id":"fmd-originals","label":"EDICIONES FMD","match":{"designIds":["cd-slayer-fmd-originals--angel-of-death","cd-slayer-fmd-originals--hell-awaits","cd-slayer-fmd-originals--live-undead","cd-slayer-fmd-originals--logo","cd-slayer-fmd-originals--reign-in-blood-3d","cd-slayer-fmd-originals--reign-in-blood-graphic","cd-slayer-fmd-originals--seasons-in-the-abyss","cd-slayer-fmd-originals--seasons-in-the-abyss-v2","cd-slayer-fmd-originals--show-no-mercy","cd-slayer-fmd-originals--skull","cd-slayer-fmd-originals--soldiers","cd-slayer-fmd-originals--soldier-v2-graphic","cd-slayer-fmd-originals--south-of-heaven","cd-slayer-fmd-originals--south-of-heaven-graphic","cd-slayer-fmd-originals--throne","cd-slayer-fmd-originals--throne-remera-blanca","cd-slayer-remaster-fmd--p7121","cd-slayer-show-no-mercy-fmd--p7109","slayer-3d-fmd-reign-in-blood","slayer-3d-fmd-reign-in-blood-v2","slayer-3d-fmd-aguila","slayer-3d-fmd-angel-of-death","slayer-3d-fmd-south-of-heaven","slayer-3d-fmd-south-of-heaven-original-1988","slayer-3d-fmd-god-hates-us-all","slayer-3d-fmd-skull","slayer-3d-fmd-goat","slayer-3d-fmd-throne","slayer-3d-fmd-goat-flame"]}}
+                {"id":"fmd-originals","label":"EDICIONES FMD","match":{"designIds":["cd-slayer-fmd-originals--angel-of-death","cd-slayer-fmd-originals--hell-awaits","cd-slayer-fmd-originals--live-undead","cd-slayer-fmd-originals--logo","cd-slayer-fmd-originals--reign-in-blood-3d","cd-slayer-fmd-originals--reign-in-blood-graphic","cd-slayer-fmd-originals--seasons-in-the-abyss","cd-slayer-fmd-originals--seasons-in-the-abyss-v2","cd-slayer-fmd-originals--show-no-mercy","cd-slayer-fmd-originals--skull","cd-slayer-fmd-originals--soldiers","cd-slayer-fmd-originals--soldier-v2-graphic","cd-slayer-fmd-originals--south-of-heaven","cd-slayer-fmd-originals--south-of-heaven-graphic","cd-slayer-fmd-originals--throne","cd-slayer-fmd-originals--throne-remera-blanca","cd-slayer-remaster-fmd--p7121","cd-slayer-show-no-mercy-fmd--p7109","slayer-3d-fmd-reign-in-blood","slayer-3d-fmd-reign-in-blood-v2","slayer-3d-fmd-aguila","slayer-3d-fmd-angel-of-death","slayer-3d-fmd-south-of-heaven","slayer-3d-fmd-south-of-heaven-original-1988","slayer-3d-fmd-seasons-in-the-abyss","slayer-3d-fmd-god-hates-us-all","slayer-3d-fmd-skull","slayer-3d-fmd-goat","slayer-3d-fmd-throne","slayer-3d-fmd-goat-flame"]}}
             ],
             designOrder: [
                 'cd-slayer-reign-in-blood--p7101',
@@ -178,6 +179,7 @@
                 'slayer-3d-fmd-aguila',
                 'slayer-3d-fmd-south-of-heaven',
                 'slayer-3d-fmd-south-of-heaven-original-1988',
+                'slayer-3d-fmd-seasons-in-the-abyss',
                 'slayer-3d-fmd-god-hates-us-all',
                 'slayer-3d-fmd-goat-flame',
                 'slayer-3d-fmd-goat',
@@ -1232,8 +1234,8 @@
             title: 'Hermética: remeras, hoodies y buzos | Five Magics Designs',
             description: 'Diseños de Hermética en remeras, hoodies y buzos hechos a pedido. Elegí solo frente o frente y dorso, talle, color y forma de entrega.',
             canonical: 'https://catalogo.fivemagicsdesigns.com/hermetica/',
-            image: '/images/banda_sugeridas/hermetica/remera_hermetica_acido.jpg',
-            imageUrl: 'https://catalogo.fivemagicsdesigns.com/images/banda_sugeridas/hermetica/remera_hermetica_acido.jpg',
+            image: '/images/banda_sugeridas/hermetica/remera_hermetica_acido.png',
+            imageUrl: 'https://catalogo.fivemagicsdesigns.com/images/banda_sugeridas/hermetica/remera_hermetica_acido.png',
             heroTitle: 'REMERAS, HOODIES Y BUZOS',
             heroCopy: 'Explorá diseños de Hermética y homenajes a Ricardo Iorio. Elegí tu favorito y armá tu pedido.',
             relatedArchive: {
@@ -1258,7 +1260,7 @@
             garments: [
                 { key: 'hoodie', title: 'HOODIES', price: 'Frontal $53.000 · Doble $60.000', image: '/images/banda_sugeridas/hermetica/hoodie_hermetica_acido.jpg', alt: 'Hoodie Hermética Ácido Argentino' },
                 { key: 'buzo_cuello_redondo', title: 'BUZOS', price: 'Frontal $51.000 · Doble $56.000', image: '/images/banda_sugeridas/hermetica/buzo_hermetica_acido.jpg', alt: 'Buzo cuello redondo Hermética Ácido Argentino' },
-                { key: 'remera', title: 'REMERAS', price: 'Frontal $38.000 · Doble $45.000', image: '/images/banda_sugeridas/hermetica/remera_hermetica_acido.jpg', alt: 'Remera Hermética Ácido Argentino' }
+                { key: 'remera', title: 'REMERAS', price: 'Frontal $38.000 · Doble $45.000', image: '/images/banda_sugeridas/hermetica/remera_hermetica_acido.png', alt: 'Remera Hermética Ácido Argentino' }
             ]
         },
         {

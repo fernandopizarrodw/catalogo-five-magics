@@ -3391,7 +3391,11 @@ function updatePrintModeUI() {
 
 function usesMatchedPrintPreview(design) {
     return design?.designId === 'megadeth-hangar-18-outbreak-vaccination'
-        || design?.designId === 'cd-megadeth-so-far-so-good--alternative';
+        || design?.designId === 'cd-megadeth-so-far-so-good--alternative'
+        || design?.designId === 'cd-testament-souls-of-black--p5123'
+        || design?.designId === 'testament-live-at-the-fillmore'
+        || design?.designId === 'cd-iron-maiden-eddie-gaucho-argentino--p7040'
+        || design?.designId === 'cd-slayer-seasons-in-the-abyss--p7104';
 }
 
 function selectPrintMode(mode) {

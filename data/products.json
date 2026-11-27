@@ -13338,7 +13338,7 @@
         "modalOrder": 2,
         "stylePreviews": [
           {
-            "img": "images/slayer/dobles/remera_south_of_heaven_doble_sin_mangas.jpg",
+            "img": "images/slayer/dobles/slayer_south_of_heaven_sin_mangas.png",
             "garmentStyle": "sin_mangas",
             "previewLabel": "Frente + dorso Slayer · Logo rojo · Sin mangas"
           }
@@ -13505,6 +13505,33 @@
             "previewLabel": "Frente + dorso Seasons in the Abyss · Logo · Sin mangas"
           }
         ]
+      },
+      {
+        "img": "images/slayer/dobles/4-5 IG DOBLE.jpg",
+        "name": "Seasons in the Abyss - Frente y dorso Tracklist",
+        "publicName": "Seasons In The Abyss",
+        "role": "front",
+        "designId": "cd-slayer-seasons-in-the-abyss--p7104",
+        "garmentCategory": "Slayer",
+        "color": "negro",
+        "selectionLabel": "Frente Seasons in the Abyss",
+        "previewLabel": "Frente + dorso Tracklist",
+        "autoSelectBack": "Dorso Seasons in the Abyss · Tracklist",
+        "defaultPrintMode": "double",
+        "orderVariantIndex": 0,
+        "colorPreviews": [
+          {"img":"images/slayer/dobles/BLANCA - 4-5 IG DOBLE copia.jpg","color":"blanco","previewLabel":"Frente y dorso","defaultPrintMode":"double","autoSelectBack":"Dorso Seasons in the Abyss · Tracklist"},
+          {"img":"images/slayer/dobles/SIN MANGAS BLANCA DOBLE.jpg","color":"blanco","garmentStyle":"sin_mangas","previewLabel":"Sin mangas - Frente y dorso","defaultPrintMode":"double","autoSelectBack":"Dorso Seasons in the Abyss · Tracklist"}
+        ],
+        "stylePreviews": [{"img":"images/slayer/dobles/SIN MANGAS NEGRA DOBLE.jpg","garmentStyle":"sin_mangas","previewLabel":"Sin mangas - Frente y dorso","defaultPrintMode":"double","autoSelectBack":"Dorso Seasons in the Abyss · Tracklist"}],
+        "modalOrder": 3
+      },
+      {
+        "img": "images/slayer/dobles/4-5 IG DOBLE.jpg",
+        "name": "Dorso Seasons in the Abyss · Tracklist",
+        "previewLabel": "Referencia frente y dorso",
+        "role": "back",
+        "backTargetDesignId": "cd-slayer-seasons-in-the-abyss--p7104"
       }
     ],
     "desc": "Archivo Slayer FMD 2026. Diseno Seasons In The Abyss disponible en remera, hoodie y buzo cuello redondo.",
@@ -13955,7 +13982,9 @@
     "variants": [
       {
         "img": "images/banda_sugeridas/testament/testament_souls_black.jpg",
-        "name": "Souls of Black"
+        "name": "Souls of Black",
+        "color": "negro",
+        "defaultPrintMode": "simple"
       },
       {
         "img": "images/banda_sugeridas/testament/testament_the_new_order.jpg",
@@ -13990,6 +14019,34 @@
         "orderVariantIndex": 3,
         "defaultPrintMode": "double",
         "autoSelectBack": "Dorso Brotherhood of the Snake"
+      },
+      {
+        "img": "images/banda_sugeridas/testament/testament_souls_of_black_negra.jpg",
+        "name": "Souls of Black - Frente y dorso",
+        "publicName": "Souls of Black",
+        "selectionLabel": "Frente Souls of Black",
+        "previewLabel": "Frente y dorso",
+        "role": "front",
+        "designId": "cd-testament-souls-of-black--p5123",
+        "color": "negro",
+        "orderVariantIndex": 0,
+        "defaultPrintMode": "double",
+        "autoSelectBack": "Dorso Souls of Black - Tracklist",
+        "colorPreviews": [
+          { "img": "images/banda_sugeridas/testament/testament_souls_of_black_blanca.jpg", "color": "blanco", "previewLabel": "Blanca - Frente y dorso", "defaultPrintMode": "double", "autoSelectBack": "Dorso Souls of Black - Tracklist" },
+          { "img": "images/banda_sugeridas/testament/testament sin mangas/testament_souls_of_black_blanca_sin_mangas.jpg", "color": "blanco", "garmentStyle": "sin_mangas", "previewLabel": "Sin mangas blanca - Frente y dorso", "defaultPrintMode": "double", "autoSelectBack": "Dorso Souls of Black - Tracklist" }
+        ],
+        "stylePreviews": [
+          { "img": "images/banda_sugeridas/testament/testament sin mangas/testament_souls_of_black_negra_sin_mangas.jpg", "garmentStyle": "sin_mangas", "previewLabel": "Sin mangas negra - Frente y dorso", "defaultPrintMode": "double", "autoSelectBack": "Dorso Souls of Black - Tracklist" }
+        ]
+      },
+      {
+        "img": "images/banda_sugeridas/testament/testament_souls_of_black_negra.jpg",
+        "name": "Dorso Souls of Black - Tracklist",
+        "selectionLabel": "Dorso Souls of Black - Tracklist",
+        "previewLabel": "Referencia frente y dorso",
+        "role": "back",
+        "backTargetDesignId": "cd-testament-souls-of-black--p5123"
       }
     ],
     "desc": "Testament - Thrash metal legendario con 4 diseÃ±os de sus Ã¡lbumes clÃ¡sicos.",
@@ -18912,9 +18969,8 @@
       {
         "img": "images/iron_maiden/remera_iron_maiden_eddie_gaucho_argentino_frente.jpg",
         "name": "Eddie Gaucho Argentino - Frente clásico",
-        "colorPreviews": [
-          { "img": "images/iron_maiden/remeras blancas maiden/eddie gaucho BLANCA-REMERA DOBLE ESTAMPA copia.jpg", "autoSelectBack": "Dorso Buenos Aires 2026" }
-        ],
+        "color": "negro",
+        "defaultPrintMode": "simple",
         "selectionLabel": "Frente clásico",
         "previewLabel": "Frente solo",
         "designId": "cd-iron-maiden-eddie-gaucho-argentino--p7040",
@@ -18969,8 +19025,14 @@
         "role": "front"
       },
       {
-        "img": "images/iron_maiden/remera_iron_maiden_eddie_gaucho_argentino.jpg",
+        "img": "images/iron_maiden/eddie gaucho dobles/EDDIE GAUCHO 4-5 IG DOBLE.jpg",
         "name": "Eddie Gaucho Argentino - Versión frente + dorso",
+        "color": "negro",
+        "colorPreviews": [
+          {"img":"images/iron_maiden/eddie gaucho dobles/eddie gacu hoBLANCA - 4-5 IG DOBLE copia.jpg","color":"blanco","previewLabel":"Frente y dorso","defaultPrintMode":"double","autoSelectBack":"Dorso Buenos Aires 2026"},
+          {"img":"images/iron_maiden/eddie gaucho dobles/EDDIE GAUCHOSIN MANGAS BLANCA DOBLE.jpg","color":"blanco","garmentStyle":"sin_mangas","previewLabel":"Sin mangas - Frente y dorso","defaultPrintMode":"double","autoSelectBack":"Dorso Buenos Aires 2026"}
+        ],
+        "stylePreviews": [{"img":"images/iron_maiden/eddie gaucho dobles/EDDIE GAUCHOSIN MANGAS NEGRA DOBLE.jpg","garmentStyle":"sin_mangas","previewLabel":"Sin mangas - Frente y dorso","defaultPrintMode":"double","autoSelectBack":"Dorso Buenos Aires 2026"}],
         "selectionLabel": "Frente clásico",
         "previewLabel": "Frente y dorso",
         "designId": "cd-iron-maiden-eddie-gaucho-argentino--p7040",
@@ -30147,7 +30209,7 @@
         "color": "negro",
         "defaultPrintMode": "double",
         "autoSelectBack": "Dorso Brotherhood of the Snake",
-        "stylePreviews": [{ "img": "images/banda_sugeridas/testament/testament_brootherhood_of_the_snake_sin_mangas.jpg", "garmentStyle": "sin_mangas", "previewLabel": "Sin mangas - Frente y dorso", "defaultPrintMode": "double", "autoSelectBack": "Dorso Brotherhood of the Snake" }]
+        "stylePreviews": [{ "img": "images/banda_sugeridas/testament/testament sin mangas/testament_brootherhood_of_the_snake_sin_mangas.jpg", "garmentStyle": "sin_mangas", "previewLabel": "Sin mangas - Frente y dorso", "defaultPrintMode": "double", "autoSelectBack": "Dorso Brotherhood of the Snake" }]
       },
       {
         "img": "images/banda_sugeridas/testament/testament_brootherhood_of_the_snake_doble.jpg",
@@ -30583,5 +30645,70 @@
         "backTargetDesignId": "megadeth-vic-nuclear-emblema"
       }
     ]
+  },
+  {
+    "id": 7363,
+    "band": "Testament",
+    "category": "Bandas Sugeridas",
+    "album": "Live at the Fillmore",
+    "visibilityTier": "catalog",
+    "isNew": true,
+    "tipoPrecio": "simple",
+    "name": "Live at the Fillmore",
+    "designId": "testament-live-at-the-fillmore",
+    "garments": [
+      "remera"
+    ],
+    "img": "images/banda_sugeridas/testament/Live at the Fillmore FRENTE 4_5 MOCK OFICIAL.jpg",
+    "variants": [
+      {
+        "img": "images/banda_sugeridas/testament/Live at the Fillmore FRENTE 4_5 MOCK OFICIAL.jpg",
+        "name": "Live at the Fillmore",
+        "role": "front",
+        "color": "negro",
+        "defaultPrintMode": "simple",
+        "stylePreviews": [
+          {
+            "img": "images/banda_sugeridas/testament/testament sin mangas/SIN-MANGAS Live at the Fillmore FRENTE.jpg",
+            "garmentStyle": "sin_mangas",
+            "previewLabel": "Sin mangas - Solo frente",
+            "defaultPrintMode": "simple"
+          }
+        ]
+      },
+      {
+        "img": "images/banda_sugeridas/testament/LIVE 4-5 IG DOBLE.jpg",
+        "name": "Live at the Fillmore - Frente y dorso",
+        "role": "front",
+        "color": "negro",
+        "previewLabel": "Frente y dorso",
+        "defaultPrintMode": "double",
+        "orderVariantIndex": 0,
+        "autoSelectBack": "Dorso Live at the Fillmore · Tracklist"
+      },
+      {
+        "img": "images/banda_sugeridas/testament/LIVE 4-5 IG DOBLE.jpg",
+        "name": "Dorso Live at the Fillmore · Tracklist",
+        "previewLabel": "Referencia frente y dorso",
+        "role": "back",
+        "backTargetDesignId": "testament-live-at-the-fillmore"
+      }
+    ]
+  },
+  {
+    "id": 7364,
+    "band": "Slayer",
+    "category": "Slayer",
+    "album": "Seasons in the Abyss",
+    "visibilityTier": "catalog",
+    "isNew": true,
+    "tipoPrecio": "simple",
+    "name": "Seasons in the Abyss - 3D FMD",
+    "designId": "slayer-3d-fmd-seasons-in-the-abyss",
+    "garments": [
+      "remera"
+    ],
+    "fmdBadge": "ORIGINAL FMD",
+    "img": "images/slayer/frente/seasons 3d.jpg"
   }
 ]

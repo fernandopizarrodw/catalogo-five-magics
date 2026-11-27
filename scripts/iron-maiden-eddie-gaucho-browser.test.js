@@ -8,7 +8,7 @@ const GAUCHO_ID = 'cd-iron-maiden-eddie-gaucho-argentino--p7040';
 const DATED_ID = 'iron-maiden-eddie-gaucho-argentino-con-fechas';
 const FRONT = '/images/iron_maiden/remera_iron_maiden_eddie_gaucho_argentino_frente.jpg';
 const BACK = '/images/iron_maiden/dorsos opcionales/remera_iron_maiden_eddie_gaucho_argentino_dorso.jpg';
-const DOUBLE = '/images/iron_maiden/remera_iron_maiden_eddie_gaucho_argentino.jpg';
+const DOUBLE = '/images/iron_maiden/eddie gaucho dobles/EDDIE GAUCHO 4-5 IG DOBLE.jpg';
 
 async function main() {
     const pages = await fetch(`${CDP_URL}/json`).then(response => response.json());

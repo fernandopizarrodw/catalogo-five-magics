@@ -127,6 +127,56 @@ async function main() {
             await evaluate('document.querySelector("[data-design-id=testament-argentina-2026] .catalog-design-card-main").click()');
             assert(await evaluate('currentModalSourceRefs[currentSlide]?.image.endsWith("testament_flayer_argentina_dorso.jpg")'));
             await evaluate('closeModal(false,false)');
+            await evaluate('openCatalogDesign("cd-testament-souls-of-black--p5123")');
+            for (const [garment, color, price] of [
+                ['remera_clasica', 'negro', '$45.000'],
+                ['remera_clasica', 'blanco', '$45.000'],
+                ['sin_mangas', 'negro', '$45.000'],
+                ['sin_mangas', 'blanco', '$42.000']
+            ]) {
+                const suffix = (color === 'blanco' ? 'blanca' : 'negra') + (garment === 'sin_mangas' ? '_sin_mangas' : '');
+                const result = await evaluate(`cart.clearCart(); selectModalGarment('${garment}'); selectColor('${color}'); selectPrintMode('double'); selectSize('M'); ({
+                    image: selectedCatalogFrontRef?.image, added: addToCartFromModal(), order: cart.generateSummary()
+                })`);
+                assert(result.image?.endsWith('testament_souls_of_black_' + suffix + '.jpg'), JSON.stringify(result));
+                assert(result.added && result.order.includes('Souls of Black - Tracklist') && result.order.includes(price), JSON.stringify(result));
+            }
+            await evaluate('cart.clearCart(); selectModalGarment("remera_clasica"); selectColor("negro"); selectPrintMode("simple")');
+            assert(await evaluate('selectedCatalogFrontRef?.image.endsWith("testament_souls_black.jpg")'));
+            await evaluate('closeModal(false,false)');
+            await evaluate('openCatalogDesign("testament-live-at-the-fillmore"); selectColor("negro"); selectPrintMode("double"); selectSize("M")');
+            const fillmore = await evaluate('({image:selectedCatalogFrontRef?.image, added:addToCartFromModal(), order:cart.generateSummary()})');
+            assert(fillmore.image?.endsWith('/LIVE 4-5 IG DOBLE.jpg') && fillmore.added && fillmore.order.includes('Live at the Fillmore · Tracklist'), JSON.stringify(fillmore));
+            await evaluate('cart.clearCart(); closeModal(false,false)');
+            for (const [page, id, back, mocks] of [
+                ['/iron-maiden/', 'cd-iron-maiden-eddie-gaucho-argentino--p7040', 'Dorso Buenos Aires 2026', ['EDDIE GAUCHO 4-5 IG DOBLE.jpg', 'eddie gacu hoBLANCA - 4-5 IG DOBLE copia.jpg', 'EDDIE GAUCHOSIN MANGAS NEGRA DOBLE.jpg', 'EDDIE GAUCHOSIN MANGAS BLANCA DOBLE.jpg']],
+                ['/slayer/', 'cd-slayer-seasons-in-the-abyss--p7104', 'Dorso Seasons in the Abyss · Tracklist', ['4-5 IG DOBLE.jpg', 'BLANCA - 4-5 IG DOBLE copia.jpg', 'SIN MANGAS NEGRA DOBLE.jpg', 'SIN MANGAS BLANCA DOBLE.jpg']]
+            ]) {
+                await navigate(page);
+                if (page === '/slayer/') {
+                    await evaluate('selectBandLandingCollection("3d-fmd")');
+                    assert(await evaluate('getCatalogDesignResults().some(design => design.designId === "slayer-3d-fmd-seasons-in-the-abyss")'));
+                }
+                await evaluate(`openCatalogDesign('${id}')`);
+                for (const [i, file] of mocks.entries()) {
+                    const result = await evaluate(`(async () => {
+                        selectModalGarment('${i < 2 ? 'remera_clasica' : 'sin_mangas'}');
+                        selectColor('${i % 2 ? 'blanco' : 'negro'}');
+                        selectPrintMode('double');
+                        const index = currentModalSourceRefs.findIndex(ref => ref.image.endsWith('/' + ${JSON.stringify(file)}));
+                        if (index < 0) return {index};
+                        goToSlide(index, false);
+                        selectSize('M');
+                        const image = selectedCatalogFrontRef?.image;
+                        const back = selectedCatalogBackRef?.label;
+                        const result = {back, image, added:addToCartFromModal(), order:cart.generateSummary()};
+                        cart.clearCart();
+                        return {...result, loaded:(await fetch(image)).ok};
+                    })()`);
+                    assert(result.loaded && result.image.endsWith('/' + file) && result.added && result.order.includes(back.replace(/^Dorso /, '')) && result.order.includes(i === 3 ? '$42.000' : '$45.000'), JSON.stringify(result));
+                }
+                await evaluate('closeModal(false,false)');
+            }
             for (const [band, id, back] of [
                 ['Exodus', 'exodus-hammer-and-life', 'Dorso Exodus - Logo rojo'],
                 ['System of a Down', 'system-of-a-down-hypnotize', 'Dorso Hypnotize - Logo y título']
